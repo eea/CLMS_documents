@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-UK" xml:lang="en-UK"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="CLMS ICT-WG">
+<meta name="dcterms.date" content="2024-09-02">
+<meta name="keywords" content="guidelines, filenaming, reference, CLMS">
+
+<title>CLMS filenaming convention</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="CLMS_filenamingconvention_files/libs/clipboard/clipboard.min.js"></script>
+<script src="CLMS_filenamingconvention_files/libs/quarto-html/quarto.js"></script>
+<script src="CLMS_filenamingconvention_files/libs/quarto-html/popper.min.js"></script>
+<script src="CLMS_filenamingconvention_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="CLMS_filenamingconvention_files/libs/quarto-html/anchor.min.js"></script>
+<link href="CLMS_filenamingconvention_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="CLMS_filenamingconvention_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="CLMS_filenamingconvention_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="CLMS_filenamingconvention_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="CLMS_filenamingconvention_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#preface-and-terminology" id="toc-preface-and-terminology" class="nav-link active" data-scroll-target="#preface-and-terminology"><span class="header-section-number">1</span> Preface and terminology</a></li>
+  <li><a href="#sec-fully-qualified-file-name" id="toc-sec-fully-qualified-file-name" class="nav-link" data-scroll-target="#sec-fully-qualified-file-name"><span class="header-section-number">2</span> Fully Qualified File Name</a>
+  <ul class="collapse">
+  <li><a href="#host-or-device-name" id="toc-host-or-device-name" class="nav-link" data-scroll-target="#host-or-device-name"><span class="header-section-number">2.1</span> host or device (name)</a></li>
+  <li><a href="#path-name" id="toc-path-name" class="nav-link" data-scroll-target="#path-name"><span class="header-section-number">2.2</span> path (name)</a></li>
+  <li><a href="#base-or-stem-filename" id="toc-base-or-stem-filename" class="nav-link" data-scroll-target="#base-or-stem-filename"><span class="header-section-number">2.3</span> (base or stem) filename</a></li>
+  <li><a href="#extension-or-suffix" id="toc-extension-or-suffix" class="nav-link" data-scroll-target="#extension-or-suffix"><span class="header-section-number">2.4</span> extension or suffix</a></li>
+  </ul></li>
+  <li><a href="#filename-and-path-length" id="toc-filename-and-path-length" class="nav-link" data-scroll-target="#filename-and-path-length"><span class="header-section-number">3</span> Filename and path length</a>
+  <ul class="collapse">
+  <li><a href="#best-practices-for-filename-length" id="toc-best-practices-for-filename-length" class="nav-link" data-scroll-target="#best-practices-for-filename-length"><span class="header-section-number">3.1</span> Best practices for filename length</a></li>
+  </ul></li>
+  <li><a href="#the-filename" id="toc-the-filename" class="nav-link" data-scroll-target="#the-filename"><span class="header-section-number">4</span> The Filename</a>
+  <ul class="collapse">
+  <li><a href="#fields---the-elements-of-a-filename" id="toc-fields---the-elements-of-a-filename" class="nav-link" data-scroll-target="#fields---the-elements-of-a-filename"><span class="header-section-number">4.1</span> Fields - the elements of a filename</a></li>
+  <li><a href="#sec-filename---allowed-characters" id="toc-sec-filename---allowed-characters" class="nav-link" data-scroll-target="#sec-filename---allowed-characters"><span class="header-section-number">4.2</span> Filename - ASCII characters</a></li>
+  <li><a href="#filename---structural-rules" id="toc-filename---structural-rules" class="nav-link" data-scroll-target="#filename---structural-rules"><span class="header-section-number">4.3</span> Filename - structural rules</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="CLMS_filenamingconvention.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="CLMS_filenamingconvention.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">CLMS filenaming convention</h1>
+<p class="subtitle lead">guidelines</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>CLMS ICT-WG </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 2, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>guidelines, filenaming, reference, CLMS</p>
+  </div>
+</div>
+
+</header>
+
+
+<section id="preface-and-terminology" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Preface and terminology</h1>
+<p>To uniquely identify a file on a host or device a string of characters is used, which in its full or absolute length consists of several distinct parts. If on a host whose exact name is completely specified such that it is unambiguous and cannot be mistaken for any other file on that host or device this defines a “fully qualified file name” or FQFN (see <a href="#sec-fully-qualified-file-name" class="quarto-xref">Section&nbsp;2</a>).</p>
+<p>Unfortunately, terminology around file identifiers is not fully harmonized and can be quite confusing as e.g., the term ‘filename’ is commonly used for either the FQFN, but also the base name of a file with and without an extension.</p>
+<p>For proper disambiguation a definition of all relevant terms as used in this document is given here first.</p>
+</section>
+<section id="sec-fully-qualified-file-name" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Fully Qualified File Name</h1>
+<p>A fully qualified file name or FQFN<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> is a string of characters suited to entirely and uniquely identify a resource on a host or device. To fulfill its purpose the FQFN must specify device, path, file, and extension.</p>
+<section id="host-or-device-name" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="host-or-device-name"><span class="header-section-number">2.1</span> host or device (name)</h2>
+<p>String refers to the name of the server or machine on the network where the file is stored</p>
+</section>
+<section id="path-name" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="path-name"><span class="header-section-number">2.2</span> path (name)</h2>
+<p>String identifying the folder and subfolder in which file is stored</p>
+</section>
+<section id="base-or-stem-filename" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="base-or-stem-filename"><span class="header-section-number">2.3</span> (base or stem) filename</h2>
+<p>String identifying an individual file, without the suffix which is referred to as extension.</p>
+</section>
+<section id="extension-or-suffix" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="extension-or-suffix"><span class="header-section-number">2.4</span> extension or suffix</h2>
+<p>String indicating a characteristic (file type) of the file contents or its intended use, usually found at the end of a file URI.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The FQFN and its elements:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>host://path/to/file/<strong>filename</strong>.extension</em></p>
+</div>
+</div>
+<p>For the purpose of this document the term ‘filename’ relates to all characters of a FQFN preceding the first occurrence to the extension delimiter character ‘full stop’ or ‘period’ (“.”, ASCII 46) and not being preceded by the last occurrence of the path delimiter most commonly the ‘slash’ (“/”, ASCII code 47) or the ‘backslash’ character (“\”, ASCII code 92).</p>
+</section>
+</section>
+<section id="filename-and-path-length" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Filename and path length</h1>
+<p>The maximum FQFN length is determined by the file system. File systems and their upper limits are:</p>
+<ul>
+<li><p><strong>Windows (Windows 32 bit API<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>)</strong></p>
+<ul>
+<li><p>Maximum FQFN length: 260 characters (including drive letter, backslashes, and null terminator).</p></li>
+<li><p>Maximum length of file name and file extension: 255 characters.</p></li>
+</ul></li>
+<li><p><strong>Linux (ext4)</strong></p>
+<ul>
+<li><p>Maximum FQFN length: 4096 characters.</p></li>
+<li><p>Maximum length of file name and file extension: 255 characters.</p></li>
+</ul></li>
+<li><p><strong>macOS (APFS)</strong></p>
+<ul>
+<li><p>Maximum FQFN length: 1024 characters.</p></li>
+<li><p>Maximum length of file name and file extension: 255 characters.</p></li>
+</ul></li>
+</ul>
+<section id="best-practices-for-filename-length" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="best-practices-for-filename-length"><span class="header-section-number">3.1</span> Best practices for filename length</h2>
+<p>To ensure compatibility across all systems the smallest boundaries must be taken, i.e.,</p>
+<ul>
+<li><p>260 characters maximum FQFN length as defined by Windows Windows 32 bit API .</p></li>
+<li><p>255 characters for maximum length of file name and file extension.</p></li>
+</ul>
+<p>To safely accommodate both, file name and path, it is generally recommended to keep file names well under these maximum limits and aiming for a:</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>maximum of 100 characters</em>.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-filename" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> The Filename</h1>
+<p>The following section will describe the rules and the constains for the creation of a filename.</p>
+<section id="fields---the-elements-of-a-filename" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="fields---the-elements-of-a-filename"><span class="header-section-number">4.1</span> Fields - the elements of a filename</h2>
+<p><strong>Fields</strong> are standardized descriptive elements composing a filename. The filename is made of at least one but typically more than one field. Fields are separated by the field delimiter character which is underscore (‘_’). Each field can have zero, one, or more <strong>-suffixes</strong>. Suffixes are connected to the relevant field by a hyphen (‘-’) and must be placed after the field. A field suffix can be used to describe e.g.,</p>
+<ul>
+<li><p>objects which exist only in relation with another object, e.g.&nbsp;the parameter ‘<em>NDVI</em>’ with the to it associated quality assessment parameter ‘<em>NDVI-QA</em>’.</p></li>
+<li><p>product derivatives e.g., ‘<em>SWI-030</em>’, ‘<em>SWI-040</em>’</p></li>
+<li><p>Time ranges e.g., ‘<em>2012-2018</em>’</p></li>
+</ul>
+<p>Fields may not be empty so that a field delimiter may not occur at the beginning or the end of a filename or twice in a row.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>field1_field2_field3-suffix_filed4</em></p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-filename---allowed-characters" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="sec-filename---allowed-characters"><span class="header-section-number">4.2</span> Filename - ASCII characters</h2>
+<p>Filenames are composed by ASCII<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> characters. To ensure maximum interoperability, the following rules are implemented:</p>
+<ul>
+<li><p><strong>Alphanumeric</strong> (letters A-Z, ASCII 97-122, and numbers 0-9, ASCII 48-57): are allowed, whereby they are not handled as case sensitive.</p></li>
+<li><p><strong>Underscore</strong> (‘_’, ASCII 95): exclusively used for separating the different file naming fields (see xxx).</p></li>
+<li><p><strong>Hyphen</strong> (’-’, ASCII 45): exclusively used as separator within fields.</p></li>
+<li><p><strong>Period</strong> (‘.’, ASCII 46): are not allowed. <em><strong>Note</strong>: the period is part of the file extension and there used to separate the filename from the file extension.</em></p></li>
+<li><p><strong>Space</strong> (‘ ’, ASCII 32): are not allowed.</p></li>
+</ul>
+</section>
+<section id="filename---structural-rules" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="filename---structural-rules"><span class="header-section-number">4.3</span> Filename - structural rules</h2>
+<p>The arrangement of <em>fields</em> is an essential part in the creation of a filename. The filename structure follows a predefined hierarchical order to ensure efficiency, consistency, and (machine) readability. A <em>filename</em> is subdivided in several <strong>categories</strong>, each of them addressing different purposes, and each of them composed of distinct and unique <strong>fields</strong> and eventually <strong>field-suffixes</strong>.</p>
+<section id="filename-category-main" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="filename-category-main"><span class="header-section-number">4.3.1</span> Filename category ‘Main’</h3>
+<p>The first category in a filename is called ‘main’ and shall ensure a it can unequivocally associated to a naming scheme. The naming scheme is a set of product or product groups specific rules for the composition of the filename. The <em>main</em> category must contain the necessary information to point to a given scheme. Each schema can have sub schemata.</p>
+</section>
+<section id="filename-category-spatial-identifier" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="filename-category-spatial-identifier"><span class="header-section-number">4.3.2</span> Filename category ‘Spatial identifier’</h3>
+<p>2 main spatial identifiers: AOI of the product, and AoI of the scene or image,</p>
+</section>
+<section id="filename-category-temporal-identifier" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="filename-category-temporal-identifier"><span class="header-section-number">4.3.3</span> Filename category ‘Temporal identifier’</h3>
+<p>Describes product specific elements such as acquisition or reference date, in case of composite images the composting period,….</p>
+</section>
+<section id="filename-category-production-identifier" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="filename-category-production-identifier"><span class="header-section-number">4.3.4</span> Filename category ‘Production identifier’</h3>
+<p>Describes file specific details on the production process and information provenance. Such as file version, processing mode, origin data, processing date…</p>
+</section>
+<section id="filename-category-parameter-identifier" class="level3" data-number="4.3.5">
+<h3 data-number="4.3.5" class="anchored" data-anchor-id="filename-category-parameter-identifier"><span class="header-section-number">4.3.5</span> Filename category ‘Parameter identifier’</h3>
+<p>The category ‘Parameter identifier’ is the last field in a filename, and antecedent to the file extension. This category is reserved to layer level information of a file. <!--# we have to define what a product, coverage, layer etc are or at least how we do understand them --></p>
+<div id="tbl-captable-of-categories-and-fields" class="striped quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-captable-of-categories-and-fields-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Categories and fields of a filename
+</figcaption>
+<div aria-describedby="tbl-captable-of-categories-and-fields-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Category</th>
+<th style="text-align: left;">Field</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Main</td>
+<td style="text-align: left;">Producing entity</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Main</td>
+<td style="text-align: left;">Theme</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Spatial identifier</td>
+<td style="text-align: left;">Resolution</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Spatial identifier</td>
+<td style="text-align: left;">Tile</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Spatial identifier</td>
+<td style="text-align: left;">Coverage</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Temporal identifier</td>
+<td style="text-align: left;">(Acquisition) Date</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Production identifier</td>
+<td style="text-align: left;">Platform</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Production identifier</td>
+<td style="text-align: left;">Version</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Production identifier</td>
+<td style="text-align: left;">Processing date</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Parameter identifier</td>
+<td style="text-align: left;">Product</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Parameter identifier</td>
+<td style="text-align: left;">Parameter</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<!--# to add link to the reference if the fields (table) -->
+<dl>
+<dt><img src="images/mermaid-diagram-20240901074702.png" class="img-fluid" alt="Example decision tree"></dt>
+<dd>
+Example decision tree {#fig-cap:classification tree}<!--# pdf and doc cannot render mermaid graphs, this provisional solution -->
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://en.wikipedia.org/wiki/Fully_qualified_name" class="uri">https://en.wikipedia.org/wiki/Fully_qualified_name</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>NTFS supports approximately 32,767 characters. For compatibility reasons the limit imposed by the Windows 32bit API has been chosen.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://en.wikipedia.org/wiki/ASCII" class="uri">https://en.wikipedia.org/wiki/ASCII</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
