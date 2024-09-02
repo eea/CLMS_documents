@@ -18,7 +18,7 @@ Unfortunately, terminology around file identifiers is not fully harmonized and c
 
 For proper disambiguation a definition of all relevant terms as used in this document is given here first.
 
-# Fully qualified file name {#sec-fully-qualified-file-name}
+# Fully Qualified File Name {#sec-fully-qualified-file-name}
 
 A fully qualified file name or FQFN[^1] is a string of characters suited to entirely and uniquely identify a resource on a host or device. To fulfill its purpose the FQFN must specify device, path, file, and extension.
 
@@ -48,9 +48,9 @@ String indicating a characteristic (file type) of the file contents or its inten
 
 For the purpose of this document the term ‘filename’ relates to all characters of a FQFN preceding the first occurrence to the extension delimiter character ‘full stop’ or ‘period’ (“.”, ASCII 46) and not being preceded by the last occurrence of the path delimiter most commonly the ‘slash’ ("/", ASCII code 47) or the ‘backslash’ character ("\\", ASCII code 92).
 
-# File and path length
+# Filename and path length
 
-The maximum file FQFN length is determined by the file system. File systems and their upper limits are:
+The maximum FQFN length is determined by the file system. File systems and their upper limits are:
 
 -   **Windows (Windows 32 bit API[^2])**
 
@@ -86,7 +86,10 @@ To safely accommodate both, file name and path, it is generally recommended to k
 *maximum of 100 characters*.
 :::
 
-# Fields - the elements of a filename
+# The Filename
+The following section will describe the rules and the constains for the creation of a filename. 
+
+## Fields - the elements of a filename
 
 **Fields** are standardized descriptive elements composing a filename. The filename is made of at least one but typically more than one field. Fields are separated by the field delimiter character which is underscore (‘\_’). Each field can have zero, one, or more **-suffixes**. Suffixes are connected to the relevant field by a hyphen ('-') and must be placed after the field. A field suffix can be used to describe e.g.,
 
@@ -160,4 +163,5 @@ The category 'Parameter identifier' is the last field in a filename, and anteced
 
 <!--# to add link to the reference if the fields (table) -->
 
-![Example decision tree](images/mermaid-diagram-20240901074702.png) Example decision tree {#fig-cap:classification tree}<!--# pdf and doc connot render mermaid grpaphs, this provisorial solution -->
+![Example decision tree](images/mermaid-diagram-20240901074702.png)
+: Example decision tree {#fig-cap:classification tree}<!--# pdf and doc cannot render mermaid graphs, this provisional solution -->
