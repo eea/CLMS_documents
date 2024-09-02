@@ -62,8 +62,8 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#the-filename" id="toc-the-filename" class="nav-link" data-scroll-target="#the-filename"><span class="header-section-number">4</span> The Filename</a>
   <ul class="collapse">
-  <li><a href="#fields---the-elements-of-a-filename" id="toc-fields---the-elements-of-a-filename" class="nav-link" data-scroll-target="#fields---the-elements-of-a-filename"><span class="header-section-number">4.1</span> Fields - the elements of a filename</a></li>
-  <li><a href="#sec-filename---allowed-characters" id="toc-sec-filename---allowed-characters" class="nav-link" data-scroll-target="#sec-filename---allowed-characters"><span class="header-section-number">4.2</span> Filename - ASCII characters</a></li>
+  <li><a href="#sec-filename---allowed-characters" id="toc-sec-filename---allowed-characters" class="nav-link" data-scroll-target="#sec-filename---allowed-characters"><span class="header-section-number">4.1</span> Filename - ASCII characters</a></li>
+  <li><a href="#fields---the-elements-of-a-filename" id="toc-fields---the-elements-of-a-filename" class="nav-link" data-scroll-target="#fields---the-elements-of-a-filename"><span class="header-section-number">4.2</span> Fields - the elements of a filename</a></li>
   <li><a href="#filename---structural-rules" id="toc-filename---structural-rules" class="nav-link" data-scroll-target="#filename---structural-rules"><span class="header-section-number">4.3</span> Filename - structural rules</a></li>
   </ul></li>
   </ul>
@@ -153,7 +153,7 @@ The FQFN and its elements:
 <h1 data-number="3"><span class="header-section-number">3</span> Filename and path length</h1>
 <p>The maximum FQFN length is determined by the file system. File systems and their upper limits are:</p>
 <ul>
-<li><p><strong>Windows (Windows 32 bit API<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>)</strong></p>
+<li><p><strong>Windows (Windows 32 bit API</strong><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>)</p>
 <ul>
 <li><p>Maximum FQFN length: 260 characters (including drive letter, backslashes, and null terminator).</p></li>
 <li><p>Maximum length of file name and file extension: 255 characters.</p></li>
@@ -192,8 +192,19 @@ The FQFN and its elements:
 <section id="the-filename" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> The Filename</h1>
 <p>The following section will describe the rules and the constains for the creation of a filename.</p>
-<section id="fields---the-elements-of-a-filename" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="fields---the-elements-of-a-filename"><span class="header-section-number">4.1</span> Fields - the elements of a filename</h2>
+<section id="sec-filename---allowed-characters" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="sec-filename---allowed-characters"><span class="header-section-number">4.1</span> Filename - ASCII characters</h2>
+<p>Filenames are composed by ASCII<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> characters. To ensure maximum interoperability, the following rules are implemented:</p>
+<ul>
+<li><p><strong>Alphanumeric</strong> (letters A-Z, ASCII 97-122, and numbers 0-9, ASCII 48-57): are allowed, whereby they are not handled as case sensitive.</p></li>
+<li><p><strong>Underscore</strong> (‘_’, ASCII 95): exclusively used for separating the different file naming fields (see xxx).</p></li>
+<li><p><strong>Hyphen</strong> (’-’, ASCII 45): exclusively used as separator within fields.</p></li>
+<li><p><strong>Period</strong> (‘.’, ASCII 46): are not allowed. <em><strong>Note</strong>: the period is part of the file extension and there used to separate the filename from the file extension.</em></p></li>
+<li><p><strong>Space</strong> (‘ ’, ASCII 32): are not allowed.</p></li>
+</ul>
+</section>
+<section id="fields---the-elements-of-a-filename" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="fields---the-elements-of-a-filename"><span class="header-section-number">4.2</span> Fields - the elements of a filename</h2>
 <p><strong>Fields</strong> are standardized descriptive elements composing a filename. The filename is made of at least one but typically more than one field. Fields are separated by the field delimiter character which is underscore (‘_’). Each field can have zero, one, or more <strong>-suffixes</strong>. Suffixes are connected to the relevant field by a hyphen (‘-’) and must be placed after the field. A field suffix can be used to describe e.g.,</p>
 <ul>
 <li><p>objects which exist only in relation with another object, e.g.&nbsp;the parameter ‘<em>NDVI</em>’ with the to it associated quality assessment parameter ‘<em>NDVI-QA</em>’.</p></li>
@@ -212,22 +223,12 @@ The FQFN and its elements:
 </div>
 </div>
 </section>
-<section id="sec-filename---allowed-characters" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="sec-filename---allowed-characters"><span class="header-section-number">4.2</span> Filename - ASCII characters</h2>
-<p>Filenames are composed by ASCII<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> characters. To ensure maximum interoperability, the following rules are implemented:</p>
-<ul>
-<li><p><strong>Alphanumeric</strong> (letters A-Z, ASCII 97-122, and numbers 0-9, ASCII 48-57): are allowed, whereby they are not handled as case sensitive.</p></li>
-<li><p><strong>Underscore</strong> (‘_’, ASCII 95): exclusively used for separating the different file naming fields (see xxx).</p></li>
-<li><p><strong>Hyphen</strong> (’-’, ASCII 45): exclusively used as separator within fields.</p></li>
-<li><p><strong>Period</strong> (‘.’, ASCII 46): are not allowed. <em><strong>Note</strong>: the period is part of the file extension and there used to separate the filename from the file extension.</em></p></li>
-<li><p><strong>Space</strong> (‘ ’, ASCII 32): are not allowed.</p></li>
-</ul>
-</section>
 <section id="filename---structural-rules" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="filename---structural-rules"><span class="header-section-number">4.3</span> Filename - structural rules</h2>
 <p>The arrangement of <em>fields</em> is an essential part in the creation of a filename. The filename structure follows a predefined hierarchical order to ensure efficiency, consistency, and (machine) readability. A <em>filename</em> is subdivided in several <strong>categories</strong>, each of them addressing different purposes, and each of them composed of distinct and unique <strong>fields</strong> and eventually <strong>field-suffixes</strong>.</p>
-<section id="filename-category-main" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="filename-category-main"><span class="header-section-number">4.3.1</span> Filename category ‘Main’</h3>
+<p>Each product or product group can have different composition schemata, i.e., using different categories or fields. The order of categories must be preserved, and the ’<em>main’</em> category <em>(</em> <a href="#sec-filename-category-main" class="quarto-xref">Section&nbsp;4.3.1</a>), are compulsory.</p>
+<section id="sec-filename-category-main" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="sec-filename-category-main"><span class="header-section-number">4.3.1</span> Filename category ‘Main’</h3>
 <p>The first category in a filename is called ‘main’ and shall ensure a it can unequivocally associated to a naming scheme. The naming scheme is a set of product or product groups specific rules for the composition of the filename. The <em>main</em> category must contain the necessary information to point to a given scheme. Each schema can have sub schemata.</p>
 </section>
 <section id="filename-category-spatial-identifier" class="level3" data-number="4.3.2">
@@ -312,7 +313,7 @@ Table&nbsp;1: Categories and fields of a filename
 <dl>
 <dt><img src="images/mermaid-diagram-20240901074702.png" class="img-fluid" alt="Example decision tree"></dt>
 <dd>
-Example decision tree {#fig-cap:classification tree}<!--# pdf and doc cannot render mermaid graphs, this provisional solution -->
+<p>Example decision tree {#fig-cap:classification tree}<!--# pdf and doc cannot render mermaid graphs, this provisional solution --></p>
 </dd>
 </dl>
 </section>
@@ -324,7 +325,7 @@ Example decision tree {#fig-cap:classification tree}<!--# pdf and doc cannot ren
 
 <ol>
 <li id="fn1"><p><a href="https://en.wikipedia.org/wiki/Fully_qualified_name" class="uri">https://en.wikipedia.org/wiki/Fully_qualified_name</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>NTFS supports approximately 32,767 characters. For compatibility reasons the limit imposed by the Windows 32bit API has been chosen.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><strong>NTFS supports approximately 32,767 characters. For compatibility reasons the limit imposed by the Windows 32bit API has been chosen.</strong><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p><a href="https://en.wikipedia.org/wiki/ASCII" class="uri">https://en.wikipedia.org/wiki/ASCII</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
