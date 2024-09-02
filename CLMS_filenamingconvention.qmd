@@ -48,7 +48,7 @@ String indicating a characteristic (file type) of the file contents or its inten
 
 For the purpose of this document the term ‘filename’ relates to all characters of a FQFN preceding the first occurrence to the extension delimiter character ‘full stop’ or ‘period’ (“.”, ASCII 46) and not being preceded by the last occurrence of the path delimiter most commonly the ‘slash’ ("/", ASCII code 47) or the ‘backslash’ character ("\\", ASCII code 92).
 
-# Filename and path length
+# Filename and path length {#sec-filename-and-path-length}
 
 The maximum FQFN length is determined by the file system. File systems and their upper limits are:
 
@@ -72,7 +72,7 @@ The maximum FQFN length is determined by the file system. File systems and their
 
 [^2]: **NTFS supports approximately 32,767 characters. For compatibility reasons the limit imposed by the Windows 32bit API has been chosen.**
 
-## Best practices for filename length
+## Best practices for filename length {#sec-best-practices-for-filename-length}
 
 To ensure compatibility across all systems the smallest boundaries must be taken, i.e.,
 
@@ -86,7 +86,7 @@ To safely accommodate both, file name and path, it is generally recommended to k
 *maximum of 100 characters*.
 :::
 
-# The Filename
+# The Filename {#sec-the-filename}
 
 The following section will describe the rules and the constains for the creation of a filename.
 
@@ -106,7 +106,7 @@ Filenames are composed by ASCII[^3] characters. To ensure maximum interoperabili
 
 -   **Space** (‘ ‘, ASCII 32): are not allowed.
 
-## Fields - the elements of a filename
+## Fields - the elements of a filename {#sec-fields---the-elements-of-a-filename}
 
 **Fields** are standardized descriptive elements composing a filename. The filename is made of at least one but typically more than one field. Fields are separated by the field delimiter character which is underscore (‘\_’). Each field can have zero, one, or more **-suffixes**. Suffixes are connected to the relevant field by a hyphen ('-') and must be placed after the field. A field suffix can be used to describe e.g.,
 
@@ -122,29 +122,29 @@ Fields may not be empty so that a field delimiter may not occur at the beginning
 *field1_field2_field3-suffix_filed4*
 :::
 
-## Filename - structural rules
+## Filename - structural rules {#sec-filename---structural-rules}
 
 The arrangement of *fields* is an essential part in the creation of a filename. The filename structure follows a predefined hierarchical order to ensure efficiency, consistency, and (machine) readability. A *filename* is subdivided in several **categories**, each of them addressing different purposes, and each of them composed of distinct and unique **fields** and eventually **field-suffixes**.
 
-Each product or product group can have different composition schemata, i.e., using different categories or fields. The order of categories must be preserved, and the '*main'* category *(* @sec-filename-category-main), are compulsory.
+Each product or product group can have different composition schemata, i.e., using different categories or fields. The order of categories must be preserved, and the '*main'* category *(see* @sec-filename-category-main), are compulsory.
 
 ### Filename category 'Main' {#sec-filename-category-main}
 
 The first category in a filename is called 'main' and shall ensure a it can unequivocally associated to a naming scheme. The naming scheme is a set of product or product groups specific rules for the composition of the filename. The *main* category must contain the necessary information to point to a given scheme. Each schema can have sub schemata.
 
-### Filename category 'Spatial identifier'
+### Filename category 'Spatial' identifier {#sec-filename-category-spatial-identifier}
 
 2 main spatial identifiers: AOI of the product, and AoI of the scene or image,
 
-### Filename category 'Temporal identifier'
+### Filename category 'Temporal' identifier {#sec-filename-category-temporal-identifier}
 
 Describes product specific elements such as acquisition or reference date, in case of composite images the composting period,....
 
-### Filename category 'Production identifier'
+### Filename category 'Production' identifier {#sec-filename-category-production-identifier}
 
 Describes file specific details on the production process and information provenance. Such as file version, processing mode, origin data, processing date...
 
-### Filename category 'Parameter identifier'
+### Filename category 'Parameter' identifier {#sec-filename-category-parameter-identifier}
 
 The category 'Parameter identifier' is the last field in a filename, and antecedent to the file extension. This category is reserved to layer level information of a file. <!--# we have to define what a product, coverage, layer etc are or at least how we do understand them -->
 
