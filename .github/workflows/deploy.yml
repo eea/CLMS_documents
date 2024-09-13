@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - gh-pages
+      - main
 
 jobs:
   deploy:
@@ -22,4 +22,4 @@ jobs:
         npm run build
         git add -A
         git commit -m "Deploy updates"
-        git push origin gh-pages
+        git push origin main
