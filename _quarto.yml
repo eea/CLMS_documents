@@ -16,6 +16,7 @@ format:
     toc-depth: 2  # Limit the table of contents depth to 2 levels
     code-fold: true  # Enable code folding for code blocks
     theme: flatly  # Specify a theme (e.g., flatly, cosmo, cerulean)
+    css: styles.css  # Link to the custom CSS file for the watermark
   pdf:
     engine: pdflatex  # or xelatex if preferred
     toc: true
@@ -26,6 +27,11 @@ format:
     sansfont: "Arial"  # Specify the sans-serif font
     monofont: "Arial"  # Specify the monospaced font
     geometry: "margin=1in"  # Set page margins (optional)
+    includes:
+      in-header: |
+        \usepackage{draftwatermark}
+        \SetWatermarkText{CONFIDENTIAL}
+        \SetWatermarkScale{3}  # Adjust watermark size
+        \SetWatermarkColor[gray]{0.9}  # Light gray watermark
   docx:
     toc: true
-
