@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ayan Chatterjee, NILU DIGITAL">
+<meta name="dcterms.date" content="2024-10-30">
+<meta name="keywords" content="SEO, web crawling, Quarto Markdown, HTML">
+<meta name="description" content="This document provides guidelines for using Quarto Markdown in HTML for web crawling.">
+
+<title>Guidelines for Using Quarto Markdown</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="guidelines_files/libs/clipboard/clipboard.min.js"></script>
+<script src="guidelines_files/libs/quarto-html/quarto.js"></script>
+<script src="guidelines_files/libs/quarto-html/popper.min.js"></script>
+<script src="guidelines_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="guidelines_files/libs/quarto-html/anchor.min.js"></script>
+<link href="guidelines_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="guidelines_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="guidelines_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="guidelines_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="guidelines_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#quarto-markdown-configuration-for-multiple-output-formats" id="toc-quarto-markdown-configuration-for-multiple-output-formats" class="nav-link active" data-scroll-target="#quarto-markdown-configuration-for-multiple-output-formats">Quarto Markdown Configuration for Multiple Output Formats</a></li>
+  <li><a href="#quarto-markdown-in-html-for-web-crawling" id="toc-quarto-markdown-in-html-for-web-crawling" class="nav-link" data-scroll-target="#quarto-markdown-in-html-for-web-crawling">Quarto Markdown in HTML for Web Crawling</a>
+  <ul class="collapse">
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#basic-setup-in-rstudio" id="toc-basic-setup-in-rstudio" class="nav-link" data-scroll-target="#basic-setup-in-rstudio">Basic Setup in RStudio</a></li>
+  </ul></li>
+  <li><a href="#essential-html-structure" id="toc-essential-html-structure" class="nav-link" data-scroll-target="#essential-html-structure">Essential HTML Structure</a>
+  <ul class="collapse">
+  <li><a href="#title-and-meta-description" id="toc-title-and-meta-description" class="nav-link" data-scroll-target="#title-and-meta-description">Title and Meta Description</a></li>
+  <li><a href="#headings-and-subheadings" id="toc-headings-and-subheadings" class="nav-link" data-scroll-target="#headings-and-subheadings">Headings and Subheadings</a></li>
+  <li><a href="#linking-structure" id="toc-linking-structure" class="nav-link" data-scroll-target="#linking-structure">Linking Structure</a></li>
+  <li><a href="#image-alt-text-and-descriptions" id="toc-image-alt-text-and-descriptions" class="nav-link" data-scroll-target="#image-alt-text-and-descriptions">Image Alt Text and Descriptions</a></li>
+  <li><a href="#tables-in-quarto-markdown" id="toc-tables-in-quarto-markdown" class="nav-link" data-scroll-target="#tables-in-quarto-markdown">Tables in Quarto Markdown</a></li>
+  <li><a href="#complex-table-with-row-and-column-spans" id="toc-complex-table-with-row-and-column-spans" class="nav-link" data-scroll-target="#complex-table-with-row-and-column-spans">Complex Table with Row and Column Spans</a></li>
+  </ul></li>
+  <li><a href="#html-sitemap-generation-for-web-crawling" id="toc-html-sitemap-generation-for-web-crawling" class="nav-link" data-scroll-target="#html-sitemap-generation-for-web-crawling">HTML Sitemap Generation for Web Crawling</a>
+  <ul class="collapse">
+  <li><a href="#sample-sitemap-configuration" id="toc-sample-sitemap-configuration" class="nav-link" data-scroll-target="#sample-sitemap-configuration">Sample Sitemap Configuration</a></li>
+  <li><a href="#customizing-sitemap" id="toc-customizing-sitemap" class="nav-link" data-scroll-target="#customizing-sitemap">Customizing Sitemap</a></li>
+  <li><a href="#additional-metadata-for-social-media-and-crawlers" id="toc-additional-metadata-for-social-media-and-crawlers" class="nav-link" data-scroll-target="#additional-metadata-for-social-media-and-crawlers">Additional Metadata for Social Media and Crawlers</a></li>
+  </ul></li>
+  <li><a href="#quarto-syntax-for-key-seo-components" id="toc-quarto-syntax-for-key-seo-components" class="nav-link" data-scroll-target="#quarto-syntax-for-key-seo-components">Quarto Syntax for Key SEO Components</a>
+  <ul class="collapse">
+  <li><a href="#structured-data-with-json-ld" id="toc-structured-data-with-json-ld" class="nav-link" data-scroll-target="#structured-data-with-json-ld">Structured Data with JSON-LD</a></li>
+  <li><a href="#linking-external-stylesheets-and-javascript" id="toc-linking-external-stylesheets-and-javascript" class="nav-link" data-scroll-target="#linking-external-stylesheets-and-javascript">Linking External Stylesheets and JavaScript</a></li>
+  </ul></li>
+  <li><a href="#rendering-the-quarto-document-in-html" id="toc-rendering-the-quarto-document-in-html" class="nav-link" data-scroll-target="#rendering-the-quarto-document-in-html">Rendering the Quarto Document in HTML</a>
+  <ul class="collapse">
+  <li><a href="#render-in-rstudio" id="toc-render-in-rstudio" class="nav-link" data-scroll-target="#render-in-rstudio">Render in RStudio</a></li>
+  <li><a href="#preview-in-browser" id="toc-preview-in-browser" class="nav-link" data-scroll-target="#preview-in-browser">Preview in Browser</a></li>
+  </ul></li>
+  <li><a href="#best-practices-checklist-for-accessible-and-seo-optimized-documents" id="toc-best-practices-checklist-for-accessible-and-seo-optimized-documents" class="nav-link" data-scroll-target="#best-practices-checklist-for-accessible-and-seo-optimized-documents">Best Practices Checklist for Accessible and SEO-Optimized Documents</a>
+  <ul class="collapse">
+  <li><a href="#general-document-best-practices" id="toc-general-document-best-practices" class="nav-link" data-scroll-target="#general-document-best-practices">General Document Best Practices</a></li>
+  <li><a href="#accessible-tables-best-practices" id="toc-accessible-tables-best-practices" class="nav-link" data-scroll-target="#accessible-tables-best-practices">Accessible Tables Best Practices</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Guidelines for Using Quarto Markdown</h1>
+</div>
+
+<div>
+  <div class="description">
+    This document provides guidelines for using Quarto Markdown in HTML for web crawling.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ayan Chatterjee, NILU DIGITAL </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 30, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>SEO, web crawling, Quarto Markdown, HTML</p>
+  </div>
+</div>
+
+</header>
+
+
+<section id="quarto-markdown-configuration-for-multiple-output-formats" class="level1">
+<h1>Quarto Markdown Configuration for Multiple Output Formats</h1>
+<p>Add the following YAML configuration to the top of the .qmd file to enable multiple output formats, such as html, pdf, and docx:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Guidelines for Using Quarto Markdown in HTML for Web Crawling"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Your Name"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2024-10-08"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">              # Include a Table of Contents</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Contents"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">sitemap</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">               # Enable sitemap generation for web crawlers</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">keywords</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"SEO"</span><span class="kw">,</span><span class="at"> </span><span class="st">"web crawling"</span><span class="kw">,</span><span class="at"> </span><span class="st">"Quarto Markdown"</span><span class="kw">,</span><span class="at"> </span><span class="st">"HTML"</span><span class="kw">]</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"This document provides guidelines for using Quarto Markdown in HTML for web crawling."</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <em>toc</em> option enables a Table of Contents for each specified output type, making navigation easier for longer documents. The <em>toc-title</em> option allows to set a custom title for the Table of Contents, which is especially useful for <em>HTML output</em>. Additionally, the <em>toc-depth</em> option controls the level of headings included in the Table of Contents, allowing to specify how detailed the outline should be, based on the document’s heading hierarchy.</p>
+<p>The YAML header includes metadata that is critical for <em>Search Engine Optimization (SEO)</em> and <em>web crawling</em>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Optimized Web Crawling Document"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Your Name"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2024-10-08"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sitemap</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">       # Enable sitemap generation for web crawlers</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">           # Include a Table of Contents for better navigation</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">toc-title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Contents"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span><span class="co">        # Set TOC depth to include up to h3 headings</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">keywords</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"SEO"</span><span class="kw">,</span><span class="at"> </span><span class="st">"web crawling"</span><span class="kw">,</span><span class="at"> </span><span class="st">"Quarto Markdown"</span><span class="kw">,</span><span class="at"> </span><span class="st">"HTML"</span><span class="kw">]</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"This document provides guidelines for using Quarto Markdown in HTML for web crawling."</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="quarto-markdown-in-html-for-web-crawling" class="level1">
+<h1>Quarto Markdown in HTML for Web Crawling</h1>
+<p><strong>Purpose</strong>: This document provides guidelines on using Quarto Markdown to create HTML files optimized for web crawling. These steps and syntaxes will help you structure content, enhance SEO, and improve discoverability of your pages.</p>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<ol type="1">
+<li><strong>Install RStudio</strong>: Download and install RStudio from <a href="https://posit.co/download/rstudio-desktop/">RStudio Download</a>.</li>
+<li><strong>Install Quarto</strong>: Follow <a href="https://quarto.org/docs/get-started/">Quarto installation</a> to install the Quarto CLI.</li>
+</ol>
+</section>
+<section id="basic-setup-in-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="basic-setup-in-rstudio">Basic Setup in RStudio</h2>
+<ol type="1">
+<li><strong>Create a New Quarto Document</strong>:
+<ul>
+<li>In RStudio, go to <strong>File &gt; New File &gt; Quarto Document</strong>.</li>
+<li>Choose the type of document (e.g., HTML) and enter your title and metadata in the YAML header.</li>
+</ul></li>
+<li><strong>Save the File</strong>:
+<ul>
+<li>Save the file with a <code>.qmd</code> extension to ensure it is treated as a Quarto Markdown file.</li>
+</ul></li>
+<li><strong>YAML Header Configuration</strong>:
+<ul>
+<li>Configure the YAML header with essential metadata to optimize the document for web crawling.</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="essential-html-structure" class="level1">
+<h1>Essential HTML Structure</h1>
+<section id="title-and-meta-description" class="level2">
+<h2 class="anchored" data-anchor-id="title-and-meta-description">Title and Meta Description</h2>
+<p>Define an appropriate title and meta description in the YAML header, as these are essential for search engines.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Guide to Quarto Markdown for SEO"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Learn how to use Quarto Markdown to create SEO-optimized HTML content for web crawling."</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="headings-and-subheadings" class="level2">
+<h2 class="anchored" data-anchor-id="headings-and-subheadings">Headings and Subheadings</h2>
+<p>Organize content using structured headings (#, ##, ###) to create a hierarchy. This helps crawlers understand the structure and prioritize content.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Main Heading</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Subheading 1</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">Content here.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">### Subheading 1.1</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">More content here.</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="linking-structure" class="level2">
+<h2 class="anchored" data-anchor-id="linking-structure">Linking Structure</h2>
+<p>Use descriptive anchor text for links and ensure that internal links are present to improve navigation.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">For more details, refer to the [Introduction to SEO](</span><span class="co">#introduction-to-seo).</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="image-alt-text-and-descriptions" class="level2">
+<h2 class="anchored" data-anchor-id="image-alt-text-and-descriptions">Image Alt Text and Descriptions</h2>
+<p>Add meaningful alt text to images to improve accessibility and indexing by search engines.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">![SEO Process](images/seo_process.png){alt="Diagram showing the process of SEO optimization"}</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tables-in-quarto-markdown" class="level2">
+<h2 class="anchored" data-anchor-id="tables-in-quarto-markdown">Tables in Quarto Markdown</h2>
+<table class="caption-top table">
+<caption>Table 1: Simple Table Example</caption>
+<thead>
+<tr class="header">
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Column 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Row 1, Cell 1</td>
+<td>Row 1, Cell 2</td>
+<td>Row 1, Cell 3</td>
+</tr>
+<tr class="even">
+<td>Row 2, Cell 1</td>
+<td>Row 2, Cell 2</td>
+<td>Row 2, Cell 3</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<caption>Table 2: Aligned Table</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Left Align</th>
+<th style="text-align: center;">Center Align</th>
+<th style="text-align: right;">Right Align</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Row 1, Cell 1</td>
+<td style="text-align: center;">Row 1, Cell 2</td>
+<td style="text-align: right;">Row 1, Cell 3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Row 2, Cell 1</td>
+<td style="text-align: center;">Row 2, Cell 2</td>
+<td style="text-align: right;">Row 2, Cell 3</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<caption>Table 3: Grid Table Syntax</caption>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Column 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Row 1, Cell 1</td>
+<td>Row 1, Cell 2</td>
+<td>Row 1, Cell 3</td>
+</tr>
+<tr class="even">
+<td>Row 2, Cell 1</td>
+<td>Row 2, Cell 2</td>
+<td>Row 2, Cell 3</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="complex-table-with-row-and-column-spans" class="level2">
+<h2 class="anchored" data-anchor-id="complex-table-with-row-and-column-spans">Complex Table with Row and Column Spans</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">table</span><span class="dt">&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">th</span><span class="ot"> rowspan</span><span class="op">=</span><span class="st">"2"</span><span class="dt">&gt;</span>Column 1<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Column 2<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Column 3<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">td</span><span class="ot"> colspan</span><span class="op">=</span><span class="st">"2"</span><span class="dt">&gt;</span>Spanning across 2 columns<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">table</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="html-sitemap-generation-for-web-crawling" class="level1">
+<h1>HTML Sitemap Generation for Web Crawling</h1>
+<p>Enabling the sitemap option in the YAML header creates a sitemap automatically. This sitemap file helps web crawlers discover and index all relevant pages.</p>
+<section id="sample-sitemap-configuration" class="level2">
+<h2 class="anchored" data-anchor-id="sample-sitemap-configuration">Sample Sitemap Configuration</h2>
+<p>The automatically generated sitemap.xml file might contain entries like the following:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">&lt;url&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">    &lt;loc&gt;https://&lt;your-username&gt;.github.io/&lt;your-repo-name&gt;/index.html&lt;/loc&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">    &lt;lastmod&gt;2024-10-08T12:24:05Z&lt;/lastmod&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="at">    &lt;changefreq&gt;monthly&lt;/changefreq&gt;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="at">    &lt;priority&gt;0.8&lt;/priority&gt;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="at">&lt;/url&gt;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="customizing-sitemap" class="level2">
+<h2 class="anchored" data-anchor-id="customizing-sitemap">Customizing Sitemap</h2>
+<p>To further customize, use the sitemap: attribute directly in the YAML header to control which pages are included or to add specific pages manually.</p>
+</section>
+<section id="additional-metadata-for-social-media-and-crawlers" class="level2">
+<h2 class="anchored" data-anchor-id="additional-metadata-for-social-media-and-crawlers">Additional Metadata for Social Media and Crawlers</h2>
+<p>Add Open Graph (og:) and Twitter metadata tags for better social media sharing and visibility.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">meta</span><span class="kw">:</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"twitter:card"</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">content</span><span class="kw">:</span><span class="at"> </span><span class="st">"summary"</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"twitter:title"</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">content</span><span class="kw">:</span><span class="at"> </span><span class="st">"Guide to Quarto Markdown for SEO"</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"twitter:description"</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">content</span><span class="kw">:</span><span class="at"> </span><span class="st">"This guide helps you create SEO-optimized HTML content using Quarto Markdown."</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">property</span><span class="kw">:</span><span class="at"> </span><span class="st">"og:title"</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">content</span><span class="kw">:</span><span class="at"> </span><span class="st">"Quarto Markdown for Web Crawling"</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">property</span><span class="kw">:</span><span class="at"> </span><span class="st">"og:description"</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">content</span><span class="kw">:</span><span class="at"> </span><span class="st">"Optimize HTML content for search engines using Quarto Markdown in RStudio."</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="quarto-syntax-for-key-seo-components" class="level1">
+<h1>Quarto Syntax for Key SEO Components</h1>
+<section id="structured-data-with-json-ld" class="level2">
+<h2 class="anchored" data-anchor-id="structured-data-with-json-ld">Structured Data with JSON-LD</h2>
+<p>Use structured data like JSON-LD to help search engines understand the context of your content.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">"@context"</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://schema.org"</span><span class="kw">,</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">"@type"</span><span class="kw">:</span><span class="at"> </span><span class="st">"Article"</span><span class="kw">,</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">"headline"</span><span class="kw">:</span><span class="at"> </span><span class="st">"Guide to Quarto Markdown for SEO"</span><span class="kw">,</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">"datePublished"</span><span class="kw">:</span><span class="at"> </span><span class="st">"2024-10-08"</span><span class="kw">,</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">"author"</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">"@type"</span><span class="kw">:</span><span class="at"> </span><span class="st">"Person"</span><span class="kw">,</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">"name"</span><span class="kw">:</span><span class="at"> </span><span class="st">"Your Name"</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">},</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">"keywords"</span><span class="kw">:</span><span class="at"> </span><span class="st">"SEO, web crawling, Quarto Markdown, HTML"</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="linking-external-stylesheets-and-javascript" class="level2">
+<h2 class="anchored" data-anchor-id="linking-external-stylesheets-and-javascript">Linking External Stylesheets and JavaScript</h2>
+<p>For advanced functionality, link to external CSS and JS files. This enhances the user experience without compromising SEO.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="at">&lt;link rel="stylesheet" href="https://your-stylesheet-url.css"&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">&lt;script src="https://your-script-url.js"&gt;&lt;/script&gt;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="rendering-the-quarto-document-in-html" class="level1">
+<h1>Rendering the Quarto Document in HTML</h1>
+<p>Once created the .qmd file, render it in HTML:</p>
+<section id="render-in-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="render-in-rstudio">Render in RStudio</h2>
+<p>Go to the RStudio Terminal or Console and run:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render yourfile.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>HTML output: quarto render yourfile.qmd –to html PDF output: quarto render yourfile.qmd –to pdf DOCX output: quarto render yourfile.qmd –to docx</p>
+<p>Note: PDF output requires a LaTeX installation. If you haven’t installed LaTeX, you can use a lightweight distribution like <strong>TinyTeX</strong> (recommended for R users) or a full installation like <strong>MiKTeX</strong> or <strong>TeX Live</strong>. To install TinyTeX, run:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tinytex"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can customize DOCX output with a reference DOCX file by adding reference-doc in the docx configuration.</p>
+</section>
+<section id="preview-in-browser" class="level2">
+<h2 class="anchored" data-anchor-id="preview-in-browser">Preview in Browser</h2>
+<p>Open the generated HTML file in a browser to ensure the content is well-structured for web crawling and SEO.</p>
+</section>
+</section>
+<section id="best-practices-checklist-for-accessible-and-seo-optimized-documents" class="level1">
+<h1>Best Practices Checklist for Accessible and SEO-Optimized Documents</h1>
+<p>This checklist ensures that your Quarto Markdown documents and tables are optimized for accessibility, SEO, and readability across multiple formats (HTML, PDF, DOCX).</p>
+<section id="general-document-best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="general-document-best-practices">General Document Best Practices</h2>
+<ul class="task-list">
+<li><label><input type="checkbox"><strong>Use descriptive titles and meta descriptions</strong>: Ensure your document has a concise, relevant title and meta description to enhance SEO and search engine visibility.</label></li>
+<li><label><input type="checkbox"><strong>Include headings with a logical hierarchy</strong>: Organize your document with clear headings (<code>#</code>, <code>##</code>, <code>###</code>) to create a structure that aids readability and search engine indexing.</label></li>
+<li><label><input type="checkbox"><strong>Add alt text for images</strong>: For accessibility, all images should have meaningful <code>alt</code> text describing their content.</label></li>
+<li><label><input type="checkbox"><strong>Enable the sitemap in the YAML header</strong>: Set <code>sitemap: true</code> in the YAML header to improve web crawling and search engine indexing.</label></li>
+<li><label><input type="checkbox"><strong>Use Open Graph and Twitter metadata for social sharing</strong>: Add <code>og:</code> and <code>twitter:</code> tags in the YAML header to optimize content for social media platforms.</label></li>
+<li><label><input type="checkbox"><strong>Include structured data (JSON-LD) for enhanced search engine understanding</strong>: Structured data provides additional context, improving the relevance and accuracy of search engine results.</label></li>
+<li><label><input type="checkbox"><strong>Link to relevant internal and external pages</strong>: Use descriptive anchor text for links to help guide users and improve SEO.</label></li>
+</ul>
+</section>
+<section id="accessible-tables-best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="accessible-tables-best-practices">Accessible Tables Best Practices</h2>
+<ul class="task-list">
+<li><label><input type="checkbox"><strong>Use descriptive headers</strong>: Ensure table headers are clear and descriptive, which aids comprehension and accessibility for screen readers.</label></li>
+<li><label><input type="checkbox"><strong>Add captions to tables</strong>: Every table should include a caption that summarizes its content to provide context for readers and improve accessibility.</label></li>
+<li><label><input type="checkbox"><strong>Keep tables simple</strong>: Avoid complex structures with excessive row/column spans unless absolutely necessary for data clarity.</label></li>
+<li><label><input type="checkbox"><strong>Provide alt text for images within tables</strong>: If images are used within table cells, ensure each image has descriptive <code>alt</code> text for accessibility.</label></li>
+<li><label><input type="checkbox"><strong>Use semantic HTML for complex tables</strong>: For tables with intricate structures, consider using HTML with ARIA roles (e.g., <code>role="table"</code>) to improve accessibility and aid screen readers.</label></li>
+</ul>
+<p>Following these guidelines will ensure Quarto Markdown documents and tables are accessible, SEO-optimized, and suitable for multiple output formats.</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>This Quarto Markdown document can be saved with a <code>.qmd</code> extension, edited in RStudio, and rendered to HTML to ensure it follows best practices for web crawling.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
