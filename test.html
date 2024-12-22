@@ -24,6 +24,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -54,7 +88,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
   <li><a href="#basic-setup-in-rstudio" id="toc-basic-setup-in-rstudio" class="nav-link" data-scroll-target="#basic-setup-in-rstudio">Basic Setup in RStudio</a></li>
   <li><a href="#yaml-header-configuration-for-seo" id="toc-yaml-header-configuration-for-seo" class="nav-link" data-scroll-target="#yaml-header-configuration-for-seo">YAML Header Configuration for SEO</a></li>
-  <li><a href="#yaml" id="toc-yaml" class="nav-link" data-scroll-target="#yaml">```yaml</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -126,10 +159,18 @@ ul.task-list li input[type="checkbox"] {
 <section id="yaml-header-configuration-for-seo" class="level2">
 <h2 class="anchored" data-anchor-id="yaml-header-configuration-for-seo">YAML Header Configuration for SEO</h2>
 <p>The YAML header includes metadata that is critical for SEO and web crawling.</p>
-</section>
-<section id="yaml" class="level2">
-<h2 class="anchored" data-anchor-id="yaml">```yaml</h2>
-<p>title: “Optimized Web Crawling Document” author: “Your Name” date: “2024-10-08” format: html sitemap: true # Enable sitemap generation for web crawlers toc: true # Include a Table of Contents for better navigation toc-title: “Contents” toc-depth: 3 # Set TOC depth to include up to h3 headings keywords: [“SEO”, “web crawling”, “Quarto Markdown”, “HTML”] description: “This document provides guidelines for using Quarto Markdown in HTML for web crawling.” —</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Optimized Web Crawling Document"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Your Name"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2024-10-08"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sitemap</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">       # Enable sitemap generation for web crawlers</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">           # Include a Table of Contents for better navigation</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">toc-title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Contents"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span><span class="co">        # Set TOC depth to include up to h3 headings</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">keywords</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"SEO"</span><span class="kw">,</span><span class="at"> </span><span class="st">"web crawling"</span><span class="kw">,</span><span class="at"> </span><span class="st">"Quarto Markdown"</span><span class="kw">,</span><span class="at"> </span><span class="st">"HTML"</span><span class="kw">]</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"This document provides guidelines for using Quarto Markdown in HTML for web crawling."</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 
