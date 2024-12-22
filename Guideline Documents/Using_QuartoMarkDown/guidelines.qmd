@@ -5,8 +5,9 @@ date: "2024-10-30"
 format: html
 sitemap: true       # Enable sitemap generation for web crawlers
 toc: true           # Include a Table of Contents for better navigation
-toc-title: "Contents"
+toc-title: "Index"
 toc-depth: 3        # Set TOC depth to include up to h3 headings
+number-sections: true
 keywords: ["SEO", "web crawling", "Quarto Markdown", "HTML"]
 description: "This document provides guidelines for using Quarto Markdown in HTML for web crawling."
 ---
@@ -15,7 +16,7 @@ description: "This document provides guidelines for using Quarto Markdown in HTM
 
 Add the following YAML configuration to the top of the .qmd file to enable multiple output formats, such as html, pdf, and docx:
 
-```yaml
+``` yaml
 ---
 title: "Guidelines for Using Quarto Markdown in HTML for Web Crawling"
 author: "Your Name"
@@ -41,7 +42,7 @@ The *toc* option enables a Table of Contents for each specified output type, mak
 
 The YAML header includes metadata that is critical for *Search Engine Optimization (SEO)* and *web crawling*.
 
-```yaml
+``` yaml
 ---
 title: "Optimized Web Crawling Document"
 author: "Your Name"
@@ -62,27 +63,26 @@ description: "This document provides guidelines for using Quarto Markdown in HTM
 
 ## Prerequisites
 
-1. **Install RStudio**: Download and install RStudio from [RStudio Download](https://posit.co/download/rstudio-desktop/).
-2. **Install Quarto**: Follow [Quarto installation](https://quarto.org/docs/get-started/) to install the Quarto CLI.
+1.  **Install RStudio**: Download and install RStudio from [RStudio Download](https://posit.co/download/rstudio-desktop/).
+2.  **Install Quarto**: Follow [Quarto installation](https://quarto.org/docs/get-started/) to install the Quarto CLI.
 
 ## Basic Setup in RStudio
 
-1. **Create a New Quarto Document**:
-   - In RStudio, go to **File > New File > Quarto Document**.
-   - Choose the type of document (e.g., HTML) and enter your title and metadata in the YAML header.
-
-2. **Save the File**:
-   - Save the file with a `.qmd` extension to ensure it is treated as a Quarto Markdown file.
-
-3. **YAML Header Configuration**:
-   - Configure the YAML header with essential metadata to optimize the document for web crawling.
+1.  **Create a New Quarto Document**:
+    -   In RStudio, go to **File \> New File \> Quarto Document**.
+    -   Choose the type of document (e.g., HTML) and enter your title and metadata in the YAML header.
+2.  **Save the File**:
+    -   Save the file with a `.qmd` extension to ensure it is treated as a Quarto Markdown file.
+3.  **YAML Header Configuration**:
+    -   Configure the YAML header with essential metadata to optimize the document for web crawling.
 
 # Essential HTML Structure
 
 ## Title and Meta Description
+
 Define an appropriate title and meta description in the YAML header, as these are essential for search engines.
 
-```yaml
+``` yaml
 ---
 title: "Guide to Quarto Markdown for SEO"
 description: "Learn how to use Quarto Markdown to create SEO-optimized HTML content for web crawling."
@@ -90,9 +90,10 @@ description: "Learn how to use Quarto Markdown to create SEO-optimized HTML cont
 ```
 
 ## Headings and Subheadings
+
 Organize content using structured headings (#, ##, ###) to create a hierarchy. This helps crawlers understand the structure and prioritize content.
 
-```yaml
+``` yaml
 ---
 # Main Heading
 
@@ -107,18 +108,20 @@ More content here.
 ```
 
 ## Linking Structure
+
 Use descriptive anchor text for links and ensure that internal links are present to improve navigation.
 
-```yaml
+``` yaml
 ---
 For more details, refer to the [Introduction to SEO](#introduction-to-seo).
 ---
 ```
 
 ## Image Alt Text and Descriptions
+
 Add meaningful alt text to images to improve accessibility and indexing by search engines.
 
-```yaml
+``` yaml
 ---
 ![SEO Process](images/seo_process.png){alt="Diagram showing the process of SEO optimization"}
 ---
@@ -126,34 +129,30 @@ Add meaningful alt text to images to improve accessibility and indexing by searc
 
 ## Tables in Quarto Markdown
 
+| Column 1      | Column 2      | Column 3      |
+|---------------|---------------|---------------|
+| Row 1, Cell 1 | Row 1, Cell 2 | Row 1, Cell 3 |
+| Row 2, Cell 1 | Row 2, Cell 2 | Row 2, Cell 3 |
+
 : Table 1: Simple Table Example
 
-| Column 1      | Column 2       | Column 3       |
-|---------------|----------------|----------------|
-| Row 1, Cell 1 | Row 1, Cell 2  | Row 1, Cell 3  |
-| Row 2, Cell 1 | Row 2, Cell 2  | Row 2, Cell 3  |
+| Left Align    | Center Align  |   Right Align |
+|:--------------|:-------------:|--------------:|
+| Row 1, Cell 1 | Row 1, Cell 2 | Row 1, Cell 3 |
+| Row 2, Cell 1 | Row 2, Cell 2 | Row 2, Cell 3 |
 
 : Table 2: Aligned Table
 
-| Left Align    | Center Align   | Right Align    |
-|:--------------|:--------------:|---------------:|
-| Row 1, Cell 1 | Row 1, Cell 2  | Row 1, Cell 3  |
-| Row 2, Cell 1 | Row 2, Cell 2  | Row 2, Cell 3  |
+| Column 1      | Column 2      | Column 3      |
+|---------------|---------------|---------------|
+| Row 1, Cell 1 | Row 1, Cell 2 | Row 1, Cell 3 |
+| Row 2, Cell 1 | Row 2, Cell 2 | Row 2, Cell 3 |
 
 : Table 3: Grid Table Syntax
 
-+---------------+---------------+---------------+
-| Column 1      | Column 2      | Column 3      |
-+===============+===============+===============+
-| Row 1, Cell 1 | Row 1, Cell 2 | Row 1, Cell 3 |
-+---------------+---------------+---------------+
-| Row 2, Cell 1 | Row 2, Cell 2 | Row 2, Cell 3 |
-+---------------+---------------+---------------+
-
-
 ## Complex Table with Row and Column Spans
 
-```html
+``` html
 <table>
   <tr>
     <th rowspan="2">Column 1</th>
@@ -167,12 +166,14 @@ Add meaningful alt text to images to improve accessibility and indexing by searc
 ```
 
 # HTML Sitemap Generation for Web Crawling
+
 Enabling the sitemap option in the YAML header creates a sitemap automatically. This sitemap file helps web crawlers discover and index all relevant pages.
 
 ## Sample Sitemap Configuration
+
 The automatically generated sitemap.xml file might contain entries like the following:
 
-```yaml
+``` yaml
 ---
 <url>
     <loc>https://<your-username>.github.io/<your-repo-name>/index.html</loc>
@@ -185,12 +186,14 @@ The automatically generated sitemap.xml file might contain entries like the foll
 ```
 
 ## Customizing Sitemap
+
 To further customize, use the sitemap: attribute directly in the YAML header to control which pages are included or to add specific pages manually.
 
 ## Additional Metadata for Social Media and Crawlers
+
 Add Open Graph (og:) and Twitter metadata tags for better social media sharing and visibility.
 
-```yaml
+``` yaml
 ---
 meta:
   - name: "twitter:card"
@@ -207,11 +210,12 @@ meta:
 ```
 
 # Quarto Syntax for Key SEO Components
+
 ## Structured Data with JSON-LD
 
 Use structured data like JSON-LD to help search engines understand the context of your content.
 
-```yaml
+``` yaml
 ---
 {
   "@context": "https://schema.org",
@@ -231,7 +235,7 @@ Use structured data like JSON-LD to help search engines understand the context o
 
 For advanced functionality, link to external CSS and JS files. This enhances the user experience without compromising SEO.
 
-```yaml
+``` yaml
 ---
 <link rel="stylesheet" href="https://your-stylesheet-url.css">
 <script src="https://your-script-url.js"></script>
@@ -246,18 +250,15 @@ Once created the .qmd file, render it in HTML:
 
 Go to the RStudio Terminal or Console and run:
 
-```bash
+``` bash
 quarto render yourfile.qmd
 ```
 
-HTML output: quarto render yourfile.qmd --to html
-PDF output: quarto render yourfile.qmd --to pdf
-DOCX output: quarto render yourfile.qmd --to docx
+HTML output: quarto render yourfile.qmd --to html PDF output: quarto render yourfile.qmd --to pdf DOCX output: quarto render yourfile.qmd --to docx
 
-Note:
-PDF output requires a LaTeX installation. If you haven’t installed LaTeX, you can use a lightweight distribution like **TinyTeX** (recommended for R users) or a full installation like **MiKTeX** or **TeX Live**. To install TinyTeX, run:
+Note: PDF output requires a LaTeX installation. If you haven’t installed LaTeX, you can use a lightweight distribution like **TinyTeX** (recommended for R users) or a full installation like **MiKTeX** or **TeX Live**. To install TinyTeX, run:
 
-```r
+``` r
 install.packages("tinytex")
 tinytex::install_tinytex()
 ```
@@ -265,28 +266,30 @@ tinytex::install_tinytex()
 We can customize DOCX output with a reference DOCX file by adding reference-doc in the docx configuration.
 
 ## Preview in Browser
+
 Open the generated HTML file in a browser to ensure the content is well-structured for web crawling and SEO.
 
 # Best Practices Checklist for Accessible and SEO-Optimized Documents
+
 This checklist ensures that your Quarto Markdown documents and tables are optimized for accessibility, SEO, and readability across multiple formats (HTML, PDF, DOCX).
 
 ## General Document Best Practices
 
-- [ ] **Use descriptive titles and meta descriptions**: Ensure your document has a concise, relevant title and meta description to enhance SEO and search engine visibility.
-- [ ] **Include headings with a logical hierarchy**: Organize your document with clear headings (`#`, `##`, `###`) to create a structure that aids readability and search engine indexing.
-- [ ] **Add alt text for images**: For accessibility, all images should have meaningful `alt` text describing their content.
-- [ ] **Enable the sitemap in the YAML header**: Set `sitemap: true` in the YAML header to improve web crawling and search engine indexing.
-- [ ] **Use Open Graph and Twitter metadata for social sharing**: Add `og:` and `twitter:` tags in the YAML header to optimize content for social media platforms.
-- [ ] **Include structured data (JSON-LD) for enhanced search engine understanding**: Structured data provides additional context, improving the relevance and accuracy of search engine results.
-- [ ] **Link to relevant internal and external pages**: Use descriptive anchor text for links to help guide users and improve SEO.
+-   [ ] **Use descriptive titles and meta descriptions**: Ensure your document has a concise, relevant title and meta description to enhance SEO and search engine visibility.
+-   [ ] **Include headings with a logical hierarchy**: Organize your document with clear headings (`#`, `##`, `###`) to create a structure that aids readability and search engine indexing.
+-   [ ] **Add alt text for images**: For accessibility, all images should have meaningful `alt` text describing their content.
+-   [ ] **Enable the sitemap in the YAML header**: Set `sitemap: true` in the YAML header to improve web crawling and search engine indexing.
+-   [ ] **Use Open Graph and Twitter metadata for social sharing**: Add `og:` and `twitter:` tags in the YAML header to optimize content for social media platforms.
+-   [ ] **Include structured data (JSON-LD) for enhanced search engine understanding**: Structured data provides additional context, improving the relevance and accuracy of search engine results.
+-   [ ] **Link to relevant internal and external pages**: Use descriptive anchor text for links to help guide users and improve SEO.
 
 ## Accessible Tables Best Practices
 
-- [ ] **Use descriptive headers**: Ensure table headers are clear and descriptive, which aids comprehension and accessibility for screen readers.
-- [ ] **Add captions to tables**: Every table should include a caption that summarizes its content to provide context for readers and improve accessibility.
-- [ ] **Keep tables simple**: Avoid complex structures with excessive row/column spans unless absolutely necessary for data clarity.
-- [ ] **Provide alt text for images within tables**: If images are used within table cells, ensure each image has descriptive `alt` text for accessibility.
-- [ ] **Use semantic HTML for complex tables**: For tables with intricate structures, consider using HTML with ARIA roles (e.g., `role="table"`) to improve accessibility and aid screen readers.
+-   [ ] **Use descriptive headers**: Ensure table headers are clear and descriptive, which aids comprehension and accessibility for screen readers.
+-   [ ] **Add captions to tables**: Every table should include a caption that summarizes its content to provide context for readers and improve accessibility.
+-   [ ] **Keep tables simple**: Avoid complex structures with excessive row/column spans unless absolutely necessary for data clarity.
+-   [ ] **Provide alt text for images within tables**: If images are used within table cells, ensure each image has descriptive `alt` text for accessibility.
+-   [ ] **Use semantic HTML for complex tables**: For tables with intricate structures, consider using HTML with ARIA roles (e.g., `role="table"`) to improve accessibility and aid screen readers.
 
 Following these guidelines will ensure Quarto Markdown documents and tables are accessible, SEO-optimized, and suitable for multiple output formats.
 

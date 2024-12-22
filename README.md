@@ -1,2 +1,2 @@
 # Copernicus Land Monitoring Service (CLMS)
-This repository contains technical documents for the CLMS, such as ATBD's, PUM's, or nomenclature guidelines.
+Repository for the maintenance and generation of reference guidelines and technical product documents for the CLMS.
