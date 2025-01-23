@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ayan Chatterjee, Department of DIGITAL, NILU, ayan@nilu.no">
+<meta name="dcterms.date" content="2024-12-16">
+<meta name="keywords" content="Conversational AI, Meta Data, Data Analysis, Data Querying, Geo-Data Strategies">
+
+<title>Conversational Data Analysis with Recommendations for Metadata and Geo-Data Strategies</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="Conversational_AI_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Conversational_AI_files/libs/quarto-html/quarto.js"></script>
+<script src="Conversational_AI_files/libs/quarto-html/popper.min.js"></script>
+<script src="Conversational_AI_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Conversational_AI_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Conversational_AI_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Conversational_AI_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Conversational_AI_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Conversational_AI_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Conversational_AI_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Conversational_AI.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="Conversational_AI.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Conversational Data Analysis with Recommendations for Metadata and Geo-Data Strategies</h1>
+<p class="subtitle lead">Information Searching for Generative Chatbots</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ayan Chatterjee, Department of DIGITAL, NILU, ayan@nilu.no </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 16, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>Conversational AI, Meta Data, Data Analysis, Data Querying, Geo-Data Strategies</p>
+  </div>
+</div>
+
+</header>
+
+
+<div style="font-family: 'Cambria', serif; text-align: justify;">
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>Conversational data analytics enables users to interact with complex datasets using natural language, bridging the gap between non-technical users and data-driven insights by enabling intuitive, question-and-answer style queries. This article explores the methodologies and challenges of implementing conversational data analytics in geospatial and environmental research with examples. We have also provided strategies to facilitate future implementation.</p>
+</section>
+<section id="conversational-data-analytics" class="level1">
+<h1>1. Conversational Data Analytics</h1>
+<p>Conversational analytics is an emerging field that sits at the intersection of artificial intelligence (AI) and data analysis <span class="citation" data-cites="pattyam2021ai ibm dimensionlabs getthematic convAI Google"><a href="#ref-pattyam2021ai" role="doc-biblioref">[1]</a>, <a href="#ref-ibm" role="doc-biblioref">[2]</a>, <a href="#ref-dimensionlabs" role="doc-biblioref">[3]</a>, <a href="#ref-getthematic" role="doc-biblioref">[4]</a>, <a href="#ref-convAI" role="doc-biblioref">[5]</a>, <a href="#ref-Google" role="doc-biblioref">[6]</a></span>. At its core, it involves using AI-powered chatbots and other tools to collect, analyze, and interpret large amounts of natural language data generated through user interactions. Also known as conversational data analytics, the process involves analyzing text, speech, or interaction data from conversations to derive insights, trends, and actionable information. Data can come from a variety of sources, including customer service chats, social media comments, voice calls, surveys, or virtual assistant interactions, making it a powerful approach to understanding human communication and behavior.</p>
+<p>Conversational analytics offers a groundbreaking approach to unlocking the potential of unstructured data generated by human-AI interactions <span class="citation" data-cites="pattyam2021ai ibm dimensionlabs getthematic convAI Google"><a href="#ref-pattyam2021ai" role="doc-biblioref">[1]</a>, <a href="#ref-ibm" role="doc-biblioref">[2]</a>, <a href="#ref-dimensionlabs" role="doc-biblioref">[3]</a>, <a href="#ref-getthematic" role="doc-biblioref">[4]</a>, <a href="#ref-convAI" role="doc-biblioref">[5]</a>, <a href="#ref-Google" role="doc-biblioref">[6]</a></span>. By leveraging this data, companies, reseach and educational institutes can gain actionable insights and achieve competitive advantage when used effectively.</p>
+<section id="foundational-technologies-and-conversational-ai" class="level2">
+<h2 class="anchored" data-anchor-id="foundational-technologies-and-conversational-ai">1.1. Foundational Technologies and Conversational AI</h2>
+<p>Conversational analytics and conversational AI are revolutionizing the way businesses interact with and understand customers, using advanced technologies such as natural language processing (NLP), machine learning (ML), and foundational models <span class="citation" data-cites="pattyam2021ai ibm dimensionlabs getthematic convAI Google"><a href="#ref-pattyam2021ai" role="doc-biblioref">[1]</a>, <a href="#ref-ibm" role="doc-biblioref">[2]</a>, <a href="#ref-dimensionlabs" role="doc-biblioref">[3]</a>, <a href="#ref-getthematic" role="doc-biblioref">[4]</a>, <a href="#ref-convAI" role="doc-biblioref">[5]</a>, <a href="#ref-Google" role="doc-biblioref">[6]</a></span>. Conversational AI, a branch of AI, simulates human-like conversations using tools such as NLP and Google’s foundational models. These technologies, available through platforms such as Google Vertex AI, enable systems to process human language, generate natural responses, and continually improve through learning <span class="citation" data-cites="getthematic convAI Google gao2018neural fu2022learning kulkarni2019conversational freed2021conversational"><a href="#ref-getthematic" role="doc-biblioref">[4]</a>, <a href="#ref-convAI" role="doc-biblioref">[5]</a>, <a href="#ref-Google" role="doc-biblioref">[6]</a>, <a href="#ref-gao2018neural" role="doc-biblioref">[7]</a>, <a href="#ref-fu2022learning" role="doc-biblioref">[8]</a>, <a href="#ref-kulkarni2019conversational" role="doc-biblioref">[9]</a>, <a href="#ref-freed2021conversational" role="doc-biblioref">[10]</a></span>.</p>
+<p>Natural language processing (NLP) is essential to both conversational analytics and AI <span class="citation" data-cites="bataineh2023enhancing"><a href="#ref-bataineh2023enhancing" role="doc-biblioref">[11]</a></span>. It enables systems to interpret human language by breaking text into tokens, recognizing grammatical structures, and extracting meaningful entities. Techniques such as tokenization, named entity recognition (NER), and dependency analysis allow AI systems to understand the intent behind phrases like “I need help with my bill” and respond effectively. Machine learning (ML) complements NLP by analyzing large data sets, adapting to new patterns, and improving the system’s ability to respond accurately over time <span class="citation" data-cites="sharifani2022operating"><a href="#ref-sharifani2022operating" role="doc-biblioref">[12]</a></span>.</p>
+</section>
+<section id="working-strategy-of-conversational-ai" class="level2">
+<h2 class="anchored" data-anchor-id="working-strategy-of-conversational-ai">1.2. Working Strategy of Conversational AI</h2>
+<p>Conversational AI works by training on vast datasets of text and speech, equipping systems to understand, process, and respond naturally to human input <span class="citation" data-cites="getthematic convAI Google gao2018neural fu2022learning kulkarni2019conversational freed2021conversational"><a href="#ref-getthematic" role="doc-biblioref">[4]</a>, <a href="#ref-convAI" role="doc-biblioref">[5]</a>, <a href="#ref-Google" role="doc-biblioref">[6]</a>, <a href="#ref-gao2018neural" role="doc-biblioref">[7]</a>, <a href="#ref-fu2022learning" role="doc-biblioref">[8]</a>, <a href="#ref-kulkarni2019conversational" role="doc-biblioref">[9]</a>, <a href="#ref-freed2021conversational" role="doc-biblioref">[10]</a></span>. By combining natural language processing, foundational models, and machine learning, these systems can simulate interactions that resemble human interactions, learning from each interaction to improve the quality of their responses. This continuous learning cycle is the foundation for the effectiveness of conversational AI tools such as generative AI agents, chatbots, virtual assistants, and speech recognition software.</p>
+<p>Conversational AI technologies are deployed in various scenarios <span class="citation" data-cites="getthematic convAI Google gao2018neural fu2022learning kulkarni2019conversational freed2021conversational"><a href="#ref-getthematic" role="doc-biblioref">[4]</a>, <a href="#ref-convAI" role="doc-biblioref">[5]</a>, <a href="#ref-Google" role="doc-biblioref">[6]</a>, <a href="#ref-gao2018neural" role="doc-biblioref">[7]</a>, <a href="#ref-fu2022learning" role="doc-biblioref">[8]</a>, <a href="#ref-kulkarni2019conversational" role="doc-biblioref">[9]</a>, <a href="#ref-freed2021conversational" role="doc-biblioref">[10]</a></span>:</p>
+<ul>
+<li><strong>Generative AI Agents:</strong> Delivering dynamic voice or text interactions.</li>
+<li><strong>Chatbots:</strong> Answering queries and providing real-time support.</li>
+<li><strong>Virtual Assistants:</strong> Managing tasks on smartphones and smart speakers.</li>
+<li><strong>Speech Recognition and Text-to-Speech Tools:</strong> Transcribing and generating spoken content.</li>
+</ul>
+</section>
+<section id="key-elements-of-conversational-data-analytics" class="level2">
+<h2 class="anchored" data-anchor-id="key-elements-of-conversational-data-analytics">1.3. Key Elements of Conversational Data Analytics</h2>
+<p>Conversational data analytics transforms the wealth of unstructured data from human interactions into actionable insights <span class="citation" data-cites="pattyam2021ai ibm dimensionlabs getthematic convAI Google"><a href="#ref-pattyam2021ai" role="doc-biblioref">[1]</a>, <a href="#ref-ibm" role="doc-biblioref">[2]</a>, <a href="#ref-dimensionlabs" role="doc-biblioref">[3]</a>, <a href="#ref-getthematic" role="doc-biblioref">[4]</a>, <a href="#ref-convAI" role="doc-biblioref">[5]</a>, <a href="#ref-Google" role="doc-biblioref">[6]</a></span>.</p>
+<section id="data-sources" class="level3">
+<h3 class="anchored" data-anchor-id="data-sources">1.3.1. Data Sources</h3>
+<p>The analytics process begins with diverse data sources such as text-based interactions (e.g., live chat, emails, social media comments), voice calls and their transcriptions, AI-driven chatbot conversations, and video conferencing transcripts.</p>
+</section>
+<section id="technologies-involved" class="level3">
+<h3 class="anchored" data-anchor-id="technologies-involved">1.3.2. Technologies Involved</h3>
+<p>Key technologies in conversational data analytics include:</p>
+<ul>
+<li><strong>Natural Language Processing (NLP):</strong> To process and understand human language.</li>
+<li><strong>Sentiment Analysis:</strong> To assess the emotional tone of conversations.</li>
+<li><strong>Speech-to-Text:</strong> For converting and analyzing spoken interactions.</li>
+<li><strong>Topic Modeling:</strong> To identify recurring themes or emerging issues.</li>
+<li><strong>Conversational AI:</strong> To engage in and analyze real-time discussions.</li>
+</ul>
+</section>
+<section id="metrics-and-kpis" class="level3">
+<h3 class="anchored" data-anchor-id="metrics-and-kpis">1.3.3. Metrics and KPIs</h3>
+<p>Conversational analytics evaluates interactions using metrics like:</p>
+<ul>
+<li><strong>Sentiment Scores:</strong> Measuring customer satisfaction or dissatisfaction.</li>
+<li><strong>Topic Frequency:</strong> Highlighting commonly discussed issues.</li>
+<li><strong>Turn-taking Metrics:</strong> Assessing efficiency and user engagement.</li>
+<li><strong>Resolution Rates:</strong> Tracking how many interactions resolve customer issues.</li>
+<li><strong>Customer Effort Score (CES):</strong> Gauging the ease of interaction for users.</li>
+</ul>
+</section>
+<section id="applications-and-real-world-impact" class="level3">
+<h3 class="anchored" data-anchor-id="applications-and-real-world-impact">1.3.4. Applications and Real-World Impact</h3>
+<p>Conversational AI and analytics find applications across various domains:</p>
+<ul>
+<li><strong>Customer Experience (CX):</strong> Understanding and addressing customer pain points.</li>
+<li><strong>Sales and Marketing:</strong> Identifying customer preferences and improving campaigns.</li>
+<li><strong>Healthcare:</strong> Extracting actionable insights from doctor-patient dialogues.</li>
+<li><strong>Education:</strong> Enhancing engagement on e-learning platforms.</li>
+<li><strong>Employee Insights:</strong> Analyzing internal communications to improve team dynamics.</li>
+<li><strong>Environmental Queries:</strong> Identifying public concerns and behaviors related to environmental issues such as climate change, waste management, renewable energy, and conservation. Conversational analytics can help track trends, measure sentiment toward environmental policies, and reveal actionable insights to guide sustainability initiatives and awareness campaigns.</li>
+</ul>
+<p><strong>Examples</strong> - Conversational data analytics simplifies querying geographic data for applications such as weather monitoring, urban planning, and environmental assessments. For example, users can ask: - <em>“Show me the air quality trends in New York City over the last month.”</em> This capability enables decision makers to visualize and interpret spatial patterns in real time, allowing them to take informed actions on issues such as climate change or urban infrastructure.</p>
+<p>Companies use conversational queries to examine financial, marketing, and operational data. Questions such as: - <em>“What was our best-selling product in Q3?”</em> Help teams quickly gain actionable insights, streamline reporting, and optimize growth strategies.</p>
+<p>Researchers often work with large, complex datasets, and conversational data analytics can help you access important information more easily. Examples: - <em>“What was the concentration of carbon dioxide in the atmosphere in 2020?”</em> The application supports the scientific community in analyzing trends, validating hypotheses, and improving cross-disciplinary collaboration.</p>
+<p>In healthcare and policymaking, conversational data analytics supports evidence-based decision making by providing easy access to key metrics. Queries like: - <em>“What is the vaccination rate by region?”</em> Help policymakers identify gaps, allocate resources efficiently, and clearly communicate data insights to the public.</p>
+</section>
+<section id="challenges-in-conversational-data-analytics" class="level3">
+<h3 class="anchored" data-anchor-id="challenges-in-conversational-data-analytics">1.3.5. Challenges in Conversational Data Analytics</h3>
+<p>Despite its transformative potential, conversational analytics faces challenges such as privacy concerns over secure data handling, data quality issues with noisy or incomplete inputs, and bias mitigation in sentiment and intent analysis <span class="citation" data-cites="chopra2023conversational griol2018increasing"><a href="#ref-chopra2023conversational" role="doc-biblioref">[13]</a>, <a href="#ref-griol2018increasing" role="doc-biblioref">[14]</a></span>. Addressing these challenges is crucial to maintaining ethical and accurate insights.</p>
+</section>
+<section id="competitive-edge-through-integration" class="level3">
+<h3 class="anchored" data-anchor-id="competitive-edge-through-integration">1.3.6. Competitive Edge Through Integration</h3>
+<p>The integration of conversational AI and analytics transforms unstructured conversational data into actionable intelligence <span class="citation" data-cites="freed2021conversational"><a href="#ref-freed2021conversational" role="doc-biblioref">[10]</a></span>. This synergy enables businesses to refine strategies, improve customer satisfaction, and drive innovation. By leveraging insights from customer interactions, companies can proactively address concerns, optimize operations, and lead in competitive markets.</p>
+</section>
+<section id="benifits-of-conversational-analytics" class="level3">
+<h3 class="anchored" data-anchor-id="benifits-of-conversational-analytics">1.3.7. Benifits of Conversational Analytics</h3>
+<p>Conversational analytics delivers transformative benefits across multiple domains. It simplifies interactions with complex data sets by enabling users to search and receive intuitive, actionable answers in natural language. Conversational systems integrate natural language processing and domain-specific data mining to provide precise, contextual answers <span class="citation" data-cites="freed2021conversational griol2018increasing"><a href="#ref-freed2021conversational" role="doc-biblioref">[10]</a>, <a href="#ref-griol2018increasing" role="doc-biblioref">[14]</a></span>.</p>
+</section>
+</section>
+</section>
+<section id="environmental-queries-in-conversational-data-analytics" class="level1">
+<h1>2. Environmental Queries in Conversational Data Analytics</h1>
+<p>Analyzing conversations related to environmental queries can provide valuable information about public concerns, behaviors, and perceptions regarding environmental issues such as climate change, waste management, renewable energy, or environmental protection <span class="citation" data-cites="mussa2024forestqb keeso2014big mahato2024leveraging griol2017big vald2024integrating"><a href="#ref-mussa2024forestqb" role="doc-biblioref">[15]</a>, <a href="#ref-keeso2014big" role="doc-biblioref">[16]</a>, <a href="#ref-mahato2024leveraging" role="doc-biblioref">[17]</a>, <a href="#ref-griol2017big" role="doc-biblioref">[18]</a>, <a href="#ref-vald2024integrating" role="doc-biblioref">[19]</a></span>. This requires using conversation data analytics to uncover trends and actionable insights.</p>
+<p>Example: <strong>Prompt</strong> - “What was the sea surface temperature of the Mediterranean Sea on Christmas Eve 2021?” <strong>Response</strong> - “The average sea surface temperature in the Mediterranean Sea on Christmas Eve 2021 was approximately 289.78 Kelvin.” <strong>Explanation</strong> - The response provides a precise answer based on analysis of data or environmental records. The temperature is given in Kelvin, which is the standard for scientific measurement, which is approximately 16.63°C (Celsius) when converted. This quick response structure can be used in data-driven queries to extract environmental information, which helps in research related to climate change, marine biology, and oceanography.</p>
+<section id="tools-for-environmental-query-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="tools-for-environmental-query-analysis">2.1. Tools for Environmental Query Analysis</h2>
+<p>Environmental query analysis relies on a diverse range of tools designed to efficiently process and interpret textual, conversational, and visual data <span class="citation" data-cites="mussa2024forestqb"><a href="#ref-mussa2024forestqb" role="doc-biblioref">[15]</a></span>. NLP tools such as SpaCy, NLTK, and Hugging Face Transformers are key to text analysis, while platforms such as Google Dialogflow and IBM Watson enable the development and analysis of conversational interfaces. These tools enable the extraction of insights from environmental data, making complex data sets more accessible.</p>
+<p>To gauge the emotional tone or public sentiment around environmental issues, tools such as MonkeyLearn and Lexalytics are essential. They help analyze sentiment and emotions and uncover trends in public opinion that can help shape environmental policies or campaigns. For spoken queries, speech-to-text solutions such as Amazon Transcribe and Google Speech-to-Text convert audio data into text for further analysis, allowing spoken queries to be seamlessly integrated into data workflows.</p>
+<p>Topic modeling tools, including Latent Dirichlet Allocation (LDA) and BERT-based models <span class="citation" data-cites="datchanamoorthy2023text"><a href="#ref-datchanamoorthy2023text" role="doc-biblioref">[20]</a></span>, play a key role in identifying recurring themes or trends in environmental data, such as discussions about climate change, renewable energy, or biodiversity. Finally, dashboarding and visualization tools such as Tableau, Power BI, and Python libraries such as Matplotlib and Plotly provide a comprehensive way to visually present findings, ensuring that results are both accessible and actionable for stakeholders. Together, these tools enable researchers, policymakers and analysts to address environmental issues with precision and transparency.</p>
+</section>
+<section id="integration-strategies-for-unified-querying-benefits-and-trade-offs-of-query-strategies" class="level2">
+<h2 class="anchored" data-anchor-id="integration-strategies-for-unified-querying-benefits-and-trade-offs-of-query-strategies">2.2. Integration Strategies for Unified Querying, Benefits and Trade-offs of Query Strategies</h2>
+<p>To generate a unified response, conversational systems often draw on multiple data sources, using different technologies to access and process the required information. Key technologies include:</p>
+<ul>
+<li><strong>SQL Queries</strong>: Used for relational data in structured, tabular formats.</li>
+<li><strong>SPARQL Queries</strong>: Designed for querying linked data or RDF (Resource Description Framework) graphs <span class="citation" data-cites="chatterjee2021automatic chatterjee2022personalized"><a href="#ref-chatterjee2021automatic" role="doc-biblioref">[21]</a>, <a href="#ref-chatterjee2022personalized" role="doc-biblioref">[22]</a></span>.</li>
+<li><strong>API Calls</strong>: Employed to access remote or third-party services that provide real-time or pre-processed data.</li>
+<li><strong>GeoSpatial Queries</strong>: Utilized for operations on spatial databases, such as PostGIS or GeoServer, to handle location-based data.</li>
+</ul>
+<p>Each query strategy has its own set of benefits and trade-offs. By strategically integrating the query approaches below, conversational systems can provide robust and contextual answers tailored to the user’s needs while balancing the strengths and weaknesses of each method.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 39%">
+<col style="width: 49%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Query Type</th>
+<th>Advantages</th>
+<th>Limitations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>SQL</strong></td>
+<td>Efficient for structured, tabular datasets.</td>
+<td>Limited flexibility for complex, interconnected relationships.</td>
+</tr>
+<tr class="even">
+<td><strong>SPARQL</strong></td>
+<td>Optimized for linked datasets and semantic queries.</td>
+<td>May require extensive schema knowledge and preprocessing.</td>
+</tr>
+<tr class="odd">
+<td><strong>API Calls</strong></td>
+<td>Real-time data access and integration with external sources.</td>
+<td>Dependency on API availability and potential latency issues.</td>
+</tr>
+<tr class="even">
+<td><strong>GeoSpatial</strong></td>
+<td>Handles spatial indexing and advanced geospatial queries effectively.</td>
+<td>Resource-intensive for large or high-resolution datasets.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="methods-for-analyzing-environmental-conversations" class="level2">
+<h2 class="anchored" data-anchor-id="methods-for-analyzing-environmental-conversations">2.3. Methods for Analyzing Environmental Conversations</h2>
+<p>The key methods are outlined as follows:</p>
+<section id="data-collection" class="level3">
+<h3 class="anchored" data-anchor-id="data-collection">2.3.1. Data Collection</h3>
+<p>To effectively analyze conversations about environmental issues, data must be collected from different relevant sources, including:</p>
+<ul>
+<li><p><strong>Social Media Platforms</strong>: Extract queries and discussions from platforms such as Twitter and Reddit where environmental issues are frequently discussed.</p></li>
+<li><p><strong>Customer Feedback</strong>: Collect feedback on environmentally friendly products to understand consumer concerns and preferences.</p></li>
+<li><p><strong>Help Desk Conversations</strong>: Analyze interactions related to sustainability requests, such as recycling programs or green initiatives.</p></li>
+<li><p><strong>Surveys and Public Forums</strong>: Use structured and unstructured data from surveys and community forums to capture public opinions and discussions on environmental issues.</p></li>
+</ul>
+</section>
+<section id="analysis-techniques" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-techniques">2.3.2. Analysis Techniques</h3>
+<p>The techniques are elaborated as follows:</p>
+<section id="keyword-extraction" class="level4">
+<h4 class="anchored" data-anchor-id="keyword-extraction">2.3.2.1. Keyword Extraction</h4>
+<ul>
+<li>Identify recurring terms and phrases related to environmental issues, such as “climate change,” “renewable energy,” “sustainable practices,” and “recycling.”</li>
+<li>Automatically identify important environmental issues in large datasets using NLP techniques.</li>
+</ul>
+</section>
+<section id="sentiment-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="sentiment-analysis">2.3.2.2. Sentiment Analysis</h4>
+<ul>
+<li>Gauge public sentiment toward specific environmental policies or activities.</li>
+<li>Assess overall positivity or negativity toward topics such as “carbon offset programs” or “electric vehicles.”</li>
+</ul>
+</section>
+<section id="trend-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="trend-analysis">2.3.2.3. Trend Analysis</h4>
+<ul>
+<li>Track changes in interest over time, such as the frequency of mentions of “electric vehicles” or “solar energy” continues to increase.</li>
+<li>Identify emerging trends in environmental discussions that could impact policy or marketing strategies.</li>
+</ul>
+</section>
+<section id="behavioral-segmentation" class="level4">
+<h4 class="anchored" data-anchor-id="behavioral-segmentation">2.3.2.4. Behavioral Segmentation</h4>
+<ul>
+<li><p>Group users or audiences based on what they care about most, for example:</p>
+<ul>
+<li><strong>Water Conservation</strong>: Discussions focused on reducing water waste.</li>
+<li><strong>Energy Efficiency</strong>: Interest in renewable energy or reducing energy consumption.</li>
+<li><strong>Waste Management</strong>: Conversations about recycling and minimizing landfill use.</li>
+</ul></li>
+<li><p>Customize insights and strategies to meet the diverse needs of these user groups.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="analyzing-case-study-example-with-conversational-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analyzing-case-study-example-with-conversational-data-analysis">2.4. Analyzing Case Study Example with Conversational Data Analysis</h2>
+<p>The objective is to present the fundamental processes that enable efficient processing of queries about the environment, from understanding user intent to generating actionable responses and facilitating iterative refinement.</p>
+<section id="natural-language-understanding-nlu" class="level3">
+<h3 class="anchored" data-anchor-id="natural-language-understanding-nlu">2.4.1. Natural Language Understanding (NLU)</h3>
+<p>Natural Language Understanding (NLU) interprets user intent and extracts relevant keywords, entities, and relationships from a question. This step translates unstructured queries into structured components that enable data retrieval and analysis.</p>
+<ul>
+<li><strong>Named Entity Recognition (NER)</strong>: Identifies entities like locations, dates, and weather parameters (e.g., temperature, humidity, wind speed).</li>
+<li><strong>Intent Classification</strong>: Determines the purpose of the query, such as requesting historical weather data or a current forecast.</li>
+</ul>
+<p><strong>Example - 1</strong>: Parsing the query, <em>“What was the sea surface temperature in the Mediterranean Sea on Christmas Eve 2021?”</em>, into actionable components: - <strong>Region</strong>: Mediterranean Sea - <strong>Date</strong>: Christmas Eve 2021 - <strong>Metric</strong>: Sea surface temperature</p>
+<p><strong>Example - 2</strong>: <em>“What was the temperature in New York City yesterday at noon?”</em> into actionable components: - <strong>Location</strong>: New York City - <strong>Date</strong>: Yesterday (also extract current date from the system in local date-time) - <strong>Time</strong>: Noon - <strong>Metric</strong>: Environment Temperature</p>
+</section>
+<section id="data-querying" class="level3">
+<h3 class="anchored" data-anchor-id="data-querying">2.4.2. Data Querying</h3>
+<p>Once the query is parsed, it is converted into actions performed on the appropriate data sets. This process uses different technologies depending on the data type. Moreover, the query layer can use middleware to abstract the complexity of dynamically switching between these sources.</p>
+<ul>
+<li><strong>SQL</strong>: For querying structured tabular datasets.</li>
+<li><strong>SPARQL</strong>: For retrieving information from semantic or linked data.</li>
+<li><strong>API Calls</strong>: For accessing dynamic or external data sources in real-time.</li>
+<li><strong>Time-Series Databases</strong>: Retrieves historical trends or forecasts from systems like InfluxDB or TimescaleDB.</li>
+</ul>
+<p>Example API call response:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"dataset"</span><span class="fu">:</span> <span class="st">"sea_surface_temperature"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"region"</span><span class="fu">:</span> <span class="st">"Mediterranean"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"date"</span><span class="fu">:</span> <span class="st">"2023-01-01"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"metadata"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"spatial_resolution"</span><span class="fu">:</span> <span class="st">"1km"</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"temporal_resolution"</span><span class="fu">:</span> <span class="st">"daily"</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"units"</span><span class="fu">:</span> <span class="st">"Celsius"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example SQL result:</p>
+<pre class="plaintext"><code>avg_temperature   region         date
+15.5              Mediterranean  2023-01-01
+16.0              Mediterranean  2023-01-02</code></pre>
+<p>Example SPARQL response:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"results"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"bindings"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"region"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"value"</span><span class="fu">:</span> <span class="st">"Mediterranean"</span><span class="fu">},</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"temperature"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"value"</span><span class="fu">:</span> <span class="st">"15.5"</span><span class="fu">},</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"date"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"value"</span><span class="fu">:</span> <span class="st">"2023-01-01"</span><span class="fu">}</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"region"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"value"</span><span class="fu">:</span> <span class="st">"Mediterranean"</span><span class="fu">},</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"temperature"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"value"</span><span class="fu">:</span> <span class="st">"16.0"</span><span class="fu">},</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"date"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"value"</span><span class="fu">:</span> <span class="st">"2023-01-02"</span><span class="fu">}</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example Time-Series database result:</p>
+<pre class="plaintext"><code>timestamp           region         temperature (Celsius)
+2023-01-01T00:00    Mediterranean  15.5
+2023-01-01T12:00    Mediterranean  16.0
+2023-01-02T00:00    Mediterranean  15.8
+2023-01-02T12:00    Mediterranean  16.2</code></pre>
+</section>
+<section id="data-integration" class="level3">
+<h3 class="anchored" data-anchor-id="data-integration">2.4.3. Data Integration</h3>
+<p>Once queried, results from different sources are combined to generate a unified response. This step involves:</p>
+<ul>
+<li><strong>Harmonizing Data</strong>: Standardizing formats, units, and relationships across datasets.</li>
+<li><strong>Contextual Relevance</strong>: Ensuring the integrated data aligns with the user’s query context.</li>
+<li><strong>Conflict Resolution</strong>: Reconciling discrepancies between overlapping data sources.</li>
+<li><strong>Geospatial Context</strong>: Matching query location with geographic data using spatial indexing (e.g., PostGIS) for precise results.</li>
+</ul>
+</section>
+<section id="response-generation" class="level3">
+<h3 class="anchored" data-anchor-id="response-generation">2.4.4. Response Generation</h3>
+<p>Processed data is delivered to the user in an accessible and user-friendly format, which increases the clarity and usability of the results. Examples include:</p>
+<ul>
+<li><strong>Textual Responses</strong>: E.g., <em>“The average sea surface temperature was 289.78 Kelvin.”</em>, <em>“The temperature in New York City yesterday at noon was 295.15 Kelvin (22°C).”</em>.</li>
+<li><strong>Visualizations</strong>: Graphs, maps, or time-series plots to provide richer context and support visual learning.
+<ul>
+<li><strong>Line Graphs</strong>: Depicting temperature changes over time.</li>
+<li><strong>Heatmaps</strong>: Showing spatial distribution of weather parameters.</li>
+</ul></li>
+</ul>
+</section>
+<section id="iterative-feedback-loops" class="level3">
+<h3 class="anchored" data-anchor-id="iterative-feedback-loops">2.4.5. Iterative Feedback Loops</h3>
+<p>Interactive systems allow users to refine their queries based on feedback from the system, ensuring greater accuracy and relevance. For example:</p>
+<ul>
+<li>System prompt: <em>“Did you mean the eastern Mediterranean?”</em></li>
+<li>User refinement: <em>“Yes, focus on the eastern region.”</em></li>
+</ul>
+<p>The system adjusts queries based on user feedback, dynamically limits data sources, and refines answers.</p>
+</section>
+</section>
+</section>
+<section id="recommendations-for-metadata-geo-data-unified-query-integration-and-response-formation" class="level1">
+<h1>3. Recommendations for Metadata, Geo-Data, Unified Query Integration, and Response Formation</h1>
+<p>Powerful conversational data analytics systems can revolutionize the way cities, researchers, and policymakers access data. By integrating query strategies from multiple sources (SQL, SPARQL, APIs) and implementing best practices for metadata and geospatial data, organizations can provide consistent, context-rich answers to make informed decisions.</p>
+<section id="metadata-strategies" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-strategies">3.1. Metadata Strategies</h2>
+<ul>
+<li><strong>Standardization</strong>: Adopt international metadata standards such as ISO 19115 or INSPIRE <span class="citation" data-cites="ruuvzivcka2008iso"><a href="#ref-ruuvzivcka2008iso" role="doc-biblioref">[23]</a></span> to ensure consistency across data sources.</li>
+<li><strong>Semantic Metadata</strong>: Enrich metadata with ontologies and domain-specific vocabularies such as the W3C Geospatial Vocabulary <span class="citation" data-cites="homburg2024geowebannotations"><a href="#ref-homburg2024geowebannotations" role="doc-biblioref">[24]</a></span> to improve query relevance and integration.</li>
+<li><strong>Dynamic Metadata</strong>: Include temporal metadata such as timestamps and quality indicators to preserve the contextual and temporal accuracy of datasets.</li>
+</ul>
+</section>
+<section id="geo-data-strategies" class="level2">
+<h2 class="anchored" data-anchor-id="geo-data-strategies">3.2. Geo-Data Strategies</h2>
+<ul>
+<li><strong>Data Structuring</strong>: Use spatial and temporal indexing techniques (e.g.&nbsp;R-trees, B-trees) to improve query efficiency and performance.</li>
+<li><strong>Multi-Resolution Data</strong>: Maintain datasets at different resolutions to accommodate different levels of query granularity and user needs.</li>
+<li><strong>Interoperability</strong>: Leverage open data standards such as GeoJSON, NetCDF, or HDF5 to facilitate seamless sharing and reuse of geospatial data across systems. Moreover, it standardizes units, such as <strong>Kelvin for temperature</strong> or meters for distance, to facilitate consistent query results.</li>
+<li><strong>Temporal Granularity</strong>: It supports flexible temporal scales to match query requirements. Example: <em>“Mediterranean Sea → Europe → World.”</em> This structure ensures queries can be processed at varying spatial scales, enhancing contextual relevance.</li>
+<li><strong>Spatial Context Linking</strong>: It incorporates hierarchical ontologies to provide spatial context and enable multi-level analysis. Example: <em>“Mediterranean Sea → Europe → World.”</em> This structure ensures queries can be processed at varying spatial scales, enhancing contextual relevance.</li>
+<li><strong>Geospatial Data Catalogs</strong>: It organizes datasets with detailed metadata to enhance searchability and usability. Data can be cataloged by attributes such as <strong>region, time, and resolution</strong> for streamlined access. Example: Organize datasets for <em>“Mediterranean Sea, Winter 2021, 10km resolution”</em> to ensure users can quickly locate the appropriate data.</li>
+</ul>
+</section>
+<section id="unified-query-integration" class="level2">
+<h2 class="anchored" data-anchor-id="unified-query-integration">3.3. Unified Query Integration</h2>
+<p>Combining multiple query types is key to generating comprehensive and meaningful answers. Recommended approaches include:</p>
+<ul>
+<li><strong>Middleware Integration Layer</strong>: Develop a middleware system to manage SQL, SPARQL, and API calls, combining the results into unified answers.</li>
+<li><strong>Query Orchestration Frameworks</strong>: Use frameworks such as Apache NiFi, GraphQL, or Apache Airflow <span class="citation" data-cites="ashraf2023key"><a href="#ref-ashraf2023key" role="doc-biblioref">[25]</a></span> to automate and synchronize the execution of different queries.</li>
+<li><strong>Data Federation</strong>: Use frameworks such as Presto or Apache Drill to enable querying across heterogeneous and distributed data sources.</li>
+</ul>
+</section>
+<section id="efficient-response-combination" class="level2">
+<h2 class="anchored" data-anchor-id="efficient-response-combination">3.4. Efficient Response Combination</h2>
+<p>Combining and refining query results ensures accurate, relevant, and user-friendly answers.</p>
+<section id="contextual-data-prioritization" class="level3">
+<h3 class="anchored" data-anchor-id="contextual-data-prioritization">3.4.1. Contextual Data Prioritization</h3>
+<ul>
+<li>Focus on records most relevant to the query context. For example, prioritize high-resolution geospatial data for spatial queries.</li>
+<li>Leverage metadata relevance scores to effectively rank and filter query results.</li>
+</ul>
+</section>
+<section id="result-harmonization" class="level3">
+<h3 class="anchored" data-anchor-id="result-harmonization">3.4.2. Result Harmonization</h3>
+<ul>
+<li>Standardize units (Kelvin, Celsius, Fahrenheit, etc.) and format before displaying query results.</li>
+<li>Apply weighted averages or domain-specific resolution rules to reconcile discrepancies between data sets.</li>
+</ul>
+</section>
+<section id="ai-driven-synthesis" class="level3">
+<h3 class="anchored" data-anchor-id="ai-driven-synthesis">3.4.3. AI-Driven Synthesis</h3>
+<ul>
+<li>Use machine learning models, such as Transformers that convert raw query results into coherent, user-friendly answers.</li>
+<li>Apply contextual architecture to ensure answers are accurate, well-structured, and relevant.</li>
+</ul>
+</section>
+</section>
+<section id="benefits-of-unified-query-and-response-strategies" class="level2">
+<h2 class="anchored" data-anchor-id="benefits-of-unified-query-and-response-strategies">3.5. Benefits of Unified Query and Response Strategies</h2>
+<p>A unified query and response strategy improves accuracy, context awareness, user experience, and data reusability while enabling seamless integration and scalability across disparate data sources.</p>
+<ul>
+<li><strong>Improved accuracy and completeness</strong>: Integrating multiple data sources reduces information gaps and ensures more comprehensive responses.</li>
+<li><strong>Improved context-awareness</strong>: Contextual prioritization ensures that the system uses the most relevant records for a given query.</li>
+<li><strong>Optimized user experience</strong>: Unified responses (text and visual) improve user trust, clarity, and satisfaction.</li>
+<li><strong>Extensibility</strong>: Middleware and query orchestration frameworks make it easier to integrate new data sources and expand geographic coverage.</li>
+<li><strong>Data reusability</strong>: Standardized metadata and geospatial data formats promote interoperability and ensure long-term usability and flexibility of evolving systems.</li>
+</ul>
+</section>
+</section>
+<section id="implementation-roadmap" class="level1">
+<h1>4. Implementation Roadmap</h1>
+<p>The implementation roadmap outlines a step-by-step approach to building, testing, and optimizing a multi-source query system, ensuring scalability, accuracy, and user-centric performance.</p>
+<section id="phase-1-build-multi-source-query-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="phase-1-build-multi-source-query-infrastructure">Phase 1: Build Multi-Source Query Infrastructure</h2>
+<ul>
+<li>Develop middleware to integrate SQL, SPARQL, and API query capabilities.</li>
+<li>Create metadata schema to support consistent queries across different data sources.</li>
+</ul>
+</section>
+<section id="phase-2-prototyping" class="level2">
+<h2 class="anchored" data-anchor-id="phase-2-prototyping">Phase 2: Prototyping</h2>
+<ul>
+<li>Developed a conversational interface to translate user queries into multi-source queries.</li>
+<li>Implemented prioritization and reconciliation mechanisms to handle different query results.</li>
+</ul>
+</section>
+<section id="phase-3-testing-and-feedback" class="level2">
+<h2 class="anchored" data-anchor-id="phase-3-testing-and-feedback">Phase 3: Testing and Feedback</h2>
+<ul>
+<li>Conduct pilot tests with real-world geospatial and rich metadata queries.</li>
+<li>Incorporate user feedback to improve system accuracy, responsiveness, and contextual understanding.</li>
+</ul>
+</section>
+<section id="phase-4-extension-and-optimization" class="level2">
+<h2 class="anchored" data-anchor-id="phase-4-extension-and-optimization">Phase 4: Extension and Optimization</h2>
+<ul>
+<li>Expand support for additional data sources and geographies.</li>
+<li>Optimize infrastructure for higher performance, reliability, and scalability.</li>
+</ul>
+</section>
+</section>
+<section id="challanges" class="level1">
+<h1>5. Challanges</h1>
+<p>Analyzing environmental conversations is complex due to data sensitivity, context variability, and multilingual barriers.</p>
+<section id="data-sensitivity" class="level2">
+<h2 class="anchored" data-anchor-id="data-sensitivity">5.1. Data Sensitivity</h2>
+<p>Environmental conversations often include discussions of sensitive topics, such as disaster response strategies, environmental justice, or contentious political debates. Handling such data requires careful consideration of ethical and privacy issues to ensure that sensitive information is not misused or misunderstood.</p>
+</section>
+<section id="contextual-complexity" class="level2">
+<h2 class="anchored" data-anchor-id="contextual-complexity">5.2. Contextual Complexity</h2>
+<p>Environmental terms can have different meanings depending on the context and user background. For example, the word “green” may refer to environmental practices in one conversation and economic incentives in another. This complexity requires advanced disambiguation techniques to ensure accurate analysis.</p>
+</section>
+<section id="language-barriers" class="level2">
+<h2 class="anchored" data-anchor-id="language-barriers">5.3. Language Barriers</h2>
+<p>Conversations on environmental issues often take place in different languages on global platforms. Effective analysis requires a powerful multilingual NLP model that can understand idiomatic expressions and cultural nuances in multiple languages.</p>
+</section>
+</section>
+<section id="potential-insights-from-environmental-queries" class="level1">
+<h1>6. Potential Insights from Environmental Queries</h1>
+<p>Environmental issues reveal policy gaps, assess public engagement, and provide feedback on environmentally friendly products and services.</p>
+<section id="political-gaps" class="level2">
+<h2 class="anchored" data-anchor-id="political-gaps">6.1. Political Gaps</h2>
+<p>Environmental requests can reveal unmet public needs, such as requests for improved waste disposal systems, access to clean energy, or improved disaster preparedness plans. Identifying these gaps can help policymakers prioritize and effectively address pressing issues.</p>
+</section>
+<section id="public-engagement" class="level2">
+<h2 class="anchored" data-anchor-id="public-engagement">6.2. Public Engagement</h2>
+<p>By analyzing conversations, organizations can assess the effectiveness of environmental awareness campaigns in promoting behavioral change. Indicators such as sentiment swings or increased mentions of certain practices, such as recycling or reducing plastic consumption, can indicate a campaign’s success.</p>
+</section>
+<section id="product-feedback" class="level2">
+<h2 class="anchored" data-anchor-id="product-feedback">6.3. Product Feedback</h2>
+<p>Environmental surveys provide valuable insights into consumer perceptions of environmentally friendly products or services. For example, feedback on eco-friendly packaging or devices that use renewable energy can lead to product improvements and identify innovation opportunities.</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>7. Conclusion</h1>
+<p>The comprehensive exploration of conversational data analytics demonstrates its transformative potential in solving complex queries and generating actionable insights across domains, particularly in geospatial and environmental research. By integrating technologies such as NLU, data query frameworks, and advanced data integration strategies, conversational systems enable users to interact with complex data sets using intuitive natural language interfaces. These systems connect non-technical users to advanced data analytics, enabling seamless information exchange. The incorporation of metadata, geographic data, and unified query techniques provides contextual accuracy and relevance to answers while addressing the inherent challenges of data heterogeneity. Metadata standardization strategies, dynamic geographic data management, and conflict resolution in multi-source integration significantly increase the reliability and completeness of the insights generated. In addition, iterative feedback loops allow users to refine queries, delivering personalized and precise results tailored to specific needs.</p>
+<p>From identifying policy gaps and social sentiment in environmental contexts to enabling real-time data access and visualization for city planning and disaster management, conversational data analytics offers a variety of applications. Leveraging AI-driven synthesis and generating context-aware responses ensures that insights are not only accurate but also presented in a user-friendly manner, which improves decision-making and stakeholder engagement. However, addressing issues such as data sensitivity, contextual complexity, and multilingual barriers are critical to maintaining the ethical and technical integrity of these systems. By implementing a phased roadmap for infrastructure development, prototyping, and scaling, organizations can leverage the full potential of conversational data analytics, supporting innovation and sustainability across disciplines.</p>
+</section>
+</div>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-pattyam2021ai" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">S. P. Pattyam, <span>“AI-enhanced natural language processing: Techniques for automated text analysis, sentiment detection, and conversational agents,”</span> <em>Journal of Artificial Intelligence Research and Applications</em>, vol. 1, no. 1, pp. 371–406, 2021.</div>
+</div>
+<div id="ref-ibm" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">ibm Project, <span>“What is conversational analytics?”</span> 2024. Available: <a href="https://www.ibm.com/think/topics/conversational-analytics">https://www.ibm.com/think/topics/conversational-analytics</a></div>
+</div>
+<div id="ref-dimensionlabs" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">C. Analytics, <span>“Conversation analytics: What it is and why it matters.”</span> 2024. Available: <a href="https://www.dimensionlabs.io/blog/conversation-analytics">https://www.dimensionlabs.io/blog/conversation-analytics</a></div>
+</div>
+<div id="ref-getthematic" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">getthematic, <span>“How conversational analytics works and how you can implement it.”</span> 2024. Available: <a href="https://getthematic.com/insights/conversational-analytics/">https://getthematic.com/insights/conversational-analytics/</a></div>
+</div>
+<div id="ref-convAI" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">IBM, <span>“What is conversational AI?”</span> 2024. Available: <a href="https://www.ibm.com/think/topics/conversational-ai">https://www.ibm.com/think/topics/conversational-ai</a></div>
+</div>
+<div id="ref-Google" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">Google, <span>“Conversational AI for richer, more intuitive experiences.”</span> 2024. Available: <a href="https://cloud.google.com/conversational-ai">https://cloud.google.com/conversational-ai</a></div>
+</div>
+<div id="ref-gao2018neural" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">J. Gao, M. Galley, and L. Li, <span>“Neural approaches to conversational AI,”</span> in <em>The 41st international ACM SIGIR conference on research &amp; development in information retrieval</em>, 2018, pp. 1371–1374.</div>
+</div>
+<div id="ref-fu2022learning" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">T. Fu, S. Gao, X. Zhao, J. Wen, and R. Yan, <span>“Learning towards conversational AI: A survey,”</span> <em>AI Open</em>, vol. 3, pp. 14–28, 2022.</div>
+</div>
+<div id="ref-kulkarni2019conversational" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">P. Kulkarni, A. Mahabaleshwarkar, M. Kulkarni, N. Sirsikar, and K. Gadgil, <span>“Conversational AI: An overview of methodologies, applications &amp; future scope,”</span> in <em>2019 5th international conference on computing, communication, control and automation (ICCUBEA)</em>, IEEE, 2019, pp. 1–7.</div>
+</div>
+<div id="ref-freed2021conversational" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">A. Freed, <em>Conversational ai</em>. Simon; Schuster, 2021.</div>
+</div>
+<div id="ref-bataineh2023enhancing" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">A. Q. Bataineh, I. A. Abu-AlSondos, L. Almazaydeh, S. S. El Mokdad, and M. Allahham, <span>“Enhancing natural language processing with machine learning for conversational AI,”</span> in <em>IET conference proceedings CP870</em>, IET, 2023, pp. 229–237.</div>
+</div>
+<div id="ref-sharifani2022operating" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[12] </div><div class="csl-right-inline">K. Sharifani, M. Amini, Y. Akbari, and J. Aghajanzadeh Godarzi, <span>“Operating machine learning across natural language processing techniques for improvement of fabricated news model,”</span> <em>International Journal of Science and Information System Research</em>, vol. 12, no. 9, pp. 20–44, 2022.</div>
+</div>
+<div id="ref-chopra2023conversational" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[13] </div><div class="csl-right-inline">B. Chopra <em>et al.</em>, <span>“Conversational challenges in ai-powered data science: Obstacles, needs, and design opportunities,”</span> <em>arXiv preprint arXiv:2310.16164</em>, 2023.</div>
+</div>
+<div id="ref-griol2018increasing" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[14] </div><div class="csl-right-inline">D. Griol and Z. Callejas, <span>“Increasing the role of data analytics in m-learning conversational applications,”</span> <em>Software Data Engineering for Network eLearning Environments: Analytics and Awareness Learning Services</em>, pp. 93–113, 2018.</div>
+</div>
+<div id="ref-mussa2024forestqb" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[15] </div><div class="csl-right-inline">O. Mussa, O. Rana, B. Goossens, P. Orozco Ter Wengel, and C. Perera, <span>“ForestQB: Enhancing linked data exploration through graphical and conversational UIs integration,”</span> <em>ACM Journal on Computing and Sustainable Societies</em>, vol. 2, no. 3, pp. 1–33, 2024.</div>
+</div>
+<div id="ref-keeso2014big" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[16] </div><div class="csl-right-inline">A. Keeso, <span>“Big data and environmental sustainability: A conversation starter,”</span> <em>Smith School Working Paper Series</em>. University of Oxford, pp. 2014–04, 2014.</div>
+</div>
+<div id="ref-mahato2024leveraging" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[17] </div><div class="csl-right-inline">M. Mahato, U. Bharambe, S. Govilkar, C. Dhavale, and L. Moharkar, <span>“Leveraging big data analytics and conversational AI for agriculture,”</span> in <em>Big data computing</em>, CRC Press, 2024, pp. 180–195.</div>
+</div>
+<div id="ref-griol2017big" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[18] </div><div class="csl-right-inline">D. Griol, J. M. Molina, and Z. Callejas, <span>“Big data for conversational interfaces: Current opportunities and prospects,”</span> <em>Big Data Management</em>, pp. 103–121, 2017.</div>
+</div>
+<div id="ref-vald2024integrating" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[19] </div><div class="csl-right-inline">G. M. Vald <em>et al.</em>, <span>“Integrating conversational AI agents for enhanced water quality analytics: Development of a novel data expert system,”</span> 2024.</div>
+</div>
+<div id="ref-datchanamoorthy2023text" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[20] </div><div class="csl-right-inline">K. Datchanamoorthy <em>et al.</em>, <span>“TEXT MINING: CLUSTERING USING BERT AND PROBABILISTIC TOPIC MODELING,”</span> <em>Social Informatics Journal</em>, vol. 2, no. 2, pp. 1–13, 2023.</div>
+</div>
+<div id="ref-chatterjee2021automatic" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[21] </div><div class="csl-right-inline">A. Chatterjee, A. Prinz, M. Gerdes, and S. Martinez, <span>“An automatic ontology-based approach to support logical representation of observable and measurable data for healthy lifestyle management: Proof-of-concept study,”</span> <em>Journal of Medical Internet Research</em>, vol. 23, no. 4, p. e24656, 2021.</div>
+</div>
+<div id="ref-chatterjee2022personalized" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[22] </div><div class="csl-right-inline">A. Chatterjee and A. Prinz, <span>“Personalized recommendations for physical activity e-coaching (OntoRecoModel): Ontological modeling,”</span> <em>JMIR Medical Informatics</em>, vol. 10, no. 6, p. e33847, 2022.</div>
+</div>
+<div id="ref-ruuvzivcka2008iso" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[23] </div><div class="csl-right-inline">J. Ržička, <span>“ISO 19115 for GeoWeb services orchestration,”</span> <em>Geoinformatics FCE CTU</em>, vol. 3, pp. 51–66, 2008.</div>
+</div>
+<div id="ref-homburg2024geowebannotations" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[24] </div><div class="csl-right-inline">T. Homburg, <span>“GeoWebAnnotations: Extending the W3C web annotation data model to annotate geospatial data,”</span> 2024.</div>
+</div>
+<div id="ref-ashraf2023key" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[25] </div><div class="csl-right-inline">A. Ashraf, A. Hassan, and H. Mahdi, <span>“Key lessons from microservices for data mesh adoption,”</span> in <em>2023 international mobile, intelligent, and ubiquitous computing conference (MIUCC)</em>, IEEE, 2023, pp. 1–8.</div>
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
