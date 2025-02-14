@@ -1,0 +1,50 @@
+name: Quarto Markdown Render, Generate Sitemap, and Deploy
+
+on:
+  push:
+    paths:
+      - 'src/**/*.qmd'  # Trigger the action only when .qmd files are modified or pushed
+  pull_request:
+    paths:
+      - 'src/**/*.qmd'  # Also trigger on pull requests that modify .qmd files
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Quarto
+        run: |
+          #wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.551/quarto-1.4.551-linux-amd64.deb
+          #sudo dpkg -i quarto-1.4.551-linux-amd64.deb
+
+          wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.7.12/quarto-1.7.12-linux-arm64.deb
+          sudo dpkg -i quarto-1.7.12-linux-arm64.deb
+
+      - name: install TinyTeX
+        run: |
+          wget -qO- "https://yihui.org/tinytex/install-bin-unix.sh" | sh
+
+      - name: Install OpenOffice (soffice)
+        run: |
+          sudo apt update
+          sudo apt install -y libreoffice libreoffice-common libreoffice-writer fonts-dejavu
+
+      - name: Render all Quarto, Markdown, and Jupyter files to HTML/DOCX/PDF
+        run: |
+          quarto render
+
+      - name: Convert .docx to .pdf with soffice
+        run: |
+          chmod +x scripts/convert_docx_to_pdf.sh
+          ./scripts/convert_docx_to_pdf.sh
+
+      - name: Deploy to GitHub Pages (gh-pages-test branch)
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages-test  # Push to gh-pages-test before approved go-live
+          folder: _site

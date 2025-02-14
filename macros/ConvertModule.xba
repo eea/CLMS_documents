@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="ConvertModule" script:language="StarBasic">
+
+REM ***** BASIC *****
+Sub UpdateTOCAndExportToPDF()
+    Dim document As Object
+    Dim dispatcher As Object
+    document = ThisComponent
+    dispatcher = createUnoService("com.sun.star.frame.DispatchHelper")
+
+    ' Update all fields, including the TOC
+    dispatcher.executeDispatch(document.CurrentController.Frame, ".uno:UpdateAll", "", 0, Array())
+
+    ' Save as PDF
+    Dim args(1) As New com.sun.star.beans.PropertyValue
+    args(0).Name = "FilterName"
+    args(0).Value = "writer_pdf_Export"
+    args(1).Name = "FilterData"
+    args(1).Value = Array()
+    document.storeToURL(Replace(ThisComponent.URL, ".docx", ".pdf"), args)
+
+    ' Close document (important to avoid hanging)
+    document.close(True)
+End Sub
+
+</script:module>
