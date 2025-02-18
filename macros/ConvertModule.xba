@@ -3,14 +3,20 @@
 <script:module xmlns:script="http://openoffice.org/2000/script" script:name="ConvertModule" script:language="StarBasic">
 
 REM ***** BASIC *****
+
 Sub UpdateTOCAndExportToPDF()
+    On Error Goto ErrorHandler
     Dim document As Object
     Dim dispatcher As Object
+
     document = ThisComponent
     dispatcher = createUnoService("com.sun.star.frame.DispatchHelper")
 
     ' Update all fields, including the TOC
     dispatcher.executeDispatch(document.CurrentController.Frame, ".uno:UpdateAll", "", 0, Array())
+
+    ' Give time for updates to complete
+    Sleep 7000
 
     ' Save as PDF
     Dim args(1) As New com.sun.star.beans.PropertyValue
@@ -18,10 +24,25 @@ Sub UpdateTOCAndExportToPDF()
     args(0).Value = "writer_pdf_Export"
     args(1).Name = "FilterData"
     args(1).Value = Array()
-    document.storeToURL(Replace(ThisComponent.URL, ".docx", ".pdf"), args)
 
-    ' Close document (important to avoid hanging)
+    'Dim pdfURL As String
+    pdfURL = Replace(ThisComponent.URL, ".docx", ".pdf")
+    If pdfURL = "" Then
+        Exit Sub
+    End If
+    document.storeToURL(pdfURL, args)
+
+    ' Allow PDF export to finish
+    Sleep 50000
+
+    ' Close document
+    document.setModified(False)
     document.close(True)
+    Exit Sub
+
+ErrorHandler:
+    Resume Next
+
 End Sub
 
 </script:module>
