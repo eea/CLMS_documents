@@ -32,9 +32,9 @@ jobs:
 
       - name: Install OpenOffice (soffice)
         run: |
-          sudo apt update
-          sudo apt install -y libreoffice libreoffice-common libreoffice-writer fonts-dejavu
-          sudo apt install coreutils procps
+          apt update &&
+          apt install -y libreoffice libreoffice-common libreoffice-writer fonts-dejavu &&
+          apt install -y coreutils procps
 
       - name: Render all Quarto, Markdown, and Jupyter files to HTML/DOCX/PDF
         run: |
@@ -42,12 +42,12 @@ jobs:
 
       - name: Convert .docx to .pdf with soffice
         run: |
-          #pkill soffice
           chmod +x scripts/convert_docx_to_pdf.sh
+          timeout 3s ./scripts/convert_docx_to_pdf.sh || true
           timeout 10m ./scripts/convert_docx_to_pdf.sh
 
-      #- name: Deploy to GitHub Pages (gh-pages-test branch)
-      #  uses: JamesIves/github-pages-deploy-action@v4
-      #  with:
-      #    branch: gh-pages-test  # Push to gh-pages-test before approved go-live
-      #    folder: _site
+      - name: Deploy to GitHub Pages (gh-pages-test branch)
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages-test  # Push to gh-pages-test before approved go-live
+          folder: _site

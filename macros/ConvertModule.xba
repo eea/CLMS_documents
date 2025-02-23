@@ -2,47 +2,57 @@
 <!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
 <script:module xmlns:script="http://openoffice.org/2000/script" script:name="ConvertModule" script:language="StarBasic">
 
-REM ***** BASIC *****
+  REM ***** BASIC *****
 
-Sub UpdateTOCAndExportToPDF()
-    On Error Goto ErrorHandler
-    Dim document As Object
-    Dim dispatcher As Object
+  Sub UpdateTOCAndExportToPDF()
 
-    document = ThisComponent
-    dispatcher = createUnoService("com.sun.star.frame.DispatchHelper")
+      Dim document As Object
+      'Dim dispatcher As Object
 
-    ' Update all fields, including the TOC
-    dispatcher.executeDispatch(document.CurrentController.Frame, ".uno:UpdateAll", "", 0, Array())
+      document = ThisComponent
 
-    ' Give time for updates to complete
-    Sleep 7000
+      ' Update TOC and wait for TOC updates to complete
+      dispatcher = createUnoService("com.sun.star.frame.DispatchHelper")
+      dispatcher.executeDispatch(document.CurrentController.Frame, ".uno:UpdateAll", "", 0, Array())
 
-    ' Save as PDF
-    Dim args(1) As New com.sun.star.beans.PropertyValue
-    args(0).Name = "FilterName"
-    args(0).Value = "writer_pdf_Export"
-    args(1).Name = "FilterData"
-    args(1).Value = Array()
 
-    'Dim pdfURL As String
-    pdfURL = Replace(ThisComponent.URL, ".docx", ".pdf")
-    If pdfURL = "" Then
-        Exit Sub
-    End If
-    document.storeToURL(pdfURL, args)
+      ' Generate PDF file path
+      pdfURL = Replace(ThisComponent.URL, ".docx", ".pdf")
 
-    ' Allow PDF export to finish
-    Sleep 50000
+	  ' If no valid file path, close document immediately
+	  If pdfURL = "" Then
+	    document.setModified(False)
+	    document.close(True)
+	    Exit Sub
+	  End If
 
-    ' Close document
-    document.setModified(False)
-    document.close(True)
-    Exit Sub
+      ' Ensure any existing PDF is deleted before exporting
+      fileSystem = createUnoService("com.sun.star.ucb.SimpleFileAccess")
+      If fileSystem.exists(pdfURL) Then
+          fileSystem.kill(pdfURL)
+      End If
 
-ErrorHandler:
-    Resume Next
+      ' Save as PDF
+      Dim args(1) As New com.sun.star.beans.PropertyValue
+      args(0).Name = "FilterName"
+      args(0).Value = "writer_pdf_Export"
+      args(1).Name = "FilterData"
+      args(1).Value = Array()
+      document.storeToURL(pdfURL, args)
 
-End Sub
+      ' Allow PDF export to finish (timeout after 15s)
+      startTime = Timer
+      Do While Not fileSystem.exists(pdfURL)
+          If Timer > startTime + 10 Then '
+              Exit Do
+          End If
+          Wait 1000 ' Check every second
+      Loop
+
+      ' Close document
+      document.setModified(False)
+      document.close(True)
+
+  End Sub
 
 </script:module>
