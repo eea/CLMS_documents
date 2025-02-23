@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
@@ -204,17 +204,8 @@ window.Quarto = {
      <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
        <option value="" disabled="" selected="" hidden="">Order By</option>
        <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
          <option value="listing-title-sort" data-direction="asc">
           Title
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
         </option>
      </select>
   </div>
@@ -227,26 +218,14 @@ window.Quarto = {
 <thead>
 <tr>
 <th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
-<th>
 <a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
 </th>
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1665014400000" data-listing-file-modified-sort="1740338158753" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3236" data-listing-title-sort="Product SHORT NAME ALGORITHM THEORETICAL BASIS DOCUMENT (ATBD)" data-listing-filename-sort="CLMS_ATBD_Template.qmd">
-<td>
-<span class="listing-date">Oct 6, 2022</span>
-</td>
+<tr data-index="0" data-listing-date-sort="1665014400000" data-listing-file-modified-sort="1740340152964" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3236" data-listing-title-sort="Product SHORT NAME ALGORITHM THEORETICAL BASIS DOCUMENT (ATBD)" data-listing-filename-sort="CLMS_ATBD_Template.qmd">
 <td>
 <a href="../../../src/templates/ATBD/CLMS_ATBD_Template.html" class="title listing-title">Product SHORT NAME ALGORITHM THEORETICAL BASIS DOCUMENT (ATBD)</a>
-</td>
-<td>
-<span class="listing-author">CLMS </span>
 </td>
 </tr>
 </tbody>
