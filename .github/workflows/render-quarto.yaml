@@ -28,12 +28,13 @@ jobs:
 
       - name: install TinyTeX
         run: |
-          wget -qO- "https://yihui.org/tinytex/install-bin-unix.sh" | sh
+          sudo wget -qO- "https://yihui.org/tinytex/install-bin-unix.sh" | sh
 
       - name: Install OpenOffice (soffice)
         run: |
-          apt install -y libreoffice libreoffice-common libreoffice-writer fonts-dejavu
-          apt install -y coreutils procps
+          sudo update
+          sudo apt install -y libreoffice libreoffice-common libreoffice-writer fonts-dejavu
+          sudo apt install -y coreutils procps
 
       - name: Render all Quarto, Markdown, and Jupyter files to HTML/DOCX/PDF
         run: |
