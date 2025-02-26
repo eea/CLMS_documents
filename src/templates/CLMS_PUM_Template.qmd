@@ -14,17 +14,27 @@ tbl-colwidths: auto
 fig-align: center
 product-name: Product Name
 format:
-  html:
-    css: ../../styles/styles.css          # Optional: Custom CSS file for styling
-    code-fold: true          # Allow code blocks to be foldable
-    self-contained: true     # Embed resources like CSS and images
+  #html:
+  #  css: ../styles/styles.css          # Optional: Custom CSS file for styling
+  #  code-fold: true          # Allow code blocks to be foldable
+  #  self-contained: true     # Embed resources like CSS and images
+  pdf: default  
   docx:
-    reference-doc: ../../styles/template-pum.docx
+    reference-doc: ../styles/template-pum.docx
     toc-location: before-body
     toc-pagebreak: true
     data: false
-  pdf: default   
+    hidden: true
+ 
 ---
+
+```{=html}
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("a[href$='.docx']").forEach(link => link.style.display = 'none');
+  });
+</script>
+```
 
 {{< pagebreak >}}
 

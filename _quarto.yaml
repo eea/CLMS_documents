@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: _site  # Default output directory, adjust if needed
+  output-dir: _site
   render:
     - src/index.qmd
     - src/templates/**/*.qmd
@@ -9,24 +9,16 @@ project:
 website:
   title: "Technical Library"
   navbar:
+    background: "#a0b128"
+    foreground: "#ffffff"
+    search: false
     left:
-      - href: src/index.qmd
-        text: "Home"
       - text: "Guidelines"
         href: src/guidelines/index.qmd
       - text: "Templates"
         href: src/templates/index.qmd
 
-  sidebar:
-    - id: templates
-      title: "Templates"
-      contents:
-        - src/templates/*/*.qmd
-    - id: guidelines
-      title: "Guidelines"
-      contents:
-        - src/guidelines/*.qmd
-
 format:
   html:
-    theme: cosmo
+    include-before-body: src/styles/main-logos.html
+    css: src/styles/main.css
