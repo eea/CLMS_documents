@@ -3,10 +3,10 @@ name: Quarto Markdown Render, Generate Sitemap, and Deploy
 on:
   push:
     paths:
-      - 'src/**/*.qmd'  # Trigger the action only when .qmd files are modified or pushed
+      - 'src/**/*'  # Trigger the action only when .qmd files are modified or pushed
   pull_request:
     paths:
-      - 'src/**/*.qmd'  # Also trigger on pull requests that modify .qmd files
+      - 'src/**/*'  # Also trigger on pull requests that modify .qmd files
   workflow_dispatch:
 
 jobs:
@@ -36,6 +36,10 @@ jobs:
           sudo apt install -y libreoffice libreoffice-common libreoffice-writer fonts-dejavu
           sudo apt install -y coreutils procps
 
+      - name: Remove cached version of _site
+        run: |
+          rm -rf _site
+
       - name: Render all Quarto, Markdown, and Jupyter files to HTML/DOCX/PDF
         run: |
           quarto render
@@ -52,3 +56,4 @@ jobs:
           branch: gh-pages-test  # Push to gh-pages-test before approved go-live
           folder: _site
           clean: true
+          force: true

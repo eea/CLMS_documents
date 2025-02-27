@@ -1,6 +1,7 @@
 project:
   type: website
   output-dir: _site
+  execute-dir: project
   render:
     - src/index.qmd
     - src/templates/**/*.qmd
@@ -20,5 +21,6 @@ website:
 
 format:
   html:
+    output-dir: ../_site  # Moves rendered files outside src/
     include-before-body: src/styles/main-logos.html
     css: src/styles/main.css
