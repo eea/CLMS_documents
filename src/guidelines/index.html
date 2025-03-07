@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
@@ -201,6 +201,12 @@ window.Quarto = {
      <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
        <option value="" disabled="" selected="" hidden="">Order By</option>
        <option value="index" data-direction="asc">Default</option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
          <option value="listing-title-sort" data-direction="asc">
           Title
         </option>
@@ -217,17 +223,26 @@ window.Quarto = {
 <th>
 <a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
 </th>
+<th>
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
+</th>
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1731024000000" data-listing-file-modified-sort="1741357994164" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="86" data-listing-word-count-sort="17037" data-listing-title-sort="IT Architecture Principles and Implementation Guidelines" data-listing-filename-sort="IT_Architecture_Principles_and_Implementation_Guidelines.qmd">
+<tr data-index="0" data-listing-date-sort="1731024000000" data-listing-file-modified-sort="1741358877848" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="86" data-listing-word-count-sort="17037" data-listing-title-sort="IT Architecture Principles and Implementation Guidelines" data-listing-filename-sort="IT_Architecture_Principles_and_Implementation_Guidelines.qmd">
 <td>
 <a href="../../src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html" class="title listing-title">IT Architecture Principles and Implementation Guidelines</a>
 </td>
+<td>
+<span class="listing-date">Nov 8, 2024</span>
+</td>
 </tr>
-<tr data-index="1" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1741357994164" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="24" data-listing-word-count-sort="4751" data-listing-title-sort="IT Architecture Principles and Implementation Guidelines test" data-listing-filename-sort="IT_Architecture_Principles_and_Implementation_Guidelines_test.qmd">
+<tr data-index="1" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1741358877848" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="24" data-listing-word-count-sort="4751" data-listing-title-sort="IT Architecture Principles and Implementation Guidelines test" data-listing-filename-sort="IT_Architecture_Principles_and_Implementation_Guidelines_test.qmd">
 <td>
 <a href="../../src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines_test.html" class="title listing-title">IT Architecture Principles and Implementation Guidelines test</a>
+</td>
+<td>
+<span class="listing-date">Mar 6, 2025</span>
 </td>
 </tr>
 </tbody>
