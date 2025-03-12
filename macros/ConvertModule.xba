@@ -7,24 +7,26 @@
   Sub UpdateTOCAndExportToPDF()
 
       Dim document As Object
-      'Dim dispatcher As Object
+      Dim dispatcher As Object
 
       document = ThisComponent
 
-      ' Update TOC and wait for TOC updates to complete
+      'Unlock fields by disabling "Fixed Content" (IsFixed = False) to allow automatic updates
+      UpdateDocProperties()
+
+      ' Refresh all fields (TOC, DOCPROPERTY, etc.)
       dispatcher = createUnoService("com.sun.star.frame.DispatchHelper")
       dispatcher.executeDispatch(document.CurrentController.Frame, ".uno:UpdateAll", "", 0, Array())
-
 
       ' Generate PDF file path
       pdfURL = Replace(ThisComponent.URL, ".docx", ".pdf")
 
-	  ' If no valid file path, close document immediately
-	  If pdfURL = "" Then
-	    document.setModified(False)
-	    document.close(True)
-	    Exit Sub
-	  End If
+  	  ' If no valid file path, close document immediately
+  	  If pdfURL = "" Then
+  	    document.setModified(False)
+  	    document.close(True)
+  	    Exit Sub
+  	  End If
 
       ' Ensure any existing PDF is deleted before exporting
       fileSystem = createUnoService("com.sun.star.ucb.SimpleFileAccess")
@@ -54,5 +56,25 @@
       document.close(True)
 
   End Sub
+
+  Sub UpdateDocProperties()
+    Dim doc As Object
+    Dim textFields As Object
+    Dim field As Object
+
+    ' Loop through all text fields and uncheck 'isFixed' flag
+    doc = ThisComponent
+    textFields = doc.TextFields
+
+    For Each field In textFields
+        On Error Resume Next
+        If field.HasProperty("IsFixed") Then
+            field.IsFixed = False  ' Uncheck "Fixed Content"
+        End If
+        On Error GoTo 0
+    Next field
+
+  End Sub
+
 
 </script:module>
