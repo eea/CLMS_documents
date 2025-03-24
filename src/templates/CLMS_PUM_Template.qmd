@@ -2,27 +2,19 @@
 title: "Product SHORT NAME Product User Manual (PUM)"
 subtitle: "PUM Copernicus Land Monitoring Service - Product full name"
 date: "2022-10-06"
-version: Issue x.y (“(x) version of the document” + “.”+ “(y) version of the document update”) (first published version must start with 1.0)
+version: Issue x.y (“(x) version of the document” + “.”+ “(y) version of the document
+  update”) (first published version must start with 1.0)
 product-name: Product Name
 description: "Product DESCRIPTION"
 
 metadata-files:
-  - ../../metadata/default.yml
-  
+- ../../metadata/default.yml
+
 format:
   docx:
     reference-doc: ../styles/template-pum.docx
     hidden: true
- 
 ---
-
-```{=html}
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll("a[href$='.docx']").forEach(link => link.style.display = 'none');
-  });
-</script>
-```
 
 {{< pagebreak >}}
 
@@ -285,7 +277,7 @@ Discusses the initial objectives and user requirements of the product, summarize
 
 {{< pagebreak >}}
 
-# User requirements [(optional chapter)]{.yellow-box custom-style="yellow-box-line"}
+# User requirements [(mandatory chapter)]{.yellow-box custom-style="yellow-box-line"}
 
 :::{.yellow-box custom-style="yellow-box"}
 Summarize the known current user needs. Where applicable, the review of user requirements for the product can reference topics such as:\"
@@ -316,7 +308,7 @@ Outlines various use cases and potential application areas, as well as an overvi
 # Product description [(mandatory chapter)]{.yellow-box custom-style="yellow-box-line"}
 
 :::{.yellow-box custom-style="yellow-box"}
-Provides a comprehensive overview of the product's portfolio, including multiple product types (where applicable). It details the layers specifications, reference years or time series, and update cycles. Additionally, it outlines the thematic characteristics, geospatial format and distribution (e.g., 100 km LAEA tiles), as well as the metadata, standards, and alignment with the EEA reference grid.
+Provides a comprehensive overview of the product, including all layers (where applicable). It details the layer's specifications, reference years or time series, and update cycles. Additionally, it outlines the thematic characteristics, geospatial format and distribution (e.g., 100 km LAEA tiles), as well as the metadata, standards, and alignment with the EEA reference grid. Ideally, exemplary tools for accessing and using the data are mentioned.
 :::
 
 ## Overview of the product and contained layers [(mandatory subchapter)]{.yellow-box custom-style="yellow-box-line"}
@@ -328,7 +320,7 @@ Introduces the product (-suite) including the contained layers and their key fea
 ## Product characteristics [(mandatory subchapter)]{.yellow-box custom-style="yellow-box-line"}
 
 :::{.yellow-box custom-style="yellow-box"}
-Describes the characteristics of the product, the thematic definition and the relation with different datasets, the elements included and excluded, classified features and layers coding. Use third-level subchapters to structure if needed.
+Describes the characteristics of the product, the thematic definition and the relation with different products/layers, the elements included and excluded, classified features and the layer's coding. Use third-level subchapters to structure if needed.
 :::
 
 ## Product specifications [(mandatory subchapter)]{.yellow-box custom-style="yellow-box-line"}
@@ -350,7 +342,7 @@ Please note that:
 
 ```{=html}
 <table>
-  <caption>Table 7.1 Vector dataset/layer sheet (replace with field ‘Layer name’)</caption>
+  <caption>Table 7.1 Vector product/layer sheet (replace with field ‘Layer name’)</caption>
   <thead>
     <tr>
       <th>Field</th>
@@ -371,12 +363,12 @@ Please note that:
       <td colspan="5">Broader category or group to which the layer belongs within the CLMS portfolio (e.g. Urban Atlas (Priority Area Monitoring); CLCplus (Land Cover and Land Use Mapping))</td>
     </tr>
     <tr>
-      <td>Dataset category</td>
-      <td colspan="5">Categorization of a dataset according to its content, purpose, timeliness, level of processing or similar (e.g. status/change/aggregated /expert/intermediate/reference layer; near-real time)</td>
+      <td>Layer category</td>
+      <td colspan="5">Categorization of a layer according to its content, purpose, timeliness, level of processing or similar (e.g. status/change/auxiliary/reference layer; near-real time)</td>
     </tr>
     <tr>
       <td>Summary</td>
-      <td colspan="5">Brief description of the dataset, including the data type (vector), spatial resolution, input data sources, reference dates, and auxiliary features</td>
+      <td colspan="5">Brief description of the layer, including the data type (vector), spatial resolution, input data sources, reference dates, and auxiliary features</td>
     </tr>
     <tr>
       <td>Reference year/cycle/period</td>
@@ -457,11 +449,11 @@ Please note that:
     </tr>
     <tr>
       <td>Delivery format</td>
-      <td colspan="5">File format in which the datasets and ancillary files are delivered (e.g. geopackage, dataset in HDF5, external colour tables in *.lyr and *.lyrx formats)</td>
+      <td colspan="5">File format in which the layer and ancillary files are delivered (e.g. geopackage, dataset in HDF5, external colour tables in *.lyr and *.lyrx formats)</td>
     </tr>
     <tr>
       <td>Quality -- Production verification</td>
-      <td colspan="5">Quality statement of the dataset detailing the results of production verification: user's/producer's or/and overall quality of the dataset (e.g. layer thematic accuracy reached/exceed the 90% producer's and user's target.)</td>
+      <td colspan="5">Quality statement of the layer detailing the results of production verification: user's/producer's or/and overall quality of the layer (e.g. layer thematic accuracy reached/exceed the 90% producer's and user's target.)</td>
     </tr>
   </tbody>
 </table>
@@ -473,7 +465,7 @@ Please note that:
 :::{.grey-box custom-style="grey-box"}
 ```{=html}
 <table>
-  <caption>Table 7.2 Raster dataset/layer sheet (replace with field 'Layer name')</caption>
+  <caption>Table 7.2 Raster product/layer sheet (replace with field 'Layer name')</caption>
   <thead>
     <tr>
       <th>Field</th>
@@ -494,12 +486,12 @@ Please note that:
       <td colspan="2">Broader category or group to which the layer belongs within the CLMS portfolio (e.g. VLCC/HRL Forest (Land Cover and Land Use Mapping; HR-VPP (Bio-geophysical Parameters)</td>
     </tr>
     <tr>
-      <td>Dataset category</td>
-      <td colspan="2">Categorization of a dataset according to its content, purpose, timeliness, level of processing or similar (e.g. status/change/aggregated /expert/intermediate/reference layer; near-real time)</td>
+      <td>Layer category</td>
+      <td colspan="2">Categorization of a layer according to its content, purpose, timeliness, level of processing or similar (e.g. status/change/auxiliary/reference layer; near-real time)</td>
     </tr>
     <tr>
       <td>Summary</td>
-      <td colspan="2">Brief description of the dataset, including the data type (vector), spatial resolution, input data sources, reference dates, and auxiliary features</td>
+      <td colspan="2">Brief description of the layer, including the data type (vector), spatial resolution, input data sources, reference dates, and auxiliary features</td>
     </tr>
     <tr>
       <td>Reference year/cycle/period</td>
@@ -515,11 +507,11 @@ Please note that:
     </tr>
     <tr>
       <td>Coverage</td>
-      <td colspan="2">Geographic area covered by the product area (and reference of EEA coverage) (e.g. EEA-38 + UK)</td>
+      <td colspan="2">Geographic area covered by the layer (and reference of EEA coverage) (e.g. EEA-38 + UK)</td>
     </tr>
     <tr>
       <td>Geometric accuracy</td>
-      <td colspan="2">Positional accuracy of the product, expressed in meters at a specific % confidence level (e.g. ~11m at 95.5% confidence)</td>
+      <td colspan="2">Positional accuracy of the layer, expressed in meters at a specific % confidence level (e.g. ~11m at 95.5% confidence)</td>
     </tr>
     <tr>
       <td>Thematic accuracy</td>
@@ -527,7 +519,7 @@ Please note that:
     </tr>
     <tr>
       <td>Minimum Mapping Unit (MMU)</td>
-      <td colspan="2">Smallest area that is represented in the dataset (e.g. 0.5 ha (50 pixels))</td>
+      <td colspan="2">Smallest area that is represented in the layer (e.g. 0.5 ha (50 pixels))</td>
     </tr>
     <tr>
       <td>Raster coding</td>
@@ -544,11 +536,11 @@ Please note that:
     </tr>
     <tr>
       <td>Delivery format</td>
-      <td colspan="2">File format in which dataset is delivered (e.g. GeoTiff)</td>
+      <td colspan="2">File format in which layer is delivered (e.g. GeoTiff)</td>
     </tr>
     <tr>
       <td>Quality - Production verification</td>
-      <td colspan="2">Quality statement of the dataset detailing the results of production verification: user's/producer's or/and overall quality of the dataset (e.g. layer thematic accuracy reached/exceed the 90% producer's and user's target.)</td>
+      <td colspan="2">Quality statement of the layer detailing the results of production verification: user's/producer's or/and overall quality of the layer (e.g. layer thematic accuracy reached/exceed the 90% producer's and user's target.)</td>
     </tr>
   </tbody>
 </table>
@@ -594,9 +586,9 @@ Here an example of a standard text.
 :::
 
 :::{.grey-box custom-style="grey-box"}
-The Terms of Use for the product(s) described in this document, acknowledge that:
+The Terms of Use for the product(s) described in this document, acknowledge the following:
 
-"Free, full and open access to the products and services of the Copernicus Land Monitoring Service is made on the conditions that:
+Free, full and open access to the products and services of the Copernicus Land Monitoring Service is made on the conditions that:
 
 1.  When distributing or communicating Copernicus Land Monitoring Service products and services (data, software scripts, web services, user and methodological documentation and similar) to the public, users shall inform the public of the source of these products and services and shall acknowledge that the Copernicus Land Monitoring Service products and services were produced "with funding by the European Union".
 
@@ -604,7 +596,9 @@ The Terms of Use for the product(s) described in this document, acknowledge that
 
 3.  Users shall make sure not to convey the impression to the public that the user\'s activities are officially endorsed by the European Union.
 
-The user has all intellectual property rights to the products he/she has created based on the Copernicus Land Monitoring Service products and services." [^1]
+The user has all intellectual property rights to the products he/she has created based on the Copernicus Land Monitoring Service products and services.
+
+[Copernicus Land Monitoring Service - Data policy](https://land.copernicus.eu/en/data-policy){target=_blank}
 
 :::
 
@@ -618,18 +612,20 @@ Here are examples of standard text to be used according to the situation:
 :::
 
 :::{.grey-box custom-style="grey-box"}
-When **planning to publish a publication (scientific, commercial, etc.)**, it should be explicitly mentioned:
+When **planning to publish a publication (scientific, commercial, etc.)**, it shall explicitly mention:
 
-> "This publication has been prepared using European Union\'s Copernicus Land Monitoring Service information; \<insert all relevant DOI links here, if applicable\>"^1^
+> "This publication has been prepared using European Union\'s Copernicus Land Monitoring Service information; \<insert all relevant DOI links here, if applicable\>"
 
-When developing a **product or service using the products or services of the Copernicus Land Monitoring Service**, it should explicitly mentioned:
+When developing a **product or service using the products or services of the Copernicus Land Monitoring Service**, it should shall explicitly mention:
 
-> "Generated using European Union\'s Copernicus Land Monitoring Service information; \<insert all relevant DOI links here, if applicable\>"^1^
+> "Generated using European Union\'s Copernicus Land Monitoring Service information; \<insert all relevant DOI links here, if applicable\>"
 
-When **redistributing a part of the Copernicus Land Monitoring Service (product, dataset, documentation, picture, web service, etc.)**, it should explicitly mentioned:
+When **redistributing a part of the Copernicus Land Monitoring Service (product, dataset, documentation, picture, web service, etc.)**, it shall explicitly mention:
 
-> "European Union\'s Copernicus Land Monitoring Service information; \<insert all relevant DOI links here, if applicable\>"^1^
+> "European Union\'s Copernicus Land Monitoring Service information; \<insert all relevant DOI links here, if applicable\>"
 :::
+
+[Copernicus Land Monitoring Service - Data policy](https://land.copernicus.eu/en/data-policy){target=_blank}
 
 ## Product Technical support [(mandatory subchapter)]{.yellow-box custom-style="yellow-box-line"}
 
@@ -640,7 +636,9 @@ Here an example of a standard text.
 :::
 
 :::{.greyw-box custom-style="grey-box"}
-Product technical support is provided by the product custodian through Copernicus Land Monitoring Service desk[^2]. Product technical support does not include software specific user support or general GIS or remote sensing support.
+Product technical support is provided by the product custodian through 
+[Copernicus Land Monitoring Service -- Service desk](https://land.copernicus.eu/en/data-policy){target=_blank}.
+Product technical support does not include software specific user support or general GIS or remote sensing support.
 
 More information on the products can be found on the Copernicus Land Monitoring Service website (https://land.copernicus.eu/)
 :::
@@ -701,7 +699,3 @@ Annexes should be kept to a minimum but can be placed as needed to present essen
 
 Limit the number of annexes to what is most relevant for the PUM, ensuring they focus on essential technical details.
 :::
-
-[^1]: [Copernicus Land Monitoring Service - Data policy](https://land.copernicus.eu/en/data-policy){target=_blank}
-
-[^2]: [Copernicus Land Monitoring Service -- Service desk](https://land.copernicus.eu/en/data-policy){target=_blank}
