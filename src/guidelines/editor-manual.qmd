@@ -1,5 +1,5 @@
 ---
-title: "Quarto Documentation Editor Manual"
+title: "Quarto Documentation - Editor Manual"
 toc: true
 toc-title: "Content" 
 version: 1.0-draft
@@ -13,7 +13,9 @@ format:
 
 # Introduction
 
-This manual will guide you step by step through creating documentation using **Quarto**. Quarto is a tool that helps you write simple text using **Markdown** (a plain text format) and turn it into professional-looking documents, such as **HTML** pages or **PDF** files.
+<!--# For 'whom/which process' in the CLMS context is this document? -->
+
+This manual will guide you step by step through creating documentation using [**Quarto**](https://quarto.org/). Quarto is a tool that helps you write simple text using **Markdown** (a plain text format) and turn it into professional-looking documents, such as **HTML** pages or **PDF** files.
 
 You don't need to be a programmer or an expert to use Quarto. If you've ever written a document in Microsoft Word, you'll be able to use Quarto with a bit of practice.
 
@@ -22,6 +24,8 @@ This manual is for people who work with documentation --- especially in teams --
 We'll also explain the structure of your project, how to use ready-made templates, and how to avoid common mistakes.
 
 # Folder and File Structure
+
+<!--# If this is for the doc part only, does it make sense to mention also the potential insertion of the doc repo in the larger project? (I am not sure, just a guess) -->
 
 In this section, we explain how the documentation project is organized and where you should put your files. This structure helps keep everything clean, consistent, and easy to work with --- especially when multiple people are involved.
 
@@ -50,33 +54,35 @@ project-root-doc/
 -   **`src/`**\
     This is the main source folder. It contains all the shared resources used when creating documentation.
 
-    -   **`src/templates/`**\
+    -   **`src/templates/`** <!--# state no editing here -->\
         This is where you'll find ready-to-use `.qmd` templates. There are templates for two document types:
+
         -   **ATBD** (Algorithm Theoretical Basis Document)
         -   **PUM** (Product User Manual)\
             When you start a new document, you will copy the appropriate template from here.
-    -   **`src/styles/`**\
+
+    -   **`src/styles/`**<!--# state no editing here -->\
         This folder contains style-related files, such as DOCX templates and style sheets. These are used by scripts and macros to give your documents a consistent look.
 
     -   **`src/products/`**\
         This is the folder where you will actually create and edit your documentation.
-    
-        - For each new document, create a new `.qmd` file inside `src/products/`, for example: `my-doc.qmd`.
-        
-        - Also create a separate folder to store images and charts used in that document, for example: `my-doc-media/`.  
 
-        - Both the `.qmd` file and the media folder should follow a clear naming pattern (e.g. same prefix) to keep things organized.
-    
-          *Example:* 
-          
-          ```         
-          products/
-          ├── my-doc.qmd
-          └── my-doc-media/
-              └── image1.png
-          ```
+        -   For each new document, create a new `.qmd` file inside `src/products/`, for example: `my-doc.qmd`. <!--# we have only a partially aggreed document naming convention. Once the repo guidelines are ready, we can create a new guideline doc: document naming convention. Please state here info: "Make sure you follow the agreet naming convention" -->
 
--   **`scripts/`, `macros/`**, and **`metadata/`**\
+        -   Also create a separate folder to store images and charts used in that document, for example: `my-doc-media/`. <!--# is my-doc must follow the qmd doc and a fixed suffix must be added '-media'? -->
+
+        -   Both the `.qmd` file and the media folder should follow a clear naming pattern (e.g. same prefix) to keep things organized.
+
+            *Example:*
+
+            ```         
+            products/
+            ├── my-doc.qmd
+            └── my-doc-media/
+                └── image1.png
+            ```
+
+-   **`scripts/`, `macros/`**, and **`metadata/`** <!--# state no editing here -->\
     These folders support the automation workflow. They include scripts, macros, and configuration files that help with rendering and styling your documents.
 
 By following this structure, everyone on the team will know exactly where to find templates, styles, and finished documents --- and where to put new content.
@@ -319,13 +325,11 @@ Avoid using **nested tables** (a table inside another table) when writing docume
 
 ✅ Instead of nesting:
 
-- Reorganize the content into a simpler layout
-- Split one large complex table into two or more smaller tables placed one after another
+-   Reorganize the content into a simpler layout
+-   Split one large complex table into two or more smaller tables placed one after another
 
 This ensures your document remains clean, readable, and properly formatted across all output formats.
-
 :::
-
 
 ## Figures (with captions and layout)
 
@@ -349,7 +353,7 @@ Quarto supports mathematical equations using LaTeX-style syntax. You can add inl
 
 Use single dollar signs `$...$` for inline math:
 
-```markdown
+``` markdown
 The formula for the area is $A = \pi r^2$.
 ```
 
@@ -361,7 +365,7 @@ The formula for the area is $A = \pi r^2$.
 
 Use double dollar signs `$$...$$` to show a larger, centered equation block:
 
-```markdown
+``` markdown
 $$
 E = mc^2
 $$
@@ -373,7 +377,7 @@ $$
 E = mc^2
 $$
 
-You can use most standard LaTeX math symbols and operators.  
+You can use most standard LaTeX math symbols and operators.\
 For more examples, check the [Quarto math documentation](https://quarto.org/docs/authoring/markdown-basics.html#equations).
 
 ## Diagrams
@@ -513,7 +517,7 @@ You **must include** the `pdf: default` format in the YAML header.\
 Although PDF is not rendered directly during this step, defining it here ensures compatibility with the automated rendering workflow later. Details are explained in the [Rendering Documentation](#rendering-documentation) section.
 :::
 
-You can adjust `reference-doc:` under the `html: format` to specify the default style used for the DOCX/PDF output.
+You must adjust `reference-doc:` under the `html: format` to specify the default style used for the DOCX/PDF output.
 
 Here's a basic header you can use:
 
@@ -596,52 +600,50 @@ When translating existing documents from Word (`.docx`) into Quarto Markdown (`.
 
 [Pandoc](https://pandoc.org/installing.html) is a powerful command-line tool that can convert documents between various formats, including Markdown, DOCX, HTML, LaTeX, and more.
 
-To use Pandoc on your computer, download and install it from the official site:
-[https://pandoc.org/installing.html](https://pandoc.org/installing.html)
+To use Pandoc on your computer, download and install it from the official site: <https://pandoc.org/installing.html>
 
 ## When and How to Use It
 
-Use Pandoc **only** for converting existing `.docx` documents into `.qmd`. Do **not** use it to convert PDFs — Pandoc does not support PDF as an input format.
-This approach is ideal when you're:
+Use Pandoc **only** for converting existing `.docx` documents into `.qmd`. Do **not** use it to convert PDFs — Pandoc does not support PDF as an input format. This approach is ideal when you're: <!--# state that 'the system is doing that for you' -->
 
-- Migrating legacy documentation into the Quarto system
-- Creating a quick starting point for manual cleanup
-- Extracting embedded images and figures from `.docx`
+-   Migrating legacy documentation into the Quarto system
+-   Creating a quick starting point for manual cleanup
+-   Extracting embedded images and figures from `.docx`
 
 ## Basic Usage Example
 
 Open a terminal or command prompt — ideally from within **RStudio’s Terminal tab** so you can stay in one environment — and run the following command. You can provide either a relative or full path to the `.docx` file:
 
-```bash
+``` bash
 $ pandoc my-doc.docx -o my-doc.qmd --wrap=none --from=docx --to=markdown+fenced_divs+grid_tables+pipe_tables+smart
 ```
 
 ### What this command does:
 
-- `my-doc.docx`: The input Word document.
-- `-o my-doc.qmd`: Output file in Markdown format.
-- `--wrap=none`: Prevents Pandoc from breaking long lines into multiple lines.
-- `--from=docx`: Specifies that the input file is a Word document.
-- `--to=markdown+fenced_divs+grid_tables+pipe_tables+smart`: Sets output format and enables enhanced table and layout options.
+-   `my-doc.docx`: The input Word document.
+-   `-o my-doc.qmd`: Output file in Markdown format.
+-   `--wrap=none`: Prevents Pandoc from breaking long lines into multiple lines.
+-   `--from=docx`: Specifies that the input file is a Word document.
+-   `--to=markdown+fenced_divs+grid_tables+pipe_tables+smart`: Sets output format and enables enhanced table and layout options.
 
 ## Where Are Media Files Stored?
 
-When Pandoc finds images or other media in the `.docx` file, it extracts them automatically into a new folder.  
-By default, extracted media will be placed into a subfolder named `media/`, located next to your output `.qmd` file.  
+When Pandoc finds images or other media in the `.docx` file, it extracts them automatically into a new folder.\
+By default, extracted media will be placed into a subfolder named `media/`, located next to your output `.qmd` file. <!--# so it does not do the docname-media?-->\
 This is created automatically and will contain all image assets referenced in the converted file.
 
 ### Changing the Media Folder Name
 
 You can change the default media folder name using the `--extract-media` option:
 
-```bash
+``` bash
 $ pandoc my-doc.docx -o my-doc.qmd --extract-media=custom-media-folder
 ```
 
 ::: callout-note
 Pandoc will create a `media/` subfolder *inside* the folder you specify. For example, running the above command will result in:
 
-```
+```         
 custom-media-folder/media/
 ```
 
@@ -652,14 +654,12 @@ If you want to follow the structure expected by your project (e.g. `my-doc-media
 
 After conversion, you’ll likely need to:
 
-- Clean up unnecessary styles or extra spacing
-- Rename and organize media files
-- Add a proper YAML header at the top of the `.qmd` file
-- Restructure the content to match your template or documentation style
+-   Clean up unnecessary styles or extra spacing
+-   Rename and organize media files <!--# pls cross referenc to it -->
+-   Add a proper YAML header at the top of the `.qmd` file <!--# pls cross referenc to it -->
+-   Restructure the content to match your template or documentation style <!--# pls cross referenc to it -->
 
 While not perfect, this method gives you a solid starting point — especially for long or complex documents.
-
-
 
 # Default Styles and Options
 
@@ -667,17 +667,15 @@ To make documentation look consistent and professional, we use a set of predefin
 
 ## Shared Styling Configuration
 
-Most formatting options (fonts, colors, spacing, margins, etc.) are defined in shared configuration files. These include:
+Most formatting options (fonts, colors, spacing, margins, etc.) are defined in shared configuration files. These files are stored in `src/styles` directory and include:
 
 -   A custom DOCX file for styling PDF output
 -   A CSS stylesheet for HTML
 -   Metadata files for shared fields like project name, institution, and contributors
 
-These files are stored in `src/styles` directory.
+Don't edit them! --- they're used automatically by the rendering scripts.
 
-You don't need to open or edit them --- they're used automatically by the rendering scripts.
-
-## Theme
+## Theme <!--# is this somewhere? I do not fully understnd what this is about? in the YAML?-->
 
 It ensures that all documents have a clean, modern, and consistent appearance --- both in HTML and PDF output.
 
@@ -709,21 +707,20 @@ You do not need to manually add keywords to your document’s metadata. The syst
 
 ## How It Works
 
-- The default Quarto metadata configuration automatically injects a special placeholder value into the `keywords:` field in your document’s header.
-- When your document is rendered and processed for publication, an AI service analyzes its content and automatically generates **10 relevant keywords**.
-- These keywords help with document indexing, search, and classification on the publication platform.
+-   The default Quarto metadata configuration automatically injects a special placeholder value into the `keywords:` field in your document’s header.
+-   When your document is rendered and processed for publication, an AI service analyzes its content and automatically generates **10 relevant keywords**.
+-   These keywords help with document indexing, search, and classification on the publication platform.
 
 This process ensures consistent keyword formatting and reduces the work required from authors.
 
 ## What You Should Do
 
-Nothing!  
+Nothing!\
 Simply leave the `keywords:` field untouched or omit it entirely. The publishing system will take care of it for you.
 
 If you do add custom keywords for internal purposes, they will be overwritten during the publishing step — so it’s best to let the system manage them.
 
-
-# Using RStudio with Quarto
+# Using RStudio with Quarto <!--# we may group the software prerequisites in one chapter? -->
 
 [RStudio](https://posit.co/products/open-source/rstudio/) is the recommended tool for working with `.qmd` (Quarto Markdown) files. It provides a simple, user-friendly interface for writing, editing, and rendering documentation.
 
@@ -766,27 +763,25 @@ You can render your documentation directly in RStudio or using command-line tool
 
 ## Render to HTML
 
-HTML is the default output format and is useful for previewing your document in a web browser while you work. Rendered HTML uses the custom Technical Library theme and includes a table of contents, clickable navigation, and consistent styles. It's a great way to check formatting, layout, and images as you write.
+<!--# there is also "Render webside" under build on the top right side. if that is relevant here add a screenshot and clarify the difference between the two --> HTML is the default output format and is useful for previewing your document in a web browser while you work. Rendered HTML uses the custom Technical Library theme and includes a table of contents, clickable navigation, and consistent styles. It's a great way to check formatting, layout, and images as you write.
 
 There are two ways to preview your `.qmd` file:
 
--   Click the **Render** button at the top of the RStudio window.
-  ![Render button](editor-manual-media/rstudio-render.png)
-  
--   Or enable **Preview on Save** (in the RStudio IDE toolbar). This option automatically re-renders your document every time you save it.
-  ![Render on Save](editor-manual-media/rstudio-render-on-save.png)
+-   Click the **Render** button at the top of the RStudio window. ![Render button](editor-manual-media/rstudio-render.png)
 
-After clicking the **Render** button (or saving the file with **Preview on Save** enabled), the HTML version of your document will appear in the **Viewer** tab, located in the **Output** pane (typically in the lower right corner of RStudio).   
+-   Or enable **Preview on Save** (in the RStudio IDE toolbar). This option automatically re-renders your document every time you save it. ![Render on Save](editor-manual-media/rstudio-render-on-save.png)
+
+After clicking the **Render** button (or saving the file with **Preview on Save** enabled), the HTML version of your document will appear in the **Viewer** tab, located in the **Output** pane (typically in the lower right corner of RStudio).
 
 ![](editor-manual-media/rstudio-render-viewer-tab.png)
 
 If the **Viewer** tab is not visible:
 
-1. Go to **Tools > Global Options** in the top menu.
-2. Navigate to the **R Markdown** section.
-3. Ensure that **Show output preview in:** is set to **Viewer Pane**. 
+1.  Go to **Tools \> Global Options** in the top menu.
+2.  Navigate to the **R Markdown** section.
+3.  Ensure that **Show output preview in:** is set to **Viewer Pane**.
 
-![](editor-manual-media/rstudio-render-viewer-options.png){height=300px}
+![](editor-manual-media/rstudio-render-viewer-options.png){height="300px"}
 
 This setting ensures that rendered documents are displayed within RStudio, providing a seamless preview experience.
 
@@ -795,7 +790,7 @@ This setting ensures that rendered documents are displayed within RStudio, provi
 PDFs are not generated directly from Quarto. Instead, the process involves a few automatic steps:
 
 1.  Quarto first generates a `.docx` (Word) file using the styles and settings defined in the YAML header and shared config files.
-2.  Then, a LibreOffice macro automatically converts the `.docx` to `.pdf`.
+2.  Then, a LibreOffice macro automatically converts the `.docx` to `.pdf`. <!--# in this case lobreoffice is a software rerequisit and should be listed as such. I am not sure what the state is of libre vs MSword script is? -->
 3.  The resulting PDF file is saved in the output location.
 
 This approach ensures consistent and well-formatted PDFs, even across different systems.
@@ -863,27 +858,27 @@ You want to style or color specific parts of text in the final document, such as
 
 Use a **custom character style** from the template DOCX file. For example:
 
-```markdown
+``` markdown
 [**AD**]{custom-style="BoldRowText"}
 ```
 
 This style (`BoldRowText`) is already defined in the `template.docx` file.
 
 ::: callout-note
-If you're adding a new style to the `.docx` reference file, make sure it's a **character style** so it works correctly when applied inline in `.qmd` files. Custom styles must always be defined as character styles — not paragraph styles. Using the wrong type can cause formatting issues across the entire document.
+If you're adding a new style to the `.docx` reference file, make sure it's a **character style** so it works correctly when applied inline in `.qmd` files. Custom styles must always be defined as character styles — not paragraph styles. Using the wrong type can cause formatting issues across the entire document. <!--# are our templates changes here? -->
 :::
 
 ## Figure and Image Numbering
 
 **Problem**
 
-Figures and images inserted into `.qmd` files do not automatically include numbers in the rendered DOCX or PDF file.
+Figures and images inserted into `.qmd` files do not automatically include numbers in the rendered DOCX or PDF file. <!--# hm we need to talk abot that, having Figure X below an image is quite important for cross references right? -->
 
 **Workaround**
 
 You can use figure referencing like this:
 
-```markdown
+``` markdown
 ![Short description](my-doc-media/image.jpg){{#fig-3 height=356px}}
 ```
 
@@ -891,14 +886,14 @@ However, this approach wraps the image in a table structure, which might cause v
 
 **Best Practice**
 
-For clean results:
+For clean results: <!--# this is a problem... -->
 
-- Add a manual figure number and title directly as text under the image.
-- Avoid using automatic figure references unless necessary for cross-referencing.
+-   Add a manual figure number and title directly as text under the image.
+-   Avoid using automatic figure references unless necessary for cross-referencing.
 
 Example:
 
-```markdown
+``` markdown
 ![Diagram of processing flow](my-doc-media/flow-diagram.png)
 **Figure 3.** Data processing flow chart.
 ```
@@ -909,11 +904,11 @@ Example:
 
 Only one table style is applied to all tables via the DOCX template, and additional formatting — like emphasizing specific rows — isn’t applied automatically.
 
-**Solution**
+**Solution** <!--# can you make a bigger ecample? i.e. a bold cell in a not bold little table? -->
 
 Use a custom character style (like `BoldRowText`) within cells that require special formatting.
 
-```markdown
+``` markdown
 [**MRVPP**]{custom-style="BoldRowText"}
 ```
 
@@ -921,12 +916,12 @@ This will bold specific text while keeping the rest of the table structure intac
 
 **Best Practice**
 
-- Do not change the table structure or layout in the DOCX file manually.
-- Always apply row or cell formatting by using inline styled text directly in the `.qmd` source.
+-   Do not change the table structure or layout in the DOCX file manually.
+-   Always apply row or cell formatting by using inline styled text directly in the `.qmd` source.
 
 > 💡 If you need to format a row differently (e.g. a header row within the body of the table), apply the style inline using the method above.
 
----
+------------------------------------------------------------------------
 
 More issues will be added here as the system and workflow evolve. If you encounter a formatting issue or rendering problem that isn’t listed, ask your team lead or check how other documents handled similar cases.
 
@@ -939,5 +934,3 @@ More issues will be added here as the system and workflow evolve. If you encount
 ## Reviewing Documents
 
 **TODO**
-
-
