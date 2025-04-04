@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="keywords" content="creating documentation, documentation creation, documentation creating, writing documentation, make documentation, documentationworkflow, documentation quarto, documentation style, documentation src, templates folder">
+<meta name="keywords" content="creating documentation, documentation creation, documentation creating, writing documentation, documentationworkflow, documentation using, documentation quarto, document manual, project doc, doc repo">
 
-<title>Technical Library - Quarto Documentation Editor Manual</title>
+<title>Technical Library - Quarto Documentation - Editor Manual</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -253,7 +253,7 @@ window.Quarto = {
   <li><a href="#default-styles-and-options" id="toc-default-styles-and-options" class="nav-link" data-scroll-target="#default-styles-and-options">Default Styles and Options</a>
   <ul class="collapse">
   <li><a href="#shared-styling-configuration" id="toc-shared-styling-configuration" class="nav-link" data-scroll-target="#shared-styling-configuration">Shared Styling Configuration</a></li>
-  <li><a href="#theme" id="toc-theme" class="nav-link" data-scroll-target="#theme">Theme</a></li>
+  <li><a href="#theme" id="toc-theme" class="nav-link" data-scroll-target="#theme">Theme <!--# is this somewhere? I do not fully understnd what this is about? in the YAML?--></a></li>
   <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of Contents</a></li>
   <li><a href="#customizing-per-document-settings" id="toc-customizing-per-document-settings" class="nav-link" data-scroll-target="#customizing-per-document-settings">Customizing Per-Document Settings</a></li>
   </ul></li>
@@ -262,7 +262,7 @@ window.Quarto = {
   <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How It Works</a></li>
   <li><a href="#what-you-should-do" id="toc-what-you-should-do" class="nav-link" data-scroll-target="#what-you-should-do">What You Should Do</a></li>
   </ul></li>
-  <li><a href="#using-rstudio-with-quarto" id="toc-using-rstudio-with-quarto" class="nav-link" data-scroll-target="#using-rstudio-with-quarto">Using RStudio with Quarto</a>
+  <li><a href="#using-rstudio-with-quarto" id="toc-using-rstudio-with-quarto" class="nav-link" data-scroll-target="#using-rstudio-with-quarto">Using RStudio with Quarto <!--# we may group the software prerequisites in one chapter? --></a>
   <ul class="collapse">
   <li><a href="#opening-your-project" id="toc-opening-your-project" class="nav-link" data-scroll-target="#opening-your-project">Opening Your Project</a></li>
   <li><a href="#editing-qmd-files" id="toc-editing-qmd-files" class="nav-link" data-scroll-target="#editing-qmd-files">Editing QMD Files</a></li>
@@ -300,7 +300,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Quarto Documentation Editor Manual</h1>
+<h1 class="title">Quarto Documentation - Editor Manual</h1>
 </div>
 
 
@@ -316,7 +316,7 @@ window.Quarto = {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>creating documentation, documentation creation, documentation creating, writing documentation, make documentation, documentationworkflow, documentation quarto, documentation style, documentation src, templates folder</p>
+    <p>creating documentation, documentation creation, documentation creating, writing documentation, documentationworkflow, documentation using, documentation quarto, document manual, project doc, doc repo</p>
   </div>
 </div>
 
@@ -324,17 +324,19 @@ window.Quarto = {
 
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","itemListElement":[{"@type":"ImageObject","url":"editor-manual-media/rstudio-render.png","caption":"Render  button"},{"@type":"ImageObject","url":"editor-manual-media/rstudio-render-on-save.png","caption":"Render  on  Save"},{"@type":"ImageObject","url":"editor-manual-media/rstudio-render-viewer-tab.png","caption":""},{"@type":"ImageObject","url":"editor-manual-media/rstudio-render-viewer-options.png","height":"300px","caption":""}],"@type":"ItemList"}
+{"@context":"https://schema.org","itemListElement":[{"@type":"ImageObject","url":"editor-manual-media/rstudio-render.png","caption":"Render  button"},{"@type":"ImageObject","url":"editor-manual-media/rstudio-render-on-save.png","caption":"Render  on  Save"},{"@type":"ImageObject","url":"editor-manual-media/rstudio-render-viewer-tab.png","caption":""},{"height":"300px","@type":"ImageObject","url":"editor-manual-media/rstudio-render-viewer-options.png","caption":""}],"@type":"ItemList"}
 </script>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>This manual will guide you step by step through creating documentation using <strong>Quarto</strong>. Quarto is a tool that helps you write simple text using <strong>Markdown</strong> (a plain text format) and turn it into professional-looking documents, such as <strong>HTML</strong> pages or <strong>PDF</strong> files.</p>
+<!--# For 'whom/which process' in the CLMS context is this document? -->
+<p>This manual will guide you step by step through creating documentation using <a href="https://quarto.org/"><strong>Quarto</strong></a>. Quarto is a tool that helps you write simple text using <strong>Markdown</strong> (a plain text format) and turn it into professional-looking documents, such as <strong>HTML</strong> pages or <strong>PDF</strong> files.</p>
 <p>You don’t need to be a programmer or an expert to use Quarto. If you’ve ever written a document in Microsoft Word, you’ll be able to use Quarto with a bit of practice.</p>
 <p>This manual is for people who work with documentation — especially in teams — and need a simple, clear, and repeatable way to create it. We will cover everything from basic Markdown writing to rendering your final documents.</p>
 <p>We’ll also explain the structure of your project, how to use ready-made templates, and how to avoid common mistakes.</p>
 </section>
 <section id="folder-and-file-structure" class="level1">
 <h1>Folder and File Structure</h1>
+<!--# If this is for the doc part only, does it make sense to mention also the potential insertion of the doc repo in the larger project? (I am not sure, just a guess) -->
 <p>In this section, we explain how the documentation project is organized and where you should put your files. This structure helps keep everything clean, consistent, and easy to work with — especially when multiple people are involved.</p>
 <p>Below is a typical folder layout for the project:</p>
 <pre><code>project-root-doc/
@@ -358,20 +360,20 @@ window.Quarto = {
 <li><p><strong><code>src/</code></strong><br>
 This is the main source folder. It contains all the shared resources used when creating documentation.</p>
 <ul>
-<li><p><strong><code>src/templates/</code></strong><br>
+<li><p><strong><code>src/templates/</code></strong> <!--# state no editing here --><br>
 This is where you’ll find ready-to-use <code>.qmd</code> templates. There are templates for two document types:</p>
 <ul>
 <li><strong>ATBD</strong> (Algorithm Theoretical Basis Document)</li>
 <li><strong>PUM</strong> (Product User Manual)<br>
 When you start a new document, you will copy the appropriate template from here.</li>
 </ul></li>
-<li><p><strong><code>src/styles/</code></strong><br>
+<li><p><strong><code>src/styles/</code></strong><!--# state no editing here --><br>
 This folder contains style-related files, such as DOCX templates and style sheets. These are used by scripts and macros to give your documents a consistent look.</p></li>
 <li><p><strong><code>src/products/</code></strong><br>
 This is the folder where you will actually create and edit your documentation.</p>
 <ul>
-<li><p>For each new document, create a new <code>.qmd</code> file inside <code>src/products/</code>, for example: <code>my-doc.qmd</code>.</p></li>
-<li><p>Also create a separate folder to store images and charts used in that document, for example: <code>my-doc-media/</code>.</p></li>
+<li><p>For each new document, create a new <code>.qmd</code> file inside <code>src/products/</code>, for example: <code>my-doc.qmd</code>. <!--# we have only a partially aggreed document naming convention. Once the repo guidelines are ready, we can create a new guideline doc: document naming convention. Please state here info: "Make sure you follow the agreet naming convention" --></p></li>
+<li><p>Also create a separate folder to store images and charts used in that document, for example: <code>my-doc-media/</code>. <!--# is my-doc must follow the qmd doc and a fixed suffix must be added '-media'? --></p></li>
 <li><p>Both the <code>.qmd</code> file and the media folder should follow a clear naming pattern (e.g.&nbsp;same prefix) to keep things organized.</p>
 <p><em>Example:</em></p>
 <pre><code>products/
@@ -380,7 +382,7 @@ This is the folder where you will actually create and edit your documentation.</
     └── image1.png</code></pre></li>
 </ul></li>
 </ul></li>
-<li><p><strong><code>scripts/</code>, <code>macros/</code></strong>, and <strong><code>metadata/</code></strong><br>
+<li><p><strong><code>scripts/</code>, <code>macros/</code></strong>, and <strong><code>metadata/</code></strong> <!--# state no editing here --><br>
 These folders support the automation workflow. They include scripts, macros, and configuration files that help with rendering and styling your documents.</p></li>
 </ul>
 <p>By following this structure, everyone on the team will know exactly where to find templates, styles, and finished documents — and where to put new content.</p>
@@ -918,7 +920,7 @@ Important
 Although PDF is not rendered directly during this step, defining it here ensures compatibility with the automated rendering workflow later. Details are explained in the <a href="#rendering-documentation">Rendering Documentation</a> section.</p>
 </div>
 </div>
-<p>You can adjust <code>reference-doc:</code> under the <code>html: format</code> to specify the default style used for the DOCX/PDF output.</p>
+<p>You must adjust <code>reference-doc:</code> under the <code>html: format</code> to specify the default style used for the DOCX/PDF output.</p>
 <p>Here’s a basic header you can use:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Product SHORT NAME"</span></span>
@@ -1005,11 +1007,11 @@ Keeping the structure consistent across all documents ensures that the documenta
 <section id="what-is-pandoc" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-pandoc">What is Pandoc?</h2>
 <p><a href="https://pandoc.org/installing.html">Pandoc</a> is a powerful command-line tool that can convert documents between various formats, including Markdown, DOCX, HTML, LaTeX, and more.</p>
-<p>To use Pandoc on your computer, download and install it from the official site: <a href="https://pandoc.org/installing.html">https://pandoc.org/installing.html</a></p>
+<p>To use Pandoc on your computer, download and install it from the official site: <a href="https://pandoc.org/installing.html" class="uri">https://pandoc.org/installing.html</a></p>
 </section>
 <section id="when-and-how-to-use-it" class="level2">
 <h2 class="anchored" data-anchor-id="when-and-how-to-use-it">When and How to Use It</h2>
-<p>Use Pandoc <strong>only</strong> for converting existing <code>.docx</code> documents into <code>.qmd</code>. Do <strong>not</strong> use it to convert PDFs — Pandoc does not support PDF as an input format. This approach is ideal when you’re:</p>
+<p>Use Pandoc <strong>only</strong> for converting existing <code>.docx</code> documents into <code>.qmd</code>. Do <strong>not</strong> use it to convert PDFs — Pandoc does not support PDF as an input format. This approach is ideal when you’re: <!--# state that 'the system is doing that for you' --></p>
 <ul>
 <li>Migrating legacy documentation into the Quarto system</li>
 <li>Creating a quick starting point for manual cleanup</li>
@@ -1034,7 +1036,7 @@ Keeping the structure consistent across all documents ensures that the documenta
 <section id="where-are-media-files-stored" class="level2">
 <h2 class="anchored" data-anchor-id="where-are-media-files-stored">Where Are Media Files Stored?</h2>
 <p>When Pandoc finds images or other media in the <code>.docx</code> file, it extracts them automatically into a new folder.<br>
-By default, extracted media will be placed into a subfolder named <code>media/</code>, located next to your output <code>.qmd</code> file.<br>
+By default, extracted media will be placed into a subfolder named <code>media/</code>, located next to your output <code>.qmd</code> file. <!--# so it does not do the docname-media?--><br>
 This is created automatically and will contain all image assets referenced in the converted file.</p>
 <section id="changing-the-media-folder-name" class="level3">
 <h3 class="anchored" data-anchor-id="changing-the-media-folder-name">Changing the Media Folder Name</h3>
@@ -1062,9 +1064,9 @@ Note
 <p>After conversion, you’ll likely need to:</p>
 <ul>
 <li>Clean up unnecessary styles or extra spacing</li>
-<li>Rename and organize media files</li>
-<li>Add a proper YAML header at the top of the <code>.qmd</code> file</li>
-<li>Restructure the content to match your template or documentation style</li>
+<li>Rename and organize media files <!--# pls cross referenc to it --></li>
+<li>Add a proper YAML header at the top of the <code>.qmd</code> file <!--# pls cross referenc to it --></li>
+<li>Restructure the content to match your template or documentation style <!--# pls cross referenc to it --></li>
 </ul>
 <p>While not perfect, this method gives you a solid starting point — especially for long or complex documents.</p>
 </section>
@@ -1074,17 +1076,16 @@ Note
 <p>To make documentation look consistent and professional, we use a set of predefined styles and settings. These are applied automatically when you render your <code>.qmd</code> files, so you don’t need to worry about design details — just focus on the content.</p>
 <section id="shared-styling-configuration" class="level2">
 <h2 class="anchored" data-anchor-id="shared-styling-configuration">Shared Styling Configuration</h2>
-<p>Most formatting options (fonts, colors, spacing, margins, etc.) are defined in shared configuration files. These include:</p>
+<p>Most formatting options (fonts, colors, spacing, margins, etc.) are defined in shared configuration files. These files are stored in <code>src/styles</code> directory and include:</p>
 <ul>
 <li>A custom DOCX file for styling PDF output</li>
 <li>A CSS stylesheet for HTML</li>
 <li>Metadata files for shared fields like project name, institution, and contributors</li>
 </ul>
-<p>These files are stored in <code>src/styles</code> directory.</p>
-<p>You don’t need to open or edit them — they’re used automatically by the rendering scripts.</p>
+<p>Don’t edit them! — they’re used automatically by the rendering scripts.</p>
 </section>
 <section id="theme" class="level2">
-<h2 class="anchored" data-anchor-id="theme">Theme</h2>
+<h2 class="anchored" data-anchor-id="theme">Theme <!--# is this somewhere? I do not fully understnd what this is about? in the YAML?--></h2>
 <p>It ensures that all documents have a clean, modern, and consistent appearance — both in HTML and PDF output.</p>
 <blockquote class="blockquote">
 <p>This theme is applied automatically. You do not need to configure it manually in your documents.</p>
@@ -1127,7 +1128,7 @@ Simply leave the <code>keywords:</code> field untouched or omit it entirely. The
 </section>
 </section>
 <section id="using-rstudio-with-quarto" class="level1">
-<h1>Using RStudio with Quarto</h1>
+<h1>Using RStudio with Quarto <!--# we may group the software prerequisites in one chapter? --></h1>
 <p><a href="https://posit.co/products/open-source/rstudio/">RStudio</a> is the recommended tool for working with <code>.qmd</code> (Quarto Markdown) files. It provides a simple, user-friendly interface for writing, editing, and rendering documentation.</p>
 <p>You don’t need to know R to use RStudio — we only use it here as a Markdown editor with rendering features.</p>
 <section id="opening-your-project" class="level2">
@@ -1166,6 +1167,7 @@ Simply leave the <code>keywords:</code> field untouched or omit it entirely. The
 <p>You can render your documentation directly in RStudio or using command-line tools, depending on what you prefer. Both options work the same way and produce identical results — choose the one that fits your workflow best.</p>
 <section id="render-to-html" class="level2">
 <h2 class="anchored" data-anchor-id="render-to-html">Render to HTML</h2>
+<!--# there is also "Render webside" under build on the top right side. if that is relevant here add a screenshot and clarify the difference between the two -->
 <p>HTML is the default output format and is useful for previewing your document in a web browser while you work. Rendered HTML uses the custom Technical Library theme and includes a table of contents, clickable navigation, and consistent styles. It’s a great way to check formatting, layout, and images as you write.</p>
 <p>There are two ways to preview your <code>.qmd</code> file:</p>
 <ul>
@@ -1188,7 +1190,7 @@ Simply leave the <code>keywords:</code> field untouched or omit it entirely. The
 <p>PDFs are not generated directly from Quarto. Instead, the process involves a few automatic steps:</p>
 <ol type="1">
 <li>Quarto first generates a <code>.docx</code> (Word) file using the styles and settings defined in the YAML header and shared config files.</li>
-<li>Then, a LibreOffice macro automatically converts the <code>.docx</code> to <code>.pdf</code>.</li>
+<li>Then, a LibreOffice macro automatically converts the <code>.docx</code> to <code>.pdf</code>. <!--# in this case lobreoffice is a software rerequisit and should be listed as such. I am not sure what the state is of libre vs MSword script is? --></li>
 <li>The resulting PDF file is saved in the output location.</li>
 </ol>
 <p>This approach ensures consistent and well-formatted PDFs, even across different systems.</p>
@@ -1260,20 +1262,20 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you’re adding a new style to the <code>.docx</code> reference file, make sure it’s a <strong>character style</strong> so it works correctly when applied inline in <code>.qmd</code> files. Custom styles must always be defined as character styles — not paragraph styles. Using the wrong type can cause formatting issues across the entire document.</p>
+<p>If you’re adding a new style to the <code>.docx</code> reference file, make sure it’s a <strong>character style</strong> so it works correctly when applied inline in <code>.qmd</code> files. Custom styles must always be defined as character styles — not paragraph styles. Using the wrong type can cause formatting issues across the entire document. <!--# are our templates changes here? --></p>
 </div>
 </div>
 </section>
 <section id="figure-and-image-numbering" class="level2">
 <h2 class="anchored" data-anchor-id="figure-and-image-numbering">Figure and Image Numbering</h2>
 <p><strong>Problem</strong></p>
-<p>Figures and images inserted into <code>.qmd</code> files do not automatically include numbers in the rendered DOCX or PDF file.</p>
+<p>Figures and images inserted into <code>.qmd</code> files do not automatically include numbers in the rendered DOCX or PDF file. <!--# hm we need to talk abot that, having Figure X below an image is quite important for cross references right? --></p>
 <p><strong>Workaround</strong></p>
 <p>You can use figure referencing like this:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Short description](my-doc-media/image.jpg)</span>{{#fig-3 height=356px}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>However, this approach wraps the image in a table structure, which might cause visible borders or layout issues — especially if your styling is strict or minimal.</p>
 <p><strong>Best Practice</strong></p>
-<p>For clean results:</p>
+<p>For clean results: <!--# this is a problem... --></p>
 <ul>
 <li>Add a manual figure number and title directly as text under the image.</li>
 <li>Avoid using automatic figure references unless necessary for cross-referencing.</li>
@@ -1286,7 +1288,7 @@ Note
 <h2 class="anchored" data-anchor-id="table-styling-and-formatting">Table Styling and Formatting</h2>
 <p><strong>Problem</strong></p>
 <p>Only one table style is applied to all tables via the DOCX template, and additional formatting — like emphasizing specific rows — isn’t applied automatically.</p>
-<p><strong>Solution</strong></p>
+<p><strong>Solution</strong> <!--# can you make a bigger ecample? i.e. a bold cell in a not bold little table? --></p>
 <p>Use a custom character style (like <code>BoldRowText</code>) within cells that require special formatting.</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">**MRVPP**</span><span class="co">]</span>{custom-style="BoldRowText"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This will bold specific text while keeping the rest of the table structure intact.</p>
