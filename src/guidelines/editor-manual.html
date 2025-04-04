@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="keywords" content="creating documentation, documentation creation, documentation creating, writing documentation, make documentation, documentationworkflow, documentation quarto, documentation style, documentation src, templates folder">
+
+<title>Technical Library - Quarto Documentation Editor Manual</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../src/styles/main.css">
+<link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Technical Library</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../src/guidelines/index.html"> 
+<span class="menu-text">Guidelines</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#folder-and-file-structure" id="toc-folder-and-file-structure" class="nav-link" data-scroll-target="#folder-and-file-structure">Folder and File Structure</a>
+  <ul class="collapse">
+  <li><a href="#folder-descriptions" id="toc-folder-descriptions" class="nav-link" data-scroll-target="#folder-descriptions">Folder Descriptions</a></li>
+  </ul></li>
+  <li><a href="#basic-markdown-syntax" id="toc-basic-markdown-syntax" class="nav-link" data-scroll-target="#basic-markdown-syntax">Basic Markdown Syntax</a>
+  <ul class="collapse">
+  <li><a href="#headings" id="toc-headings" class="nav-link" data-scroll-target="#headings">Headings</a></li>
+  <li><a href="#paragraphs-and-line-breaks" id="toc-paragraphs-and-line-breaks" class="nav-link" data-scroll-target="#paragraphs-and-line-breaks">Paragraphs and Line Breaks</a></li>
+  <li><a href="#bold-and-italic-text" id="toc-bold-and-italic-text" class="nav-link" data-scroll-target="#bold-and-italic-text">Bold and Italic Text</a></li>
+  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists">Lists</a>
+  <ul class="collapse">
+  <li><a href="#bullet-unordered-list" id="toc-bullet-unordered-list" class="nav-link" data-scroll-target="#bullet-unordered-list">Bullet (Unordered) List</a></li>
+  <li><a href="#numbered-ordered-list" id="toc-numbered-ordered-list" class="nav-link" data-scroll-target="#numbered-ordered-list">Numbered (Ordered) List</a></li>
+  </ul></li>
+  <li><a href="#links-and-images" id="toc-links-and-images" class="nav-link" data-scroll-target="#links-and-images">Links and Images</a>
+  <ul class="collapse">
+  <li><a href="#link" id="toc-link" class="nav-link" data-scroll-target="#link">Link</a></li>
+  <li><a href="#image" id="toc-image" class="nav-link" data-scroll-target="#image">Image</a></li>
+  </ul></li>
+  <li><a href="#code-blocks-and-inline-code" id="toc-code-blocks-and-inline-code" class="nav-link" data-scroll-target="#code-blocks-and-inline-code">Code Blocks and Inline Code</a>
+  <ul class="collapse">
+  <li><a href="#inline-code" id="toc-inline-code" class="nav-link" data-scroll-target="#inline-code">Inline code</a></li>
+  <li><a href="#code-block" id="toc-code-block" class="nav-link" data-scroll-target="#code-block">Code block</a></li>
+  </ul></li>
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables">Tables</a>
+  <ul class="collapse">
+  <li><a href="#simple-pipe-table" id="toc-simple-pipe-table" class="nav-link" data-scroll-target="#simple-pipe-table">Simple (Pipe) Table</a></li>
+  <li><a href="#html-style-table-for-advanced-layouts" id="toc-html-style-table-for-advanced-layouts" class="nav-link" data-scroll-target="#html-style-table-for-advanced-layouts">HTML-style Table (for advanced layouts)</a></li>
+  </ul></li>
+  <li><a href="#figures-with-captions-and-layout" id="toc-figures-with-captions-and-layout" class="nav-link" data-scroll-target="#figures-with-captions-and-layout">Figures (with captions and layout)</a></li>
+  <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations">Equations</a>
+  <ul class="collapse">
+  <li><a href="#inline-equations" id="toc-inline-equations" class="nav-link" data-scroll-target="#inline-equations">Inline Equations</a></li>
+  <li><a href="#display-equations" id="toc-display-equations" class="nav-link" data-scroll-target="#display-equations">Display Equations</a></li>
+  </ul></li>
+  <li><a href="#diagrams" id="toc-diagrams" class="nav-link" data-scroll-target="#diagrams">Diagrams</a>
+  <ul class="collapse">
+  <li><a href="#mermaid-example" id="toc-mermaid-example" class="nav-link" data-scroll-target="#mermaid-example">Mermaid example</a></li>
+  <li><a href="#dot-example" id="toc-dot-example" class="nav-link" data-scroll-target="#dot-example">Dot example</a></li>
+  </ul></li>
+  <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
+  <li><a href="#notebook-output-embeds" id="toc-notebook-output-embeds" class="nav-link" data-scroll-target="#notebook-output-embeds">Notebook Output Embeds</a></li>
+  </ul></li>
+  <li><a href="#creating-new-documentation" id="toc-creating-new-documentation" class="nav-link" data-scroll-target="#creating-new-documentation">Creating New Documentation</a>
+  <ul class="collapse">
+  <li><a href="#step-1-start-a-new-file" id="toc-step-1-start-a-new-file" class="nav-link" data-scroll-target="#step-1-start-a-new-file">Step 1: Start a New File</a>
+  <ul class="collapse">
+  <li><a href="#option-1-use-a-template" id="toc-option-1-use-a-template" class="nav-link" data-scroll-target="#option-1-use-a-template">Option 1: Use a Template</a></li>
+  <li><a href="#option-2-create-from-scratch" id="toc-option-2-create-from-scratch" class="nav-link" data-scroll-target="#option-2-create-from-scratch">Option 2: Create from scratch</a></li>
+  </ul></li>
+  <li><a href="#step-2-understand-and-use-the-template" id="toc-step-2-understand-and-use-the-template" class="nav-link" data-scroll-target="#step-2-understand-and-use-the-template">Step 2: Understand and Use the Template</a></li>
+  <li><a href="#step-3-add-or-adjust-the-yaml-header" id="toc-step-3-add-or-adjust-the-yaml-header" class="nav-link" data-scroll-target="#step-3-add-or-adjust-the-yaml-header">Step 3: Add or Adjust the YAML Header</a></li>
+  </ul></li>
+  <li><a href="#ready-made-qmd-templates" id="toc-ready-made-qmd-templates" class="nav-link" data-scroll-target="#ready-made-qmd-templates">Ready-Made QMD Templates</a>
+  <ul class="collapse">
+  <li><a href="#atbd-template" id="toc-atbd-template" class="nav-link" data-scroll-target="#atbd-template">ATBD Template</a></li>
+  <li><a href="#pum-template" id="toc-pum-template" class="nav-link" data-scroll-target="#pum-template">PUM Template</a></li>
+  <li><a href="#how-to-use-the-templates" id="toc-how-to-use-the-templates" class="nav-link" data-scroll-target="#how-to-use-the-templates">How to Use the Templates</a></li>
+  </ul></li>
+  <li><a href="#using-pandoc-to-convert-docx-to-qmd" id="toc-using-pandoc-to-convert-docx-to-qmd" class="nav-link" data-scroll-target="#using-pandoc-to-convert-docx-to-qmd">Using Pandoc to Convert DOCX to QMD</a>
+  <ul class="collapse">
+  <li><a href="#what-is-pandoc" id="toc-what-is-pandoc" class="nav-link" data-scroll-target="#what-is-pandoc">What is Pandoc?</a></li>
+  <li><a href="#when-and-how-to-use-it" id="toc-when-and-how-to-use-it" class="nav-link" data-scroll-target="#when-and-how-to-use-it">When and How to Use It</a></li>
+  <li><a href="#basic-usage-example" id="toc-basic-usage-example" class="nav-link" data-scroll-target="#basic-usage-example">Basic Usage Example</a>
+  <ul class="collapse">
+  <li><a href="#what-this-command-does" id="toc-what-this-command-does" class="nav-link" data-scroll-target="#what-this-command-does">What this command does:</a></li>
+  </ul></li>
+  <li><a href="#where-are-media-files-stored" id="toc-where-are-media-files-stored" class="nav-link" data-scroll-target="#where-are-media-files-stored">Where Are Media Files Stored?</a>
+  <ul class="collapse">
+  <li><a href="#changing-the-media-folder-name" id="toc-changing-the-media-folder-name" class="nav-link" data-scroll-target="#changing-the-media-folder-name">Changing the Media Folder Name</a></li>
+  </ul></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  </ul></li>
+  <li><a href="#default-styles-and-options" id="toc-default-styles-and-options" class="nav-link" data-scroll-target="#default-styles-and-options">Default Styles and Options</a>
+  <ul class="collapse">
+  <li><a href="#shared-styling-configuration" id="toc-shared-styling-configuration" class="nav-link" data-scroll-target="#shared-styling-configuration">Shared Styling Configuration</a></li>
+  <li><a href="#theme" id="toc-theme" class="nav-link" data-scroll-target="#theme">Theme</a></li>
+  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of Contents</a></li>
+  <li><a href="#customizing-per-document-settings" id="toc-customizing-per-document-settings" class="nav-link" data-scroll-target="#customizing-per-document-settings">Customizing Per-Document Settings</a></li>
+  </ul></li>
+  <li><a href="#automatic-keywords-generation" id="toc-automatic-keywords-generation" class="nav-link" data-scroll-target="#automatic-keywords-generation">Automatic Keywords Generation</a>
+  <ul class="collapse">
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How It Works</a></li>
+  <li><a href="#what-you-should-do" id="toc-what-you-should-do" class="nav-link" data-scroll-target="#what-you-should-do">What You Should Do</a></li>
+  </ul></li>
+  <li><a href="#using-rstudio-with-quarto" id="toc-using-rstudio-with-quarto" class="nav-link" data-scroll-target="#using-rstudio-with-quarto">Using RStudio with Quarto</a>
+  <ul class="collapse">
+  <li><a href="#opening-your-project" id="toc-opening-your-project" class="nav-link" data-scroll-target="#opening-your-project">Opening Your Project</a></li>
+  <li><a href="#editing-qmd-files" id="toc-editing-qmd-files" class="nav-link" data-scroll-target="#editing-qmd-files">Editing QMD Files</a></li>
+  <li><a href="#managing-media-files" id="toc-managing-media-files" class="nav-link" data-scroll-target="#managing-media-files">Managing Media Files</a></li>
+  </ul></li>
+  <li><a href="#rendering-documentation" id="toc-rendering-documentation" class="nav-link" data-scroll-target="#rendering-documentation">Rendering Documentation</a>
+  <ul class="collapse">
+  <li><a href="#render-to-html" id="toc-render-to-html" class="nav-link" data-scroll-target="#render-to-html">Render to HTML</a></li>
+  <li><a href="#render-to-pdf-via-docx-and-libreoffice" id="toc-render-to-pdf-via-docx-and-libreoffice" class="nav-link" data-scroll-target="#render-to-pdf-via-docx-and-libreoffice">Render to PDF via DOCX and LibreOffice</a>
+  <ul class="collapse">
+  <li><a href="#preview-with-docx-instead-of-pdf" id="toc-preview-with-docx-instead-of-pdf" class="nav-link" data-scroll-target="#preview-with-docx-instead-of-pdf">Preview with DOCX Instead of PDF</a></li>
+  </ul></li>
+  <li><a href="#output-location" id="toc-output-location" class="nav-link" data-scroll-target="#output-location">Output Location</a></li>
+  </ul></li>
+  <li><a href="#problems-and-solutions" id="toc-problems-and-solutions" class="nav-link" data-scroll-target="#problems-and-solutions">Problems and Solutions</a>
+  <ul class="collapse">
+  <li><a href="#text-styling-in-docx" id="toc-text-styling-in-docx" class="nav-link" data-scroll-target="#text-styling-in-docx">Text Styling in DOCX</a></li>
+  <li><a href="#figure-and-image-numbering" id="toc-figure-and-image-numbering" class="nav-link" data-scroll-target="#figure-and-image-numbering">Figure and Image Numbering</a></li>
+  <li><a href="#table-styling-and-formatting" id="toc-table-styling-and-formatting" class="nav-link" data-scroll-target="#table-styling-and-formatting">Table Styling and Formatting</a></li>
+  </ul></li>
+  <li><a href="#document-review-and-git-workflow" id="toc-document-review-and-git-workflow" class="nav-link" data-scroll-target="#document-review-and-git-workflow">Document Review and Git Workflow</a>
+  <ul class="collapse">
+  <li><a href="#pushing-changes-to-git" id="toc-pushing-changes-to-git" class="nav-link" data-scroll-target="#pushing-changes-to-git">Pushing Changes to Git</a></li>
+  <li><a href="#reviewing-documents" id="toc-reviewing-documents" class="nav-link" data-scroll-target="#reviewing-documents">Reviewing Documents</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<div class="logo-header">
+  <img src="../../assets/copernicus-logo.svg" class="nav-logo">
+  <img src="../../assets/lms_logo.svg" class="nav-logo">
+</div>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Quarto Documentation Editor Manual</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>creating documentation, documentation creation, documentation creating, writing documentation, make documentation, documentationworkflow, documentation quarto, documentation style, documentation src, templates folder</p>
+  </div>
+</div>
+
+</header>
+
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","itemListElement":[{"@type":"ImageObject","url":"editor-manual-media/rstudio-render.png","caption":"Render  button"},{"@type":"ImageObject","url":"editor-manual-media/rstudio-render-on-save.png","caption":"Render  on  Save"},{"@type":"ImageObject","url":"editor-manual-media/rstudio-render-viewer-tab.png","caption":""},{"@type":"ImageObject","url":"editor-manual-media/rstudio-render-viewer-options.png","height":"300px","caption":""}],"@type":"ItemList"}
+</script>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>This manual will guide you step by step through creating documentation using <strong>Quarto</strong>. Quarto is a tool that helps you write simple text using <strong>Markdown</strong> (a plain text format) and turn it into professional-looking documents, such as <strong>HTML</strong> pages or <strong>PDF</strong> files.</p>
+<p>You don’t need to be a programmer or an expert to use Quarto. If you’ve ever written a document in Microsoft Word, you’ll be able to use Quarto with a bit of practice.</p>
+<p>This manual is for people who work with documentation — especially in teams — and need a simple, clear, and repeatable way to create it. We will cover everything from basic Markdown writing to rendering your final documents.</p>
+<p>We’ll also explain the structure of your project, how to use ready-made templates, and how to avoid common mistakes.</p>
+</section>
+<section id="folder-and-file-structure" class="level1">
+<h1>Folder and File Structure</h1>
+<p>In this section, we explain how the documentation project is organized and where you should put your files. This structure helps keep everything clean, consistent, and easy to work with — especially when multiple people are involved.</p>
+<p>Below is a typical folder layout for the project:</p>
+<pre><code>project-root-doc/
+├── src/
+│   ├── templates/
+│   │   ├── CLMS_ATBD_Template.qmd
+│   │   └── CLMS_PUM_Template.qmd
+│   ├── styles/
+│   |   ├── reference.docx
+│   |   └── custom.scss
+|   └── products/
+|       ├── my-doc.qmd
+|       └── my-doc-media
+|           └── image1.png
+├── scripts/
+├── macros/
+└── metadata/</code></pre>
+<section id="folder-descriptions" class="level2">
+<h2 class="anchored" data-anchor-id="folder-descriptions">Folder Descriptions</h2>
+<ul>
+<li><p><strong><code>src/</code></strong><br>
+This is the main source folder. It contains all the shared resources used when creating documentation.</p>
+<ul>
+<li><p><strong><code>src/templates/</code></strong><br>
+This is where you’ll find ready-to-use <code>.qmd</code> templates. There are templates for two document types:</p>
+<ul>
+<li><strong>ATBD</strong> (Algorithm Theoretical Basis Document)</li>
+<li><strong>PUM</strong> (Product User Manual)<br>
+When you start a new document, you will copy the appropriate template from here.</li>
+</ul></li>
+<li><p><strong><code>src/styles/</code></strong><br>
+This folder contains style-related files, such as DOCX templates and style sheets. These are used by scripts and macros to give your documents a consistent look.</p></li>
+<li><p><strong><code>src/products/</code></strong><br>
+This is the folder where you will actually create and edit your documentation.</p>
+<ul>
+<li><p>For each new document, create a new <code>.qmd</code> file inside <code>src/products/</code>, for example: <code>my-doc.qmd</code>.</p></li>
+<li><p>Also create a separate folder to store images and charts used in that document, for example: <code>my-doc-media/</code>.</p></li>
+<li><p>Both the <code>.qmd</code> file and the media folder should follow a clear naming pattern (e.g.&nbsp;same prefix) to keep things organized.</p>
+<p><em>Example:</em></p>
+<pre><code>products/
+├── my-doc.qmd
+└── my-doc-media/
+    └── image1.png</code></pre></li>
+</ul></li>
+</ul></li>
+<li><p><strong><code>scripts/</code>, <code>macros/</code></strong>, and <strong><code>metadata/</code></strong><br>
+These folders support the automation workflow. They include scripts, macros, and configuration files that help with rendering and styling your documents.</p></li>
+</ul>
+<p>By following this structure, everyone on the team will know exactly where to find templates, styles, and finished documents — and where to put new content.</p>
+</section>
+</section>
+<section id="basic-markdown-syntax" class="level1">
+<h1>Basic Markdown Syntax</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In addition to this guide and the official documentation, you can also explore the template <code>.qmd</code> files in the <code>src/templates</code> folder. These files include real examples of how to structure documents using Markdown and Quarto-specific syntax. They’re a great reference when you’re not sure how to format something.</p>
+</div>
+</div>
+<p>Markdown is a simple way to format text using plain characters — no need for complicated tools or buttons. Quarto uses Markdown to let you write clean, readable documents that can be turned into HTML or PDF automatically.</p>
+<p>This section shows the most useful Markdown elements you’ll need when writing documentation. If you want to explore more, visit the official Quarto Markdown guide at <a href="https://quarto.org/docs/authoring/markdown-basics.html" class="uri">https://quarto.org/docs/authoring/markdown-basics.html</a></p>
+<section id="headings" class="level2">
+<h2 class="anchored" data-anchor-id="headings">Headings</h2>
+<p>Use the <code>#</code> symbol to create headings and organize your content. More <code>#</code> means a smaller heading level:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Title (Level 1)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## Section (Level 2)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Subsection (Level 3)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="paragraphs-and-line-breaks" class="level2">
+<h2 class="anchored" data-anchor-id="paragraphs-and-line-breaks">Paragraphs and Line Breaks</h2>
+<p>Just write text normally to create a paragraph. Leave an empty line between paragraphs.<br>
+To create a <strong>line break</strong> inside a paragraph, end the line with two spaces:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>This is one line.  </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>This is another line.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="bold-and-italic-text" class="level2">
+<h2 class="anchored" data-anchor-id="bold-and-italic-text">Bold and Italic Text</h2>
+<ul>
+<li><em>Italic</em> — use one asterisk or underscore: <code>*italic*</code> or <code>_italic_</code><br>
+</li>
+<li><strong>Bold</strong> — use two asterisks: <code>**bold**</code><br>
+</li>
+<li><strong><em>Bold and italic</em></strong> — use three asterisks: <code>***bold and italic***</code></li>
+</ul>
+</section>
+<section id="lists" class="level2">
+<h2 class="anchored" data-anchor-id="lists">Lists</h2>
+<section id="bullet-unordered-list" class="level3">
+<h3 class="anchored" data-anchor-id="bullet-unordered-list">Bullet (Unordered) List</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Item one</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Item two</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Subitem</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="numbered-ordered-list" class="level3">
+<h3 class="anchored" data-anchor-id="numbered-ordered-list">Numbered (Ordered) List</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>First step</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Second step</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ss">   1. </span>Sub-step</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="links-and-images" class="level2">
+<h2 class="anchored" data-anchor-id="links-and-images">Links and Images</h2>
+<section id="link" class="level3">
+<h3 class="anchored" data-anchor-id="link">Link</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Quarto website</span><span class="co">](https://quarto.org)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="image" class="level3">
+<h3 class="anchored" data-anchor-id="image">Image</h3>
+<p>Place image files in your <code>media/</code> folder, and use:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Alt text](media/image-name.png)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="code-blocks-and-inline-code" class="level2">
+<h2 class="anchored" data-anchor-id="code-blocks-and-inline-code">Code Blocks and Inline Code</h2>
+<section id="inline-code" class="level3">
+<h3 class="anchored" data-anchor-id="inline-code">Inline code</h3>
+<p>Use backticks (`) to highlight short code inside a sentence:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Use the <span class="in">`render`</span> button to build your document.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Rendered result:</p>
+<p>Use the <code>render</code> button to build your document.</p>
+</section>
+<section id="code-block" class="level3">
+<h3 class="anchored" data-anchor-id="code-block">Code block</h3>
+<p>Use triple backticks for larger code examples:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, world!"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Rendered result:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, world!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can replace <code>python</code> with other languages like <code>bash</code>, <code>r</code>, or <code>json</code>.</p>
+</section>
+</section>
+<section id="tables" class="level2">
+<h2 class="anchored" data-anchor-id="tables">Tables</h2>
+<p>Tables are a great way to present structured information. Below are two common ways to create them, along with rendered previews.</p>
+<section id="simple-pipe-table" class="level3">
+<h3 class="anchored" data-anchor-id="simple-pipe-table">Simple (Pipe) Table</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>| Name       | Role       | Status   |</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>|------------|------------|----------|</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>| Alice      | Developer  | Active   |</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>| Bob        | Reviewer   | Pending  |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Rendered result:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Role</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alice</td>
+<td>Developer</td>
+<td>Active</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>Reviewer</td>
+<td>Pending</td>
+</tr>
+</tbody>
+</table>
+<p>Make sure to align columns using <code>|</code> and <code>-</code>.</p>
+</section>
+<section id="html-style-table-for-advanced-layouts" class="level3">
+<h3 class="anchored" data-anchor-id="html-style-table-for-advanced-layouts">HTML-style Table (for advanced layouts)</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;table style="border-collapse: collapse; width: 100%; font-size: 14px;"&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;thead style="background-color: #2c3e50; color: black;"&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th colspan="3" style="padding: 10px; border: 1px solid #ccc; text-align: center;"&gt;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="in">        Document Workflow Overview</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/th&gt;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th style="padding: 8px; border: 1px solid #ccc;"&gt;Step&lt;/th&gt;</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th style="padding: 8px; border: 1px solid #ccc;"&gt;Task&lt;/th&gt;</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th style="padding: 8px; border: 1px solid #ccc;"&gt;Details&lt;/th&gt;</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/thead&gt;</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;tbody style="background-color: #ecf0f1;"&gt;</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc;"&gt;1&lt;/td&gt;</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc;"&gt;Initialize Project&lt;/td&gt;</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc;"&gt;Set up folder structure and copy base template&lt;/td&gt;</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc;"&gt;2&lt;/td&gt;</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td colspan="2" style="padding: 8px; border: 1px solid #ccc;"&gt;Create and configure `.qmd` file&lt;/td&gt;</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc;"&gt;3&lt;/td&gt;</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc;"&gt;Write Content&lt;/td&gt;</span></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc;"&gt;</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="in">        Add sections, insert media, and apply styles.&lt;br&gt;</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="in">        Use templates to ensure structure consistency.</span></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/td&gt;</span></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc;"&gt;4&lt;/td&gt;</span></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc;"&gt;Render Output&lt;/td&gt;</span></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc;"&gt;</span></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;ul style="margin: 0; padding-left: 20px;"&gt;</span></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;li&gt;HTML for preview&lt;/li&gt;</span></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;li&gt;DOCX for formatting check&lt;/li&gt;</span></span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;li&gt;PDF via automation&lt;/li&gt;</span></span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;/ul&gt;</span></span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/td&gt;</span></span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td colspan="3" style="padding: 8px; border: 1px solid #ccc; background-color: #d1ecf1; text-align: center;"&gt;</span></span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a><span class="in">        ✅ All steps completed — document ready for review</span></span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/td&gt;</span></span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/tbody&gt;</span></span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/table&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Rendered result:</p>
+<div>
+<table data-quarto-postprocess="true" class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead style="background-color: #2c3e50; color: black;">
+<tr class="header">
+<th colspan="3" data-quarto-table-cell-role="th" style="text-align: center; padding: 10px; border: 1px solid #ccc;">Document Workflow Overview</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th" style="padding: 8px; border: 1px solid #ccc">Step</th>
+<th data-quarto-table-cell-role="th" style="padding: 8px; border: 1px solid #ccc">Task</th>
+<th data-quarto-table-cell-role="th" style="padding: 8px; border: 1px solid #ccc">Details</th>
+</tr>
+</thead>
+<tbody style="background-color: #ecf0f1;">
+<tr class="odd">
+<td style="padding: 8px; border: 1px solid #ccc">1</td>
+<td style="padding: 8px; border: 1px solid #ccc">Initialize Project</td>
+<td style="padding: 8px; border: 1px solid #ccc">Set up folder structure and copy base template</td>
+</tr>
+<tr class="even">
+<td style="padding: 8px; border: 1px solid #ccc">2</td>
+<td colspan="2" style="padding: 8px; border: 1px solid #ccc">Create and configure `.qmd` file</td>
+</tr>
+<tr class="odd">
+<td style="padding: 8px; border: 1px solid #ccc">3</td>
+<td style="padding: 8px; border: 1px solid #ccc">Write Content</td>
+<td style="padding: 8px; border: 1px solid #ccc">Add sections, insert media, and apply styles.<br>
+Use templates to ensure structure consistency.</td>
+</tr>
+<tr class="even">
+<td style="padding: 8px; border: 1px solid #ccc">4</td>
+<td style="padding: 8px; border: 1px solid #ccc">Render Output</td>
+<td style="padding: 8px; border: 1px solid #ccc"><ul>
+<li>HTML for preview</li>
+<li>DOCX for formatting check</li>
+<li>PDF via automation</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td colspan="3" style="text-align: center; padding: 8px; border: 1px solid #ccc; background-color: #d1ecf1;">✅ All steps completed — document ready for review</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Avoid using <strong>nested tables</strong> (a table inside another table) when writing documentation intended for DOCX or PDF output. While this might work in HTML, it often causes serious rendering problems in Word or during PDF conversion — such as layout breakage, invisible borders, or unreadable formatting.</p>
+<p>✅ Instead of nesting:</p>
+<ul>
+<li>Reorganize the content into a simpler layout</li>
+<li>Split one large complex table into two or more smaller tables placed one after another</li>
+</ul>
+<p>This ensures your document remains clean, readable, and properly formatted across all output formats.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="figures-with-captions-and-layout" class="level2">
+<h2 class="anchored" data-anchor-id="figures-with-captions-and-layout">Figures (with captions and layout)</h2>
+<p>You can add figures using this special block format:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>::: {.figure}</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="al">![A helpful diagram](media/diagram.png)</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>A short caption for the figure.</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also use layout options, like <code>fig-align="center"</code> or <code>fig-width="80%"</code> in advanced cases.<br>
+More: <a href="https://quarto.org/docs/authoring/figures.html" class="uri">https://quarto.org/docs/authoring/figures.html</a></p>
+</section>
+<section id="equations" class="level2">
+<h2 class="anchored" data-anchor-id="equations">Equations</h2>
+<p>Quarto supports mathematical equations using LaTeX-style syntax. You can add inline equations or display equations as blocks.</p>
+<section id="inline-equations" class="level3">
+<h3 class="anchored" data-anchor-id="inline-equations">Inline Equations</h3>
+<p>Use single dollar signs <code>$...$</code> for inline math:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>The formula for the area is $A = \pi r^2$.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Rendered result:</p>
+<p>The formula for the area is <span class="math inline">\(A = \pi r^2\)</span>.</p>
+</section>
+<section id="display-equations" class="level3">
+<h3 class="anchored" data-anchor-id="display-equations">Display Equations</h3>
+<p>Use double dollar signs <code>$$...$$</code> to show a larger, centered equation block:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>E = mc^2</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>$$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Rendered result:</p>
+<p><span class="math display">\[
+E = mc^2
+\]</span></p>
+<p>You can use most standard LaTeX math symbols and operators.<br>
+For more examples, check the <a href="https://quarto.org/docs/authoring/markdown-basics.html#equations">Quarto math documentation</a>.</p>
+</section>
+</section>
+<section id="diagrams" class="level2">
+<h2 class="anchored" data-anchor-id="diagrams">Diagrams</h2>
+<p>Quarto supports diagrams using <strong>mermaid</strong> and <strong>dot</strong>. Just use a code block like this:</p>
+<section id="mermaid-example" class="level3">
+<h3 class="anchored" data-anchor-id="mermaid-example">Mermaid example</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="in">flowchart LR</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="in">  A[Hard edge] --&gt; B(Round edge)</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="in">  B --&gt; C{Decision}</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="in">  C --&gt; D[Result one]</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="in">  C --&gt; E[Result two]</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A[Hard edge] --&gt; B(Round edge)
+  B --&gt; C{Decision}
+  C --&gt; D[Result one]
+  C --&gt; E[Result two]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="dot-example" class="level3">
+<h3 class="anchored" data-anchor-id="dot-example">Dot example</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{dot}</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="in">digraph DocumentationWorkflow {</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="in">  node [shape=box, style=rounded]</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="in">  Start -&gt; "Create .qmd File"</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="in">  "Create .qmd File" -&gt; "Write Content"</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="in">  "Write Content" -&gt; "Render to HTML"</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="in">  "Write Content" -&gt; "Render to DOCX"</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="in">  "Render to DOCX" -&gt; "Convert to PDF"</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="in">  "Render to HTML" -&gt; Review</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="in">  "Convert to PDF" -&gt; Review</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="in">  Review -&gt; "Push to GitHub"</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="in">  "Push to GitHub" -&gt; Done</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="in">  Done [shape=ellipse, style=filled, fillcolor=lightgrey]</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 244.33 548.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 544)">
+<title>DocumentationWorkflow</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-544 240.33,-544 240.33,4 -4,4"></polygon>
+<!-- Start -->
+<g id="node1" class="node">
+<title>Start</title>
+<path fill="none" stroke="black" d="M134.99,-540C134.99,-540 104.99,-540 104.99,-540 98.99,-540 92.99,-534 92.99,-528 92.99,-528 92.99,-516 92.99,-516 92.99,-510 98.99,-504 104.99,-504 104.99,-504 134.99,-504 134.99,-504 140.99,-504 146.99,-510 146.99,-516 146.99,-516 146.99,-528 146.99,-528 146.99,-534 140.99,-540 134.99,-540"></path>
+<text text-anchor="middle" x="119.99" y="-517.8" font-family="Times,serif" font-size="14.00">Start</text>
+</g>
+<!-- Create .qmd File -->
+<g id="node2" class="node">
+<title>Create .qmd File</title>
+<path fill="none" stroke="black" d="M162.69,-468C162.69,-468 77.29,-468 77.29,-468 71.29,-468 65.29,-462 65.29,-456 65.29,-456 65.29,-444 65.29,-444 65.29,-438 71.29,-432 77.29,-432 77.29,-432 162.69,-432 162.69,-432 168.69,-432 174.69,-438 174.69,-444 174.69,-444 174.69,-456 174.69,-456 174.69,-462 168.69,-468 162.69,-468"></path>
+<text text-anchor="middle" x="119.99" y="-445.8" font-family="Times,serif" font-size="14.00">Create .qmd File</text>
+</g>
+<!-- Start&#45;&gt;Create .qmd File -->
+<g id="edge1" class="edge">
+<title>Start-&gt;Create .qmd File</title>
+<path fill="none" stroke="black" d="M119.99,-503.7C119.99,-495.98 119.99,-486.71 119.99,-478.11"></path>
+<polygon fill="black" stroke="black" points="123.49,-478.1 119.99,-468.1 116.49,-478.1 123.49,-478.1"></polygon>
+</g>
+<!-- Write Content -->
+<g id="node3" class="node">
+<title>Write Content</title>
+<path fill="none" stroke="black" d="M155.69,-396C155.69,-396 84.29,-396 84.29,-396 78.29,-396 72.29,-390 72.29,-384 72.29,-384 72.29,-372 72.29,-372 72.29,-366 78.29,-360 84.29,-360 84.29,-360 155.69,-360 155.69,-360 161.69,-360 167.69,-366 167.69,-372 167.69,-372 167.69,-384 167.69,-384 167.69,-390 161.69,-396 155.69,-396"></path>
+<text text-anchor="middle" x="119.99" y="-373.8" font-family="Times,serif" font-size="14.00">Write Content</text>
+</g>
+<!-- Create .qmd File&#45;&gt;Write Content -->
+<g id="edge2" class="edge">
+<title>Create .qmd File-&gt;Write Content</title>
+<path fill="none" stroke="black" d="M119.99,-431.7C119.99,-423.98 119.99,-414.71 119.99,-406.11"></path>
+<polygon fill="black" stroke="black" points="123.49,-406.1 119.99,-396.1 116.49,-406.1 123.49,-406.1"></polygon>
+</g>
+<!-- Render to HTML -->
+<g id="node4" class="node">
+<title>Render to HTML</title>
+<path fill="none" stroke="black" d="M101.97,-252C101.97,-252 12.01,-252 12.01,-252 6.01,-252 0.01,-246 0.01,-240 0.01,-240 0.01,-228 0.01,-228 0.01,-222 6.01,-216 12.01,-216 12.01,-216 101.97,-216 101.97,-216 107.97,-216 113.97,-222 113.97,-228 113.97,-228 113.97,-240 113.97,-240 113.97,-246 107.97,-252 101.97,-252"></path>
+<text text-anchor="middle" x="56.99" y="-229.8" font-family="Times,serif" font-size="14.00">Render to HTML</text>
+</g>
+<!-- Write Content&#45;&gt;Render to HTML -->
+<g id="edge3" class="edge">
+<title>Write Content-&gt;Render to HTML</title>
+<path fill="none" stroke="black" d="M112.39,-359.87C101.56,-335.46 81.58,-290.43 68.81,-261.64"></path>
+<polygon fill="black" stroke="black" points="71.87,-259.91 64.62,-252.19 65.47,-262.75 71.87,-259.91"></polygon>
+</g>
+<!-- Render to DOCX -->
+<g id="node5" class="node">
+<title>Render to DOCX</title>
+<path fill="none" stroke="black" d="M217.98,-324C217.98,-324 128,-324 128,-324 122,-324 116,-318 116,-312 116,-312 116,-300 116,-300 116,-294 122,-288 128,-288 128,-288 217.98,-288 217.98,-288 223.98,-288 229.98,-294 229.98,-300 229.98,-300 229.98,-312 229.98,-312 229.98,-318 223.98,-324 217.98,-324"></path>
+<text text-anchor="middle" x="172.99" y="-301.8" font-family="Times,serif" font-size="14.00">Render to DOCX</text>
+</g>
+<!-- Write Content&#45;&gt;Render to DOCX -->
+<g id="edge4" class="edge">
+<title>Write Content-&gt;Render to DOCX</title>
+<path fill="none" stroke="black" d="M133.09,-359.7C139.38,-351.39 147.04,-341.28 153.95,-332.14"></path>
+<polygon fill="black" stroke="black" points="156.79,-334.19 160.04,-324.1 151.21,-329.96 156.79,-334.19"></polygon>
+</g>
+<!-- Review -->
+<g id="node7" class="node">
+<title>Review</title>
+<path fill="none" stroke="black" d="M137.26,-180C137.26,-180 102.72,-180 102.72,-180 96.72,-180 90.72,-174 90.72,-168 90.72,-168 90.72,-156 90.72,-156 90.72,-150 96.72,-144 102.72,-144 102.72,-144 137.26,-144 137.26,-144 143.26,-144 149.26,-150 149.26,-156 149.26,-156 149.26,-168 149.26,-168 149.26,-174 143.26,-180 137.26,-180"></path>
+<text text-anchor="middle" x="119.99" y="-157.8" font-family="Times,serif" font-size="14.00">Review</text>
+</g>
+<!-- Render to HTML&#45;&gt;Review -->
+<g id="edge6" class="edge">
+<title>Render to HTML-&gt;Review</title>
+<path fill="none" stroke="black" d="M72.56,-215.7C80.19,-207.22 89.51,-196.86 97.87,-187.58"></path>
+<polygon fill="black" stroke="black" points="100.51,-189.88 104.6,-180.1 95.3,-185.2 100.51,-189.88"></polygon>
+</g>
+<!-- Convert to PDF -->
+<g id="node6" class="node">
+<title>Convert to PDF</title>
+<path fill="none" stroke="black" d="M224.17,-252C224.17,-252 143.81,-252 143.81,-252 137.81,-252 131.81,-246 131.81,-240 131.81,-240 131.81,-228 131.81,-228 131.81,-222 137.81,-216 143.81,-216 143.81,-216 224.17,-216 224.17,-216 230.17,-216 236.17,-222 236.17,-228 236.17,-228 236.17,-240 236.17,-240 236.17,-246 230.17,-252 224.17,-252"></path>
+<text text-anchor="middle" x="183.99" y="-229.8" font-family="Times,serif" font-size="14.00">Convert to PDF</text>
+</g>
+<!-- Render to DOCX&#45;&gt;Convert to PDF -->
+<g id="edge5" class="edge">
+<title>Render to DOCX-&gt;Convert to PDF</title>
+<path fill="none" stroke="black" d="M175.71,-287.7C176.92,-279.98 178.38,-270.71 179.73,-262.11"></path>
+<polygon fill="black" stroke="black" points="183.21,-262.53 181.3,-252.1 176.29,-261.44 183.21,-262.53"></polygon>
+</g>
+<!-- Convert to PDF&#45;&gt;Review -->
+<g id="edge7" class="edge">
+<title>Convert to PDF-&gt;Review</title>
+<path fill="none" stroke="black" d="M168.17,-215.7C160.42,-207.22 150.95,-196.86 142.47,-187.58"></path>
+<polygon fill="black" stroke="black" points="144.96,-185.12 135.63,-180.1 139.79,-189.85 144.96,-185.12"></polygon>
+</g>
+<!-- Push to GitHub -->
+<g id="node8" class="node">
+<title>Push to GitHub</title>
+<path fill="none" stroke="black" d="M159.61,-108C159.61,-108 80.37,-108 80.37,-108 74.37,-108 68.37,-102 68.37,-96 68.37,-96 68.37,-84 68.37,-84 68.37,-78 74.37,-72 80.37,-72 80.37,-72 159.61,-72 159.61,-72 165.61,-72 171.61,-78 171.61,-84 171.61,-84 171.61,-96 171.61,-96 171.61,-102 165.61,-108 159.61,-108"></path>
+<text text-anchor="middle" x="119.99" y="-85.8" font-family="Times,serif" font-size="14.00">Push to GitHub</text>
+</g>
+<!-- Review&#45;&gt;Push to GitHub -->
+<g id="edge8" class="edge">
+<title>Review-&gt;Push to GitHub</title>
+<path fill="none" stroke="black" d="M119.99,-143.7C119.99,-135.98 119.99,-126.71 119.99,-118.11"></path>
+<polygon fill="black" stroke="black" points="123.49,-118.1 119.99,-108.1 116.49,-118.1 123.49,-118.1"></polygon>
+</g>
+<!-- Done -->
+<g id="node9" class="node">
+<title>Done</title>
+<ellipse fill="lightgrey" stroke="black" cx="119.99" cy="-18" rx="31.91" ry="18"></ellipse>
+<text text-anchor="middle" x="119.99" y="-13.8" font-family="Times,serif" font-size="14.00">Done</text>
+</g>
+<!-- Push to GitHub&#45;&gt;Done -->
+<g id="edge9" class="edge">
+<title>Push to GitHub-&gt;Done</title>
+<path fill="none" stroke="black" d="M119.99,-71.7C119.99,-63.98 119.99,-54.71 119.99,-46.11"></path>
+<polygon fill="black" stroke="black" points="123.49,-46.1 119.99,-36.1 116.49,-46.1 123.49,-46.1"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>More: <a href="https://quarto.org/docs/authoring/diagrams.html" class="uri">https://quarto.org/docs/authoring/diagrams.html</a></p>
+</section>
+</section>
+<section id="footnotes" class="level2">
+<h2 class="anchored" data-anchor-id="footnotes">Footnotes</h2>
+<p>You can add footnotes to explain details without interrupting the main text. Use <code>[^1]</code> where you want the footnote, and define the footnote at the bottom:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>This is a sentence with a footnote.<span class="ot">[^1]</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>This is the footnote content.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Rendered result:</p>
+<p>This is a sentence with a footnote.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</section>
+<section id="notebook-output-embeds" class="level2">
+<h2 class="anchored" data-anchor-id="notebook-output-embeds">Notebook Output Embeds</h2>
+<p>If you’re working with code notebooks (like Jupyter or R Markdown), you can include outputs such as plots or tables directly in the document. Quarto will automatically embed them after the code block.</p>
+<p>More: <a href="https://quarto.org/docs/authoring/notebook-embed.html" class="uri">https://quarto.org/docs/authoring/notebook-embed.html</a></p>
+</section>
+</section>
+<section id="creating-new-documentation" class="level1">
+<h1>Creating New Documentation</h1>
+<p>Creating a new document is simple when you follow a clear workflow. You can either start from a ready-made template or create a file from scratch.</p>
+<section id="step-1-start-a-new-file" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-start-a-new-file">Step 1: Start a New File</h2>
+<p>There are two ways to begin:</p>
+<section id="option-1-use-a-template" class="level3">
+<h3 class="anchored" data-anchor-id="option-1-use-a-template">Option 1: Use a Template</h3>
+<ol type="1">
+<li>Open the <code>src/templates/</code> folder.</li>
+<li>Choose the right template:
+<ul>
+<li><code>CLMS_ATBD_Template.qmd</code> for an Algorithm Theoretical Basis Document (ATBD)</li>
+<li><code>CLMS_PUM_Template.qmd</code> for a Product User Manual (PUM)</li>
+</ul></li>
+<li>Copy the template into the <code>src/products/</code> folder.</li>
+<li>Rename it to match your new document. Example: <code>my-product.qmd</code></li>
+<li>Create a new media folder named <code>my-product-media/</code> next to it to store images and charts.</li>
+</ol>
+</section>
+<section id="option-2-create-from-scratch" class="level3">
+<h3 class="anchored" data-anchor-id="option-2-create-from-scratch">Option 2: Create from scratch</h3>
+<ol type="1">
+<li>Inside the <code>src/products/</code> folder, create a new file: e.g.&nbsp;<code>my-product.qmd</code></li>
+<li>Create a new media folder named <code>my-product-media/</code> for related images and figures.</li>
+</ol>
+<blockquote class="blockquote">
+<p>💡 Using templates is recommended because they include structure and helpful comments. But starting from scratch gives you full control.</p>
+</blockquote>
+</section>
+</section>
+<section id="step-2-understand-and-use-the-template" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-understand-and-use-the-template">Step 2: Understand and Use the Template</h2>
+<p>Templates include:</p>
+<ul>
+<li>A pre-filled YAML header (the part at the top with <code>---</code>)</li>
+<li>Required sections and headings</li>
+<li>Helpful comments you should keep while editing</li>
+</ul>
+<blockquote class="blockquote">
+<p>💡 If you use an already defined template, the YAML header is included — you don’t need to add it manually.</p>
+</blockquote>
+</section>
+<section id="step-3-add-or-adjust-the-yaml-header" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-add-or-adjust-the-yaml-header">Step 3: Add or Adjust the YAML Header</h2>
+<p>If you’re creating the <code>.qmd</code> file from scratch, you must add the basic YAML header at the top of your file.</p>
+<p>These fields are <strong>required</strong> for correct rendering:</p>
+<ul>
+<li><code>metadata-files</code>: connects your document to shared metadata (like author, institution, version)</li>
+<li><code>format</code>: controls how your document is rendered (HTML, styled DOCX, etc.)</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You <strong>must include</strong> the <code>pdf: default</code> format in the YAML header.<br>
+Although PDF is not rendered directly during this step, defining it here ensures compatibility with the automated rendering workflow later. Details are explained in the <a href="#rendering-documentation">Rendering Documentation</a> section.</p>
+</div>
+</div>
+<p>You can adjust <code>reference-doc:</code> under the <code>html: format</code> to specify the default style used for the DOCX/PDF output.</p>
+<p>Here’s a basic header you can use:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Product SHORT NAME"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Product full name"</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2022-10-06"</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="an">version:</span><span class="co"> 1.0</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="an">product-name:</span><span class="co"> Product Name</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> "Product DESCRIPTION"</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="an">metadata-files:</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co">  - ../../metadata/default.yml</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co">  docx:</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co">    reference-doc: ../styles/template-atbd.docx</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co">    hidden: true</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="ready-made-qmd-templates" class="level1">
+<h1>Ready-Made QMD Templates</h1>
+<p>To make documentation creation easier and more consistent, you can start your work from ready-made <code>.qmd</code> template files. These templates include the correct structure, required sections, and helpful comments to guide your editing.</p>
+<p>Templates are stored in the <code>src/templates/</code> directory. Currently, two types of templates are provided:</p>
+<section id="atbd-template" class="level2">
+<h2 class="anchored" data-anchor-id="atbd-template">ATBD Template</h2>
+<p><strong>Filename:</strong> <code>CLMS_ATBD_Template.qmd</code></p>
+<p>This template is used for creating an <strong>Algorithm Theoretical Basis Document (ATBD)</strong>.</p>
+<p>It includes:</p>
+<ul>
+<li>A structured outline based on standard ATBD requirements</li>
+<li>Placeholder sections for theory, algorithm descriptions, validation, and references</li>
+<li>YAML metadata pre-filled with necessary fields and style settings</li>
+<li>Commented guidance within each section</li>
+</ul>
+<blockquote class="blockquote">
+<p>💡 Use this template when documenting the scientific or technical foundation of a data product.</p>
+</blockquote>
+</section>
+<section id="pum-template" class="level2">
+<h2 class="anchored" data-anchor-id="pum-template">PUM Template</h2>
+<p><strong>Filename:</strong> <code>CLMS_PUM_Template.qmd</code></p>
+<p>This template is used for creating a <strong>Product User Manual (PUM)</strong>.</p>
+<p>It includes:</p>
+<ul>
+<li>Sections for product overview, data access, interpretation, and use</li>
+<li>Notes on where to insert images, tables, and figures</li>
+<li>YAML header configured for standard rendering</li>
+</ul>
+<blockquote class="blockquote">
+<p>💡 Use this template when documenting how users should interact with or interpret a product.</p>
+</blockquote>
+</section>
+<section id="how-to-use-the-templates" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-use-the-templates">How to Use the Templates</h2>
+<ol type="1">
+<li>Go to <code>src/templates/</code></li>
+<li>Choose either <code>CLMS_ATBD_Template.qmd</code> or <code>CLMS_PUM_Template.qmd</code></li>
+<li>Copy the file into the <code>src/products/</code> folder</li>
+<li>Rename it to match your project (e.g.&nbsp;<code>my-product.qmd</code>)</li>
+<li>Begin editing based on the guidance in the template</li>
+</ol>
+<p>If you’re unsure which template to use, ask your team lead or check what was used in previous similar documents.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do not modify the structure of the template unless absolutely necessary.<br>
+Keeping the structure consistent across all documents ensures that the documentation system stays clear, professional, and easy to navigate for all users and reviewers.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="using-pandoc-to-convert-docx-to-qmd" class="level1">
+<h1>Using Pandoc to Convert DOCX to QMD</h1>
+<p>When translating existing documents from Word (<code>.docx</code>) into Quarto Markdown (<code>.qmd</code>), you can use <strong>Pandoc</strong> to quickly generate a base file. This can save time by preserving text structure, headings, and even tables — though the result will still need cleanup.</p>
+<section id="what-is-pandoc" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-pandoc">What is Pandoc?</h2>
+<p><a href="https://pandoc.org/installing.html">Pandoc</a> is a powerful command-line tool that can convert documents between various formats, including Markdown, DOCX, HTML, LaTeX, and more.</p>
+<p>To use Pandoc on your computer, download and install it from the official site: <a href="https://pandoc.org/installing.html">https://pandoc.org/installing.html</a></p>
+</section>
+<section id="when-and-how-to-use-it" class="level2">
+<h2 class="anchored" data-anchor-id="when-and-how-to-use-it">When and How to Use It</h2>
+<p>Use Pandoc <strong>only</strong> for converting existing <code>.docx</code> documents into <code>.qmd</code>. Do <strong>not</strong> use it to convert PDFs — Pandoc does not support PDF as an input format. This approach is ideal when you’re:</p>
+<ul>
+<li>Migrating legacy documentation into the Quarto system</li>
+<li>Creating a quick starting point for manual cleanup</li>
+<li>Extracting embedded images and figures from <code>.docx</code></li>
+</ul>
+</section>
+<section id="basic-usage-example" class="level2">
+<h2 class="anchored" data-anchor-id="basic-usage-example">Basic Usage Example</h2>
+<p>Open a terminal or command prompt — ideally from within <strong>RStudio’s Terminal tab</strong> so you can stay in one environment — and run the following command. You can provide either a relative or full path to the <code>.docx</code> file:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pandoc my-doc.docx <span class="at">-o</span> my-doc.qmd <span class="at">--wrap</span><span class="op">=</span>none <span class="at">--from</span><span class="op">=</span>docx <span class="at">--to</span><span class="op">=</span>markdown+fenced_divs+grid_tables+pipe_tables+smart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="what-this-command-does" class="level3">
+<h3 class="anchored" data-anchor-id="what-this-command-does">What this command does:</h3>
+<ul>
+<li><code>my-doc.docx</code>: The input Word document.</li>
+<li><code>-o my-doc.qmd</code>: Output file in Markdown format.</li>
+<li><code>--wrap=none</code>: Prevents Pandoc from breaking long lines into multiple lines.</li>
+<li><code>--from=docx</code>: Specifies that the input file is a Word document.</li>
+<li><code>--to=markdown+fenced_divs+grid_tables+pipe_tables+smart</code>: Sets output format and enables enhanced table and layout options.</li>
+</ul>
+</section>
+</section>
+<section id="where-are-media-files-stored" class="level2">
+<h2 class="anchored" data-anchor-id="where-are-media-files-stored">Where Are Media Files Stored?</h2>
+<p>When Pandoc finds images or other media in the <code>.docx</code> file, it extracts them automatically into a new folder.<br>
+By default, extracted media will be placed into a subfolder named <code>media/</code>, located next to your output <code>.qmd</code> file.<br>
+This is created automatically and will contain all image assets referenced in the converted file.</p>
+<section id="changing-the-media-folder-name" class="level3">
+<h3 class="anchored" data-anchor-id="changing-the-media-folder-name">Changing the Media Folder Name</h3>
+<p>You can change the default media folder name using the <code>--extract-media</code> option:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pandoc my-doc.docx <span class="at">-o</span> my-doc.qmd <span class="at">--extract-media</span><span class="op">=</span>custom-media-folder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pandoc will create a <code>media/</code> subfolder <em>inside</em> the folder you specify. For example, running the above command will result in:</p>
+<pre><code>custom-media-folder/media/</code></pre>
+<p>If you want to follow the structure expected by your project (e.g.&nbsp;<code>my-doc-media/</code>), make sure to move the contents <strong>out of that inner <code>media/</code> folder</strong> and place them in the right location manually.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>After conversion, you’ll likely need to:</p>
+<ul>
+<li>Clean up unnecessary styles or extra spacing</li>
+<li>Rename and organize media files</li>
+<li>Add a proper YAML header at the top of the <code>.qmd</code> file</li>
+<li>Restructure the content to match your template or documentation style</li>
+</ul>
+<p>While not perfect, this method gives you a solid starting point — especially for long or complex documents.</p>
+</section>
+</section>
+<section id="default-styles-and-options" class="level1">
+<h1>Default Styles and Options</h1>
+<p>To make documentation look consistent and professional, we use a set of predefined styles and settings. These are applied automatically when you render your <code>.qmd</code> files, so you don’t need to worry about design details — just focus on the content.</p>
+<section id="shared-styling-configuration" class="level2">
+<h2 class="anchored" data-anchor-id="shared-styling-configuration">Shared Styling Configuration</h2>
+<p>Most formatting options (fonts, colors, spacing, margins, etc.) are defined in shared configuration files. These include:</p>
+<ul>
+<li>A custom DOCX file for styling PDF output</li>
+<li>A CSS stylesheet for HTML</li>
+<li>Metadata files for shared fields like project name, institution, and contributors</li>
+</ul>
+<p>These files are stored in <code>src/styles</code> directory.</p>
+<p>You don’t need to open or edit them — they’re used automatically by the rendering scripts.</p>
+</section>
+<section id="theme" class="level2">
+<h2 class="anchored" data-anchor-id="theme">Theme</h2>
+<p>It ensures that all documents have a clean, modern, and consistent appearance — both in HTML and PDF output.</p>
+<blockquote class="blockquote">
+<p>This theme is applied automatically. You do not need to configure it manually in your documents.</p>
+</blockquote>
+</section>
+<section id="table-of-contents" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
+<p>The table of contents (TOC) is enabled by default and appears on the left-hand side in HTML documents.</p>
+<p>You can control how many heading levels are shown by adjusting <code>toc-depth</code> in your YAML header, though the default setting (<code>toc-depth: 3</code>) is usually enough.</p>
+</section>
+<section id="customizing-per-document-settings" class="level2">
+<h2 class="anchored" data-anchor-id="customizing-per-document-settings">Customizing Per-Document Settings</h2>
+<p>If needed, you can override the default styles or add extra options in your document’s YAML header. For example:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  html:</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    toc: true</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    toc-depth: 3</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  docx:</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    reference-doc: ../src/styles/custom-reference.docx</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  pdf: default</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="automatic-keywords-generation" class="level1">
+<h1>Automatic Keywords Generation</h1>
+<p>You do not need to manually add keywords to your document’s metadata. The system is designed to handle this automatically using AI during the publishing workflow.</p>
+<section id="how-it-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-it-works">How It Works</h2>
+<ul>
+<li>The default Quarto metadata configuration automatically injects a special placeholder value into the <code>keywords:</code> field in your document’s header.</li>
+<li>When your document is rendered and processed for publication, an AI service analyzes its content and automatically generates <strong>10 relevant keywords</strong>.</li>
+<li>These keywords help with document indexing, search, and classification on the publication platform.</li>
+</ul>
+<p>This process ensures consistent keyword formatting and reduces the work required from authors.</p>
+</section>
+<section id="what-you-should-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-you-should-do">What You Should Do</h2>
+<p>Nothing!<br>
+Simply leave the <code>keywords:</code> field untouched or omit it entirely. The publishing system will take care of it for you.</p>
+<p>If you do add custom keywords for internal purposes, they will be overwritten during the publishing step — so it’s best to let the system manage them.</p>
+</section>
+</section>
+<section id="using-rstudio-with-quarto" class="level1">
+<h1>Using RStudio with Quarto</h1>
+<p><a href="https://posit.co/products/open-source/rstudio/">RStudio</a> is the recommended tool for working with <code>.qmd</code> (Quarto Markdown) files. It provides a simple, user-friendly interface for writing, editing, and rendering documentation.</p>
+<p>You don’t need to know R to use RStudio — we only use it here as a Markdown editor with rendering features.</p>
+<section id="opening-your-project" class="level2">
+<h2 class="anchored" data-anchor-id="opening-your-project">Opening Your Project</h2>
+<ol type="1">
+<li>Open RStudio.</li>
+<li>Use <strong>File &gt; Open Project…</strong> and select the root folder of the Technical Library.</li>
+<li>Navigate to the <code>src/products/</code> folder.</li>
+<li>Open the <code>.qmd</code> file you want to edit.</li>
+</ol>
+</section>
+<section id="editing-qmd-files" class="level2">
+<h2 class="anchored" data-anchor-id="editing-qmd-files">Editing QMD Files</h2>
+<p>You can edit <code>.qmd</code> files just like regular text documents. RStudio provides:</p>
+<ul>
+<li>Syntax highlighting for Markdown and code blocks</li>
+<li>A live preview of rendered output</li>
+<li>Auto-saving and formatting support</li>
+<li>Instant feedback when rendering errors occur</li>
+</ul>
+<p>Use the <strong>Preview on Save</strong> option (checkbox in the toolbar) to automatically render your file every time you save it. This makes editing more efficient.</p>
+</section>
+<section id="managing-media-files" class="level2">
+<h2 class="anchored" data-anchor-id="managing-media-files">Managing Media Files</h2>
+<p>If your document uses images or diagrams:</p>
+<ul>
+<li>Place them in a dedicated media folder (e.g.&nbsp;<code>my-doc-media/</code>)</li>
+<li>Use relative paths in your <code>.qmd</code> file, like:</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Data Flow Diagram](my-doc-media/diagram.png)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="rendering-documentation" class="level1">
+<h1>Rendering Documentation</h1>
+<p>Once your <code>.qmd</code> file is ready, the next step is to render it — this means turning it into a final document that can be viewed and shared. Quarto supports multiple output formats, but in our workflow, we focus on two: <strong>HTML</strong> and <strong>PDF</strong>.</p>
+<p>You can render your documentation directly in RStudio or using command-line tools, depending on what you prefer. Both options work the same way and produce identical results — choose the one that fits your workflow best.</p>
+<section id="render-to-html" class="level2">
+<h2 class="anchored" data-anchor-id="render-to-html">Render to HTML</h2>
+<p>HTML is the default output format and is useful for previewing your document in a web browser while you work. Rendered HTML uses the custom Technical Library theme and includes a table of contents, clickable navigation, and consistent styles. It’s a great way to check formatting, layout, and images as you write.</p>
+<p>There are two ways to preview your <code>.qmd</code> file:</p>
+<ul>
+<li><p>Click the <strong>Render</strong> button at the top of the RStudio window. <img src="editor-manual-media/rstudio-render.png" class="img-fluid" alt="Render button"></p></li>
+<li><p>Or enable <strong>Preview on Save</strong> (in the RStudio IDE toolbar). This option automatically re-renders your document every time you save it. <img src="editor-manual-media/rstudio-render-on-save.png" class="img-fluid" alt="Render on Save"></p></li>
+</ul>
+<p>After clicking the <strong>Render</strong> button (or saving the file with <strong>Preview on Save</strong> enabled), the HTML version of your document will appear in the <strong>Viewer</strong> tab, located in the <strong>Output</strong> pane (typically in the lower right corner of RStudio).</p>
+<p><img src="editor-manual-media/rstudio-render-viewer-tab.png" class="img-fluid"></p>
+<p>If the <strong>Viewer</strong> tab is not visible:</p>
+<ol type="1">
+<li>Go to <strong>Tools &gt; Global Options</strong> in the top menu.</li>
+<li>Navigate to the <strong>R Markdown</strong> section.</li>
+<li>Ensure that <strong>Show output preview in:</strong> is set to <strong>Viewer Pane</strong>.</li>
+</ol>
+<p><img src="editor-manual-media/rstudio-render-viewer-options.png" height="300"></p>
+<p>This setting ensures that rendered documents are displayed within RStudio, providing a seamless preview experience.</p>
+</section>
+<section id="render-to-pdf-via-docx-and-libreoffice" class="level2">
+<h2 class="anchored" data-anchor-id="render-to-pdf-via-docx-and-libreoffice">Render to PDF via DOCX and LibreOffice</h2>
+<p>PDFs are not generated directly from Quarto. Instead, the process involves a few automatic steps:</p>
+<ol type="1">
+<li>Quarto first generates a <code>.docx</code> (Word) file using the styles and settings defined in the YAML header and shared config files.</li>
+<li>Then, a LibreOffice macro automatically converts the <code>.docx</code> to <code>.pdf</code>.</li>
+<li>The resulting PDF file is saved in the output location.</li>
+</ol>
+<p>This approach ensures consistent and well-formatted PDFs, even across different systems.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Make sure <code>pdf: default</code> is included in your YAML header — this triggers the PDF pipeline.</li>
+<li>Do not define custom <code>pdf:</code> options unless you know what you’re doing.</li>
+</ul>
+</div>
+</div>
+<section id="preview-with-docx-instead-of-pdf" class="level3">
+<h3 class="anchored" data-anchor-id="preview-with-docx-instead-of-pdf">Preview with DOCX Instead of PDF</h3>
+<p>Instead of manually generating a PDF (which involves running scripts or waiting for the automated conversion), you can simply render a <code>.docx</code> file. It will look almost exactly like the final PDF because it uses the same styles and layout rules.</p>
+<p>This is a great option when you want to quickly check how your document will look in PDF format — especially while you’re still editing the <code>.qmd</code> file.</p>
+<p>By default, RStudio renders the <strong>first</strong> format listed in the <code>format</code> section of the YAML header. Usually this is <code>html</code>. If you want to preview the DOCX version instead, just move the <code>docx:</code> format to the top of the list in the header.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  html: default</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  docx:</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    reference-doc: ../src/styles/reference.docx</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  pdf: default</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Change to:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  docx:</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    reference-doc: ../src/styles/reference.docx</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  html: default</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  pdf: default</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then click <code>Render</code> — RStudio will generate and open the .docx file for you.</p>
+</section>
+</section>
+<section id="output-location" class="level2">
+<h2 class="anchored" data-anchor-id="output-location">Output Location</h2>
+<p>When you render a single <code>.qmd</code> file locally (e.g.&nbsp;using RStudio or the command line), the output (HTML or DOCX/PDF) is saved next to your source file — usually inside the <code>src/products/</code> folder.</p>
+<p>If you run the full command:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>then Quarto will build the entire Technical Library and save the results in a special <code>_site</code> folder. However, this is typically handled automatically by the rendering workflow in the GitHub repository during the publishing process.</p>
+<blockquote class="blockquote">
+<p>💡 You do not need to render the entire library yourself. Just focus on rendering the file you are currently working on. This keeps things faster and easier to manage during editing.</p>
+</blockquote>
+</section>
+</section>
+<section id="problems-and-solutions" class="level1">
+<h1>Problems and Solutions</h1>
+<p>This chapter describes common problems you might face while editing <code>.qmd</code> files and rendering documentation — along with practical solutions and best practices. These issues are based on real experience working with the templates and rendering workflow.</p>
+<section id="text-styling-in-docx" class="level2">
+<h2 class="anchored" data-anchor-id="text-styling-in-docx">Text Styling in DOCX</h2>
+<p><strong>Problem</strong></p>
+<p>You want to style or color specific parts of text in the final document, such as bolding only part of a sentence or changing its color.</p>
+<p><strong>Solution</strong></p>
+<p>Use a <strong>custom character style</strong> from the template DOCX file. For example:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">**AD**</span><span class="co">]</span>{custom-style="BoldRowText"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This style (<code>BoldRowText</code>) is already defined in the <code>template.docx</code> file.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you’re adding a new style to the <code>.docx</code> reference file, make sure it’s a <strong>character style</strong> so it works correctly when applied inline in <code>.qmd</code> files. Custom styles must always be defined as character styles — not paragraph styles. Using the wrong type can cause formatting issues across the entire document.</p>
+</div>
+</div>
+</section>
+<section id="figure-and-image-numbering" class="level2">
+<h2 class="anchored" data-anchor-id="figure-and-image-numbering">Figure and Image Numbering</h2>
+<p><strong>Problem</strong></p>
+<p>Figures and images inserted into <code>.qmd</code> files do not automatically include numbers in the rendered DOCX or PDF file.</p>
+<p><strong>Workaround</strong></p>
+<p>You can use figure referencing like this:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Short description](my-doc-media/image.jpg)</span>{{#fig-3 height=356px}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>However, this approach wraps the image in a table structure, which might cause visible borders or layout issues — especially if your styling is strict or minimal.</p>
+<p><strong>Best Practice</strong></p>
+<p>For clean results:</p>
+<ul>
+<li>Add a manual figure number and title directly as text under the image.</li>
+<li>Avoid using automatic figure references unless necessary for cross-referencing.</li>
+</ul>
+<p>Example:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Diagram of processing flow](my-doc-media/flow-diagram.png)</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>**Figure 3.** Data processing flow chart.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="table-styling-and-formatting" class="level2">
+<h2 class="anchored" data-anchor-id="table-styling-and-formatting">Table Styling and Formatting</h2>
+<p><strong>Problem</strong></p>
+<p>Only one table style is applied to all tables via the DOCX template, and additional formatting — like emphasizing specific rows — isn’t applied automatically.</p>
+<p><strong>Solution</strong></p>
+<p>Use a custom character style (like <code>BoldRowText</code>) within cells that require special formatting.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">**MRVPP**</span><span class="co">]</span>{custom-style="BoldRowText"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will bold specific text while keeping the rest of the table structure intact.</p>
+<p><strong>Best Practice</strong></p>
+<ul>
+<li>Do not change the table structure or layout in the DOCX file manually.</li>
+<li>Always apply row or cell formatting by using inline styled text directly in the <code>.qmd</code> source.</li>
+</ul>
+<blockquote class="blockquote">
+<p>💡 If you need to format a row differently (e.g.&nbsp;a header row within the body of the table), apply the style inline using the method above.</p>
+</blockquote>
+<hr>
+<p>More issues will be added here as the system and workflow evolve. If you encounter a formatting issue or rendering problem that isn’t listed, ask your team lead or check how other documents handled similar cases.</p>
+</section>
+</section>
+<section id="document-review-and-git-workflow" class="level1">
+<h1>Document Review and Git Workflow</h1>
+<section id="pushing-changes-to-git" class="level2">
+<h2 class="anchored" data-anchor-id="pushing-changes-to-git">Pushing Changes to Git</h2>
+<p><strong>TODO</strong></p>
+</section>
+<section id="reviewing-documents" class="level2">
+<h2 class="anchored" data-anchor-id="reviewing-documents">Reviewing Documents</h2>
+<p><strong>TODO</strong></p>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This is the footnote content.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/eea\.github\.io\/CLMS_documents");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
