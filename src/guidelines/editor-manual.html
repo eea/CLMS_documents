@@ -6,9 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="keywords" content="creating documentation, documentation creation, documentation creating, writing documentation, documentationworkflow, documentation using, documentation quarto, document manual, project doc, doc repo">
+<meta name="author" content="European Environment Agency (EEA)">
+<meta name="dcterms.date" content="2025-04-05">
+<meta name="keywords" content="documentationworkflow, documentation project, documentation creation, documentation quarto, project doc, docx quarto, clms documents, project folder, document manual, documentation copernicus">
 
-<title>Technical Library - Quarto Documentation - Editor Manual</title>
+<title>Technical Library - Writing Techncial Documentation for CLMS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -300,14 +302,27 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Quarto Documentation - Editor Manual</h1>
+<h1 class="title">Writing Techncial Documentation for CLMS</h1>
+<p class="subtitle lead">Editor Manual</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>European Environment Agency (EEA) </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 5, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -316,7 +331,7 @@ window.Quarto = {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>creating documentation, documentation creation, documentation creating, writing documentation, documentationworkflow, documentation using, documentation quarto, document manual, project doc, doc repo</p>
+    <p>documentationworkflow, documentation project, documentation creation, documentation quarto, project doc, docx quarto, clms documents, project folder, document manual, documentation copernicus</p>
   </div>
 </div>
 
@@ -324,21 +339,20 @@ window.Quarto = {
 
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","itemListElement":[{"@type":"ImageObject","url":"editor-manual-media/rstudio-render.png","caption":"Render  button"},{"@type":"ImageObject","url":"editor-manual-media/rstudio-render-on-save.png","caption":"Render  on  Save"},{"@type":"ImageObject","url":"editor-manual-media/rstudio-render-viewer-tab.png","caption":""},{"height":"300px","@type":"ImageObject","url":"editor-manual-media/rstudio-render-viewer-options.png","caption":""}],"@type":"ItemList"}
+{"itemListElement":[{"url":"editor-manual-media/rstudio-render.png","caption":"Render  button","@type":"ImageObject"},{"url":"editor-manual-media/rstudio-render-on-save.png","caption":"Render  on  Save","@type":"ImageObject"},{"url":"editor-manual-media/rstudio-render-viewer-tab.png","caption":"","@type":"ImageObject"},{"url":"editor-manual-media/rstudio-render-viewer-options.png","height":"300px","caption":"","@type":"ImageObject"}],"@context":"https://schema.org","@type":"ItemList"}
 </script>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <!--# For 'whom/which process' in the CLMS context is this document? -->
-<p>This manual will guide you step by step through creating documentation using <a href="https://quarto.org/"><strong>Quarto</strong></a>. Quarto is a tool that helps you write simple text using <strong>Markdown</strong> (a plain text format) and turn it into professional-looking documents, such as <strong>HTML</strong> pages or <strong>PDF</strong> files.</p>
-<p>You don’t need to be a programmer or an expert to use Quarto. If you’ve ever written a document in Microsoft Word, you’ll be able to use Quarto with a bit of practice.</p>
-<p>This manual is for people who work with documentation — especially in teams — and need a simple, clear, and repeatable way to create it. We will cover everything from basic Markdown writing to rendering your final documents.</p>
-<p>We’ll also explain the structure of your project, how to use ready-made templates, and how to avoid common mistakes.</p>
+<p>This manual guides users through creating technical documentation for the Copernicus Land Monitoring Service using <a href="https://quarto.org/"><strong>Quarto</strong></a>. Quarto simplifies the process of writing professional documents in <strong>Markdown</strong>, converting them into <strong>HTML</strong> and <strong>PDF</strong> for nice publishing. The manual covers basic Markdown writing, document rendering, as well a the review, and publication process of technical CLMS documents. It also describes the project folder structure, template usage, and common mistakes to avoid.<br>
+<em>You don’t need to be a programmer nor an expert to use Quarto. If you’ve ever written a document in Microsoft Word, you’ll be able to use Quarto with a bit of practice.</em></p>
 </section>
 <section id="folder-and-file-structure" class="level1">
 <h1>Folder and File Structure</h1>
 <!--# If this is for the doc part only, does it make sense to mention also the potential insertion of the doc repo in the larger project? (I am not sure, just a guess) -->
+<!--# Document projects are typically located inside an IT project, but can exist also on their own...(something like this, just mentioning it) -->
 <p>In this section, we explain how the documentation project is organized and where you should put your files. This structure helps keep everything clean, consistent, and easy to work with — especially when multiple people are involved.</p>
-<p>Below is a typical folder layout for the project:</p>
+<p>Below is a typical folder layout for the project: <!--# instead of my-doc.qmd use CLMS_my-product_ATBD.qmd we should rename the templates to better fit the probable naming convention CLMS_template_ATBD.qmd and CLMS_template_PUM.qmd (I wil,share the naming convention file with you soon--></p>
 <pre><code>project-root-doc/
 ├── src/
 │   ├── templates/
@@ -348,7 +362,7 @@ window.Quarto = {
 │   |   ├── reference.docx
 │   |   └── custom.scss
 |   └── products/
-|       ├── my-doc.qmd
+|       ├── my-doc.qmd 
 |       └── my-doc-media
 |           └── image1.png
 ├── scripts/
@@ -404,7 +418,7 @@ Note
 </div>
 </div>
 <p>Markdown is a simple way to format text using plain characters — no need for complicated tools or buttons. Quarto uses Markdown to let you write clean, readable documents that can be turned into HTML or PDF automatically.</p>
-<p>This section shows the most useful Markdown elements you’ll need when writing documentation. If you want to explore more, visit the official Quarto Markdown guide at <a href="https://quarto.org/docs/authoring/markdown-basics.html" class="uri">https://quarto.org/docs/authoring/markdown-basics.html</a></p>
+<p>This section shows the most useful Markdown elements you’ll need when writing documentation. If you want to explore more, visit the official <a href="https://quarto.org/docs/authoring/markdown-basics.html">Quarto Markdown guide</a>.</p>
 <section id="headings" class="level2">
 <h2 class="anchored" data-anchor-id="headings">Headings</h2>
 <p>Use the <code>#</code> symbol to create headings and organize your content. More <code>#</code> means a smaller heading level:</p>
