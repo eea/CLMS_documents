@@ -2,10 +2,13 @@
 title: "Writing Techncial Documentation for CLMS"
 subtitle: "Editor Manual"
 author: "European Environment Agency (EEA)"
-version: "0.3"
+version: "0.4"
 date: "2025-04-05"
 toc: true
 toc-title: "Content" 
+
+metadata-files:
+- ../../metadata/default.yml
 
 format:
 #  docx: default
@@ -16,27 +19,26 @@ format:
 
 # Introduction
 
-<!--# For 'whom/which process' in the CLMS context is this document? -->
+This manual guides users through creating technical documentation for the Copernicus Land Monitoring Service using [**Quarto**](https://quarto.org/). Quarto simplifies the process of writing professional documents in [**Markdown**](https://www.markdownguide.org/), and converting them into **HTML** and **PDF** for nice publishing. The manual covers basic Markdown writing, document rendering, as well a the review, and publication process of technical CLMS documents. It also describes the project folder structure, template usage, and common mistakes to avoid.
 
-This manual guides users through creating technical documentation for the Copernicus Land Monitoring Service using [**Quarto**](https://quarto.org/). Quarto simplifies the process of writing professional documents in **Markdown**, converting them into **HTML** and **PDF** for nice publishing. The manual covers basic Markdown writing, document rendering, as well a the review, and publication process of technical CLMS documents. It also describes the project folder structure, template usage, and common mistakes to avoid.\
-*You don't need to be a programmer nor an expert to use Quarto. If you've ever written a document in Microsoft Word, you'll be able to use Quarto with a bit of practice.*
+::: callout-note
+You don't need to be a programmer nor an expert to use Quarto. If you've ever written a document in Microsoft Word, you'll be able to use Quarto with a bit of practice.
+:::
 
 # Folder and File Structure
 
-<!--# If this is for the doc part only, does it make sense to mention also the potential insertion of the doc repo in the larger project? (I am not sure, just a guess) -->
-
-<!--# Document projects are typically located inside an IT project, but can exist also on their own...(something like this, just mentioning it) -->
+<!--# If this is for the doc part only, does it make sense to mention also the potential insert into an IT project, but can exist also on their own...(something like this, just mentioning it) -->
 
 In this section, we explain how the documentation project is organized and where you should put your files. This structure helps keep everything clean, consistent, and easy to work with --- especially when multiple people are involved.
 
-Below is a typical folder layout for the project: <!--# instead of my-doc.qmd use CLMS_my-product_ATBD.qmd we should rename the templates to better fit the probable naming convention CLMS_template_ATBD.qmd and CLMS_template_PUM.qmd (I wil,share the naming convention file with you soon-->
+Below is a typical folder layout for the project: <!--# instead of my-doc.qmd use CLMS_my-product_ATBD.qmd we should rename the templates to better fit the planned naming convention CLMS_template_ATBD.qmd and CLMS_template_PUM.qmd (I wil,share the naming convention file with you soon-->
 
 ```         
 project-root-doc/
 ├── src/
 │   ├── templates/
-│   │   ├── CLMS_ATBD_Template.qmd
-│   │   └── CLMS_PUM_Template.qmd
+│   │   ├── CLMS_Template_ATBD.qmd
+│   │   └── CLMS_Template_PUM.qmd
 │   ├── styles/
 │   |   ├── reference.docx
 │   |   └── custom.scss
@@ -59,7 +61,7 @@ project-root-doc/
 
         -   **ATBD** (Algorithm Theoretical Basis Document)
         -   **PUM** (Product User Manual)\
-            When you start a new document, you will copy the appropriate template from here.
+    When you start a new document, you will copy the appropriate template from here.
 
     -   **`src/styles/`**<!--# state no editing here -->\
         This folder contains style-related files, such as DOCX templates and style sheets. These are used by scripts and macros to give your documents a consistent look.
@@ -197,17 +199,19 @@ Tables are a great way to present structured information. Below are two common w
 
 ``` markdown
 | Name       | Role       | Status   |
-|------------|------------|----------|
-| Alice      | Developer  | Active   |
-| Bob        | Reviewer   | Pending  |
+|-----------:|------------|:--------:|
+| Alice      | Developer  | *Active*   |
+| Bob        | Reviewer   | **Pending**  |
+: Demonstration of pipe table syntax
 ```
 
 Rendered result:
 
 | Name  | Role      | Status  |
-|-------|-----------|---------|
-| Alice | Developer | Active  |
-| Bob   | Reviewer  | Pending |
+|------:|-----------|:-------:|
+| Alice | Developer | *Active*  |
+| Bob   | Reviewer  | **Pending** |
+: Demonstration of pipe table syntax
 
 Make sure to align columns using `|` and `-`.
 
