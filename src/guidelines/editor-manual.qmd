@@ -1,8 +1,11 @@
 ---
-title: "Quarto Documentation - Editor Manual"
+title: "Writing Techncial Documentation for CLMS"
+subtitle: "Editor Manual"
+author: "European Environment Agency (EEA)"
+version: "0.3"
+date: "2025-04-05"
 toc: true
 toc-title: "Content" 
-version: 1.0-draft
 
 format:
 #  docx: default
@@ -15,21 +18,18 @@ format:
 
 <!--# For 'whom/which process' in the CLMS context is this document? -->
 
-This manual will guide you step by step through creating documentation using [**Quarto**](https://quarto.org/). Quarto is a tool that helps you write simple text using **Markdown** (a plain text format) and turn it into professional-looking documents, such as **HTML** pages or **PDF** files.
-
-You don't need to be a programmer or an expert to use Quarto. If you've ever written a document in Microsoft Word, you'll be able to use Quarto with a bit of practice.
-
-This manual is for people who work with documentation --- especially in teams --- and need a simple, clear, and repeatable way to create it. We will cover everything from basic Markdown writing to rendering your final documents.
-
-We'll also explain the structure of your project, how to use ready-made templates, and how to avoid common mistakes.
+This manual guides users through creating technical documentation for the Copernicus Land Monitoring Service using [**Quarto**](https://quarto.org/). Quarto simplifies the process of writing professional documents in **Markdown**, converting them into **HTML** and **PDF** for nice publishing. The manual covers basic Markdown writing, document rendering, as well a the review, and publication process of technical CLMS documents. It also describes the project folder structure, template usage, and common mistakes to avoid.\
+*You don't need to be a programmer nor an expert to use Quarto. If you've ever written a document in Microsoft Word, you'll be able to use Quarto with a bit of practice.*
 
 # Folder and File Structure
 
 <!--# If this is for the doc part only, does it make sense to mention also the potential insertion of the doc repo in the larger project? (I am not sure, just a guess) -->
 
+<!--# Document projects are typically located inside an IT project, but can exist also on their own...(something like this, just mentioning it) -->
+
 In this section, we explain how the documentation project is organized and where you should put your files. This structure helps keep everything clean, consistent, and easy to work with --- especially when multiple people are involved.
 
-Below is a typical folder layout for the project:
+Below is a typical folder layout for the project: <!--# instead of my-doc.qmd use CLMS_my-product_ATBD.qmd we should rename the templates to better fit the probable naming convention CLMS_template_ATBD.qmd and CLMS_template_PUM.qmd (I wil,share the naming convention file with you soon-->
 
 ```         
 project-root-doc/
@@ -41,7 +41,7 @@ project-root-doc/
 │   |   ├── reference.docx
 │   |   └── custom.scss
 |   └── products/
-|       ├── my-doc.qmd
+|       ├── my-doc.qmd 
 |       └── my-doc-media
 |           └── image1.png
 ├── scripts/
@@ -95,7 +95,7 @@ In addition to this guide and the official documentation, you can also explore t
 
 Markdown is a simple way to format text using plain characters --- no need for complicated tools or buttons. Quarto uses Markdown to let you write clean, readable documents that can be turned into HTML or PDF automatically.
 
-This section shows the most useful Markdown elements you'll need when writing documentation. If you want to explore more, visit the official Quarto Markdown guide at <https://quarto.org/docs/authoring/markdown-basics.html>
+This section shows the most useful Markdown elements you'll need when writing documentation. If you want to explore more, visit the official [Quarto Markdown guide](https://quarto.org/docs/authoring/markdown-basics.html).
 
 ## Headings
 
@@ -763,7 +763,9 @@ You can render your documentation directly in RStudio or using command-line tool
 
 ## Render to HTML
 
-<!--# there is also "Render webside" under build on the top right side. if that is relevant here add a screenshot and clarify the difference between the two --> HTML is the default output format and is useful for previewing your document in a web browser while you work. Rendered HTML uses the custom Technical Library theme and includes a table of contents, clickable navigation, and consistent styles. It's a great way to check formatting, layout, and images as you write.
+<!--# there is also "Render webside" under build on the top right side. if that is relevant here add a screenshot and clarify the difference between the two -->
+
+HTML is the default output format and is useful for previewing your document in a web browser while you work. Rendered HTML uses the custom Technical Library theme and includes a table of contents, clickable navigation, and consistent styles. It's a great way to check formatting, layout, and images as you write.
 
 There are two ways to preview your `.qmd` file:
 
