@@ -1,21 +1,28 @@
 ---
-title: "Writing Techncial Documentation for CLMS"
+title: "Guideline for Writing Techncial Documentation"
 subtitle: "Editor Manual"
 author: "European Environment Agency (EEA)"
-version: "0.4"
+version: 0.4
+description: "A comprehensive guide for creating technical documentation for the Copernicus Land Monitoring Service using Quarto. It covers Markdown basics, document rendering, and the review process, ensuring consistency and clarity in documentation."
 date: "2025-04-05"
 toc: true
 toc-title: "Content" 
 
-metadata-files:
+metadata-files: 
 - ../../metadata/default.yml
 
 format:
-#  docx: default
-#  pdf: default
   html:
     css: ../styles/styles.css
+  #docx:
+  #  reference-doc: ../styles/template-guideline.docx
+  #  hidden: true
+  #pdf: default
 ---
+
+<!--# I havelooked into the ../../metadata/default.yml. there are several things which are also set here e.g. toc but also others. In this document we may go a bit more into detail what is controlled in default.yaml and what can/should be controlled by the document creator. -->
+
+<!--# maybe we should promote (or at least describe to option of unsing variables in yaml that can be reused in the document:  e.g. product-name: "Example Product" ---  # Welcome to {{ product-name }} Documentation -->
 
 # Introduction
 
@@ -61,7 +68,7 @@ project-root-doc/
 
         -   **ATBD** (Algorithm Theoretical Basis Document)
         -   **PUM** (Product User Manual)\
-    When you start a new document, you will copy the appropriate template from here.
+            When you start a new document, you will copy the appropriate template from here.
 
     -   **`src/styles/`**<!--# state no editing here -->\
         This folder contains style-related files, such as DOCX templates and style sheets. These are used by scripts and macros to give your documents a consistent look.
@@ -207,10 +214,11 @@ Tables are a great way to present structured information. Below are two common w
 
 Rendered result:
 
-| Name  | Role      | Status  |
-|------:|-----------|:-------:|
-| Alice | Developer | *Active*  |
-| Bob   | Reviewer  | **Pending** |
+|  Name | Role      |   Status    |
+|------:|-----------|:-----------:|
+| Alice | Developer |  *Active*   |
+|   Bob | Reviewer  | **Pending** |
+
 : Demonstration of pipe table syntax
 
 Make sure to align columns using `|` and `-`.
@@ -484,8 +492,8 @@ There are two ways to begin:
 
 1.  Open the `src/templates/` folder.
 2.  Choose the right template:
-    -   `CLMS_ATBD_Template.qmd` for an Algorithm Theoretical Basis Document (ATBD)
-    -   `CLMS_PUM_Template.qmd` for a Product User Manual (PUM)
+    -   `CLMS``_Template``_ATBD.qmd` for an Algorithm Theoretical Basis Document (ATBD)
+    -   `CLMS``_Template``_PUM.qmd` for a Product User Manual (PUM)
 3.  Copy the template into the `src/products/` folder.
 4.  Rename it to match your new document. Example: `my-product.qmd`
 5.  Create a new media folder named `my-product-media/` next to it to store images and charts.
@@ -513,7 +521,7 @@ If you're creating the `.qmd` file from scratch, you must add the basic YAML hea
 
 These fields are **required** for correct rendering:
 
--   `metadata-files`: connects your document to shared metadata (like author, institution, version)
+-   `metadata-files`: connects your document to shared metadata (like author, institution, version) <!--#  author, institution, version are default? should't that be controlled by the document creator? -->
 -   `format`: controls how your document is rendered (HTML, styled DOCX, etc.)
 
 ::: callout-important
@@ -554,7 +562,7 @@ Templates are stored in the `src/templates/` directory. Currently, two types of 
 
 ## ATBD Template
 
-**Filename:** `CLMS_ATBD_Template.qmd`
+**Filename:** `CLMS``_Template``_ATBD.qmd`
 
 This template is used for creating an **Algorithm Theoretical Basis Document (ATBD)**.
 
@@ -569,7 +577,7 @@ It includes:
 
 ## PUM Template
 
-**Filename:** `CLMS_PUM_Template.qmd`
+**Filename:** `CLMS``_Template``_PUM.qmd`
 
 This template is used for creating a **Product User Manual (PUM)**.
 
@@ -584,7 +592,7 @@ It includes:
 ## How to Use the Templates
 
 1.  Go to `src/templates/`
-2.  Choose either `CLMS_ATBD_Template.qmd` or `CLMS_PUM_Template.qmd`
+2.  Choose either `CLMS``_Template``_ATBD.qmd` or `CLMS``_Template``_PUM.qmd`
 3.  Copy the file into the `src/products/` folder
 4.  Rename it to match your project (e.g. `my-product.qmd`)
 5.  Begin editing based on the guidance in the template
@@ -761,9 +769,9 @@ If your document uses images or diagrams:
 
 # Rendering Documentation {#rendering-documentation}
 
-Once your `.qmd` file is ready, the next step is to render it --- this means turning it into a final document that can be viewed and shared. Quarto supports multiple output formats, but in our workflow, we focus on two: **HTML** and **PDF**.
+Once your `.qmd` file is ready, the next step is to render it --- this means turning it into a final document that can be published. Quarto supports multiple output formats, but in our workflow, we focus on: **HTML** and **PDF**.
 
-You can render your documentation directly in RStudio or using command-line tools, depending on what you prefer. Both options work the same way and produce identical results --- choose the one that fits your workflow best.
+You can render your documentation directly in RStudio as described below or using command-line tools, depending on what you prefer. Both options work the same way and produce identical results --- choose the one that fits your workflow best.
 
 ## Render to HTML
 
@@ -793,17 +801,17 @@ This setting ensures that rendered documents are displayed within RStudio, provi
 
 ## Render to PDF via DOCX and LibreOffice
 
-PDFs are not generated directly from Quarto. Instead, the process involves a few automatic steps:
+PDFs are not generated directly by Quarto. Instead, the process involves a few automatic steps:
 
 1.  Quarto first generates a `.docx` (Word) file using the styles and settings defined in the YAML header and shared config files.
-2.  Then, a LibreOffice macro automatically converts the `.docx` to `.pdf`. <!--# in this case lobreoffice is a software rerequisit and should be listed as such. I am not sure what the state is of libre vs MSword script is? -->
+2.  Then, a LibreOffice macro automatically converts the `.docx` to `.pdf`. <!--# in this case libreoffice is a software prerequisit and should be listed as such. I am not sure what the state is of libre vs MSword script is? -->
 3.  The resulting PDF file is saved in the output location.
 
 This approach ensures consistent and well-formatted PDFs, even across different systems.
 
 ::: callout-important
 -   Make sure `pdf: default` is included in your YAML header --- this triggers the PDF pipeline.
--   Do not define custom `pdf:` options unless you know what you're doing.
+-   Do not define custom `pdf:` options unless you know what you're doing. <!--# wasn't there an order what must be placed first? docx then pdf, of is pdf enough and your macro ensures the libre workflow? -->
 :::
 
 ### Preview with DOCX Instead of PDF
