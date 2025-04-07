@@ -34,18 +34,25 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y libreoffice libreoffice-common libreoffice-writer fonts-dejavu
-          sudo apt install -y coreutils procps
+          sudo apt install -y coreutils procps texlive-latex-extra
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Generate keywords for documents
+      - name: Install python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install keybert ruamel.yaml pyyaml
-          python scripts/generate_keywords.py
+          pip install \
+            keybert \
+            ruamel.yaml \
+            pyyaml \
+            transformers==4.37.2 \
+            accelerate==0.27.2
+
+      - name: Generate keywords
+        run: python scripts/generate_keywords.py
 
       - name: Remove cached version of _site
         run: |
