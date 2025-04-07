@@ -20,11 +20,11 @@ jobs:
 
       - name: Install Quarto
         run: |
-          wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.551/quarto-1.4.551-linux-amd64.deb
-          sudo dpkg -i quarto-1.4.551-linux-amd64.deb
+          wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.43/quarto-1.6.43-linux-amd64.deb
+          sudo dpkg -i quarto-1.6.43-linux-amd64.deb
 
-          #wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.7.12/quarto-1.7.12-linux-arm64.deb
-          #sudo dpkg -i quarto-1.7.12-linux-arm64.deb
+          #wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.43/quarto-1.6.43-linux-arm64.deb
+          #sudo dpkg -i quarto-1.6.43-linux-arm64.deb
 
           quarto install chromium
 
@@ -36,7 +36,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y libreoffice libreoffice-common libreoffice-writer fonts-dejavu
-          sudo apt install -y coreutils procps weasyprint
+          sudo apt install -y coreutils procps
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -62,7 +62,7 @@ jobs:
 
       - name: Render all Quarto, Markdown, and Jupyter files to HTML/DOCX/PDF
         run: |
-          quarto render
+          QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render
 
       - name: Convert .docx to .pdf with soffice
         run: |
@@ -70,10 +70,10 @@ jobs:
           timeout 3s ./scripts/convert_docx_to_pdf.sh || true
           timeout 10m ./scripts/convert_docx_to_pdf.sh
 
-      #- name: Deploy to GitHub Pages (gh-pages-test branch)
-      #  uses: JamesIves/github-pages-deploy-action@v4
-      #  with:
-      #    branch: gh-pages-test  # Push to gh-pages-test before approved go-live
-      #    folder: _site
-      #    clean: true
-      #    force: true
+      - name: Deploy to GitHub Pages (gh-pages-test branch)
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages-test  # Push to gh-pages-test before approved go-live
+          folder: _site
+          clean: true
+          force: true
