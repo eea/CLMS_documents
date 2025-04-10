@@ -20,11 +20,13 @@ jobs:
 
       - name: Install Quarto
         run: |
-          wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.551/quarto-1.4.551-linux-amd64.deb
-          sudo dpkg -i quarto-1.4.551-linux-amd64.deb
+          wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.43/quarto-1.6.43-linux-amd64.deb
+          sudo dpkg -i quarto-1.6.43-linux-amd64.deb
 
-          #wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.7.12/quarto-1.7.12-linux-arm64.deb
-          #sudo dpkg -i quarto-1.7.12-linux-arm64.deb
+          #wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.43/quarto-1.6.43-linux-arm64.deb
+          #sudo dpkg -i quarto-1.6.43-linux-arm64.deb
+
+          quarto install chromium
 
       - name: install TinyTeX
         run: |
@@ -41,11 +43,18 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Generate keywords for documents
+      - name: Install python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install keybert ruamel.yaml pyyaml
-          python scripts/generate_keywords.py
+          pip install \
+            keybert \
+            ruamel.yaml \
+            pyyaml \
+            transformers==4.37.2 \
+            accelerate==0.27.2
+
+      - name: Generate keywords
+        run: python scripts/generate_keywords.py
 
       - name: Remove cached version of _site
         run: |
@@ -53,7 +62,7 @@ jobs:
 
       - name: Render all Quarto, Markdown, and Jupyter files to HTML/DOCX/PDF
         run: |
-          quarto render
+          QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render
 
       - name: Convert .docx to .pdf with soffice
         run: |
