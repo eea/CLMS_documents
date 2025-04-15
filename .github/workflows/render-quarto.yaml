@@ -53,6 +53,9 @@ jobs:
             transformers==4.37.2 \
             accelerate==0.27.2
 
+      - name: Setup default _quarto.yaml
+        run: mv _quarto_not_used.yaml _quarto.yaml
+
       - name: Generate keywords
         run: python scripts/generate_keywords.py
 

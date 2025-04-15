@@ -5,6 +5,7 @@ author: "European Environment Agency (EEA)"
 version: 0.4
 description: "A comprehensive guide for creating technical documentation for the Copernicus Land Monitoring Service using Quarto. It covers Markdown basics, document rendering, and the review process, ensuring consistency and clarity in documentation."
 date: "2025-04-05"
+template-version: 1.0
 
 metadata-files: 
 - ../../metadata/default.yml
@@ -12,10 +13,10 @@ metadata-files:
 format:
   html:
     css: ../styles/styles.css
+  docx:
+    reference-doc: ../styles/template-guideline.docx
   pdf: default
 ---
-
-<!--# I have looked into the  ../../metadata/default.yml. there are several things which are also set here e.g. toc but also others. In this document we may go a bit more into detail what is controlled in default.yaml and what can/should be controlled by the document creator. deleteme once done -->
 
 <!--# maybe we should promote (or at least describe the option of unsing variables in yaml that can be reused in the document:  e.g. product-name: "Example Product" ---  # Welcome to {{ product-name }} Documentation -->
 
@@ -356,6 +357,43 @@ A short caption for the figure.
 You can also use layout options, like `fig-align="center"` or `fig-width="80%"` in advanced cases.\
 More: <https://quarto.org/docs/authoring/figures.html>
 
+## Showing Images in Multiple Columns or Rows
+
+Sometimes you want to display a group of images side by side or in a grid. This is useful for comparisons or visual overviews. The following approaches work well in both HTML and DOCX outputs, including when converting to PDF.
+
+---
+
+### Without Captions
+
+You can use a Markdown table to arrange images in multiple columns and rows:
+
+```markdown
+| ![](image1.png){width=120} | ![](image2.png){width=120} | ![](image3.png){width=120} |
+|----------------------------|----------------------------|----------------------------|
+| ![](image4.png){width=120} | ![](image5.png){width=120} | ![](image6.png){width=120} |
+```
+
+This creates two rows with three images each. Adjust the width as needed to fit your layout.
+
+---
+
+### With Captions
+
+To add captions under each image, simply include a row of text below each row of images:
+
+```markdown
+| ![](img1.png){width=120} | ![](img2.png){width=120} | ![](img3.png){width=120} |
+|:------------------------:|:------------------------:|:------------------------:|
+| Caption 1               | Caption 2               | Caption 3               |
+| ![](img4.png){width=120} | ![](img5.png){width=120} | ![](img6.png){width=120} |
+| Caption 4               | Caption 5               | Caption 6               |
+```
+
+This method keeps captions aligned with each image, and works across all output formats.
+
+> ⚠️ **Note:** Tables used for captions will show borders in DOCX and PDF outputs. Removing them requires custom styles in a reference DOCX.
+
+
 ## Equations
 
 Quarto supports mathematical equations using LaTeX-style syntax. You can add inline equations or display equations as blocks.
@@ -528,7 +566,7 @@ You **must include** the `pdf: default` format in the YAML header.\
 Although PDF is not rendered directly during this step, defining it here ensures compatibility with the automated rendering workflow later. Details are explained in the [Rendering Documentation](#rendering-documentation) section.
 :::
 
-You must adjust `reference-doc:` under the `html: format` to specify the default style used for the DOCX/PDF output.
+You must adjust `reference-doc:` under the `docx:` to specify the default style used for the DOCX/PDF output.
 
 Here's a basic header you can use:
 
@@ -538,6 +576,7 @@ title: "Product SHORT NAME"
 subtitle: "Product full name"
 date: "2022-10-06"
 version: 1.0
+template-version: 1.0.0
 product-name: Product Name
 description: "Product DESCRIPTION"
 
@@ -545,13 +584,45 @@ metadata-files:
   - ../../metadata/default.yml
 
 format:
-  html: default
-  pdf: default
+  html:
+    css: ../styles/styles.css
   docx:
     reference-doc: ../styles/template-atbd.docx
     hidden: true
+  pdf: default  
 ---
 ```
+
+### Field Descriptions:
+- `title`: The main title of the document (displayed in the rendered output).
+- `subtitle`: An optional second line of text under the title.
+- `date`: The publication or last updated date.
+- `version`: The version of your document (e.g. "1.0", "v2.3-draft").
+- `template-version`: **Not rendered** — this is a special internal field that helps keep track of which template was originally used. Do not remove or modify this field unless you're updating the template version intentionally.
+
+
+> These fields must be filled in by the user. Only other fields — such as shared configuration or output format — are pre-filled in the template.
+
+# Importance of File Naming
+
+Each `.qmd` file has a filename, like `my-document.qmd`, and this name plays an important role in how your documentation is organized and accessed online.
+
+The filename (without the `.qmd` extension):
+
+- Is used to generate the final HTML file name.
+- Becomes part of the document’s **URL** after publishing.
+
+**Example:** If your file is named `products/data-guide.qmd`, the published URL will be `https://your-docs-site.org/products/data-guide.html`.
+
+To avoid issues:
+
+- Choose a clear, short, and consistent name when creating the file.
+- Avoid renaming it later, as it can break links and references.
+- Use lowercase letters and dashes (e.g. `product-user-manual.qmd`).
+
+::: callout-important
+Stick with the original name once created unless you have a strong reason and can update all links accordingly.
+:::
 
 # Ready-Made QMD Templates
 
@@ -817,45 +888,72 @@ This approach ensures consistent and well-formatted PDFs, even across different 
 
 Instead of manually generating a PDF (which involves running scripts or waiting for the automated conversion), you can simply render a `.docx` file. It will look almost exactly like the final PDF because it uses the same styles and layout rules.
 
-This is a great option when you want to quickly check how your document will look in PDF format --- especially while you're still editing the `.qmd` file.
+This is a great option when you want to quickly check how your document will look in PDF format — especially while you're still editing the `.qmd` file.
 
-By default, RStudio renders the **first** format listed in the `format` section of the YAML header. Usually this is `html`. If you want to preview the DOCX version instead, just move the `docx:` format to the top of the list in the header.
+You don't need to change the order of output formats in the YAML header. Just click the **black arrow next to the Render button** in RStudio and select **“Render MS Word”** from the dropdown menu.
 
-For example:
+![](editor-manual-media/rstudio-render-docx.png)
 
-``` markdown
-format:
-  html: default
-  docx:
-    reference-doc: ../src/styles/reference.docx
-  pdf: default
-```
+After rendering, the `.docx` file will automatically open in your default DOCX editor (e.g., Microsoft Word or LibreOffice Writer). If it doesn't open automatically, you can still find it saved in the **same folder as your `.qmd` file**, with the same base filename.
 
-Change to:
+This approach is fast and avoids editing the YAML just to preview layout changes.
 
-``` markdown
-format:
-  docx:
-    reference-doc: ../src/styles/reference.docx
-  html: default
-  pdf: default
-```
 
-Then click `Render` --- RStudio will generate and open the .docx file for you.
 
 ## Output Location
 
-When you render a single `.qmd` file locally (e.g. using RStudio or the command line), the output (HTML or DOCX/PDF) is saved next to your source file --- usually inside the `src/products/` folder.
+When you render a single `.qmd` file locally (e.g. using RStudio or the command line), the output (HTML or DOCX/PDF) is saved next to your source file — usually inside the `src/products/` folder.
 
 If you run the full command:
 
-``` bash
+```bash
 $ quarto render
 ```
 
 then Quarto will build the entire Technical Library and save the results in a special `_site` folder. However, this is typically handled automatically by the rendering workflow in the GitHub repository during the publishing process.
 
 > 💡 You do not need to render the entire library yourself. Just focus on rendering the file you are currently working on. This keeps things faster and easier to manage during editing.
+
+---
+
+### About the `_quarto.yaml` File
+
+The `_quarto.yaml` file is a special configuration file that defines project-wide settings, including the default output folder — which is `_site`.
+
+When this file is present in the root of your project, RStudio (and Quarto) assumes you’re working in **project mode**. That means it tries to render the **entire site**, not just the file you’re editing.
+
+This can cause a few issues during local editing:
+
+- Slower preview performance
+- RStudio sometimes doesn’t pick up the latest changes right away (likely due to caching)
+- Viewer pane might not display fresh output
+
+Unfortunately, this behavior isn’t clearly documented — but it can be confusing and frustrating.
+
+### Recommended Setup for Efficient Editing
+
+To avoid these issues, the repository includes a renamed config file: `_quarto-not-used.yaml`. This allows users to edit and preview individual files efficiently without triggering full-site rendering.
+
+By default, this means:
+
+- RStudio operates in "single file mode"
+- Output files (HTML, DOCX) are written directly next to the `.qmd` file (e.g. in `src/products/`)
+
+### Rendering the Full Project
+
+When you need to preview or build the entire Technical Library locally:
+
+1. Rename `_quarto-not-used.yaml` to `_quarto.yaml`
+2. Run:
+
+```bash
+$ quarto render
+```
+
+This builds the full site into the `_site/` folder as defined in the YAML config.
+
+> ⚠️ Working with `_quarto.yaml` in place during regular editing **can work**, but it may lead to slower performance or outdated previews in the Viewer pane. For a smoother editing experience, keep it renamed by default.
+
 
 # Problems and Solutions
 
