@@ -1,5 +1,383 @@
 [
   {
+    "objectID": "src/products/index.html",
+    "href": "src/products/index.html",
+    "title": "Documents",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nversion\n\n\nDate\n\n\n\n\n\n\nUrban Atlas Product User Manual (PUM)\n\n\n1\n\n\nAug 1, 2022\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "src/guidelines/index.html",
+    "href": "src/guidelines/index.html",
+    "title": "Guidelines",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nversion\n\n\nDate\n\n\n\n\n\n\nGuide for Writing Techncial Documentation for the CLMS\n\n\n0.4\n\n\nApr 5, 2025\n\n\n\n\nIT Architecture Principles and Implementation Guidelines\n\n\n1.4b\n\n\nApr 8, 2025\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#architecture",
+    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#architecture",
+    "title": "IT Architecture Principles and Implementation Guidelines",
+    "section": "4.1 Architecture",
+    "text": "4.1 Architecture\nFoundational and design principles for maintaining sound infrastructure and IT solution architecture. These sub-principles addresses best-practices and industry standard design patterns.\n\n\n\n\n\n\n\nArchitecture 1:\nClient specific IT solutions should have a modular structure\n\n\n\n\nWhat:\nModular structure of client specific IT solutions is a requirement. This may be achieved using e.g. microservice architecture\n\n\nWhy:\nA modular structure is sought to ensure further development, and updates are possible. The possibility of substituting or adding modules in an IT solution will increase the lifespan of a solution and increase scalability\n\n\nConsequence:\nModular architecture of IT solutions is a requisite\n\n\nExample:\nIf the client specific IT solution has, for Example, grown its user base since the launch of the solution, then scaling up shall be possible at any time – scaling containers, vertically (more CPUs, RAM) and horizontally (more VMs)\n\n\n\n\n\n\n\n\n\n\nArchitecture 2:\nIT solutions are to be Dockerized or similar\n\n\n\n\nWhat:\nThe use of container technology is encouraged\n\n\nWhy:\nContainerization is crucial for building scalable IT solutions and container technology eases the work of moving IT solutions around the IT infrastructure making deployment easier to automate\n\n\nConsequence:\nIT solutions are to be deployed using Docker containers or similar\n\n\nExample:\nSoftware components of the client specific IT solution shall be provided as docker containers so that deployment is flexible with respect to hardware\n\n\n\n\n\n\n\n\n\n\nArchitecture 3:\nClient specific IT solutions must be able to interface with other IT solutions\n\n\n\n\nWhat:\nThe IT deliverable must be able to be used in conjunction with other deliverables to form a composite solution\n\n\nWhy:\nTo make the most of the funds available the developed solutions should form part of an IT ecosystem making up a whole\n\n\nConsequence:\nIT deliverables must be equipped with documented APIs for interfacing with other IT applications\n\n\nExample:\nA client specific product, which can be used for extracting and manipulating data, should be accessible programmatically through e.g. well documented REST services\n\n\n\n\n\n\n\n\n\n\nArchitecture 4:\nIT solutions should be cloud agnostic\n\n\n\n\nWhat:\nIf the IT solution is built for cloud environments, measures must be taken to make the solution cloud agnostic.\n\n\nWhy:\nVendor lock-in must be avoided to remove vendor specific dependencies, making the IT solution easier to migrate to a different cloud vendor\n\n\nConsequence:\nIT solutions must minimize the usage of vendor specific functionality and non-standardized infrastructure\n\n\nExample:\nAn IT solution that makes use of serverless functions should be built in a way that allows for using another vendors serverless functionality with little or no changes in case of migrating from one platform to another"
+  },
+  {
+    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#reproducibility",
+    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#reproducibility",
+    "title": "IT Architecture Principles and Implementation Guidelines",
+    "section": "4.2 Reproducibility",
+    "text": "4.2 Reproducibility\nThe overarching principle of reproducibility is further unfolded below in the following sub-principles:\n\n\n\n\n\n\n\nReproducibility 1:\nDescription of workflows must be provided\n\n\n\n\nWhat:\nDeliverables which are a result of pre-processing of data must be provided with a description of the workflow for the pre-processing\n\n\nWhy:\nTo ensure that the deliverable can be re-produced, details must be provided on how this can be achieved\n\n\nConsequence:\nDescriptions of pre-processing workflow steps are to be provided with deliverables. Ideally the workflows delivered as scripts or similar. At a minimum documentation of how the workflows are to be set up is to be provided\n\n\nExample:\nA delivery that includes a web application, shall include description of the build process, such as the compilation of source code, packaging of the application, and deployment steps. This for instance could include details on the specific versions of tools used (e.g. Node.js, Docker etc.)\n\n\n\n\n\n\n\n\n\n\nReproducibility 2:\nData sources to be supplied with deliverables\n\n\n\n\nWhat:\nIT solutions which utilize data sources must supply the data sources\n\n\nWhy:\nTo ensure that the deliverable can be re-produced details are required on data sources used along with any enrichment which have been applied to the data source\n\n\nConsequence:\nData source location must be provided if data are publicly available. If data are not accessible to the CLMS, the data are to be provided as part of the deliverable\n\n\nExample:\nIf the software relies on a proprietary weather data API that is not publicly accessible, the data, or at least a sample dataset, should be provided with the delivery. If the API is publicly available, detailed instructions on how to access it (e.g., API keys, endpoint URLs) must be included\n\n\n\n\n\n\n\n\n\n\nReproducibility 3:\nList of software used in development of IT solution to be provided\n\n\n\n\nWhat:\nThe software products which have been used in the development of the software are to be listed as part of the deliverable\n\n\nWhy:\nTo ensure that the IT solution can be further developed details are required of the software components/products that were used in the development\n\n\nConsequence:\nList of software development tools used in the production to be provided. Further for client specific developments the source code must also be provided\n\n\nExample:\nA system consisting of several building blocks, such as User Interface, backend, importer, and exporter modules, shall be provided with a list of software development tools, used for production of these building blocks and modules\n\n\n\n\n\n\n\n\n\n\nReproducibility 4:\nAutomation tool/scripts used in the production of the IT solution must be provided\n\n\n\n\nWhat:\nIT solutions which include automation scripts/workflows in the development must supply these scripts as part of the deliverable\n\n\nWhy:\nAutomation scripts used in development are viewed as part of the deliverable and are required for reproduction of the solution\n\n\nConsequence:\nAutomation scripts whether as stand-alone scripts or as a configuration of standard/commercial software must be provided as part of the deliverable\n\n\nExample:\nIf the IT deliverable includes an automatic backup that generates full backups in certain increments, then the automation scripts behind the backup generation must be provided as part of the deliverable, so that they could be recreated\n\n\n\n\n\n\n\n\n\n\nReproducibility 5:\nIf a solution includes outcomes of pre-executed algorithms the prerequisites for running the algorithms must be provided\n\n\n\n\nWhat:\nTo ensure reproducibility, the algorithms must be provided either as pseudo code or as source code\n\n\nWhy:\nThe foundation of the IT solution must be re-producible to ensure future enhancements are possible say if new insights/data become available also after the end of the contractual agreement\n\n\nConsequence:\nSupplier must as part of the deliverable also detail any algorithms which form the basis of the solution\n\n\nExample:\nA spatial product, providing a detailed pan-European wall to wall 10-meter spatial resolution raster product, that is based on a supervised classification of satellite image time-series. The supplier must provide a detailed description of the algorithm that was used for classifying satellite-imagery time-series"
+  },
+  {
+    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#reusability",
+    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#reusability",
+    "title": "IT Architecture Principles and Implementation Guidelines",
+    "section": "4.3 Reusability",
+    "text": "4.3 Reusability\nThe principle of reusability is detailed in the following sub-principles:\n\n\n\n\n\n\n\nReusability 1:\nIT solutions should be open-ended equipped with APIs\n\n\n\n\nWhat:\nIT solutions should be open-ended equipped with APIs through which functionality or data key for the end user may be accessed\n\n\nWhy:\nTo ensure that further work benefit from existing solutions it is paramount that systems delivered are open ended. Future work can hereby utilize and benefit from previous work. Delivered IT solutions should form part of the overall IT ecosystem of the EEA CLMS program so that the “whole is greater than the sum”\n\n\nConsequence:\nIT solutions should be provided with APIs which access key functionality of the IT solutions\n\n\nExample:\nA webservice provided, which publishes geospatial data, has an API Rest service, which grants users direct access to the data\n\n\n\n\n\n\n\n\n\n\nReusability 2:\nScripts used in production must be delivered as part of IT solutions\n\n\n\n\nWhat:\nScripts should be delivered with code so that they may be used as templates for the end user for further development\n\n\nWhy:\nData, conditions, or requirements may change for an IT solution. To ensure that such changes can be accommodated the underlying script must be possible to modify to reflect and support such changes\n\n\nConsequence:\nScripts used in the productions form part of the final deliverable\n\n\nExample:\nIT delivery, consisting of several building blocks, shall be provided with scripts, included with the final delivery of the code, so that the end users of the system could modify, expand, or adopt the building blocks/modules to suit specific needs or add new features"
+  },
+  {
+    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#transparency",
+    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#transparency",
+    "title": "IT Architecture Principles and Implementation Guidelines",
+    "section": "4.4 Transparency",
+    "text": "4.4 Transparency\nThe CLMS is funded by the EU and supports its community with data and services. As such, these products and services are to be part of the foundation for further work in the field and accessible to the community. To support this, the principle of transparency is detailed in the following subprinciples:\n\n\n\n\n\n\n\nTransparency 1:\nSource code of client specific software to be supplied with IT solution\n\n\n\n\nWhat:\nSource code of client specific IT solution is supplied as part of the deliverable and made publicly available under the EUPL-1.2 license 1\n\n\nWhy:\nTo ensure transparency, it is essential to have clear insights into the client-specific software. This enables efficient future developments and modifications\n\n\nConsequence:\nSource code of client specific software must be delivered with IT solution. The source code shall include Docker recipes and scripts for building the source code and be published under the EUPL-1.2 license\n\n\nExample:\nSource code of all the components of the specific IT solution must be delivered. Any updates or developments of the source code shall be reflected in the EEA GitHub repository, which is the main repository of the system. Moreover, the specific client IT solutions shall be published under the EUPL-1.2 license, so the openness and transparency are ensured\n\n\n\n\n\n\n\n\n\n\nTransparency 2:\nInline documentation of the source code\n\n\n\n\nWhat:\nSource code of client specific IT solution must be documented in-line\n\n\nWhy:\nTo effectuate the handover from one developer to the next inline documentation are to be included to guide the developer on the job\n\n\nConsequence:\nSource code must have inline documentation. Inline code should be formatted so that it may be easily extracted to generate online documentation\n\n\nExample:\nSource code of all the components of the IT solution must have inline documentation. The documentation shall be structured, following common conventions, and kept at a minimal, but comprehensive level\n\n\n\n\n\n\n\n\n\n\nTransparency 3:\nCommercial software used in the production must be attainable by the EEA or a third-party provider\n\n\n\n\nWhat:\nCommercial software which are prerequisites must be attainable on comparable terms. Such software is justified only if no open alternative exists\n\n\nWhy:\nTo ensure that further work may be carried out any prerequisites in the form of software must be attainable by the EEA or a supplier\n\n\nConsequence:\nGenerally attainable commercial software used in production must be listed when delivering an IT solution. Name of software, version, EOL and EOS to be supplied\n\n\nExample:\nAn IT solution is deploying various components and the set-up of the virtual machines that houses the components is done by means of an infrastructure as-a-code-tool. All the capabilities of the infrastructure as-a-code-tool, that require purchasing must be listed when delivering the IT solution"
+  },
+  {
+    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#maintainability",
+    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#maintainability",
+    "title": "IT Architecture Principles and Implementation Guidelines",
+    "section": "4.5 Maintainability",
+    "text": "4.5 Maintainability\nThe EEA aims in the CLMS program to be able to provide updated products when new data becomes available. To reduce the time to market the principle of maintainability is to be followed.\n\n\n\n\n\n\n\nMaintainability 1:\nIT solutions are to be delivered on a principle of CI/CD\n\n\n\n\nWhat:\nThe launch of new releases of IT deliverables are to be configured and managed so that new functionality is available as soon as possible. The principle of CI/CD are to be adhered to\n\n\nWhy:\nTime to market is to be reduced through an approach of maintainability of deployments as soon as possible\n\n\nConsequence:\nIT deliverables are to be supplied with a dev-ops set-up which supports CI/CD\n\n\nExample:\nA delivered IT solution is organized with a test server environment potentially a pre-production environment, used for quality assurance and continuous development, so that deployment to production can be initiated smoothly\n\n\n\n\n\n\n\n\n\n\nMaintainability 2:\nTests are to be organised so that they may be automated\n\n\n\n\nWhat:\nTests are to be structured so that they may be easily automated\n\n\nWhy:\nTo ensure that the build and CI/CD process does not introduce bugs or deployment failures, tests are to be automated so that they can continuously be run to ensure the quality of the solution and its possible enhancements\n\n\nConsequence:\nTests are to be delivered so that they can be automated\n\n\nExample:\nThe delivered solution has in the test phase run through a number of tests e.g. unit tests and result verification tests. These will be the basis for automated regression tests\n\n\n\n\n\n\n\n\n\n\nMaintainability 3:\nDocumentation of IT solutions are to be provided\n\n\n\n\nWhat:\nDocumentation of the developed IT solutions must be provided. The requested documentation shall also be provided in quarto markdown format on the dedicated EEA GitHub repository\n\n\nWhy:\nFor the further use and improvements of the IT solution, technical documentation is paramount.\n\n\nConsequence:\nDocumentation including but not limited to System Description Document (SDD), System Deployment Document and Examples must be provided with IT solution deliverables. The requested documents shall also be provided in the quarto markdown format.\n\n\nExample:\nAn IT delivery, consisting of several building blocks, shall be provided with SDD, user guidelines, and detailed documentation of system deployment, including, but not limited to system and storage architecture, infrastructure setup, provisioning, monitoring, disaster recovery, accessibility, scalability options and performance. If requested, this documentation shall be provided in quarto markdown format on the dedicated EEA GitHub repository\n\n\n\n\n\n\n\n\n\n\nMaintainability 4:\nCommercial software used in the development must be attainable by the EEA or a third-party provider\n\n\n\n\nWhat:\nCommercial software which are prerequisites must be attainable on comparable terms. Such software is justified only if no open alternative exists\n\n\nWhy:\nTo ensure that further work may be carried out any prerequisites in the form of software must be attainable by the EEA or a supplier\n\n\nConsequence:\nGenerally attainable commercial software used in development or production must be listed when delivering an IT solution. Name of software, version, EOL and EOS to be supplied\n\n\nExample:\nAn IT solution using commercial components or tools, like PDF generator, code analysis tools, data transformation software must be listed\n\n\n\n\n\n\n\n\n\n\nMaintainability 5:\nDeployment and integration scripts of client specific software to be supplied with IT solution\n\n\n\n\nWhat:\nDeployment and integration scripts of client specific IT solution is supplied as part of the deliverable\n\n\nWhy:\nTo ensure transparency and efficient maintainability, it is essential to have clear insights into the build and deploy processes of client-specific software. This enables efficient future developments and modifications\n\n\nConsequence:\nScripts or playbooks and documentation for CI/CD (Continuous Integration/Continuous Development), Docker recipes and build scripts must be delivered\n\n\nExample:\nSource code of all the components of the specific IT solution must be delivered. Any updates or developments of the source code shall be reflected in the EEA GitHub repository, which is the main repository of the system. Moreover, the specific client IT solutions shall be published under the EUPL-1.2 license, so the openness and transparency are ensured"
+  },
+  {
+    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#observability",
+    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#observability",
+    "title": "IT Architecture Principles and Implementation Guidelines",
+    "section": "4.6 Observability",
+    "text": "4.6 Observability\nIT solutions of the EEA CLMS must collect relevant metrics for monitoring and assessment, to detect any issues and have predictable operation of the solutions.\n\n\n\n\n\n\n\nObservability 1:\nIT solutions are to be regularly assessed\n\n\n\n\nWhat:\nIT solutions are to be automatically monitored with a notification service, and their performance routinely evaluated to ensure optimal functioning\n\n\nWhy:\nRegular assessments ensure that IT solutions can be maintained so as to meet emerging needs, threats and technological advancements\n\n\nConsequence:\nIT solution’s scalability, security, and overall performance are continuously monitored and evaluated to address performance and security issues\n\n\nExample:\nThe delivered IT solution and its associated dependencies are regularly assessed and evaluated. The evaluation process should also account for advancements in technology and track developments to ensure the solution remains relevant and effective\n\n\n\n\n\n\n\n\n\n\nObservability 2:\nContinuous monitoring of metrics\n\n\n\n\nWhat:\nIT solutions logs metrics on it’s components and containers for tracking system performance and application health\n\n\nWhy:\nContinuous monitoring gives a data-driven insight of a solutions components performance and health and provide the metrics for automatically scaled solutions and self-recovering solutions\n\n\nConsequence:\nComponents and containers in the solution logs relevant metrics to be collected and monitored. As minimum liveliness and readiness should be logged\n\n\nExample:\nA software solution with an orhcestrating component and a worker component use liveliness and readiness to monitor if the solution is healthy and automatically scale the number of worker instances according to the readiness metrics"
+  },
+  {
+    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#it-security",
+    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#it-security",
+    "title": "IT Architecture Principles and Implementation Guidelines",
+    "section": "4.7 IT security",
+    "text": "4.7 IT security\nThe IT solutions of the CLMS program shall ensure system integrity against various security threats, protection of the data, and maintenance of privacy. The following sub-principals are to be followed:\n\n\n\n\n\n\n\nIT security 1:\nIncorporate security considerations from the beginning of the system development\n\n\n\n\nWhat:\nEnsure security is integrated into all stages of the system development lifecycle, from planning to deployment\n\n\nWhy:\nEarly integration of security measures reduces vulnerabilities, lowers costs associated with late-stage fixes, and ensures robust protection against threats\n\n\nConsequence:\nThreat modelling and security assessments need to be conducted from the start, as well as allocation of resources for ongoing security reviews and testing\n\n\nExample:\nStandard aspects such as two factor authentication, protection against SQL injection, encryption of sensitive data, no root users in containers, etc.\n\n\n\n\n\n\n\n\n\n\nIT security 2:\nCompliance with relevant laws, regulations and industry standards\n\n\n\n\nWhat:\nIT-solutions must adhere to legal requirements, industry standards, and regulations e.g. EUDPR, ISO\n\n\nWhy:\nCompliance ensures legal and regulatory adherence, builds trust, protects sensitive data, and mitigates risk of legal penalties and breaches\n\n\nConsequence:\nIT deliverables need to incorporate robust security measures, include documentation of compliance efforts, and ensure features and processes aligned with legal and industry measures\n\n\nExample:\nData handling agreements must be in place, consideration of server location in EU, etc.\n\n\n\n\n\n\n\n\n\n\nIT security 3:\nEnsuring that users and systems have appropriate permissions based on their roles and responsibilities\n\n\n\n\nWhat:\nImplement role-based access control (RBAC) to manage user and system permissions according to their roles\n\n\nWhy:\nIt prevents unauthorized access, minimizes the risk of data breaches, and ensures that users only have access to the information necessary for their roles\n\n\nConsequence:\nThe provider will need to define clear roles and responsibilities, implement RBAC policies, regularly review and update access controls\n\n\nExample:\nA delivered IT solution has role-based accesses, which ensures that only Admin-Users are allowed to manage (add, edit, activate, inactivate) users and organisations. Also, only administrator can view and edit any ingestion and extraction within the system to support users if they need any help\n\n\n\n\n\n\n\n\n\n\nIT security 4:\nLogging warnings and errors\n\n\n\n\nWhat:\nThe IT solution must log all errors, warnings and events with audit relevance from every component to a file based storage\n\n\nWhy:\nIn order to inspect system events and detect potential security incidents is crucial for maintaining the system integrity and resilience. Log information must not be revealed to the user, but must be stored internally.\n\n\nConsequence:\nAll components of an IT solution must log audit, error and warning information coming from executing the code of the solution\n\n\nExample:\nA user logs in to an application, trying to download a large dataset for processing in the application, the system encounters some fatal errors with the download. Login, user activity and technical error information and severity is logged to a persistent file storage."
+  },
+  {
+    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#resilience",
+    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#resilience",
+    "title": "IT Architecture Principles and Implementation Guidelines",
+    "section": "4.8 Resilience",
+    "text": "4.8 Resilience\n\n\n\n\n\n\n\nResilience 1:\nIT solution should have a disaster recovery plan\n\n\n\n\nWhat:\nIT solution should have a well-defined process of restoring IT systems, data, and operations following a disruption\n\n\nWhy:\nTo ensure that the IT solution and data are recoverable after an unforeseen event\n\n\nConsequence:\nIT deliverables will be provided with well-prepared disaster recovery plan that will ensure a rapid restoration of services and data integrity, and minimize damage\n\n\nExample:\nA delivered IT solution has a disaster recovery plan that includes backup protocols, data replication, and recovery timelines\n\n\n\n\n\n\n\n\n\n\nResilience 2:\nEnsuring IT solution continuity\n\n\n\n\nWhat:\nIT solution is designed and implemented in a way that ensures continuous operation during a disruption\n\n\nWhy:\nTo maintain critical operations with a minimal downtime, even when confronted with unforeseen events\n\n\nConsequence:\nIT deliverables are designed for high availability, incorporating redundancy so that in case of a disruption/failure, restore service can immediately take over, minimizing downtime and ensuring continuous operation\n\n\nExample:\nIn the event of a system failure or disruption of the delivered IT solution, restore service automatically take over to maintain service continuity. For instance, if a primary system goes down, a secondary system activates, ensuring that users experience no downtime."
+  },
+  {
+    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#footnotes",
+    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#footnotes",
+    "title": "IT Architecture Principles and Implementation Guidelines",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nhttps://commission.europa.eu/content/european-union-public-licence_en↩︎"
+  },
+  {
+    "objectID": "src/index.html",
+    "href": "src/index.html",
+    "title": "Documents",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\n\n\n\n\nDocuments\n\n\n\n\nGuidelines\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#folder-descriptions",
+    "href": "src/guidelines/editor-manual.html#folder-descriptions",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "2.1 Folder Descriptions",
+    "text": "2.1 Folder Descriptions\n\nsrc/\nThis is the main source folder. It contains all the shared resources used when creating documentation.\n\nsrc/templates/ \nThis is where you’ll find ready-to-use .qmd templates. There are templates for two document types:\n\nATBD (Algorithm Theoretical Basis Document)\nPUM (Product User Manual)\nWhen you start a new document, you will copy the appropriate template from here.\n\nsrc/styles/\nThis folder contains style-related files, such as DOCX templates and style sheets. These are used by scripts and macros to give your documents a consistent look.\nsrc/products/\nThis is the folder where you will actually create and edit your documentation.\n\nFor each new document, create a new .qmd file inside src/products/, for example: my-doc.qmd. \nAlso create a separate folder to store images and charts used in that document, for example: my-doc-media/. \nBoth the .qmd file and the media folder should follow a clear naming pattern (e.g. same prefix) to keep things organized.\nExample:\nproducts/\n├── my-doc.qmd\n└── my-doc-media/\n    └── image1.png\n\n\nscripts/, macros/, and metadata/ \nThese folders support the automation workflow. They include scripts, macros, and configuration files that help with rendering and styling your documents.\n\nBy following this structure, everyone on the team will know exactly where to find templates, styles, and finished documents — and where to put new content."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#headings",
+    "href": "src/guidelines/editor-manual.html#headings",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "3.1 Headings",
+    "text": "3.1 Headings\nUse the # symbol to create headings and organize your content. More # means a smaller heading level:\n# Title (Level 1)\n## Section (Level 2)\n### Subsection (Level 3)"
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#paragraphs-and-line-breaks",
+    "href": "src/guidelines/editor-manual.html#paragraphs-and-line-breaks",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "3.2 Paragraphs and Line Breaks",
+    "text": "3.2 Paragraphs and Line Breaks\nJust write text normally to create a paragraph. Leave an empty line between paragraphs.\nTo create a line break inside a paragraph, end the line with two spaces:\nThis is one line.  \nThis is another line."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#bold-and-italic-text",
+    "href": "src/guidelines/editor-manual.html#bold-and-italic-text",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "3.3 Bold and Italic Text",
+    "text": "3.3 Bold and Italic Text\n\nItalic — use one asterisk or underscore: *italic* or _italic_\n\nBold — use two asterisks: **bold**\n\nBold and italic — use three asterisks: ***bold and italic***"
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#lists",
+    "href": "src/guidelines/editor-manual.html#lists",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "3.4 Lists",
+    "text": "3.4 Lists\n\n3.4.1 Bullet (Unordered) List\n- Item one\n- Item two\n  - Subitem\n\n\n3.4.2 Numbered (Ordered) List\n1. First step\n2. Second step\n   1. Sub-step"
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#links-and-images",
+    "href": "src/guidelines/editor-manual.html#links-and-images",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "3.5 Links and Images",
+    "text": "3.5 Links and Images\n\n3.5.1 Link\n[Quarto website](https://quarto.org)\n\n\n3.5.2 Image\nPlace image files in your media/ folder, and use:\n![Alt text](media/image-name.png)"
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#code-blocks-and-inline-code",
+    "href": "src/guidelines/editor-manual.html#code-blocks-and-inline-code",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "3.6 Code Blocks and Inline Code",
+    "text": "3.6 Code Blocks and Inline Code\n\n3.6.1 Inline code\nUse backticks (`) to highlight short code inside a sentence:\nUse the `render` button to build your document.\nRendered result:\nUse the render button to build your document.\n\n\n3.6.2 Code block\nUse triple backticks for larger code examples:\n```python\nprint(\"Hello, world!\")\n```\nRendered result:\nprint(\"Hello, world!\")\nYou can replace python with other languages like bash, r, or json."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#tables",
+    "href": "src/guidelines/editor-manual.html#tables",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "3.7 Tables",
+    "text": "3.7 Tables\nTables are a great way to present structured information. Below are two common ways to create them, along with rendered previews.\n\n\n\n\n\n\nIf you like there are several table generators on the internet which can help you generating markdown or html tables.\n\n\n\n\n\n\n\n3.7.1 Simple (Pipe) Table\n| Name       | Role       | Status   |\n|-----------:|------------|:--------:|\n| Alice      | Developer  | *Active*   |\n| Bob        | Reviewer   | **Pending**  |\n: Demonstration of pipe table syntax\nRendered result:\n\nDemonstration of pipe table syntax\n\n\nName\nRole\nStatus\n\n\n\n\nAlice\nDeveloper\nActive\n\n\nBob\nReviewer\nPending\n\n\n\nMake sure to align columns using | and -.\n\n\n3.7.2 HTML-style Table (for advanced layouts)\n```{=html}\n&lt;table style=\"border-collapse: collapse; width: 100%; font-size: 14px;\"&gt;\n  &lt;thead style=\"background-color: #2c3e50; color: black;\"&gt;\n    &lt;tr&gt;\n      &lt;th colspan=\"3\" style=\"padding: 10px; border: 1px solid #ccc; text-align: center;\"&gt;\n        Document Workflow Overview\n      &lt;/th&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Step&lt;/th&gt;\n      &lt;th style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Task&lt;/th&gt;\n      &lt;th style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Details&lt;/th&gt;\n    &lt;/tr&gt;\n  &lt;/thead&gt;\n  &lt;tbody style=\"background-color: #ecf0f1;\"&gt;\n    &lt;tr&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;1&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Initialize Project&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Set up folder structure and copy base template&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;2&lt;/td&gt;\n      &lt;td colspan=\"2\" style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Create and configure `.qmd` file&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;3&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Write Content&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;\n        Add sections, insert media, and apply styles.&lt;br&gt;\n        Use templates to ensure structure consistency.\n      &lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;4&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Render Output&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;\n        &lt;ul style=\"margin: 0; padding-left: 20px;\"&gt;\n          &lt;li&gt;HTML for preview&lt;/li&gt;\n          &lt;li&gt;DOCX for formatting check&lt;/li&gt;\n          &lt;li&gt;PDF via automation&lt;/li&gt;\n        &lt;/ul&gt;\n      &lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td colspan=\"3\" style=\"padding: 8px; border: 1px solid #ccc; background-color: #d1ecf1; text-align: center;\"&gt;\n        ✅ All steps completed — document ready for review\n      &lt;/td&gt;\n    &lt;/tr&gt;\n  &lt;/tbody&gt;\n&lt;/table&gt;\nRendered result:\n\n\n\n\n\n\n\n\nDocument Workflow Overview\n\n\nStep\nTask\nDetails\n\n\n\n\n1\nInitialize Project\nSet up folder structure and copy base template\n\n\n2\nCreate and configure `.qmd` file\n\n\n3\nWrite Content\nAdd sections, insert media, and apply styles.\nUse templates to ensure structure consistency.\n\n\n4\nRender Output\n\nHTML for preview\nDOCX for formatting check\nPDF via automation\n\n\n\n✅ All steps completed — document ready for review\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nAvoid using nested tables (a table inside another table) when writing documentation intended for DOCX or PDF output. While this might work in HTML, it often causes serious rendering problems in Word or during PDF conversion — such as layout breakage, invisible borders, or unreadable formatting.\n✅ Instead of nesting:\n\nReorganize the content into a simpler layout\nSplit one large complex table into two or more smaller tables placed one after another\n\nThis ensures your document remains clean, readable, and properly formatted across all output formats."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#figures-with-captions-and-layout",
+    "href": "src/guidelines/editor-manual.html#figures-with-captions-and-layout",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "3.8 Figures (with captions and layout)",
+    "text": "3.8 Figures (with captions and layout)\nYou can add figures using this special block format:\n::: {.figure}\n![A helpful diagram](media/diagram.png)\nA short caption for the figure.\n:::\nYou can also use layout options, like fig-align=\"center\" or fig-width=\"80%\" in advanced cases.\nMore: https://quarto.org/docs/authoring/figures.html"
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#showing-images-in-multiple-columns-or-rows",
+    "href": "src/guidelines/editor-manual.html#showing-images-in-multiple-columns-or-rows",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "3.9 Showing Images in Multiple Columns or Rows",
+    "text": "3.9 Showing Images in Multiple Columns or Rows\nSometimes you want to display a group of images side by side or in a grid. This is useful for comparisons or visual overviews. The following approaches work well in both HTML and DOCX outputs, including when converting to PDF.\n\n\n3.9.1 Without Captions\nYou can use a Markdown table to arrange images in multiple columns and rows:\n| ![](image1.png){width=120} | ![](image2.png){width=120} | ![](image3.png){width=120} |\n|----------------------------|----------------------------|----------------------------|\n| ![](image4.png){width=120} | ![](image5.png){width=120} | ![](image6.png){width=120} |\nThis creates two rows with three images each. Adjust the width as needed to fit your layout.\n\n\n\n3.9.2 With Captions\nTo add captions under each image, simply include a row of text below each row of images:\n| ![](img1.png){width=120} | ![](img2.png){width=120} | ![](img3.png){width=120} |\n|:------------------------:|:------------------------:|:------------------------:|\n| Caption 1               | Caption 2               | Caption 3               |\n| ![](img4.png){width=120} | ![](img5.png){width=120} | ![](img6.png){width=120} |\n| Caption 4               | Caption 5               | Caption 6               |\nThis method keeps captions aligned with each image, and works across all output formats.\n\n⚠️ Note: Tables used for captions will show borders in DOCX and PDF outputs. Removing them requires custom styles in a reference DOCX."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#equations",
+    "href": "src/guidelines/editor-manual.html#equations",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "3.10 Equations",
+    "text": "3.10 Equations\nQuarto supports mathematical equations using LaTeX-style syntax. You can add inline equations or display equations as blocks.\n\n3.10.1 Inline Equations\nUse single dollar signs $...$ for inline math:\nThe formula for the area is $A = \\pi r^2$.\nRendered result:\nThe formula for the area is \\(A = \\pi r^2\\).\n\n\n3.10.2 Display Equations\nUse double dollar signs $$...$$ to show a larger, centered equation block:\n$$\nE = mc^2\n$$\nRendered result:\n\\[\nE = mc^2\n\\]\nYou can use most standard LaTeX math symbols and operators.\nFor more examples, check the Quarto math documentation."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#diagrams",
+    "href": "src/guidelines/editor-manual.html#diagrams",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "3.11 Diagrams",
+    "text": "3.11 Diagrams\nQuarto supports diagrams using mermaid and dot. Just use a code block like this:\n\n3.11.1 Mermaid example\n```{mermaid}\nflowchart LR\n  A[Hard edge] --&gt; B(Round edge)\n  B --&gt; C{Decision}\n  C --&gt; D[Result one]\n  C --&gt; E[Result two]\n```\n\n\n\n\n\nflowchart LR\n  A[Hard edge] --&gt; B(Round edge)\n  B --&gt; C{Decision}\n  C --&gt; D[Result one]\n  C --&gt; E[Result two]\n\n\n\n\n\n\n\n\n3.11.2 Dot example\n```{dot}\ndigraph DocumentationWorkflow {\n  node [shape=box, style=rounded]\n\n  Start -&gt; \"Create .qmd File\"\n  \"Create .qmd File\" -&gt; \"Write Content\"\n  \"Write Content\" -&gt; \"Render to HTML\"\n  \"Write Content\" -&gt; \"Render to DOCX\"\n  \"Render to DOCX\" -&gt; \"Convert to PDF\"\n  \"Render to HTML\" -&gt; Review\n  \"Convert to PDF\" -&gt; Review\n  Review -&gt; \"Push to GitHub\"\n  \"Push to GitHub\" -&gt; Done\n\n  Done [shape=ellipse, style=filled, fillcolor=lightgrey]\n}\n```\n\n\n\n\n\n\n\nDocumentationWorkflow\n\n\n\nStart\n\nStart\n\n\n\nCreate .qmd File\n\nCreate .qmd File\n\n\n\nStart-&gt;Create .qmd File\n\n\n\n\n\nWrite Content\n\nWrite Content\n\n\n\nCreate .qmd File-&gt;Write Content\n\n\n\n\n\nRender to HTML\n\nRender to HTML\n\n\n\nWrite Content-&gt;Render to HTML\n\n\n\n\n\nRender to DOCX\n\nRender to DOCX\n\n\n\nWrite Content-&gt;Render to DOCX\n\n\n\n\n\nReview\n\nReview\n\n\n\nRender to HTML-&gt;Review\n\n\n\n\n\nConvert to PDF\n\nConvert to PDF\n\n\n\nRender to DOCX-&gt;Convert to PDF\n\n\n\n\n\nConvert to PDF-&gt;Review\n\n\n\n\n\nPush to GitHub\n\nPush to GitHub\n\n\n\nReview-&gt;Push to GitHub\n\n\n\n\n\nDone\n\nDone\n\n\n\nPush to GitHub-&gt;Done\n\n\n\n\n\n\n\n\n\n\nMore: https://quarto.org/docs/authoring/diagrams.html"
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#footnotes",
+    "href": "src/guidelines/editor-manual.html#footnotes",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThis is the footnote content.↩︎"
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#notebook-output-embeds",
+    "href": "src/guidelines/editor-manual.html#notebook-output-embeds",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "3.13 Notebook Output Embeds",
+    "text": "3.13 Notebook Output Embeds\nIf you’re working with code notebooks (like Jupyter or R Markdown), you can include outputs such as plots or tables directly in the document. Quarto will automatically embed them after the code block.\nMore: https://quarto.org/docs/authoring/notebook-embed.html"
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#step-1-start-a-new-file",
+    "href": "src/guidelines/editor-manual.html#step-1-start-a-new-file",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "4.1 Step 1: Start a New File",
+    "text": "4.1 Step 1: Start a New File\nThere are two ways to begin:\n\n4.1.1 Option 1: Use a Template\n\nOpen the src/templates/ folder.\nChoose the right template:\n\nCLMS``_Template``_ATBD.qmd for an Algorithm Theoretical Basis Document (ATBD)\nCLMS``_Template``_PUM.qmd for a Product User Manual (PUM)\n\nCopy the template into the src/products/ folder.\nRename it to match your new document. Example: my-product.qmd\nCreate a new media folder named my-product-media/ next to it to store images and charts.\n\n\n\n4.1.2 Option 2: Create from scratch\n\nInside the src/products/ folder, create a new file: e.g. my-product.qmd\nCreate a new media folder named my-product-media/ for related images and figures.\n\n\n💡 Using templates is recommended because they include structure and helpful comments. But starting from scratch gives you full control."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#step-2-understand-and-use-the-template",
+    "href": "src/guidelines/editor-manual.html#step-2-understand-and-use-the-template",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "4.2 Step 2: Understand and Use the Template",
+    "text": "4.2 Step 2: Understand and Use the Template\nTemplates include:\n\nA pre-filled YAML header (the part at the top with ---)\nRequired sections and headings\nHelpful comments you should keep while editing\n\n\n💡 If you use an already defined template, the YAML header is included — you don’t need to add it manually."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#step-3-add-or-adjust-the-yaml-header",
+    "href": "src/guidelines/editor-manual.html#step-3-add-or-adjust-the-yaml-header",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "4.3 Step 3: Add or Adjust the YAML Header",
+    "text": "4.3 Step 3: Add or Adjust the YAML Header\nIf you’re creating the .qmd file from scratch, you must add the basic YAML header at the top of your file.\nThese fields are required for correct rendering:\n\nmetadata-files: connects your document to shared metadata (like author, institution, version) \nformat: controls how your document is rendered (HTML, styled DOCX, etc.)\n\n\n\n\n\n\n\nImportant\n\n\n\nYou must include the pdf: default format in the YAML header.\nAlthough PDF is not rendered directly during this step, defining it here ensures compatibility with the automated rendering workflow later. Details are explained in the Rendering Documentation section.\n\n\nYou must adjust reference-doc: under the docx: to specify the default style used for the DOCX/PDF output.\nHere’s a basic header you can use:\n---\ntitle: \"Product SHORT NAME\"\nsubtitle: \"Product full name\"\ndate: \"2022-10-06\"\nversion: 1.0\ntemplate-version: 1.0.0\nproduct-name: Product Name\ndescription: \"Product DESCRIPTION\"\n\nmetadata-files:\n  - ../../metadata/default.yml\n\nformat:\n  html:\n    css: ../styles/styles.css\n  docx:\n    reference-doc: ../styles/template-atbd.docx\n    hidden: true\n  pdf: default  \n---\n\n4.3.1 Field Descriptions:\n\ntitle: The main title of the document (displayed in the rendered output).\nsubtitle: An optional second line of text under the title.\ndate: The publication or last updated date.\nversion: The version of your document (e.g. “1.0”, “v2.3-draft”).\ntemplate-version: Not rendered — this is a special internal field that helps keep track of which template was originally used. Do not remove or modify this field unless you’re updating the template version intentionally.\n\n\nThese fields must be filled in by the user. Only other fields — such as shared configuration or output format — are pre-filled in the template."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#atbd-template",
+    "href": "src/guidelines/editor-manual.html#atbd-template",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "6.1 ATBD Template",
+    "text": "6.1 ATBD Template\nFilename: CLMS``_Template``_ATBD.qmd\nThis template is used for creating an Algorithm Theoretical Basis Document (ATBD).\nIt includes:\n\nA structured outline based on standard ATBD requirements\nPlaceholder sections for theory, algorithm descriptions, validation, and references\nYAML metadata pre-filled with necessary fields and style settings\nCommented guidance within each section\n\n\n💡 Use this template when documenting the scientific or technical foundation of a data product."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#pum-template",
+    "href": "src/guidelines/editor-manual.html#pum-template",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "6.2 PUM Template",
+    "text": "6.2 PUM Template\nFilename: CLMS``_Template``_PUM.qmd\nThis template is used for creating a Product User Manual (PUM).\nIt includes:\n\nSections for product overview, data access, interpretation, and use\nNotes on where to insert images, tables, and figures\nYAML header configured for standard rendering\n\n\n💡 Use this template when documenting how users should interact with or interpret a product."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#how-to-use-the-templates",
+    "href": "src/guidelines/editor-manual.html#how-to-use-the-templates",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "6.3 How to Use the Templates",
+    "text": "6.3 How to Use the Templates\n\nGo to src/templates/\nChoose either CLMS``_Template``_ATBD.qmd or CLMS``_Template``_PUM.qmd\nCopy the file into the src/products/ folder\nRename it to match your project (e.g. my-product.qmd)\nBegin editing based on the guidance in the template\n\nIf you’re unsure which template to use, ask your team lead or check what was used in previous similar documents.\n\n\n\n\n\n\nImportant\n\n\n\nDo not modify the structure of the template unless absolutely necessary.\nKeeping the structure consistent across all documents ensures that the documentation system stays clear, professional, and easy to navigate for all users and reviewers."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#what-is-pandoc",
+    "href": "src/guidelines/editor-manual.html#what-is-pandoc",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "7.1 What is Pandoc?",
+    "text": "7.1 What is Pandoc?\nPandoc is a powerful command-line tool that can convert documents between various formats, including Markdown, DOCX, HTML, LaTeX, and more.\nTo use Pandoc on your computer, download and install it from the official site: https://pandoc.org/installing.html"
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#when-and-how-to-use-it",
+    "href": "src/guidelines/editor-manual.html#when-and-how-to-use-it",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "7.2 When and How to Use It",
+    "text": "7.2 When and How to Use It\nUse Pandoc only for converting existing .docx documents into .qmd. Do not use it to convert PDFs — Pandoc does not support PDF as an input format. This approach is ideal when you’re: \n\nMigrating legacy documentation into the Quarto system\nCreating a quick starting point for manual cleanup\nExtracting embedded images and figures from .docx"
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#basic-usage-example",
+    "href": "src/guidelines/editor-manual.html#basic-usage-example",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "7.3 Basic Usage Example",
+    "text": "7.3 Basic Usage Example\nOpen a terminal or command prompt — ideally from within RStudio’s Terminal tab so you can stay in one environment — and run the following command. You can provide either a relative or full path to the .docx file:\n$ pandoc my-doc.docx -o my-doc.qmd --wrap=none --from=docx --to=markdown+fenced_divs+grid_tables+pipe_tables+smart\n\n7.3.1 What this command does:\n\nmy-doc.docx: The input Word document.\n-o my-doc.qmd: Output file in Markdown format.\n--wrap=none: Prevents Pandoc from breaking long lines into multiple lines.\n--from=docx: Specifies that the input file is a Word document.\n--to=markdown+fenced_divs+grid_tables+pipe_tables+smart: Sets output format and enables enhanced table and layout options."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#where-are-media-files-stored",
+    "href": "src/guidelines/editor-manual.html#where-are-media-files-stored",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "7.4 Where Are Media Files Stored?",
+    "text": "7.4 Where Are Media Files Stored?\nWhen Pandoc finds images or other media in the .docx file, it extracts them automatically into a new folder.\nBy default, extracted media will be placed into a subfolder named media/, located next to your output .qmd file. \nThis is created automatically and will contain all image assets referenced in the converted file.\n\n7.4.1 Changing the Media Folder Name\nYou can change the default media folder name using the --extract-media option:\n$ pandoc my-doc.docx -o my-doc.qmd --extract-media=custom-media-folder\n\n\n\n\n\n\nNote\n\n\n\nPandoc will create a media/ subfolder inside the folder you specify. For example, running the above command will result in:\ncustom-media-folder/media/\nIf you want to follow the structure expected by your project (e.g. my-doc-media/), make sure to move the contents out of that inner media/ folder and place them in the right location manually."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#next-steps",
+    "href": "src/guidelines/editor-manual.html#next-steps",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "7.5 Next Steps",
+    "text": "7.5 Next Steps\nAfter conversion, you’ll likely need to:\n\nClean up unnecessary styles or extra spacing\nRename and organize media files \nAdd a proper YAML header at the top of the .qmd file \nRestructure the content to match your template or documentation style \n\nWhile not perfect, this method gives you a solid starting point — especially for long or complex documents."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#shared-styling-configuration",
+    "href": "src/guidelines/editor-manual.html#shared-styling-configuration",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "8.1 Shared Styling Configuration",
+    "text": "8.1 Shared Styling Configuration\nMost formatting options (fonts, colors, spacing, margins, etc.) are defined in shared configuration files. These files are stored in src/styles directory and include:\n\nA custom DOCX file for styling PDF output\nA CSS stylesheet for HTML\nMetadata files for shared fields like project name, institution, and contributors\n\nDon’t edit them! — they’re used automatically by the rendering scripts."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#theme",
+    "href": "src/guidelines/editor-manual.html#theme",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "8.2 Theme ",
+    "text": "8.2 Theme \nIt ensures that all documents have a clean, modern, and consistent appearance — both in HTML and PDF output.\n\nThis theme is applied automatically. You do not need to configure it manually in your documents."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#table-of-contents",
+    "href": "src/guidelines/editor-manual.html#table-of-contents",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "8.3 Table of Contents",
+    "text": "8.3 Table of Contents\nThe table of contents (TOC) is enabled by default and appears on the left-hand side in HTML documents.\nYou can control how many heading levels are shown by adjusting toc-depth in your YAML header, though the default setting (toc-depth: 3) is usually enough."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#customizing-per-document-settings",
+    "href": "src/guidelines/editor-manual.html#customizing-per-document-settings",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "8.4 Customizing Per-Document Settings",
+    "text": "8.4 Customizing Per-Document Settings\nIf needed, you can override the default styles or add extra options in your document’s YAML header. For example:\nformat:\n  html:\n    toc: true\n    toc-depth: 3\n  docx:\n    reference-doc: ../src/styles/custom-reference.docx\n  pdf: default"
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#how-it-works",
+    "href": "src/guidelines/editor-manual.html#how-it-works",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "9.1 How It Works",
+    "text": "9.1 How It Works\n\nThe default Quarto metadata configuration automatically injects a special placeholder value into the keywords: field in your document’s header.\nWhen your document is rendered and processed for publication, an AI service analyzes its content and automatically generates 10 relevant keywords.\nThese keywords help with document indexing, search, and classification on the publication platform.\n\nThis process ensures consistent keyword formatting and reduces the work required from authors."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#what-you-should-do",
+    "href": "src/guidelines/editor-manual.html#what-you-should-do",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "9.2 What You Should Do",
+    "text": "9.2 What You Should Do\nNothing!\nSimply leave the keywords: field untouched or omit it entirely. The publishing system will take care of it for you.\nIf you do add custom keywords for internal purposes, they will be overwritten during the publishing step — so it’s best to let the system manage them."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#opening-your-project",
+    "href": "src/guidelines/editor-manual.html#opening-your-project",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "10.1 Opening Your Project",
+    "text": "10.1 Opening Your Project\n\nOpen RStudio.\nUse File &gt; Open Project… and select the root folder of the Technical Library.\nNavigate to the src/products/ folder.\nOpen the .qmd file you want to edit."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#editing-qmd-files",
+    "href": "src/guidelines/editor-manual.html#editing-qmd-files",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "10.2 Editing QMD Files",
+    "text": "10.2 Editing QMD Files\nYou can edit .qmd files just like regular text documents. RStudio provides:\n\nSyntax highlighting for Markdown and code blocks\nA live preview of rendered output\nAuto-saving and formatting support\nInstant feedback when rendering errors occur\n\nUse the Preview on Save option (checkbox in the toolbar) to automatically render your file every time you save it. This makes editing more efficient."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#managing-media-files",
+    "href": "src/guidelines/editor-manual.html#managing-media-files",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "10.3 Managing Media Files",
+    "text": "10.3 Managing Media Files\nIf your document uses images or diagrams:\n\nPlace them in a dedicated media folder (e.g. my-doc-media/)\nUse relative paths in your .qmd file, like:\n\n![Data Flow Diagram](my-doc-media/diagram.png)"
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#render-to-html",
+    "href": "src/guidelines/editor-manual.html#render-to-html",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "11.1 Render to HTML",
+    "text": "11.1 Render to HTML\n\nHTML is the default output format and is useful for previewing your document in a web browser while you work. Rendered HTML uses the custom Technical Library theme and includes a table of contents, clickable navigation, and consistent styles. It’s a great way to check formatting, layout, and images as you write.\nThere are two ways to preview your .qmd file:\n\nClick the Render button at the top of the RStudio window. \nOr enable Preview on Save (in the RStudio IDE toolbar). This option automatically re-renders your document every time you save it. \n\nAfter clicking the Render button (or saving the file with Preview on Save enabled), the HTML version of your document will appear in the Viewer tab, located in the Output pane (typically in the lower right corner of RStudio).\n\nIf the Viewer tab is not visible:\n\nGo to Tools &gt; Global Options in the top menu.\nNavigate to the R Markdown section.\nEnsure that Show output preview in: is set to Viewer Pane.\n\n\nThis setting ensures that rendered documents are displayed within RStudio, providing a seamless preview experience."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#render-to-pdf-via-docx-and-libreoffice",
+    "href": "src/guidelines/editor-manual.html#render-to-pdf-via-docx-and-libreoffice",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "11.2 Render to PDF via DOCX and LibreOffice",
+    "text": "11.2 Render to PDF via DOCX and LibreOffice\nPDFs are not generated directly by Quarto. Instead, the process involves a few automatic steps:\n\nQuarto first generates a .docx (Word) file using the styles and settings defined in the YAML header and shared config files.\nThen, a LibreOffice macro automatically converts the .docx to .pdf. \nThe resulting PDF file is saved in the output location.\n\nThis approach ensures consistent and well-formatted PDFs, even across different systems.\n\n\n\n\n\n\nImportant\n\n\n\n\nMake sure pdf: default is included in your YAML header — this triggers the PDF pipeline.\nDo not define custom pdf: options unless you know what you’re doing. \n\n\n\n\n11.2.1 Preview with DOCX Instead of PDF\nInstead of manually generating a PDF (which involves running scripts or waiting for the automated conversion), you can simply render a .docx file. It will look almost exactly like the final PDF because it uses the same styles and layout rules.\nThis is a great option when you want to quickly check how your document will look in PDF format — especially while you’re still editing the .qmd file.\nYou don’t need to change the order of output formats in the YAML header. Just click the black arrow next to the Render button in RStudio and select “Render MS Word” from the dropdown menu.\n\nAfter rendering, the .docx file will automatically open in your default DOCX editor (e.g., Microsoft Word or LibreOffice Writer). If it doesn’t open automatically, you can still find it saved in the same folder as your .qmd file, with the same base filename.\nThis approach is fast and avoids editing the YAML just to preview layout changes."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#output-location",
+    "href": "src/guidelines/editor-manual.html#output-location",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "11.3 Output Location",
+    "text": "11.3 Output Location\nWhen you render a single .qmd file locally (e.g. using RStudio or the command line), the output (HTML or DOCX/PDF) is saved next to your source file — usually inside the src/products/ folder.\nIf you run the full command:\n$ quarto render\nthen Quarto will build the entire Technical Library and save the results in a special _site folder. However, this is typically handled automatically by the rendering workflow in the GitHub repository during the publishing process.\n\n💡 You do not need to render the entire library yourself. Just focus on rendering the file you are currently working on. This keeps things faster and easier to manage during editing.\n\n\n\n11.3.1 About the _quarto.yaml File\nThe _quarto.yaml file is a special configuration file that defines project-wide settings, including the default output folder — which is _site.\nWhen this file is present in the root of your project, RStudio (and Quarto) assumes you’re working in project mode. That means it tries to render the entire site, not just the file you’re editing.\nThis can cause a few issues during local editing:\n\nSlower preview performance\nRStudio sometimes doesn’t pick up the latest changes right away (likely due to caching)\nViewer pane might not display fresh output\n\nUnfortunately, this behavior isn’t clearly documented — but it can be confusing and frustrating.\n\n\n11.3.2 Recommended Setup for Efficient Editing\nTo avoid these issues, the repository includes a renamed config file: _quarto-not-used.yaml. This allows users to edit and preview individual files efficiently without triggering full-site rendering.\nBy default, this means:\n\nRStudio operates in “single file mode”\nOutput files (HTML, DOCX) are written directly next to the .qmd file (e.g. in src/products/)\n\n\n\n11.3.3 Rendering the Full Project\nWhen you need to preview or build the entire Technical Library locally:\n\nRename _quarto-not-used.yaml to _quarto.yaml\nRun:\n\n$ quarto render\nThis builds the full site into the _site/ folder as defined in the YAML config.\n\n⚠️ Working with _quarto.yaml in place during regular editing can work, but it may lead to slower performance or outdated previews in the Viewer pane. For a smoother editing experience, keep it renamed by default."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#text-styling-in-docx",
+    "href": "src/guidelines/editor-manual.html#text-styling-in-docx",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "12.1 Text Styling in DOCX",
+    "text": "12.1 Text Styling in DOCX\nProblem\nYou want to style or color specific parts of text in the final document, such as bolding only part of a sentence or changing its color.\nSolution\nUse a custom character style from the template DOCX file. For example:\n[**AD**]{custom-style=\"BoldRowText\"}\nThis style (BoldRowText) is already defined in the template.docx file.\n\n\n\n\n\n\nNote\n\n\n\nIf you’re adding a new style to the .docx reference file, make sure it’s a character style so it works correctly when applied inline in .qmd files. Custom styles must always be defined as character styles — not paragraph styles. Using the wrong type can cause formatting issues across the entire document."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#figure-and-image-numbering",
+    "href": "src/guidelines/editor-manual.html#figure-and-image-numbering",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "12.2 Figure and Image Numbering",
+    "text": "12.2 Figure and Image Numbering\nProblem\nFigures and images inserted into .qmd files do not automatically include numbers in the rendered DOCX or PDF file. \nWorkaround\nYou can use figure referencing like this:\n![Short description](my-doc-media/image.jpg){{#fig-3 height=356px}}\nHowever, this approach wraps the image in a table structure, which might cause visible borders or layout issues — especially if your styling is strict or minimal.\nBest Practice\nFor clean results: \n\nAdd a manual figure number and title directly as text under the image.\nAvoid using automatic figure references unless necessary for cross-referencing.\n\nExample:\n![Diagram of processing flow](my-doc-media/flow-diagram.png)\n**Figure 3.** Data processing flow chart."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#table-styling-and-formatting",
+    "href": "src/guidelines/editor-manual.html#table-styling-and-formatting",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "12.3 Table Styling and Formatting",
+    "text": "12.3 Table Styling and Formatting\nProblem\nOnly one table style is applied to all tables via the DOCX template, and additional formatting — like emphasizing specific rows — isn’t applied automatically.\nSolution \nUse a custom character style (like BoldRowText) within cells that require special formatting.\n[**MRVPP**]{custom-style=\"BoldRowText\"}\nThis will bold specific text while keeping the rest of the table structure intact.\nBest Practice\n\nDo not change the table structure or layout in the DOCX file manually.\nAlways apply row or cell formatting by using inline styled text directly in the .qmd source.\n\n\n💡 If you need to format a row differently (e.g. a header row within the body of the table), apply the style inline using the method above.\n\n\nMore issues will be added here as the system and workflow evolve. If you encounter a formatting issue or rendering problem that isn’t listed, ask your team lead or check how other documents handled similar cases."
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#pushing-changes-to-git",
+    "href": "src/guidelines/editor-manual.html#pushing-changes-to-git",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "13.1 Pushing Changes to Git",
+    "text": "13.1 Pushing Changes to Git\nTODO"
+  },
+  {
+    "objectID": "src/guidelines/editor-manual.html#reviewing-documents",
+    "href": "src/guidelines/editor-manual.html#reviewing-documents",
+    "title": "Guide for Writing Techncial Documentation for the CLMS",
+    "section": "13.2 Reviewing Documents",
+    "text": "13.2 Reviewing Documents\nTODO"
+  },
+  {
     "objectID": "src/products/Urban Altlas_Building Block Height Model 2012_PUM.html",
     "href": "src/products/Urban Altlas_Building Block Height Model 2012_PUM.html",
     "title": "Urban Atlas Product User Manual (PUM)",
@@ -180,369 +558,5 @@
     "title": "Urban Atlas Product User Manual (PUM)",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nhttps://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/urban-audit#ua18↩︎\nhttps://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/population-distribution-demography/clusters↩︎\nOverview - GISCO - Eurostat (europa.eu)↩︎\nhttps://land.copernicus.eu/user-corner/technical-library/urban_atlas_2012_2018_mapping_guide↩︎"
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#folder-descriptions",
-    "href": "src/guidelines/editor-manual.html#folder-descriptions",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "2.1 Folder Descriptions",
-    "text": "2.1 Folder Descriptions\n\nsrc/\nThis is the main source folder. It contains all the shared resources used when creating documentation.\n\nsrc/templates/ \nThis is where you’ll find ready-to-use .qmd templates. There are templates for two document types:\n\nATBD (Algorithm Theoretical Basis Document)\nPUM (Product User Manual)\nWhen you start a new document, you will copy the appropriate template from here.\n\nsrc/styles/\nThis folder contains style-related files, such as DOCX templates and style sheets. These are used by scripts and macros to give your documents a consistent look.\nsrc/products/\nThis is the folder where you will actually create and edit your documentation.\n\nFor each new document, create a new .qmd file inside src/products/, for example: my-doc.qmd. \nAlso create a separate folder to store images and charts used in that document, for example: my-doc-media/. \nBoth the .qmd file and the media folder should follow a clear naming pattern (e.g. same prefix) to keep things organized.\nExample:\nproducts/\n├── my-doc.qmd\n└── my-doc-media/\n    └── image1.png\n\n\nscripts/, macros/, and metadata/ \nThese folders support the automation workflow. They include scripts, macros, and configuration files that help with rendering and styling your documents.\n\nBy following this structure, everyone on the team will know exactly where to find templates, styles, and finished documents — and where to put new content."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#headings",
-    "href": "src/guidelines/editor-manual.html#headings",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "3.1 Headings",
-    "text": "3.1 Headings\nUse the # symbol to create headings and organize your content. More # means a smaller heading level:\n# Title (Level 1)\n## Section (Level 2)\n### Subsection (Level 3)"
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#paragraphs-and-line-breaks",
-    "href": "src/guidelines/editor-manual.html#paragraphs-and-line-breaks",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "3.2 Paragraphs and Line Breaks",
-    "text": "3.2 Paragraphs and Line Breaks\nJust write text normally to create a paragraph. Leave an empty line between paragraphs.\nTo create a line break inside a paragraph, end the line with two spaces:\nThis is one line.  \nThis is another line."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#bold-and-italic-text",
-    "href": "src/guidelines/editor-manual.html#bold-and-italic-text",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "3.3 Bold and Italic Text",
-    "text": "3.3 Bold and Italic Text\n\nItalic — use one asterisk or underscore: *italic* or _italic_\n\nBold — use two asterisks: **bold**\n\nBold and italic — use three asterisks: ***bold and italic***"
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#lists",
-    "href": "src/guidelines/editor-manual.html#lists",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "3.4 Lists",
-    "text": "3.4 Lists\n\n3.4.1 Bullet (Unordered) List\n- Item one\n- Item two\n  - Subitem\n\n\n3.4.2 Numbered (Ordered) List\n1. First step\n2. Second step\n   1. Sub-step"
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#links-and-images",
-    "href": "src/guidelines/editor-manual.html#links-and-images",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "3.5 Links and Images",
-    "text": "3.5 Links and Images\n\n3.5.1 Link\n[Quarto website](https://quarto.org)\n\n\n3.5.2 Image\nPlace image files in your media/ folder, and use:\n![Alt text](media/image-name.png)"
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#code-blocks-and-inline-code",
-    "href": "src/guidelines/editor-manual.html#code-blocks-and-inline-code",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "3.6 Code Blocks and Inline Code",
-    "text": "3.6 Code Blocks and Inline Code\n\n3.6.1 Inline code\nUse backticks (`) to highlight short code inside a sentence:\nUse the `render` button to build your document.\nRendered result:\nUse the render button to build your document.\n\n\n3.6.2 Code block\nUse triple backticks for larger code examples:\n```python\nprint(\"Hello, world!\")\n```\nRendered result:\nprint(\"Hello, world!\")\nYou can replace python with other languages like bash, r, or json."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#tables",
-    "href": "src/guidelines/editor-manual.html#tables",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "3.7 Tables",
-    "text": "3.7 Tables\nTables are a great way to present structured information. Below are two common ways to create them, along with rendered previews.\n\n\n\n\n\n\nIf you like there are several table generators on the internet which can help you generating markdown or html tables.\n\n\n\n\n\n\n\n3.7.1 Simple (Pipe) Table\n| Name       | Role       | Status   |\n|-----------:|------------|:--------:|\n| Alice      | Developer  | *Active*   |\n| Bob        | Reviewer   | **Pending**  |\n: Demonstration of pipe table syntax\nRendered result:\n\nDemonstration of pipe table syntax\n\n\nName\nRole\nStatus\n\n\n\n\nAlice\nDeveloper\nActive\n\n\nBob\nReviewer\nPending\n\n\n\nMake sure to align columns using | and -.\n\n\n3.7.2 HTML-style Table (for advanced layouts)\n```{=html}\n&lt;table style=\"border-collapse: collapse; width: 100%; font-size: 14px;\"&gt;\n  &lt;thead style=\"background-color: #2c3e50; color: black;\"&gt;\n    &lt;tr&gt;\n      &lt;th colspan=\"3\" style=\"padding: 10px; border: 1px solid #ccc; text-align: center;\"&gt;\n        Document Workflow Overview\n      &lt;/th&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Step&lt;/th&gt;\n      &lt;th style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Task&lt;/th&gt;\n      &lt;th style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Details&lt;/th&gt;\n    &lt;/tr&gt;\n  &lt;/thead&gt;\n  &lt;tbody style=\"background-color: #ecf0f1;\"&gt;\n    &lt;tr&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;1&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Initialize Project&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Set up folder structure and copy base template&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;2&lt;/td&gt;\n      &lt;td colspan=\"2\" style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Create and configure `.qmd` file&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;3&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Write Content&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;\n        Add sections, insert media, and apply styles.&lt;br&gt;\n        Use templates to ensure structure consistency.\n      &lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;4&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Render Output&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;\n        &lt;ul style=\"margin: 0; padding-left: 20px;\"&gt;\n          &lt;li&gt;HTML for preview&lt;/li&gt;\n          &lt;li&gt;DOCX for formatting check&lt;/li&gt;\n          &lt;li&gt;PDF via automation&lt;/li&gt;\n        &lt;/ul&gt;\n      &lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td colspan=\"3\" style=\"padding: 8px; border: 1px solid #ccc; background-color: #d1ecf1; text-align: center;\"&gt;\n        ✅ All steps completed — document ready for review\n      &lt;/td&gt;\n    &lt;/tr&gt;\n  &lt;/tbody&gt;\n&lt;/table&gt;\nRendered result:\n\n\n\n\n\n\n\n\nDocument Workflow Overview\n\n\nStep\nTask\nDetails\n\n\n\n\n1\nInitialize Project\nSet up folder structure and copy base template\n\n\n2\nCreate and configure `.qmd` file\n\n\n3\nWrite Content\nAdd sections, insert media, and apply styles.\nUse templates to ensure structure consistency.\n\n\n4\nRender Output\n\nHTML for preview\nDOCX for formatting check\nPDF via automation\n\n\n\n✅ All steps completed — document ready for review\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nAvoid using nested tables (a table inside another table) when writing documentation intended for DOCX or PDF output. While this might work in HTML, it often causes serious rendering problems in Word or during PDF conversion — such as layout breakage, invisible borders, or unreadable formatting.\n✅ Instead of nesting:\n\nReorganize the content into a simpler layout\nSplit one large complex table into two or more smaller tables placed one after another\n\nThis ensures your document remains clean, readable, and properly formatted across all output formats."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#figures-with-captions-and-layout",
-    "href": "src/guidelines/editor-manual.html#figures-with-captions-and-layout",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "3.8 Figures (with captions and layout)",
-    "text": "3.8 Figures (with captions and layout)\nYou can add figures using this special block format:\n::: {.figure}\n![A helpful diagram](media/diagram.png)\nA short caption for the figure.\n:::\nYou can also use layout options, like fig-align=\"center\" or fig-width=\"80%\" in advanced cases.\nMore: https://quarto.org/docs/authoring/figures.html"
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#equations",
-    "href": "src/guidelines/editor-manual.html#equations",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "3.9 Equations",
-    "text": "3.9 Equations\nQuarto supports mathematical equations using LaTeX-style syntax. You can add inline equations or display equations as blocks.\n\n3.9.1 Inline Equations\nUse single dollar signs $...$ for inline math:\nThe formula for the area is $A = \\pi r^2$.\nRendered result:\nThe formula for the area is \\(A = \\pi r^2\\).\n\n\n3.9.2 Display Equations\nUse double dollar signs $$...$$ to show a larger, centered equation block:\n$$\nE = mc^2\n$$\nRendered result:\n\\[\nE = mc^2\n\\]\nYou can use most standard LaTeX math symbols and operators.\nFor more examples, check the Quarto math documentation."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#diagrams",
-    "href": "src/guidelines/editor-manual.html#diagrams",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "3.10 Diagrams",
-    "text": "3.10 Diagrams\nQuarto supports diagrams using mermaid and dot. Just use a code block like this:\n\n3.10.1 Mermaid example\n```{mermaid}\nflowchart LR\n  A[Hard edge] --&gt; B(Round edge)\n  B --&gt; C{Decision}\n  C --&gt; D[Result one]\n  C --&gt; E[Result two]\n```\n\n\n\n\n\nflowchart LR\n  A[Hard edge] --&gt; B(Round edge)\n  B --&gt; C{Decision}\n  C --&gt; D[Result one]\n  C --&gt; E[Result two]\n\n\n\n\n\n\n\n\n3.10.2 Dot example\n```{dot}\ndigraph DocumentationWorkflow {\n  node [shape=box, style=rounded]\n\n  Start -&gt; \"Create .qmd File\"\n  \"Create .qmd File\" -&gt; \"Write Content\"\n  \"Write Content\" -&gt; \"Render to HTML\"\n  \"Write Content\" -&gt; \"Render to DOCX\"\n  \"Render to DOCX\" -&gt; \"Convert to PDF\"\n  \"Render to HTML\" -&gt; Review\n  \"Convert to PDF\" -&gt; Review\n  Review -&gt; \"Push to GitHub\"\n  \"Push to GitHub\" -&gt; Done\n\n  Done [shape=ellipse, style=filled, fillcolor=lightgrey]\n}\n```\n\n\n\n\n\n\n\nDocumentationWorkflow\n\n\n\nStart\n\nStart\n\n\n\nCreate .qmd File\n\nCreate .qmd File\n\n\n\nStart-&gt;Create .qmd File\n\n\n\n\n\nWrite Content\n\nWrite Content\n\n\n\nCreate .qmd File-&gt;Write Content\n\n\n\n\n\nRender to HTML\n\nRender to HTML\n\n\n\nWrite Content-&gt;Render to HTML\n\n\n\n\n\nRender to DOCX\n\nRender to DOCX\n\n\n\nWrite Content-&gt;Render to DOCX\n\n\n\n\n\nReview\n\nReview\n\n\n\nRender to HTML-&gt;Review\n\n\n\n\n\nConvert to PDF\n\nConvert to PDF\n\n\n\nRender to DOCX-&gt;Convert to PDF\n\n\n\n\n\nConvert to PDF-&gt;Review\n\n\n\n\n\nPush to GitHub\n\nPush to GitHub\n\n\n\nReview-&gt;Push to GitHub\n\n\n\n\n\nDone\n\nDone\n\n\n\nPush to GitHub-&gt;Done\n\n\n\n\n\n\n\n\n\n\nMore: https://quarto.org/docs/authoring/diagrams.html"
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#footnotes",
-    "href": "src/guidelines/editor-manual.html#footnotes",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThis is the footnote content.↩︎"
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#notebook-output-embeds",
-    "href": "src/guidelines/editor-manual.html#notebook-output-embeds",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "3.12 Notebook Output Embeds",
-    "text": "3.12 Notebook Output Embeds\nIf you’re working with code notebooks (like Jupyter or R Markdown), you can include outputs such as plots or tables directly in the document. Quarto will automatically embed them after the code block.\nMore: https://quarto.org/docs/authoring/notebook-embed.html"
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#step-1-start-a-new-file",
-    "href": "src/guidelines/editor-manual.html#step-1-start-a-new-file",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "4.1 Step 1: Start a New File",
-    "text": "4.1 Step 1: Start a New File\nThere are two ways to begin:\n\n4.1.1 Option 1: Use a Template\n\nOpen the src/templates/ folder.\nChoose the right template:\n\nCLMS``_Template``_ATBD.qmd for an Algorithm Theoretical Basis Document (ATBD)\nCLMS``_Template``_PUM.qmd for a Product User Manual (PUM)\n\nCopy the template into the src/products/ folder.\nRename it to match your new document. Example: my-product.qmd\nCreate a new media folder named my-product-media/ next to it to store images and charts.\n\n\n\n4.1.2 Option 2: Create from scratch\n\nInside the src/products/ folder, create a new file: e.g. my-product.qmd\nCreate a new media folder named my-product-media/ for related images and figures.\n\n\n💡 Using templates is recommended because they include structure and helpful comments. But starting from scratch gives you full control."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#step-2-understand-and-use-the-template",
-    "href": "src/guidelines/editor-manual.html#step-2-understand-and-use-the-template",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "4.2 Step 2: Understand and Use the Template",
-    "text": "4.2 Step 2: Understand and Use the Template\nTemplates include:\n\nA pre-filled YAML header (the part at the top with ---)\nRequired sections and headings\nHelpful comments you should keep while editing\n\n\n💡 If you use an already defined template, the YAML header is included — you don’t need to add it manually."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#step-3-add-or-adjust-the-yaml-header",
-    "href": "src/guidelines/editor-manual.html#step-3-add-or-adjust-the-yaml-header",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "4.3 Step 3: Add or Adjust the YAML Header",
-    "text": "4.3 Step 3: Add or Adjust the YAML Header\nIf you’re creating the .qmd file from scratch, you must add the basic YAML header at the top of your file.\nThese fields are required for correct rendering:\n\nmetadata-files: connects your document to shared metadata (like author, institution, version) \nformat: controls how your document is rendered (HTML, styled DOCX, etc.)\n\n\n\n\n\n\n\nImportant\n\n\n\nYou must include the pdf: default format in the YAML header.\nAlthough PDF is not rendered directly during this step, defining it here ensures compatibility with the automated rendering workflow later. Details are explained in the Rendering Documentation section.\n\n\nYou must adjust reference-doc: under the html: format to specify the default style used for the DOCX/PDF output.\nHere’s a basic header you can use:\n---\ntitle: \"Product SHORT NAME\"\nsubtitle: \"Product full name\"\ndate: \"2022-10-06\"\nversion: 1.0\nproduct-name: Product Name\ndescription: \"Product DESCRIPTION\"\n\nmetadata-files:\n  - ../../metadata/default.yml\n\nformat:\n  html: default\n  pdf: default\n  docx:\n    reference-doc: ../styles/template-atbd.docx\n    hidden: true\n---"
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#atbd-template",
-    "href": "src/guidelines/editor-manual.html#atbd-template",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "5.1 ATBD Template",
-    "text": "5.1 ATBD Template\nFilename: CLMS``_Template``_ATBD.qmd\nThis template is used for creating an Algorithm Theoretical Basis Document (ATBD).\nIt includes:\n\nA structured outline based on standard ATBD requirements\nPlaceholder sections for theory, algorithm descriptions, validation, and references\nYAML metadata pre-filled with necessary fields and style settings\nCommented guidance within each section\n\n\n💡 Use this template when documenting the scientific or technical foundation of a data product."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#pum-template",
-    "href": "src/guidelines/editor-manual.html#pum-template",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "5.2 PUM Template",
-    "text": "5.2 PUM Template\nFilename: CLMS``_Template``_PUM.qmd\nThis template is used for creating a Product User Manual (PUM).\nIt includes:\n\nSections for product overview, data access, interpretation, and use\nNotes on where to insert images, tables, and figures\nYAML header configured for standard rendering\n\n\n💡 Use this template when documenting how users should interact with or interpret a product."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#how-to-use-the-templates",
-    "href": "src/guidelines/editor-manual.html#how-to-use-the-templates",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "5.3 How to Use the Templates",
-    "text": "5.3 How to Use the Templates\n\nGo to src/templates/\nChoose either CLMS``_Template``_ATBD.qmd or CLMS``_Template``_PUM.qmd\nCopy the file into the src/products/ folder\nRename it to match your project (e.g. my-product.qmd)\nBegin editing based on the guidance in the template\n\nIf you’re unsure which template to use, ask your team lead or check what was used in previous similar documents.\n\n\n\n\n\n\nImportant\n\n\n\nDo not modify the structure of the template unless absolutely necessary.\nKeeping the structure consistent across all documents ensures that the documentation system stays clear, professional, and easy to navigate for all users and reviewers."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#what-is-pandoc",
-    "href": "src/guidelines/editor-manual.html#what-is-pandoc",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "6.1 What is Pandoc?",
-    "text": "6.1 What is Pandoc?\nPandoc is a powerful command-line tool that can convert documents between various formats, including Markdown, DOCX, HTML, LaTeX, and more.\nTo use Pandoc on your computer, download and install it from the official site: https://pandoc.org/installing.html"
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#when-and-how-to-use-it",
-    "href": "src/guidelines/editor-manual.html#when-and-how-to-use-it",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "6.2 When and How to Use It",
-    "text": "6.2 When and How to Use It\nUse Pandoc only for converting existing .docx documents into .qmd. Do not use it to convert PDFs — Pandoc does not support PDF as an input format. This approach is ideal when you’re: \n\nMigrating legacy documentation into the Quarto system\nCreating a quick starting point for manual cleanup\nExtracting embedded images and figures from .docx"
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#basic-usage-example",
-    "href": "src/guidelines/editor-manual.html#basic-usage-example",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "6.3 Basic Usage Example",
-    "text": "6.3 Basic Usage Example\nOpen a terminal or command prompt — ideally from within RStudio’s Terminal tab so you can stay in one environment — and run the following command. You can provide either a relative or full path to the .docx file:\n$ pandoc my-doc.docx -o my-doc.qmd --wrap=none --from=docx --to=markdown+fenced_divs+grid_tables+pipe_tables+smart\n\n6.3.1 What this command does:\n\nmy-doc.docx: The input Word document.\n-o my-doc.qmd: Output file in Markdown format.\n--wrap=none: Prevents Pandoc from breaking long lines into multiple lines.\n--from=docx: Specifies that the input file is a Word document.\n--to=markdown+fenced_divs+grid_tables+pipe_tables+smart: Sets output format and enables enhanced table and layout options."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#where-are-media-files-stored",
-    "href": "src/guidelines/editor-manual.html#where-are-media-files-stored",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "6.4 Where Are Media Files Stored?",
-    "text": "6.4 Where Are Media Files Stored?\nWhen Pandoc finds images or other media in the .docx file, it extracts them automatically into a new folder.\nBy default, extracted media will be placed into a subfolder named media/, located next to your output .qmd file. \nThis is created automatically and will contain all image assets referenced in the converted file.\n\n6.4.1 Changing the Media Folder Name\nYou can change the default media folder name using the --extract-media option:\n$ pandoc my-doc.docx -o my-doc.qmd --extract-media=custom-media-folder\n\n\n\n\n\n\nNote\n\n\n\nPandoc will create a media/ subfolder inside the folder you specify. For example, running the above command will result in:\ncustom-media-folder/media/\nIf you want to follow the structure expected by your project (e.g. my-doc-media/), make sure to move the contents out of that inner media/ folder and place them in the right location manually."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#next-steps",
-    "href": "src/guidelines/editor-manual.html#next-steps",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "6.5 Next Steps",
-    "text": "6.5 Next Steps\nAfter conversion, you’ll likely need to:\n\nClean up unnecessary styles or extra spacing\nRename and organize media files \nAdd a proper YAML header at the top of the .qmd file \nRestructure the content to match your template or documentation style \n\nWhile not perfect, this method gives you a solid starting point — especially for long or complex documents."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#shared-styling-configuration",
-    "href": "src/guidelines/editor-manual.html#shared-styling-configuration",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "7.1 Shared Styling Configuration",
-    "text": "7.1 Shared Styling Configuration\nMost formatting options (fonts, colors, spacing, margins, etc.) are defined in shared configuration files. These files are stored in src/styles directory and include:\n\nA custom DOCX file for styling PDF output\nA CSS stylesheet for HTML\nMetadata files for shared fields like project name, institution, and contributors\n\nDon’t edit them! — they’re used automatically by the rendering scripts."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#theme",
-    "href": "src/guidelines/editor-manual.html#theme",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "7.2 Theme ",
-    "text": "7.2 Theme \nIt ensures that all documents have a clean, modern, and consistent appearance — both in HTML and PDF output.\n\nThis theme is applied automatically. You do not need to configure it manually in your documents."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#table-of-contents",
-    "href": "src/guidelines/editor-manual.html#table-of-contents",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "7.3 Table of Contents",
-    "text": "7.3 Table of Contents\nThe table of contents (TOC) is enabled by default and appears on the left-hand side in HTML documents.\nYou can control how many heading levels are shown by adjusting toc-depth in your YAML header, though the default setting (toc-depth: 3) is usually enough."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#customizing-per-document-settings",
-    "href": "src/guidelines/editor-manual.html#customizing-per-document-settings",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "7.4 Customizing Per-Document Settings",
-    "text": "7.4 Customizing Per-Document Settings\nIf needed, you can override the default styles or add extra options in your document’s YAML header. For example:\nformat:\n  html:\n    toc: true\n    toc-depth: 3\n  docx:\n    reference-doc: ../src/styles/custom-reference.docx\n  pdf: default"
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#how-it-works",
-    "href": "src/guidelines/editor-manual.html#how-it-works",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "8.1 How It Works",
-    "text": "8.1 How It Works\n\nThe default Quarto metadata configuration automatically injects a special placeholder value into the keywords: field in your document’s header.\nWhen your document is rendered and processed for publication, an AI service analyzes its content and automatically generates 10 relevant keywords.\nThese keywords help with document indexing, search, and classification on the publication platform.\n\nThis process ensures consistent keyword formatting and reduces the work required from authors."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#what-you-should-do",
-    "href": "src/guidelines/editor-manual.html#what-you-should-do",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "8.2 What You Should Do",
-    "text": "8.2 What You Should Do\nNothing!\nSimply leave the keywords: field untouched or omit it entirely. The publishing system will take care of it for you.\nIf you do add custom keywords for internal purposes, they will be overwritten during the publishing step — so it’s best to let the system manage them."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#opening-your-project",
-    "href": "src/guidelines/editor-manual.html#opening-your-project",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "9.1 Opening Your Project",
-    "text": "9.1 Opening Your Project\n\nOpen RStudio.\nUse File &gt; Open Project… and select the root folder of the Technical Library.\nNavigate to the src/products/ folder.\nOpen the .qmd file you want to edit."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#editing-qmd-files",
-    "href": "src/guidelines/editor-manual.html#editing-qmd-files",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "9.2 Editing QMD Files",
-    "text": "9.2 Editing QMD Files\nYou can edit .qmd files just like regular text documents. RStudio provides:\n\nSyntax highlighting for Markdown and code blocks\nA live preview of rendered output\nAuto-saving and formatting support\nInstant feedback when rendering errors occur\n\nUse the Preview on Save option (checkbox in the toolbar) to automatically render your file every time you save it. This makes editing more efficient."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#managing-media-files",
-    "href": "src/guidelines/editor-manual.html#managing-media-files",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "9.3 Managing Media Files",
-    "text": "9.3 Managing Media Files\nIf your document uses images or diagrams:\n\nPlace them in a dedicated media folder (e.g. my-doc-media/)\nUse relative paths in your .qmd file, like:\n\n![Data Flow Diagram](my-doc-media/diagram.png)"
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#render-to-html",
-    "href": "src/guidelines/editor-manual.html#render-to-html",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "10.1 Render to HTML",
-    "text": "10.1 Render to HTML\n\nHTML is the default output format and is useful for previewing your document in a web browser while you work. Rendered HTML uses the custom Technical Library theme and includes a table of contents, clickable navigation, and consistent styles. It’s a great way to check formatting, layout, and images as you write.\nThere are two ways to preview your .qmd file:\n\nClick the Render button at the top of the RStudio window. \nOr enable Preview on Save (in the RStudio IDE toolbar). This option automatically re-renders your document every time you save it. \n\nAfter clicking the Render button (or saving the file with Preview on Save enabled), the HTML version of your document will appear in the Viewer tab, located in the Output pane (typically in the lower right corner of RStudio).\n\nIf the Viewer tab is not visible:\n\nGo to Tools &gt; Global Options in the top menu.\nNavigate to the R Markdown section.\nEnsure that Show output preview in: is set to Viewer Pane.\n\n\nThis setting ensures that rendered documents are displayed within RStudio, providing a seamless preview experience."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#render-to-pdf-via-docx-and-libreoffice",
-    "href": "src/guidelines/editor-manual.html#render-to-pdf-via-docx-and-libreoffice",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "10.2 Render to PDF via DOCX and LibreOffice",
-    "text": "10.2 Render to PDF via DOCX and LibreOffice\nPDFs are not generated directly by Quarto. Instead, the process involves a few automatic steps:\n\nQuarto first generates a .docx (Word) file using the styles and settings defined in the YAML header and shared config files.\nThen, a LibreOffice macro automatically converts the .docx to .pdf. \nThe resulting PDF file is saved in the output location.\n\nThis approach ensures consistent and well-formatted PDFs, even across different systems.\n\n\n\n\n\n\nImportant\n\n\n\n\nMake sure pdf: default is included in your YAML header — this triggers the PDF pipeline.\nDo not define custom pdf: options unless you know what you’re doing. \n\n\n\n\n10.2.1 Preview with DOCX Instead of PDF\nInstead of manually generating a PDF (which involves running scripts or waiting for the automated conversion), you can simply render a .docx file. It will look almost exactly like the final PDF because it uses the same styles and layout rules.\nThis is a great option when you want to quickly check how your document will look in PDF format — especially while you’re still editing the .qmd file.\nBy default, RStudio renders the first format listed in the format section of the YAML header. Usually this is html. If you want to preview the DOCX version instead, just move the docx: format to the top of the list in the header.\nFor example:\nformat:\n  html: default\n  docx:\n    reference-doc: ../src/styles/reference.docx\n  pdf: default\nChange to:\nformat:\n  docx:\n    reference-doc: ../src/styles/reference.docx\n  html: default\n  pdf: default\nThen click Render — RStudio will generate and open the .docx file for you."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#output-location",
-    "href": "src/guidelines/editor-manual.html#output-location",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "10.3 Output Location",
-    "text": "10.3 Output Location\nWhen you render a single .qmd file locally (e.g. using RStudio or the command line), the output (HTML or DOCX/PDF) is saved next to your source file — usually inside the src/products/ folder.\nIf you run the full command:\n$ quarto render\nthen Quarto will build the entire Technical Library and save the results in a special _site folder. However, this is typically handled automatically by the rendering workflow in the GitHub repository during the publishing process.\n\n💡 You do not need to render the entire library yourself. Just focus on rendering the file you are currently working on. This keeps things faster and easier to manage during editing."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#text-styling-in-docx",
-    "href": "src/guidelines/editor-manual.html#text-styling-in-docx",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "11.1 Text Styling in DOCX",
-    "text": "11.1 Text Styling in DOCX\nProblem\nYou want to style or color specific parts of text in the final document, such as bolding only part of a sentence or changing its color.\nSolution\nUse a custom character style from the template DOCX file. For example:\n[**AD**]{custom-style=\"BoldRowText\"}\nThis style (BoldRowText) is already defined in the template.docx file.\n\n\n\n\n\n\nNote\n\n\n\nIf you’re adding a new style to the .docx reference file, make sure it’s a character style so it works correctly when applied inline in .qmd files. Custom styles must always be defined as character styles — not paragraph styles. Using the wrong type can cause formatting issues across the entire document."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#figure-and-image-numbering",
-    "href": "src/guidelines/editor-manual.html#figure-and-image-numbering",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "11.2 Figure and Image Numbering",
-    "text": "11.2 Figure and Image Numbering\nProblem\nFigures and images inserted into .qmd files do not automatically include numbers in the rendered DOCX or PDF file. \nWorkaround\nYou can use figure referencing like this:\n![Short description](my-doc-media/image.jpg){{#fig-3 height=356px}}\nHowever, this approach wraps the image in a table structure, which might cause visible borders or layout issues — especially if your styling is strict or minimal.\nBest Practice\nFor clean results: \n\nAdd a manual figure number and title directly as text under the image.\nAvoid using automatic figure references unless necessary for cross-referencing.\n\nExample:\n![Diagram of processing flow](my-doc-media/flow-diagram.png)\n**Figure 3.** Data processing flow chart."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#table-styling-and-formatting",
-    "href": "src/guidelines/editor-manual.html#table-styling-and-formatting",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "11.3 Table Styling and Formatting",
-    "text": "11.3 Table Styling and Formatting\nProblem\nOnly one table style is applied to all tables via the DOCX template, and additional formatting — like emphasizing specific rows — isn’t applied automatically.\nSolution \nUse a custom character style (like BoldRowText) within cells that require special formatting.\n[**MRVPP**]{custom-style=\"BoldRowText\"}\nThis will bold specific text while keeping the rest of the table structure intact.\nBest Practice\n\nDo not change the table structure or layout in the DOCX file manually.\nAlways apply row or cell formatting by using inline styled text directly in the .qmd source.\n\n\n💡 If you need to format a row differently (e.g. a header row within the body of the table), apply the style inline using the method above.\n\n\nMore issues will be added here as the system and workflow evolve. If you encounter a formatting issue or rendering problem that isn’t listed, ask your team lead or check how other documents handled similar cases."
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#pushing-changes-to-git",
-    "href": "src/guidelines/editor-manual.html#pushing-changes-to-git",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "12.1 Pushing Changes to Git",
-    "text": "12.1 Pushing Changes to Git\nTODO"
-  },
-  {
-    "objectID": "src/guidelines/editor-manual.html#reviewing-documents",
-    "href": "src/guidelines/editor-manual.html#reviewing-documents",
-    "title": "Guide for Writing Techncial Documentation for the CLMS",
-    "section": "12.2 Reviewing Documents",
-    "text": "12.2 Reviewing Documents\nTODO"
-  },
-  {
-    "objectID": "src/index.html",
-    "href": "src/index.html",
-    "title": "Documents",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\n\n\n\n\nGuidelines\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#architecture",
-    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#architecture",
-    "title": "IT Architecture Principles and Implementation Guidelines",
-    "section": "4.1 Architecture",
-    "text": "4.1 Architecture\nFoundational and design principles for maintaining sound infrastructure and IT solution architecture. These sub-principles addresses best-practices and industry standard design patterns.\n\n\n\n\n\n\n\nArchitecture 1:\nClient specific IT solutions should have a modular structure\n\n\n\n\nWhat:\nModular structure of client specific IT solutions is a requirement. This may be achieved using e.g. microservice architecture\n\n\nWhy:\nA modular structure is sought to ensure further development, and updates are possible. The possibility of substituting or adding modules in an IT solution will increase the lifespan of a solution and increase scalability\n\n\nConsequence:\nModular architecture of IT solutions is a requisite\n\n\nExample:\nIf the client specific IT solution has, for Example, grown its user base since the launch of the solution, then scaling up shall be possible at any time – scaling containers, vertically (more CPUs, RAM) and horizontally (more VMs)\n\n\n\n\n\n\n\n\n\n\nArchitecture 2:\nIT solutions are to be Dockerized or similar\n\n\n\n\nWhat:\nThe use of container technology is encouraged\n\n\nWhy:\nContainerization is crucial for building scalable IT solutions and container technology eases the work of moving IT solutions around the IT infrastructure making deployment easier to automate\n\n\nConsequence:\nIT solutions are to be deployed using Docker containers or similar\n\n\nExample:\nSoftware components of the client specific IT solution shall be provided as docker containers so that deployment is flexible with respect to hardware\n\n\n\n\n\n\n\n\n\n\nArchitecture 3:\nClient specific IT solutions must be able to interface with other IT solutions\n\n\n\n\nWhat:\nThe IT deliverable must be able to be used in conjunction with other deliverables to form a composite solution\n\n\nWhy:\nTo make the most of the funds available the developed solutions should form part of an IT ecosystem making up a whole\n\n\nConsequence:\nIT deliverables must be equipped with documented APIs for interfacing with other IT applications\n\n\nExample:\nA client specific product, which can be used for extracting and manipulating data, should be accessible programmatically through e.g. well documented REST services\n\n\n\n\n\n\n\n\n\n\nArchitecture 4:\nIT solutions should be cloud agnostic\n\n\n\n\nWhat:\nIf the IT solution is built for cloud environments, measures must be taken to make the solution cloud agnostic.\n\n\nWhy:\nVendor lock-in must be avoided to remove vendor specific dependencies, making the IT solution easier to migrate to a different cloud vendor\n\n\nConsequence:\nIT solutions must minimize the usage of vendor specific functionality and non-standardized infrastructure\n\n\nExample:\nAn IT solution that makes use of serverless functions should be built in a way that allows for using another vendors serverless functionality with little or no changes in case of migrating from one platform to another"
-  },
-  {
-    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#reproducibility",
-    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#reproducibility",
-    "title": "IT Architecture Principles and Implementation Guidelines",
-    "section": "4.2 Reproducibility",
-    "text": "4.2 Reproducibility\nThe overarching principle of reproducibility is further unfolded below in the following sub-principles:\n\n\n\n\n\n\n\nReproducibility 1:\nDescription of workflows must be provided\n\n\n\n\nWhat:\nDeliverables which are a result of pre-processing of data must be provided with a description of the workflow for the pre-processing\n\n\nWhy:\nTo ensure that the deliverable can be re-produced, details must be provided on how this can be achieved\n\n\nConsequence:\nDescriptions of pre-processing workflow steps are to be provided with deliverables. Ideally the workflows delivered as scripts or similar. At a minimum documentation of how the workflows are to be set up is to be provided\n\n\nExample:\nA delivery that includes a web application, shall include description of the build process, such as the compilation of source code, packaging of the application, and deployment steps. This for instance could include details on the specific versions of tools used (e.g. Node.js, Docker etc.)\n\n\n\n\n\n\n\n\n\n\nReproducibility 2:\nData sources to be supplied with deliverables\n\n\n\n\nWhat:\nIT solutions which utilize data sources must supply the data sources\n\n\nWhy:\nTo ensure that the deliverable can be re-produced details are required on data sources used along with any enrichment which have been applied to the data source\n\n\nConsequence:\nData source location must be provided if data are publicly available. If data are not accessible to the CLMS, the data are to be provided as part of the deliverable\n\n\nExample:\nIf the software relies on a proprietary weather data API that is not publicly accessible, the data, or at least a sample dataset, should be provided with the delivery. If the API is publicly available, detailed instructions on how to access it (e.g., API keys, endpoint URLs) must be included\n\n\n\n\n\n\n\n\n\n\nReproducibility 3:\nList of software used in development of IT solution to be provided\n\n\n\n\nWhat:\nThe software products which have been used in the development of the software are to be listed as part of the deliverable\n\n\nWhy:\nTo ensure that the IT solution can be further developed details are required of the software components/products that were used in the development\n\n\nConsequence:\nList of software development tools used in the production to be provided. Further for client specific developments the source code must also be provided\n\n\nExample:\nA system consisting of several building blocks, such as User Interface, backend, importer, and exporter modules, shall be provided with a list of software development tools, used for production of these building blocks and modules\n\n\n\n\n\n\n\n\n\n\nReproducibility 4:\nAutomation tool/scripts used in the production of the IT solution must be provided\n\n\n\n\nWhat:\nIT solutions which include automation scripts/workflows in the development must supply these scripts as part of the deliverable\n\n\nWhy:\nAutomation scripts used in development are viewed as part of the deliverable and are required for reproduction of the solution\n\n\nConsequence:\nAutomation scripts whether as stand-alone scripts or as a configuration of standard/commercial software must be provided as part of the deliverable\n\n\nExample:\nIf the IT deliverable includes an automatic backup that generates full backups in certain increments, then the automation scripts behind the backup generation must be provided as part of the deliverable, so that they could be recreated\n\n\n\n\n\n\n\n\n\n\nReproducibility 5:\nIf a solution includes outcomes of pre-executed algorithms the prerequisites for running the algorithms must be provided\n\n\n\n\nWhat:\nTo ensure reproducibility, the algorithms must be provided either as pseudo code or as source code\n\n\nWhy:\nThe foundation of the IT solution must be re-producible to ensure future enhancements are possible say if new insights/data become available also after the end of the contractual agreement\n\n\nConsequence:\nSupplier must as part of the deliverable also detail any algorithms which form the basis of the solution\n\n\nExample:\nA spatial product, providing a detailed pan-European wall to wall 10-meter spatial resolution raster product, that is based on a supervised classification of satellite image time-series. The supplier must provide a detailed description of the algorithm that was used for classifying satellite-imagery time-series"
-  },
-  {
-    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#reusability",
-    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#reusability",
-    "title": "IT Architecture Principles and Implementation Guidelines",
-    "section": "4.3 Reusability",
-    "text": "4.3 Reusability\nThe principle of reusability is detailed in the following sub-principles:\n\n\n\n\n\n\n\nReusability 1:\nIT solutions should be open-ended equipped with APIs\n\n\n\n\nWhat:\nIT solutions should be open-ended equipped with APIs through which functionality or data key for the end user may be accessed\n\n\nWhy:\nTo ensure that further work benefit from existing solutions it is paramount that systems delivered are open ended. Future work can hereby utilize and benefit from previous work. Delivered IT solutions should form part of the overall IT ecosystem of the EEA CLMS program so that the “whole is greater than the sum”\n\n\nConsequence:\nIT solutions should be provided with APIs which access key functionality of the IT solutions\n\n\nExample:\nA webservice provided, which publishes geospatial data, has an API Rest service, which grants users direct access to the data\n\n\n\n\n\n\n\n\n\n\nReusability 2:\nScripts used in production must be delivered as part of IT solutions\n\n\n\n\nWhat:\nScripts should be delivered with code so that they may be used as templates for the end user for further development\n\n\nWhy:\nData, conditions, or requirements may change for an IT solution. To ensure that such changes can be accommodated the underlying script must be possible to modify to reflect and support such changes\n\n\nConsequence:\nScripts used in the productions form part of the final deliverable\n\n\nExample:\nIT delivery, consisting of several building blocks, shall be provided with scripts, included with the final delivery of the code, so that the end users of the system could modify, expand, or adopt the building blocks/modules to suit specific needs or add new features"
-  },
-  {
-    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#transparency",
-    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#transparency",
-    "title": "IT Architecture Principles and Implementation Guidelines",
-    "section": "4.4 Transparency",
-    "text": "4.4 Transparency\nThe CLMS is funded by the EU and supports its community with data and services. As such, these products and services are to be part of the foundation for further work in the field and accessible to the community. To support this, the principle of transparency is detailed in the following subprinciples:\n\n\n\n\n\n\n\nTransparency 1:\nSource code of client specific software to be supplied with IT solution\n\n\n\n\nWhat:\nSource code of client specific IT solution is supplied as part of the deliverable and made publicly available under the EUPL-1.2 license 1\n\n\nWhy:\nTo ensure transparency, it is essential to have clear insights into the client-specific software. This enables efficient future developments and modifications\n\n\nConsequence:\nSource code of client specific software must be delivered with IT solution. The source code shall include Docker recipes and scripts for building the source code and be published under the EUPL-1.2 license\n\n\nExample:\nSource code of all the components of the specific IT solution must be delivered. Any updates or developments of the source code shall be reflected in the EEA GitHub repository, which is the main repository of the system. Moreover, the specific client IT solutions shall be published under the EUPL-1.2 license, so the openness and transparency are ensured\n\n\n\n\n\n\n\n\n\n\nTransparency 2:\nInline documentation of the source code\n\n\n\n\nWhat:\nSource code of client specific IT solution must be documented in-line\n\n\nWhy:\nTo effectuate the handover from one developer to the next inline documentation are to be included to guide the developer on the job\n\n\nConsequence:\nSource code must have inline documentation. Inline code should be formatted so that it may be easily extracted to generate online documentation\n\n\nExample:\nSource code of all the components of the IT solution must have inline documentation. The documentation shall be structured, following common conventions, and kept at a minimal, but comprehensive level\n\n\n\n\n\n\n\n\n\n\nTransparency 3:\nCommercial software used in the production must be attainable by the EEA or a third-party provider\n\n\n\n\nWhat:\nCommercial software which are prerequisites must be attainable on comparable terms. Such software is justified only if no open alternative exists\n\n\nWhy:\nTo ensure that further work may be carried out any prerequisites in the form of software must be attainable by the EEA or a supplier\n\n\nConsequence:\nGenerally attainable commercial software used in production must be listed when delivering an IT solution. Name of software, version, EOL and EOS to be supplied\n\n\nExample:\nAn IT solution is deploying various components and the set-up of the virtual machines that houses the components is done by means of an infrastructure as-a-code-tool. All the capabilities of the infrastructure as-a-code-tool, that require purchasing must be listed when delivering the IT solution"
-  },
-  {
-    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#maintainability",
-    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#maintainability",
-    "title": "IT Architecture Principles and Implementation Guidelines",
-    "section": "4.5 Maintainability",
-    "text": "4.5 Maintainability\nThe EEA aims in the CLMS program to be able to provide updated products when new data becomes available. To reduce the time to market the principle of maintainability is to be followed.\n\n\n\n\n\n\n\nMaintainability 1:\nIT solutions are to be delivered on a principle of CI/CD\n\n\n\n\nWhat:\nThe launch of new releases of IT deliverables are to be configured and managed so that new functionality is available as soon as possible. The principle of CI/CD are to be adhered to\n\n\nWhy:\nTime to market is to be reduced through an approach of maintainability of deployments as soon as possible\n\n\nConsequence:\nIT deliverables are to be supplied with a dev-ops set-up which supports CI/CD\n\n\nExample:\nA delivered IT solution is organized with a test server environment potentially a pre-production environment, used for quality assurance and continuous development, so that deployment to production can be initiated smoothly\n\n\n\n\n\n\n\n\n\n\nMaintainability 2:\nTests are to be organised so that they may be automated\n\n\n\n\nWhat:\nTests are to be structured so that they may be easily automated\n\n\nWhy:\nTo ensure that the build and CI/CD process does not introduce bugs or deployment failures, tests are to be automated so that they can continuously be run to ensure the quality of the solution and its possible enhancements\n\n\nConsequence:\nTests are to be delivered so that they can be automated\n\n\nExample:\nThe delivered solution has in the test phase run through a number of tests e.g. unit tests and result verification tests. These will be the basis for automated regression tests\n\n\n\n\n\n\n\n\n\n\nMaintainability 3:\nDocumentation of IT solutions are to be provided\n\n\n\n\nWhat:\nDocumentation of the developed IT solutions must be provided. The requested documentation shall also be provided in quarto markdown format on the dedicated EEA GitHub repository\n\n\nWhy:\nFor the further use and improvements of the IT solution, technical documentation is paramount.\n\n\nConsequence:\nDocumentation including but not limited to System Description Document (SDD), System Deployment Document and Examples must be provided with IT solution deliverables. The requested documents shall also be provided in the quarto markdown format.\n\n\nExample:\nAn IT delivery, consisting of several building blocks, shall be provided with SDD, user guidelines, and detailed documentation of system deployment, including, but not limited to system and storage architecture, infrastructure setup, provisioning, monitoring, disaster recovery, accessibility, scalability options and performance. If requested, this documentation shall be provided in quarto markdown format on the dedicated EEA GitHub repository\n\n\n\n\n\n\n\n\n\n\nMaintainability 4:\nCommercial software used in the development must be attainable by the EEA or a third-party provider\n\n\n\n\nWhat:\nCommercial software which are prerequisites must be attainable on comparable terms. Such software is justified only if no open alternative exists\n\n\nWhy:\nTo ensure that further work may be carried out any prerequisites in the form of software must be attainable by the EEA or a supplier\n\n\nConsequence:\nGenerally attainable commercial software used in development or production must be listed when delivering an IT solution. Name of software, version, EOL and EOS to be supplied\n\n\nExample:\nAn IT solution using commercial components or tools, like PDF generator, code analysis tools, data transformation software must be listed\n\n\n\n\n\n\n\n\n\n\nMaintainability 5:\nDeployment and integration scripts of client specific software to be supplied with IT solution\n\n\n\n\nWhat:\nDeployment and integration scripts of client specific IT solution is supplied as part of the deliverable\n\n\nWhy:\nTo ensure transparency and efficient maintainability, it is essential to have clear insights into the build and deploy processes of client-specific software. This enables efficient future developments and modifications\n\n\nConsequence:\nScripts or playbooks and documentation for CI/CD (Continuous Integration/Continuous Development), Docker recipes and build scripts must be delivered\n\n\nExample:\nSource code of all the components of the specific IT solution must be delivered. Any updates or developments of the source code shall be reflected in the EEA GitHub repository, which is the main repository of the system. Moreover, the specific client IT solutions shall be published under the EUPL-1.2 license, so the openness and transparency are ensured"
-  },
-  {
-    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#observability",
-    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#observability",
-    "title": "IT Architecture Principles and Implementation Guidelines",
-    "section": "4.6 Observability",
-    "text": "4.6 Observability\nIT solutions of the EEA CLMS must collect relevant metrics for monitoring and assessment, to detect any issues and have predictable operation of the solutions.\n\n\n\n\n\n\n\nObservability 1:\nIT solutions are to be regularly assessed\n\n\n\n\nWhat:\nIT solutions are to be automatically monitored with a notification service, and their performance routinely evaluated to ensure optimal functioning\n\n\nWhy:\nRegular assessments ensure that IT solutions can be maintained so as to meet emerging needs, threats and technological advancements\n\n\nConsequence:\nIT solution’s scalability, security, and overall performance are continuously monitored and evaluated to address performance and security issues\n\n\nExample:\nThe delivered IT solution and its associated dependencies are regularly assessed and evaluated. The evaluation process should also account for advancements in technology and track developments to ensure the solution remains relevant and effective\n\n\n\n\n\n\n\n\n\n\nObservability 2:\nContinuous monitoring of metrics\n\n\n\n\nWhat:\nIT solutions logs metrics on it’s components and containers for tracking system performance and application health\n\n\nWhy:\nContinuous monitoring gives a data-driven insight of a solutions components performance and health and provide the metrics for automatically scaled solutions and self-recovering solutions\n\n\nConsequence:\nComponents and containers in the solution logs relevant metrics to be collected and monitored. As minimum liveliness and readiness should be logged\n\n\nExample:\nA software solution with an orhcestrating component and a worker component use liveliness and readiness to monitor if the solution is healthy and automatically scale the number of worker instances according to the readiness metrics"
-  },
-  {
-    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#it-security",
-    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#it-security",
-    "title": "IT Architecture Principles and Implementation Guidelines",
-    "section": "4.7 IT security",
-    "text": "4.7 IT security\nThe IT solutions of the CLMS program shall ensure system integrity against various security threats, protection of the data, and maintenance of privacy. The following sub-principals are to be followed:\n\n\n\n\n\n\n\nIT security 1:\nIncorporate security considerations from the beginning of the system development\n\n\n\n\nWhat:\nEnsure security is integrated into all stages of the system development lifecycle, from planning to deployment\n\n\nWhy:\nEarly integration of security measures reduces vulnerabilities, lowers costs associated with late-stage fixes, and ensures robust protection against threats\n\n\nConsequence:\nThreat modelling and security assessments need to be conducted from the start, as well as allocation of resources for ongoing security reviews and testing\n\n\nExample:\nStandard aspects such as two factor authentication, protection against SQL injection, encryption of sensitive data, no root users in containers, etc.\n\n\n\n\n\n\n\n\n\n\nIT security 2:\nCompliance with relevant laws, regulations and industry standards\n\n\n\n\nWhat:\nIT-solutions must adhere to legal requirements, industry standards, and regulations e.g. EUDPR, ISO\n\n\nWhy:\nCompliance ensures legal and regulatory adherence, builds trust, protects sensitive data, and mitigates risk of legal penalties and breaches\n\n\nConsequence:\nIT deliverables need to incorporate robust security measures, include documentation of compliance efforts, and ensure features and processes aligned with legal and industry measures\n\n\nExample:\nData handling agreements must be in place, consideration of server location in EU, etc.\n\n\n\n\n\n\n\n\n\n\nIT security 3:\nEnsuring that users and systems have appropriate permissions based on their roles and responsibilities\n\n\n\n\nWhat:\nImplement role-based access control (RBAC) to manage user and system permissions according to their roles\n\n\nWhy:\nIt prevents unauthorized access, minimizes the risk of data breaches, and ensures that users only have access to the information necessary for their roles\n\n\nConsequence:\nThe provider will need to define clear roles and responsibilities, implement RBAC policies, regularly review and update access controls\n\n\nExample:\nA delivered IT solution has role-based accesses, which ensures that only Admin-Users are allowed to manage (add, edit, activate, inactivate) users and organisations. Also, only administrator can view and edit any ingestion and extraction within the system to support users if they need any help\n\n\n\n\n\n\n\n\n\n\nIT security 4:\nLogging warnings and errors\n\n\n\n\nWhat:\nThe IT solution must log all errors, warnings and events with audit relevance from every component to a file based storage\n\n\nWhy:\nIn order to inspect system events and detect potential security incidents is crucial for maintaining the system integrity and resilience. Log information must not be revealed to the user, but must be stored internally.\n\n\nConsequence:\nAll components of an IT solution must log audit, error and warning information coming from executing the code of the solution\n\n\nExample:\nA user logs in to an application, trying to download a large dataset for processing in the application, the system encounters some fatal errors with the download. Login, user activity and technical error information and severity is logged to a persistent file storage."
-  },
-  {
-    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#resilience",
-    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#resilience",
-    "title": "IT Architecture Principles and Implementation Guidelines",
-    "section": "4.8 Resilience",
-    "text": "4.8 Resilience\n\n\n\n\n\n\n\nResilience 1:\nIT solution should have a disaster recovery plan\n\n\n\n\nWhat:\nIT solution should have a well-defined process of restoring IT systems, data, and operations following a disruption\n\n\nWhy:\nTo ensure that the IT solution and data are recoverable after an unforeseen event\n\n\nConsequence:\nIT deliverables will be provided with well-prepared disaster recovery plan that will ensure a rapid restoration of services and data integrity, and minimize damage\n\n\nExample:\nA delivered IT solution has a disaster recovery plan that includes backup protocols, data replication, and recovery timelines\n\n\n\n\n\n\n\n\n\n\nResilience 2:\nEnsuring IT solution continuity\n\n\n\n\nWhat:\nIT solution is designed and implemented in a way that ensures continuous operation during a disruption\n\n\nWhy:\nTo maintain critical operations with a minimal downtime, even when confronted with unforeseen events\n\n\nConsequence:\nIT deliverables are designed for high availability, incorporating redundancy so that in case of a disruption/failure, restore service can immediately take over, minimizing downtime and ensuring continuous operation\n\n\nExample:\nIn the event of a system failure or disruption of the delivered IT solution, restore service automatically take over to maintain service continuity. For instance, if a primary system goes down, a secondary system activates, ensuring that users experience no downtime."
-  },
-  {
-    "objectID": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#footnotes",
-    "href": "src/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#footnotes",
-    "title": "IT Architecture Principles and Implementation Guidelines",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nhttps://commission.europa.eu/content/european-union-public-licence_en↩︎"
-  },
-  {
-    "objectID": "src/guidelines/index.html",
-    "href": "src/guidelines/index.html",
-    "title": "Guidelines",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nversion\n\n\nDate\n\n\n\n\n\n\nGuide for Writing Techncial Documentation for the CLMS\n\n\n0.4\n\n\nApr 5, 2025\n\n\n\n\nIT Architecture Principles and Implementation Guidelines\n\n\n1.4b\n\n\nApr 8, 2025\n\n\n\n\n\nNo matching items"
   }
 ]
