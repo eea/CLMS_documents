@@ -7,7 +7,7 @@ description: "A comprehensive guide for creating technical documentation for the
 date: "2025-04-05"
 template-version: 1.0
 
-metadata-files: 
+metadata-files:
 - ../../metadata/default.yml
 
 format:
@@ -36,7 +36,7 @@ In this section, we explain how the documentation project is organized and where
 
 Below is a typical folder layout for the project: <!--# instead of my-doc.qmd use CLMS_my-product_ATBD.qmd we should rename the templates to better fit the planned naming convention CLMS_template_ATBD.qmd and CLMS_template_PUM.qmd (I wil,share the naming convention file with you soon-->
 
-```         
+```
 project-root-doc/
 ├── src/
 │   ├── templates/
@@ -46,7 +46,7 @@ project-root-doc/
 │   |   ├── reference.docx
 │   |   └── custom.scss
 |   └── products/
-|       ├── my-doc.qmd 
+|       ├── my-doc.qmd
 |       └── my-doc-media
 |           └── image1.png
 ├── scripts/
@@ -80,7 +80,7 @@ project-root-doc/
 
             *Example:*
 
-            ```         
+            ```
             products/
             ├── my-doc.qmd
             └── my-doc-media/
@@ -118,7 +118,7 @@ Just write text normally to create a paragraph. Leave an empty line between para
 To create a **line break** inside a paragraph, end the line with two spaces:
 
 ``` markdown
-This is one line.  
+This is one line.
 This is another line.
 ```
 
@@ -444,14 +444,6 @@ flowchart LR
 ```
 ````
 
-```{mermaid}
-flowchart LR
-  A[Hard edge] --> B(Round edge)
-  B --> C{Decision}
-  C --> D[Result one]
-  C --> E[Result two]
-```
-
 ### Dot example
 
 ```` markdown
@@ -473,24 +465,6 @@ digraph DocumentationWorkflow {
 }
 ```
 ````
-
-```{dot}
-digraph DocumentationWorkflow {
-  node [shape=box, style=rounded]
-
-  Start -> "Create .qmd File"
-  "Create .qmd File" -> "Write Content"
-  "Write Content" -> "Render to HTML"
-  "Write Content" -> "Render to DOCX"
-  "Render to DOCX" -> "Convert to PDF"
-  "Render to HTML" -> Review
-  "Convert to PDF" -> Review
-  Review -> "Push to GitHub"
-  "Push to GitHub" -> Done
-
-  Done [shape=ellipse, style=filled, fillcolor=lightgrey]
-}
-```
 
 More: <https://quarto.org/docs/authoring/diagrams.html>
 
@@ -588,7 +562,7 @@ format:
   docx:
     reference-doc: ../styles/template-atbd.docx
     hidden: true
-  pdf: default  
+  pdf: default
 ---
 ```
 
@@ -724,7 +698,7 @@ $ pandoc my-doc.docx -o my-doc.qmd --extract-media=custom-media-folder
 ::: callout-note
 Pandoc will create a `media/` subfolder *inside* the folder you specify. For example, running the above command will result in:
 
-```         
+```
 custom-media-folder/media/
 ```
 
