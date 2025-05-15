@@ -10,8 +10,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: mckeea/quarto-doc-builder:latest
+    runs-on: ubuntu-latest
+    container:
+      image: mckeea/quarto-doc-builder:latest
 
     steps:
 
