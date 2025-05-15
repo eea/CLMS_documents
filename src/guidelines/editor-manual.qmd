@@ -444,6 +444,14 @@ flowchart LR
 ```
 ````
 
+```{mermaid}
+flowchart LR
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
+
 ### Dot example
 
 ```` markdown
@@ -465,6 +473,24 @@ digraph DocumentationWorkflow {
 }
 ```
 ````
+
+```{dot}
+digraph DocumentationWorkflow {
+  node [shape=box, style=rounded]
+
+  Start -> "Create .qmd File"
+  "Create .qmd File" -> "Write Content"
+  "Write Content" -> "Render to HTML"
+  "Write Content" -> "Render to DOCX"
+  "Render to DOCX" -> "Convert to PDF"
+  "Render to HTML" -> Review
+  "Convert to PDF" -> Review
+  Review -> "Push to GitHub"
+  "Push to GitHub" -> Done
+
+  Done [shape=ellipse, style=filled, fillcolor=lightgrey]
+}
+```
 
 More: <https://quarto.org/docs/authoring/diagrams.html>
 

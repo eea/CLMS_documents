@@ -11,63 +11,37 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: mckeea/quarto-doc-builder:latest
 
     steps:
 
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Quarto
-        run: |
-          wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.43/quarto-1.6.43-linux-amd64.deb
-          sudo dpkg -i quarto-1.6.43-linux-amd64.deb
-
-          #wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.43/quarto-1.6.43-linux-arm64.deb
-          #sudo dpkg -i quarto-1.6.43-linux-arm64.deb
-
-          quarto install chromium
-
-      - name: install TinyTeX
-        run: |
-          sudo wget -qO- "https://yihui.org/tinytex/install-bin-unix.sh" | sh
-
-      - name: Install OpenOffice (soffice)
-        run: |
-          sudo apt update
-          sudo apt install -y libreoffice libreoffice-common libreoffice-writer fonts-dejavu
-          sudo apt install -y coreutils procps
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install \
-            keybert \
-            ruamel.yaml \
-            pyyaml \
-            transformers==4.37.2 \
-            accelerate==0.27.2
-
       - name: Setup default _quarto.yaml
         run: mv _quarto_not_used.yaml _quarto.yaml
 
-      - name: Generate keywords
-        run: python scripts/generate_keywords.py
+      - name: Install Python dependencies
+        run: |
+          python3 -m pip install --break-system-packages \
+          keybert \
+          ruamel.yaml \
+          pyyaml \
+          transformers==4.37.2 \
+          accelerate==0.27.2
 
-      - name: Remove cached version of _site
+      - name: Generate keywords
+        run: python3 scripts/generate_keywords.py
+
+      - name: Render all documents into to HTML/DOCX
         run: |
           rm -rf _site
+          sudo cp /usr/bin/chromium /usr/bin/chromium-browser
+          QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to html
+          QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to docx --no-clean
+          find _site -type f -name 'index.docx' -delete
 
-      - name: Render all Quarto, Markdown, and Jupyter files to HTML/DOCX/PDF
-        run: |
-          QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render
-
-      - name: Convert .docx to .pdf with soffice
+      - name: Convert DOCX to PDF with Soffice
         run: |
           chmod +x scripts/convert_docx_to_pdf.sh
           timeout 3s ./scripts/convert_docx_to_pdf.sh || true
