@@ -3,7 +3,9 @@ title: "Guide for Writing Techncial Documentation"
 subtitle: "Copernicus Land Monitoring Service"
 author: "European Environment Agency (EEA)"
 version: 0.4
-description: "A comprehensive guide for creating technical documentation for the Copernicus Land Monitoring Service using Quarto. It covers Markdown basics, document rendering, and the review process, ensuring consistency and clarity in documentation."
+description: "A comprehensive guide for creating technical documentation for the Copernicus
+  Land Monitoring Service using Quarto. It covers Markdown basics, document rendering,
+  and the review process, ensuring consistency and clarity in documentation."
 date: "2025-04-05"
 template-version: 1.0
 
@@ -16,6 +18,10 @@ format:
   docx:
     reference-doc: ../styles/template-guideline.docx
   pdf: default
+keywords: ["10. output location", "11. quarto", "12. local", "13. build", "14. special",
+  "15. site.", "2. manage", "3. media", "4. rendering", "5. documentation", "6. html",
+  "7. pdf", "8. docx", "9. preview", "Answer: 1. environment", "Example Output:",
+  "Example:", "```"]
 ---
 
 <!--# maybe we should promote (or at least describe the option of unsing variables in yaml that can be reused in the document:  e.g. product-name: "Example Product" ---  # Welcome to {{ product-name }} Documentation.      -->
@@ -36,7 +42,7 @@ In this section, we explain how the documentation project is organized and where
 
 Below is a typical folder layout for the project: <!--# instead of my-doc.qmd use CLMS_my-product_ATBD.qmd we should rename the templates to better fit the planned naming convention CLMS_template_ATBD.qmd and CLMS_template_PUM.qmd (I wil,share the naming convention file with you soon-->
 
-```
+```markdown
 project-root-doc/
 ├── src/
 │   ├── templates/
@@ -134,7 +140,9 @@ This is another line.
 
 ``` markdown
 - Item one
+
 - Item two
+
   - Subitem
 ```
 
@@ -142,9 +150,46 @@ This is another line.
 
 ``` markdown
 1. First step
+
 2. Second step
+
    1. Sub-step
 ```
+
+::: callout-important
+Make sure to include a blank line between list items, and ensure they are correctly indented. This ensures proper rendering in .docx and .pdf outputs. Without these, list entries may merge, misalign, or render incorrectly.
+:::
+
+### Paragraphs Within List Items
+
+To include a paragraph or a block of text as part of a list item, indent the paragraph to match the indentation of the list content. Also, make sure the paragraph follows the list item without a blank line, or it may break the list.
+
+```markdown
+- This is the list item title.
+  This is a paragraph that belongs to the same list item.
+  It should be indented to align with the start of "This is a paragraph..."
+
+- Another item
+  With its own paragraph block.
+```
+
+### Single-Item List Rendering Issue
+
+When a list or sublist contains only one item, it can be incorrectly rendered in .docx or .pdf formats. In such cases, the item may appear in the wrong font or style.
+
+To fix this, apply a custom style to the single list item. In the provided Word template, use the style named "NormalLine". 
+
+Here is how to apply it:
+
+```markdown
+- step 1        
+    - [step 1.1]{custom-style="NormalLine"}\
+```
+
+::: callout-note
+- The custom-style attribute ensures the correct formatting.
+- Don't forget to include the backslash (\) at the end of the line to prevent unwanted spacing or breaks.
+:::
 
 ## Links and Images
 
@@ -392,6 +437,19 @@ To add captions under each image, simply include a row of text below each row of
 This method keeps captions aligned with each image, and works across all output formats.
 
 > ⚠️ **Note:** Tables used for captions will show borders in DOCX and PDF outputs. Removing them requires custom styles in a reference DOCX.
+
+## Page Breaks for .docx/.pdf Outputs
+
+In Quarto, using section breaks (like - - -) may not reliably produce a page break in .docx or .pdf outputs. Instead, to insert a page break that appears only in those formats, use the following block: that appears only in .docx or .pdf outputs, use the following block:
+
+```markdown
+::: {.content-visible format=docx}
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+:::
+```
+
+This will ensure that the page break is included in the rendered Word or PDF document, but not visible in HTML or other formats.
 
 ## Equations
 
