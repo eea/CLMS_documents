@@ -20,6 +20,7 @@ format:
   pdf: default
 ---
 
+
 ::: {custom-style="LeftAlign"}
 European Environment Agency (EEA)\
 Kongens Nytorv 6\
@@ -39,11 +40,11 @@ Denmark\
 | Reproduction is authorized provided the source is acknowledged.    |
 +--------------------------------------------------------------------+
 
-# EXECUTIVE SUMMARY
+# Executive summary
 
 This document contains the product description, mapping guidance and class description for the product "Urban Atlas" from the Copernicus "Urban Atlas" project for the 2006 reference year and the "Urban Atlas" update and extension for the 2012 and 2018 reference years.
 
-# SCOPE
+# Scope
 
 This mapping guide aims at supporting service providers in generating an Urban Atlas mapping product. It provides guidance to achieve:
 
@@ -55,7 +56,7 @@ This mapping guide aims at supporting service providers in generating an Urban A
 
 - Comparable quality of the product.
 
-# REFERENCE DOCUMENTS
+# Reference documents
 
 The table below includes the different Reference Documents (RD) related to the Urban Atlas project. A list of abbreviations is provided in Annex 1.
 
@@ -79,11 +80,11 @@ The table below includes the different Reference Documents (RD) related to the U
 |   RD\[8\] |   Urban Atlas 2012 Mapping Guide                                            |   5.0       |              |   UA2012 Mapping Guide                          |
 +-----------+-----------------------------------------------------------------------------+-------------+--------------+-------------------------------------------------+
 
-# MAPPING GUIDE
+# Mapping guide
 
-## PRODUCT DESCRIPTION
+## Product description
 
-### LAND USE / LAND COVER MAPPING
+### Land Use / Land Cover mapping
 
 The Urban Atlas service offers a high-resolution land use map of urban areas. Initially covering over 300 European cities with more than 100,000 inhabitants for the 2006 reference year, the Urban Atlas is available for the 2012 and 2018 reference years over nearly 800 cities with more than 50,000 inhabitants distributed among EU, EFTA and West Balkan countries plus United Kingdom and Turkey. Each Urban Atlas product is generated over the city and its surroundings, according to the Functional Urban Area (FUA) defined by the implementation of the approach developed by the DG Regional and Urban Policy (REGIO) of the European Commission.
 
@@ -136,7 +137,7 @@ The table provided in Annex 5.3 gives a more detailed description of the product
 
 ![Example of the “look &amp; feel“ of the final Urban Atlas 2012 product for Brussels](./Urban-Atlas-mapping-guide_media/media/image20.jpeg)
 
-### ADDITIONAL INFORMATION LAYERS
+### Additional information layers
 
 The Urban Atlas Mapping Guide is related to the main product and by default refers to the Land Use / Land Cover (LU/LC) database. However, two additional information layers are also available starting from the 2012 reference year. A short description including the detailed specifications is proposed in this section.
 
@@ -218,23 +219,23 @@ The building height information is derived from IRS-P5 stereo images of the refe
 
 : Detailed specifications of Urban Atlas DHM product
 
-## GENERAL GUIDELINES
+## General guidelines
 
-### PRE-PROCESSING AND GEO-CODING OF EO DATA
+### Pre-processing and geo-coding of EO data
 
 The EO data provided to the Service Provider should already be pre-processed. In order to reach the 1/10,000 expected scale, EO data should be provided with spatial resolution less than 5 meters. Service Provider should check the geometric quality of the delivered EO data, but no further pre-processing step is expected. The EO data for the European Urban Atlas 2012 is the optical VHR2 coverage over EU 2011-2013 (DWH_MG2b_CORE_03) available on Data Warehouse (DWH) of the European Space Agency (ESA). The EO data for the Urban Atlas 2018 is an optical VHR coverage over EU 2017-2019 also available on ESA DWH. Change detection task can be supported by Copernicus Sentinel-2 data (10 m resolution).
 
-### PRE-PROCESSING AND GEOMETRIC ADAPTATION OF NAVIGATION DATA
+### Pre-processing and geometric adaptation of navigation data
 
 The EO data are the basis for interpretation and classification. In case of geometrical differences between EO data and navigation data (COTS or OSM), the navigation data has to be corrected in line with the EO data.
 
 The pre-processing and application of the navigation data (COTS or OSM) shall be done according to the methodology defined in Annex 5.2.
 
-### PRE-PROCESSING OF TOPOGRAPHIC MAPS
+### Pre-processing of topographic maps
 
 Topographic maps can be used for interpretation of objects. Topographic maps should be used in digital form with precise geo-coding. The usage of printed (analogue) maps is not recommended. In case of geometrical differences between EO data and topographic maps, the erroneous data (either EO-data or topo-maps) needs to be identified using reliable datasets providing spatial reference information. The geometry of the mapping product shall then be congruent with the correct dataset.
 
-### CLASSIFICATION AND INTERPRETATION
+### Classification and interpretation
 
 Application of automatic classification routines, such as segmentation and clustering, may be applied whenever appropriate:
 
@@ -244,13 +245,13 @@ As the backbone for the object geometry, the navigation data network (COTS or OS
 
 Manual refinement and classification at the finest level of the LU/LC classification especially within urban areas by means of visual interpretation of EO data remain necessary to be compliant with the product specifications. For this purpose, the following sections provide the rules and principles to be applied.
 
-### USE OF COPERNICUS HRL IMPERVIOUSNESS
+### Use of Copernicus HRL imperviousness
 
 Among the reference products from Copernicus Land Monitoring Services (CLMS), the pan-European High-Resolution Layer (HRL) Imperviousness (formerly named Fast Track Sealing layer, FTS) is used for the classification at level 4 of the residential or mixed use urban fabric units classified 1.1.2 from EO data
 
 The assignment of the imperviousness/soil sealing levels or density (i.e. classes 1.1.2.1 - 1.1.2.4) shall be carried out using the HRL Imperviousness layer or similar one. The Quality Assurance (QA) process will check only if the technical approach agreed with DG REGIO is respected but will not assess the absolute accuracy of these classes.
 
-### DATA FORMAT OF THE FINAL PRODUCT
+### Data format of the final product
 
 ESRI ArcGIS compatible or open source OGC-standard vector format with polygon topology:
 
@@ -270,7 +271,7 @@ CODE_yyyyy: 5 digits in Long Integer format without decimal places (values allow
 
 The complete description of the data format is provided in section 5.4.
 
-### INTERPRETATION RULES
+### Interpretation rules
 
 - The delineation is to be done on the EO data. EO data should be considered as the primary (guiding) data source.
 
@@ -294,7 +295,7 @@ The complete description of the data format is provided in section 5.4.
 
 - Analysis scale : 1:5 000
 
-### LU/LC CHANGE DETECTION AND LAYER GENERATION
+### LU/LC change detection and layer generation
 
 In case of the required production of an update of the Urban Atlas LU/LC database for a historic or new reference year, change detection task shall be performed and an additional layer shall be produced by the service provider, the Land Use / Land Cover (LU/LC) change layer. For the European Urban Atlas, following the LU/LC product generation for the 2006 reference year, change detection were performed successively for generating the 2012 and 2018 products.
 
@@ -314,7 +315,7 @@ As it is often quite difficult to predict the future LU/LC over an area resultin
 
 ![Change Dynamics over FR010L2 Montpellier (2012-2018)](./Urban-Atlas-mapping-guide_media/media/image21.png)
 
-### STREET TREE LAYER 
+### Street tree layer 
 
 The Street Tree Layer 2012 (STL2012) and Street Tree Layer 2018 (STL2018) are separate layers from respectively the UA2012 and UA2018 LU/LC Layers, which are produced within the level 1 urban mask for each FUA. They include contiguous rows or patches of trees covering 500m² or more and with a minimum width (MinMW) of 10 m over "Artificial surfaces" (nomenclature class 1) inside FUA (i.e. rows of trees along the road network outside urban areas or forest adjacent to urban areas should not be included).
 
@@ -340,7 +341,7 @@ STL patches do not cover roads (codes 12210 and 12220) or railways (code 12230) 
 
 ![Comparison between VHR2018 scene (left) and STL2018 product (right)](./Urban-Atlas-mapping-guide_media/media/image27.jpg)
 
-###  DIGITAL HEIGHT MODEL LAYER (DHM)
+###  Digital Height Model layer (DHM)
 
 A 10 m raster layer containing height information is generated for core urban areas of capital cities of the EEA38 and the United Kingdom as part of the Urban Atlas project (see table 2), based on the methodology described hereafter.
 
@@ -414,7 +415,7 @@ Each Building Block Height model (DHM) is clipped exactly to the AOI and assigne
 
 ![Final Digital Height Model (height values in m)](./Urban-Atlas-mapping-guide_media/media/image31.jpg)
 
-### MINIMUM MAPPING UNITS AND EXCEPTIONS
+### Minimum mapping units and exceptions
 
 +---------------------+-------------------------------+-----------------------+-----------------+
 |                     |   **CORINE**                  |   **Levels provided** |   **MMU**       |
@@ -458,7 +459,7 @@ In order to ensure that relevant LU/LC changes are appropriately extracted, the 
 
 Considering this MMUs, exceptions are made in case of areas where changes involve road and railway networks (classes 12210, 12220, 12230); polygon features classified as road or railway for one date or directly connected to such element are extracted even if area is lower than MMU in order to keep consistency of the transportation network.
 
-### ACCURACY ASSESSMENT AND VALIDATION
+### Accuracy assessment and validation
 
 In addition to the usual QA/QC procedure implementation, which implies visual checks for ensuring thematic and geometric positional accuracies and automatic checks for ensuring completeness and logical consistency during the post-processing phase of the production, accuracy assessment and validation must be performed independently from the production for providing the evidence that the results are fully compliant with the product specifications.
 
@@ -480,7 +481,7 @@ For the DHM layer, Quality controls are conducted for each stage of the producti
 
 Every product is accompanied by a DHM QC Report, which shows the results of the external Quality Check and an INSPIRE compliant xml file: [Building Height 2012 --- Copernicus Land Monitoring Service](https://land.copernicus.eu/local/urban-atlas/building-height-2012?tab=download).
 
-## LU/LC NOMENCLATURE
+## LU/LC nomenclature
 
 The Urban Atlas Land Use / Land Cover classification is derived from CORINE Land Cover and is composed of 27 classes distributing among 5 thematic groups, namely:
 
@@ -586,7 +587,7 @@ A decision matric below illustrate the rules followed to apply LULC nomenclature
 
 : UA LULC nomenclature (in bold, classes without any further subdivision)
 
-## DECISION RULES
+## Decision rules
 
 Affectation of LULC classes follow the below decision matrix. A detailed matrix concerning artificial areas is illustrated next page.
 
@@ -594,9 +595,9 @@ Affectation of LULC classes follow the below decision matrix. A detailed matrix 
 
 ![Urban Atlas Decision Matrix for Artificial Surfaces](./Urban-Atlas-mapping-guide_media/media/image38.png)
 
-## DESCRIPTION OF LU/LC THEMATIC CLASSES
+## Description of LU/LC thematic classes
 
-### 1. ARTIFICIAL SURFACES {.unnumbered}
+### 1. Artificial surfaces{.unnumbered}
 
 Surfaces with dominant human influence and without agricultural land use.
 
@@ -1088,7 +1089,7 @@ Caravan parking used for commercial activities → class 1.2.1.
 
 Soccer fields, etc. within e.g. military bases or within university campuses → class 1.2.1.
 
-### 2. AGRICULTURAL {.unnumbered}
+### 2. Agricultural {.unnumbered}
 
 Please note that Classes 2.1 to 2.4 are grouped together in Class 2 in UA2006.
 
@@ -1128,7 +1129,7 @@ Please note that Classes 2.1 to 2.4 are grouped together in Class 2 in UA2006.
 
 - Agroforestry areas.
 
-### 3. NATURAL AND SEMI-NATURAL AREAS {.unnumbered}
+### 3. Natural and semi-natural areas{.unnumbered}
 
 Please note that Class 3.1 are included into class 3 and classes 3.2 and 3.3 are included into class 2 in UA2006.
 
@@ -1209,7 +1210,7 @@ e)  [Snow and ice:]{custom-style="NormalLine"}\
 
 - [Glacier and perpetual snow.]{custom-style="NormalLine"}\
 
-### 4. WETLANDS {.unnumbered}
+### 4. Wetlands {.unnumbered}
 
 Please note that Class 4 is included into Class 2 in UA2006.
 
@@ -1243,7 +1244,7 @@ Greenhouses → class 1.2.1.
 
 Inland salinas → class 1.3 1.
 
-### 5. WATER {.unnumbered}
+### 5. Water {.unnumbered}
 
 > *MMU 1 ha*
 
@@ -1281,7 +1282,7 @@ Not included are:
 
 Shallow water areas covered with reed \> MMU → class 2 Seasonal rivers, if the water course is not visible in the EO data → class 2.
 
-### 6. MISCELLANEOUS {.unnumbered}
+### 6. Miscellaneous {.unnumbered}
 
 Concerning the UA2006 products, areas with EO data provision problems were classified in separate classes described below.
 
@@ -1295,9 +1296,9 @@ b)  [No data (Missing imagery)]{custom-style="NormalLine"}\
 
 This class 9.2 (code 92000) includes areas without available satellite image or inadequate imagery (e.g. no STL data can be produced as the image acquisition is outside the vegetation period).
 
-# ANNEX
+# Annex
 
-## LIST OF ABBREVIATIONS
+## List of abbreviations
 
 | **Abbreviation** | **Full Form**                                                        |
 |------------------|----------------------------------------------------------------------|
@@ -1334,7 +1335,7 @@ This class 9.2 (code 92000) includes areas without available satellite image or 
 | UA               | Urban Atlas                                                           |
 | VHR              | Very High Resolution                                                  |
 
-## PRE-PROCESSING AND GEOMETRIC ADAPTATION OF NAVIGATION DATA
+## Pre-processing and geometric adaptation of navigation data
 
 The navigation datasets (COTS or OSM) by default include a specific and hierarchical classification of the road network. Two basic categories are important within the context of the Urban Atlas. The first category gives information about the Functional Road Class (FRC), i.e. the road type, the second one gives information about the importance of each road within the city traffic network (Net2Class).
 
@@ -1434,7 +1435,7 @@ POST-PROCESSING
 
 Post-processing will be implemented according to service provider's production chain.
 
-## DETAILED PRODUCT SPECIFICATION TABLE
+## Detailed product specification table
 
 **Product features**
 
@@ -1509,7 +1510,7 @@ Post-processing will be implemented according to service provider's production c
 - [Vector]{custom-style="NormalLine"}\
 
 
-## PRODUCT TYPES AND ATTRIBUTE FIELD DESCRIPTIONS
+## Product types and attricute field descriptions
 
 The different types of cartographic products available in the Urban Atlas are described below.
 
@@ -1569,7 +1570,7 @@ This data corresponds to the reviewed version of the FUAs produced for the Urban
 
 : UA 2012 LULC FIELD DESCRIPTION
 
-### UA 2006-2012 LULC CHANGE MAP
+### UA 2006-2012 LULC change map
 
 The change 2006-2012 layer is derived from the combined 2006 and 2012 UA data products and corresponds [only to the changes of Land use/Land cover]{.underline} between those two dates. It concerns 305 FUAs produced for both the 2006 and 2012 reference years. The MMU is reduced up to 0.1 ha with some exceptions (see Section 4.7 LULC change layer).
 
@@ -1631,7 +1632,7 @@ This data corresponds to the Urban Atlas Land use/Land cover over 788 FUAs for t
 
 : UA 2018 LULC FIELD DESCRIPTION
 
-### UA 2012-2018 LULC CHANGE MAP
+### UA 2012-2018 LULC change map
 
 The 2012-2018 LU/LC change layer is derived from the combined UA2012 and UA2018 data products with exceptions in order to correspond [only to the actual changes of Land Use / Land Cover]{.underline} between those two dates. The MMU is reduced up to 0.1 ha with some exceptions (see further information provided in Section 4.7 LULC change layer).
 
@@ -1665,7 +1666,7 @@ The 2012-2018 LU/LC change layer is derived from the combined UA2012 and UA2018 
 
 : UA 2012-2018 LULC CHANGE FIELD DESCRIPTION
 
-### UA 2012 STL (STREET TREE LAYER)
+### UA 2012 STL (street tree layer)
 
 This data corresponds to the Urban Atlas - Street Tree Layer (STL) for the 2012 reference year.
 
@@ -1687,7 +1688,7 @@ This data corresponds to the Urban Atlas - Street Tree Layer (STL) for the 2012 
 
 : UA 2012 STL FIELD DESCRIPTION
 
-### UA 2018 STL (STREET TREE LAYER)
+### UA 2018 STL (street tree layer)
 
 This data corresponds to the Urban Atlas - Street Tree Layer (STL) for the 2018 reference year.
 
@@ -1709,7 +1710,7 @@ This data corresponds to the Urban Atlas - Street Tree Layer (STL) for the 2018 
 
 : UA 2018 STL FIELD DESCRIPTION
 
-## URBAN ATLAS MAPPING GUIDE - CHANGE RECORDS
+## Urban Atlas mapping guide - change records
 
 +-------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | **Version** |   **Date**   |   **Comments and main updates**                                                                                                                                     |
