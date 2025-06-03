@@ -33,7 +33,7 @@ set -e
 
 
 echo "🖼 Render all documents into to HTML/DOCX"
-#sudo cp /usr/bin/chromium /usr/bin/chromium-browser
+sudo cp /usr/bin/chromium /usr/bin/chromium-browser
 QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to html
 QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to docx --no-clean
 find _site -type f -name 'index.docx' -delete
