@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="ConvertModule" script:language="StarBasic">
+
+  REM ***** BASIC *****
+
+  Sub UpdateTOCAndExportToPDF()
+
+      Dim document As Object
+      Dim dispatcher As Object
+
+      document = ThisComponent
+
+      'Unlock fields by disabling "Fixed Content" (IsFixed = False) to allow automatic updates
+      UpdateDocProperties()
+
+      ' Refresh all fields (TOC, DOCPROPERTY, etc.)
+      dispatcher = createUnoService("com.sun.star.frame.DispatchHelper")
+      dispatcher.executeDispatch(document.CurrentController.Frame, ".uno:UpdateAll", "", 0, Array())
+
+      FixTableWidth()
+
+      ' Generate PDF file path
+      pdfURL = Replace(ThisComponent.URL, ".docx", ".pdf")
+
+  	  ' If no valid file path, close document immediately
+  	  If pdfURL = "" Then
+  	    document.setModified(False)
+  	    document.close(True)
+  	    Exit Sub
+  	  End If
+
+      ' Ensure any existing PDF is deleted before exporting
+      fileSystem = createUnoService("com.sun.star.ucb.SimpleFileAccess")
+      If fileSystem.exists(pdfURL) Then
+          fileSystem.kill(pdfURL)
+      End If
+
+      ' Save as PDF
+      Dim args(1) As New com.sun.star.beans.PropertyValue
+      args(0).Name = "FilterName"
+      args(0).Value = "writer_pdf_Export"
+      args(1).Name = "FilterData"
+      args(1).Value = Array()
+      document.storeToURL(pdfURL, args)
+
+      ' Allow PDF export to finish (timeout after 15s)
+      startTime = Timer
+      Do While Not fileSystem.exists(pdfURL)
+          If Timer > startTime + 10 Then '
+              Exit Do
+          End If
+          Wait 1000 ' Check every second
+      Loop
+
+      ' Close document
+      document.setModified(False)
+      document.close(True)
+
+  End Sub
+
+  Sub UpdateDocProperties()
+    Dim doc As Object
+    Dim textFields As Object
+    Dim field As Object
+
+    ' Loop through all text fields and uncheck 'isFixed' flag
+    doc = ThisComponent
+    textFields = doc.TextFields
+
+    For Each field In textFields
+        On Error Resume Next
+        If field.HasProperty("IsFixed") Then
+            field.IsFixed = False  ' Uncheck "Fixed Content"
+        End If
+        On Error GoTo 0
+    Next field
+
+  End Sub
+
+  Sub FixTableWidth()
+    Dim oDoc As Object
+    Dim oTable As Object
+    Dim oCursor As Object
+    Dim oPageStyles As Object
+    Dim oPageFormat As Object
+    Dim PageWidth As Long
+    Dim LeftMargin As Long
+    Dim RightMargin As Long
+    Dim TableWidth As Long
+
+    ' Get the active document
+    oDoc = ThisComponent
+
+    ' Get the default page style (to read page margins)
+    oPageStyles = oDoc.StyleFamilies.getByName("PageStyles")
+    oPageFormat = oPageStyles.getByName("Default Page Style") ' Change if using a custom style
+
+    ' Calculate usable page width
+    PageWidth = oPageFormat.Width
+    LeftMargin = oPageFormat.LeftMargin
+    RightMargin = oPageFormat.RightMargin
+    TableWidth = PageWidth - LeftMargin - RightMargin
+
+    ' Iterate through all tables and set width
+    For Each oTable In oDoc.TextTables
+        oTable.setPropertyValue("Width", TableWidth) ' Set table width to match the usable page width
+    Next oTable
+   End Sub
+
+
+</script:module>

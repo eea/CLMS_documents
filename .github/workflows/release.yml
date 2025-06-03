@@ -1,0 +1,21 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - test
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source (release target)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Perform release [${{ github.ref_name }}]
+        uses: cycjimmy/semantic-release-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

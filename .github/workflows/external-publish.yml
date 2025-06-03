@@ -1,0 +1,47 @@
+name: Merge External Changes to Develop
+
+on:
+  repository_dispatch:
+    types: [subtree-published]
+
+jobs:
+  merge_external_publish:
+    if: startsWith(github.event.client_payload.branch, 'publish-')
+    name: Merge External Changes into Develop
+    runs-on: ubuntu-latest
+
+    env:
+      PUBLISH_BRANCH: ${{ github.event.client_payload.branch }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.client_payload.branch }}
+          fetch-depth: 0
+
+      - name: Restore needed merge scripts from develop
+        run: |
+          git fetch origin develop
+          git checkout origin/develop -- .github/scripts
+
+      - name: Setup (before script)
+        run: bash .github/scripts/external_publish_before.sh | tee -a job.log
+        env:
+          CI_DEPLOY_KEY: ${{ secrets.CI_DEPLOY_KEY }}
+
+      - name: Merge publish content
+        id: external_publish_merge
+        run: bash .github/scripts/external_publish_main.sh | tee -a job.log
+
+      - name: Report failure if publish-* merge fails
+        if: ${{ failure() && steps.external_publish_merge.outcome == 'failure' }}
+        run: bash .github/scripts/external_publish_report_failure.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+
+      - name: Cleanup (after script)
+        run: bash .github/scripts/external_publish_after.sh

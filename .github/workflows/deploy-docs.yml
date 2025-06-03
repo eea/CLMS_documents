@@ -1,0 +1,38 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches:
+      - develop
+      - test
+      - main
+  workflow_run:
+    workflows: ["Auto Merge Approved PRs"]
+    types:
+      - completed
+
+jobs:
+  deploy_docs:
+    name: Build and Deploy Docs [${{ github.ref_name }}]
+    runs-on: ubuntu-latest
+
+    container:
+      image: mckeea/quarto-doc-builder:latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build Docs
+        run: .github/scripts/build-docs.sh
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: _site
+          target-folder: ${{ github.ref_name }}
+          clean: true
+          token: ${{ secrets.GITHUB_TOKEN }}

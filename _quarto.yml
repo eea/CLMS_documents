@@ -1,0 +1,39 @@
+project:
+  type: website
+  output-dir: _site
+  execute-dir: project
+  render:
+    - DOCS/**/*.qmd
+    - "!DOCS/includes/**"
+    - "!DOCS/theme/**"
+    - "!DOCS/templates/**"
+
+resources:
+  - assets/
+
+website:
+  title: "Technical Library"
+  site-url: "https://eea.github.io/CLMS_documents"
+  page-navigation: true
+  back-to-top-navigation: true
+  bread-crumbs: true
+  search: true
+  navbar:
+    background: "#a0b128"
+    foreground: "#ffffff"
+    search: false
+  page-footer:
+    left: |
+      © 2025 EEA. All rights reserved.
+
+metadata-files:
+  - DOCS/includes/default.yml
+
+format:
+  html:
+    output-dir: ../_site # Moves rendered files outside src/
+    include-before-body: DOCS/includes/main-logos.html
+    css: DOCS/theme/main.css
+
+filters:
+  - .github/scripts/filters/extract-images.lua
