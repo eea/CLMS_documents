@@ -93,6 +93,72 @@ Markdown is a simple way to format text using plain characters --- no need for c
 
 This section shows the most useful Markdown elements you'll need when writing documentation. If you want to explore more, visit the official [Quarto Markdown guide](https://quarto.org/docs/authoring/markdown-basics.html).
 
+## Line Breaks and New Lines
+
+In Markdown, how you break a line can affect how your text is displayed in the final document. Quarto follows standard Markdown behavior, so it's important to understand the difference between soft and hard line breaks.
+
+### Soft Line Break (Just Pressing Enter)
+
+When you press `Enter` once and start a new line in your text editor, Markdown **does not** create a visible line break in the output. Instead, it treats the two lines as part of the same paragraph. 
+
+Example (input):
+
+```markdown
+This is the first line
+and this is the second line.
+```
+
+Rendered output:
+
+&nbsp;&nbsp;&nbsp;&nbsp;This is the first line
+and this is the second line.
+
+This keeps your Markdown source tidy, but it won’t create new lines unless explicitly instructed
+
+### Hard Line Break (Using \ at End of Line)
+
+To force a visible line break in Markdown, you must add two spaces at the end of a line or use a backslash `\`. Quarto supports both, but using `\` is clearer and more explicit.
+
+```markdown
+This is the first line.\
+and this is the second line.
+```
+
+Rendered output:
+
+&nbsp;&nbsp;&nbsp;&nbsp;This is the first line.\
+&nbsp;&nbsp;&nbsp;&nbsp;and this is the second line.
+
+
+### Paragraph Break (Double Enter)
+
+
+If you press Enter twice (i.e., leave a blank line between two lines), Markdown will treat the content as two separate paragraphs. This results in a larger vertical space between the lines in the rendered output.
+
+Example (input):
+
+```markdown
+This is the first paragraph.
+
+This is the second paragraph.
+```
+
+Rendered output:
+
+&nbsp;&nbsp;&nbsp;&nbsp;This is the first paragraph.
+
+&nbsp;&nbsp;&nbsp;&nbsp;This is the second paragraph.
+
+
+This behavior is especially important when structuring readable documentation, separating ideas, or organizing content clearly.
+
+### Summary
+
+- Use `Enter` for a new line in your editor, but **don’t expect a visible line break**.
+- Use `\` at the end of a line when you want to **force a line break**.
+- Use **double Enter** (i.e., an empty line between paragraphs) to start a **new paragraph with extra spacing**.
+
+
 ## Headings
 
 Use the `#` symbol to create headings and organize your content. More `#` means a smaller heading level:
