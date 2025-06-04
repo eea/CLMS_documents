@@ -27,6 +27,12 @@ jobs:
         run: |
           wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.3.340/quarto-1.3.340-linux-amd64.deb
           sudo dpkg -i quarto-1.3.340-linux-amd64.deb
+          
+          # replace above with the following lines if latest qarto should be used.
+          # sudo apt-get update
+          # sudo apt-get install -y wget gdebi-core
+          # wget https://github.com/quarto-dev/quarto-cli/releases/latest/download/quarto-linux-amd64.deb
+          # sudo gdebi -n quarto-linux-amd64.deb
 
       # 3. Render all .qmd, .md, and .ipynb files to HTML
       - name: Render all Quarto, Markdown, and Jupyter files to HTML
