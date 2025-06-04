@@ -2,12 +2,15 @@
 title: "Guide for Writing Techncial Documentation"
 subtitle: "Copernicus Land Monitoring Service"
 author: "European Environment Agency (EEA)"
-version: 0.4
+version: 0.5
 description: "A comprehensive guide for creating technical documentation for the Copernicus
   Land Monitoring Service using Quarto. It covers Markdown basics, document rendering,
   and the review process, ensuring consistency and clarity in documentation."
-date: "2025-04-05"
+date: "2025-06-04"
 template-version: 1.0
+
+format:
+    html: default
 ---
 
 <!--# maybe we should promote (or at least describe the option of unsing variables in yaml that can be reused in the document:  e.g. product-name: "Example Product" ---  # Welcome to {{ product-name }} Documentation.      -->
@@ -20,74 +23,70 @@ This manual guides users through creating technical documentation for the Copern
 You don't need to be a programmer nor an expert to use Quarto. If you've ever written a document in Microsoft Word, you'll be able to use Quarto with a bit of practice.
 :::
 
-# Folder and File Structure
+## Folder and File Structure
 
 <!--# If this is for the doc part only, does it make sense to mention also the potential insert into an IT project, but can exist also on their own...(something like this, just mentioning it) -->
 
-In this section, we explain how the documentation project is organized and where you should put your files. This structure helps keep everything clean, consistent, and easy to work with --- especially when multiple people are involved.
+This section explains how your documentation project is organized and where to put your files. The structure ensures consistency, simplifies maintenance, and allows documents to be rendered correctly in both your local project and the central Technical Library.
 
-Below is a typical folder layout for the project: <!--# instead of my-doc.qmd use CLMS_my-product_ATBD.qmd we should rename the templates to better fit the planned naming convention CLMS_template_ATBD.qmd and CLMS_template_PUM.qmd (I wil,share the naming convention file with you soon-->
+Below is the standard folder layout you'll see at the root of the `DOCS/` directory in your project:
 
-```markdown
-project-root-doc/
-├── src/
-│   ├── templates/
-│   │   ├── CLMS_Template_ATBD.qmd
-│   │   └── CLMS_Template_PUM.qmd
-│   ├── styles/
-│   |   ├── reference.docx
-│   |   └── custom.scss
-|   └── products/
-|       ├── my-doc.qmd
-|       └── my-doc-media
-|           └── image1.png
-├── scripts/
-├── macros/
-└── metadata/
+```text
+DOCS/
+├── _meta/              # Scripts, config, and metadata (do not edit)
+├── includes/           # Quarto include files (do not edit)
+├── templates/          # Document templates (do not edit)
+├── theme/              # Styling definitions (do not edit)
+├── _quarto.yml         # Project-wide Quarto config
+├── CLMS_your-product-one_ATBD.qmd
+├── CLMS_your-product-one_ATBD-media/
+├── CLMS_your-product-two_PUM.qmd
+├── CLMS_your-product-two_PUM-media/
+├── ...
+└── CLMS_your-product-last_PUM.qmd
 ```
 
-## Folder Descriptions
+### What You Should Do
 
--   **`src/`**\
-    This is the main source folder. It contains all the shared resources used when creating documentation.
+- You simply need to **add your own `.qmd` files** in the `DOCS/` directory.
+- If your document uses charts, screenshots, or diagrams, create a **media folder** with the same base name as your document and a `-media` suffix.
 
-    -   **`src/templates/`** <!--# state no editing here -->\
-        This is where you'll find ready-to-use `.qmd` templates. There are templates for two document types:
+  Example:
 
-        -   **ATBD** (Algorithm Theoretical Basis Document)
-        -   **PUM** (Product User Manual)\
-            When you start a new document, you will copy the appropriate template from here.
+  ```text
+  DOCS/
+  ├── CLMS_your-product-one_ATBD.qmd
+  └── CLMS_your-product-one_ATBD-media/
+      └── figure1.png
+  ```
 
-    -   **`src/styles/`**<!--# state no editing here -->\
-        This folder contains style-related files, such as DOCX templates and style sheets. These are used by scripts and macros to give your documents a consistent look.
+- Do **not modify** the following folders: `_meta/`, `includes/`, `templates/`, `theme/`. These are managed centrally.
 
-    -   **`src/products/`**\
-        This is the folder where you will actually create and edit your documentation.
+  - **`templates/`**  
+    This is where you’ll find ready-to-use `.qmd` templates. There are templates for two document types:
 
-        -   For each new document, create a new `.qmd` file inside `src/products/`, for example: `my-doc.qmd`. <!--# we have only a partially aggreed document naming convention. Once the repo guidelines are ready, we can create a new guideline doc: document naming convention. Please state here info: "Make sure you follow the agreet naming convention" -->
+    - **ATBD** (Algorithm Theoretical Basis Document)  
+    - **PUM** (Product User Manual)
 
-        -   Also create a separate folder to store images and charts used in that document, for example: `my-doc-media/`. <!--# is my-doc must follow the qmd doc and a fixed suffix must be added '-media'? -->
+    When you start a new document, copy the appropriate template from this directory. This ensures consistency in structure and formatting across all documents in the Technical Library.
 
-        -   Both the `.qmd` file and the media folder should follow a clear naming pattern (e.g. same prefix) to keep things organized.
+- Styling and rendering will **automatically reflect** the structure and appearance defined by the central documentation project.
 
-            *Example:*
+### Previewing Your Documentation
 
-            ```
-            products/
-            ├── my-doc.qmd
-            └── my-doc-media/
-                └── image1.png
-            ```
+To preview the full rendered documentation from your project, use:
 
--   **`scripts/`, `macros/`**, and **`metadata/`** <!--# state no editing here -->\
-    These folders support the automation workflow. They include scripts, macros, and configuration files that help with rendering and styling your documents.
+```bash
+git docs-preview
+```
 
-By following this structure, everyone on the team will know exactly where to find templates, styles, and finished documents --- and where to put new content.
+For more details on previewing and validating, see the final chapter of this manual.
+
 
 # Basic Markdown Syntax
 
 ::: callout-note
-In addition to this guide and the official documentation, you can also explore the template `.qmd` files in the `src/templates` folder. These files include real examples of how to structure documents using Markdown and Quarto-specific syntax. They're a great reference when you're not sure how to format something.
+In addition to this guide and the official documentation, you can also explore the template `.qmd` files in the `templates` folder. These files include real examples of how to structure documents using Markdown and Quarto-specific syntax. They're a great reference when you're not sure how to format something.
 :::
 
 Markdown is a simple way to format text using plain characters --- no need for complicated tools or buttons. Quarto uses Markdown to let you write clean, readable documents that can be turned into HTML or PDF automatically.
@@ -570,17 +569,17 @@ There are two ways to begin:
 
 ### Option 1: Use a Template
 
-1.  Open the `src/templates/` folder.
+1.  Open the `templates/` folder.
 2.  Choose the right template:
     -   ``` CLMS``_Template``_ATBD.qmd ``` for an Algorithm Theoretical Basis Document (ATBD)
     -   ``` CLMS``_Template``_PUM.qmd ``` for a Product User Manual (PUM)
-3.  Copy the template into the `src/products/` folder.
+3.  Copy the template into the `products/` folder.
 4.  Rename it to match your new document. Example: `my-product.qmd`
 5.  Create a new media folder named `my-product-media/` next to it to store images and charts.
 
 ### Option 2: Create from scratch
 
-1.  Inside the `src/products/` folder, create a new file: e.g. `my-product.qmd`
+1.  Inside the `products/` folder, create a new file: e.g. `my-product.qmd`
 2.  Create a new media folder named `my-product-media/` for related images and figures.
 
 > 💡 Using templates is recommended because they include structure and helpful comments. But starting from scratch gives you full control.
@@ -597,19 +596,29 @@ Templates include:
 
 ## Step 3: Add or Adjust the YAML Header
 
-If you're creating the `.qmd` file from scratch, you must add the basic YAML header at the top of your file.
+If you're creating the `.qmd` file from scratch (i.e. not using one of the provided ATBD or PUM templates), you typically **do not need to specify the `format` field** manually. Quarto will automatically apply its default rendering format, which is sufficient in most cases.
+
+However, if you need to customize the rendering outputs (e.g. to apply a specific DOCX style), then you **must define the `format:` field** carefully.
 
 These fields are **required** for correct rendering:
 
--   `metadata-files`: connects your document to shared metadata (like author, institution, version) <!--#  author, institution, version are default? should't that be controlled by the document creator? -->
--   `format`: controls how your document is rendered (HTML, styled DOCX, etc.)
+- `format`: controls how your document is rendered (HTML, styled DOCX, PDF)
 
 ::: callout-important
-You **must include** the `pdf: default` format in the YAML header.\
+You **must include** the `pdf: default` format in the YAML header.  
 Although PDF is not rendered directly during this step, defining it here ensures compatibility with the automated rendering workflow later. Details are explained in the [Rendering Documentation](#rendering-documentation) section.
 :::
 
-You must adjust `reference-doc:` under the `docx:` to specify the default style used for the DOCX/PDF output.
+If you override the `format` section, please follow these strict guidelines:
+
+- Only modify the `format:` block.
+- You must define all three output formats:
+  - `html:`
+  - `docx:` (with `reference-doc:` pointing to the style template)
+  - `pdf:`
+
+Improper modifications can break the rendering process locally or in the central Technical Library. To see correct examples of a fully-defined format block, refer to the template files in `DOCS/templates/`.
+
 
 Here's a basic header you can use:
 
@@ -622,17 +631,6 @@ version: 1.0
 template-version: 1.0.0
 product-name: Product Name
 description: "Product DESCRIPTION"
-
-metadata-files:
-  - ../../metadata/default.yml
-
-format:
-  html:
-    css: ../styles/styles.css
-  docx:
-    reference-doc: ../styles/template-atbd.docx
-    hidden: true
-  pdf: default
 ---
 ```
 
@@ -671,7 +669,7 @@ Stick with the original name once created unless you have a strong reason and ca
 
 To make documentation creation easier and more consistent, you can start your work from ready-made `.qmd` template files. These templates include the correct structure, required sections, and helpful comments to guide your editing.
 
-Templates are stored in the `src/templates/` directory. Currently, two types of templates are provided:
+Templates are stored in the `templates/` directory. Currently, two types of templates are provided:
 
 ## ATBD Template
 
@@ -704,9 +702,9 @@ It includes:
 
 ## How to Use the Templates
 
-1.  Go to `src/templates/`
+1.  Go to `templates/`
 2.  Choose either ``` CLMS``_Template``_ATBD.qmd ``` or ``` CLMS``_Template``_PUM.qmd ```
-3.  Copy the file into the `src/products/` folder
+3.  Copy the file into the `products/` folder
 4.  Rename it to match your project (e.g. `my-product.qmd`)
 5.  Begin editing based on the guidance in the template
 
@@ -792,7 +790,7 @@ To make documentation look consistent and professional, we use a set of predefin
 
 ## Shared Styling Configuration
 
-Most formatting options (fonts, colors, spacing, margins, etc.) are defined in shared configuration files. These files are stored in `src/styles` directory and include:
+Most formatting options (fonts, colors, spacing, margins, etc.) are defined in shared configuration files. These files are stored in `styles` directory and include:
 
 -   A custom DOCX file for styling PDF output
 -   A CSS stylesheet for HTML
@@ -822,7 +820,7 @@ format:
     toc: true
     toc-depth: 3
   docx:
-    reference-doc: ../src/styles/custom-reference.docx
+    reference-doc: ../styles/custom-reference.docx
   pdf: default
 ```
 
@@ -855,7 +853,7 @@ You don't need to know R to use RStudio --- we only use it here as a Markdown ed
 
 1.  Open RStudio.
 2.  Use **File \> Open Project...** and select the root folder of the Technical Library.
-3.  Navigate to the `src/products/` folder.
+3.  Navigate to the `products/` folder.
 4.  Open the `.qmd` file you want to edit.
 
 ## Editing QMD Files
@@ -943,7 +941,7 @@ This approach is fast and avoids editing the YAML just to preview layout changes
 
 ## Output Location
 
-When you render a single `.qmd` file locally (e.g. using RStudio or the command line), the output (HTML or DOCX/PDF) is saved next to your source file — usually inside the `src/products/` folder.
+When you render a single `.qmd` file locally (e.g. using RStudio or the command line), the output (HTML or DOCX/PDF) is saved next to your source file — usually inside the `products/` folder.
 
 If you run the full command:
 
@@ -978,7 +976,7 @@ To avoid these issues, the repository includes a renamed config file: `_quarto-n
 By default, this means:
 
 -   RStudio operates in "single file mode"
--   Output files (HTML, DOCX) are written directly next to the `.qmd` file (e.g. in `src/products/`)
+-   Output files (HTML, DOCX) are written directly next to the `.qmd` file (e.g. in `products/`)
 
 ### Rendering the Full Project
 
@@ -1078,10 +1076,97 @@ More issues will be added here as the system and workflow evolve. If you encount
 
 # Document Review and Git Workflow
 
+## Adding Documentation to Your Project
+
+To integrate the documentation into your project, follow the steps below. Full instructions are available at: [https://github.com/eea/CLMS_documents_base](https://github.com/eea/CLMS_documents_base)
+
+
+### Step 1: Link the Base Repository
+
+Add the base documentation repository as a remote:
+
+```bash
+git remote add clms-docs-base git@github.com:eea/CLMS_documents_base.git
+```
+
+### Step 2: Add the `DOCS/` Folder to Your Project
+
+Use the following command to pull in the documentation as a subtree:
+
+```bash
+git subtree add --prefix=DOCS clms-docs-base main --squash
+```
+
+After running this, your project will include a `DOCS/` directory containing all necessary documentation resources.
+
+### Step 3: Set Up Git Shortcuts
+
+To simplify documentation management, run the setup script:
+
+```bash
+./DOCS/_meta/scripts/setup-docs-aliases.sh
+```
+
+This will configure convenient Git aliases for working with the documentation.
+
+### Available Git Aliases
+
+Once the setup is complete, you'll have access to these useful Git commands:
+
+- `git docs-update`: Syncs your local documentation with updates from the base repository.
+- `git docs-publish`: Pushes your documentation changes to the repository.
+- `git docs-preview`: Generates a local preview of your documentation.
+
+These shortcuts make it easy to keep your documentation up-to-date, share changes, and review your work.
+
+
+---
+
 ## Pushing Changes to Git
 
-**TODO**
+Each project maintains documentation in its own `DOCS/` directory. When published to the Technical Library, your project's documents are available under a directory named after your project's Git repository name (`<PROJECT_NAME>`). These directories are managed as **git subtrees**, meaning their version history is isolated from the main repository for clarity and independence.
+
+To publish updates to the central **Technical Library**:
+
+1. Commit all your modified documentation files within your project repository:
+
+   ```bash
+   git add DOCS/
+   git commit -m "docs: update [brief description]"
+   ```
+
+2. Run the following command:
+
+   ```bash
+   git docs-publish
+   ```
+
+3. This command merges your subtree changes into the `develop` branch of the central Technical Library repository.
+
+4. After rendering, the updated Technical Library (develop version) becomes accessible at [https://eea.github.io/CLMS_documents/develop/index.html](https://eea.github.io/CLMS_documents/develop/index.html)
 
 ## Reviewing Documents
 
-**TODO**
+The release of the complete Technical Library is controlled by the Technical Library owner.
+
+1. The process begins with the creation of a **pull request (PR)** from the `develop` branch to the `test` branch.
+2. This is a **pre-release** stage and is **not automated**.
+3. When the PR is created, the **PR title is automatically generated** by GitHub Actions to conform to semantic commit format rules.
+4. Only a **Technical Library owner** can create this PR.
+5. Repository rules require that the PR must be reviewed and accepted by **at least one other Technical Library owner**.
+6. Once the review is approved:
+    - The PR is merged.
+    - The preview (test) version is automatically rendered and published at [https://eea.github.io/CLMS_documents/test/index.html](https://eea.github.io/CLMS_documents/test/index.html)
+
+## Releasing Official Documentation
+
+To publish the final release version:
+
+1. A Technical Library owner must create a **PR from `test` to `main`**.
+2. This PR also must be **reviewed and approved by another repository owner**.
+3. Upon review approval:
+    - The PR is merged.
+    - The final, official version is automatically rendered and published at [https://eea.github.io/CLMS_documents/main/index.html](https://eea.github.io/CLMS_documents/main/index.html)
+
+Version numbers for both pre-releases and official releases are **automatically generated** as part of the release workflow.
+
