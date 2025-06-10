@@ -19,7 +19,7 @@ listing:
   type: table
   contents: .
   sort: title
-  fields: [title]
+  fields: [title, date, version]
 ---
 `;
 
