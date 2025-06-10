@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-cb81cc5a4acc34e2e4fc168d90a9e276.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2168faa612cac51f2b8a2b3f31cb0df8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-title','listing-date','listing-version',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
@@ -190,6 +190,12 @@ window.Quarto = {
     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">Order By</option>
       <option value="index" data-direction="asc">Default</option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
       <option value="listing-title-sort" data-direction="asc">
         Title
       </option>
@@ -208,34 +214,66 @@ window.Quarto = {
 <a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
 </th>
 
+<th>
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
+</th>
+
+<th>
+version
+</th>
+
 </tr>
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-date-sort="1748995200000" data-listing-file-modified-sort="1749543112820" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="36" data-listing-word-count-sort="7146" data-listing-title-sort="Guide for Writing Techncial Documentation" data-listing-filename-sort="editor-manual.qmd">
+<tr data-index="0" data-listing-date-sort="1748995200000" data-listing-file-modified-sort="1749545794318" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="36" data-listing-word-count-sort="7146" data-listing-title-sort="Guide for Writing Techncial Documentation" data-listing-filename-sort="editor-manual.qmd">
 <td>
 <a href="../../DOCS/guidelines/editor-manual.html" class="title listing-title">Guide for Writing Techncial Documentation</a>
 </td>
+<td>
+<span class="listing-date">Jun 4, 2025</span>
+</td>
+<td>
+<span class="listing-version">0.6</span>
+</td>
 
 </tr>
 
-<tr data-index="1" data-listing-date-sort="1744070400000" data-listing-file-modified-sort="1749543111101" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="24" data-listing-word-count-sort="4731" data-listing-title-sort="IT Architecture Principles and Implementation Guidelines" data-listing-filename-sort="IT_Architecture_Principles_and_Implementation_Guidelines.qmd">
+<tr data-index="1" data-listing-date-sort="1744070400000" data-listing-file-modified-sort="1749545799040" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="24" data-listing-word-count-sort="4731" data-listing-title-sort="IT Architecture Principles and Implementation Guidelines" data-listing-filename-sort="IT_Architecture_Principles_and_Implementation_Guidelines.qmd">
 <td>
 <a href="../../DOCS/guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html" class="title listing-title">IT Architecture Principles and Implementation Guidelines</a>
 </td>
-
-</tr>
-
-<tr data-index="2" data-listing-file-modified-sort="1749543109176" data-listing-reading-time-sort="2" data-listing-word-count-sort="245" data-listing-title-sort="Technical Implementation Overview: Quarto Docs Workflow with GitHub Actions" data-listing-filename-sort="technical_overview.qmd">
 <td>
-<a href="../../DOCS/guidelines/technical_overview.html" class="title listing-title">Technical Implementation Overview: Quarto Docs Workflow with GitHub Actions</a>
+<span class="listing-date">Apr 8, 2025</span>
+</td>
+<td>
+<span class="listing-version">1.4b</span>
 </td>
 
 </tr>
 
-<tr data-index="3" data-listing-file-modified-sort="1749543108001" data-listing-reading-time-sort="3" data-listing-word-count-sort="438" data-listing-title-sort="User Guide: Working with Documents and Publishing to GitHub Pages" data-listing-filename-sort="user_guidelines.qmd">
+<tr data-index="2" data-listing-file-modified-sort="1749545797144" data-listing-reading-time-sort="2" data-listing-word-count-sort="245" data-listing-title-sort="Technical Implementation Overview: Quarto Docs Workflow with GitHub Actions" data-listing-filename-sort="technical_overview.qmd">
+<td>
+<a href="../../DOCS/guidelines/technical_overview.html" class="title listing-title">Technical Implementation Overview: Quarto Docs Workflow with GitHub Actions</a>
+</td>
+<td>
+<span class="listing-date">&nbsp;</span>
+</td>
+<td>
+<span class="listing-version">&nbsp;</span>
+</td>
+
+</tr>
+
+<tr data-index="3" data-listing-file-modified-sort="1749545795683" data-listing-reading-time-sort="3" data-listing-word-count-sort="438" data-listing-title-sort="User Guide: Working with Documents and Publishing to GitHub Pages" data-listing-filename-sort="user_guidelines.qmd">
 <td>
 <a href="../../DOCS/guidelines/user_guidelines.html" class="title listing-title">User Guide: Working with Documents and Publishing to GitHub Pages</a>
+</td>
+<td>
+<span class="listing-date">&nbsp;</span>
+</td>
+<td>
+<span class="listing-version">&nbsp;</span>
 </td>
 
 </tr>
