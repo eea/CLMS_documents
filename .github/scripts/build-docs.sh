@@ -1,42 +1,15 @@
 #!/bin/bash
 set -e
 
-# echo "🐍 Setting up Python environment..."
-# apt-get update
-# apt-get install -y python3 python3-venv python3-pip
-
-# echo "📦 Creating virtual environment..."
-# python3 -m venv venv
-# source venv/bin/activate
-
-# echo "⬆️ Upgrading pip inside virtual environment..."
-# pip install --upgrade pip
-
-# echo "📦 Installing Python dependencies..."
-# pip install \
-#     keybert \
-#     ruamel.yaml \
-#     pyyaml \
-#     transformers==4.37.2 \
-#     accelerate==0.27.2
-
-# source venv/bin/activate
-
-# echo "🛠 Setting up default Quarto configuration..."
-# mv _quarto_not_used.yaml _quarto.yaml
-
-# echo "🏷 Generating keywords..."
-# python scripts/render/generate_keywords.py
-
-#echo "🧹 Cleaning up cached _site directory..."
-#rm -rf _site
-
-
 echo "🖼 Render all documents into to HTML/DOCX"
 sudo cp /usr/bin/chromium /usr/bin/chromium-browser
-QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to html
-QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to docx --no-clean
+QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to docx 
 find _site -type f -name 'index.docx' -delete
+QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to html --no-clean
+
+# Backup the correct sitemap as it may be overwritten by next operations
+sleep 5
+mv _site/sitemap.xml _site/sitemap.xml.bkp
 
 echo "🛠 Generate index.qmd files for all DOCS/* folders"e
 node .github/scripts/generate_index_all.mjs
@@ -63,6 +36,9 @@ echo '<!DOCTYPE html>
   </body>
 </html>' > _site/index.html
 
+# Revert the correct sitemap
+cp _site/sitemap.xml.bkp _site/sitemap.xml
+rm -f _site/sitemap.xml.bkp
 
 echo "📄 Converting .docx files to .pdf..."
 #chmod +x ./convert_docx_to_pdf.sh
