@@ -21,9 +21,12 @@ jobs:
         with:
           fetch-depth: 2
 
+      - name: Show commit history
+        run: git log --oneline -n 5
+
       - name: Get changed .qmd files on current branch
         run: |
-          git diff --name-only HEAD~1 HEAD | grep -E '\.qmd$' > modified_docs_list.txt
+          git diff --name-only HEAD^ HEAD | grep -E '\.qmd$' > modified_docs_list.txt
           cat modified_docs_list.txt
 
       - name: Generate intros and keywords
