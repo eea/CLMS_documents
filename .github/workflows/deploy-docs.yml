@@ -54,13 +54,6 @@ jobs:
             git push origin HEAD
           fi
 
-      - name: Generate intros and keywords
-        uses: addnab/docker-run-action@v3
-        with:
-          image: mckeea/llm-doc-annotator:latest
-          options: -e GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} -v ${{ github.workspace }}:/app
-          run: python .github/scripts/generate_intros_and_keywords.py
-
       - name: Build Docs
         run: .github/scripts/build-docs.sh
 
