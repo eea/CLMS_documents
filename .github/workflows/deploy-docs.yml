@@ -29,7 +29,8 @@ jobs:
 
       - name: Get changed .qmd files on current branch
         run: |
-          git diff --name-only HEAD^ HEAD | grep -E '\.qmd$' > modified_docs_list.txt
+          (git diff --name-only HEAD^ HEAD | grep -E '\.qmd$' || true) > modified_docs_list.txt
+          echo "Modified .qmd files:"
           cat modified_docs_list.txt
 
       - name: Generate intros and keywords
