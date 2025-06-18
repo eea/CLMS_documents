@@ -21,12 +21,30 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Get changed files
+        id: changes
+        run: git diff --name-only HEAD^ HEAD | grep -E '\.qmd$' > modified_docs_list.txt
+
       - name: Generate intros and keywords
         uses: addnab/docker-run-action@v3
         with:
           image: mckeea/llm-doc-annotator:latest
           options: -e GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} -v ${{ github.workspace }}:/app
-          run: python .github/scripts/generate_intros_and_keywords.py
+          run: python .github/scripts/generate_intros_and_keywords.py modified_docs_list.txt
+
+      - name: Commit updated LLM cache
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+          git add .llm_cache
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update LLM cache [skip ci]"
+            git push origin HEAD
+          fi
 
       - name: Build Docs
         run: .github/scripts/build-docs.sh

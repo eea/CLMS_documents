@@ -1,0 +1,19 @@
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install required system packages
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        build-essential \
+        curl \
+        git \
+        && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+RUN pip install --no-cache-dir \
+    google-generativeai==0.8.5 \
+    tiktoken==0.9.0 \
+    PyYAML==6.0.2 \
+    json5
