@@ -19,11 +19,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
-      - name: Get changed files
-        id: changes
-        run: git diff --name-only HEAD^ HEAD | grep -E '\.qmd$' > modified_docs_list.txt
+      - name: Get changed .qmd files on current branch
+        run: |
+          git fetch origin ${{ github.ref_name }}
+          BASE=$(git merge-base HEAD origin/${{ github.ref_name }})
+          git diff --name-only $BASE HEAD | grep -E '\.qmd$' > modified_docs_list.txt
+          cat modified_docs_list.txt
 
       - name: Generate intros and keywords
         uses: addnab/docker-run-action@v3
