@@ -4,6 +4,15 @@ subtitle: "Copernicus Land Monitoring Service"
 date: "August 2023"
 version: 1.0
 
+format:
+  html:
+    css: ../styles/styles.css
+  docx:
+    toc-location: before-body
+    toc-pagebreak: true
+    data: false
+    reference-doc: ../theme/template-guideline.docx
+
 toc: true
 toc-title: "Content"
 toc-depth: 3
@@ -17,6 +26,8 @@ European Environment Agency (EEA)\
 Kongens Nytorv 6\
 1050 Copenhagen K\
 Denmark\
+[**https://land.copernicus.eu/**](https://land.copernicus.eu/)
+:::
 
 {{< pagebreak >}}
 
@@ -200,7 +211,7 @@ Invasive species are positively correlated with river management practices where
 
 ## Product overview
 
-![Figure 1: Riparian Zones 2012-2018 product portfolio](./RZ2023-media/media/fig1.png)
+![Figure 1: Riparian Zones 2012-2018 product portfolio](./RZ2023-media/media/Fig1.png)
 
 Riparian Zones provides a primary product (polygon layer with LU/LC of 2012 and 2018, including change mapping information) and an additional polygon layer providing information of the main EO data input used for generating the map production (Parent Scene Identification Layer (PSIL).
 
@@ -257,16 +268,16 @@ The table below summarises the technical specification of the Riparian Zones pro
 +------------------------------------------+---------------------------------------------+
 | Stratified Random Point Sampling                                                        
 +------------------------------------------+---------------------------------------------+
-| **Data Type**                            |                                             |
+| **Data Type**                                                                           
 +------------------------------------------+---------------------------------------------+
 | Vector                                                                                  
 +------------------------------------------+---------------------------------------------+
-| **Delivery Format**                      |                                             |
+| **Delivery Format**                                                                     
 +------------------------------------------+---------------------------------------------+
 | Esri Shapefile Format (\*.SHP)                                                          
 +------------------------------------------+---------------------------------------------+
 
-
+```{=html}
 <table>
   <thead>
     <tr>
@@ -427,6 +438,7 @@ The table below summarises the technical specification of the Riparian Zones pro
     </tr>
   </tbody>
 </table>
+```
 
 *Table 2: LU/LC 2012/2018 shapefile attribute definition*
 
@@ -438,35 +450,35 @@ THEME_DELIVERY UNIT ID_PRODUCT_VERSION
 
 *with the following detailed meanings:*
 
-> THEME (3-letter abbreviation)
+- THEME (3-letter abbreviation)
 
->> \'rpz\' = \"Riparian Zones\"
+  - [\'rpz\' = \"Riparian Zones\"]{custom-style="NormalLine"}\
 
-> DELIVERY UNIT ID (6-letter)
+- DELIVERY UNIT ID (6-letter)
 
->> \'DU001A\' = \"Delivery Unit DU001A\" (A = All; full delivery)
->>
->> \'DU002A\' = \"Delivery Unit DU002A\" (A = All; full delivery)
->>
->> \'DU003B\' = \"Delivery Unit DU003B\" (B - Z = partial delivery)
+  -  \'DU001A\' = \"Delivery Unit DU001A\" (A = All; full delivery)
 
-> PRODUCT (4-letter abbreviation)
+  - \'DU002A\' = \"Delivery Unit DU002A\" (A = All; full delivery)
 
->> \'lclu\' = \"Land Cover / Land Use Classification\"
->>
->> \'2012_2018\' = \"Reference years\"
+  - \'DU003B\' = \"Delivery Unit DU003B\" (B - Z = partial delivery)
 
-> VERSION
+- PRODUCT (4-letter abbreviation)
 
->> \'v01\' = \"Version 1\"
->>
->> \'v02\' = \"Version 2\"
->>
->> \'v03\' = \"Version 3\"
+  - \'lclu\' = \"Land Cover / Land Use Classification\"
 
-> DATA FORMAT
+  - \'2012_2018\' = \"Reference years\"
 
->> '.shp' = "ESRI shapefile format"
+- VERSION
+
+  - \'v01\' = \"Version 1\"
+
+  - \'v02\' = \"Version 2\"
+
+  - \'v03\' = \"Version 3\"
+
+- DATA FORMAT
+
+  - ['.shp' = "ESRI shapefile format"]{custom-style="NormalLine"}\
 
 Example: rpz_DU001A_lclu_2012_2018_v03.shp
 
@@ -513,7 +525,7 @@ The Parent Scene Identification Layer (PSIL) is an auxiliary vector file deliver
 
 The PSIL should allow to:
 
-1.  Identify the main EO dataset used to produce any polygons in the map. This is important for:
+1.  [Identify the main EO dataset used to produce any polygons in the map. This is important for:]{custom-style="NormalLine"}\
 
 a.  understanding the delineation of polygons
 
@@ -528,6 +540,8 @@ c.  recreating the production environment (for validation or in case of disconti
 4.  Compare input data from other CLMS.
 
 The PSIL contains the following specifications shown in Table 4.
+
+\
 
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                    **Class Coding / Attribution**                                                                                                                           
@@ -563,6 +577,8 @@ The PSIL contains the following specifications shown in Table 4.
 
 *Table 4: PSIL 2012 shapefile attribute definition*
 
+\
+
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                    **Class Coding / Attribution**                                                                                                      
   ---------------- ------------------------------------------------------------------------------------- ----------------------- --------------------- --------------------
@@ -592,6 +608,8 @@ The PSIL contains the following specifications shown in Table 4.
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 *Table 5: PSIL 2018 shapefile attribute definition*
+
+\
 
   -----------------------------------------------------------------------
     **Entry for \[Sensor\]**                **Description**
@@ -676,6 +694,8 @@ All considered VHR missions had to fulfil certain mission specifications to be e
 - Off-Nadir angle lower or equal than 30°
 
 According to these requirements, the following eligible Copernicus Contribution Missions (CCMs) were considered (see Table 7).
+
+\
 
 +-----------------------------------------------------------------------+
 | CCM (2012) -- VHR2                                                    |
@@ -827,7 +847,7 @@ On-screen mapping scale is 1:5.000 -- 1:10.000 depending on the landscape and fe
 
 Objects may not overlap. In case of real objects overlay, the following rules apply:
 
-- If objects overlap on **different levels**, the top level is mapped.\
+- If objects overlap on **different levels**, the top level is mapped.
   Example: if an artificial canal overlaps a river, the canal is mapped continuously.
 
 - If objects overlap on **the same level**, the visually dominant object is mapped continuously. However, if roads and railways meet on the same level, railways are mapped continuously to maintain the railway network.
@@ -840,36 +860,38 @@ The priority rules applied are defined as follows:
 
 - Objects \<0,5 ha are added to the neighbouring object of the same upper class.
 
-- Objects \<0,5 ha are added to the neighbouring object with the longest common border line.\
-  Exception: Objects surrounded by railways or roads.\
+- Objects \<0,5 ha are added to the neighbouring object with the longest common border line.
+  Exception: Objects surrounded by railways or roads.
   If an object is below the MMU size and is completely surrounded by a road or railway network, it shall be aggregated with that surrounding traffic line. However, an exception is made for urban objects. Please see respective definition with Class 1.x.x.x.
 
 **Application of Additional Data Sources**
 
 For data interpretation, additional data sources like CORINE Land Cover (CLC) 2006/2012/2018, Urban Atlas (UA) 2012/2018, topographic maps, national Web Map Service (WMS) services, Commercial Off-the-Shelf (COTS) navigation data and auxiliary data including local expertise is used.
 
-- [UA2012/2018]{.underline}:\
-  UA2012/2018 data are integrated in the RZ data set, where UA urban centres[^6] are located inside the RZ. In that case, the MMU of all UA objects is kept; however the UA class codes are recoded to RZ CODE values (as far as possible).\
+- [UA2012/2018]{.underline}:
+  UA2012/2018 data are integrated in the RZ data set, where UA urban centres[^6] are located inside the RZ. In that case, the MMU of all UA objects is kept; however the UA class codes are recoded to RZ CODE values (as far as possible).
   Outside UA Urban centres, UA data are used as an important data source for class delineation and class interpretation. Thus, interpreting the same areas twice is avoided and data compatibility between UA and RZ is guaranteed.
 
-- [High-Resolution Layer (HRL) Imperviousness Degree (IM.D.)]{.underline}:\
+- [High-Resolution Layer (HRL) Imperviousness Degree (IM.D.)]{.underline}:
   HRL Imperviousness Degree is used to support the imperviousness degree derivation of urban classes during the first mapping phase for the reference year 2012. IM.D. is determined by either visual interpretation based on EO data and the Imperviousness Degree layer or derived by an automatic routine based on the IM.D. layer and road segments.
 
-- [HRL Tree Cover Density (TCD)]{.underline}:\
+- [HRL Tree Cover Density (TCD)]{.underline}:
   For the reference year 2012, HR Forest Layer is applied to support TCD classification. The classification is performed by either visual interpretation based on EO data and HR Forest Layer or derived by an automatic routine based on HR Forest Layer and forest segments.
 
-- [CLC2012/2018]{.underline}:\
+- [CLC2012/2018]{.underline}:
   CLC2012/2018 is used as important data source for class assignment. CLC data use ensures data compatibility between CLC and RZ.
 
-- [Landsat-8/Sentinel-2 data sets]{.underline}:\
+- [Landsat-8/Sentinel-2 data sets]{.underline}:
   For critical classes, Landsat-8/ Sentinel 2 data are used as additional data source. They are primarily used to support cropland/grassland differentiations and to detect irrigated areas, as in those cases, mono-temporal data analysis will not provide reliable results. Time series of summer images are collected for irrigated areas and images acquired in late summer/autumn/spring are used for grassland identification.
 
-- [In-situ data]{.underline}:\
+- [In-situ data]{.underline}:
   Diverse national in-situ data like WMS services, specific maps or classifications as well as descriptions and maps of Natura 2000 (N2000) or RAMSAR site are used to support the object interpretation.
 
 **Standard Comments**
 
 In order to clarify certain mapping delineations, there are some comments defined as product attributes. The following Table 9 lists the allowed entries for the product attributes \[COMMENT_12\] and \[COMMENT_18\]. In case of multiple comments, these must be separated by a semicolon followed by space character ("...; ...").
+
+\
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------+----------+
 | **List of standard comments**                                                                                                                                                      |                                                                   |          |
@@ -953,11 +975,11 @@ Not every change visible on the images is a real LC/LU change, e.g.:
 
 The introduction of false changes is avoided. As an example, highly non-probable changes are (non-exhaustive list):
 
-- 1.1.1 🡪 2.-8.x.x: urban areas seldom disappear
+- 1.1.1 → 2.-8.x.x: urban areas seldom disappear
 
-- 5.1.x 🡪 3.1.1 bushy vegetation of different climatic zones do not change to each other
+- 5.1.x → 3.1.1 bushy vegetation of different climatic zones do not change to each other
 
-- 8.1.2 🡪 X.X.X highly modified natural water courses and canals do not change to another class
+- 8.1.2 → X.X.X highly modified natural water courses and canals do not change to another class
 
 - etc.
 
@@ -981,6 +1003,8 @@ Land Cover Changes (LCC) are defined as changes that occur between 2012 (acquisi
 
 **Simple changes** are defined as where either a single polygon changes from one LC/LU class to another, or a new polygon ≥0,5 ha emerges within an existing, larger polygon (see Figure 12).
 
+\
+
 ![Figure 12: A Green urban area (1.4.0.0) ≥0,5 ha in 2012 changes into Continuous urban fabric (1.1.1.1) in 2018](./RZ2023-media/media/image19.png)
 
 *Simple changes at RZ AoI border (MMU exception)*
@@ -997,6 +1021,8 @@ The COMMENT attribute for these changes is *["area size exception"]{.underline}*
 
 *Single change class: complex change consisting of different LC/LU classes, but mapped as single change class*
 
+\
+
 ![Figure 13: Changes (Continuous urban fabric 0,4 ha, water area 0,15 ha) with an area &lt;0,5 ha and different classes make up a complex change area of 0,55 ha](./RZ2023-media/media/image20.png)
 
 In 2018, 0,4 ha of Managed grassland (4.1.0.0) has changed into Continuous urban fabric (1.1.1.1) and 0,15 ha has changed into a small water surface. Thus, for 2018, there are two classes with individual areas \<0,5 ha which together are \>0,5 ha, while in 2012 there was only one class. These areas are combined to a complex change area of \>0,5 ha by integrating the small water area into the Continuous urban fabric change (1.1.1.1).
@@ -1006,6 +1032,8 @@ This is a complex change without the COMMENT attribute *["Splitted change"]{.und
 *Disappearing polygons: complex change results in disappearing polygons*
 
 An existing 2012 object (2.2.2.0) changes into two or more different objects (2.2.1.0 and 1.1.2.0) where each new area is below the MMU, see Figure 14. Because the areas of change are \<0,5 ha and located in areas with different LC/LU, the new objects will, because of generalization and priority rules, be incorporated into their respective existing surrounding object.
+
+\
 
 ![Figure 14: An Olive grove (2.2.2.0) changed into Vineyards, fruit trees and berry plantations (2.2.1.0) and Industrial, commercial and military units (1.1.2.0), but because the areas are &lt;0,5 ha, they are merged with the neighbouring objects.](./RZ2023-media/media/image21.png)
 
@@ -1018,6 +1046,8 @@ The Olive grove (2.2.2.0) in 2012 completely changed into Industrial, commercial
 Individual change areas will be mapped as a complex change polygon even if they are \<0,5 ha (MMU), if their total combined area is ≥0,5 ha, see Figure 15. The minimum mapping unit for single polygons of complex changes is 0,05 ha. Objects \<0,05 ha will be generalised.
 
 For topological reasons this type of complex change is given the COMMENT attribute *["Splitted change"]{.underline}* , see Table 9.
+
+\
 
 ![Figure 15: Urban expansion: Several changes with an area \<0,5 ha make up a complex change area of 0,5 ha (0,1 ha of 4.1.0.0 and 0,4 ha of 2.1.1.0 changed to 0,5 ha of 1.1.1.1)](./RZ2023-media/media/image22.png)
 
@@ -1067,11 +1097,15 @@ Being the most frequently occurring change type, changes ≥0,5 ha connected to 
 
 [Increase from 2012 to 2018]{.underline}
 
+\
+
 ![Figure 17: Simple change](./RZ2023-media/media/image24.png)
 
 Urban fabric (predominantly public and private units) (1.1.1) increases with an area ≥0,5 ha in 2018 by occupying Natural & semi-natural grassland (4.2.x) from 2012.
 
 [Decrease from 2012 to 2018]{.underline}
+
+\
 
 ![Figure 18: Simple change](./RZ2023-media/media/image25.png)
 
@@ -1080,6 +1114,8 @@ The area of an Olive grove (2.2.2) decreases in 2018. The remaining area of the 
 [Special case: change \<0,5 ha integrated into neighbouring change of ≥0,5 ha]{.underline}
 
 Change objects with an area smaller than the MMU can be integrated into an adjacent change with an area of ≥0,5 ha.
+
+\
 
 ![Figure 19: Small change integrated into adjacent change](./RZ2023-media/media/image26.png)
 
@@ -1091,6 +1127,8 @@ In this case, in 2018, there are two classes mapped in the Riparian Zones produc
 
 If the size of a polygon decreases to below 0,5 ha due to a change of an area ≥0,5 ha, it will disappear in the 2018 interpretation because of generalisation (see Figure 20).
 
+\
+
 ![Figure 20: Generalisation (disappearing polygon)](./RZ2023-media/media/image27.png)
 
 0,3 ha of a polygon of 0,7 ha Green urban area (1.4) in 2012 changed into Urban fabric (1.1.1) in 2018. The 0,4 ha area of the remaining Green urban area is then below the MMU. Consequently, this remaining part is generalised into Urban fabric (1.1.1) in 2018.
@@ -1099,11 +1137,15 @@ If the size of a polygon decreases to below 0,5 ha due to a change of an area �
 
 The evolution of a feature that existed in 2012 but was then ≤0,5 ha (and thus not mapped), to an area ≥0,5 ha in 2018. An increase with ≥0,5 ha must be mapped in 2018 (see Figure 21).
 
+\
+
 ![Figure 21: A new Aquaculture pond (8.2.3) is established on semi-natural grassland (4.2.x).](./RZ2023-media/media/image28.png)
 
 **Special case: A new established feature with "splitted change"**
 
 A new feature ≥0,5 ha (or a feature that existed in 2012, but used to be ≤0,5 ha, thus, not mapped) which grows with a change ≥0,5 ha must be mapped.
+
+\
 
 ![Figure 22: New established feature with splitted change](./RZ2023-media/media/image29.png)
 
@@ -1118,6 +1160,8 @@ Standardized Quality Assurance (QA) procedures have been developed to assure a c
 The LC/LU product is subject to a permanent Quality Control by experienced image analysts and GIS experts. All relevant topology and plausibility checks to be performed in a geodatabase are listed in Table 10.
 
 **List of Quality Control Steps**
+
+\
 
 +-----------------------------------+------------------------------------------------------------------+---------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |                                   |                                                                  |                                                                                             |                                                                                                          |                                                                                                                                                                                                                                                   |
