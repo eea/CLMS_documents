@@ -17,6 +17,8 @@ Denmark\
 [**https://land.copernicus.eu/**](https://land.copernicus.eu/)
 :::
 
+{{< pagebreak >}}
+
 #  Introduction 
 
 ## Scope
@@ -49,7 +51,7 @@ After referring to related documents, this section continues with some InSAR-spe
 
 {{< pagebreak >}}
 
-# EGMS PRODUCT OVERVIEW
+# EGMS Product Overview
 
 The European Ground Motion Service provides three main InSAR products for visualisation, analysis and download by users of the service's dissemination platform.
 
@@ -105,7 +107,7 @@ The process of generating the Calibrated (see section 2.2) and the Ortho (see Se
 
 {{< pagebreak >}}
 
-# PROJECTION AND DATUM
+# Projection and Datum
 
 *Basic* and *Calibrated* products are **point** databases (i.e., 'vector data' in GIS jargon). As such, the choice of projection and datum does not affect the product quality - they can be reprojected on-the-fly without any geometric distortion. Modern GIS platforms can make such reprojections rapidly, so the choice of projection for storage and delivery of these products is not critical. However, a uniform projection is used for EGMS products using the European Grid (ETRS89-LAEA), a standard based upon the ETRS89 Lambert Azimuthal Equal-Area projection coordinate reference system, with the centre of the projection at the point 52° N, 10° E. In addition, non-projected (geographic) coordinates using the WGS84 datum are annotated for each measurement point in *Basic* and *Calibrated* products.
 
@@ -113,7 +115,7 @@ EGMS *Ortho* products (which are in raster format) are based upon a 100 m grid, 
 
 {{< pagebreak >}}
 
-# EGMS PRODUCT SPECIFICATIONS
+# EGMS Product Specifications
 
 This section details the specifications for each of the three EGMS products. Note, for *Basic* and *Calibrated* products, the specifications are common to both ascending and descending geometries. This does not apply to *Ortho* products that are made from the decomposition of both geometries.
 
@@ -351,7 +353,7 @@ The model is available for download via the CLMS page dedicated to EGMS (https:/
 
 {{< pagebreak >}}
 
-# EGMS PRODUCT ATTRIBUTES
+# EGMS Product Attributes
 
 This section details the data-fields (attributes) that are provided with each of the EGMS products. Note, for *Basic* and *Calibrated* products, the attributes are common to both ascending and descending geometries. This does not apply to *Ortho* products that are made from the decomposition of both geometries
 
@@ -482,7 +484,7 @@ For more details please refer to document \[RD8\].
   
 {{< pagebreak >}}
 
-# EGMS PRODUCT FORMAT
+# EGMS Product Format
 
 This section details the standard format of EGMS products. Note, for *Basic* and *Calibrated* products, the formats are common to both ascending and descending geometries. This does not apply to *Ortho* products that are made from the decomposition of both geometries.
 
@@ -691,7 +693,7 @@ Note in these sections, EGMS products names are abbreviated to their code-refere
 ```
 :::
 
-*Table 10 Example of XML header file*
+  : Table 10 Example of XML header file
 
 
 ## Convention for Burst Data Files Names
@@ -850,7 +852,7 @@ if __name__ == "__main__":
     assert uid_egms == "088-0282-IW2-VV" 
 ```
 
-*Table 11 Unique burst cycle ID for Sentinel-1*
+  ; Table 11 Unique burst cycle ID for Sentinel-1
 
 EGMS is a one-delivery-per-year project, and, for each delivery, data is contained in a pre-defined temporal range.
 
@@ -1254,7 +1256,7 @@ if __name__ == "__main__":
     assert uid_decoded["PIXEL"] == pixel 
 ```
 
-*Table 12 Unique MP\'s code over the entire Europe for Basic and Calibrated products.*
+  : Table 12 Unique MP\'s code over the entire Europe for Basic and Calibrated products.
       
 Each Ortho product measurement point's code follows a precise convention, outlined by the formula in Table 13.
 
@@ -1440,7 +1442,7 @@ EstimatedSTD_Acc = sqrt(invG(1,1))*EstimatedSTD_Noise; %%% in [mm/yr]
 Estimated_Acc_And_Std = [EstimatedAcceleration EstimatedSTD_Acc]
 ```
 
-*Table 14 Data delivery field evaluation*
+  : Table 14 Data delivery field evaluation
 
 {{< pagebreak >}}
 
