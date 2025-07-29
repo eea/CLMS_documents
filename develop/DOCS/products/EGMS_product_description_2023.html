@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2025-01-10">
-<meta name="keywords" content="InSAR displacement data, Satellite line-of-sight, GNSS time-series data, Absolute displacement measurements, Vertical displacement component, East-west displacement component, ETRS89-LAEA projection, Temporal coherence, Amplitude dispersion index, Sentinel-1 burst segmentation">
-<meta name="description" content="This document provides a comprehensive description of the European Ground Motion Service (EGMS) products offered within the Copernicus Land Monitoring Service. It details the specifications, formats, attribute tables, and metadata associated with the EGMS Basic, Calibrated, and Ortho products, offering users a thorough understanding of these datasets. The document focuses on the technical aspects of the products, including InSAR-specific definitions, map projections, product attributes, and data formats, enabling users to effectively utilise the EGMS for ground motion analysis and monitoring.">
+<meta name="keywords" content="InSAR displacement data, Satellite line-of-sight, GNSS time-series data, Vertical and east-west displacements, ETRS89-LAEA projection, Temporal coherence, Amplitude dispersion index, A-EPND reference model, Sentinel-1 burst segmentation, Mean velocity standard deviation">
+<meta name="description" content="This document provides a comprehensive description of the products delivered by the European Ground Motion Service (EGMS) within the Copernicus Land Monitoring Service (CLMS). It details the specifications, formats, attribute tables, and metadata associated with the EGMS Basic, Calibrated, and Ortho products. The document focuses on the technical aspects of these InSAR-derived ground motion products, including their processing methodologies, spatial and temporal resolutions, coordinate reference systems, and data access mechanisms, enabling users to effectively utilise the service.">
 
 <title>European Ground Motion Service (EGMS) - Product Description and Format Specification – Technical Library</title>
 <style>
@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "European Ground Motion Service (EGMS) - Product Description and Format Specification",
-    "description": "This document provides a comprehensive description of the European Ground Motion Service (EGMS) products offered within the Copernicus Land Monitoring Service. It details the specifications, formats, attribute tables, and metadata associated with the EGMS Basic, Calibrated, and Ortho products, offering users a thorough understanding of these datasets. The document focuses on the technical aspects of the products, including InSAR-specific definitions, map projections, product attributes, and data formats, enabling users to effectively utilise the EGMS for ground motion analysis and monitoring.",
+    "description": "This document provides a comprehensive description of the products delivered by the European Ground Motion Service (EGMS) within the Copernicus Land Monitoring Service (CLMS). It details the specifications, formats, attribute tables, and metadata associated with the EGMS Basic, Calibrated, and Ortho products. The document focuses on the technical aspects of these InSAR-derived ground motion products, including their processing methodologies, spatial and temporal resolutions, coordinate reference systems, and data access mechanisms, enabling users to effectively utilise the service.",
     "datePublished": "January 10, 2025",
     "author": {
       "@type": "Person",
@@ -199,28 +199,28 @@ window.Quarto = {
   <li><a href="#scope" id="toc-scope" class="nav-link" data-scroll-target="#scope"><span class="header-section-number">1.1</span> Scope</a></li>
   <li><a href="#references-and-related-documents" id="toc-references-and-related-documents" class="nav-link" data-scroll-target="#references-and-related-documents"><span class="header-section-number">1.2</span> References and Related Documents</a></li>
   </ul></li>
-  <li><a href="#egms-product-overview" id="toc-egms-product-overview" class="nav-link" data-scroll-target="#egms-product-overview"><span class="header-section-number">2</span> EGMS PRODUCT OVERVIEW</a>
+  <li><a href="#egms-product-overview" id="toc-egms-product-overview" class="nav-link" data-scroll-target="#egms-product-overview"><span class="header-section-number">2</span> EGMS Product Overview</a>
   <ul class="collapse">
   <li><a href="#the-egms-basic-product" id="toc-the-egms-basic-product" class="nav-link" data-scroll-target="#the-egms-basic-product"><span class="header-section-number">2.1</span> The EGMS Basic product</a></li>
   <li><a href="#the-egms-calibrated-product" id="toc-the-egms-calibrated-product" class="nav-link" data-scroll-target="#the-egms-calibrated-product"><span class="header-section-number">2.2</span> The EGMS Calibrated product</a></li>
   <li><a href="#the-egms-ortho-product" id="toc-the-egms-ortho-product" class="nav-link" data-scroll-target="#the-egms-ortho-product"><span class="header-section-number">2.3</span> The EGMS Ortho product</a></li>
   <li><a href="#the-egms-a-epnd-gnss-based-reference-model" id="toc-the-egms-a-epnd-gnss-based-reference-model" class="nav-link" data-scroll-target="#the-egms-a-epnd-gnss-based-reference-model"><span class="header-section-number">2.4</span> The EGMS A-EPND GNSS-based reference model</a></li>
   </ul></li>
-  <li><a href="#projection-and-datum" id="toc-projection-and-datum" class="nav-link" data-scroll-target="#projection-and-datum"><span class="header-section-number">3</span> PROJECTION AND DATUM</a></li>
-  <li><a href="#egms-product-specifications" id="toc-egms-product-specifications" class="nav-link" data-scroll-target="#egms-product-specifications"><span class="header-section-number">4</span> EGMS PRODUCT SPECIFICATIONS</a>
+  <li><a href="#projection-and-datum" id="toc-projection-and-datum" class="nav-link" data-scroll-target="#projection-and-datum"><span class="header-section-number">3</span> Projection and Datum</a></li>
+  <li><a href="#egms-product-specifications" id="toc-egms-product-specifications" class="nav-link" data-scroll-target="#egms-product-specifications"><span class="header-section-number">4</span> EGMS Product Specifications</a>
   <ul class="collapse">
   <li><a href="#egms-basic-product-specifications" id="toc-egms-basic-product-specifications" class="nav-link" data-scroll-target="#egms-basic-product-specifications"><span class="header-section-number">4.1</span> EGMS Basic product specifications</a></li>
   <li><a href="#egms-calibrated-product-specifications" id="toc-egms-calibrated-product-specifications" class="nav-link" data-scroll-target="#egms-calibrated-product-specifications"><span class="header-section-number">4.2</span> EGMS Calibrated product specifications</a></li>
   <li><a href="#egms-ortho-product-specifications" id="toc-egms-ortho-product-specifications" class="nav-link" data-scroll-target="#egms-ortho-product-specifications"><span class="header-section-number">4.3</span> EGMS Ortho product specifications</a></li>
   <li><a href="#gnss-model-specifications" id="toc-gnss-model-specifications" class="nav-link" data-scroll-target="#gnss-model-specifications"><span class="header-section-number">4.4</span> GNSS model specifications</a></li>
   </ul></li>
-  <li><a href="#egms-product-attributes" id="toc-egms-product-attributes" class="nav-link" data-scroll-target="#egms-product-attributes"><span class="header-section-number">5</span> EGMS PRODUCT ATTRIBUTES</a>
+  <li><a href="#egms-product-attributes" id="toc-egms-product-attributes" class="nav-link" data-scroll-target="#egms-product-attributes"><span class="header-section-number">5</span> EGMS Product Attributes</a>
   <ul class="collapse">
   <li><a href="#basic-and-calibrated-product-attributes" id="toc-basic-and-calibrated-product-attributes" class="nav-link" data-scroll-target="#basic-and-calibrated-product-attributes"><span class="header-section-number">5.1</span> Basic and Calibrated product attributes</a></li>
   <li><a href="#ortho-product-attributes" id="toc-ortho-product-attributes" class="nav-link" data-scroll-target="#ortho-product-attributes"><span class="header-section-number">5.2</span> Ortho product attributes</a></li>
   <li><a href="#gnss-model-attributes" id="toc-gnss-model-attributes" class="nav-link" data-scroll-target="#gnss-model-attributes"><span class="header-section-number">5.3</span> GNSS model attributes</a></li>
   </ul></li>
-  <li><a href="#egms-product-format" id="toc-egms-product-format" class="nav-link" data-scroll-target="#egms-product-format"><span class="header-section-number">6</span> EGMS PRODUCT FORMAT</a>
+  <li><a href="#egms-product-format" id="toc-egms-product-format" class="nav-link" data-scroll-target="#egms-product-format"><span class="header-section-number">6</span> EGMS Product Format</a>
   <ul class="collapse">
   <li><a href="#egms-basic-product-format" id="toc-egms-basic-product-format" class="nav-link" data-scroll-target="#egms-basic-product-format"><span class="header-section-number">6.1</span> EGMS Basic product format</a></li>
   <li><a href="#egms-calibrated-product-format-level-2b" id="toc-egms-calibrated-product-format-level-2b" class="nav-link" data-scroll-target="#egms-calibrated-product-format-level-2b"><span class="header-section-number">6.2</span> EGMS Calibrated product format (Level 2b)</a></li>
@@ -272,7 +272,7 @@ window.Quarto = {
 
 <div>
   <div class="description">
-    This document provides a comprehensive description of the European Ground Motion Service (EGMS) products offered within the Copernicus Land Monitoring Service. It details the specifications, formats, attribute tables, and metadata associated with the EGMS Basic, Calibrated, and Ortho products, offering users a thorough understanding of these datasets. The document focuses on the technical aspects of the products, including InSAR-specific definitions, map projections, product attributes, and data formats, enabling users to effectively utilise the EGMS for ground motion analysis and monitoring.
+    This document provides a comprehensive description of the products delivered by the European Ground Motion Service (EGMS) within the Copernicus Land Monitoring Service (CLMS). It details the specifications, formats, attribute tables, and metadata associated with the EGMS Basic, Calibrated, and Ortho products. The document focuses on the technical aspects of these InSAR-derived ground motion products, including their processing methodologies, spatial and temporal resolutions, coordinate reference systems, and data access mechanisms, enabling users to effectively utilise the service.
   </div>
 </div>
 
@@ -294,7 +294,7 @@ window.Quarto = {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>InSAR displacement data, Satellite line-of-sight, GNSS time-series data, Absolute displacement measurements, Vertical displacement component, East-west displacement component, ETRS89-LAEA projection, Temporal coherence, Amplitude dispersion index, Sentinel-1 burst segmentation</p>
+    <p>InSAR displacement data, Satellite line-of-sight, GNSS time-series data, Vertical and east-west displacements, ETRS89-LAEA projection, Temporal coherence, Amplitude dispersion index, A-EPND reference model, Sentinel-1 burst segmentation, Mean velocity standard deviation</p>
   </div>
 </div>
 
@@ -308,6 +308,7 @@ Kongens Nytorv 6<br>
 Denmark<br>
 <a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
 </div>
+<div style="page-break-after: always;"></div>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Figure  1  EGMS  Basic  (L2a)  product.  Provided  as  a  2D,  colour-coded  by  average  velocity,  map.  Displacement  data  provided  in  the  satellite  line-of-sight,  and  in  radar  geometry,  with  annotated  geolocalisation  and  quality  measures  per  measurement  point.  A  time  series  plot  is  associated  with  each  point.","url":"EGMS2023-media/media/image3.png"},{"@type":"ImageObject","caption":"Figure  2  EGMS  Ortho  product.  Absolute,  vertical  displacement.  The  gridded  nature  of  the  data  is  clearly  visible.","url":"EGMS2023-media/media/image4.png"},{"@type":"ImageObject","caption":"Figure  3  Ortho  products  grid.","url":"EGMS2023-media/media/image5.png"}]}
 </script>
@@ -414,7 +415,7 @@ Denmark<br>
 </section>
 </section>
 <section id="egms-product-overview" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> EGMS PRODUCT OVERVIEW</h1>
+<h1 data-number="2"><span class="header-section-number">2</span> EGMS Product Overview</h1>
 <p>The European Ground Motion Service provides three main InSAR products for visualisation, analysis and download by users of the service’s dissemination platform.</p>
 <ul>
 <li><p>The EGMS <em>Basic</em> product</p></li>
@@ -466,13 +467,13 @@ Denmark<br>
 </section>
 </section>
 <section id="projection-and-datum" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> PROJECTION AND DATUM</h1>
+<h1 data-number="3"><span class="header-section-number">3</span> Projection and Datum</h1>
 <p><em>Basic</em> and <em>Calibrated</em> products are <strong>point</strong> databases (i.e., ‘vector data’ in GIS jargon). As such, the choice of projection and datum does not affect the product quality - they can be reprojected on-the-fly without any geometric distortion. Modern GIS platforms can make such reprojections rapidly, so the choice of projection for storage and delivery of these products is not critical. However, a uniform projection is used for EGMS products using the European Grid (ETRS89-LAEA), a standard based upon the ETRS89 Lambert Azimuthal Equal-Area projection coordinate reference system, with the centre of the projection at the point 52° N, 10° E. In addition, non-projected (geographic) coordinates using the WGS84 datum are annotated for each measurement point in <em>Basic</em> and <em>Calibrated</em> products.</p>
 <p>EGMS <em>Ortho</em> products (which are in raster format) are based upon a 100 m grid, where each cell is dependent on the chosen projection and datum. When such data are reprojected, they must be resampled, and thus are susceptible to geometric distortions.</p>
 <div style="page-break-after: always;"></div>
 </section>
 <section id="egms-product-specifications" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> EGMS PRODUCT SPECIFICATIONS</h1>
+<h1 data-number="4"><span class="header-section-number">4</span> EGMS Product Specifications</h1>
 <p>This section details the specifications for each of the three EGMS products. Note, for <em>Basic</em> and <em>Calibrated</em> products, the specifications are common to both ascending and descending geometries. This does not apply to <em>Ortho</em> products that are made from the decomposition of both geometries.</p>
 <section id="egms-basic-product-specifications" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="egms-basic-product-specifications"><span class="header-section-number">4.1</span> EGMS Basic product specifications</h2>
@@ -817,7 +818,7 @@ Denmark<br>
 </section>
 </section>
 <section id="egms-product-attributes" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> EGMS PRODUCT ATTRIBUTES</h1>
+<h1 data-number="5"><span class="header-section-number">5</span> EGMS Product Attributes</h1>
 <p>This section details the data-fields (attributes) that are provided with each of the EGMS products. Note, for <em>Basic</em> and <em>Calibrated</em> products, the attributes are common to both ascending and descending geometries. This does not apply to <em>Ortho</em> products that are made from the decomposition of both geometries</p>
 <section id="basic-and-calibrated-product-attributes" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="basic-and-calibrated-product-attributes"><span class="header-section-number">5.1</span> Basic and Calibrated product attributes</h2>
@@ -1234,7 +1235,7 @@ The label assumes the values from 1 to N if there are more than one clusters in 
 </section>
 </section>
 <section id="egms-product-format" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> EGMS PRODUCT FORMAT</h1>
+<h1 data-number="6"><span class="header-section-number">6</span> EGMS Product Format</h1>
 <p>This section details the standard format of EGMS products. Note, for <em>Basic</em> and <em>Calibrated</em> products, the formats are common to both ascending and descending geometries. This does not apply to <em>Ortho</em> products that are made from the decomposition of both geometries.</p>
 <section id="egms-basic-product-format" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="egms-basic-product-format"><span class="header-section-number">6.1</span> EGMS Basic product format</h2>
@@ -1516,7 +1517,7 @@ N if there are more than one clusters in the CSV file (where N is the number of 
 <span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">BURST</span><span class="dt">&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><em>Table 10 Example of XML header file</em></p>
+<p>: Table 10 Example of XML header file</p>
 </section>
 <section id="convention-for-burst-data-files-names" class="level2" data-number="11.2">
 <h2 data-number="11.2" class="anchored" data-anchor-id="convention-for-burst-data-files-names"><span class="header-section-number">11.2</span> Convention for Burst Data Files Names</h2>
@@ -1670,7 +1671,7 @@ N if there are more than one clusters in the CSV file (where N is the number of 
 <span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a><span class="in">    uid_egms = get_egms_burst_id(*bc_id_egms, "IW2", "VV") </span></span>
 <span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_egms == "088-0282-IW2-VV" </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>Table 11 Unique burst cycle ID for Sentinel-1</em></p>
+<p>; Table 11 Unique burst cycle ID for Sentinel-1</p>
 <p>EGMS is a one-delivery-per-year project, and, for each delivery, data is contained in a pre-defined temporal range.</p>
 <p>The rule to be applied from the second update inward is a 5 full years nominal time range (e.g., images from 01/01/2018 to 31/12/2022 for the second update, images from 01/01/2019 to 31/12/2023 for the third update, and so on).</p>
 <p>The suffix _xxxx_yyyy_z is not applied to deliverables belonging to the Baseline or to the First update.</p>
@@ -2052,7 +2053,7 @@ N if there are more than one clusters in the CSV file (where N is the number of 
 <span id="cb3-347"><a href="#cb3-347" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_decoded["LINE"] == line </span></span>
 <span id="cb3-348"><a href="#cb3-348" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-349"><a href="#cb3-349" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_decoded["PIXEL"] == pixel </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>Table 12 Unique MP's code over the entire Europe for Basic and Calibrated products.</em></p>
+<p>: Table 12 Unique MP's code over the entire Europe for Basic and Calibrated products.</p>
 <p>Each Ortho product measurement point’s code follows a precise convention, outlined by the formula in Table 13.</p>
 <p><br>
 </p>
@@ -2229,7 +2230,7 @@ N if there are more than one clusters in the CSV file (where N is the number of 
 <span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a>EstimatedSTD_Acc = sqrt(invG(1,1))*EstimatedSTD_Noise; %%% in <span class="co">[</span><span class="ot">mm/yr</span><span class="co">]</span> </span>
 <span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a>Estimated_Acc_And_Std = <span class="co">[</span><span class="ot">EstimatedAcceleration EstimatedSTD_Acc</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>Table 14 Data delivery field evaluation</em></p>
+<p>: Table 14 Data delivery field evaluation</p>
 <div style="page-break-after: always;"></div>
 </section>
 </section>
