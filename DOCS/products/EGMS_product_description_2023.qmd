@@ -47,9 +47,7 @@ After referring to related documents, this section continues with some InSAR-spe
 | 7.     | End User Requirements                                | 20/12/2021 | EGMS-D15-URD-SC1-8.0-017   | EGMS Original Consortium    |
 +--------+------------------------------------------------------+------------+----------------------------+-----------------------------+
 | 8.     | GNSS calibration report                              | 20/12/2021 | EGMS-D19.1-GCR-SC1-3.0-014 | EGMS Original Consortium    |
-+--------+------------------------------------------------------+------------+----------------------------+-----------------------------+
-
-{{< pagebreak >}}
++--------+------------------------------------------------------+------------+----------------------------+-----------------------------+{{< pagebreak >}}
 
 # EGMS Product Overview
 
@@ -103,17 +101,13 @@ In the following, some characteristics of the EGMS *Ortho* product:
 
 ## The EGMS A-EPND GNSS-based reference model
 
-The process of generating the Calibrated (see section 2.2) and the Ortho (see Section 2.3) products requires the availability of a reference model derived from GNSS data. The augmented EPND (A-EPND) model is produced based on GNSS data from various sources, with the EUREF Densification product (EPND) as the main source. In order to exploit the strengths of both InSAR and GNSS data, the reference model contains average velocities in 3D (east, north, up) on a 50-km grid. Deviations from the constant velocity model, as well as motion on shorter spatial scales than the reference model, will be estimated from InSAR data with high spatial density. Further details about the A-EPND model can be found in RD8.
-
-{{< pagebreak >}}
+The process of generating the Calibrated (see section 2.2) and the Ortho (see Section 2.3) products requires the availability of a reference model derived from GNSS data. The augmented EPND (A-EPND) model is produced based on GNSS data from various sources, with the EUREF Densification product (EPND) as the main source. In order to exploit the strengths of both InSAR and GNSS data, the reference model contains average velocities in 3D (east, north, up) on a 50-km grid. Deviations from the constant velocity model, as well as motion on shorter spatial scales than the reference model, will be estimated from InSAR data with high spatial density. Further details about the A-EPND model can be found in RD8. {{< pagebreak >}}
 
 # Projection and Datum
 
 *Basic* and *Calibrated* products are **point** databases (i.e., 'vector data' in GIS jargon). As such, the choice of projection and datum does not affect the product quality - they can be reprojected on-the-fly without any geometric distortion. Modern GIS platforms can make such reprojections rapidly, so the choice of projection for storage and delivery of these products is not critical. However, a uniform projection is used for EGMS products using the European Grid (ETRS89-LAEA), a standard based upon the ETRS89 Lambert Azimuthal Equal-Area projection coordinate reference system, with the centre of the projection at the point 52° N, 10° E. In addition, non-projected (geographic) coordinates using the WGS84 datum are annotated for each measurement point in *Basic* and *Calibrated* products.
 
-EGMS *Ortho* products (which are in raster format) are based upon a 100 m grid, where each cell is dependent on the chosen projection and datum. When such data are reprojected, they must be resampled, and thus are susceptible to geometric distortions.
-
-{{< pagebreak >}}
+EGMS *Ortho* products (which are in raster format) are based upon a 100 m grid, where each cell is dependent on the chosen projection and datum. When such data are reprojected, they must be resampled, and thus are susceptible to geometric distortions.{{< pagebreak >}}
 
 # EGMS Product Specifications
 
@@ -349,9 +343,7 @@ The model is available for download via the CLMS page dedicated to EGMS (https:/
 | MP density               | N/A                                                                                                                                                                                                                                                                                                    |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-: Table 4 GNSS model product specifications
-
-{{< pagebreak >}}
+: Table 4 GNSS model product specifications{{< pagebreak >}}
 
 # EGMS Product Attributes
 
@@ -506,9 +498,7 @@ For each tile there are two Geotiff files containing the vertical mean velocity 
 
 ## GNSS model product format 
 
-The GNSS model is delivered as a single CSV file, with an accompanying XML header file with metadata from the production.
-
-{{< pagebreak >}}
+The GNSS model is delivered as a single CSV file, with an accompanying XML header file with metadata from the production.{{< pagebreak >}}
 
 # Downloading EGMS Products
 
@@ -546,17 +536,13 @@ A number of non-InSAR datasets are used in the production and validation of EGMS
 |                               | <https://epnd.sgo-penc.hu/>                                                                                                                                                                                        |
 +-------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-: Table 8 Ancillary datasets used in EGMS production
-
-{{< pagebreak >}}
+: Table 8 Ancillary datasets used in EGMS production{{< pagebreak >}}
 
 # References
 
 Cooksley, G et al (2004) S5: Service Portfolio Specifications. ESA-Terrafirma project dossier.
 
-Davis, B (2020) Precision and accuracy in glacial geology. AntarcticGlaciers.org. Retrieved 29 March 2021 from: http://www.antarcticglaciers.org/glacial-geology/dating-glacial-sediments-2/precision-and-accuracy-glacial-geology/
-
-{{< pagebreak >}}
+Davis, B (2020) Precision and accuracy in glacial geology. AntarcticGlaciers.org. Retrieved 29 March 2021 from: http://www.antarcticglaciers.org/glacial-geology/dating-glacial-sediments-2/precision-and-accuracy-glacial-geology/{{< pagebreak >}}
 
 # Appendix A
 
@@ -611,89 +597,48 @@ Note in these sections, EGMS products names are abbreviated to their code-refere
 
 \
 
-::: {custom-style="LeftAlign"}
 ```markdown
 <?xml version="1.0"?> 
-
 <BURST> 
-
   <product_level>L2b</product_level> 
-
   <burst_id>0282</burst_id> 
-
   <production_facility>2</production_facility> 
-
   <production_date>02/07/2021</production_date> 
-
   <dem> 
-
     <version>EU-DEM v1.1</version> 
-
   </dem> 
-
   <corine> 
-
     <version>2018, Version 2020_20u1</version> 
-
   </corine> 
-
   <sce> 
-
     <version></version> 
-
   </sce> 
-
   <gnss> 
-
     <version>1.0</version> 
-
   </gnss> 
-
   <clusters>2</clusters> 
-
   <reference> 
-
     <image>               <product_id>S1B_IW_SLC__1SDV_20200624T051142_20200624T051210_022171_02A142</product_id> 
-
       <orbit_type> AUX_POEORB</orbit_type> 
-
     </image> 
-
   </reference> 
-
   <dataset> 
-
     <image> 
-
 <product_id>S1A_IW_SLC__1SDV_20201027T170648_20201027T170715_040789_04D780</product_id> 
-
       <orbit_type> AUX_POEORB</orbit_type> 
-
     </image> 
-
     <image> 
-
 <product_id>S1B_IW_SLC__1SDV_20200624T051142_20200624T051210_022171_02A142</product_id> 
-
       <orbit_type> AUX_POEORB</orbit_type> 
-
     </image> 
-
     <image> 
-
 <product_id>S1B_IW_SLC__1SDV_20210728T051142_20210728T051210_022171_02A142</product_id> 
-
       <orbit_type> AUX_POEORB</orbit_type> 
-
     </image> 
-
   </dataset> 
-
 </BURST> 
 ```
-:::
-
-  : Table 10 Example of XML header file
+*Table 10 Example of XML header file*
 
 
 ## Convention for Burst Data Files Names
@@ -705,154 +650,81 @@ Each burst file name follows a precise convention, which is specified and implem
 ```markdown
 ​​### This code demonstrates how to calculate​​​ unique burst cycle ID for Sentinel-1 
 
- 
-
 import math 
-
- 
-
+  
 ## S1 IW timing parameters (NB! Must be 64-bit precision or higher!) 
-
 TPRE  = 2.298687 
-
 TBEAM = 2.758273 
-
 TORB  = 12*86400/175 
 
- 
-
 def get_egms_burst_id(r, bc, swath, polarization): 
-
-    return "{:03d}-{:04d}-{:s}-{:s}".format(r, bc, swath, polarization) 
-
- 
-
+    return "{:03d}-{:04d}-{:s}-{:s}".format(r, bc, swath, polarization)
+    
 def get_esa_burst_cycle_id(delta_tb): 
-
     return math.floor((delta_tb - TPRE)/TBEAM) + 1 
-
- 
-
+    
 def get_egms_burst_cycle_id(r, anx_time): 
-
     # ESA burst cycle ID of first complete burst cycle in relative orbit "r".     
-
     # NB! This calculation assumes that (r-1)*TORB is not an exact multiple 
-
     # of TBEAM, which is true for all 175 S1 relative orbits.     
-
     id_esa_first = get_esa_burst_cycle_id((r-1)*TORB) + 1  
 
- 
-
     # ESA burst cycle ID for "anx_time" seconds into relative orbit "r". 
-
     # Note that "anx_time" is sensing time of middle of a burst.has to be 
-
     id_esa = get_esa_burst_cycle_id((r-1)*TORB + anx_time) 
 
- 
-
     # EGMS burst ID is decomposed into (relative orbit, burst cycle within orbit). 
-
     return (r, id_esa - id_esa_first + 1) 
-
- 
-
  
 
 if __name__ == "__main__": 
-
     ## Example: burst covering Mulhouse in the EGMS ORR ascending data. 
-
- 
 
     ## Product: S1B_IW_SLC__1SDV_20180902T172257_20180902T172324_012539_01721C_6F69.SAFE 
 
- 
-
     ## Annotation XML file in <Product>/annotation/: 
-
     ## s1b-iw2-slc-vv-20180902t172258-20180902t172323-012539-01721c-005.xml 
 
- 
-
     # Relative orbit can be found, e.g., in <product>/manifest.safe. 
-
     r = 88 
 
- 
-
     # The following timing for first line of burst can be found in XML as 
-
     # <swathTiming/burstList/burst> (item #7) 
-
     anx_time = 775.1918283259 
 
- 
-
     # We need to adjust this to middle of burst for this calculation. 
-
     # Burst size is found in XML as 
-
     #   <swathTiming/linesPerBurst> 
-
     az_size = 1508 
 
-     
-
     # Azimuth sampling interval is found in XML as 
-
     #   <imageAnnotation/imageInformation/azimuthTimeInterval> 
-
     dt_az = 0.0020555563 
 
- 
-
     # Adjust timing reference to middle of burst, where 
-
     # zero doppler time is almost equal to sensing time. 
-
     # Note: it is sufficient that this calculation is accurate to within 
-
     # about 0.1 sec, so any line near middle of burst is fine. 
-
     anx_mid = anx_time + az_size/2*dt_az 
-
- 
-
  
 
     # ESA burst ID calculation 
-
     #   Should be equal to the following field, that will be present 
-
     #   in S1 IW SLC products from IPF v3.40. 
-
     #     <swathTiming/burstList/burst/burstID> 
-
     bc_id_esa = get_esa_burst_cycle_id((r-1)*TORB + anx_mid) 
-
     assert bc_id_esa == 187151 
 
- 
-
     # EGMS burst cycle ID 
-
     bc_id_egms = get_egms_burst_cycle_id(r, anx_mid) 
-
     assert bc_id_egms == (88, 282) 
 
- 
-
     # EGMS unique burst ID 
-
     uid_egms = get_egms_burst_id(*bc_id_egms, "IW2", "VV") 
-
     assert uid_egms == "088-0282-IW2-VV" 
 ```
 
-  ; Table 11 Unique burst cycle ID for Sentinel-1
+*Table 11 Unique burst cycle ID for Sentinel-1*
 
 EGMS is a one-delivery-per-year project, and, for each delivery, data is contained in a pre-defined temporal range.
 
@@ -906,357 +778,183 @@ Each Basic and Calibrated products measurement point's code follows a precise co
 
 ```markdown
 # DP representation of Sentinel-1 IW swath mnemonics 
-
 SWATH = {"IW1": 1, "IW2": 2, "IW3": 3} 
-
 LUT_SWATH = {} 
-
 for key in SWATH: 
-
     LUT_SWATH[SWATH[key]] = key 
 
- 
-
 # DP representation of IPE names 
-
 IPE = {"UNDEF": 0, "EGEOS": 1, "GAF": 2, "NORCE": 3, "TREA": 4} 
-
 LUT_IPE = {} 
-
 for key in IPE: 
-
     LUT_IPE[IPE[key]] = key 
 
- 
-
 # DP representation of polarization (ordered alphabetically). 
-
 POL = {"HH": 0, "HV": 1,  "VH": 2, "VV": 3} 
-
 LUT_POL = {} 
-
 for key in POL: 
-
     LUT_POL[POL[key]] = key 
 
- 
-
 # base62 alphabet 
-
 BASE62="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" 
-
 # base62 to DP lookup table for decoding 
-
 LUT_BASE62 = {} 
-
 for (i, c) in enumerate(BASE62): 
-
     LUT_BASE62[c] = i 
 
- 
-
- 
 
 def encode(n, p, pad=None): 
-
     if n < 0: 
-
         raise ValueError("Cannot encode negative numbers.") 
-
     res = "" 
-
     while True: 
-
         n, r = divmod(n, p) 
-
         res = BASE62[r] + res 
-
         if n == 0: 
-
             break 
-
     if pad is None: 
-
         return res 
-
     return res.rjust(pad, BASE62[0]) 
 
- 
-
- 
 
 def decode(code, p): 
-
     n = 0 
-
     for (i, c) in enumerate(code[::-1]): 
-
         n += LUT_BASE62[c]* p**i 
-
     return n 
-
- 
-
  
 
 def get_point_id(line, pixel, base, pad=None): 
-
     # Pixel: 16 bits (0-65535), S1 IW max = about 24,500 
-
     n = pixel 
-
     b = 16 
-
     # Line: 11 bits (0-2047), S1 IW max = about 1,470 
-
     n += line*(1 << b) 
-
     b += 11 
-
     return encode(n, base, pad) 
 
  
-
- 
-
 def get_burst_id(track, burstno, swath, pol, base, pad=None): 
 
- 
-
     # Polarization: 2 bits (0-3), HH/HV/VH/VV 
-
     n = POL[pol] 
-
     b = 2 
-
     # Swath: 2 bits (1-3), S1: IW1/IW2/IW3 
-
     n += SWATH[swath]*(1 << b) 
-
     b += 2 
-
     # Burst number: 12 bits ( 1-2148 ), S1 IW: 2147.xx burst cycles / orbit 
-
     n += burstno*(1 << b) 
-
     b += 12 
-
     # Track: 8 bits (1-175), S1: 175 orbits per repeat cycle 
-
     n += track*(1 << b) 
-
     b += 8 
-
     return encode(n, base, pad) 
 
  
-
- 
-
 def get_uid_b62(ipe, track, burstno, swath, pol, line, pixel): 
-
     point_id = get_point_id(line, pixel, 62, pad=5) 
-
     burst_id = get_burst_id(track, burstno, swath, pol, 62, pad=4) 
-
     ipe_id = BASE62[IPE[ipe]] 
-
     uid = ipe_id+burst_id+point_id 
-
     return uid 
 
- 
-
- 
 
 def analyze_uid_b62(uid): 
-
     res = {} 
-
     res["IPE"] = LUT_IPE[decode(uid[0], 62)] 
 
-     
-
     n, i = divmod(decode(uid[1:5],62), 2**2) 
-
     res["POL"] = LUT_POL[i] 
-
     n, i = divmod(n, 2**2)     
-
     res["SWATH"] = LUT_SWATH[i]     
-
     n, i = divmod(n, 2**12) 
-
     res["BURSTNO"] = i 
-
     res["TRACK"]   = n 
 
-     
-
     n, i = divmod(decode(uid[5:], 62), 2**16) 
-
     res["LINE"] = n 
-
     res["PIXEL"] = i 
-
     return res 
-
- 
 
 if __name__ == "__main__": 
 
- 
-
     ## Example: 
-
-     
 
     ipe = "NORCE" 
 
- 
-
     # Components of the burst ID 
-
     track = 88 
-
     burstno = 282 
-
     swath = "IW2" 
-
     pol = "VV" 
 
- 
-
     # Position of pixel within burst, where (0,0) is the 
-
     # first _valid_ line/pixel for the given burst in the reference scene for coregistration. 
-
 ​​    # * Note 1: If subpixel position estimation is used, ​​​ 
-
 ​​​    # ​please round to the integer​ ​​​​​​     ​line/pixel ​containing​​     ​ the ​​​ 
-
 ​​    # ​measurement point 
-
 ​​    # * Note 2: for multilooked DS measurements, please pick one ​   ​​ 
-
 ​​​    # ​line/pixel near the​​​​​     ​ centre of the multilooked DS, using an​ ​​ 
-
 ​​    # ​ algorithm that will not change over time. 
-
     # E.g., simply line = round(mean(lines)), and pixel = round(mean(lines)). This assumes that 
-
     # There is no full resolution PS in that pixel already, which should be a good assumption (?) 
-
     line = 1234 
-
     pixel = 12345 
 
-     
-
     ## Point ID - Maximum value for S1 IW: 
-
     # get_point_id(1470, 24400, 62) = '6WKEy' 
-
     # -> fits in 5 base62 digits 
 
- 
-
     ## Burst ID - Maximum value used for S1 IW: 
-
     # get_burst_id(175, 2148, "IW3", "VV", 62) = 'mGV1' 
-
     # -> fits in 4 base62 digits 
 
-     
-
     # Calculate the unique point ID to be used for EGMS L2a/L2b products 
-
     uid_egms = get_uid_b62(ipe, track, burstno, swath, pol, line, pixel) 
 
- 
-
     # Calculate the individual parts 
-
     point_id = get_point_id(line, pixel, 62, pad=5) 
-
     burst_id = get_burst_id(track, burstno, swath, pol, 62, pad=4) 
-
     ipe_id = BASE62[IPE[ipe]] 
 
- 
-
     # Consistency checks 
-
     assert uid_egms == ipe_id + burst_id + point_id 
-
     assert uid_egms == "3ODTn5TNYv" 
-
-     
 
     uid_decoded = analyze_uid_b62(uid_egms) 
 
- 
-
     print("input:") 
-
     print("------") 
-
     print("IPE     : "+ipe) 
-
     print("POL     : "+pol) 
-
     print("SWATH   : "+swath) 
-
     print("BURSTNO : "+str(burstno)) 
-
     print("TRACK   : "+str(track)) 
-
     print("LINE    : "+str(line)) 
-
     print("PIXEL   : "+str(pixel)) 
-
     print("") 
-
     print("output") 
-
     print("------") 
-
     print("ipe_id   : "+ipe_id) 
-
     print("burst id : "+burst_id) 
-
     print("point id : "+point_id) 
-
     print("uid      : "+uid_egms) 
-
     print("") 
-
     print("decoded output") 
-
     print("------") 
-
     print(uid_decoded) 
 
- 
-
     ## Check whether we got back the input: 
-
     assert uid_decoded["IPE"] == ipe 
-
     assert uid_decoded["POL"] == pol 
-
     assert uid_decoded["SWATH"] == swath 
-
     assert uid_decoded["BURSTNO"] == burstno 
-
     assert uid_decoded["TRACK"] == track 
-
     assert uid_decoded["LINE"] == line 
-
     assert uid_decoded["PIXEL"] == pixel 
 ```
 
-  : Table 12 Unique MP\'s code over the entire Europe for Basic and Calibrated products.
+*Table 12 Unique MP\'s code over the entire Europe for Basic and Calibrated products.*
       
 Each Ortho product measurement point's code follows a precise convention, outlined by the formula in Table 13.
 
@@ -1276,175 +974,100 @@ The evaluation of the fields in Table 5 and Table 6 follows a specific conventio
 
 ```markdown
 % File to be used as a "pseudo-code" just to define how the different 
-
 % parameters of EGMS deliverables (L2a) should be computed 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 % NI is the Number of Images(data) 
-
 % "time" is a column vector with "NI" acquisition dates - starting from 0 - [year] 
 
- 
-
 %% FORWARD - Generate a Time Series - vector [NI x 1] 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-   
-
 NI=300;  %% Number of images 
-
 time=(0:6:(NI-1)*6)'/365; %% [year] 
-
 Velocity     = 5*randn % [mm/yr] 
-
 Acceleration = 2*randn % [mm/yr^2] 
-
 SeasonAmp    = 10*rand % [mm] 
-
 Offset       = rand    % [year] 
-
 noise        = 4*randn(NI,1);     % [mm] 
-
 TimeSeries = 0.5*Acceleration*time.^2 + Velocity*time +... 
-
     SeasonAmp*cos(2*pi*(time-Offset))+noise; 
-
- 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 %%%% TASK 1 - Computation of the RMSE of each Time Series 
-
 %%%%          and estimation of the Amplitude of the Seasonal Component 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 %%% Model Matrix - Third order polynomial + seasonality  
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
- 
 
 G = [time.^3 time.^2 time ones(NI,1) cos(2*pi*time) sin(2*pi*time)]; 
 
- 
-
 %% inversion 
-
 invG=inv(G'*G);  %% pseudoinverse(Moore-Penrose) 
-
 COEFF = invG*G'*TimeSeries; 
-
 Model=G*COEFF; 
 
- 
-
 % Compute RMSE 
-
 RMSE = sqrt( mean( (TimeSeries-Model).^2 ) ) %%% [mm] 
 
- 
-
 % Compute the amplitude of the seasonal component and its StDev 
-
 EstimatedSeasonAMP= sqrt( COEFF(5).^2+COEFF(6).^2 ); 
-
-EstimatedSTD_SeasonAMP= sqrt( (4-pi)/2*(invG(5,5)+invG(6,6))/2 )*RMSE; 
-
+EstimatedSTD_SeasonAMP= sqrt( (4-pi)/2*(invG(5,5)+invG(6,6))/2 )*RMSE;  
 % In fact, this is the StDev of a Rayleigh distribution, since the amp of 
-
 % the seasonal component is sqrt( COEFF(5).^2+COEFF(6).^2 ); and we 
-
 % suppose a gaussian statistics 
-
- 
 
 Estimated_AMP_And_Std = [EstimatedSeasonAMP EstimatedSTD_SeasonAMP] 
 
- 
-
 % PLOT THE TIME SERIES 
-
 plot(time,[TimeSeries Model]); 
-
 legend('Data','Model'); 
-
 xlabel('Time [year]'); 
-
 ylabel('Displacement [mm]'); 
-
 grid on 
-
- 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 %%%% TASK 2 - Compute Mean Velocity and its StdDev 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 %%% Model Matrix - First order polynomial + seasonality  
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 G = [time ones(NI,1) cos(2*pi*time) sin(2*pi*time)]; 
 
- 
-
 %%%%% inversion %%%%%% 
-
 invG=inv(G'*G); 
-
 COEFF = invG*G'*TimeSeries; 
-
 Model=G*COEFF; 
-
 EstimatedVelocity = COEFF(1); %%% [mm/yr] 
-
 EstimatedSTD_Noise = std(TimeSeries-Model); 
-
 EstimatedSTD_Vel = sqrt(invG(1,1))*EstimatedSTD_Noise; %%% in [mm/yr] 
-
 Estimated_Vel_And_Std = [EstimatedVelocity EstimatedSTD_Vel] 
 
- 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
 %%%% TASK 3 - Compute Acceleration and its StdDev 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 %%% Model Matrix - Second order polynomial + seasonality  
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-G = [0.5*time.^2 time ones(NI,1) cos(2*pi*time) sin(2*pi*time)]; 
-
- 
+G = [0.5*time.^2 time ones(NI,1) cos(2*pi*time) sin(2*pi*time)];
 
 %%%%% inversion %%%%%% 
-
 invG=inv(G'*G); 
-
 COEFF = invG*G'*TimeSeries; 
-
 Model=G*COEFF; 
-
 EstimatedAcceleration = COEFF(1); %%% [mm/yr] 
-
 EstimatedSTD_Noise = std(TimeSeries-Model); 
-
 EstimatedSTD_Acc = sqrt(invG(1,1))*EstimatedSTD_Noise; %%% in [mm/yr] 
-
 Estimated_Acc_And_Std = [EstimatedAcceleration EstimatedSTD_Acc]
 ```
 
-  : Table 14 Data delivery field evaluation
-
-{{< pagebreak >}}
+*Table 14 Data delivery field evaluation*{{< pagebreak >}}
 
 # Document Control Information
 
@@ -1455,13 +1078,7 @@ Estimated_Acc_And_Std = [EstimatedAcceleration EstimatedSTD_Acc]
 +-----------------------+----------------------------------------------+-----------------------------+
 | **Project Title:**    | EGMS-SC1                                     |                             |
 +-----------------------+----------------------------------------------+-----------------------------+
-| **Document Author:**  | Renalt Capes                                 |                             |
-|                       |                                              |                             |
-|                       | Emanuele Passera                             |                             |
-+-----------------------+----------------------------------------------+-----------------------------+
 | **Project Owner:**    | Henrik Steen Andersen (EEA)                  |                             |
-+-----------------------+----------------------------------------------+-----------------------------+
-| **Project Manager:**  | Sergio Proietti (e-GEOS)                     |                             |
 +-----------------------+----------------------------------------------+-----------------------------+
 | **Document Code:**    | EGMS-D6-PDD-SC1-2.0-009                      |                             |
 +-----------------------+----------------------------------------------+-----------------------------+
@@ -1477,26 +1094,22 @@ Estimated_Acc_And_Std = [EstimatedAcceleration EstimatedSTD_Acc]
   --------------------- ----------------------- ----------------- -----------------
   **Name**              **Role**                **Action**        **Date**
 
-  Renalt Capes          Document Owner          Review            25/10/2023
-
-  Alessandro Ferretti   TSC member              Review            25/10/2023
-
   Lorenzo Solari        Project Officer (EEA)   Approve           25/10/2023
   --------------------- ----------------------- ----------------- -----------------
 
 **Document history:**
 
-  -------------- ------------ -------------------- ----------------------------------------------
-  **Revision**   **Date**     **Created by**       **Short Description of Changes**
+  -------------- ------------ ----------------------------------------------
+  **Revision**   **Date**     **Short Description of Changes**
 
-  draft 1.0      18/06/2021   Renalt Capes         Initial version
+  draft 1.0      18/06/2021   Initial version
 
-  draft 1.1      15/10/2021   Renalt Capes         Updated according to review by EEA
+  draft 1.1      15/10/2021   Updated according to review by EEA
 
-  draft 1.2      20/12/2021   Emanuele Passera     Updated according to review by EEA
+  draft 1.2      20/12/2021   Updated according to review by EEA
 
-  1.0            24/02/2022   Emanuele Passera     Changes to EGMS Basic data format
+  1.0            24/02/2022   Changes to EGMS Basic data format
 
-  2.0            25/10/2023   Emanuele Passera     Changes to EGMS Basic data naming convention
-  -------------- ------------ -------------------- ----------------------------------------------
+  2.0            25/10/2023   Changes to EGMS Basic data naming convention
+  -------------- ------------ ----------------------------------------------
 
