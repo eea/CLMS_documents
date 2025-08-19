@@ -43,7 +43,7 @@ rm -f _site/sitemap.xml.bkp
 echo "📄 Converting .docx files to .pdf..."
 #chmod +x ./convert_docx_to_pdf.sh
 timeout 3s .github/scripts/convert_docx_to_pdf.sh || true
-timeout 25m .github/scripts/convert_docx_to_pdf.sh
+timeout 45m .github/scripts/convert_docx_to_pdf.sh
 
 echo "🧹 Cleaning up..."
 find _site -type f -name '*.docx' -delete
