@@ -388,7 +388,7 @@ In this equation, $p_1$ and $p_2$ represent the herbaceous classification probab
 
   - 10: Grassland in both years
 
-- [Application of the MMU of 1.0 ha (i.e. 25 x 20m pixels) for grassland losses and gains by  the following steps:]{custom-style="NormalLine"}\
+- Application of the MMU of 1.0 ha (i.e. 25 x 20m pixels) for grassland losses and gains by  the following steps:
 
   - Mask creation for losses and gains
 
@@ -486,7 +486,7 @@ NDVI time-series are computed from the Sentinel-2 L2A, observations with clouds 
 
 A high-level overview of the subsequent steps of the workflow is presented in Figure 15.
 
-![Figure 15: Processing workflow and pipeline for the GRAMD and GRAME layers: reprojection, shift to yearly timeframes, mosaic, MMU filtering and data export.](HRL_VLCC_ATBD_v2.1-media/img-303adab12940a2f66fe85851323e4e84adb79614.png)
+![Figure 15: Processing workflow and pipeline for the GRAMD and GRAME layers: reprojection, shift to yearly timeframes, mosaic, MMU filtering and data export.](HRL_VLCC_ATBD_v2.1-media/img-303adab12940a2f66fe85851323e4e84adb79614.png){width=50%}
 
 
 
@@ -673,7 +673,7 @@ Finally, 20km sub-tiles are combined in larger tiles to obtain the final 100km c
 
 
 
-![Figure 20: Decision tree of the CTY postprocessing pipeline, outlining the main steps from  raw crop type probabilities to final output classes. For clarity, output categories are simplified to 'permanent' and 'annual' cropland, as the decision rules were specifically designed for  these classes. Note that spatial operations (defined in Figure 19) such as spatial smoothing  and GDAL Sieve, although they may further modify crop type labels, are not included in this  diagram to maintain readability](HRL_VLCC_ATBD_v2.1-media/img-b752ff52dd8f50223ebe874203e33a0c3406029f.png)
+![Figure 20: Decision tree of the CTY postprocessing pipeline, outlining the main steps from  raw crop type probabilities to final output classes. For clarity, output categories are simplified to 'permanent' and 'annual' cropland, as the decision rules were specifically designed for  these classes. Note that spatial operations (defined in Figure 19) such as spatial smoothing  and GDAL Sieve, although they may further modify crop type labels, are not included in this  diagram to maintain readability](HRL_VLCC_ATBD_v2.1-media/img-b752ff52dd8f50223ebe874203e33a0c3406029f.png){width=50%}
 
 
 
@@ -809,11 +809,11 @@ The expert rules for season labelling are described below:
 
   - Main season:
 
-    - Spring crop season > winter crop season
+    - [Spring crop season > winter crop season]{custom-style="NormalLine"}\
 
   - Secondary cover crop season:
 
-    - After the main season > before the main season
+    - [After the main season > before the main season]{custom-style="NormalLine"}\
 
 If no main season is detected for a specific field in a certain reference year also no secondary  crop season information is provided.
 
@@ -854,10 +854,25 @@ Table 5: Translation of Metzger environmental zones into a zone used with the sa
 
 ### Confidence layers
 
-For most of the CP layers confidence information is provided and is based on the uncertainty of  the emergence and harvest detection used to delineate the growing season(s). This confidence  is calculated based on the uncertainty of satellite observations at the date of emergence or  harvest. The CropSAR technology used to fill-in cloud induced gaps of fAPAR provides this  uncertainty interval of fAPAR at these dates, as the \(10^{\mathrm{th}}\) (q10) and 90th (q90) percentile. The  emergence and harvest detection algorithm use the q50 values for their predictions. The  emergence or harvest uncertainty in days is based on the upper (q90) and lower (q10)  confidence of fAPAR at the event (i.e., emergence or harvest) date and the slope of fAPAR at  event date (denoted as slope fAPAR event q50) (see equation and Figure 24 below):
+For most of the CP layers confidence information is provided and is based on the uncertainty of  the emergence and harvest detection used to delineate the growing season(s). This confidence  is calculated based on the uncertainty of satellite observations at the date of emergence or  harvest. The CropSAR technology used to fill-in cloud induced gaps of fAPAR provides this  uncertainty interval of fAPAR at these dates, as the \(10^{\mathrm{th}}\) (q10) and 90th (q90) percentile. The  emergence and harvest detection algorithm use the q50 values for their predictions. The  emergence or harvest uncertainty in days is based on the upper (q90) and lower (q10)  confidence of fAPAR at the event (i.e., emergence or harvest) date and the slope of fAPAR at  event date (denoted as slope $fAPAR_{event q50}$) (see equation and Figure 24 below):
 
+$$
+fAPAR_{\mathrm{uncertainty}\;q10} = fAPAR_{\mathrm{event}\;q50} - fAPAR_{\mathrm{event}\;q10}
+$$
 
-\begin{array}{r l}{f A P A R_{u n c e r t a i n t y\;q10}}&{\!\!=f A P A R_{e v e n t\;q50}-f A P A R_{e v e n t\;q10}}\\ {f A P A R_{u n c e r t a i n t y\;q90}}&{\!\!=f A P A R_{e v e n t\;q50}-f A P A R_{e v e n t\;q90}}\\ {d a y s\;u n c e r t a i n t y_{e v e n t}=\;a b s\left(\frac{f A P A R_{u n c e r t a i n t y\;q10}}{s l o p e\;f A P A R_{e v e n t\;q50}}\right)+a b s\left(\frac{f A P A R_{u n c e r t a i n t y\;q90}}{s l o p e\;f A P A R_{e v e n t\;q50}}\right)}\end{array}
+$$
+fAPAR_{\mathrm{uncertainty}\;q90} = fAPAR_{\mathrm{event}\;q50} - fAPAR_{\mathrm{event}\;q90}
+$$
+
+$$
+days\;uncertainty_{\mathrm{event}} = 
+\mathrm{abs}\!\left(\frac{fAPAR_{\mathrm{uncertainty}\;q10}}
+{slope\;fAPAR_{\mathrm{event}\;q50}}\right)
++ 
+\mathrm{abs}\!\left(\frac{fAPAR_{\mathrm{uncertainty}\;q90}}
+{slope\;fAPAR_{\mathrm{event}\;q50}}\right)
+$$
+
 
 ![Figure 24: Schematic overview on the parameters used to calculate the uncertainty at an event  data (i.e., emergence or harvest). Event date is in this example, an emergence.](HRL_VLCC_ATBD_v2.1-media/img-23efa437cf45423915c018c5bdcd16023b7c710b.png)
 
@@ -1023,7 +1038,7 @@ On the other hand, some annual cropland pixels in the **CTY** layer lack corresp
 
 - The remaining 5% stems from larger spatial mismatches between the extent of **CTY** classified annual crop areas and the delineated field geometries. These discrepancies  are most pronounced for crop types with lower classification accuracy—such as fresh  vegetables, other cereals, and unclassified arable crops.
 
-In contrast, for other (and most common) annual crop classes, around 95% of pixels are  successfully aligned with the delineated field boundaries, ensuring reliable **CP** generation for  these key crop types. For these crop types, the pixel misalignment at the field border is the main  reason for this 5% loss of **CP** output.{{< pagebreak >}} 
+In contrast, for other (and most common) annual crop classes, around 95% of pixels are  successfully aligned with the delineated field boundaries, ensuring reliable **CP** generation for  these key crop types. For these crop types, the pixel misalignment at the field border is the main  reason for this 5% loss of **CP** output. {{< pagebreak >}} 
 
 # List of abbreviations
 
