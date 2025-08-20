@@ -224,17 +224,30 @@ Sub FitCellImagesToColumn()
           oAnch = go.Anchor
           On Error GoTo 0
 
-          If Not IsNull(oAnch) Then
-            If EqualUnoObjects(oAnch.Text, oCell.getText) Then
-              If go.Width &gt; target And target &gt; 0 Then
-                On Error Resume Next
-                go.KeepRatio = True
-                go.Width = target
-                On Error GoTo 0
-                totalShrunk = totalShrunk + 1
-              End If
-            End If
-          End If
+       If Not IsNull(oAnch) Then
+		    If oAnch.supportsService(&quot;com.sun.star.text.TextRange&quot;) Then
+		        Dim oAnchText As Object, oCellText As Object
+		        On Error Resume Next
+		        oAnchText = oAnch.getText()
+		        oCellText = oCell.getText()
+		        On Error GoTo 0
+		
+		        If (Not IsNull(oAnchText)) And (Not IsNull(oCellText)) Then
+		            If EqualUnoObjects(oAnchText, oCellText) Then
+		                If go.Width &gt; target And target &gt; 0 Then
+		                    On Error Resume Next
+		                    go.KeepRatio = True
+		                    go.Width = target
+		                    On Error GoTo 0
+		                    totalShrunk = totalShrunk + 1
+		                End If
+		            End If
+		        End If
+		    End If
+		End If
+
+          
+          
         Next i
       Next c
     Next r
@@ -329,10 +342,19 @@ Private Function GetAbsoluteColumnWidths(oTable As Object) As Variant
   Dim i As Long, prevPos As Long, relWidth As Long
   prevPos = 0
   For i = 0 To nCols - 2
-    relWidth = CLng(seps(i).Position) - prevPos
+    If Not IsNull(seps(i)) Then
+        On Error Resume Next
+        Dim pos As Long
+        pos = seps(i).Position
+        On Error GoTo 0
+        relWidth = pos - prevPos
+        prevPos = pos
+    Else
+        relWidth = 0
+    End If
+
     If relWidth &lt; 0 Then relWidth = 0
     aWidths(i) = CLng(CDbl(lTableWidth) * CDbl(relWidth) / CDbl(relSum))
-    prevPos = CLng(seps(i).Position)
   Next i
   relWidth = relSum - prevPos
   If relWidth &lt; 0 Then relWidth = 0
@@ -388,4 +410,5 @@ Private Function ColumnNameFromIndex(idx As Long) As String
   Loop While n &gt;= 0
   ColumnNameFromIndex = name
 End Function
+
 </script:module>
