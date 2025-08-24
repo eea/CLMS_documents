@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: _site
+  execute-dir: project
+  render:
+    - ./**/*.qmd
+    - "!includes/**"
+    - "!theme/**"
+    - "!templates/**"
+
+resources:
+  - assets/
+
+website:
+  title: "Technical Library"
+  site-url: "https://library.land.copernicus.eu"
+  page-navigation: true
+  back-to-top-navigation: true
+  bread-crumbs: true
+  navbar:
+    background: "#a0b128"
+    foreground: "#ffffff"
+  page-footer:
+    left: |
+      © 2025 EEA. All rights reserved.
+
+metadata-files:
+  - includes/default.yml
+
+format:
+  html:
+    output-dir: ../_site # Moves rendered files outside src/
+    include-before-body: includes/main-logos.html
+    css: theme/main.css
+
+filters:
+  - ../.github/scripts/filters/extract-images.lua
+  - ../.github/scripts/filters/math2png.lua

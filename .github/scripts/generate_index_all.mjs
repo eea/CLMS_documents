@@ -1,7 +1,7 @@
 import { readdir, writeFile, access } from "fs/promises";
 import { join, basename } from "path";
 
-const DOCS_DIR = "DOCS";
+const DOCS_DIR = "../DOCS";
 const IGNORED_FOLDERS = new Set(["theme", "templates", "includes"]);
 
 function formatTitle(name) {

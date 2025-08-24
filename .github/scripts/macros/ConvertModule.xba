@@ -17,7 +17,7 @@ Sub UpdateTOCAndExportToPDF()
     dispatcher.executeDispatch(document.CurrentController.Frame, &quot;.uno:UpdateAll&quot;, &quot;&quot;, 0, Array())
     
     &apos; Expand tables to full page width if narrower, then auto-fit columns
-    FitTablesToPageWidth_OnlyIfNarrower()
+    FitTablesToPageWidth_OnlyIfNoImages()
     
     &apos; Shrink images so they fit neatly inside table columns
     FitCellImagesToColumn()
@@ -132,6 +132,46 @@ Sub Boxify_Codeish_Paragraphs()
         End If
     Wend
 End Sub
+
+
+Sub FitTablesToPageWidth_OnlyIfNoImages()
+    Dim oDoc As Object, oTables As Object, oTable As Object
+    Dim oDisp As Object, oFrame As Object
+    Dim i As Long
+
+    oDoc = ThisComponent
+    oTables = oDoc.TextTables
+    oDisp = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+    oFrame = oDoc.CurrentController.Frame
+
+    Dim textWidth As Long
+    textWidth = GetTextWidth_Global(oDoc)
+    If textWidth &lt;= 0 Then Exit Sub   &apos; check once, not per table
+
+    For i = 0 To oTables.Count - 1
+        oTable = oTables.getByIndex(i)
+
+        &apos; Skip tables with images
+        If TableHasImages(oDoc, oTable) Then
+            GoTo NextTable
+        End If
+
+        &apos; Apply width and margins
+        oTable.Width = textWidth
+        oTable.LeftMargin = 0
+        oTable.RightMargin = 0
+
+        &apos; Optimize columns (dispatch method)
+        Dim oCellCur As Object
+        oCellCur = oTable.createCursorByCellName(&quot;A1&quot;)
+        oDoc.CurrentController.select(oCellCur)
+        oDisp.executeDispatch(oFrame, &quot;.uno:SelectTable&quot;, &quot;&quot;, 0, Array())
+        oDisp.executeDispatch(oFrame, &quot;.uno:SetOptimalColumnWidth&quot;, &quot;&quot;, 0, Array())
+
+NextTable:
+    Next i
+End Sub
+
 
 
 Sub FitTablesToPageWidth_OnlyIfNarrower()
@@ -409,6 +449,38 @@ Private Function ColumnNameFromIndex(idx As Long) As String
     n = (n \ 26) - 1
   Loop While n &gt;= 0
   ColumnNameFromIndex = name
+End Function
+
+Private Function TableHasImages(oDoc As Object, oTable As Object) As Boolean
+    On Error GoTo Fail
+
+    Dim oGos As Object, i As Long
+    Dim go As Object, oAnch As Object
+
+    oGos = oDoc.getGraphicObjects()
+    For i = 0 To oGos.getCount() - 1
+        go = oGos.getByIndex(i)
+
+        On Error Resume Next
+        oAnch = go.Anchor
+        On Error GoTo 0
+
+        If Not IsNull(oAnch) Then
+            &apos; Is the anchor inside a table?
+            If Not IsNull(oAnch.TextTable) Then
+                If EqualUnoObjects(oAnch.TextTable, oTable) Then
+                    TableHasImages = True
+                    Exit Function
+                End If
+            End If
+        End If
+    Next i
+
+    TableHasImages = False
+    Exit Function
+
+Fail:
+    TableHasImages = False
 End Function
 
 </script:module>
