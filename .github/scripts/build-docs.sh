@@ -6,7 +6,7 @@ cd DOCS
 ln -s ../assets assets
 
 echo "🖼 Render all documents into to HTML/DOCX"
-npm install sharp mathjax-full
+npm install -g sharp mathjax-full
 sudo cp /usr/bin/chromium /usr/bin/chromium-browser
 QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to docx 
 find _site -type f -name 'index.docx' -delete
