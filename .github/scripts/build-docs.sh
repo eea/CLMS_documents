@@ -41,5 +41,6 @@ timeout 15m ../.github/scripts/convert_docx_to_pdf.sh
 
 echo "🧹 Cleaning up..."
 find _site -type f -name '*.docx' -delete
+find _site -type f -name '*.qmd' -delete
 
 echo "✅ Docs built successfully"
