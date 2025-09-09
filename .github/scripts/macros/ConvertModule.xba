@@ -15,9 +15,8 @@ Sub UpdateTOCAndExportToPDF()
     &apos; Refresh all fields (TOC, DOCPROPERTY, etc.)
     dispatcher = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
     dispatcher.executeDispatch(document.CurrentController.Frame, &quot;.uno:UpdateAll&quot;, &quot;&quot;, 0, Array())
-    
-    &apos; Expand tables to full page width if narrower, then auto-fit columns
-    FitTablesToPageWidth_OnlyIfNoImages()
+     
+     FitTablesToPageWidth_WithImageColumnsLocked
     
     &apos; Shrink images so they fit neatly inside table columns
     FitCellImagesToColumn()
@@ -134,7 +133,7 @@ Sub Boxify_Codeish_Paragraphs()
 End Sub
 
 
-Sub FitTablesToPageWidth_OnlyIfNoImages()
+Sub FitTablesToPageWidth_WithImageColumnsLocked()
     Dim oDoc As Object, oTables As Object, oTable As Object
     Dim oDisp As Object, oFrame As Object
     Dim i As Long
@@ -151,68 +150,15 @@ Sub FitTablesToPageWidth_OnlyIfNoImages()
     For i = 0 To oTables.Count - 1
         oTable = oTables.getByIndex(i)
 
-        &apos; Skip tables with images
-        If TableHasImages(oDoc, oTable) Then
-            GoTo NextTable
-        End If
-
         &apos; Apply width and margins
         oTable.Width = textWidth
         oTable.LeftMargin = 0
         oTable.RightMargin = 0
-
-        &apos; Optimize columns (dispatch method)
-        Dim oCellCur As Object
-        oCellCur = oTable.createCursorByCellName(&quot;A1&quot;)
-        oDoc.CurrentController.select(oCellCur)
-        oDisp.executeDispatch(oFrame, &quot;.uno:SelectTable&quot;, &quot;&quot;, 0, Array())
-        oDisp.executeDispatch(oFrame, &quot;.uno:SetOptimalColumnWidth&quot;, &quot;&quot;, 0, Array())
-
-NextTable:
+        
+        OptimizeNonImageColumns oDoc, oTable, oDisp, oFrame
     Next i
 End Sub
 
-
-
-Sub FitTablesToPageWidth_OnlyIfNarrower()
-    Dim oDoc As Object, oTables As Object, oTable As Object
-    Dim oDisp As Object, oFrame As Object
-    Dim i As Long
-
-    oDoc = ThisComponent
-    oTables = oDoc.TextTables
-    oDisp = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
-    oFrame = oDoc.CurrentController.Frame
-
-    Dim textWidth As Long
-    textWidth = GetTextWidth_Global(oDoc)
-
-    For i = 0 To oTables.Count - 1
-        oTable = oTables.getByIndex(i)
-        If textWidth &lt;= 0 Then GoTo NextTable
-
-        Dim tableWidth As Long
-        On Error Resume Next
-        tableWidth = oTable.Width
-        On Error GoTo 0
-        If tableWidth = 0 Then GoTo NextTable
-
-        If (tableWidth = 0) Or (textWidth - tableWidth) &gt; 50 Then
-            On Error Resume Next
-            oTable.Width = textWidth
-            oTable.LeftMargin = 0
-            oTable.RightMargin = 0
-            On Error GoTo 0
-
-            Dim oCellCur As Object
-            oCellCur = oTable.createCursorByCellName(&quot;A1&quot;)
-            oDoc.CurrentController.select(oCellCur)
-            oDisp.executeDispatch(oFrame, &quot;.uno:SelectTable&quot;, &quot;&quot;, 0, Array())
-            oDisp.executeDispatch(oFrame, &quot;.uno:SetOptimalColumnWidth&quot;, &quot;&quot;, 0, Array())
-        End If
-NextTable:
-    Next i
-End Sub
 
 
 Sub FitCellImagesToColumn()
@@ -294,6 +240,90 @@ Sub FitCellImagesToColumn()
   Next iT
 
 
+End Sub
+
+
+Private Sub OptimizeNonImageColumns(oDoc As Object, oTable As Object, oDisp As Object, oFrame As Object)
+    Dim oCols As Object, oRows As Object, oGos As Object
+    Dim colCount As Long, rowCount As Long
+    Dim r As Long, c As Long, i As Long
+
+    oCols = oTable.getColumns()
+    oRows = oTable.getRows()
+    oGos  = oDoc.getGraphicObjects()
+
+    colCount = oCols.getCount()
+    rowCount = oRows.getCount()
+    If colCount = 0 Or rowCount = 0 Then Exit Sub
+
+    Dim imageCols() As Boolean
+    ReDim imageCols(colCount - 1)
+
+    &apos; --- 1) Detect columns that contain any image anchored into a cell in that column ---
+    For r = 0 To rowCount - 1
+        For c = 0 To colCount - 1
+            Dim oCell As Object, oCellText As Object
+            Set oCell = TryGetCellByPos(oTable, c, r)
+            If oCell Is Nothing Then GoTo NextC
+            If Not HasTextInterface(oCell) Then GoTo NextC
+
+            Set oCellText = oCell.getText()
+
+            For i = 0 To oGos.getCount() - 1
+                Dim go As Object, oAnch As Object, oAnchText As Object
+                go = oGos.getByIndex(i)
+                oAnch = go.Anchor
+                If Not IsNull(oAnch) Then
+                    oAnchText = oAnch.getText()
+                    If Not IsNull(oAnchText) Then
+                        If EqualUnoObjects(oAnchText, oCellText) Then
+                            imageCols(c) = True
+                            Exit For
+                        End If
+                    End If
+                End If
+            Next i
+NextC:
+        Next c
+    Next r
+
+    &apos; --- 2) Apply Optimal Column Width to each contiguous run of NON-image columns ---
+    Dim startCol As Long: startCol = -1
+    For c = 0 To colCount - 1
+        Dim isNonImage As Boolean: isNonImage = (imageCols(c) = False)
+
+        If isNonImage And startCol = -1 Then startCol = c
+
+        Dim endOfRun As Boolean
+        endOfRun = ( (Not isNonImage And startCol &lt;&gt; -1) Or (isNonImage And c = colCount - 1) )
+
+        If endOfRun Then
+            Dim runEnd As Long
+            If Not isNonImage Then
+                runEnd = c - 1
+            Else
+                runEnd = c
+            End If
+
+            &apos; Build names (not objects) for the selection.
+            Dim firstName As String, lastName As String
+            firstName = CellNameAtPos(oTable, startCol, 0)
+            lastName  = CellNameAtPos(oTable, runEnd, rowCount - 1)
+
+            If (Len(firstName) &gt; 0) And (Len(lastName) &gt; 0) Then
+                On Error GoTo SkipRun
+                Dim oCursor As Object
+                oCursor = oTable.createCursorByCellName(firstName)
+                oCursor.gotoCellByName(lastName, True)
+                oDoc.CurrentController.select(oCursor)
+                oDisp.executeDispatch(oFrame, &quot;.uno:SetOptimalColumnWidth&quot;, &quot;&quot;, 0, Array())
+                On Error GoTo 0
+            End If
+SkipRun:
+            On Error GoTo 0
+            startCol = -1
+        End If
+    Next c
 End Sub
 
 
@@ -461,16 +491,15 @@ Private Function TableHasImages(oDoc As Object, oTable As Object) As Boolean
     For i = 0 To oGos.getCount() - 1
         go = oGos.getByIndex(i)
 
-        On Error Resume Next
-        oAnch = go.Anchor
-        On Error GoTo 0
-
-        If Not IsNull(oAnch) Then
-            &apos; Is the anchor inside a table?
-            If Not IsNull(oAnch.TextTable) Then
-                If EqualUnoObjects(oAnch.TextTable, oTable) Then
-                    TableHasImages = True
-                    Exit Function
+        &apos; Skip empty/placeholder graphics
+        If go.GraphicURL &lt;&gt; &quot;&quot; Then
+            oAnch = go.Anchor
+            If Not IsNull(oAnch) Then
+                If Not IsNull(oAnch.TextTable) Then
+                    If EqualUnoObjects(oAnch.TextTable, oTable) Then
+                        TableHasImages = True
+                        Exit Function
+                    End If
                 End If
             End If
         End If
@@ -482,5 +511,41 @@ Private Function TableHasImages(oDoc As Object, oTable As Object) As Boolean
 Fail:
     TableHasImages = False
 End Function
+
+Private Function TryGetCellByPos(oTable As Object, ByVal c As Long, ByVal r As Long) As Object
+    On Error GoTo Fail
+    Set TryGetCellByPos = oTable.getCellByPosition(c, r)
+    Exit Function
+Fail:
+    Err = 0
+    Set TryGetCellByPos = Nothing
+End Function
+
+&apos; Check if an object supports com.sun.star.text.XText.
+Private Function HasTextInterface(o As Object) As Boolean
+    On Error GoTo Nope
+    HasTextInterface = HasUnoInterfaces(o, &quot;com.sun.star.text.XText&quot;)
+    Exit Function
+Nope:
+    Err = 0
+    HasTextInterface = False
+End Function
+
+&apos; Get a cell name for (c,r). Returns &quot;&quot; if the position is invalid/merged.
+Private Function CellNameAtPos(oTable As Object, ByVal c As Long, ByVal r As Long) As String
+    Dim oCell As Object
+    Set oCell = TryGetCellByPos(oTable, c, r)
+    If oCell Is Nothing Then
+        CellNameAtPos = &quot;&quot;
+        Exit Function
+    End If
+    On Error GoTo NoProp
+    CellNameAtPos = oCell.CellName
+    Exit Function
+NoProp:
+    Err = 0
+    CellNameAtPos = &quot;&quot;
+End Function
+
 
 </script:module>

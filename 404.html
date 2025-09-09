@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <title>Page Not Found – Technical Library</title>
+
+    <style>
+      code {
+        white-space: pre-wrap;
+      }
+
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+
+      div.columns {
+        display: flex;
+        gap: min(4vw, 1.5em);
+      }
+
+      div.column {
+        flex: auto;
+        overflow-x: auto;
+      }
+
+      div.hanging-indent {
+        margin-left: 1.5em;
+        text-indent: -1.5em;
+      }
+
+      ul.task-list {
+        list-style: none;
+      }
+
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em;
+        vertical-align: middle;
+      }
+
+      /* Full height layout */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        height: 100vh;
+      }
+
+      .navbar {
+        flex-shrink: 0;
+      }
+
+      .main-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        padding: 2rem 0;
+        min-height: 0;
+      }
+
+      /* Custom 404 styles */
+      .error-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        text-align: center;
+        width: 100%;
+      }
+
+      .error-code {
+        font-size: 6rem;
+        font-weight: bold;
+        color: #a0b128;
+        margin: 2rem 0 0 0;
+        line-height: 1;
+      }
+
+      .error-title {
+        font-size: 2rem;
+        color: #333;
+        margin: 1rem 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .error-message {
+        font-size: 1.1rem;
+        color: #666;
+        margin: 1rem 0 2rem 0;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      .redirect-status {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+        padding: 1rem;
+        margin: 1.5rem 0;
+        font-size: 0.9rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        margin: 0.5rem;
+        background-color: #a0b128;
+        color: white;
+        text-decoration: none;
+        border-radius: 0.375rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+      }
+
+      .btn:hover {
+        background-color: #7c8921;
+        color: white;
+        text-decoration: none;
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background-color: #6c757d;
+      }
+
+      .btn-secondary:hover {
+        background-color: #545b62;
+      }
+
+      .suggestions {
+        text-align: left;
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background-color: #f8f9fa;
+        border-radius: 0.375rem;
+      }
+
+      .suggestions h3 {
+        color: #333;
+        margin-top: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .suggestions ul {
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+      }
+
+      .suggestions li {
+        margin: 0.5rem 0;
+      }
+
+      .suggestions a {
+        color: #a0b128;
+        text-decoration: none;
+      }
+
+      .suggestions a:hover {
+        color: #7c8921;
+        text-decoration: underline;
+      }
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet" />
+  </head>
+
+  <body class="bg-light">
+    <div class="page-wrapper">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #a0b128">
+        <div class="container-fluid">
+          <div class="navbar-brand-container mx-4 my-2">
+            <a class="navbar-brand" href="#" id="home-link">
+              <span class="navbar-title" style="color: white">Technical Library</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 d-flex align-items-center flex-column">
+              <div class="error-container"></div>
+              <!-- Logo Header -->
+              <div class="logo-header">
+                <img
+                  src="assets/copernicus-logo.svg"
+                  class="nav-logo"
+                  style="height: 40px; vertical-align: middle; margin-right: 10px"
+                  alt="Copernicus Logo"
+                />
+                <img
+                  src="assets/lms_logo.svg"
+                  class="nav-logo"
+                  style="height: 40px; vertical-align: middle"
+                  alt="LMS Logo"
+                />
+              </div>
+
+              <!-- Error Content -->
+              <div class="error-code">404</div>
+              <h1 class="error-title">Page Not Found</h1>
+              <p class="error-message">
+                The page you're looking for might have moved to a new category or doesn't exist.
+                <br />We're checking for redirects to help you find what you need.
+              </p>
+
+              <!-- Redirect Status -->
+              <div class="redirect-status" id="redirect-status">
+                <div class="d-flex align-items-center justify-content-center">
+                  <div class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></div>
+                  <span>Checking for redirects...</span>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="mt-4">
+                <a href="#" id="home-link-btn" class="btn btn-secondary">
+                  <i class="bi bi-house-door me-1 pr-2"></i>Return to Home
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer py-4" style="flex-shrink: 0; margin-top: auto">
+        <div class="container mx-4">
+          <div class="row">
+            <div class="col-12 text-left">
+              <p class="mb-0 text-muted">2025 EEA. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function getRedirectMapPath() {
+      const currentPath = window.location.pathname;
+
+      if (currentPath.startsWith("/repo-final/develop/")) {
+        return "/repo-final/develop/redirect_map.json";
+      } else if (currentPath.startsWith("/repo-final/test/")) {
+        return "/repo-final/test/redirect_map.json";
+      } else if (currentPath.startsWith("/repo-final/main/")) {
+        return "/repo-final/main/redirect_map.json";
+      } else {
+        // Default fallback
+        return "/repo-final/main/redirect_map.json";
+      }
+    }
+
+    function getBasePath() {
+      const currentPath = window.location.pathname;
+
+      if (currentPath.startsWith("/repo-final/develop/")) {
+        return "/repo-final/develop/";
+      } else if (currentPath.startsWith("/repo-final/test/")) {
+        return "/repo-final/test/";
+      } else if (currentPath.startsWith("/repo-final/main/")) {
+        return "/repo-final/main/";
+      } else {
+        return "/repo-final/main/"; // Default fallback
+      }
+    }
+
+    function normalizePathForLookup(path) {
+      if (path.endsWith(".html")) {
+        return path;
+      } else if (path.endsWith(".pdf")) {
+        return path;
+      } else {
+        // Unknown extension or no extension - try adding .html
+        return path + ".html";
+      }
+    }
+
+    // Get environment-specific paths
+    const redirectMapPath = getRedirectMapPath();
+    const basePath = getBasePath();
+
+    // Set the home links dynamically
+    document.getElementById("home-link").href = basePath;
+    document.getElementById("home-link-btn").href = basePath;
+    document.getElementById("home-link-suggestion").href = basePath;
+    document.getElementById("search-link").href = basePath;
+
+    // Try to find redirect for current URL
+    fetch(redirectMapPath)
+      .then((response) => response.json())
+      .then((redirectMap) => {
+        const currentPath = window.location.pathname.replace(basePath, "");
+        const pathKey = normalizePathForLookup(currentPath);
+
+        if (redirectMap[pathKey]) {
+          document.getElementById("redirect-status").innerHTML =
+            '<div class="alert alert-success" role="alert">' +
+            '<i class="bi bi-check-circle me-2"></i>' +
+            "<strong>Found redirect!</strong> Redirecting to new location..." +
+            "<br><small>Redirecting to: " +
+            basePath +
+            redirectMap[pathKey] +
+            "</small>" +
+            "</div>";
+          setTimeout(() => {
+            window.location.replace(basePath + redirectMap[pathKey]);
+          }, 3000);
+        } else {
+          document.getElementById("redirect-status").innerHTML =
+            '<div class="alert alert-info" role="alert">' +
+            '<i class="bi bi-info-circle me-2"></i>' +
+            "<strong>No redirect found</strong> for this URL. Please check the suggestions below." +
+            "</div>";
+        }
+      })
+      .catch((error) => {
+        document.getElementById("redirect-status").innerHTML =
+          '<div class="alert alert-warning" role="alert">' +
+          '<i class="bi bi-exclamation-triangle me-2"></i>' +
+          "<strong>Could not check for redirects.</strong> Please try the suggestions below." +
+          "</div>";
+      });
+  </script>
+</html>

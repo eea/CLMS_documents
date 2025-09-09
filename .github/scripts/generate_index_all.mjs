@@ -2,7 +2,7 @@ import { readdir, writeFile, access } from "fs/promises";
 import { join, basename } from "path";
 
 const DOCS_DIR = "../DOCS";
-const IGNORED_FOLDERS = new Set(["theme", "templates", "includes", "_site", ".quarto", "assets"]);
+const IGNORED_FOLDERS = new Set(["theme", "templates", "includes", "assets", "_site", ".quarto"]);
 
 function formatTitle(name) {
   return name.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
@@ -19,7 +19,7 @@ listing:
   type: table
   contents: .
   sort: title
-  fields: [title, date, version]
+  fields: [title, category, version, date]
 ---
 `;
 

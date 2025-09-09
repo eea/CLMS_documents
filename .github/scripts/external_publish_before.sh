@@ -18,5 +18,6 @@ run_git "Configuring Git user name" config --global user.name "ci_docker_builder
 run_git "Configuring Git user email" config --global user.email "ci_docker_builder@users.noreply.github.com"
 
 run_git "Setting remote URL" remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
+#run_git "Fetching origin develop branch" fetch origin develop
 
 echo "✅ Environment ready."
