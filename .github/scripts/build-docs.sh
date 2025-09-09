@@ -5,10 +5,10 @@ echo "🔄 Copying DOCS to origin_DOCS..."
 mv DOCS origin_DOCS
 
 echo "🔄 Updating URL mappings..."
-python .github/scripts/update_url_mappings.py
+python3 .github/scripts/update_url_mappings.py
 
 echo "🔄 Grouping documents by category..."
-python .github/scripts/group_docs_by_category.py
+python3 .github/scripts/group_docs_by_category.py
 
 # Change to DOCS directory as it'll be the root of rendered content
 cd DOCS
