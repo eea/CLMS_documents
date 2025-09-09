@@ -62,6 +62,29 @@ def extract_category_from_qmd(file_path):
     return None
 
 
+def copy_media_directory_if_exists(qmd_file, target_folder):
+    # Get the base filename without extension
+    base_name = qmd_file.stem  # filename without .qmd
+    media_dir_name = f"{base_name}-media"
+
+    # Look for media directory in the same folder as the qmd file
+    source_media_dir = qmd_file.parent / media_dir_name
+
+    if source_media_dir.exists() and source_media_dir.is_dir():
+        # Target media directory in the new location
+        target_media_dir = target_folder / media_dir_name
+
+        # Remove target if it already exists and copy the media directory
+        if target_media_dir.exists():
+            shutil.rmtree(target_media_dir)
+
+        shutil.copytree(source_media_dir, target_media_dir)
+        print(f"\t\tCopied media directory: {media_dir_name}")
+        return True
+
+    return False
+
+
 def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
     source_path = Path(source_dir)
     target_path = Path(target_dir)
@@ -99,6 +122,9 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
         # Copy file to target directory
         target_file = target_folder / qmd_file.name
         shutil.copy2(qmd_file, target_file)
+
+        # Copy corresponding media directory if it exists
+        copy_media_directory_if_exists(qmd_file, target_folder)
 
         if category:
             if category in CATEGORY_TO_DIRECTORY_MAP:
