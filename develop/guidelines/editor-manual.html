@@ -8,8 +8,8 @@
 
 <meta name="author" content="European Environment Agency (EEA)">
 <meta name="dcterms.date" content="2025-06-23">
-<meta name="keywords" content="Quarto document rendering, Markdown syntax, Git subtree management, DOCX to QMD conversion, Pandoc document conversion, YAML header configuration, Technical Library theme, Custom character styles, Automated keyword generation, LibreOffice PDF conversion">
-<meta name="description" content="This guide provides comprehensive instructions for creating technical documentation for the Copernicus Land Monitoring Service (CLMS) using Quarto, a tool that streamlines the writing and publishing of professional documents. It covers essential aspects such as Markdown syntax, project folder structure, template utilisation, and rendering processes to HTML and PDF formats. By following these guidelines, users can ensure consistency, clarity, and adherence to CLMS standards in their technical documentation, ultimately contributing to a well-organised and accessible Technical Library.">
+<meta name="keywords" content="Quarto document rendering, Markdown syntax, Technical Library structure, Git subtree management, Document version control, Automated keyword generation, YAML header configuration, DOCX to QMD conversion, Algorithm Theoretical Basis Document, Product User Manual templates">
+<meta name="description" content="This document serves as a comprehensive guide for creating and managing technical documentation for the Copernicus Land Monitoring Service (CLMS). It provides detailed instructions on using Quarto and Markdown for writing, structuring, and rendering documents, ensuring consistency and clarity across the CLMS Technical Library. The guide covers essential aspects such as project setup, Markdown syntax, template usage, rendering workflows, and the Git-based review and publication process.">
 
 <title>Guide for Writing Technical Documentation – Technical Library</title>
 <style>
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "Guide for Writing Technical Documentation",
-    "description": "This guide provides comprehensive instructions for creating technical documentation for the Copernicus Land Monitoring Service (CLMS) using Quarto, a tool that streamlines the writing and publishing of professional documents. It covers essential aspects such as Markdown syntax, project folder structure, template utilisation, and rendering processes to HTML and PDF formats. By following these guidelines, users can ensure consistency, clarity, and adherence to CLMS standards in their technical documentation, ultimately contributing to a well-organised and accessible Technical Library.",
+    "description": "This document serves as a comprehensive guide for creating and managing technical documentation for the Copernicus Land Monitoring Service (CLMS). It provides detailed instructions on using Quarto and Markdown for writing, structuring, and rendering documents, ensuring consistency and clarity across the CLMS Technical Library. The guide covers essential aspects such as project setup, Markdown syntax, template usage, rendering workflows, and the Git-based review and publication process.",
     "datePublished": "June 23, 2025",
     "author": {
       "@type": "Person",
@@ -139,6 +139,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../theme/styles.css">
 </head>
@@ -355,7 +384,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    This guide provides comprehensive instructions for creating technical documentation for the Copernicus Land Monitoring Service (CLMS) using Quarto, a tool that streamlines the writing and publishing of professional documents. It covers essential aspects such as Markdown syntax, project folder structure, template utilisation, and rendering processes to HTML and PDF formats. By following these guidelines, users can ensure consistency, clarity, and adherence to CLMS standards in their technical documentation, ultimately contributing to a well-organised and accessible Technical Library.
+    This document serves as a comprehensive guide for creating and managing technical documentation for the Copernicus Land Monitoring Service (CLMS). It provides detailed instructions on using Quarto and Markdown for writing, structuring, and rendering documents, ensuring consistency and clarity across the CLMS Technical Library. The guide covers essential aspects such as project setup, Markdown syntax, template usage, rendering workflows, and the Git-based review and publication process.
   </div>
 </div>
 
@@ -383,7 +412,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>Quarto document rendering, Markdown syntax, Git subtree management, DOCX to QMD conversion, Pandoc document conversion, YAML header configuration, Technical Library theme, Custom character styles, Automated keyword generation, LibreOffice PDF conversion</p>
+    <p>Quarto document rendering, Markdown syntax, Technical Library structure, Git subtree management, Document version control, Automated keyword generation, YAML header configuration, DOCX to QMD conversion, Algorithm Theoretical Basis Document, Product User Manual templates</p>
   </div>
 </div>
 
@@ -963,7 +992,7 @@ More: <a href="https://quarto.org/docs/authoring/figures.html" class="uri">https
 <p>Use single dollar signs <code>$...$</code> for inline math:</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>The formula for the area is $A = \pi r^2$.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Rendered result:</p>
-<p>The formula for the area is <img src="editor-manual_files/mediabag/eq-bc63f7162716af4009c4a0445deae4ecf142bf5e.png" style="height:0.25cm">.</p>
+<p>The formula for the area is <span class="math inline">\(A = \pi r^2\)</span>.</p>
 </section>
 <section id="display-equations" class="level3" data-number="5.12.2">
 <h3 data-number="5.12.2" class="anchored" data-anchor-id="display-equations"><span class="header-section-number">5.12.2</span> Display Equations</h3>
@@ -972,7 +1001,9 @@ More: <a href="https://quarto.org/docs/authoring/figures.html" class="uri">https
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>E = mc^2</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>$$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Rendered result:</p>
-<p><img src="editor-manual_files/mediabag/eq-decc1b63da7e5cc6eac098181d3cd8d25545132a.png" style="height:0.6cm"></p>
+<p><span class="math display">\[
+E = mc^2
+\]</span></p>
 <p>You can use most standard LaTeX math symbols and operators.<br>
 For more examples, check the <a href="https://quarto.org/docs/authoring/markdown-basics.html#equations">Quarto math documentation</a>.</p>
 </section>
