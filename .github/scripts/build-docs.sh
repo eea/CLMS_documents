@@ -5,7 +5,7 @@ echo "🔄 Copying DOCS to origin_DOCS..."
 mv DOCS origin_DOCS
 
 # Install PyYAML if not already installed (TODO: move it to docker image)
-python3 -m pip install PyYAML
+python3 -m pip install --break-system-packages PyYAML
 
 echo "🔄 Updating URL mappings..."
 python3 .github/scripts/update_url_mappings.py
