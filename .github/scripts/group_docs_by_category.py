@@ -8,7 +8,7 @@ import yaml
 EXCLUDED_DOCS_DIRS = {"templates", "theme", "includes"}
 
 # Quarto configuration files to copy
-QUARTO_CONFIG_FILES = ["_quarto.yml", "_quarto-index.yml"]
+QUARTO_CONFIG_FILES = ["_quarto.yml", "_quarto-index.yml", "_quarto-no-headers.yml"]
 
 # Category to directory mapping
 # Multiple categories can map to the same directory
