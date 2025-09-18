@@ -56,8 +56,8 @@ jobs:
 
       - name: Build Docs
         run: .github/scripts/build-docs.sh
-        env:
-          SKIP_DOCX: ${{ github.ref_name != 'develop' && '1' || '' }}
+        # env:
+        #   SKIP_DOCX: ${{ github.ref_name != 'develop' && '1' || '' }}
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
