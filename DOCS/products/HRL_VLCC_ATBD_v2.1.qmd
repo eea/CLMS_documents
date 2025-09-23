@@ -90,7 +90,7 @@ In a subsequent post-processing step two further classes are derived to delineat
 
 The resulting Base Vegetation Layer is derived annually considering a time-window of five years  (e.g. 2017 – 2021) to delineate the boundaries between grassland, cropland, tree cover and  other land cover types (e.g. built-up areas, sealed areas, water, bare ground, permanent  snow/ice, non-agricultural shrubs) not relevant for further processing steps within the HRL VLCC.
 
-![Figure 2: Production units subdividing the EEA-38 area into homogenous biogeographical substrata for the production of the BVL (GF: French Guiana, GP: Guadeloupe, MQ: Martinique, RE:  Le Réunion, YT: Mayotte).](HRL_VLCC_ATBD_v2.1-media/img-96d4f7ffe37f4b6d5ba2b5ac9886614e2b0e3258.png)
+![Figure 2: Production units subdividing the EEA-38 area into homogenous biogeographical substrata for the production of the BVL (GF: French Guiana, GP: Guadeloupe, MQ: Martinique, RE:  Le Réunion, YT: Mayotte).](HRL_VLCC_ATBD_v2.1-media/img-96d4f7ffe37f4b6d5ba2b5ac9886614e2b0e3258.jpg)
 
 
 
@@ -237,7 +237,7 @@ The **TCPCCL** relies as well on the probabilities for coniferous and broadleave
 
 **Omission of sparse tree cover** is commonly known challenge for tree cover mapping since lower  canopy cover leads to a mixed reflectance signal that becomes increasingly dominated by the  understory. The issue is further aggravated by imperfections of the multi-temporal coregistration of the Sentinel-2 data. Sparse tree cover is common at the timber line but in  particular in the Mediterranean comprising agroforestry systems (Dehesas, Montados) and Olive  Groves. Initial classifications for the Iberian Peninsula and Southern Italy revealed large areas of  Olive Groves and Dehesas which triggered a reprocessing. This included the revision of  approximately 7000 additional samples and the collection of around 5500 additional tree cover  samples. Retraining the model with the revised sample database indeed provided major improvements. Further enhancements were implemented also in the post-processing to boost  tree cover probabilities in areas designated as Agroforestry, Olive Groves and other type of tree  cover according to the Corine Land Cover layer for 2018. An example for the status of the DLT  before and after the reprocessing is provided in Figure 5. Though the reprocessing has  significantly reduced the amount of omission errors, tree cover omission is generally still more  pronounced in the Mediterranean region.
 
-![Figure 5: Dominant Leaf Type for the reference year 2021 a) after initial classification and b) after reprocessing for agroforestry system in Andalusia, Spain (LAEA 3044254.4m, 1822153.02m) Background Google Maps VHR imagery 03/2021.](HRL_VLCC_ATBD_v2.1-media/img-76519c7ec6c010f538a443731db40973837bf1f3.png){width=70%}
+![Figure 5: Dominant Leaf Type for the reference year 2021 a) after initial classification and b) after reprocessing for agroforestry system in Andalusia, Spain (LAEA 3044254.4m, 1822153.02m) Background Google Maps VHR imagery 03/2021.](HRL_VLCC_ATBD_v2.1-media/img-76519c7ec6c010f538a443731db40973837bf1f3.jpg){width=70%}
 
 
 
@@ -247,11 +247,11 @@ This concerns topographic effects where cast shadows result in dark features in 
 
 Underestimations and spatial patterns that are not related to actual variations of the canopies  can also be caused by cloud cover. On the one hand, this can be caused by clouds that are not  detected in the SCL accompanying the Sentinel-2 L2A data. On the other hand, frequent cloudcover during the peak period of the vegetation season can lead to a higher impact of scenes  from early spring that may depict broadleaved deciduous tree (especially those with later leaf  emergence such as Fagus and Quercus) still with leaf off conditions. A rigorous quality control  was conducted to detect such artefacts and adjust parameters for median time-feature  computation as much as possible. This included for example the usage of shorter time-windows  (starting only in May) or alternative statistical metrics such as 25th- and 75th percentiles. While  this enabled to significantly reduced the amount of artefacts as illustrated in Figure 7, it was not  possible to fully resolve all cases encountered.
 
-![Figure 6: Example for an area with imprints of topographic effects into the Tree Cover Density  layer in Northern Norway (LAEA. 4833337.67m, 5288588.26m) a) VHR image 07/2021 (Google  Maps) b) final TCD layer for 2021 and c) median of S-2 L2A band 3 over the vegetation season.](HRL_VLCC_ATBD_v2.1-media/img-bc1b609dee87f1e9ffa5ba0bf47c2f4e63f371a2.png){width=70%}
+![Figure 6: Example for an area with imprints of topographic effects into the Tree Cover Density  layer in Northern Norway (LAEA. 4833337.67m, 5288588.26m) a) VHR image 07/2021 (Google  Maps) b) final TCD layer for 2021 and c) median of S-2 L2A band 3 over the vegetation season.](HRL_VLCC_ATBD_v2.1-media/img-bc1b609dee87f1e9ffa5ba0bf47c2f4e63f371a2.jpg){width=70%}
 
 
 
-![Figure 7: Example for initial TCD underestimation due to proportional high number of early  spring scenes with trees in leaf-off conditions in Northern Germany (LAEA, 4186992.95m  3368117.83m). a) initial (unmasked) TCD estimates using median features for March – October  2021 and showing severe underestimation for broadleaved deciduous canopies, b) VHR image  2021 and c) final TCD based on reduced time window from May to September 2021 and  percentile features.](HRL_VLCC_ATBD_v2.1-media/img-2dd3407d3fdf8a7517f3847a38faefdfec124e4d.png)
+![Figure 7: Example for initial TCD underestimation due to proportional high number of early  spring scenes with trees in leaf-off conditions in Northern Germany (LAEA, 4186992.95m  3368117.83m). a) initial (unmasked) TCD estimates using median features for March – October  2021 and showing severe underestimation for broadleaved deciduous canopies, b) VHR image  2021 and c) final TCD based on reduced time window from May to September 2021 and  percentile features.](HRL_VLCC_ATBD_v2.1-media/img-2dd3407d3fdf8a7517f3847a38faefdfec124e4d.jpg)
 
 
 
@@ -432,7 +432,7 @@ Initial tests demonstrated that the **HER time-series** was susceptible to false
 
 This issue was addressed by harmonizing the **HER** time-series by comparing it with a change  layer derived from the **HR-VPP PPI** (see @sec-GRAC). A **HER** pixel is only allowed to change  from one year to the next if there is a strong enough signal change detected in the **HR-VPP PPI**.  The rules were applied more rigorously to ensure a higher consistency. The following **Error! Reference source not found**. shows an example of the **GRAC** layer in EEA tile E39N31 comparing  changes from the previous test production vs. the processor deployed in production. The number of positive and negative changes decreased significantly due to the harder constraints on change during the years. The restrictions on **HER** layers being more consistent throughout the years propagates further to the **GRA** and **GRAC** layers.
 
-![Figure 9: Comparison of GRAC layers from test production and current production taken from EEA tile E39N31 (upper example in the centre around (3957750, 3114334), lower example in the centre around (3984094, 3150073). Blue areas indicate grassland gain, red areas indicate grassland loss (for year 2018 to 2021).](HRL_VLCC_ATBD_v2.1-media/img-8719e7bd2267f1c5464a04d53f8f28dfc13d0098.png)
+![Figure 9: Comparison of GRAC layers from test production and current production taken from EEA tile E39N31 (upper example in the centre around (3957750, 3114334), lower example in the centre around (3984094, 3150073). Blue areas indicate grassland gain, red areas indicate grassland loss (for year 2018 to 2021).](HRL_VLCC_ATBD_v2.1-media/img-8719e7bd2267f1c5464a04d53f8f28dfc13d0098.jpg)
 
 
 
@@ -594,11 +594,11 @@ In some case the atmospheric correction of the L2A also seems to be a cause of f
 
 For some tiles with an early start of the vegetation period, the mowing season associated with  a reference year may begin in the previous calendar year. Likewise, the subsequent season,  which for the next year, may already start within a given reference year. Since the production  of the VLCC products (incl. the GRAM) has been conducted in several phases (2017-2021, 2022-2023, 2024) this can result in incomplete detection of mowing events for the final year in the  production interval, as data from the following season is not yet processed. To ensure  consistency and completeness, it may be necessary to include an additional year of data for tiles  with early season starts and for the final year of the production interval.
 
-![Figure 16: Sentinel-2A and - 2B L1C data coverage in 2018. Shown are (a) average cloudiness, and (b) average gap between cloud-free observations.](HRL_VLCC_ATBD_v2.1-media/img-cc948934135584de49fbd4cb942740dcde2e9c17.png)
+![Figure 16: Sentinel-2A and - 2B L1C data coverage in 2018. Shown are (a) average cloudiness, and (b) average gap between cloud-free observations.](HRL_VLCC_ATBD_v2.1-media/img-cc948934135584de49fbd4cb942740dcde2e9c17.jpg)
 
 
 
-![Figure 17: Visibility of the Sentinel-2 swath borders and the different swath coverage in the  GRAME layer (32TPT; WGS84 coordinates: 10.63480°E, 47.65318°N).](HRL_VLCC_ATBD_v2.1-media/img-321da7a884def72c625e69183efbbe9654e38607.png)
+![Figure 17: Visibility of the Sentinel-2 swath borders and the different swath coverage in the  GRAME layer (32TPT; WGS84 coordinates: 10.63480°E, 47.65318°N).](HRL_VLCC_ATBD_v2.1-media/img-321da7a884def72c625e69183efbbe9654e38607.jpg)
 
 
 
@@ -988,7 +988,7 @@ The workflow applied to determine fallow land presence is shown in Figure 25. Af
 
 **Emergence-Emergence:** There are two emergences detected on the field but the maximum  fAPAR value stays below 0.35. These fields have bare soil/very sparse fallow vegetation  growth and are therefore considered as fallow.
 
-![Figure 25: Workflow for fallow land presence classification. With CP: cropping pattern, CTYCL: confidence value of CTY layer. For the Metzger based environmental zonation see Table 5.](HRL_VLCC_ATBD_v2.1-media/img-2e78c63221247c54d2de67164438c015ea8c8e30.png)
+![Figure 25: Workflow for fallow land presence classification. With CP: cropping pattern, CTYCL: confidence value of CTY layer. For the Metzger based environmental zonation see Table 5.](HRL_VLCC_ATBD_v2.1-media/img-2e78c63221247c54d2de67164438c015ea8c8e30.jpg)
 
 For details on the calculation of the **Fallow Land Presence Confidence Layer (FLPCL)** please refer  to section 
 
