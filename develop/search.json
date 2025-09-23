@@ -329,13 +329,6 @@
     "text": "Footnotes\n\n\nPerformed by the Service provider after production and before delivery to the EEA↩︎\nPerformed by the Service provider after production and before delivery to the EEA↩︎"
   },
   {
-    "objectID": "uncategorized/EGMS_product_description_2023.html",
-    "href": "uncategorized/EGMS_product_description_2023.html",
-    "title": "European Ground Motion Service (EGMS) - Product Description and Format Specification",
-    "section": "",
-    "text": "European Environment Agency (EEA)\nKongens Nytorv 6\n1050 Copenhagen K\nDenmark\nhttps://land.copernicus.eu/"
-  },
-  {
     "objectID": "uncategorized/EGMS_product_description_2023.html#scope",
     "href": "uncategorized/EGMS_product_description_2023.html#scope",
     "title": "European Ground Motion Service (EGMS) - Product Description and Format Specification",
@@ -483,13 +476,6 @@
     "text": "11.4 Data Field Evaluation\nThe evaluation of the fields in Table 5 and Table 6 follows a specific convention which is described and implemented by the following snippet of code.\n\n\n% File to be used as a \"pseudo-code\" just to define how the different \n% parameters of EGMS deliverables (L2a) should be computed \n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n% NI is the Number of Images(data) \n% \"time\" is a column vector with \"NI\" acquisition dates - starting from 0 - [year] \n\n%% FORWARD - Generate a Time Series - vector [NI x 1] \n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\nNI=300;  %% Number of images \ntime=(0:6:(NI-1)*6)'/365; %% [year] \nVelocity     = 5*randn % [mm/yr] \nAcceleration = 2*randn % [mm/yr^2] \nSeasonAmp    = 10*rand % [mm] \nOffset       = rand    % [year] \nnoise        = 4*randn(NI,1);     % [mm] \nTimeSeries = 0.5*Acceleration*time.^2 + Velocity*time +... \n    SeasonAmp*cos(2*pi*(time-Offset))+noise; \n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n%%%% TASK 1 - Computation of the RMSE of each Time Series \n%%%%          and estimation of the Amplitude of the Seasonal Component \n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n%%% Model Matrix - Third order polynomial + seasonality  \n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\nG = [time.^3 time.^2 time ones(NI,1) cos(2*pi*time) sin(2*pi*time)]; \n\n%% inversion \ninvG=inv(G'*G);  %% pseudoinverse(Moore-Penrose) \nCOEFF = invG*G'*TimeSeries; \nModel=G*COEFF; \n\n% Compute RMSE \nRMSE = sqrt( mean( (TimeSeries-Model).^2 ) ) %%% [mm] \n\n% Compute the amplitude of the seasonal component and its StDev \nEstimatedSeasonAMP= sqrt( COEFF(5).^2+COEFF(6).^2 ); \nEstimatedSTD_SeasonAMP= sqrt( (4-pi)/2*(invG(5,5)+invG(6,6))/2 )*RMSE;  \n% In fact, this is the StDev of a Rayleigh distribution, since the amp of \n% the seasonal component is sqrt( COEFF(5).^2+COEFF(6).^2 ); and we \n% suppose a gaussian statistics \n\nEstimated_AMP_And_Std = [EstimatedSeasonAMP EstimatedSTD_SeasonAMP] \n\n% PLOT THE TIME SERIES \nplot(time,[TimeSeries Model]); \nlegend('Data','Model'); \nxlabel('Time [year]'); \nylabel('Displacement [mm]'); \ngrid on \n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n%%%% TASK 2 - Compute Mean Velocity and its StdDev \n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n%%% Model Matrix - First order polynomial + seasonality  \n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\nG = [time ones(NI,1) cos(2*pi*time) sin(2*pi*time)]; \n\n%%%%% inversion %%%%%% \ninvG=inv(G'*G); \nCOEFF = invG*G'*TimeSeries; \nModel=G*COEFF; \nEstimatedVelocity = COEFF(1); %%% [mm/yr] \nEstimatedSTD_Noise = std(TimeSeries-Model); \nEstimatedSTD_Vel = sqrt(invG(1,1))*EstimatedSTD_Noise; %%% in [mm/yr] \nEstimated_Vel_And_Std = [EstimatedVelocity EstimatedSTD_Vel] \n\n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n%%%% TASK 3 - Compute Acceleration and its StdDev \n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n%%% Model Matrix - Second order polynomial + seasonality  \n%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\nG = [0.5*time.^2 time ones(NI,1) cos(2*pi*time) sin(2*pi*time)];\n\n%%%%% inversion %%%%%% \ninvG=inv(G'*G); \nCOEFF = invG*G'*TimeSeries; \nModel=G*COEFF; \nEstimatedAcceleration = COEFF(1); %%% [mm/yr] \nEstimatedSTD_Noise = std(TimeSeries-Model); \nEstimatedSTD_Acc = sqrt(invG(1,1))*EstimatedSTD_Noise; %%% in [mm/yr] \nEstimated_Acc_And_Std = [EstimatedAcceleration EstimatedSTD_Acc]\nTable 14 Data delivery field evaluation"
   },
   {
-    "objectID": "products/HRL_VLCC_ATBD_v2.1.html",
-    "href": "products/HRL_VLCC_ATBD_v2.1.html",
-    "title": "High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical Basis Document (ATBD)",
-    "section": "",
-    "text": "European Environment Agency (EEA)\nKongens Nytorv 6\n1050 Copenhagen K\nDenmark\nhttps://land.copernicus.eu/"
-  },
-  {
     "objectID": "products/HRL_VLCC_ATBD_v2.1.html#scope",
     "href": "products/HRL_VLCC_ATBD_v2.1.html#scope",
     "title": "High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical Basis Document (ATBD)",
@@ -551,13 +537,6 @@
     "title": "High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical Basis Document (ATBD)",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nhttps://gdal.org/en/stable/api/gdal_alg.html#_CPPv415GDALSieveFilter15GDALRasterBandH15GDALRasterBandH15GDALRasterBandHiiPPc16GDALProgressFuncPv↩︎\nhttps://gdal.org/en/stable/api/gdal_alg.html#_CPPv414GDALFillNodata15GDALRasterBandH15GDALRasterBandHdiiPPc16GDALProgressFuncPv↩︎\nhttps://land.copernicus.eu/en/products/corine-land-cover/clc2018↩︎\nhttps://land.copernicus.eu/en/products/high-resolution-layer-grasslands/grassland-2018-raster-10-m-100-m-europe-yearly↩︎\nhttps://land.copernicus.eu/en/products/high-resolution-layer-grasslands/grassland-2018-raster-10-m-100-m-europe-yearly↩︎\nhttps://land.copernicus.eu/en/products/vegetation↩︎\nhttps://land.copernicus.eu/en/products/vegetation↩︎\nhttps://land.copernicus.eu/en/products/vegetation↩︎\nhttps://land.copernicus.eu/en/technical-library/hrl-grassland-2018-product-user-manual↩︎\nhttps://gdal.org/en/stable/api/gdal_alg.html#_CPPv415GDALSieveFilter15GDALRasterBandH15GDALRasterBandH15GDALRasterBandHiiPPc16GDALProgressFuncPv↩︎\nhttps://openeo.org/↩︎"
-  },
-  {
-    "objectID": "products/EGMS-ATBD_v4.0.html",
-    "href": "products/EGMS-ATBD_v4.0.html",
-    "title": "European Ground Motion Service (EGMS) - Algorithm Theoretical Basis Document (ATBD)",
-    "section": "",
-    "text": "European Environment Agency (EEA)\nKongens Nytorv 6\n1050 Copenhagen K\nDenmark\nhttps://land.copernicus.eu/"
   },
   {
     "objectID": "products/EGMS-ATBD_v4.0.html#scope-of-the-document",
@@ -873,13 +852,6 @@
     "title": "European Ground Motion Service (EGMS) - Algorithm Theoretical Basis Document (ATBD)",
     "section": "11.2 Document history:",
     "text": "11.2 Document history:\n\n\n\n\n\n\n\n\n\nRevision\nDate\nCreated by\nShort Description of Changes\n\n\n\n\ndraft 1.0\n02/07/2021\nAlessandro Ferretti\nfirst version\n\n\ndraft 1.1\n22/10/2021\nAlessandro Ferretti\nUpdated according to review by EEA Review table_ORR_final_v2 - EEA 13/07/202\n\n\n1.0\n20/12/2021\nEmanuele Passera\nUpdated according to review by EEA20211015_Review_package\n\n\n2.0\n06/02/2023\nEmanuele Passera\n1st update strategy added in section 10\n\n\n3.0\n25/10/2025\nEmanuele Passera\n2nd update strategy added in section 10\n\n\n4.0\n06/08/2025\nEmanuele Mele\nUpdate relevant to some IPE’s peculiarity"
-  },
-  {
-    "objectID": "guidelines/editor-manual.html",
-    "href": "guidelines/editor-manual.html",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "",
-    "text": "This manual guides users through creating technical documentation for the Copernicus Land Monitoring Service using Quarto. Quarto simplifies the process of writing professional documents in Markdown, and converting them into HTML and PDF for nice publishing. The manual covers basic Markdown writing, document rendering, as well a the review, and publication process of technical CLMS documents. It also describes the project folder structure, template usage, and common mistakes to avoid.\n\n\n\n\n\n\nNote\n\n\n\nYou don’t need to be a programmer nor an expert to use Quarto. If you’ve ever written a document in Microsoft Word, you’ll be able to use Quarto with a bit of practice."
   },
   {
     "objectID": "guidelines/editor-manual.html#git",
@@ -1253,13 +1225,6 @@
     "text": "15.3 Releasing Official Documentation\nTo publish the final release version:\n\nA Technical Library owner must create a PR from test to main.\nThis PR also must be reviewed and approved by another repository owner.\nUpon review approval:\n\nThe PR is merged.\nThe final, official version is automatically rendered and published at https://eea.github.io/CLMS_documents/main/index.html\n\n\nVersion numbers for both pre-releases and official releases are automatically generated as part of the release workflow."
   },
   {
-    "objectID": "guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html",
-    "href": "guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html",
-    "title": "IT Architecture Principles and Implementation Guidelines",
-    "section": "",
-    "text": "The EEA (European Environment Agency) CLMS IT architecture principles are indicative and must be evaluated in all IT deliverables."
-  },
-  {
     "objectID": "guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#architecture",
     "href": "guidelines/IT_Architecture_Principles_and_Implementation_Guidelines.html#architecture",
     "title": "IT Architecture Principles and Implementation Guidelines",
@@ -1482,13 +1447,6 @@
     "title": "Copernicus Land Data Store - Public Consultation Report",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nhttps://land.copernicus.eu/en/news/clds-survey/clds-concept-note_final.pdf/@@download/file↩︎\nhttps://land.copernicus.eu/en/news/clds-survey/clds-concept-note_final.pdf/@@download/file↩︎\nhttps://www.go-fair.org/↩︎"
-  },
-  {
-    "objectID": "uncategorized/HRL_Grasslands_ProductUserManual_v1.0.html",
-    "href": "uncategorized/HRL_Grasslands_ProductUserManual_v1.0.html",
-    "title": "High Resolution Layer Grasslands - Product User Manual (PUM)",
-    "section": "",
-    "text": "European Environment Agency (EEA)\nKongens Nytorv 6\n1050 Copenhagen K\nDenmark\nhttps://land.copernicus.eu/"
   },
   {
     "objectID": "uncategorized/HRL_Grasslands_ProductUserManual_v1.0.html#scope",
