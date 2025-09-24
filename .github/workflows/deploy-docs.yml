@@ -40,17 +40,32 @@ jobs:
           options: -e GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} -v ${{ github.workspace }}:/app
           run: python .github/scripts/generate_intros_and_keywords.py modified_docs_list.txt
 
-      - name: Commit updated LLM cache
+
+
+      - name: Set up git user for commits
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
 
+      - name: Commit updated LLM cache
+        run: |
           git add .llm_cache
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
             git commit -m "Update LLM cache [skip ci]"
+            git push origin HEAD
+          fi
+
+      - name: Commit updated secret doc map
+        run: |
+          git add .github/secret_doc_map.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update secret doc map [skip ci]"
             git push origin HEAD
           fi
 

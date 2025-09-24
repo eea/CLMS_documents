@@ -1,6 +1,10 @@
+
 import os
 import shutil
 import re
+import json
+import random
+import string
 from pathlib import Path
 import yaml
 
@@ -17,10 +21,41 @@ CATEGORY_TO_DIRECTORY_MAP = {
     "products": "products",
 }
 
+
 # Change working directory to root of the repository
 script_dir = Path(__file__).parent
 root_dir = script_dir / "../../"
 os.chdir(root_dir.resolve())
+
+# Secret doc mapping file
+SECRET_MAP_PATH = Path(".github/secret_doc_map.json")
+
+def load_secret_map():
+    if SECRET_MAP_PATH.exists():
+        with open(SECRET_MAP_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return data.get("mappings", [])
+    return []
+
+def save_secret_map(mappings):
+    with open(SECRET_MAP_PATH, "w", encoding="utf-8") as f:
+        json.dump({
+            "_comment": "This file maps secret QMD source files to their persistent random output names and URLs. Do not publish this file.",
+            "mappings": mappings
+        }, f, indent=2)
+
+def random_base(length=64):
+    return ''.join(random.choices(string.ascii_lowercase + string.digits, k=length))
+
+def get_secret_mapping_for_source(mappings, source):
+    for m in mappings:
+        if m["source"] == source:
+            return m
+    return None
+
+def add_secret_mapping(mappings, source, base, url):
+    mappings.append({"source": source, "base": base, "url": url})
+    return mappings
 
 
 def get_directory_for_category(category):
@@ -85,12 +120,17 @@ def copy_media_directory_if_exists(qmd_file, target_folder):
     return False
 
 
+
 def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
     source_path = Path(source_dir)
     target_path = Path(target_dir)
 
     # Create target directory if it doesn't exist
     target_path.mkdir(exist_ok=True)
+
+    # Load secret doc mapping
+    secret_mappings = load_secret_map()
+    updated = False
 
     # Find all .qmd files
     qmd_files = [
@@ -108,33 +148,95 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
 
     print(f"Found {len(qmd_files)} .qmd files")
 
-    # Group files by category
     for qmd_file in qmd_files:
         category = extract_category_from_qmd(qmd_file)
+        rel_source = str(qmd_file.relative_to(source_path))
+        project_name = qmd_file.parts[1] if len(qmd_file.parts) > 1 else ""
 
-        # Get the target directory name using the mapping
-        target_directory = get_directory_for_category(category)
-
-        # Create target directory folder
-        target_folder = target_path / target_directory
-        target_folder.mkdir(exist_ok=True)
-
-        # Copy file to target directory
-        target_file = target_folder / qmd_file.name
-        shutil.copy2(qmd_file, target_file)
-
-        # Copy corresponding media directory if it exists
-        copy_media_directory_if_exists(qmd_file, target_folder)
-
-        if category:
-            if category in CATEGORY_TO_DIRECTORY_MAP:
-                print(
-                    f"\tCopied {qmd_file.name} → {target_directory}/ (category: {category})"
-                )
+        if category == "secret":
+            # Place all secret docs in DOCS/secret/
+            secret_dir = target_path / "secret"
+            secret_dir.mkdir(exist_ok=True)
+            mapping = get_secret_mapping_for_source(secret_mappings, rel_source)
+            if mapping is None:
+                base = random_base()
+                url = "/" + base + ".html"
+                secret_mappings = add_secret_mapping(secret_mappings, rel_source, base, url)
+                updated = True
+                print(f"\t[secret] Assigned new random base '{base}' for {rel_source}")
             else:
-                print(f"\tCopied {qmd_file.name} → {target_directory}/")
+                base = mapping["base"]
+                url = mapping["url"]
+                print(f"\t[secret] Using existing base '{base}' for {rel_source}")
+
+            target_file = secret_dir / f"{base}.qmd"
+            shutil.copy2(qmd_file, target_file)
+            orig_media_dir = qmd_file.parent / f"{qmd_file.stem}-media"
+            target_media_dir = secret_dir / f"{base}-media"
+            if orig_media_dir.exists() and orig_media_dir.is_dir():
+                if target_media_dir.exists():
+                    shutil.rmtree(target_media_dir)
+                shutil.copytree(orig_media_dir, target_media_dir)
+                print(f"\t\tCopied media directory: {base}-media (renamed for secret)")
+                # Update references in the copied .qmd file
+                try:
+                    with open(target_file, "r", encoding="utf-8") as f:
+                        content = f.read()
+                    old_media = f"{qmd_file.stem}-media/"
+                    new_media = f"{base}-media/"
+                    if old_media in content:
+                        content = content.replace(old_media, new_media)
+                        with open(target_file, "w", encoding="utf-8") as f:
+                            f.write(content)
+                        print(f"\t\tRewrote media references in {base}.qmd (secret)")
+                except Exception as e:
+                    print(f"\t\t[ERROR] Failed to rewrite media references in {base}.qmd: {e}")
+            print(f"\t[secret] Copied {qmd_file.name} → secret/{base}.qmd (secret)")
         else:
-            print(f"\tCopied {qmd_file.name} → {target_directory}/ (no category found)")
+            # Normal doc: group by category, prefix with project name to avoid collisions
+            target_directory = get_directory_for_category(category)
+            target_folder = target_path / target_directory
+            target_folder.mkdir(exist_ok=True)
+            prefix = f"{project_name}_" if project_name else ""
+            target_file = target_folder / f"{prefix}{qmd_file.name}"
+            shutil.copy2(qmd_file, target_file)
+            # Copy media dir with prefix
+            orig_media_dir = qmd_file.parent / f"{qmd_file.stem}-media"
+            if orig_media_dir.exists() and orig_media_dir.is_dir():
+                target_media_dir = target_folder / f"{prefix}{qmd_file.stem}-media"
+                if target_media_dir.exists():
+                    shutil.rmtree(target_media_dir)
+                shutil.copytree(orig_media_dir, target_media_dir)
+                print(f"\t\tCopied media directory: {prefix}{qmd_file.stem}-media")
+            # Rewrite media references in the copied QMD file
+            if prefix:
+                try:
+                    with open(target_file, "r", encoding="utf-8") as f:
+                        content = f.read()
+                    # Replace all occurrences of the original media dir with the prefixed one
+                    old_media = f"{qmd_file.stem}-media/"
+                    new_media = f"{prefix}{qmd_file.stem}-media/"
+                    if old_media in content:
+                        content = content.replace(old_media, new_media)
+                        with open(target_file, "w", encoding="utf-8") as f:
+                            f.write(content)
+                        print(f"\t\tRewrote media references in {prefix}{qmd_file.name}")
+                except Exception as e:
+                    print(f"\t\t[ERROR] Failed to rewrite media references in {prefix}{qmd_file.name}: {e}")
+            if category:
+                if category in CATEGORY_TO_DIRECTORY_MAP:
+                    print(f"\tCopied {qmd_file.name} → {target_directory}/ as {prefix}{qmd_file.name} (category: {category})")
+                else:
+                    print(f"\tCopied {qmd_file.name} → {target_directory}/ as {prefix}{qmd_file.name}")
+            else:
+                print(f"\tCopied {qmd_file.name} → {target_directory}/ as {prefix}{qmd_file.name} (no category found)")
+
+    # Save updated secret mapping if changed
+    if updated:
+        save_secret_map(secret_mappings)
+        print(f"[secret] Updated mapping file: {SECRET_MAP_PATH}")
+    else:
+        print(f"[secret] No changes to mapping file: {SECRET_MAP_PATH}")
 
 
 def copy_excluded_dirs(source_dir="origin_DOCS", target_dir="DOCS"):
