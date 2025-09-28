@@ -62,7 +62,7 @@ echo "📄 Converting .docx files to .pdf..."
 timeout 3s ../.github/scripts/convert_docx_to_pdf.sh || true
 timeout 10m ../.github/scripts/convert_docx_to_pdf.sh
 
-Clean up DOCX files if requested (they're only needed for PDF conversion)
+# Clean up DOCX files if requested (they're only needed for PDF conversion)
 if [[ -n "$SKIP_DOCX" ]]; then
   echo "🗑️  Cleaning up DOCX files (keeping only PDFs and HTML)..."
   find _site -name "*.docx" -type f -delete
