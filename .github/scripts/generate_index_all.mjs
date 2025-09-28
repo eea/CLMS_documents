@@ -1,8 +1,8 @@
 import { readdir, writeFile, access } from "fs/promises";
 import { join, basename } from "path";
 
-const DOCS_DIR = "DOCS";
-const IGNORED_FOLDERS = new Set(["theme", "templates", "includes"]);
+const DOCS_DIR = "../DOCS";
+const IGNORED_FOLDERS = new Set(["theme", "templates", "includes", "assets", "_site", ".quarto", "non-browsable"]);
 
 function formatTitle(name) {
   return name.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
@@ -18,8 +18,10 @@ title: ${title}
 listing:
   type: table
   contents: .
+  fields: [title, category, version, date]
   sort: title
-  fields: [title, date, version]
+  sort-ui: [title, category, version, date]
+  filter-ui: false
 ---
 `;
 
@@ -32,18 +34,19 @@ listing:
 
 async function generateDocsRootIndex(subfolders) {
   const indexPath = join(DOCS_DIR, "index.qmd");
-
+  // Exclude 'non-browsable' from root index listing
+  const filtered = subfolders.filter((f) => f !== "non-browsable");
   const indexContent = `---
 title: Documentation
 listing:
   type: table
   contents:
-${subfolders.map((f) => `    - ${f}/index.qmd`).join("\n")}
+${filtered.map((f) => `    - ${f}/index.qmd`).join("\n")}
   sort: title
   fields: [title]
+  filter-ui: false
 ---
 `;
-
   await writeFile(indexPath, indexContent);
 }
 

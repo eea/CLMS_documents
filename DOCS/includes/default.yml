@@ -11,10 +11,11 @@ format:
   html:
     include-in-header:
       - ../includes/json-ld.html
-    include-before-body: ../includes/default-before-body.html
     css: ../theme/styles.css
     code-fold: true # Allow code blocks to be foldable
-    self-contained: true # Embed resources like CSS and images
+    self-contained: false # Don't embed resources like CSS and images
+    filters:
+      - ../../.github/scripts/filters/extract-images.lua
   docx:
     toc-location: before-body
     toc-pagebreak: true

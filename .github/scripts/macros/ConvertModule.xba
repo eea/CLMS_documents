@@ -1,112 +1,551 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
-<script:module xmlns:script="http://openoffice.org/2000/script" script:name="ConvertModule" script:language="StarBasic">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="ConvertModule" script:language="StarBasic">REM ***** BASIC *****
 
-  REM ***** BASIC *****
+Sub UpdateTOCAndExportToPDF()
 
-  Sub UpdateTOCAndExportToPDF()
+    Dim document As Object
+    Dim dispatcher As Object
 
-      Dim document As Object
-      Dim dispatcher As Object
+    document = ThisComponent
 
-      document = ThisComponent
+    &apos;Unlock fields by disabling &quot;Fixed Content&quot; (IsFixed = False) to allow automatic updates
+    UpdateDocProperties()
 
-      'Unlock fields by disabling "Fixed Content" (IsFixed = False) to allow automatic updates
-      UpdateDocProperties()
+    &apos; Refresh all fields (TOC, DOCPROPERTY, etc.)
+    dispatcher = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+    dispatcher.executeDispatch(document.CurrentController.Frame, &quot;.uno:UpdateAll&quot;, &quot;&quot;, 0, Array())
+     
+     FitTablesToPageWidth_WithImageColumnsLocked
+    
+    &apos; Shrink images so they fit neatly inside table columns
+    FitCellImagesToColumn()
+    
+    &apos; Style code-like paragraphs with borders, background, and padding
+    Boxify_Codeish_Paragraphs()
+    
 
-      ' Refresh all fields (TOC, DOCPROPERTY, etc.)
-      dispatcher = createUnoService("com.sun.star.frame.DispatchHelper")
-      dispatcher.executeDispatch(document.CurrentController.Frame, ".uno:UpdateAll", "", 0, Array())
+    &apos; Generate PDF file path
+    pdfURL = Replace(ThisComponent.URL, &quot;.docx&quot;, &quot;.pdf&quot;)
 
-      FixTableWidth()
+	  &apos; If no valid file path, close document immediately
+	  If pdfURL = &quot;&quot; Then
+	    document.setModified(False)
+	    document.close(True)
+	    Exit Sub
+	  End If
 
-      ' Generate PDF file path
-      pdfURL = Replace(ThisComponent.URL, ".docx", ".pdf")
+    &apos; Ensure any existing PDF is deleted before exporting
+    fileSystem = createUnoService(&quot;com.sun.star.ucb.SimpleFileAccess&quot;)
+    If fileSystem.exists(pdfURL) Then
+        fileSystem.kill(pdfURL)
+    End If
 
-  	  ' If no valid file path, close document immediately
-  	  If pdfURL = "" Then
-  	    document.setModified(False)
-  	    document.close(True)
-  	    Exit Sub
-  	  End If
+    &apos; Save as PDF
+    Dim args(1) As New com.sun.star.beans.PropertyValue
+    args(0).Name = &quot;FilterName&quot;
+    args(0).Value = &quot;writer_pdf_Export&quot;
+    args(1).Name = &quot;FilterData&quot;
+    args(1).Value = Array()
+    document.storeToURL(pdfURL, args)
 
-      ' Ensure any existing PDF is deleted before exporting
-      fileSystem = createUnoService("com.sun.star.ucb.SimpleFileAccess")
-      If fileSystem.exists(pdfURL) Then
-          fileSystem.kill(pdfURL)
-      End If
-
-      ' Save as PDF
-      Dim args(1) As New com.sun.star.beans.PropertyValue
-      args(0).Name = "FilterName"
-      args(0).Value = "writer_pdf_Export"
-      args(1).Name = "FilterData"
-      args(1).Value = Array()
-      document.storeToURL(pdfURL, args)
-
-      ' Allow PDF export to finish (timeout after 15s)
-      startTime = Timer
-      Do While Not fileSystem.exists(pdfURL)
-          If Timer > startTime + 10 Then '
-              Exit Do
-          End If
-          Wait 1000 ' Check every second
-      Loop
-
-      ' Close document
-      document.setModified(False)
-      document.close(True)
-
-  End Sub
-
-  Sub UpdateDocProperties()
-    Dim doc As Object
-    Dim textFields As Object
-    Dim field As Object
-
-    ' Loop through all text fields and uncheck 'isFixed' flag
-    doc = ThisComponent
-    textFields = doc.TextFields
-
-    For Each field In textFields
-        On Error Resume Next
-        If field.HasProperty("IsFixed") Then
-            field.IsFixed = False  ' Uncheck "Fixed Content"
+    &apos; Allow PDF export to finish (timeout after 15s)
+    startTime = Timer
+    Do While Not fileSystem.exists(pdfURL)
+        If Timer &gt; startTime + 10 Then &apos;
+            Exit Do
         End If
-        On Error GoTo 0
-    Next field
+        Wait 1000 &apos; Check every second
+    Loop
 
-  End Sub
+    &apos; Close document
+    document.setModified(False)
+    document.close(True)
 
-  Sub FixTableWidth()
-    Dim oDoc As Object
-    Dim oTable As Object
-    Dim oCursor As Object
-    Dim oPageStyles As Object
-    Dim oPageFormat As Object
-    Dim PageWidth As Long
-    Dim LeftMargin As Long
-    Dim RightMargin As Long
-    Dim TableWidth As Long
+End Sub
 
-    ' Get the active document
+Sub UpdateDocProperties()
+  Dim doc As Object
+  Dim textFields As Object
+  Dim field As Object
+
+  &apos; Loop through all text fields and uncheck &apos;isFixed&apos; flag
+  doc = ThisComponent
+  textFields = doc.TextFields
+
+  For Each field In textFields
+      On Error Resume Next
+      If field.HasProperty(&quot;IsFixed&quot;) Then
+          field.IsFixed = False  &apos; Uncheck &quot;Fixed Content&quot;
+      End If
+      On Error GoTo 0
+  Next field
+
+End Sub
+
+Sub Boxify_Codeish_Paragraphs()
+    Dim oDoc As Object, oEnum As Object, oPara As Object
     oDoc = ThisComponent
+    If IsNull(oDoc) Then Exit Sub
 
-    ' Get the default page style (to read page margins)
-    oPageStyles = oDoc.StyleFamilies.getByName("PageStyles")
-    oPageFormat = oPageStyles.getByName("Default Page Style") ' Change if using a custom style
+    oEnum = oDoc.Text.createEnumeration()
+    While oEnum.hasMoreElements()
+        oPara = oEnum.nextElement()
+        If oPara.supportsService(&quot;com.sun.star.text.Paragraph&quot;) Then
+            If IsCodeishParagraph(oPara) Then
+                &apos; Always left align
+                If HasProp(oPara, &quot;ParaAdjust&quot;) Then _
+                    oPara.ParaAdjust = com.sun.star.style.ParagraphAdjust.LEFT
 
-    ' Calculate usable page width
-    PageWidth = oPageFormat.Width
-    LeftMargin = oPageFormat.LeftMargin
-    RightMargin = oPageFormat.RightMargin
-    TableWidth = PageWidth - LeftMargin - RightMargin
+                &apos; Background
+                If HasProp(oPara, &quot;ParaBackTransparent&quot;) And HasProp(oPara, &quot;ParaBackColor&quot;) Then
+                    oPara.ParaBackTransparent = False
+                    oPara.ParaBackColor = RGBLo(241,243,245)   &apos; #F1F3F5
+                End If
 
-    ' Iterate through all tables and set width
-    For Each oTable In oDoc.TextTables
-        oTable.setPropertyValue("Width", TableWidth) ' Set table width to match the usable page width
-    Next oTable
-   End Sub
+                &apos; Borders + padding
+                If HasProp(oPara, &quot;ParaTopBorder&quot;) And HasProp(oPara, &quot;ParaBottomBorder&quot;) _
+                   And HasProp(oPara, &quot;ParaLeftBorder&quot;) And HasProp(oPara, &quot;ParaRightBorder&quot;) Then
+
+                    Dim bl As New com.sun.star.table.BorderLine2
+                    bl.Color = RGBLo(200,200,200)             &apos; #C8C8C8
+                    bl.LineWidth = 30
+                    bl.OuterLineWidth = 0
+                    bl.InnerLineWidth = 0
+
+                    oPara.ParaTopBorder = bl
+                    oPara.ParaBottomBorder = bl
+                    oPara.ParaLeftBorder = bl
+                    oPara.ParaRightBorder = bl
+
+                    If HasProp(oPara, &quot;ParaTopBorderDistance&quot;) Then oPara.ParaTopBorderDistance = 80
+                    If HasProp(oPara, &quot;ParaBottomBorderDistance&quot;) Then oPara.ParaBottomBorderDistance = 80
+                    If HasProp(oPara, &quot;ParaLeftBorderDistance&quot;) Then oPara.ParaLeftBorderDistance = 120
+                    If HasProp(oPara, &quot;ParaRightBorderDistance&quot;) Then oPara.ParaRightBorderDistance = 120
+                End If
+
+                &apos; External spacing
+                If HasProp(oPara, &quot;ParaTopMargin&quot;) Then oPara.ParaTopMargin = 80
+                If HasProp(oPara, &quot;ParaBottomMargin&quot;) Then oPara.ParaBottomMargin = 80
+            End If
+        End If
+    Wend
+End Sub
+
+
+Sub FitTablesToPageWidth_WithImageColumnsLocked()
+    Dim oDoc As Object, oTables As Object, oTable As Object
+    Dim oDisp As Object, oFrame As Object
+    Dim i As Long
+
+    oDoc = ThisComponent
+    oTables = oDoc.TextTables
+    oDisp = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+    oFrame = oDoc.CurrentController.Frame
+
+    Dim textWidth As Long
+    textWidth = GetTextWidth_Global(oDoc)
+    If textWidth &lt;= 0 Then Exit Sub   &apos; check once, not per table
+
+    For i = 0 To oTables.Count - 1
+        oTable = oTables.getByIndex(i)
+
+        &apos; Apply width and margins
+        oTable.Width = textWidth
+        oTable.LeftMargin = 0
+        oTable.RightMargin = 0
+        
+        OptimizeNonImageColumns oDoc, oTable, oDisp, oFrame
+    Next i
+End Sub
+
+
+
+Sub FitCellImagesToColumn()
+  Dim oDoc As Object
+  oDoc = ThisComponent
+  If Not oDoc.supportsService(&quot;com.sun.star.text.TextDocument&quot;) Then Exit Sub
+
+  Dim oTables As Object
+  oTables = oDoc.getTextTables
+  If oTables.getCount = 0 Then Exit Sub
+
+  Dim oGos As Object
+  oGos = oDoc.getGraphicObjects
+
+  Dim totalShrunk As Long
+  totalShrunk = 0
+
+  Dim iT As Long
+  For iT = 0 To oTables.getCount - 1
+    Dim oTable As Object
+    oTable = oTables.getByIndex(iT)
+
+    Dim aColAbs As Variant
+    aColAbs = GetAbsoluteColumnWidths(oTable)
+
+    Dim oRows As Object, oCols As Object
+    oRows = oTable.getRows
+    oCols = oTable.getColumns
+
+    Dim r As Long, c As Long
+    For r = 0 To oRows.getCount - 1
+      For c = 0 To oCols.getCount - 1
+        Dim oCell As Object
+        oCell = oTable.getCellByName(CellNameFromRowCol(r, c))
+
+        Dim usable As Long
+        usable = UsableCellWidth(oCell, aColAbs(c))
+
+        Dim target As Long
+        target = CLng(CDbl(usable) * 0.9)
+
+        Dim i As Long
+        For i = 0 To oGos.getCount - 1
+          Dim go As Object
+          go = oGos.getByIndex(i)
+
+          Dim oAnch As Object
+          On Error Resume Next
+          oAnch = go.Anchor
+          On Error GoTo 0
+
+       If Not IsNull(oAnch) Then
+		    If oAnch.supportsService(&quot;com.sun.star.text.TextRange&quot;) Then
+		        Dim oAnchText As Object, oCellText As Object
+		        On Error Resume Next
+		        oAnchText = oAnch.getText()
+		        oCellText = oCell.getText()
+		        On Error GoTo 0
+		
+		        If (Not IsNull(oAnchText)) And (Not IsNull(oCellText)) Then
+		            If EqualUnoObjects(oAnchText, oCellText) Then
+		                If go.Width &gt; target And target &gt; 0 Then
+		                    On Error Resume Next
+		                    go.KeepRatio = True
+		                    go.Width = target
+		                    On Error GoTo 0
+		                    totalShrunk = totalShrunk + 1
+		                End If
+		            End If
+		        End If
+		    End If
+		End If
+
+          
+          
+        Next i
+      Next c
+    Next r
+  Next iT
+
+
+End Sub
+
+
+Private Sub OptimizeNonImageColumns(oDoc As Object, oTable As Object, oDisp As Object, oFrame As Object)
+    Dim oCols As Object, oRows As Object, oGos As Object
+    Dim colCount As Long, rowCount As Long
+    Dim r As Long, c As Long, i As Long
+
+    oCols = oTable.getColumns()
+    oRows = oTable.getRows()
+    oGos  = oDoc.getGraphicObjects()
+
+    colCount = oCols.getCount()
+    rowCount = oRows.getCount()
+    If colCount = 0 Or rowCount = 0 Then Exit Sub
+
+    Dim imageCols() As Boolean
+    ReDim imageCols(colCount - 1)
+
+    &apos; --- 1) Detect columns that contain any image anchored into a cell in that column ---
+    For r = 0 To rowCount - 1
+        For c = 0 To colCount - 1
+            Dim oCell As Object, oCellText As Object
+            Set oCell = TryGetCellByPos(oTable, c, r)
+            If oCell Is Nothing Then GoTo NextC
+            If Not HasTextInterface(oCell) Then GoTo NextC
+
+            Set oCellText = oCell.getText()
+
+            For i = 0 To oGos.getCount() - 1
+                Dim go As Object, oAnch As Object, oAnchText As Object
+                go = oGos.getByIndex(i)
+                oAnch = go.Anchor
+                If Not IsNull(oAnch) Then
+                    oAnchText = oAnch.getText()
+                    If Not IsNull(oAnchText) Then
+                        If EqualUnoObjects(oAnchText, oCellText) Then
+                            imageCols(c) = True
+                            Exit For
+                        End If
+                    End If
+                End If
+            Next i
+NextC:
+        Next c
+    Next r
+
+    &apos; --- 2) Apply Optimal Column Width to each contiguous run of NON-image columns ---
+    Dim startCol As Long: startCol = -1
+    For c = 0 To colCount - 1
+        Dim isNonImage As Boolean: isNonImage = (imageCols(c) = False)
+
+        If isNonImage And startCol = -1 Then startCol = c
+
+        Dim endOfRun As Boolean
+        endOfRun = ( (Not isNonImage And startCol &lt;&gt; -1) Or (isNonImage And c = colCount - 1) )
+
+        If endOfRun Then
+            Dim runEnd As Long
+            If Not isNonImage Then
+                runEnd = c - 1
+            Else
+                runEnd = c
+            End If
+
+            &apos; Build names (not objects) for the selection.
+            Dim firstName As String, lastName As String
+            firstName = CellNameAtPos(oTable, startCol, 0)
+            lastName  = CellNameAtPos(oTable, runEnd, rowCount - 1)
+
+            If (Len(firstName) &gt; 0) And (Len(lastName) &gt; 0) Then
+                On Error GoTo SkipRun
+                Dim oCursor As Object
+                oCursor = oTable.createCursorByCellName(firstName)
+                oCursor.gotoCellByName(lastName, True)
+                oDoc.CurrentController.select(oCursor)
+                oDisp.executeDispatch(oFrame, &quot;.uno:SetOptimalColumnWidth&quot;, &quot;&quot;, 0, Array())
+                On Error GoTo 0
+            End If
+SkipRun:
+            On Error GoTo 0
+            startCol = -1
+        End If
+    Next c
+End Sub
+
+
+
+&apos; === HELPERS ===
+
+Private Function HasProp(o As Object, propName As String) As Boolean
+    On Error GoTo Fail
+    Dim si As Object
+    si = o.getPropertySetInfo()
+    HasProp = si.hasPropertyByName(propName)
+    Exit Function
+Fail:
+    HasProp = False
+End Function
+
+Private Function RGBLo(r As Integer, g As Integer, b As Integer) As Long
+    RGBLo = (b And 255) + ((g And 255) * 256) + ((r And 255) * 65536)
+End Function
+
+Private Function IsCodeishParagraph(oPara As Object) As Boolean
+    On Error GoTo Done
+    Dim enumPortions As Object, part As Object
+    enumPortions = oPara.createEnumeration()
+    While enumPortions.hasMoreElements()
+        part = enumPortions.nextElement()
+        On Error Resume Next
+        Dim csName$
+        csName = part.CharStyleName
+        On Error GoTo 0
+        If csName &lt;&gt; &quot;&quot; And Right(csName, 3) = &quot;Tok&quot; Then
+            IsCodeishParagraph = True : Exit Function
+        End If
+        On Error Resume Next
+        Dim pitch As Integer
+        pitch = part.CharFontPitch
+        On Error GoTo 0
+        If pitch = com.sun.star.awt.FontPitch.FIXED Then
+            IsCodeishParagraph = True : Exit Function
+        End If
+    Wend
+    Dim txt$
+    txt = oPara.getString()
+    If Len(txt) &gt; 0 Then
+        If Left(txt, 1) = &quot;|&quot; Or Left(txt, 3) = &quot;```&quot; Or Left(txt, 4) = &quot;    &quot; Then
+            IsCodeishParagraph = True : Exit Function
+        End If
+    End If
+Done:
+End Function
+
+Private Function GetTextWidth_Global(oDoc As Object) As Long
+    On Error GoTo Fail
+    Dim oVC As Object, oFamilies As Object, oPageStyles As Object, oPageStyle As Object
+    oVC = oDoc.CurrentController.getViewCursor()
+    oFamilies   = oDoc.StyleFamilies
+    oPageStyles = oFamilies.getByName(&quot;PageStyles&quot;)
+    oPageStyle  = oPageStyles.getByName(oVC.PageStyleName)
+    GetTextWidth_Global = oPageStyle.Width - oPageStyle.LeftMargin - oPageStyle.RightMargin
+    Exit Function
+Fail:
+    GetTextWidth_Global = 0
+End Function
+
+Private Function GetAbsoluteColumnWidths(oTable As Object) As Variant
+  Dim nCols As Long
+  nCols = oTable.getColumns.getCount
+  Dim aWidths() As Long
+  If nCols &lt;= 0 Then
+    GetAbsoluteColumnWidths = Array()
+    Exit Function
+  End If
+  ReDim aWidths(0 To nCols - 1)
+  Dim lTableWidth As Long
+  lTableWidth = TableAbsoluteWidth(oTable)
+  Dim relSum As Long
+  relSum = oTable.TableColumnRelativeSum
+  If relSum = 0 Then relSum = 1
+  Dim seps As Variant
+  seps = oTable.TableColumnSeparators
+  If nCols = 1 Then
+    aWidths(0) = lTableWidth
+    GetAbsoluteColumnWidths = aWidths
+    Exit Function
+  End If
+  Dim i As Long, prevPos As Long, relWidth As Long
+  prevPos = 0
+  For i = 0 To nCols - 2
+    If Not IsNull(seps(i)) Then
+        On Error Resume Next
+        Dim pos As Long
+        pos = seps(i).Position
+        On Error GoTo 0
+        relWidth = pos - prevPos
+        prevPos = pos
+    Else
+        relWidth = 0
+    End If
+
+    If relWidth &lt; 0 Then relWidth = 0
+    aWidths(i) = CLng(CDbl(lTableWidth) * CDbl(relWidth) / CDbl(relSum))
+  Next i
+  relWidth = relSum - prevPos
+  If relWidth &lt; 0 Then relWidth = 0
+  aWidths(nCols - 1) = CLng(CDbl(lTableWidth) * CDbl(relWidth) / CDbl(relSum))
+  GetAbsoluteColumnWidths = aWidths
+End Function
+
+Private Function TableAbsoluteWidth(oTable As Object) As Long
+  On Error GoTo Fallback
+  If (Not oTable.IsWidthRelative) And oTable.Width &gt; 0 Then
+    TableAbsoluteWidth = oTable.Width
+    Exit Function
+  End If
+Fallback:
+  Dim oDoc As Object, oVC As Object, oPS As Object
+  oDoc = ThisComponent
+  oVC = oDoc.getCurrentController.getViewCursor
+  Dim sStyle As String
+  sStyle = oVC.PageStyleName
+  Dim oFamilies As Object, oPageStyles As Object
+  oFamilies = oDoc.getStyleFamilies
+  oPageStyles = oFamilies.getByName(&quot;PageStyles&quot;)
+  oPS = oPageStyles.getByName(sStyle)
+  TableAbsoluteWidth = oPS.Width - oPS.LeftMargin - oPS.RightMargin
+End Function
+
+Private Function UsableCellWidth(oCell As Object, lColAbs As Long) As Long
+  Dim lLeftPad As Long, lRightPad As Long
+  On Error Resume Next
+  lLeftPad = oCell.LeftBorderDistance
+  lRightPad = oCell.RightBorderDistance
+  On Error GoTo 0
+  If lLeftPad &lt; 0 Then lLeftPad = 0
+  If lRightPad &lt; 0 Then lRightPad = 0
+  Dim w As Long
+  w = lColAbs - lLeftPad - lRightPad
+  If w &lt; 0 Then w = 0
+  UsableCellWidth = w
+End Function
+
+Private Function CellNameFromRowCol(r As Long, c As Long) As String
+  CellNameFromRowCol = ColumnNameFromIndex(c) &amp; CStr(r + 1)
+End Function
+
+Private Function ColumnNameFromIndex(idx As Long) As String
+  Dim name As String
+  name = &quot;&quot;
+  Dim n As Long
+  n = idx
+  Do
+    name = Chr(Asc(&quot;A&quot;) + (n Mod 26)) &amp; name
+    n = (n \ 26) - 1
+  Loop While n &gt;= 0
+  ColumnNameFromIndex = name
+End Function
+
+Private Function TableHasImages(oDoc As Object, oTable As Object) As Boolean
+    On Error GoTo Fail
+
+    Dim oGos As Object, i As Long
+    Dim go As Object, oAnch As Object
+
+    oGos = oDoc.getGraphicObjects()
+    For i = 0 To oGos.getCount() - 1
+        go = oGos.getByIndex(i)
+
+        &apos; Skip empty/placeholder graphics
+        If go.GraphicURL &lt;&gt; &quot;&quot; Then
+            oAnch = go.Anchor
+            If Not IsNull(oAnch) Then
+                If Not IsNull(oAnch.TextTable) Then
+                    If EqualUnoObjects(oAnch.TextTable, oTable) Then
+                        TableHasImages = True
+                        Exit Function
+                    End If
+                End If
+            End If
+        End If
+    Next i
+
+    TableHasImages = False
+    Exit Function
+
+Fail:
+    TableHasImages = False
+End Function
+
+Private Function TryGetCellByPos(oTable As Object, ByVal c As Long, ByVal r As Long) As Object
+    On Error GoTo Fail
+    Set TryGetCellByPos = oTable.getCellByPosition(c, r)
+    Exit Function
+Fail:
+    Err = 0
+    Set TryGetCellByPos = Nothing
+End Function
+
+&apos; Check if an object supports com.sun.star.text.XText.
+Private Function HasTextInterface(o As Object) As Boolean
+    On Error GoTo Nope
+    HasTextInterface = HasUnoInterfaces(o, &quot;com.sun.star.text.XText&quot;)
+    Exit Function
+Nope:
+    Err = 0
+    HasTextInterface = False
+End Function
+
+&apos; Get a cell name for (c,r). Returns &quot;&quot; if the position is invalid/merged.
+Private Function CellNameAtPos(oTable As Object, ByVal c As Long, ByVal r As Long) As String
+    Dim oCell As Object
+    Set oCell = TryGetCellByPos(oTable, c, r)
+    If oCell Is Nothing Then
+        CellNameAtPos = &quot;&quot;
+        Exit Function
+    End If
+    On Error GoTo NoProp
+    CellNameAtPos = oCell.CellName
+    Exit Function
+NoProp:
+    Err = 0
+    CellNameAtPos = &quot;&quot;
+End Function
 
 
 </script:module>

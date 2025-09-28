@@ -1,51 +1,89 @@
 #!/bin/bash
 set -e
 
-echo "🖼 Render all documents into to HTML/DOCX"
+echo "🔄 Copying DOCS to origin_DOCS..."
+mv DOCS origin_DOCS
+
+echo "🔄 Updating URL mappings..."
+python3 .github/scripts/update_url_mappings.py
+
+echo "🔄 Grouping documents by category..."
+python3 .github/scripts/group_docs_by_category.py
+
+# Change to DOCS directory as it'll be the root of rendered content
+cd DOCS
+# Link assets to origin_DOCS as these files need to be served from rendered content
+ln -s ../assets assets
+
+
+echo "🖼 Render all documents to HTML"
+if [[ -n "$SKIP_DOCX" ]]; then
+  echo "   (DOCX generation will be skipped)"
+else
+  echo "   (DOCX generation will follow)"
+fi
 sudo cp /usr/bin/chromium /usr/bin/chromium-browser
-QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to docx 
-find _site -type f -name 'index.docx' -delete
+
+# Set up quarto configuration based on environment variables
+if [[ -n "$SKIP_DOCX" ]]; then
+  echo "📄 Using configuration for DOCX cleanup (HTML only)"
+  cp _quarto-no-headers.yml _quarto.yml
+else
+  echo "📄 Using default configuration (HTML + DOCX files kept)"
+  # _quarto.yml is already the default with headers - no copying needed
+fi
+
 QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to html --no-clean
 
 # Backup the correct sitemap as it may be overwritten by next operations
 sleep 5
 mv _site/sitemap.xml _site/sitemap.xml.bkp
 
+# Generate DOCX files (always needed for PDF conversion)
+echo "📄 Generating DOCX files for PDF conversion..."
+QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to docx --no-clean
+find _site -type f -name 'index.docx' -delete
+
 echo "🛠 Generate index.qmd files for all DOCS/* folders"e
-node .github/scripts/generate_index_all.mjs
+node ../.github/scripts/generate_index_all.mjs
 
 echo "📄 Render only index.qmd files using 'index' profile"
 mv _quarto.yml _quarto_not_used.yml
 mv _quarto-index.yml _quarto.yml
-find DOCS -type f -name index.qmd -print0 | while IFS= read -r -d '' src; do
+find ./ -type f -name index.qmd -print0 | while IFS= read -r -d '' src; do
   echo "🔧 Rendering $src using profile=index..."
-  QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render "$src" --profile index --to html --no-clean
+  QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render "$src" --profile index --to html --no-clean $QUARTO_FLAGS
 done
 mv _quarto.yml _quarto-index.yml
 cp _quarto_not_used.yml _quarto.yml && rm _quarto_not_used.yml
 
-echo "🔄 Additional processing of index.html file"
-echo '<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; url=DOCS/index.html" />
-    <title>Redirecting...</title>
-  </head>
-  <body>
-    <p>If you are not redirected automatically, <a href="DOCS/index.html">click here</a>.</p>
-  </body>
-</html>' > _site/index.html
+
+echo "📄 Converting .docx files to .pdf..."
+timeout 3s ../.github/scripts/convert_docx_to_pdf.sh || true
+timeout 10m ../.github/scripts/convert_docx_to_pdf.sh
+
+# Clean up DOCX files if requested (they're only needed for PDF conversion)
+if [[ -n "$SKIP_DOCX" ]]; then
+  echo "🗑️  Cleaning up DOCX files (keeping only PDFs and HTML)..."
+  find _site -name "*.docx" -type f -delete
+  echo "   ✅ DOCX files removed to save space"
+else
+  echo "💾 Keeping DOCX files for download/access"
+fi
 
 # Revert the correct sitemap
 cp _site/sitemap.xml.bkp _site/sitemap.xml
 rm -f _site/sitemap.xml.bkp
 
-echo "📄 Converting .docx files to .pdf..."
-#chmod +x ./convert_docx_to_pdf.sh
-timeout 3s .github/scripts/convert_docx_to_pdf.sh || true
-timeout 10m .github/scripts/convert_docx_to_pdf.sh
+# Remove non-browsable links from sitemap.xml
+python3 ../.github/scripts/remove_non_browsable_from_sitemap.py _site/sitemap.xml
 
 echo "🧹 Cleaning up..."
-find _site -type f -name '*.docx' -delete
+find _site -type f -name '*.qmd' -delete
+
+cp ../404.html _site/404.html
+cp ../redirect_map.json _site/redirect_map.json
+cp ../url_mapping.json _site/url_mapping.json
+
 
 echo "✅ Docs built successfully"

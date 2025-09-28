@@ -2,7 +2,7 @@
 
 #set -euo pipefail
 
-RENDERED_DOCS_DIR="../../_site"
+RENDERED_DOCS_DIR="../../DOCS/_site"
 
 # Set the working directory to the script's location
 cd "$(dirname "${BASH_SOURCE[0]}")" || exit

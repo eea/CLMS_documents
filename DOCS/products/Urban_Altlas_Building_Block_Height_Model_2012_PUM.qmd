@@ -1,5 +1,5 @@
 ---
-title: "Urban Atlas - Building Block Height Model 2012 - Product User Manual (PUM)"
+title: "Urban Atlas Building Block Height Model 2012 - Product User Manual (PUM)"
 subtitle: "Copernicus Land Monitoring Service"
 date: "2022-08"
 version: 1.0 
@@ -9,8 +9,6 @@ toc: true
 toc-title: "Content"
 toc-depth: 3
 ---
-
------
 
 **Contact:**
 
@@ -46,7 +44,9 @@ For this new release, the UA BBHM product has been produced for 845 cities and u
 
 The building height information of the new relelase is derived from VHR false pair stereo images of, or close to, the reference year 2012, and contains only the height of the building block itself (i.e. vegetation, water and roads are masked out).
 
-The product covers approximately 75 000 km^2^ with a MMU of 10 x 10 m.
+The product covers approximately 75 000 km^2^ with a MMU of 10 x 10 m.  
+
+{{< pagebreak >}}
 
 # Guide for the reader {#guide-for-the-reader}
 
@@ -76,7 +76,9 @@ The document is structured as follows:
 
 -   Chapter 9 provides information on references to the cited literature
 
--   Annexes
+-   Annexes 
+
+{{< pagebreak >}}
 
 # Review of user requirements {#review-of-user-requirements}
 
@@ -84,7 +86,9 @@ The European Commission has been systematically collecting user needs for Copern
 
 Building height is a characteristic that can enhance disaggregation processes of population and employment data in urban areas. Height or volume information will reduce the error margin of the disaggregation results.
 
-3-D information for disaggregation purposes was the major user requirement that led to the production of the UA BBHM dataset.
+3-D information for disaggregation purposes was the major user requirement that led to the production of the UA BBHM dataset.  
+
+{{< pagebreak >}}
 
 # Product application areas and/or examples of use cases {#product-application-areas-andor-examples-of-use-cases}
 
@@ -135,7 +139,9 @@ Building height could prove an indicator of the building stock of a city, and th
 Building stock is a variable associated to the energy performance of buildings and has led the EC to establish an [observatory](https://energy.ec.europa.eu/topics/energy-efficiency/energy-efficient-buildings/eu-building-stock-observatory_en#the-datamapper) aiming to provide a better understanding of the energy performance of the building sector through reliable, consistent and comparable data.
 
 Building height can provide key characteristics of the building stock in both large urban agglomerations and small-scale rural settlements as it enables previously impossible environmental, socioeconomic, and climatological studies (Thomas Esch, 2022).\
-This this is especially true for the fields of spatial planning, sustainable development, urban climate, urban economics, or disaster and risk management. More precise data on building density is also essential for an improved modeling and assessment of population distribution, air pollution and emissions, carbon footprint, energy demand, and traffic patterns (Thomas Esch, 2022).
+This this is especially true for the fields of spatial planning, sustainable development, urban climate, urban economics, or disaster and risk management. More precise data on building density is also essential for an improved modeling and assessment of population distribution, air pollution and emissions, carbon footprint, energy demand, and traffic patterns (Thomas Esch, 2022). 
+
+{{< pagebreak >}}
 
 # Product description {#product-description}
 
@@ -197,7 +203,7 @@ The nomenclature of each layer consists of four parts, written in capital letter
 
 Figure 5‑1 shows how the product is structured, as well as additional nomenclature example.
 
-![Figure 5‑1 Structure of the product folders](BBHM-media/Fig51.png){width="90%"}
+![Figure 5‑1 Structure of the product folders](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/Fig51.png){width="90%"}
 
 +-------------------------------------------------+---------------+
 |                                                 | Type          |
@@ -229,14 +235,14 @@ The following subchapters give a description of the content of each of the zippe
 
 In previous releases of the Urban Atlas products, the delineations of the FUAs have been updated continuously from one release to another, as the population densities or commuting patterns of the city areas have changed. These updated FUAs have been labelled "L"+number to indicate which version of FUA delineation was used (e.g. L1, L2, etc.). In the previous release of the UA BBHM this labelling was kept, but for this new UA BBHM release it has been removed. Thus, for a user who has downloaded UA BBHM files for any of the capital cities from the previous release, the files are named as for the example of Vienna (WIEN) in Figure 5‑2. As can be seen from the example, this was the second FUA version of Vienna, indicated by the "L2". For this new release the downloaded folder names [will not]{.underline} have this LX, where X indicates a number, see Figure 5‑3.
 
-![Figure 5‑2 Example of naming of previous releases’ .zip-file](BBHM-media/image5.png){fig-align="left" width=40%}
+![Figure 5‑2 Example of naming of previous releases’ .zip-file](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image5.png){fig-align="left" width=40%}
 
-![Figure 5‑3 Example of naming of current releases](BBHM-media/image6.PNG){fig-align="left" width=40%}
+![Figure 5‑3 Example of naming of current releases](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image6.PNG){fig-align="left" width=40%}
 
 Regarding versioning there are a few aspects to take into consideration:\
 In the first release there were two versions: version "v010" (original version) and version "v020" if the city had been re-mapped due to some area extension, see Figure 5‑4. There were six cities with version "v020". In this new release these cities will display version "v030".
 
-![Figure 5‑4 Example of cities with areas extension, and the subsequent version ”v020”](BBHM-media/image7.png){fig-align="left" width=80%}
+![Figure 5‑4 Example of cities with areas extension, and the subsequent version ”v020”](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image7.png){fig-align="left" width=80%}
 
 The remaining 25 capital cities that were a part of the previous release have not been updated for building height values but were subjected to a remapping of "0" values into "NoData", to be aligned with this new release. In this case these cities will display version "v020".
 
@@ -258,7 +264,7 @@ The Pixel Based information data includes an ESRI shapefile layer, together with
 
 Each file details the images conforming each false stereo pair. The information is subdivided into polygonal entities. When one of the polygonal entities is selected the accompanying attribute table can be shown, see example in Figure 5‑5. The attribute table shows the properties of the images that compose the image pair used to evaluate the building height in that specific area; like the image ID, the date of image acquisition, sensor used (vehicle, see Table 5‑2), percentage of cloud cover, the value of nadir angle, sun elevation, and value of azimuthal angle. These values are essential for the calculation of the DSM using optical satellite photogrammetry technology, see chapter 6.3.
 
-![Figure 5‑5 Shapefile attribute table with the main characteristics of sensor images used](BBHM-media/image8.png){fig-align="left" width=100%}
+![Figure 5‑5 Shapefile attribute table with the main characteristics of sensor images used](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image8.png){fig-align="left" width=100%}
 
 The previous example is true for any of the 845 new cities added or capital cities remapped in this release, i.e. the 25 capital cities which were not remapped from the previous release will not have a folder called Pixel Based Info in the downloaded .zip-file. These 25 capital cities from the previous release have been included without remapping, however they have undergone a reprocessing as described in chapter 6.6.
 
@@ -288,16 +294,16 @@ The QC report is a report in PDF format with the results obtained after the exec
 
 The first part of the report presents a summary table identifying the city and the name of the layer to which the report refers, the country to which it belongs, and the area assessed, as well as the organization that performs the functions of data provider and quality control, followed by a rating of the quality level, see Figure 5‑6.
 
-![Figure 5‑6 First part of the QC Report with a summary that has been extracted](BBHM-media/image9.png){fig-align="left" width=100%}
+![Figure 5‑6 First part of the QC Report with a summary that has been extracted](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image9.png){fig-align="left" width=100%}
 
 
 This is followed by format consistency table, see Figure 5‑7, in which the conformity of the GeoTIFF file with the properties and technical characteristics relevant to data type, coordinate system, MMU etc., are evaluated.
 
-![Figure 5‑7 Format consistency evaluation of the dataset](BBHM-media/image10.png){fig-align="left" width=100%}
+![Figure 5‑7 Format consistency evaluation of the dataset](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image10.png){fig-align="left" width=100%}
 
 Finally, the methodology followed during the QC process is described, accompanied by an accuracy assessment table with the results obtained for each control point. The control points are distributed throughout the AoI and associated QC blocks, see Figure 5‑8, and represented on an overview map.
 
-![Figure 5‑8 Accuracy assessment at building block level](BBHM-media/image11.png){fig-align="left" width=100%}
+![Figure 5‑8 Accuracy assessment at building block level](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image11.png){fig-align="left" width=100%}
 
 The quality control reports contain the following information:
 
@@ -319,7 +325,9 @@ The quality control reports contain the following information:
 
 ### Symbology {#symbology}
 
-Symbology files in two formats, xml and lyr are also available for download.
+Symbology files in two formats, xml and lyr are also available for download. 
+
+{{< pagebreak >}}
 
 # Product methodology and workflow {#product-methodology-and-workflow}
 
@@ -345,7 +353,7 @@ Thefollowing steps were undertaken, detailed in Figure 6‑1.
 
     -   Building mask/footprint generation and building block extraction
     
-![Figure 6‑1 Workflow of the the creation of the BBHM](BBHM-media/image12.jpeg){fig-align="left" width=100%}
+![Figure 6‑1 Workflow of the the creation of the BBHM](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image12.jpeg){fig-align="left" width=100%}
 
 ## Defining and refining the AoIs {#defining-and-refining-the-aois}
 
@@ -361,7 +369,7 @@ The two files were merged and added to the high-density clusters of West Balkans
 
 This initial AoI had to be refined. The process of refining the initial AoI is described below and illustrated in Figure 6‑2.
 
-![Figure 6‑2 Flowchart of the AoI refinement process](BBHM-media/image13.png){fig-align="left" width=100%}
+![Figure 6‑2 Flowchart of the AoI refinement process](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image13.png){fig-align="left" width=100%}
 
 ### City Perimeter (City + High density clusters polygon) {#city-perimeter-city-high-density-clusters-polygon}
 
@@ -371,7 +379,7 @@ All these files originate from different dates but were the best available at th
 
 This AoI was used during the searching of satellite images for the DSMs generation.
 
-![Figure 6‑3 Left: City administrative area (purple) and high density cluster (black line inside purple field) of Leuven. Right: City administrative area and high-density cluster merged into City Perimeter layer](BBHM-media/image14.png){fig-align="left"width=100%}
+![Figure 6‑3 Left: City administrative area (purple) and high density cluster (black line inside purple field) of Leuven. Right: City administrative area and high-density cluster merged into City Perimeter layer](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image14.png){fig-align="left"width=100%}
 
 ### UA Urban Areas Classes {#ua-urban-areas-classes}
 
@@ -407,11 +415,11 @@ The selected classes from the Urban Atlas representing urban areas can be seen b
 
 This AoI (UA Urban Areas Classes) is used to clip the City Perimeter AoI, to represents areas where buildings are expected within the defined City Perimeter AoI.
 
-![Figure 6‑4 Comparison between City Perimeter (purple) and UA Urban Areas Classes layer (red)](BBHM-media/image16.png){fig-align="left"width=30%}
+![Figure 6‑4 Comparison between City Perimeter (purple) and UA Urban Areas Classes layer (red)](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image16.png){fig-align="left"width=30%}
 
 A buffer of 50 m is added around the borders to avoid border errors, see Figure 6‑5.
 
-![Figure 6‑5 Selected UA Urban Areas classes, city of Leuven (Belgium). Left: Final result of selected classes. Right: Example of a buffer area applied to expand the original margin.](BBHM-media/image17.png){fig-align="left"width=100%}
+![Figure 6‑5 Selected UA Urban Areas classes, city of Leuven (Belgium). Left: Final result of selected classes. Right: Example of a buffer area applied to expand the original margin.](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image17.png){fig-align="left"width=100%}
 
 The result is the UA Urban Areas classes + 50 m mapped within the City Perimeter boundaries. The polygons within this shapefile are then checked for small gaps, which are filled.
 
@@ -425,11 +433,11 @@ The total number of cities mapped in this release of the BBHM is 845.
 
 An additional shapefile extracted from UA is created including the UA classes of: Other roads and associated land, Water or Wetlands, see Figure 6‑6. This layer is useful to eliminate pixels that do not represent buildings.
 
-![Figure 6‑6 Urban roads, city of Leuven (Belgium). Left: Land uses (orange), UA Urban Areas Classes. Right: Example of class selection. (red).](BBHM-media/image19.png){fig-align="left"width=100%}
+![Figure 6‑6 Urban roads, city of Leuven (Belgium). Left: Land uses (orange), UA Urban Areas Classes. Right: Example of class selection. (red).](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image19.png){fig-align="left"width=100%}
 
 The following example shows the different AoIs applied for the city of Münster, located in the west of Germany. Figure 6‑6 shows the three types of AoIs used in the refinement process Anything in the City Perimeter AoI which does not correspond to buildings is shown in red (will be given the value NoData in the final dataset); the UA Urban Areas Classes AoI are shown in orange (numerical values in dataset if building is present), and the UA roads, water, and wetland AoI is shown in pink.
 
-![Figure 6‑7 Examples of the AoIs for Münster, Germany. NoData (red), UA Urban Areas Classes (orange) and Urban Road (pink)](BBHM-media/image21.png){fig-align="left" width=50%}
+![Figure 6‑7 Examples of the AoIs for Münster, Germany. NoData (red), UA Urban Areas Classes (orange) and Urban Road (pink)](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image21.png){fig-align="left" width=50%}
 
 ### Building Footprints {#building-footprints}
 
@@ -445,7 +453,7 @@ The raster is then vectorized. Spatial references and coordinate systems are pre
 
 The resulting Building Footprints was later used in the BBHM production as a mask to separate areas with height data values from areas with no height data values, see chapter 6.6. If there is building footprints data available in the area, this will be considered for refining the AoI of each city.
 
-![Figure 6‑8 Building footprints for the city of Leuven (Belgium)](BBHM-media/image22.jpeg){fig-align="left"width=50%}
+![Figure 6‑8 Building footprints for the city of Leuven (Belgium)](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image22.jpeg){fig-align="left"width=50%}
 
 ## Data pre-processing {#data-pre-processing}
 
@@ -529,7 +537,7 @@ Thereafter a stereo correspondence between the two chosen images that make up ea
 
 Lastly, a 3D point cloud is obtained by triangulating the stereo correspondences between the two panchromatic VHR images, taking into consideration the rational polynomial coefficients (RPC) camera model provided for each image. The RCPs will allow triangulating the position of a 3D point identified on an image pair. This elaboration of the Digital Surface Models (DSM) is carried out using an AI-EOSURFACE algorithm on Python and C++ (and compatible with C heads) based on the epipolar geometry of a given pair of satellite images, see Figure 6‑9.
 
-![Figure 6‑9 Schematic representation of the epipolar geometry for a given pair of satellite images, on which the AI-EOSURFACE algorithm is based to obtain elevations](BBHM-media/image23.png){fig-align="left" width=50%}
+![Figure 6‑9 Schematic representation of the epipolar geometry for a given pair of satellite images, on which the AI-EOSURFACE algorithm is based to obtain elevations](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image23.png){fig-align="left" width=50%}
 
 This algorithm has been developed for the DSM generation based on the bidimensional couple of points of a pair for the later three-dimensional densification. The dataset includes images from different platforms, all of them with a spatial resolution of 0.5 m. The DSM generation only requires the panchromatic band, however RGB and NIR bands were included as these are required for other processes of the BBHM creation.
 
@@ -545,11 +553,11 @@ The building extraction process was successful with most buildings, however, in 
 
 *DSM algorithm* | *Building footprints* | *DSM filtered*
 
-![Figure 6‑10 DSM filtering to remove large buildings and obtain the DTM](BBHM-media/image24.png){fig-align="left"}
+![Figure 6‑10 DSM filtering to remove large buildings and obtain the DTM](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image24.png){fig-align="left"}
 
 Thereafter the remaining bare ground is filtered by a cut off range for objects to remain in the DTM. This is based on the gradient difference, the size of the object to be removed and the terrain type, this can be either flat or hilly. A "bump and pit"-filter is applied to smoothe the DTM by removing small pits and bumps in the landscape; a median filter which is part of the final smoothing of the DTM; and finally the clamp filter, which stabilizes portions of the elevation model by raising and lowering pixels within a defined threshold.
 
-![Figure 6‑11 Left: DSM for an area in London. Right: DTM for an area in London](BBHM-media/image27.png){fig-align="left"width=100%}
+![Figure 6‑11 Left: DSM for an area in London. Right: DTM for an area in London](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image27.png){fig-align="left"width=100%}
 
 The generated file retains the same properties as the DSM in terms of extension and spatial resolution.
 
@@ -561,7 +569,7 @@ The result of the operation of generating the DHM is a GeoTIFF raster file that 
 
 *DSM | DTM | DHM*
 
-![Figure 6‑12 DHM production](BBHM-media/image29.png){fig-align="left"width=100%}
+![Figure 6‑12 DHM production](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image29.png){fig-align="left"width=100%}
 
 The result of the operation is one DHM file per city and per image pair, in Int32 format.
 
@@ -599,11 +607,11 @@ Finally, a final conversion of the DHM files is executed to adapt them to the re
 
 -   TILED = YES
 
-![Figure 6‑13 From a general DHM (left) to a BBHM (right) in Münster, Germany](BBHM-media/image32.png){fig-align="left"}
+![Figure 6‑13 From a general DHM (left) to a BBHM (right) in Münster, Germany](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image32.png){fig-align="left"}
 
-![Figure 6‑14 Final BBHM at 10x10 meter resolution for Münster, Germany](BBHM-media/image33.png){fig-align="left"width=50%}
+![Figure 6‑14 Final BBHM at 10x10 meter resolution for Münster, Germany](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image33.png){fig-align="left"width=50%}
 
-![Figure 6‑15 General overview of building height values on Milano and zoom to the city center](BBHM-media/image34.png){fig-align="left"width=50%}
+![Figure 6‑15 General overview of building height values on Milano and zoom to the city center](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image34.png){fig-align="left"width=50%}
 
 ## Characteristics and limitations of the product {#characteristics-and-limitations-of-the-product}
 
@@ -613,7 +621,7 @@ It is important to note that because the DSMs are derived from LiDAR and VHR sat
 
 For this transformation to be consistent with the first height values obtained, it was agreed to use a majority algorithm, i.e. the calculation will determine the most common value shown by the 0.5 - 2 m pixels contained within a new 10 m pixel, which will be assigned the most repeated value after the execution of this analysis.
 
-![Figure 6‑16 Methodological explanation about how the majority filter works when resampling](BBHM-media/image35.png){fig-align="left"}
+![Figure 6‑16 Methodological explanation about how the majority filter works when resampling](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image35.png){fig-align="left"}
 
 It is this simple resampling operation that poses the main limitations of the BBHM Urban Atlas product, which are further detailed below.
 
@@ -621,7 +629,7 @@ It is this simple resampling operation that poses the main limitations of the BB
 
 Due to the spatial resolution of the pixel, there will be a NoData value in buildings smaller than 100 m^2^, such as single-family houses, buildings for public use etc., see example in Figure 6‑17.
 
-![Figure 6‑17 Small houses that have not been captured in the BBHM due to the minimum mapping size](BBHM-media/image36.png){fig-align="left"width=50%}
+![Figure 6‑17 Small houses that have not been captured in the BBHM due to the minimum mapping size](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image36.png){fig-align="left"width=50%}
 
 -   [**Issues on building edges**]{.underline}
 
@@ -631,15 +639,15 @@ This happens, in addition to the majority algorithm, when extracting the height 
 
 The example in Figure 6‑18 shows the height values obtained for a random building, in this case obtained by means of LIDAR technology, with a spatial resolution of 2 m.
 
-![Figure 6‑18 Satellite imagery (left) and DSM at half meter resolution (right)](BBHM-media/image37.png){fig-align="left"}
+![Figure 6‑18 Satellite imagery (left) and DSM at half meter resolution (right)](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image37.png){fig-align="left"}
 
 Figure 6‑19 shows how some pixels, with ground elevation information, are represented in red tones after extraction of the DHM values in relation to the building footprints.
 
-![Figure 6‑19 Difference between DSM at half meter resolution and final BBHM (right)](BBHM-media/image38.png){fig-align="left"}
+![Figure 6‑19 Difference between DSM at half meter resolution and final BBHM (right)](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image38.png){fig-align="left"}
 
 When the resampling operation is performed and the final result is obtained, this ground elevation information is transferred to the pixels that make up the building boundary, causing the aforementioned alterations in the value of these pixels.
 
-![Figure 6‑20 Overview of building edges in the BBHM](BBHM-media/image39.png){fig-align="left"width=50%}
+![Figure 6‑20 Overview of building edges in the BBHM](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image39.png){fig-align="left"width=50%}
 
 Without a detailed case-by-case study it is not possible to conclude wheter these height deviations are caused by elements of the building itself or by influences from the ground or other artifacts. Thus, these pixels have not been corrected beyond those clearly identified during QC, which is the main limitation of the project.
 
@@ -647,7 +655,7 @@ The influence of edge elements becomes more noticeable in cities whose DHM value
 
 This behavior is especially noticeable in cities with a high density of buildings, close together, separated by narrow streets, typical in urban centers of historic cities. This combined with the resampling algorithm can result in areas with apparently great variability of building heights. This phenomenon can be observed in Figure 6‑21.
 
-![Figure 6‑21 Higher heterogeneity in BBHM dataset (right) than in a half meter resolution BBHM (bottom left)](BBHM-media/image40.png){fig-align="left"}
+![Figure 6‑21 Higher heterogeneity in BBHM dataset (right) than in a half meter resolution BBHM (bottom left)](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image40.png){fig-align="left"}
 
 -   [**Roof artifacts**]{.underline}
 
@@ -657,13 +665,13 @@ Another limitation of the product lies in the poor response to the LIDAR pulses 
 
 The building footprints identification algorithm based on Machine Learning techniques has certain limitations when detecting isolated buildings, especially in rural environments, since the algorithm considers certain properties of coherence and spatial context for the identification of buildings. In the same way, the algorithm may present commission errors, which have been eliminated whenever they have been detected during QC.
 
-![Figure 6‑22 Limitations on building footprint detection especially; comission and omission](BBHM-media/image41.png){fig-align="left"}
+![Figure 6‑22 Limitations on building footprint detection especially; comission and omission](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image41.png){fig-align="left"}
 
 -   [**Urban Areas with no values outside the AoI**]{.underline}
 
 As stated previously in the document, building height values are only gathered inside the AoI (see definition in chapter 6.1). In some cases, it is not possible to produce building height data for the entire delineation of the AoI, i.e. when part of the defined high-density cluster delineation falls outside the area that has been mapped by Urban Atlas. For example, the AoI for Malinas is a high-density cluster but is not mapped by Urban Atlas and does not have a FUA (no Urban Classes). Thus, it is key to consider that in these cases some urban areas in the city surroundings are not captured, so there is no height value.
 
-![Figure 6‑23 General view of Malinas, capturing industrial areas with no height values outside the AoI](BBHM-media/image42.png){fig-align="left"}
+![Figure 6‑23 General view of Malinas, capturing industrial areas with no height values outside the AoI](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image42.png){fig-align="left"}
 
 [**\
 **]{.underline}
@@ -682,13 +690,15 @@ DSM generation from false pair stereo of satellite images is always challenging,
 
 -   Water-topography influence
 
-![Figure 6‑24 Examples of the limitations of the DSM production](BBHM-media/image43.png){fig-align="left"}
+![Figure 6‑24 Examples of the limitations of the DSM production](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image43.png){fig-align="left"}
 
 -   [**Limitations on DTM generation**]{.underline}
 
 When generating a DTM from DSM, the reliability on the accuracy of the DSM falls, e.g. a DSM derived from a high-density point cloud by using LiDAR information is more reliable than one built from satellite imagery. Also, an automatic algorithm pursues a constant accuracy across different realities, setting parameters to fix values that better capture all. However, larger buildings (e.g. industrial buildings) may not be removed completely, so a manual editing has been carried out in all the cities.
 
-![Figure 6‑25 Example of DTM refinement](BBHM-media/image44.png){fig-align="left"width=100%}
+![Figure 6‑25 Example of DTM refinement](Urban_Altlas_Building_Block_Height_Model_2012_PUM-media/image44.png){fig-align="left"width=100%} 
+
+{{< pagebreak >}}
 
 # Quality Assessment {#quality-assessment}
 
@@ -756,7 +766,9 @@ After acceptance of the data by the third party, the data is checked additionall
 
 -   NoData value
 
-The final data were considered valid if no issues were reported from all of the quality control tasks, including both the third party and the CLMS QC Tool controls. The results are shown in the QC report, see chapter 5.2.5.
+The final data were considered valid if no issues were reported from all of the quality control tasks, including both the third party and the CLMS QC Tool controls. The results are shown in the QC report, see chapter 5.2.5.  
+
+{{< pagebreak >}}
 
 # Terms of use and product technical support {#terms-of-use-and-product-technical-support}
 
@@ -772,7 +784,9 @@ In cases of re-dissemination of the product(s) described in this document or whe
 
 ## Product technical support {#product-technical-support}
 
-Product technical support is provided by the product custodian through Copernicus Land Monitoring Service helpdesk at [copernicus\@eea.europa.eu](mailto:copernicus@eea.europa.eu){.email}. Product technical support doesn't include software specific user support or general GIS or remote sensing support.
+Product technical support is provided by the product custodian through Copernicus Land Monitoring Service helpdesk at [copernicus\@eea.europa.eu](mailto:copernicus@eea.europa.eu){.email}. Product technical support doesn't include software specific user support or general GIS or remote sensing support. 
+
+{{< pagebreak >}}
 
 # Abbreviations & acronyms
 
@@ -834,7 +848,9 @@ Product technical support is provided by the product custodian through Copernicu
 | UA          | Urban Atlas                                                         |
 +-------------+---------------------------------------------------------------------+
 | VHR         | Very High-Resolution                                                |
-+-------------+---------------------------------------------------------------------+
++-------------+---------------------------------------------------------------------+ 
+
+{{< pagebreak >}}
 
 # References
 
@@ -876,7 +892,9 @@ Yunhao Chen, J. W. (2020). Evaluating the impact of the building density and hei
 
 Zander S. Venter, O. B. (2020). Hyperlocal mapping of urban air temperature using remote sensing and crowdsourced weather data. *Remote Sensing of Environment, 242*, 111791. doi:https://doi.org/10.1016/j.rse.2020.111791
 
-Zhong Zheng, W. Z. (2019). The higher, the cooler? Effects of building height on land surface temperatures in residential areas of Beijing. *Physics and Chemistry of the Earth, Parts A/B/C, 110*, 149-156. doi:https://doi.org/10.1016/j.pce.2019.01.008
+Zhong Zheng, W. Z. (2019). The higher, the cooler? Effects of building height on land surface temperatures in residential areas of Beijing. *Physics and Chemistry of the Earth, Parts A/B/C, 110*, 149-156. doi:https://doi.org/10.1016/j.pce.2019.01.008 
+
+{{< pagebreak >}}
 
 # Annexes {#annexes}
 
