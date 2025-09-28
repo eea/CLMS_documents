@@ -26,10 +26,10 @@ sudo cp /usr/bin/chromium /usr/bin/chromium-browser
 
 # Set up quarto configuration based on environment variables
 if [[ -n "$SKIP_DOCX" ]]; then
-  echo "📄 Using configuration without DOCX generation (HTML only)"
+  echo "📄 Using configuration for DOCX cleanup (HTML only)"
   cp _quarto-no-headers.yml _quarto.yml
 else
-  echo "📄 Using default configuration with DOCX generation"
+  echo "📄 Using default configuration (HTML + DOCX files kept)"
   # _quarto.yml is already the default with headers - no copying needed
 fi
 
@@ -39,6 +39,8 @@ QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to html --no-clean
 sleep 5
 mv _site/sitemap.xml _site/sitemap.xml.bkp
 
+# Generate DOCX files (always needed for PDF conversion)
+echo "📄 Generating DOCX files for PDF conversion..."
 QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to docx --no-clean
 find _site -type f -name 'index.docx' -delete
 
@@ -60,14 +62,23 @@ echo "📄 Converting .docx files to .pdf..."
 timeout 3s ../.github/scripts/convert_docx_to_pdf.sh || true
 timeout 10m ../.github/scripts/convert_docx_to_pdf.sh
 
+Clean up DOCX files if requested (they're only needed for PDF conversion)
+if [[ -n "$SKIP_DOCX" ]]; then
+  echo "🗑️  Cleaning up DOCX files (keeping only PDFs and HTML)..."
+  find _site -name "*.docx" -type f -delete
+  echo "   ✅ DOCX files removed to save space"
+else
+  echo "💾 Keeping DOCX files for download/access"
+fi
+
 # Revert the correct sitemap
 cp _site/sitemap.xml.bkp _site/sitemap.xml
 rm -f _site/sitemap.xml.bkp
 
+# Remove non-browsable links from sitemap.xml
+python3 ../.github/scripts/remove_non_browsable_from_sitemap.py _site/sitemap.xml
+
 echo "🧹 Cleaning up..."
-if [[ -n "$INCLUDE_BEFORE_BODY" ]]; then
-  find _site -type f -name '*.docx' -delete
-fi
 find _site -type f -name '*.qmd' -delete
 
 cp ../404.html _site/404.html

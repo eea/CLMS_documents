@@ -58,21 +58,21 @@ jobs:
             git push origin HEAD
           fi
 
-      - name: Commit updated secret doc map
-        run: |
-          git add .github/secret_doc_map.json
-
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "Update secret doc map [skip ci]"
-            git push origin HEAD
-          fi
-
       - name: Build Docs
         run: .github/scripts/build-docs.sh
         env:
           SKIP_DOCX: ${{ github.ref_name != 'develop' && '1' || '' }}
+
+      - name: Commit updated non-browsable doc map
+        run: |
+          git add .github/non_browsable_doc_map.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update non-browsable doc map [skip ci]"
+            git push origin HEAD
+          fi
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4

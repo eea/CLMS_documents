@@ -27,20 +27,20 @@ script_dir = Path(__file__).parent
 root_dir = script_dir / "../../"
 os.chdir(root_dir.resolve())
 
-# Secret doc mapping file
-SECRET_MAP_PATH = Path(".github/secret_doc_map.json")
+# Non-browsable doc mapping file
+NON_BROWSABLE_MAP_PATH = Path(".github/non_browsable_doc_map.json")
 
 def load_secret_map():
-    if SECRET_MAP_PATH.exists():
-        with open(SECRET_MAP_PATH, "r", encoding="utf-8") as f:
+    if NON_BROWSABLE_MAP_PATH.exists():
+        with open(NON_BROWSABLE_MAP_PATH, "r", encoding="utf-8") as f:
             data = json.load(f)
             return data.get("mappings", [])
     return []
 
 def save_secret_map(mappings):
-    with open(SECRET_MAP_PATH, "w", encoding="utf-8") as f:
+    with open(NON_BROWSABLE_MAP_PATH, "w", encoding="utf-8") as f:
         json.dump({
-            "_comment": "This file maps secret QMD source files to their persistent random output names and URLs. Do not publish this file.",
+            "_comment": "This file maps non-browsable QMD source files to their persistent random output names and URLs. Do not publish this file.",
             "mappings": mappings
         }, f, indent=2)
 
@@ -153,31 +153,31 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
         rel_source = str(qmd_file.relative_to(source_path))
         project_name = qmd_file.parts[1] if len(qmd_file.parts) > 1 else ""
 
-        if category == "secret":
-            # Place all secret docs in DOCS/secret/
-            secret_dir = target_path / "secret"
-            secret_dir.mkdir(exist_ok=True)
+        if category == "non-browsable":
+            # Place all non-browsable docs in DOCS/non-browsable/
+            nb_dir = target_path / "non-browsable"
+            nb_dir.mkdir(exist_ok=True)
             mapping = get_secret_mapping_for_source(secret_mappings, rel_source)
             if mapping is None:
                 base = random_base()
                 url = "/" + base + ".html"
                 secret_mappings = add_secret_mapping(secret_mappings, rel_source, base, url)
                 updated = True
-                print(f"\t[secret] Assigned new random base '{base}' for {rel_source}")
+                print(f"\t[non-browsable] Assigned new random base '{base}' for {rel_source}")
             else:
                 base = mapping["base"]
                 url = mapping["url"]
-                print(f"\t[secret] Using existing base '{base}' for {rel_source}")
+                print(f"\t[non-browsable] Using existing base '{base}' for {rel_source}")
 
-            target_file = secret_dir / f"{base}.qmd"
+            target_file = nb_dir / f"{base}.qmd"
             shutil.copy2(qmd_file, target_file)
             orig_media_dir = qmd_file.parent / f"{qmd_file.stem}-media"
-            target_media_dir = secret_dir / f"{base}-media"
+            target_media_dir = nb_dir / f"{base}-media"
             if orig_media_dir.exists() and orig_media_dir.is_dir():
                 if target_media_dir.exists():
                     shutil.rmtree(target_media_dir)
                 shutil.copytree(orig_media_dir, target_media_dir)
-                print(f"\t\tCopied media directory: {base}-media (renamed for secret)")
+                print(f"\t\tCopied media directory: {base}-media (renamed for non-browsable)")
                 # Update references in the copied .qmd file
                 try:
                     with open(target_file, "r", encoding="utf-8") as f:
@@ -188,10 +188,10 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
                         content = content.replace(old_media, new_media)
                         with open(target_file, "w", encoding="utf-8") as f:
                             f.write(content)
-                        print(f"\t\tRewrote media references in {base}.qmd (secret)")
+                        print(f"\t\tRewrote media references in {base}.qmd (non-browsable)")
                 except Exception as e:
                     print(f"\t\t[ERROR] Failed to rewrite media references in {base}.qmd: {e}")
-            print(f"\t[secret] Copied {qmd_file.name} → secret/{base}.qmd (secret)")
+            print(f"\t[non-browsable] Copied {qmd_file.name} → non-browsable/{base}.qmd (non-browsable)")
         else:
             # Normal doc: group by category, prefix with project name to avoid collisions
             target_directory = get_directory_for_category(category)
@@ -234,9 +234,9 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
     # Save updated secret mapping if changed
     if updated:
         save_secret_map(secret_mappings)
-        print(f"[secret] Updated mapping file: {SECRET_MAP_PATH}")
+        print(f"[non-browsable] Updated mapping file: {NON_BROWSABLE_MAP_PATH}")
     else:
-        print(f"[secret] No changes to mapping file: {SECRET_MAP_PATH}")
+        print(f"[non-browsable] No changes to mapping file: {NON_BROWSABLE_MAP_PATH}")
 
 
 def copy_excluded_dirs(source_dir="origin_DOCS", target_dir="DOCS"):
