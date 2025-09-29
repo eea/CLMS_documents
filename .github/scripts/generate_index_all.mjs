@@ -18,9 +18,9 @@ title: ${title}
 listing:
   type: table
   contents: .
-  fields: [title, category, version, date]
+  fields: [title, version, date]
   sort: title
-  sort-ui: [title, category, version, date]
+  sort-ui: [title, version, date]
   filter-ui: false
 ---
 `;
