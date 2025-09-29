@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="European Environment Agency (EEA)">
+<meta name="dcterms.date" content="2025-06-19">
+<meta name="keywords" content="modular microservice architecture, Docker containerisation technology, REST API service interface, cloud agnostic IT solutions, data pre-processing workflow description, EUPL-1.2 licensing, Continuous Integration/Continuous Deployment (CI/CD), automated software testing, role-based access control (RBAC), disaster recovery planning">
+<meta name="description" content="This document delineates the IT architecture principles and implementation guidelines for the Copernicus Land Monitoring Service (CLMS), overseen by the European Environment Agency (EEA). It serves as a framework to ensure IT solutions are consistent, scalable, and secure, with a strong emphasis on modularity, reproducibility, transparency, maintainability, observability, IT security and resilience. These guidelines aim to support the CLMS programme’s IT vision by fostering solutions that are coherent, adaptable, and efficiently operated within the CLMS IT ecosystem.">
+
+<title>IT Architecture Principles and Implementation Guidelines – Technical Library</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-24cc52c546c003a7d891213737239288.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "Search ...",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "IT Architecture Principles and Implementation Guidelines",
+    "description": "This document delineates the IT architecture principles and implementation guidelines for the Copernicus Land Monitoring Service (CLMS), overseen by the European Environment Agency (EEA). It serves as a framework to ensure IT solutions are consistent, scalable, and secure, with a strong emphasis on modularity, reproducibility, transparency, maintainability, observability, IT security and resilience. These guidelines aim to support the CLMS programme’s IT vision by fostering solutions that are coherent, adaptable, and efficiently operated within the CLMS IT ecosystem.",
+    "datePublished": "June 19, 2025",
+    "author": {
+      "@type": "Person",
+      "name": "European Environment Agency (EEA)"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Copernicus Land Monitoring Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
+      }
+    },
+    "keywords": "?invalid meta type:keywords",
+    "articleSection": "General",
+    "isAccessibleForFree": "true",
+    "license": "",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": "article p"
+    }
+  }
+</script>
+
+
+<link rel="stylesheet" href="../theme/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Technical Library</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Index</h2>
+   
+  <ul>
+  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface"><span class="header-section-number">1</span> Preface</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">2</span> Introduction</a></li>
+  <li><a href="#scope-and-key-terms" id="toc-scope-and-key-terms" class="nav-link" data-scroll-target="#scope-and-key-terms"><span class="header-section-number">3</span> Scope and key terms</a></li>
+  <li><a href="#principles" id="toc-principles" class="nav-link" data-scroll-target="#principles"><span class="header-section-number">4</span> Principles</a>
+  <ul class="collapse">
+  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture"><span class="header-section-number">4.1</span> Architecture</a></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility"><span class="header-section-number">4.2</span> Reproducibility</a></li>
+  <li><a href="#reusability" id="toc-reusability" class="nav-link" data-scroll-target="#reusability"><span class="header-section-number">4.3</span> Reusability</a></li>
+  <li><a href="#transparency" id="toc-transparency" class="nav-link" data-scroll-target="#transparency"><span class="header-section-number">4.4</span> Transparency</a></li>
+  <li><a href="#maintainability" id="toc-maintainability" class="nav-link" data-scroll-target="#maintainability"><span class="header-section-number">4.5</span> Maintainability</a></li>
+  <li><a href="#observability" id="toc-observability" class="nav-link" data-scroll-target="#observability"><span class="header-section-number">4.6</span> Observability</a></li>
+  <li><a href="#it-security" id="toc-it-security" class="nav-link" data-scroll-target="#it-security"><span class="header-section-number">4.7</span> IT security</a></li>
+  <li><a href="#resilience" id="toc-resilience" class="nav-link" data-scroll-target="#resilience"><span class="header-section-number">4.8</span> Resilience</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="smnkbw05zgz5l0llz5tefwxrowqqds6c36zi1i9ssswbslnleuj28yc5c7sui5pl.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="smnkbw05zgz5l0llz5tefwxrowqqds6c36zi1i9ssswbslnleuj28yc5c7sui5pl.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Remove link to .docx file
+    //
+    document.querySelectorAll("a[href$='.docx']").forEach((link) => (link.style.display = "none"));
+
+    // Add Version to the title's metadata
+    //
+    const titleMetaEl = document.querySelector(".quarto-title-meta");
+    const wrapperDiv = document.createElement("div");
+    wrapperDiv.innerHTML = `
+        <div class="quarto-title-meta-heading">Version</div>
+        <div class="quarto-title-meta-contents">
+          <p>1.4c (not published)</p>
+        </div>
+      `;
+    titleMetaEl.appendChild(wrapperDiv);
+  });
+</script>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">IT Architecture Principles and Implementation Guidelines</h1>
+<p class="subtitle lead">Copernicus Land Monitoring Service</p>
+</div>
+
+<div>
+  <div class="description">
+    This document delineates the IT architecture principles and implementation guidelines for the Copernicus Land Monitoring Service (CLMS), overseen by the European Environment Agency (EEA). It serves as a framework to ensure IT solutions are consistent, scalable, and secure, with a strong emphasis on modularity, reproducibility, transparency, maintainability, observability, IT security and resilience. These guidelines aim to support the CLMS programme’s IT vision by fostering solutions that are coherent, adaptable, and efficiently operated within the CLMS IT ecosystem.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page-left">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>European Environment Agency (EEA) </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 19, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>modular microservice architecture, Docker containerisation technology, REST API service interface, cloud agnostic IT solutions, data pre-processing workflow description, EUPL-1.2 licensing, Continuous Integration/Continuous Deployment (CI/CD), automated software testing, role-based access control (RBAC), disaster recovery planning</p>
+  </div>
+</div>
+
+</header>
+
+
+<section id="preface" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Preface</h1>
+<p>The EEA (European Environment Agency) CLMS IT architecture principles are indicative and must be evaluated in all IT deliverables.</p>
+</section>
+<section id="introduction" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Introduction</h1>
+<p>The IT architecture principles set the overall framework for the EEA CLMS IT landscape. The principles are designed to ensure a consistency in deliverables and at the same time support the CLMS program’s IT vision and -strategy. The principles are designed to ensure that IT solutions are coherent, can be further developed and operated efficiently, that they support business needs and security requirements, etc.</p>
+<p>A uniform approach is required to ensure the coherency goal. The EEA CLMS programs IT applications may depend on and interact with each other. It is therefore important that IT solutions focus on connectivity and potential synergy effects to ensure continued coherence in the IT landscape.</p>
+<p>Any application provided may be developed, operated, maintained, and further developed by a supplier different from the supplier who delivered the initial application. Therefore, efforts must always be made to be supplier independent. Other suppliers must be able to continue working from where the previous supplier left off.</p>
+</section>
+<section id="scope-and-key-terms" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Scope and key terms</h1>
+<p>The scope of the EEA CLMS IT architecture principles is IT solutions to be delivered to the CLMS. The solutions delivered will include functionalities required to support the program (for Example, maintain and operate CLC+ Core multi-use grid-based Land Cover/Land Use hybrid data repository). This includes also the dependencies of these IT solutions to other internal or external systems.</p>
+<p>Definition of the key terms used within this document:</p>
+<p><strong>Application Programming Interface (API)</strong> - is a set of protocols, tools, and definitions that allow different software applications to communicate with each other. It defines the methods and data structures that developers can use to interact with a service or application, facilitating the exchange of data and functionality.</p>
+<p><strong>Automation scripts</strong> - refers to sets of instructions, written in scripting languages designed to automate repetitive tasks and processes. These scripts streamline workflows, reduce the need for manual intervention and ensure consistency and efficiency in performing tasks.</p>
+<p><strong>Client specific software/IT solution</strong> - is a custom-designed software/solution that is tailored to meet the unique needs, requirements, and preferences of a particular client or organization.</p>
+<p><strong>Commercial software</strong> - software products that are developed, marketed, and sold for profit by software companies or developers. Commercial software is typically licensed to end-users, who must purchase it or pay a subscription fee.</p>
+<p><strong>Continuous Integration and Continuous Deployment (CI/CD) -</strong> are closely related methodologies designed to streamline and automate software development. Together, they ensure that code changes are continuously tested, integrated, and deployed to production environments, enabling teams to deliver updates more rapidly, reliably, and with minimal manual intervention.</p>
+<p><strong>Deliverables</strong> - specific outputs, products, or results provided as part of the contract or a contractual agreement.</p>
+<p><strong>End of life (EOL)</strong> - refers to the date after which a product will no longer be sold or renewed (though still might receive some form of support, such as security patches).</p>
+<p><strong>End of support (EOS)</strong> - refers to the date of complete cessation of all support services for the product, including new patches, updates or fixes.</p>
+<p><strong>Infrastructure-as-a-code (IAC)</strong> - is an IT practice that involves managing and provisioning computing infrastructure through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools.</p>
+<p><strong>IT ecosystem</strong> - is a network of interconnected technologies, software, hardware, and services that work together to support an organization’s digital operations. It includes applications, infrastructure, cloud services, and networks, all integrated to ensure seamless communication, scalability, security, and efficiency.</p>
+<p><strong>IT solution continuity</strong> - involves a collection of strategies and plans focused on maintaining an organization’s essential operations during and after disruptions. The goal is to minimize downtime, limit financial losses, and safeguard the organization’s reputation when faced with interruptions.</p>
+<p><strong>IT solutions</strong> - services, products and processes that use information technology to solve business problems, improve operational efficiency, and enhance overall performance. IT solutions are typically composed by various parts. For Example, the codebase, CI/CD routines, documentation etc.</p>
+<p><strong>Open-ended</strong> - refers to components or features that are flexible, adaptable, and capable of evolving over time to meet a wide range of needs and requirements.</p>
+<p><strong>Pre-processing</strong> - refers to the series of operations performed on raw data to prepare it for further analysis and processing.</p>
+<p><strong>REST API service</strong> - is a type of web service that allows systems to communicate over HTTP by accessing and manipulating resources using standard methods such as GET, POST, PUT, and DELETE. RESTful APIs are stateless, meaning each request from a client to the server must contain all the necessary information, and they typically return data in formats like JSON or XML. This approach is widely used for building scalable, lightweight web services and enabling seamless integration between different systems.</p>
+<p><strong>Software development tools</strong> - applications, frameworks, and utilities that software developers use to create, debug, maintain, or support software.</p>
+<p><strong>Software product</strong> - a collection of computer programs, procedures, and documentation that performs a specific task or function or provides a comprehensive solution to a particular problem.</p>
+<p><strong>Source code</strong> - a set of instructions and statements written by a programmer using human-readable programming language. It is the original code written and saved in files before being compiled or interpreted into executable programs. Source code serves as the blueprint for creating software applications.</p>
+<p><strong>Workflow</strong> - systematic sequence of processes and activities.</p>
+</section>
+<section id="principles" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Principles</h1>
+<p>The principles are grouped into 8 overarching IT architectural themes:</p>
+<ol type="1">
+<li><p><strong>Architecture</strong> - foundational and design principles for sound infrastructure and IT solution architecture.</p></li>
+<li><p><strong>Reproducibility</strong> - the overarching goal is to ensure that any deliverable in the form of an IT solution may be reproduced given sufficient time.</p></li>
+<li><p><strong>Reusability</strong> - the services and products provided through the EEA CLMS are to be reused by the end users as the foundation of their further work.</p></li>
+<li><p><strong>Transparency</strong> - the EEA CLMS program is funded by the EU and supports its community with data and products. These products are to be part of the foundation for further work in the field and hence transparency is key to ensuring that extended work can be carried out.</p></li>
+<li><p><strong>Maintainability</strong> - the EEA aims in the CLMS program to be able to provide updated products when new data becomes available e.g.&nbsp;on yearly basis. To reduce the time to market the principles of maintainability is to be followed.</p></li>
+<li><p><strong>Observability</strong> - IT solutions of the EEA CLMS must collect relevant metrics for monitoring and assessment, to avoid disruptions and have predictable operation of the solutions.</p></li>
+<li><p><strong>IT security</strong> - IT solutions of the EEA CLMS are utilized by multiple stakeholders and thus IT security is paramount. This is especially critical for the open-ended aspects such as the use of APIs and outward facing web solutions.</p></li>
+<li><p><strong>Resilience</strong> - IT solutions of the EEA CLMS are designed to withstand and recover from disruptions by remaining operational during unforeseen events.</p></li>
+</ol>
+<p>Together, these principles guide design, development, and evolution of the IT solutions in the EEA CLMS program. The principles should be periodically reviewed and updated to ensure alignment with the latest technological advancements and emerging best practices. This ongoing evaluation will help maintaining the relevance, effectiveness, and security of the IT solutions.</p>
+<section id="architecture" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="architecture"><span class="header-section-number">4.1</span> Architecture</h2>
+<p>Foundational and design principles for maintaining sound infrastructure and IT solution architecture. These sub-principles addresses best-practices and industry standard design patterns.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Architecture&nbsp;1:</strong></th>
+<th style="text-align: left;"><strong>Client specific IT solutions should have a modular structure</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">Modular structure of client specific IT solutions is a requirement. This may be achieved using e.g.&nbsp;microservice architecture</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">A modular structure is sought to ensure further development, and updates are possible. The possibility of substituting or adding modules in an IT solution will increase the lifespan of a solution and increase scalability</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">Modular architecture of IT solutions is a requisite</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>If the client specific IT solution has, for Example, grown its user base since the launch of the solution, then scaling up shall be possible at any time – scaling containers, vertically (more CPUs, RAM) and horizontally (more VMs)</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Architecture&nbsp;2:</strong></th>
+<th style="text-align: left;"><strong>IT solutions are to be Dockerized or similar</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">The use of container technology is encouraged</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">Containerization is crucial for building scalable IT solutions and container technology eases the work of moving IT solutions around the IT infrastructure making deployment easier to automate</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">IT solutions are to be deployed using Docker containers or similar</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>Software components of the client specific IT solution shall be provided as docker containers so that deployment is flexible with respect to hardware</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Architecture&nbsp;3:</strong></th>
+<th style="text-align: left;"><strong>Client specific IT solutions must be able to interface with other IT solutions</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">The IT deliverable must be able to be used in conjunction with other deliverables to form a composite solution</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">To make the most of the funds available the developed solutions should form part of an IT ecosystem making up a whole</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">IT deliverables must be equipped with documented APIs for interfacing with other IT applications</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>A client specific product, which can be used for extracting and manipulating data, should be accessible programmatically through e.g.&nbsp;well documented REST services</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Architecture&nbsp;4:</strong></th>
+<th style="text-align: left;"><strong>IT solutions should be cloud agnostic</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">If the IT solution is built for cloud environments, measures must be taken to make the solution cloud agnostic.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">Vendor lock-in must be avoided to remove vendor specific dependencies, making the IT solution easier to migrate to a different cloud vendor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">IT solutions must minimize the usage of vendor specific functionality and non-standardized infrastructure</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>An IT solution that makes use of serverless functions should be built in a way that allows for using another vendors serverless functionality with little or no changes in case of migrating from one platform to another</em></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reproducibility" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="reproducibility"><span class="header-section-number">4.2</span> Reproducibility</h2>
+<p>The overarching principle of reproducibility is further unfolded below in the following sub-principles:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Reproducibility&nbsp;1:</strong></th>
+<th style="text-align: left;"><strong>Description of workflows must be provided</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">Deliverables which are a result of pre-processing of data must be provided with a description of the workflow for the pre-processing</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">To ensure that the deliverable can be re-produced, details must be provided on how this can be achieved</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">Descriptions of pre-processing workflow steps are to be provided with deliverables. Ideally the workflows delivered as scripts or similar. At a minimum documentation of how the workflows are to be set up is to be provided</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>A delivery that includes a web application, shall include description of the build process, such as the compilation of source code, packaging of the application, and deployment steps. This for instance could include details on the specific versions of tools used (e.g.&nbsp;Node.js, Docker etc.)</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Reproducibility&nbsp;2:</strong></th>
+<th style="text-align: left;"><strong>Data sources to be supplied with deliverables</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">IT solutions which utilize data sources must supply the data sources</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">To ensure that the deliverable can be re-produced details are required on data sources used along with any enrichment which have been applied to the data source</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">Data source location must be provided if data are publicly available. If data are not accessible to the CLMS, the data are to be provided as part of the deliverable</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>If the software relies on a proprietary weather data API that is not publicly accessible, the data, or at least a sample dataset, should be provided with the delivery. If the API is publicly available, detailed instructions on how to access it (e.g., API keys, endpoint URLs) must be included</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Reproducibility&nbsp;3:</strong></th>
+<th style="text-align: left;"><strong>List of software used in development of IT solution to be provided</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">The software products which have been used in the development of the software are to be listed as part of the deliverable</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">To ensure that the IT solution can be further developed details are required of the software components/products that were used in the development</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">List of software development tools used in the production to be provided. Further for client specific developments the source code must also be provided</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>A system consisting of several building blocks, such as User Interface, backend, importer, and exporter modules, shall be provided with a list of software development tools, used for production of these building blocks and modules</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Reproducibility&nbsp;4:</strong></th>
+<th style="text-align: left;"><strong>Automation tool/scripts used in the production of the IT solution must be provided</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">IT solutions which include automation scripts/workflows in the development must supply these scripts as part of the deliverable</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">Automation scripts used in development are viewed as part of the deliverable and are required for reproduction of the solution</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">Automation scripts whether as stand-alone scripts or as a configuration of standard/commercial software must be provided as part of the deliverable</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>If the IT deliverable includes an automatic backup that generates full backups in certain increments, then the automation scripts behind the backup generation must be provided as part of the deliverable, so that they could be recreated</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Reproducibility&nbsp;5:</strong></th>
+<th style="text-align: left;"><strong>If a solution includes outcomes of pre-executed algorithms the prerequisites for running the algorithms must be provided</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">To ensure reproducibility, the algorithms must be provided either as pseudo code or as source code</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">The foundation of the IT solution must be re-producible to ensure future enhancements are possible say if new insights/data become available also after the end of the contractual agreement</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">Supplier must as part of the deliverable also detail any algorithms which form the basis of the solution</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>A spatial product, providing a detailed pan-European wall to wall 10-meter spatial resolution raster product, that is based on a supervised classification of satellite image time-series. The supplier must provide a detailed description of the algorithm that was used for classifying satellite-imagery time-series</em></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reusability" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="reusability"><span class="header-section-number">4.3</span> Reusability</h2>
+<p>The principle of reusability is detailed in the following sub-principles:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Reusability&nbsp;1:</strong></th>
+<th style="text-align: left;"><strong>IT solutions should be open-ended equipped with APIs</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">IT solutions should be open-ended equipped with APIs through which functionality or data key for the end user may be accessed</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">To ensure that further work benefit from existing solutions it is paramount that systems delivered are open ended. Future work can hereby utilize and benefit from previous work. Delivered IT solutions should form part of the overall IT ecosystem of the EEA CLMS program so that the “whole is greater than the sum”</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">IT solutions should be provided with APIs which access key functionality of the IT solutions</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>A webservice provided, which publishes geospatial data, has an API Rest service, which grants users direct access to the data</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Reusability&nbsp;2:</strong></th>
+<th style="text-align: left;"><strong>Scripts used in production must be delivered as part of IT solutions</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">Scripts should be delivered with code so that they may be used as templates for the end user for further development</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">Data, conditions, or requirements may change for an IT solution. To ensure that such changes can be accommodated the underlying script must be possible to modify to reflect and support such changes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">Scripts used in the productions form part of the final deliverable</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>IT delivery, consisting of several building blocks, shall be provided with scripts, included with the final delivery of the code, so that the end users of the system could modify, expand, or adopt the building blocks/modules to suit specific needs or add new features</em></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="transparency" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="transparency"><span class="header-section-number">4.4</span> Transparency</h2>
+<p>The CLMS is funded by the EU and supports its community with data and services. As such, these products and services are to be part of the foundation for further work in the field and accessible to the community. To support this, the principle of transparency is detailed in the following subprinciples:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Transparency&nbsp;1:</strong></th>
+<th style="text-align: left;"><strong>Source code of client specific software to be supplied with IT solution</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">Source code of client specific IT solution is supplied as part of the deliverable and made publicly available under the EUPL-1.2 license <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">To ensure transparency, it is essential to have clear insights into the client-specific software. This enables efficient future developments and modifications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">Source code of client specific software must be delivered with IT solution. The source code shall include Docker recipes and scripts for building the source code and be published under the EUPL-1.2 license</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>Source code of all the components of the specific IT solution must be delivered. Any updates or developments of the source code shall be reflected in the EEA GitHub repository, which is the main repository of the system. Moreover, the specific client IT solutions shall be published under the EUPL-1.2 license, so the openness and transparency are ensured</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Transparency&nbsp;2:</strong></th>
+<th style="text-align: left;"><strong>Inline documentation of the source code</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">Source code of client specific IT solution must be documented in-line</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">To effectuate the handover from one developer to the next inline documentation are to be included to guide the developer on the job</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">Source code must have inline documentation. Inline code should be formatted so that it may be easily extracted to generate online documentation</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>Source code of all the components of the IT solution must have inline documentation. The documentation shall be structured, following common conventions, and kept at a minimal, but comprehensive level</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Transparency&nbsp;3:</strong></th>
+<th style="text-align: left;"><strong>Commercial software used in the production must be attainable by the EEA or a third-party provider</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">Commercial software which are prerequisites must be attainable on comparable terms. Such software is justified only if no open alternative exists</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">To ensure that further work may be carried out any prerequisites in the form of software must be attainable by the EEA or a supplier</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">Generally attainable commercial software used in production must be listed when delivering an IT solution. Name of software, version, EOL and EOS to be supplied</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>An IT solution is deploying various components and the set-up of the virtual machines that houses the components is done by means of an infrastructure as-a-code-tool. All the capabilities of the infrastructure as-a-code-tool, that require purchasing must be listed when delivering the IT solution</em></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="maintainability" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="maintainability"><span class="header-section-number">4.5</span> Maintainability</h2>
+<p>The EEA aims in the CLMS program to be able to provide updated products when new data becomes available. To reduce the time to market the principle of maintainability is to be followed.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Maintainability&nbsp;1:</strong></th>
+<th style="text-align: left;"><strong>IT solutions are to be delivered on a principle of CI/CD</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">The launch of new releases of IT deliverables are to be configured and managed so that new functionality is available as soon as possible. The principle of CI/CD are to be adhered to</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">Time to market is to be reduced through an approach of maintainability of deployments as soon as possible</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">IT deliverables are to be supplied with a dev-ops set-up which supports CI/CD</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>A delivered IT solution is organized with a test server environment potentially a pre-production environment, used for quality assurance and continuous development, so that deployment to production can be initiated smoothly</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Maintainability&nbsp;2:</strong></th>
+<th style="text-align: left;"><strong>Tests are to be organised so that they may be automated</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">Tests are to be structured so that they may be easily automated</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">To ensure that the build and CI/CD process does not introduce bugs or deployment failures, tests are to be automated so that they can continuously be run to ensure the quality of the solution and its possible enhancements</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">Tests are to be delivered so that they can be automated</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>The delivered solution has in the test phase run through a number of tests e.g.&nbsp;unit tests and result verification tests. These will be the basis for automated regression tests</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Maintainability&nbsp;3:</strong></th>
+<th style="text-align: left;"><strong>Documentation of IT solutions are to be provided</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">Documentation of the developed IT solutions must be provided. The requested documentation shall also be provided in quarto markdown format on the dedicated EEA GitHub repository</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">For the further use and improvements of the IT solution, technical documentation is paramount.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">Documentation including but not limited to System Description Document (SDD), System Deployment Document and Examples must be provided with IT solution deliverables. The requested documents shall also be provided in the quarto markdown format.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>An IT delivery, consisting of several building blocks, shall be provided with SDD, user guidelines, and detailed documentation of system deployment, including, but not limited to system and storage architecture, infrastructure setup, provisioning, monitoring, disaster recovery, accessibility, scalability options and performance. If requested, this documentation shall be provided in quarto markdown format on the dedicated EEA GitHub repository</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Maintainability&nbsp;4:</strong></th>
+<th style="text-align: left;"><strong>Commercial software used in the development must be attainable by the EEA or a third-party provider</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">Commercial software which are prerequisites must be attainable on comparable terms. Such software is justified only if no open alternative exists</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">To ensure that further work may be carried out any prerequisites in the form of software must be attainable by the EEA or a supplier</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">Generally attainable commercial software used in development or production must be listed when delivering an IT solution. Name of software, version, EOL and EOS to be supplied</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>An IT solution using commercial components or tools, like PDF generator, code analysis tools, data transformation software must be listed</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Maintainability&nbsp;5:</strong></th>
+<th style="text-align: left;"><strong>Deployment and integration scripts of client specific software to be supplied with IT solution</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">Deployment and integration scripts of client specific IT solution is supplied as part of the deliverable</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">To ensure transparency and efficient maintainability, it is essential to have clear insights into the build and deploy processes of client-specific software. This enables efficient future developments and modifications</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">Scripts or playbooks and documentation for CI/CD (Continuous Integration/Continuous Development), Docker recipes and build scripts must be delivered</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>Source code of all the components of the specific IT solution must be delivered. Any updates or developments of the source code shall be reflected in the EEA GitHub repository, which is the main repository of the system. Moreover, the specific client IT solutions shall be published under the EUPL-1.2 license, so the openness and transparency are ensured</em></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="observability" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="observability"><span class="header-section-number">4.6</span> Observability</h2>
+<p>IT solutions of the EEA CLMS must collect relevant metrics for monitoring and assessment, to detect any issues and have predictable operation of the solutions.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Observability&nbsp;1:</strong></th>
+<th style="text-align: left;"><strong>IT solutions are to be regularly assessed</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">IT solutions are to be automatically monitored with a notification service, and their performance routinely evaluated to ensure optimal functioning</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">Regular assessments ensure that IT solutions can be maintained so as to meet emerging needs, threats and technological advancements</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">IT solution’s scalability, security, and overall performance are continuously monitored and evaluated to address performance and security issues</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>The delivered IT solution and its associated dependencies are regularly assessed and evaluated. The evaluation process should also account for advancements in technology and track developments to ensure the solution remains relevant and effective</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Observability&nbsp;2:</strong></th>
+<th style="text-align: left;"><strong>Continuous monitoring of metrics</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">IT solutions logs metrics on it’s components and containers for tracking system performance and application health</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">Continuous monitoring gives a data-driven insight of a solutions components performance and health and provide the metrics for automatically scaled solutions and self-recovering solutions</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">Components and containers in the solution logs relevant metrics to be collected and monitored. As minimum liveliness and readiness should be logged</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>A software solution with an orhcestrating component and a worker component use liveliness and readiness to monitor if the solution is healthy and automatically scale the number of worker instances according to the readiness metrics</em></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="it-security" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="it-security"><span class="header-section-number">4.7</span> IT security</h2>
+<p>The IT solutions of the CLMS program shall ensure system integrity against various security threats, protection of the data, and maintenance of privacy. The following sub-principals are to be followed:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>IT security&nbsp;1:</strong></th>
+<th style="text-align: left;"><strong>Incorporate security considerations from the beginning of the system development</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">Ensure security is integrated into all stages of the system development lifecycle, from planning to deployment</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">Early integration of security measures reduces vulnerabilities, lowers costs associated with late-stage fixes, and ensures robust protection against threats</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">Threat modelling and security assessments need to be conducted from the start, as well as allocation of resources for ongoing security reviews and testing</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>Standard aspects such as two factor authentication, protection against SQL injection, encryption of sensitive data, no root users in containers, etc.</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>IT&nbsp;security&nbsp;2:</strong></th>
+<th style="text-align: left;"><strong>Compliance with relevant laws, regulations and industry standards</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">IT-solutions must adhere to legal requirements, industry standards, and regulations e.g.&nbsp;EUDPR, ISO</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">Compliance ensures legal and regulatory adherence, builds trust, protects sensitive data, and mitigates risk of legal penalties and breaches</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">IT deliverables need to incorporate robust security measures, include documentation of compliance efforts, and ensure features and processes aligned with legal and industry measures</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>Data handling agreements must be in place, consideration of server location in EU, etc.</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>IT&nbsp;security&nbsp;3:</strong></th>
+<th style="text-align: left;"><strong>Ensuring that users and systems have appropriate permissions based on their roles and responsibilities</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">Implement role-based access control (RBAC) to manage user and system permissions according to their roles</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">It prevents unauthorized access, minimizes the risk of data breaches, and ensures that users only have access to the information necessary for their roles</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">The provider will need to define clear roles and responsibilities, implement RBAC policies, regularly review and update access controls</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>A delivered IT solution has role-based accesses, which ensures that only Admin-Users are allowed to manage (add, edit, activate, inactivate) users and organisations. Also, only administrator can view and edit any ingestion and extraction within the system to support users if they need any help</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>IT&nbsp;security&nbsp;4:</strong></th>
+<th style="text-align: left;"><strong>Logging warnings and errors</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">The IT solution must log all errors, warnings and events with audit relevance from every component to a file based storage</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">In order to inspect system events and detect potential security incidents is crucial for maintaining the system integrity and resilience. Log information must not be revealed to the user, but must be stored internally.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">All components of an IT solution must log audit, error and warning information coming from executing the code of the solution</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>A user logs in to an application, trying to download a large dataset for processing in the application, the system encounters some fatal errors with the download. Login, user activity and technical error information and severity is logged to a persistent file storage.</em></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="resilience" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="resilience"><span class="header-section-number">4.8</span> Resilience</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Resilience&nbsp;1:</strong></th>
+<th style="text-align: left;"><strong>IT solution should have a disaster recovery plan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">IT solution should have a well-defined process of restoring IT systems, data, and operations following a disruption</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">To ensure that the IT solution and data are recoverable after an unforeseen event</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">IT deliverables will be provided with well-prepared disaster recovery plan that will ensure a rapid restoration of services and data integrity, and minimize damage</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>A delivered IT solution has a disaster recovery plan that includes backup protocols, data replication, and recovery timelines</em></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><strong>Resilience&nbsp;2:</strong></th>
+<th style="text-align: left;"><strong>Ensuring IT solution continuity</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>What:</strong></td>
+<td style="text-align: left;">IT solution is designed and implemented in a way that ensures continuous operation during a disruption</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Why:</strong></td>
+<td style="text-align: left;">To maintain critical operations with a minimal downtime, even when confronted with unforeseen events</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Consequence:</strong></td>
+<td style="text-align: left;">IT deliverables are designed for high availability, incorporating redundancy so that in case of a disruption/failure, restore service can immediately take over, minimizing downtime and ensuring continuous operation</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Example:</strong></td>
+<td style="text-align: left;"><em>In the event of a system failure or disruption of the delivered IT solution, restore service automatically take over to maintain service continuity. For instance, if a primary system goes down, a secondary system activates, ensuring that users experience no downtime.</em></td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>https://commission.europa.eu/content/european-union-public-licence_en<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/library\.land\.copernicus\.eu");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2025 EEA. All rights reserved.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

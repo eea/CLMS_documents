@@ -1,0 +1,2404 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-01-10">
+<meta name="keywords" content="InSAR displacement data, Satellite line-of-sight, GNSS-based reference model, ETRS89-LAEA projection, Temporal coherence, Amplitude dispersion index, Mean velocity standard deviation, Orthometric height, Sentinel-1 burst segmentation, Time series analysis">
+<meta name="description" content="This document provides a comprehensive description of the European Ground Motion Service (EGMS) products offered through the Copernicus Land Monitoring Service. It details the specifications, formats, attribute tables, and metadata associated with the EGMS Basic, Calibrated, and Ortho products. The document aims to enable users to fully understand and utilise these InSAR-derived ground motion datasets for a range of applications, focusing on the technical aspects of data structure, coordinate systems, and data processing methodologies.">
+
+<title>European Ground Motion Service (EGMS) - Product Description and Format Specification – Technical Library</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-24cc52c546c003a7d891213737239288.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "Search ...",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "European Ground Motion Service (EGMS) - Product Description and Format Specification",
+    "description": "This document provides a comprehensive description of the European Ground Motion Service (EGMS) products offered through the Copernicus Land Monitoring Service. It details the specifications, formats, attribute tables, and metadata associated with the EGMS Basic, Calibrated, and Ortho products. The document aims to enable users to fully understand and utilise these InSAR-derived ground motion datasets for a range of applications, focusing on the technical aspects of data structure, coordinate systems, and data processing methodologies.",
+    "datePublished": "January 10, 2025",
+    "author": {
+      "@type": "Person",
+      "name": "?meta:author"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Copernicus Land Monitoring Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
+      }
+    },
+    "keywords": "?invalid meta type:keywords",
+    "articleSection": "General",
+    "isAccessibleForFree": "true",
+    "license": "",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": "article p"
+    }
+  }
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../theme/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Technical Library</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#scope" id="toc-scope" class="nav-link" data-scroll-target="#scope"><span class="header-section-number">1.1</span> Scope</a></li>
+  <li><a href="#references-and-related-documents" id="toc-references-and-related-documents" class="nav-link" data-scroll-target="#references-and-related-documents"><span class="header-section-number">1.2</span> References and Related Documents</a></li>
+  </ul></li>
+  <li><a href="#egms-product-overview" id="toc-egms-product-overview" class="nav-link" data-scroll-target="#egms-product-overview"><span class="header-section-number">2</span> EGMS Product Overview</a>
+  <ul class="collapse">
+  <li><a href="#the-egms-basic-product" id="toc-the-egms-basic-product" class="nav-link" data-scroll-target="#the-egms-basic-product"><span class="header-section-number">2.1</span> The EGMS Basic product</a></li>
+  <li><a href="#the-egms-calibrated-product" id="toc-the-egms-calibrated-product" class="nav-link" data-scroll-target="#the-egms-calibrated-product"><span class="header-section-number">2.2</span> The EGMS Calibrated product</a></li>
+  <li><a href="#the-egms-ortho-product" id="toc-the-egms-ortho-product" class="nav-link" data-scroll-target="#the-egms-ortho-product"><span class="header-section-number">2.3</span> The EGMS Ortho product</a></li>
+  <li><a href="#the-egms-a-epnd-gnss-based-reference-model" id="toc-the-egms-a-epnd-gnss-based-reference-model" class="nav-link" data-scroll-target="#the-egms-a-epnd-gnss-based-reference-model"><span class="header-section-number">2.4</span> The EGMS A-EPND GNSS-based reference model</a></li>
+  </ul></li>
+  <li><a href="#projection-and-datum" id="toc-projection-and-datum" class="nav-link" data-scroll-target="#projection-and-datum"><span class="header-section-number">3</span> Projection and Datum</a></li>
+  <li><a href="#egms-product-specifications" id="toc-egms-product-specifications" class="nav-link" data-scroll-target="#egms-product-specifications"><span class="header-section-number">4</span> EGMS Product Specifications</a>
+  <ul class="collapse">
+  <li><a href="#egms-basic-product-specifications" id="toc-egms-basic-product-specifications" class="nav-link" data-scroll-target="#egms-basic-product-specifications"><span class="header-section-number">4.1</span> EGMS Basic product specifications</a></li>
+  <li><a href="#egms-calibrated-product-specifications" id="toc-egms-calibrated-product-specifications" class="nav-link" data-scroll-target="#egms-calibrated-product-specifications"><span class="header-section-number">4.2</span> EGMS Calibrated product specifications</a></li>
+  <li><a href="#egms-ortho-product-specifications" id="toc-egms-ortho-product-specifications" class="nav-link" data-scroll-target="#egms-ortho-product-specifications"><span class="header-section-number">4.3</span> EGMS Ortho product specifications</a></li>
+  <li><a href="#gnss-model-specifications" id="toc-gnss-model-specifications" class="nav-link" data-scroll-target="#gnss-model-specifications"><span class="header-section-number">4.4</span> GNSS model specifications</a></li>
+  </ul></li>
+  <li><a href="#egms-product-attributes" id="toc-egms-product-attributes" class="nav-link" data-scroll-target="#egms-product-attributes"><span class="header-section-number">5</span> EGMS Product Attributes</a>
+  <ul class="collapse">
+  <li><a href="#basic-and-calibrated-product-attributes" id="toc-basic-and-calibrated-product-attributes" class="nav-link" data-scroll-target="#basic-and-calibrated-product-attributes"><span class="header-section-number">5.1</span> Basic and Calibrated product attributes</a></li>
+  <li><a href="#ortho-product-attributes" id="toc-ortho-product-attributes" class="nav-link" data-scroll-target="#ortho-product-attributes"><span class="header-section-number">5.2</span> Ortho product attributes</a></li>
+  <li><a href="#gnss-model-attributes" id="toc-gnss-model-attributes" class="nav-link" data-scroll-target="#gnss-model-attributes"><span class="header-section-number">5.3</span> GNSS model attributes</a></li>
+  </ul></li>
+  <li><a href="#egms-product-format" id="toc-egms-product-format" class="nav-link" data-scroll-target="#egms-product-format"><span class="header-section-number">6</span> EGMS Product Format</a>
+  <ul class="collapse">
+  <li><a href="#egms-basic-product-format" id="toc-egms-basic-product-format" class="nav-link" data-scroll-target="#egms-basic-product-format"><span class="header-section-number">6.1</span> EGMS Basic product format</a></li>
+  <li><a href="#egms-calibrated-product-format-level-2b" id="toc-egms-calibrated-product-format-level-2b" class="nav-link" data-scroll-target="#egms-calibrated-product-format-level-2b"><span class="header-section-number">6.2</span> EGMS Calibrated product format (Level 2b)</a></li>
+  <li><a href="#egms-ortho-product-format-level-3" id="toc-egms-ortho-product-format-level-3" class="nav-link" data-scroll-target="#egms-ortho-product-format-level-3"><span class="header-section-number">6.3</span> EGMS Ortho product format (Level 3)</a></li>
+  <li><a href="#gnss-model-product-format" id="toc-gnss-model-product-format" class="nav-link" data-scroll-target="#gnss-model-product-format"><span class="header-section-number">6.4</span> GNSS model product format</a></li>
+  </ul></li>
+  <li><a href="#downloading-egms-products" id="toc-downloading-egms-products" class="nav-link" data-scroll-target="#downloading-egms-products"><span class="header-section-number">7</span> Downloading EGMS Products</a></li>
+  <li><a href="#quality-and-accuracy" id="toc-quality-and-accuracy" class="nav-link" data-scroll-target="#quality-and-accuracy"><span class="header-section-number">8</span> Quality And Accuracy</a></li>
+  <li><a href="#ancillary-datasets" id="toc-ancillary-datasets" class="nav-link" data-scroll-target="#ancillary-datasets"><span class="header-section-number">9</span> Ancillary Datasets</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">10</span> References</a></li>
+  <li><a href="#appendix-a" id="toc-appendix-a" class="nav-link" data-scroll-target="#appendix-a"><span class="header-section-number">11</span> Appendix A</a>
+  <ul class="collapse">
+  <li><a href="#xml-header-file" id="toc-xml-header-file" class="nav-link" data-scroll-target="#xml-header-file"><span class="header-section-number">11.1</span> XML Header File</a></li>
+  <li><a href="#convention-for-burst-data-files-names" id="toc-convention-for-burst-data-files-names" class="nav-link" data-scroll-target="#convention-for-burst-data-files-names"><span class="header-section-number">11.2</span> Convention for Burst Data Files Names</a></li>
+  <li><a href="#measurement-points-codes" id="toc-measurement-points-codes" class="nav-link" data-scroll-target="#measurement-points-codes"><span class="header-section-number">11.3</span> Measurement Points Codes</a></li>
+  <li><a href="#data-field-evaluation" id="toc-data-field-evaluation" class="nav-link" data-scroll-target="#data-field-evaluation"><span class="header-section-number">11.4</span> Data Field Evaluation</a></li>
+  </ul></li>
+  <li><a href="#document-control-information" id="toc-document-control-information" class="nav-link" data-scroll-target="#document-control-information"><span class="header-section-number">12</span> Document Control Information</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="products_EGMS_product_description_2023.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="products_EGMS_product_description_2023.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Remove link to .docx file
+    //
+    document.querySelectorAll("a[href$='.docx']").forEach((link) => (link.style.display = "none"));
+
+    // Add Version to the title's metadata
+    //
+    const titleMetaEl = document.querySelector(".quarto-title-meta");
+    const wrapperDiv = document.createElement("div");
+    wrapperDiv.innerHTML = `
+        <div class="quarto-title-meta-heading">Version</div>
+        <div class="quarto-title-meta-contents">
+          <p>2</p>
+        </div>
+      `;
+    titleMetaEl.appendChild(wrapperDiv);
+  });
+</script>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">European Ground Motion Service (EGMS) - Product Description and Format Specification</h1>
+<p class="subtitle lead">Copernicus Land Monitoring Service</p>
+</div>
+
+<div>
+  <div class="description">
+    This document provides a comprehensive description of the European Ground Motion Service (EGMS) products offered through the Copernicus Land Monitoring Service. It details the specifications, formats, attribute tables, and metadata associated with the EGMS Basic, Calibrated, and Ortho products. The document aims to enable users to fully understand and utilise these InSAR-derived ground motion datasets for a range of applications, focusing on the technical aspects of data structure, coordinate systems, and data processing methodologies.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 10, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>InSAR displacement data, Satellite line-of-sight, GNSS-based reference model, ETRS89-LAEA projection, Temporal coherence, Amplitude dispersion index, Mean velocity standard deviation, Orthometric height, Sentinel-1 burst segmentation, Time series analysis</p>
+  </div>
+</div>
+
+</header>
+
+
+<div data-custom-style="LeftAlign">
+<p>European Environment Agency (EEA)<br>
+Kongens Nytorv 6<br>
+1050 Copenhagen K<br>
+Denmark<br>
+<a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
+</div>
+<div style="page-break-after: always;"></div>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Figure  1  EGMS  Basic  (L2a)  product.  Provided  as  a  2D,  colour-coded  by  average  velocity,  map.  Displacement  data  provided  in  the  satellite  line-of-sight,  and  in  radar  geometry,  with  annotated  geolocalisation  and  quality  measures  per  measurement  point.  A  time  series  plot  is  associated  with  each  point.","url":"products_EGMS_product_description_2023-media/image3.png"},{"@type":"ImageObject","caption":"Figure  2  EGMS  Ortho  product.  Absolute,  vertical  displacement.  The  gridded  nature  of  the  data  is  clearly  visible.","url":"products_EGMS_product_description_2023-media/image4.png"},{"@type":"ImageObject","caption":"Figure  3  Ortho  products  grid.","url":"products_EGMS_product_description_2023-media/image5.png"}]}
+</script>
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<section id="scope" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="scope"><span class="header-section-number">1.1</span> Scope</h2>
+<p>To enable full use of the European Ground Motion Service (EGMS), it is necessary to have an understanding of its products. This document provides a full description of EGMS products, along with details of specifications, formats, attribute tables and metadata, plus other information considered of use to users of the service.</p>
+<p>After referring to related documents, this section continues with some InSAR-specific definitions to aid understanding of the service specifications. Section 3 then goes on to discuss product map projections, followed by sections detailing product specifications, attributes and formats. Section 7 discusses user downloading before the document ends with detail of ancillary datasets used in EGMS production.</p>
+</section>
+<section id="references-and-related-documents" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="references-and-related-documents"><span class="header-section-number">1.2</span> References and Related Documents</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 39%">
+<col style="width: 9%">
+<col style="width: 20%">
+<col style="width: 21%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>ID</strong></td>
+<td><strong>Reference or Related Document</strong></td>
+<td><strong>Date</strong></td>
+<td><strong>ID</strong></td>
+<td><strong>Source or Link/Location</strong></td>
+</tr>
+<tr class="even">
+<td><ol type="1">
+<li></li>
+</ol></td>
+<td>ALG Algorithm Theoretical Basis</td>
+<td>20/12/2021</td>
+<td>EGMS-D3-ALG-SC1-2.0-006</td>
+<td>EGMS Original Consortium</td>
+</tr>
+<tr class="odd">
+<td><ol start="2" type="1">
+<li></li>
+</ol></td>
+<td>Product User Manual</td>
+<td>14/02/2022</td>
+<td>EGMS-D4-PUM-SC1-2.0-007</td>
+<td>EGMS Original Consortium</td>
+</tr>
+<tr class="even">
+<td><ol start="3" type="1">
+<li></li>
+</ol></td>
+<td>End User Interface Manual</td>
+<td>15/10/2021</td>
+<td>EGMS-D5-UIM-SC1-2.0-008</td>
+<td>EGMS Original Consortium</td>
+</tr>
+<tr class="odd">
+<td><ol start="4" type="1">
+<li></li>
+</ol></td>
+<td>Product Archive and Dissemination System Description</td>
+<td>20/12/2021</td>
+<td>EGMS-D9-DAS-SC1-2.0-011</td>
+<td>EGMS Original Consortium</td>
+</tr>
+<tr class="even">
+<td><ol start="5" type="1">
+<li></li>
+</ol></td>
+<td>Quality assurance and control report</td>
+<td>22/10/2021</td>
+<td>EGMS-D10.1-QCR-SC1-3.0-012</td>
+<td>EGMS Original Consortium</td>
+</tr>
+<tr class="odd">
+<td><ol start="6" type="1">
+<li></li>
+</ol></td>
+<td>User Uptake Plan</td>
+<td>15/10/2021</td>
+<td>EGMS-D14-UUP-SC1-8.0-016</td>
+<td>EGMS Original Consortium</td>
+</tr>
+<tr class="even">
+<td><ol start="7" type="1">
+<li></li>
+</ol></td>
+<td>End User Requirements</td>
+<td>20/12/2021</td>
+<td>EGMS-D15-URD-SC1-8.0-017</td>
+<td>EGMS Original Consortium</td>
+</tr>
+<tr class="odd">
+<td><ol start="8" type="1">
+<li></li>
+</ol></td>
+<td>GNSS calibration report</td>
+<td>20/12/2021</td>
+<td>EGMS-D19.1-GCR-SC1-3.0-014</td>
+<td>EGMS Original Consortium</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="egms-product-overview" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> EGMS Product Overview</h1>
+<p>The European Ground Motion Service provides three main InSAR products for visualisation, analysis and download by users of the service’s dissemination platform.</p>
+<ul>
+<li><p>The EGMS <em>Basic</em> product</p></li>
+<li><p>The EGMS <em>Calibrated</em> product</p></li>
+<li><p>The EGMS <em>Ortho</em> product</p></li>
+</ul>
+<p>An outline of each follow:</p>
+<section id="the-egms-basic-product" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="the-egms-basic-product"><span class="header-section-number">2.1</span> The EGMS Basic product</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_EGMS_product_description_2023-media/image3.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 1 EGMS Basic (L2a) product. Provided as a 2D, colour-coded by average velocity, map. Displacement data provided in the satellite line-of-sight, and in radar geometry, with annotated geolocalisation and quality measures per measurement point. A time series plot is associated with each point.</figcaption>
+</figure>
+</div>
+<p>The EGMS <em>Basic</em> product provides InSAR displacement data provided in the satellite line-of-sight, with annotated geolocalisation and quality measures per measurement point (MP). Satellite line-of-sight means that measurements are projected along the imaginary line which connects the satellite to the target, and which have to be reprojected to assume the meaning of vertical/horizontal displacement.</p>
+<p>The product is provided as a 2D map of InSAR measurement points, colour-coded by average velocity. A time series plot is associated with each point.</p>
+<p>Significantly, <em>Basic</em> products are spatially referenced to a virtual reference point, whose time series is derived by a statistical analysis of the dataset. As a consequence, the provided measurements are meaningful just considering the processed area. It is not possible to compare deformations from adjacent areas belonging to different products of the same level. The time series are temporally referenced to the value of the deformation model at time T<sub>0</sub>=0. Please refer to [RD1] for a description of the selected approaches’ rationale.</p>
+<p>Production of the EGMS <em>Basic</em> product is a necessary first step and input to the more advanced EGMS <em>Calibrated</em> product. EGMS <em>Basic</em> products are provided as two discrete datasets; one made from the SAR data acquired orthogonal to the satellite ascending trajectory (south to north), the other from data acquired orthogonal to the descending trajectory (north to south). Please refer to documents [RD1] and [RD2] for additional details on ascending and descending acquisitions.</p>
+</section>
+<section id="the-egms-calibrated-product" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="the-egms-calibrated-product"><span class="header-section-number">2.2</span> The EGMS Calibrated product</h2>
+<p>The EGMS <em>Calibrated</em> product is considered the main EGMS product as it serves the needs of most users. It is fundamentally the same as the <em>Basic</em> product but enhanced by the InSAR MP displacement values being referenced to model derived from GNSS time-series data, thereby making the InSAR measurements <strong>absolute</strong> (with reference to an Earth centred reference frame). Calibrated products, containing absolute measurements, overcome the intrinsic limits of the Basic ones, being possible to compare deformations from adjacent areas belonging to different products of the same level.</p>
+<p>As with <em>Basic</em> products, the <em>Calibrated</em> product is provided as two discrete datasets, one in ascending geometry, the other in descending geometry.</p>
+<p>Some isolated islands may not have GNSS data available. For these areas, <em>Calibrated</em> products are produced by harmonizing <em>Basic</em> products with respect to each other, and then adjusting the mean ground velocity to zero. Measurements of any displacements on such islands are not referenced against the GNSS-derived datum, but a local InSAR MP.</p>
+</section>
+<section id="the-egms-ortho-product" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="the-egms-ortho-product"><span class="header-section-number">2.3</span> The EGMS Ortho product</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_EGMS_product_description_2023-media/image4.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 2 EGMS Ortho product. Absolute, vertical displacement. The gridded nature of the data is clearly visible.</figcaption>
+</figure>
+</div>
+<p>The EGMS <em>Ortho</em> product exploits the discrete look-angles provided by the <em>Calibrated</em> product to derive two further layers; one of purely vertical displacements, the other of purely east-west displacements. Both layers are resampled to a 100 m grid to coincide with other <em>Copernicus</em> products. Vertical and east-west displacement components can be estimated taking advantage of the prior information coming from GNSS data. Refer to RD1 for more details about the Ortho products generation process.</p>
+<p>The main benefit of <em>Ortho</em> products is ease of understanding to those new to InSAR as the data-acquisition geometry need not be considered. However, such <em>decomposed</em> data can still prove valuable even to InSAR experts when considering phenomena that might include non-vertical displacements such as those relating to tectonics or landslides.</p>
+<p>In the following, some characteristics of the EGMS <em>Ortho</em> product:</p>
+<ul>
+<li><p><strong>Coverage:</strong> To make the <em>Ortho</em> product, <em>both</em> ascending <em>and</em> descending geometry <em>Calibrated</em> products are needed. In some areas of high topographic relief, the usual geometric artefacts associated with radar remote sensing (layover, foreshortening and shadow) prevent 100% coverage. In such areas, there are no EGMS <em>Ortho</em> measurements.</p></li>
+<li><p><strong>Not full-3D:</strong> Each Sentinel-1 satellite is near-polar-orbiting with a side-looking radar. The ‘range-finding’ echoes of the SAR instrument consequently become less sensitive as the direction of any ground displacement approaches that of the satellite flightpath, i.e., north-south. Importantly, any ground movements in these directions will not be measured directly by InSAR but reintroduced from the GNSS data (please refer to RD1). In fact, north-south displacement components are not available for any MP, since they are estimated from GNSS data, characterized by a much lower spatial resolution than InSAR measurements. Therefore, vertical, and east-west components are estimated thanks to a spatial interpolation of the information available. This approach, however, does not introduce a significant bias in the measurements, apart from area affected by strong spatial variations of north-south displacements.</p></li>
+<li><p><strong>Spatial sampling:</strong> The ascending and descending <em>Calibrated</em> products that make the <em>Ortho</em> product have different acquisition geometries, meaning that the distribution of MPs is not identical between the two datasets. To ensure that both datasets represent the same area of ground, the data is averaged to a common 100 m grid, this particular spacing chosen to coincide with other <em>Copernicus</em> services and it is a good compromise between resolution and spatial coverage of the database.</p></li>
+<li><p><strong>Temporal sampling:</strong> in general, the temporal sampling of the satellite tracks contributing to the <em>Ortho</em> product is not aligned. This happens because L2b products, from which L3 are derived, exhibit acquisition patterns shifted in times on a track basis. Moreover, there may be holes in the datasets (e.g., missed acquisition, especially in 2015). In order to define a common temporal grid, for the baseline all time-series will start on January 2016 and end on December 2021, with regular six-day temporal sampling with origin on 3-April-2014 (launch date of S1A). A regular sampling will be maintained whenever possible, even if, in correspondence of huge gaps in the L2b products time series used to generate the L3 level, customized solutions may be adopted. Please refer to document RD1 for further details on L3 products generation.</p></li>
+</ul>
+</section>
+<section id="the-egms-a-epnd-gnss-based-reference-model" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="the-egms-a-epnd-gnss-based-reference-model"><span class="header-section-number">2.4</span> The EGMS A-EPND GNSS-based reference model</h2>
+<p>The process of generating the Calibrated (see section 2.2) and the Ortho (see Section 2.3) products requires the availability of a reference model derived from GNSS data. The augmented EPND (A-EPND) model is produced based on GNSS data from various sources, with the EUREF Densification product (EPND) as the main source. In order to exploit the strengths of both InSAR and GNSS data, the reference model contains average velocities in 3D (east, north, up) on a 50-km grid. Deviations from the constant velocity model, as well as motion on shorter spatial scales than the reference model, will be estimated from InSAR data with high spatial density. Further details about the A-EPND model can be found in RD8. </p><div style="page-break-after: always;"></div><p></p>
+</section>
+</section>
+<section id="projection-and-datum" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Projection and Datum</h1>
+<p><em>Basic</em> and <em>Calibrated</em> products are <strong>point</strong> databases (i.e., ‘vector data’ in GIS jargon). As such, the choice of projection and datum does not affect the product quality - they can be reprojected on-the-fly without any geometric distortion. Modern GIS platforms can make such reprojections rapidly, so the choice of projection for storage and delivery of these products is not critical. However, a uniform projection is used for EGMS products using the European Grid (ETRS89-LAEA), a standard based upon the ETRS89 Lambert Azimuthal Equal-Area projection coordinate reference system, with the centre of the projection at the point 52° N, 10° E. In addition, non-projected (geographic) coordinates using the WGS84 datum are annotated for each measurement point in <em>Basic</em> and <em>Calibrated</em> products.</p>
+<p>EGMS <em>Ortho</em> products (which are in raster format) are based upon a 100 m grid, where each cell is dependent on the chosen projection and datum. When such data are reprojected, they must be resampled, and thus are susceptible to geometric distortions.</p><div style="page-break-after: always;"></div><p></p>
+</section>
+<section id="egms-product-specifications" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> EGMS Product Specifications</h1>
+<p>This section details the specifications for each of the three EGMS products. Note, for <em>Basic</em> and <em>Calibrated</em> products, the specifications are common to both ascending and descending geometries. This does not apply to <em>Ortho</em> products that are made from the decomposition of both geometries.</p>
+<section id="egms-basic-product-specifications" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="egms-basic-product-specifications"><span class="header-section-number">4.1</span> EGMS Basic product specifications</h2>
+<table class="caption-top table">
+<caption>Table 1 EGMS Basic product specifications</caption>
+<colgroup>
+<col style="width: 6%">
+<col style="width: 93%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ITEM</th>
+<th style="text-align: left;">Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tiling</td>
+<td style="text-align: left;">Original burst segmentation of the reference image.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reference system</td>
+<td style="text-align: left;">ETRS89-LAEA.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">File name convention</td>
+<td style="text-align: left;"><p>Data from each burst are contained in single CSV format file the name of which is in the format EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_<em>c</em>.csv (e.g., EGMS_L2a_088_0282_IW2_VV_2018_2022_1.zip), where</p>
+<ul>
+<li><p><em>xxx</em> - Track number</p></li>
+<li><p><em>yyyy</em> - Progressive index for the burst inside the track</p></li>
+<li><p><em>z</em> - The swath the burst belongs to</p></li>
+<li><p><em>ww</em> - Polarization</p></li>
+<li><p><em>aaaa</em> - First nominal year of the years’ time range in which data are included</p></li>
+<li><p><em>bbbb</em> - Last nominal year of the years’ time range in which data are included</p></li>
+<li><p><em>c</em> Version of the delivered data</p></li>
+</ul>
+<p>Further details on the file naming convention can be found in section 11.2.</p>
+<p>Deliverables belonging to the Baseline or to the First update follow the same naming convention with the exception of the suffix _xxxx_yyyy_z, which is not applied.</p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Format</td>
+<td style="text-align: left;">Vector point.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Header information</td>
+<td style="text-align: left;">For each CSV data file there is a header file in XML format, the name of which is a copy of the name of the relative data file (e.g., EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_<em>c</em>.xml). The header file contains metadata useful to identify the origins of each product and to allow reproducibility. The structure of the header file can be found in section 11.1.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Epoch spanned</td>
+<td style="text-align: left;"><ul>
+<li><p>Baseline - From February 2015 to December 2020</p></li>
+<li><p>1<sup>st</sup> Update - From February 2015 to December 2021</p></li>
+<li><p>2<sup>nd</sup> Update - From January 2018 to December 2022</p></li>
+<li><p>3<sup>rd</sup> Update - From January 2019 to December 2023</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Spatial resolution</td>
+<td style="text-align: left;">PS full resolution (single pixel of Sentinel-1 constellation products in Interferometric Wide Swath. Namely, 5 x 20 m), DS better than 100 m.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Temporal resolution</td>
+<td style="text-align: left;">12 days till October 2016 and 6 days from October 2016 onward.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3D geolocation accuracy</td>
+<td style="text-align: left;">Better than 10m.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mean velocity resolution</td>
+<td style="text-align: left;">Better than 1 mm/year.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mean velocity STD</td>
+<td style="text-align: left;">0.7 mm/year (1 σ) for MP with coherence greater than 0.7.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Displacement STD</td>
+<td style="text-align: left;">4 mm (1 σ).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MP density</td>
+<td style="text-align: left;"><p>CLC18-1.1.1 ‘Continuous Urban Fabric’: &gt;= 5,000 MP/km<sup>2</sup>.</p>
+<p>CLC18-1.1.2 ‘Discontinuous Urban Fabric’ and 1.2 ‘Industrial, Commercial, and Transport Units’: &gt;=1,000 MP/km<sup>2</sup>.</p>
+<p>CLC18-3.3 ‘Open Spaces with Little or no Vegetation’: &gt;=100 MP/km<sup>2</sup>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="egms-calibrated-product-specifications" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="egms-calibrated-product-specifications"><span class="header-section-number">4.2</span> EGMS Calibrated product specifications</h2>
+<table class="caption-top table">
+<caption>Table 2 EGMS Calibrated product specifications</caption>
+<colgroup>
+<col style="width: 6%">
+<col style="width: 93%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ITEM</th>
+<th style="text-align: left;">Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tiling</td>
+<td style="text-align: left;">Original burst segmentation of the reference image.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reference system</td>
+<td style="text-align: left;">ETRS89-LAEA.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">File name convention</td>
+<td style="text-align: left;"><p>Data from each burst are contained in single CSV format file the name of which is in the format EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_<em>c</em>.csv (e.g., EGMS_L2a_088_0282_IW2_VV_2018_2022_1.zip), where</p>
+<ul>
+<li><p><em>xxx</em> - Track number</p></li>
+<li><p><em>yyyy</em> - Progressive index for the burst inside the track</p></li>
+<li><p><em>z</em> - The swath the burst belongs to</p></li>
+<li><p><em>ww</em> - Polarization</p></li>
+<li><p><em>aaaa</em> - First nominal year of the years’ time range in which data are included</p></li>
+<li><p><em>bbbb</em> - Last nominal year of the years’ time range in which data are included</p></li>
+<li><p><em>c</em> Version of the delivered data</p></li>
+</ul>
+<p>Further details on the file naming convention can be found in section 11.2.</p>
+<p>Deliverables belonging to the Baseline or to the First update follow the same naming convention with the exception of the suffix _xxxx_yyyy_z, which is not applied.</p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Format</td>
+<td style="text-align: left;">Vector point.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Header information</td>
+<td style="text-align: left;">For each CSV data file there is a header file in XML format, the name of which is a copy of the name of the relative data file (e.g., EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_<em>c</em>.xml). The header file contains metadata useful to identify the origins of each product and to allow reproducibility. The structure of the header file can be found in section 11.1.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Epoch spanned</td>
+<td style="text-align: left;"><ul>
+<li><p>Baseline - From February 2015 to December 2020</p></li>
+<li><p>1<sup>st</sup> Update - From February 2015 to December 2021</p></li>
+<li><p>2<sup>nd</sup> Update - From January 2018 to December 2022</p></li>
+<li><p>3<sup>rd</sup> Update - From January 2019 to December 2023</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Spatial resolution</td>
+<td style="text-align: left;">PS full resolution (single pixel of Sentinel-1 constellation products in Interferometric Wide Swath. Namely, 5 x 20 m), DS better than 100 m.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Temporal resolution</td>
+<td style="text-align: left;">12 days till October 2016 and 6 days from October 2016 onward.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3D geolocation accuracy</td>
+<td style="text-align: left;">Better than 10 m.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mean velocity resolution</td>
+<td style="text-align: left;">Better than 1 mm/year.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mean velocity STD</td>
+<td style="text-align: left;">0.7 mm/year (1 σ) for MP with coherence greater than 0.7.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Displacement STD</td>
+<td style="text-align: left;">8 mm (1 σ).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MP density</td>
+<td style="text-align: left;"><p>CLC18-1.1.1 ‘Continuous Urban Fabric’: &gt;= 5,000 MP/km<sup>2</sup>.</p>
+<p>CLC18-1.1.2. ‘Discontinuous Urban Fabric’ and 1.2 ‘Industrial, Commercial, and Transport Units’: &gt;=1,000 MP/km<sup>2</sup>.</p>
+<p>CLC18-3.3- ‘Open Spaces with Little or no Vegetation’: &gt;=100 MP/km<sup>2</sup>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="egms-ortho-product-specifications" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="egms-ortho-product-specifications"><span class="header-section-number">4.3</span> EGMS Ortho product specifications</h2>
+<table class="caption-top table">
+<caption>Table 3 EGMS Ortho product specifications</caption>
+<colgroup>
+<col style="width: 5%">
+<col style="width: 94%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ITEM</th>
+<th style="text-align: left;">Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tiling</td>
+<td style="text-align: left;">100 x 100 km tiles according to EEA recommendations*, with south-west corner on a multiple of 100 km in ETRS89-LAEA coordinates (also known in the EPSG <em>Geodetic Parameter Dataset</em> under the identifier: EPSG:3035. The geodetic datum is the European Terrestrial Reference System 1989 (EPSG:6258). The Lambert Azimuthal Equal Area (LAEA) projection is centred at 10°E, 52°N. Coordinates based on a false easting of 4,321,000 m, and a false northing of 3,210,000 m).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reference system</td>
+<td style="text-align: left;">ETRS89-LAEA.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">File name convention</td>
+<td style="text-align: left;"><p>Two Geo TIFF files for each tile, one for vertical velocity component, and one for east-west. File names are in the format EGMS_L3_E<em>XX</em>N<em>YY</em>_100km_<em>C</em>_aaaa_bbbb_c.tif (e.g., EGMS_L3_E40N28_100km_U_2018_2022_1.tif and EGMS_L3_E40N28_100km_E_2018_2022_1.tif), where</p>
+<ul>
+<li><p><em>XX</em> - Easting coordinate of the South-West corner of the lower left pixel of the tile</p></li>
+<li><p><em>YY</em> - Northing coordinate of the South-West corner of the lower left pixel of the tile</p></li>
+<li><p><em>C</em> - Mean velocity component (U for vertical displacement and E for horizontal displacement in the East-West direction)</p></li>
+<li><p><em>aaaa</em> - First nominal year of the years’ time range in which data are included</p></li>
+<li><p><em>bbbb</em> - Last nominal year of the years’ time range in which data are included</p></li>
+<li><p><em>c</em> Version of the delivered data</p></li>
+</ul>
+<p>Associated with each tile are also two CSV files, containing the time-series and other parameters for the two mean velocity components. The file names follow the same convention as mean velocity Geo TIFF, except for the file extension (e.g., EGMS_L3_E40N28_100km_U_2018_2022_1.csv and EGMS_L3_E40N28_100km_E_2018_2022_1.csv). The coordinates contained in the vector csv format refer to the centre of the resolution cell.</p>
+<p>Further details on the file naming convention can be found in section 11.2.</p>
+<p>Deliverables belonging to the Baseline or to the First update follow the same naming convention with the exception of the suffix _xxxx_yyyy_z, which is not applied.</p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Format</td>
+<td style="text-align: left;">Raster + vector point.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Header information</td>
+<td style="text-align: left;">For each CSV data file there is a header file in XML format, the name of which is a copy of the name of the relative data file (e.g., EGMS_L3_E40N28_100km_U_2018_2022_1.xml). The header file contains metadata useful to identify the origins of each product and to allow reproducibility. The structure of the header file can be found in section 11.1.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Epoch spanned</td>
+<td style="text-align: left;"><ul>
+<li><p>Baseline - From February 2015 to December 2020</p></li>
+<li><p>1<sup>st</sup> Update - From February 2015 to December 2021</p></li>
+<li><p>2<sup>nd</sup> Update - From January 2018 to December 2022</p></li>
+<li><p>3<sup>rd</sup> Update - From January 2019 to December 2023</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Spatial resolution</td>
+<td style="text-align: left;">100m x 100m.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Temporal resolution</td>
+<td style="text-align: left;">All the time series start on the first days of January and end on the last days of December of the first and last nominal years of the time range in which data are included, with regular six-day temporal sampling with origin on 3-April-2014 (launch date of S1A)**. A regular sampling will be maintained whenever possible, even if, in correspondence of huge gaps in the originating L2b products time series, customized solutions may be adopted.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3D geolocation accuracy</td>
+<td style="text-align: left;">Better than 10 m.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mean velocity resolution</td>
+<td style="text-align: left;">Better than 1 mm/year.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mean velocity STD</td>
+<td style="text-align: left;">0.7 mm/year (1 σ).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Displacement STD</td>
+<td style="text-align: left;">8 mm (1 σ).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MP density</td>
+<td style="text-align: left;">Dependent on the point density in L2b, downgraded to a 100 x 100 m resolution.</td>
+</tr>
+</tbody>
+</table>
+<p>* EEA reference (https://www.eea.europa.eu/data-and-maps/data/eea-reference-grids-2)</p>
+<p>** There are many missing acquisitions in 2015, and the temporal sampling is 12 days. To achieve a better homogeneity within all the tiles, and avoid interpolating too much, January 2016 seems a reasonable proposal.</p>
+</section>
+<section id="gnss-model-specifications" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="gnss-model-specifications"><span class="header-section-number">4.4</span> GNSS model specifications</h2>
+<p>For more details please refer to document [RD8].</p>
+<p>The model is available for download via the CLMS page dedicated to EGMS (https://land.copernicus.eu/pan-european/european-ground-motion-service) .</p>
+<table class="caption-top table">
+<caption>Table 4 GNSS model product specifications<div style="page-break-after: always;"></div></caption>
+<colgroup>
+<col style="width: 8%">
+<col style="width: 91%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ITEM</th>
+<th style="text-align: left;">Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tiling</td>
+<td style="text-align: left;">One single CSV file.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reference system</td>
+<td style="text-align: left;"><p>Grid coordinates: ETRS89-LAEA</p>
+<p>Values: Local East-North-Up, aligned with WGS84 geodetic coordinates</p></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">File name convention</td>
+<td style="text-align: left;"><p>EGMS_AEPND_Vyyyy.i.csv</p>
+<p>yyyy = year of issue</p>
+<p>i = revision within year (0 = pre-release, 1 = first full release)</p>
+<p>e.g., EGMS_AEPND_V2020.0.csv for the ORR reduced grid.</p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Format</td>
+<td style="text-align: left;">Vector point of velocities (East, North, Up)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Header information</td>
+<td style="text-align: left;">TBD</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Epoch spanned</td>
+<td style="text-align: left;">Baseline: February 2015 – December 2020, plus three annual updates till 2023. The update policy will be released in Q1 2021. Note that some stations used in the production of the model do not cover the temporal baseline completely. The threshold for inclusion is set to 3 years, see [D19.1].</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Spatial resolution</td>
+<td style="text-align: left;">50 km in LAEA easting/northing</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Temporal resolution</td>
+<td style="text-align: left;">Linear rates only</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3D geolocation accuracy</td>
+<td style="text-align: left;">N/A</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mean velocity resolution</td>
+<td style="text-align: left;">N/A</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mean velocity STD</td>
+<td style="text-align: left;">Annotated for each velocity component in each grid point. Typical values are 0.1-0.2 mm/yr for East and North, and 0.5 mm/yr for Up.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Displacement STD</td>
+<td style="text-align: left;">N/A</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MP density</td>
+<td style="text-align: left;">N/A</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="egms-product-attributes" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> EGMS Product Attributes</h1>
+<p>This section details the data-fields (attributes) that are provided with each of the EGMS products. Note, for <em>Basic</em> and <em>Calibrated</em> products, the attributes are common to both ascending and descending geometries. This does not apply to <em>Ortho</em> products that are made from the decomposition of both geometries</p>
+<section id="basic-and-calibrated-product-attributes" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="basic-and-calibrated-product-attributes"><span class="header-section-number">5.1</span> Basic and Calibrated product attributes</h2>
+<table class="caption-top table">
+<caption>Table 5 EGMS Basic and Calibrated product attributes. DP, digits precision</caption>
+<colgroup>
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 78%">
+<col style="width: 3%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: center;">Unit of measure</th>
+<th style="text-align: left;">Meaning</th>
+<th style="text-align: center;">Example</th>
+<th style="text-align: center;">Data format</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">pid</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: left;">MP unique identifier – 10 characters.</td>
+<td style="text-align: center;">3ODTn5TNYv</td>
+<td style="text-align: center;">Alphanumeric Base 62</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cluster_label</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: left;"><u>Available just for <em>Basic</em> products.</u><br>
+Label which identifies, for each MP, the cluster it belongs to.<br>
+The label is 0 if there is just one cluster in the burst.<br>
+The label assumes the values from 1 to N if there are more than one clusters in the burst (with N the number of clusters).</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">integer</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">mp_type</td>
+<td style="text-align: center;">m<sup>2</sup></td>
+<td style="text-align: left;">‘Effective Area’ of the DS (#Looks x Area of 1 pixel over flat terrain). 0 = PS</td>
+<td style="text-align: center;">400</td>
+<td style="text-align: center;">integer</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">latitude</td>
+<td style="text-align: center;">deg</td>
+<td style="text-align: left;">MP latitude. 6 digits after the point.</td>
+<td style="text-align: center;">45.567812</td>
+<td style="text-align: center;">6 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">longitude</td>
+<td style="text-align: center;">deg</td>
+<td style="text-align: left;">MP longitude. 6 digits after the point.</td>
+<td style="text-align: center;">12.123412</td>
+<td style="text-align: center;">6 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">easting</td>
+<td style="text-align: center;">m</td>
+<td style="text-align: left;">ETRS89-LAEA.</td>
+<td style="text-align: center;">4662111.45</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">northing</td>
+<td style="text-align: center;">m</td>
+<td style="text-align: left;">ETRS89-LAEA.</td>
+<td style="text-align: center;">115345.12</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">height</td>
+<td style="text-align: center;">m</td>
+<td style="text-align: left;">MP orthometric height wrt EGM2008 geoid.</td>
+<td style="text-align: center;">67.4</td>
+<td style="text-align: center;">1 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">height_wgs84</td>
+<td style="text-align: center;">m</td>
+<td style="text-align: left;">MP ellipsoidal height wrt to WGS84 ellipsoid.</td>
+<td style="text-align: center;">72.3</td>
+<td style="text-align: center;">1 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">line</td>
+<td style="text-align: center;">pixel</td>
+<td style="text-align: left;">Azimuth position of the MPs within the burst wrt the reference product annotated in metadata.</td>
+<td style="text-align: center;">456</td>
+<td style="text-align: center;">integer</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">pixel</td>
+<td style="text-align: center;">pixel</td>
+<td style="text-align: left;">Range position of the MPs within the burst wrt the reference product annotated in metadata.</td>
+<td style="text-align: center;">124</td>
+<td style="text-align: center;">integer</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">rmse</td>
+<td style="text-align: center;">mm</td>
+<td style="text-align: left;">Evaluated on the time series residuals after applying a regression model of a third order polynomial plus a seasonal (sinusoidal) component.</td>
+<td style="text-align: center;">4.5</td>
+<td style="text-align: center;">1 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">temporal_coherence</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: left;">MP coherence with respect to the linear regressed velocity.</td>
+<td style="text-align: center;">0.54</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">amplitude_dispersion</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: left;">Amplitude Dispersion Index – Standard Deviation of amplitude / Mean amplitude</td>
+<td style="text-align: center;">0.25</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">incidence_angle</td>
+<td style="text-align: center;">deg</td>
+<td style="text-align: left;">Incidence angle for each MP.</td>
+<td style="text-align: center;">40.56</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">track_angle</td>
+<td style="text-align: center;">deg</td>
+<td style="text-align: left;">Track angle for each MP.</td>
+<td style="text-align: center;">8.23</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">los_east</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: left;">LOS direction cosine, east</td>
+<td style="text-align: center;">0.345</td>
+<td style="text-align: center;">3 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">los_north</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: left;">LOS direction cosine, north</td>
+<td style="text-align: center;">-0.012</td>
+<td style="text-align: center;">3 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">los_up</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: left;">LOS direction cosine, up</td>
+<td style="text-align: center;">0.546</td>
+<td style="text-align: center;">3 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mean_velocity</td>
+<td style="text-align: center;">mm/year</td>
+<td style="text-align: left;">Evaluated on the time series residuals after applying a regression model of a first order polynomial plus a seasonal (sinusoidal) component.</td>
+<td style="text-align: center;">4.5</td>
+<td style="text-align: center;">1 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">mean_velocity_std</td>
+<td style="text-align: center;">mm/year</td>
+<td style="text-align: left;">Estimated standard deviation of the mean velocity using variance propagation on the regression model, without considering the atmospheric phase screen.</td>
+<td style="text-align: center;">2.1</td>
+<td style="text-align: center;">1 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">acceleration</td>
+<td style="text-align: center;">mm/ year<sup>2</sup></td>
+<td style="text-align: left;">Evaluated on the time series residuals after applying a regression model of a second order polynomial plus a seasonal (sinusoidal) component. The value of the field is double of the second order coefficient of the polynomial (considering a model of the kind <span class="math inline">\(a_{0} + a_{1}x + a_{2}^{2}x^{2}\)</span>).</td>
+<td style="text-align: center;">0.51</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">acceleration_std</td>
+<td style="text-align: center;">mm/ year<sup>2</sup></td>
+<td style="text-align: left;">Estimated standard deviation of the acceleration using variance propagation on the regression model.</td>
+<td style="text-align: center;">0.42</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">seasonality</td>
+<td style="text-align: center;">mm</td>
+<td style="text-align: left;">Evaluated on the time series residuals after applying a regression model of a third order polynomial plus a seasonal (sinusoidal) component. The value of the field is the amplitude of the seasonal oscillation.</td>
+<td style="text-align: center;">2.3</td>
+<td style="text-align: center;">1 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">seasonality_std</td>
+<td style="text-align: center;">mm</td>
+<td style="text-align: left;">Estimated standard deviation of the seasonal amplitude.</td>
+<td style="text-align: center;">3.4</td>
+<td style="text-align: center;">1 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Time-series</td>
+<td style="text-align: center;">mm</td>
+<td style="text-align: left;">Displacement values at each image acquisition. The header of each date will be in the format yyyymmdd without any prefix or suffix.</td>
+<td style="text-align: center;">3.6</td>
+<td style="text-align: center;">1 DP</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ortho-product-attributes" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="ortho-product-attributes"><span class="header-section-number">5.2</span> Ortho product attributes</h2>
+<table class="caption-top table">
+<caption>Table 6 EGMS Ortho product attributes</caption>
+<colgroup>
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 79%">
+<col style="width: 3%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: center;">Unit of Measure</th>
+<th style="text-align: left;">Meaning</th>
+<th style="text-align: center;">Example</th>
+<th style="text-align: center;">Data format</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">pid</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: left;">MP unique identifier – 10 characters.</td>
+<td style="text-align: center;">3ODTn5TNYv</td>
+<td style="text-align: center;">Alphanumeric Base 62</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">easting</td>
+<td style="text-align: center;">m</td>
+<td style="text-align: left;">ETRS89-LAEA.</td>
+<td style="text-align: center;">4662050</td>
+<td style="text-align: center;">integer</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">northing</td>
+<td style="text-align: center;">m</td>
+<td style="text-align: left;">ETRS89-LAEA.</td>
+<td style="text-align: center;">115350</td>
+<td style="text-align: center;">integer</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">height</td>
+<td style="text-align: center;">m</td>
+<td style="text-align: left;">MP orthometric (geoid) height.</td>
+<td style="text-align: center;">67.4</td>
+<td style="text-align: center;">1 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">rmse</td>
+<td style="text-align: center;">mm</td>
+<td style="text-align: left;">Evaluated on the time series residuals after applying a regression model of a third order polynomial plus a seasonal (sinusoidal) component.</td>
+<td style="text-align: center;">4.5</td>
+<td style="text-align: center;">1 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mean_velocity</td>
+<td style="text-align: center;">mm/year</td>
+<td style="text-align: left;">Evaluated on the time series residuals after applying a regression model of a first order polynomial plus a seasonal (sinusoidal) component. The value of the field is the first order coefficient of the polynomial.</td>
+<td style="text-align: center;">4.5</td>
+<td style="text-align: center;">1 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">mean_velocity_std</td>
+<td style="text-align: center;">mm/year</td>
+<td style="text-align: left;">Estimated standard deviation of the mean velocity using variance propagation on the regression model, without considering the atmospheric phase screen.</td>
+<td style="text-align: center;">2.1</td>
+<td style="text-align: center;">1 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">acceleration</td>
+<td style="text-align: center;">mm/year<sup>2</sup></td>
+<td style="text-align: left;">Evaluated on the time series residuals after applying a regression model of a second order polynomial plus a seasonal (sinusoidal) component. The value of the field is double of the second order coefficient of the polynomial (considering a model of the kind <span class="math inline">\(a_{0} + a_{1}x + a_{2}^{2}x^{2}\)</span>).</td>
+<td style="text-align: center;">0.51</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">acceleration_std</td>
+<td style="text-align: center;">mm/year<sup>2</sup></td>
+<td style="text-align: left;">Estimated standard deviation of the acceleration using variance propagation on the regression model.</td>
+<td style="text-align: center;">0.42</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">seasonality</td>
+<td style="text-align: center;">mm</td>
+<td style="text-align: left;">Evaluated on the time series residuals after applying a regression model of a third order polynomial plus a seasonal (sinusoidal) component. The value of the field is the amplitude of the seasonal oscillation.</td>
+<td style="text-align: center;">2.3</td>
+<td style="text-align: center;">1 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">seasonality_std</td>
+<td style="text-align: center;">mm</td>
+<td style="text-align: left;">Estimated standard deviation of the seasonal amplitude.</td>
+<td style="text-align: center;">3.4</td>
+<td style="text-align: center;">1 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Time-series</td>
+<td style="text-align: center;">mm</td>
+<td style="text-align: left;">Displacement values at each image acquisition. The header of each date will be in the format yyyymmdd without any prefix or suffix.</td>
+<td style="text-align: center;">3.6</td>
+<td style="text-align: center;">1 DP</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="gnss-model-attributes" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="gnss-model-attributes"><span class="header-section-number">5.3</span> GNSS model attributes</h2>
+<p>For more details please refer to document [RD8].</p>
+<table class="caption-top table">
+<caption>Table 7 GNSS model product Attributes</caption>
+<colgroup>
+<col style="width: 13%">
+<col style="width: 14%">
+<col style="width: 46%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: center;">Unit of measure</th>
+<th style="text-align: left;">Meaning</th>
+<th style="text-align: center;">Example</th>
+<th style="text-align: center;">Data format</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Latitude</td>
+<td style="text-align: center;">deg</td>
+<td style="text-align: left;">Latitude in ETRF2000/GRS80</td>
+<td style="text-align: center;">6.382696567</td>
+<td style="text-align: center;">9 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Longitude</td>
+<td style="text-align: center;">deg</td>
+<td style="text-align: left;">Longitude in ETRF2000/GRS80</td>
+<td style="text-align: center;">47.80394392</td>
+<td style="text-align: center;">9 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N</td>
+<td style="text-align: center;">mm/year</td>
+<td style="text-align: left;">North-South component velocity</td>
+<td style="text-align: center;">-0.12</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">E</td>
+<td style="text-align: center;">mm/year</td>
+<td style="text-align: left;">East-West component velocity</td>
+<td style="text-align: center;">0.17</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Up</td>
+<td style="text-align: center;">mm/year</td>
+<td style="text-align: left;">Up/down component velocity</td>
+<td style="text-align: center;">0.34</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SigmaN</td>
+<td style="text-align: center;">mm/year</td>
+<td style="text-align: left;">North-South component velocity standard deviation.</td>
+<td style="text-align: center;">0.17</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SigmaE</td>
+<td style="text-align: center;">mm/year</td>
+<td style="text-align: left;">East-West component velocity standard deviation.</td>
+<td style="text-align: center;">0.34</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SigmaUP</td>
+<td style="text-align: center;">mm/year</td>
+<td style="text-align: left;">Up/down component velocity standard deviation.</td>
+<td style="text-align: center;">0.23</td>
+<td style="text-align: center;">2 DP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">easting</td>
+<td style="text-align: center;">m</td>
+<td style="text-align: left;">Easting position in ETRS89-LAEA, multiple of 50000 m.</td>
+<td style="text-align: center;">4050000</td>
+<td style="text-align: center;">Integer</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">northing</td>
+<td style="text-align: center;">m</td>
+<td style="text-align: left;">Northing position in ETRS89-LAEA, multiple of 50000 m.</td>
+<td style="text-align: center;">2750000</td>
+<td style="text-align: center;">Integer</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="egms-product-format" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> EGMS Product Format</h1>
+<p>This section details the standard format of EGMS products. Note, for <em>Basic</em> and <em>Calibrated</em> products, the formats are common to both ascending and descending geometries. This does not apply to <em>Ortho</em> products that are made from the decomposition of both geometries.</p>
+<section id="egms-basic-product-format" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="egms-basic-product-format"><span class="header-section-number">6.1</span> EGMS Basic product format</h2>
+<p><em>Basic</em> products will be delivered on a single burst logic, which is to say, there will be one single download unit for results deriving from each Sentinel-1 burst. For each burst (ascending or descending) there is a single .zip archive file, containing the previously specified CSV file (fields listed in Table 5 from top to bottom are stored as columns from left to right), and XML header file, (with the fields in Table 9). The name of the .zip archive follows the aforementioned convention, and it resembles the name of the contained CSV and XML files, apart from the .zip extension.</p>
+</section>
+<section id="egms-calibrated-product-format-level-2b" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="egms-calibrated-product-format-level-2b"><span class="header-section-number">6.2</span> EGMS Calibrated product format (Level 2b)</h2>
+<p><em>Calibrated</em> products will be delivered on a single burst logic, which is to say, there will be one single download unit for results deriving from each Sentinel-1 burst. For each burst (ascending or descending) there is a single .zip archive file, containing the previously specified CSV file (fields listed in Table 5 from top to bottom are stored as columns from left to right), and XML header file, (with the fields in Table 9). The name of the .zip archive follows the aforementioned convention, and it resembles the name of the contained CSV and XML files, apart from the .zip extension.</p>
+</section>
+<section id="egms-ortho-product-format-level-3" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="egms-ortho-product-format-level-3"><span class="header-section-number">6.3</span> EGMS Ortho product format (Level 3)</h2>
+<p><em>Ortho</em> products, differently from products L2a and L2b which are packed on a single burst logic, are split into 100 km x 100 km tiles, as reported in Figure 3.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_EGMS_product_description_2023-media/image5.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 3 Ortho products grid.</figcaption>
+</figure>
+</div>
+<p>For each tile there are two Geotiff files containing the vertical mean velocity and the east-west mean velocity. Associated with each Geotiff there is a .zip archive file, containing the previously specified CSV file (fields listed in Table 6 from top to bottom are stored as columns from left to right), and XML header file, (with the fields in Table 9). The name of the .zip archive follows the aforementioned convention, and it resembles the name of the contained CSV and XML files, apart from the .zip extension.</p>
+</section>
+<section id="gnss-model-product-format" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="gnss-model-product-format"><span class="header-section-number">6.4</span> GNSS model product format</h2>
+<p>The GNSS model is delivered as a single CSV file, with an accompanying XML header file with metadata from the production.</p><div style="page-break-after: always;"></div><p></p>
+</section>
+</section>
+<section id="downloading-egms-products" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Downloading EGMS Products</h1>
+<p>Detail on <em>how</em> to access EGMS products via the dedicated <em>Dissemination &amp; Archive System</em> is contained in RD3 document<em>.</em></p>
+</section>
+<section id="quality-and-accuracy" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Quality And Accuracy</h1>
+<p>The quality of EGMS products is of paramount importance in providing a reliable service, and numerous quality checks are made and then verified throughout the production process. Some of the quality checks are available in the products download unit (e.g., temporal_coherence, rmse, amplitude_dispersion, all the standard deviation fields). For more information on the details of EGMS quality control and assurance, please refer to [RD?].</p>
+</section>
+<section id="ancillary-datasets" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Ancillary Datasets</h1>
+<p>A number of non-InSAR datasets are used in the production and validation of EGMS products. Table 11 below lists these along with a brief comment as to their purpose.</p>
+<table class="caption-top table">
+<caption>Table 8 Ancillary datasets used in EGMS production<div style="page-break-after: always;"></div></caption>
+<thead>
+<tr class="header">
+<th>ITEM</th>
+<th style="text-align: left;">COMMENT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sentinel-1 precise orbit data</td>
+<td style="text-align: left;"><p>Precise orbit information is essential for high-quality InSAR analysis. Precise orbit data are distributed by ESA, with a current latency of about three weeks. See:</p>
+<p><a href="https://scihub.copernicus.eu/gnss/#/home" class="uri">https://scihub.copernicus.eu/gnss/#/home</a></p></td>
+</tr>
+<tr class="even">
+<td>Digital Elevation Model</td>
+<td style="text-align: left;"><p>A DEM is needed to compensate for phase changes caused by topographic relief. For EGMS production, the Copernicus DEM GLO-30 (30 m resolution) is used, see:</p>
+<p><a href="https://spacedata.copernicus.eu/web/cscda/dataset-details?articleId=394198" class="uri">https://spacedata.copernicus.eu/web/cscda/dataset-details?articleId=394198</a></p></td>
+</tr>
+<tr class="odd">
+<td>Land cover data</td>
+<td style="text-align: left;"><p>Landcover influences MP density, and so a common landcover database is used to verify appropriate MP density and ensure consistency. For EGMS, the CLC 2018 CORINE land cover maps are used, see:</p>
+<p><a href="https://land.copernicus.eu/pan-european/corine-land-cover/clc2018" class="uri">https://land.copernicus.eu/pan-european/corine-land-cover/clc2018</a></p></td>
+</tr>
+<tr class="even">
+<td>Snow cover data</td>
+<td style="text-align: left;">The Copernicus Snow Cover Extent product may be used to identify SAR data that is unreliable for InSAR analysis due to snow cover. See: <a href="https://land.copernicus.eu/global/products/sce" class="uri">https://land.copernicus.eu/global/products/sce</a></td>
+</tr>
+<tr class="odd">
+<td>External datum reference</td>
+<td style="text-align: left;"><p>To anchor and make ‘absolute’ <em>Calibrated</em> and <em>Ortho</em> product measurements, a harmonised GNSS framework is needed. The EUREF and EPN-D networks, along with various derived models are used for this action. See:</p>
+<p><a href="http://www.epncb.oma.be/" class="uri">http://www.epncb.oma.be/</a></p>
+<p><a href="https://epnd.sgo-penc.hu/" class="uri">https://epnd.sgo-penc.hu/</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="references" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> References</h1>
+<p>Cooksley, G et al (2004) S5: Service Portfolio Specifications. ESA-Terrafirma project dossier.</p>
+<p>Davis, B (2020) Precision and accuracy in glacial geology. AntarcticGlaciers.org. Retrieved 29 March 2021 from: http://www.antarcticglaciers.org/glacial-geology/dating-glacial-sediments-2/precision-and-accuracy-glacial-geology/</p><div style="page-break-after: always;"></div><p></p>
+</section>
+<section id="appendix-a" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Appendix A</h1>
+<p>Note in these sections, EGMS products names are abbreviated to their code-references as follows:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 55%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">EGMS product name</th>
+<th style="text-align: left;">Code reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><em>Basic</em></td>
+<td style="text-align: left;">L2a</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>Calibrated</em></td>
+<td style="text-align: left;">L2b</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><em>Ortho</em></td>
+<td style="text-align: left;">L3</td>
+</tr>
+</tbody>
+</table>
+<section id="xml-header-file" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="xml-header-file"><span class="header-section-number">11.1</span> XML Header File</h2>
+<table class="caption-top table">
+<caption>Table 9 XML header file</caption>
+<colgroup>
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 76%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Product</th>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Spec and notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">L2a + L2b + L3</td>
+<td style="text-align: left;">product_level</td>
+<td style="text-align: left;">L2a, L2b, L3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">L2a + L2b</td>
+<td style="text-align: left;">burst_id</td>
+<td style="text-align: left;">See section 11.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">L2a + L2b + L3</td>
+<td style="text-align: left;">production_facility</td>
+<td style="text-align: left;">1 = EGEOS, 2 = GAF, 3 = NORCE, 4 = TREA.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">L2a + L2b + L3</td>
+<td style="text-align: left;">production_date</td>
+<td style="text-align: left;">Format dd/mm/yyyy.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">L2a + L2b + L3</td>
+<td style="text-align: left;">dem</td>
+<td style="text-align: left;">The version of the Copernicus 30m DEM.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">L2a + L2b</td>
+<td style="text-align: left;">corine</td>
+<td style="text-align: left;">Present if used. Version.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">L2a + L2b</td>
+<td style="text-align: left;">sce</td>
+<td style="text-align: left;">Present if used. Version.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">L2b + L3</td>
+<td style="text-align: left;">GNSS version</td>
+<td style="text-align: left;">Version of the model.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">L2a</td>
+<td style="text-align: left;">clusters</td>
+<td style="text-align: left;">0 if there is just one cluster in the CSV file.<br>
+N if there are more than one clusters in the CSV file (where N is the number of identified clusters).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">L2a + L2b</td>
+<td style="text-align: left;">image</td>
+<td style="text-align: left;">Identifies the properties of each image used to generate the deliverable. It contains the tags <em>product_id</em>, and <em>orbit_type</em>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">L2a + L2b</td>
+<td style="text-align: left;">product_id</td>
+<td style="text-align: left;">The actual product name used, stripped of the checksum and of the file type “.SAFE”</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">L2a + L2b</td>
+<td style="text-align: left;">orbit_type</td>
+<td style="text-align: left;">Relative orbit type used for each image in the processing. It may assume values in the set (AUX_PROQUA, AUX_RESORB, AUX_GNSSRD, AUX_POEORB).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">L2a + L2b</td>
+<td style="text-align: left;">reference</td>
+<td style="text-align: left;">Reference image used to generate the deliverable. It contains tag images and the relative sub-tags.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">L2a + L2b</td>
+<td style="text-align: left;">dataset</td>
+<td style="text-align: left;">All images used to generate the deliverables (included the reference image). It contains a set of tags image and the relative sub-tags</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;?xml version="1.0"?&gt; </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">BURST</span><span class="dt">&gt;</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">product_level</span><span class="dt">&gt;</span>L2b<span class="dt">&lt;/</span><span class="kw">product_level</span><span class="dt">&gt;</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">burst_id</span><span class="dt">&gt;</span>0282<span class="dt">&lt;/</span><span class="kw">burst_id</span><span class="dt">&gt;</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">production_facility</span><span class="dt">&gt;</span>2<span class="dt">&lt;/</span><span class="kw">production_facility</span><span class="dt">&gt;</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">production_date</span><span class="dt">&gt;</span>02/07/2021<span class="dt">&lt;/</span><span class="kw">production_date</span><span class="dt">&gt;</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">dem</span><span class="dt">&gt;</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">version</span><span class="dt">&gt;</span>EU-DEM v1.1<span class="dt">&lt;/</span><span class="kw">version</span><span class="dt">&gt;</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">dem</span><span class="dt">&gt;</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">corine</span><span class="dt">&gt;</span> </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">version</span><span class="dt">&gt;</span>2018, Version 2020_20u1<span class="dt">&lt;/</span><span class="kw">version</span><span class="dt">&gt;</span> </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">corine</span><span class="dt">&gt;</span> </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">sce</span><span class="dt">&gt;</span> </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">version</span><span class="dt">&gt;&lt;/</span><span class="kw">version</span><span class="dt">&gt;</span> </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">sce</span><span class="dt">&gt;</span> </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">gnss</span><span class="dt">&gt;</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">version</span><span class="dt">&gt;</span>1.0<span class="dt">&lt;/</span><span class="kw">version</span><span class="dt">&gt;</span> </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">gnss</span><span class="dt">&gt;</span> </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">clusters</span><span class="dt">&gt;</span>2<span class="dt">&lt;/</span><span class="kw">clusters</span><span class="dt">&gt;</span> </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">reference</span><span class="dt">&gt;</span> </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">image</span><span class="dt">&gt;</span>               <span class="dt">&lt;</span><span class="kw">product_id</span><span class="dt">&gt;</span>S1B_IW_SLC__1SDV_20200624T051142_20200624T051210_022171_02A142<span class="dt">&lt;/</span><span class="kw">product_id</span><span class="dt">&gt;</span> </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">orbit_type</span><span class="dt">&gt;</span> AUX_POEORB<span class="dt">&lt;/</span><span class="kw">orbit_type</span><span class="dt">&gt;</span> </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">image</span><span class="dt">&gt;</span> </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">reference</span><span class="dt">&gt;</span> </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">dataset</span><span class="dt">&gt;</span> </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">image</span><span class="dt">&gt;</span> </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">product_id</span><span class="dt">&gt;</span>S1A_IW_SLC__1SDV_20201027T170648_20201027T170715_040789_04D780<span class="dt">&lt;/</span><span class="kw">product_id</span><span class="dt">&gt;</span> </span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">orbit_type</span><span class="dt">&gt;</span> AUX_POEORB<span class="dt">&lt;/</span><span class="kw">orbit_type</span><span class="dt">&gt;</span> </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">image</span><span class="dt">&gt;</span> </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">image</span><span class="dt">&gt;</span> </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">product_id</span><span class="dt">&gt;</span>S1B_IW_SLC__1SDV_20200624T051142_20200624T051210_022171_02A142<span class="dt">&lt;/</span><span class="kw">product_id</span><span class="dt">&gt;</span> </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">orbit_type</span><span class="dt">&gt;</span> AUX_POEORB<span class="dt">&lt;/</span><span class="kw">orbit_type</span><span class="dt">&gt;</span> </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">image</span><span class="dt">&gt;</span> </span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">image</span><span class="dt">&gt;</span> </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">product_id</span><span class="dt">&gt;</span>S1B_IW_SLC__1SDV_20210728T051142_20210728T051210_022171_02A142<span class="dt">&lt;/</span><span class="kw">product_id</span><span class="dt">&gt;</span> </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">orbit_type</span><span class="dt">&gt;</span> AUX_POEORB<span class="dt">&lt;/</span><span class="kw">orbit_type</span><span class="dt">&gt;</span> </span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">image</span><span class="dt">&gt;</span> </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">dataset</span><span class="dt">&gt;</span> </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">BURST</span><span class="dt">&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Table 10 Example of XML header file</em></p>
+</section>
+<section id="convention-for-burst-data-files-names" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="convention-for-burst-data-files-names"><span class="header-section-number">11.2</span> Convention for Burst Data Files Names</h2>
+<p>Each burst file name follows a precise convention, which is specified and implemented in the following python code.</p>
+<p><br>
+</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>​​### This code demonstrates how to calculate​​​ unique burst cycle ID for Sentinel-1 </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>import math </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## S1 IW timing parameters (NB! Must be 64-bit precision or higher!) </span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>TPRE  = 2.298687 </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>TBEAM = 2.758273 </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>TORB  = 12*86400/175 </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>def get_egms_burst_id(r, bc, swath, polarization): </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    return "{:03d}-{:04d}-{:s}-{:s}".format(r, bc, swath, polarization)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>def get_esa_burst_cycle_id(delta_tb): </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    return math.floor((delta_tb - TPRE)/TBEAM) + 1 </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>def get_egms_burst_cycle_id(r, anx_time): </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    # ESA burst cycle ID of first complete burst cycle in relative orbit "r".     </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    # NB! This calculation assumes that (r-1)*TORB is not an exact multiple </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    # of TBEAM, which is true for all 175 S1 relative orbits.     </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    id_esa_first = get_esa_burst_cycle_id((r-1)*TORB) + 1  </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="in">    # ESA burst cycle ID for "anx_time" seconds into relative orbit "r". </span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="in">    # Note that "anx_time" is sensing time of middle of a burst.has to be </span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="in">    id_esa = get_esa_burst_cycle_id((r-1)*TORB + anx_time) </span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="in">    # EGMS burst ID is decomposed into (relative orbit, burst cycle within orbit). </span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="in">    return (r, id_esa - id_esa_first + 1) </span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>if __name__ == "__main__": </span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    ## Example: burst covering Mulhouse in the EGMS ORR ascending data. </span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="in">    ## Product: S1B_IW_SLC__1SDV_20180902T172257_20180902T172324_012539_01721C_6F69.SAFE </span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="in">    ## Annotation XML file in &lt;Product&gt;/annotation/: </span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="in">    ## s1b-iw2-slc-vv-20180902t172258-20180902t172323-012539-01721c-005.xml </span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="in">    # Relative orbit can be found, e.g., in &lt;product&gt;/manifest.safe. </span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="in">    r = 88 </span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="in">    # The following timing for first line of burst can be found in XML as </span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="in">    # &lt;swathTiming/burstList/burst&gt; (item #7) </span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="in">    anx_time = 775.1918283259 </span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="in">    # We need to adjust this to middle of burst for this calculation. </span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="in">    # Burst size is found in XML as </span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="in">    #   &lt;swathTiming/linesPerBurst&gt; </span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="in">    az_size = 1508 </span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="in">    # Azimuth sampling interval is found in XML as </span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="in">    #   &lt;imageAnnotation/imageInformation/azimuthTimeInterval&gt; </span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="in">    dt_az = 0.0020555563 </span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="in">    # Adjust timing reference to middle of burst, where </span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="in">    # zero doppler time is almost equal to sensing time. </span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="in">    # Note: it is sufficient that this calculation is accurate to within </span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="in">    # about 0.1 sec, so any line near middle of burst is fine. </span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="in">    anx_mid = anx_time + az_size/2*dt_az </span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="in">    # ESA burst ID calculation </span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="in">    #   Should be equal to the following field, that will be present </span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="in">    #   in S1 IW SLC products from IPF v3.40. </span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="in">    #     &lt;swathTiming/burstList/burst/burstID&gt; </span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="in">    bc_id_esa = get_esa_burst_cycle_id((r-1)*TORB + anx_mid) </span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="in">    assert bc_id_esa == 187151 </span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="in">    # EGMS burst cycle ID </span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="in">    bc_id_egms = get_egms_burst_cycle_id(r, anx_mid) </span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="in">    assert bc_id_egms == (88, 282) </span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="in">    # EGMS unique burst ID </span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="in">    uid_egms = get_egms_burst_id(*bc_id_egms, "IW2", "VV") </span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_egms == "088-0282-IW2-VV" </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Table 11 Unique burst cycle ID for Sentinel-1</em></p>
+<p>EGMS is a one-delivery-per-year project, and, for each delivery, data is contained in a pre-defined temporal range.</p>
+<p>The rule to be applied from the second update inward is a 5 full years nominal time range (e.g., images from 01/01/2018 to 31/12/2022 for the second update, images from 01/01/2019 to 31/12/2023 for the third update, and so on).</p>
+<p>The suffix _xxxx_yyyy_z is not applied to deliverables belonging to the Baseline or to the First update.</p>
+<p>From the second update inward the suffix <strong>_xxxx_yyyy_z</strong> is appended immediately before the file extension of the names of all EGMS geographical deliverables (L2a, L2b, and L3 data), where</p>
+<ul>
+<li><p><strong>xxxx</strong> is the first nominal year of the 5 full years’ time range in which data are included.</p></li>
+<li><p><strong>yyyy</strong> is the last nominal year of the 5 full years’ time range in which data are included.</p></li>
+<li><p><strong>z</strong> is the version of the delivered data; in case several deliveries of some deliverables are necessary in the same update (e.g., issue fixing). It starts from 1 and is increased by one at each new delivery of the same deliverable belonging to the same update.</p></li>
+</ul>
+<p>The convention will apply to the naming of the zip archives containing the bursts/tiles and to all the contained files (XML, CSV, TIFF).</p>
+<p>Some clarifications</p>
+<ul>
+<li><p>xxxx and yyyy are the first and last nominal years of one EGMS update and will be used in the suffix of all the deliverables belonging to that update, no matter the effective period inside the 5 nominal years in which data are available. This means that even if data for a given burst are available just in a subset of the 5 years range (e.g., nominal years from 2018 to 2022, years in which data are available from 2019 to 2021), still the deliverables for that burst will be named after the nominal years (2018 and 2022).</p></li>
+<li><p>It may happen that one or more deliverables are not uploaded on the platform/archive at the moment in which one update of the service is released to the public. In case a deliverable is added after the release to the public of the service, it will be added with the version number (z) starting from 1.</p></li>
+<li><p>The suffix added to the file names won’t take part in the generation of the PID for the measurement points contained in the file itself.</p></li>
+<li><p>Data which will substitute corrupted/wrong one in the EGMS system will have a name following the convention, even if the substituted data won’t be maintained in the archive.</p></li>
+</ul>
+<p>Some examples</p>
+<p><strong>Second update (data between 1st January 2018 and 31st December 2022)</strong></p>
+<p>EGMS_L2a_088_0282_IW2_VV_2018_2022_1.zip</p>
+<p>EGMS_L2b_088_0282_IW2_VV_2018_2022_1.zip</p>
+<p>EGMS_L3_E40N28_100km_E_2018_2022_1.zip</p>
+<p><strong>Second update (a burst with acquisitions just between 8th July 2018 and 29th October 2021)</strong></p>
+<p>EGMS_L2a_076_0391_IW1_VV_2018_2022_1.zip</p>
+<p><strong>A correction to the burst belonging to the second update (in case an error is spot in the data)</strong></p>
+<p>EGMS_L2a_088_0282_IW2_VV_2018_2022_2.zip</p>
+</section>
+<section id="measurement-points-codes" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="measurement-points-codes"><span class="header-section-number">11.3</span> Measurement Points Codes</h2>
+<p>Each Basic and Calibrated products measurement point’s code follows a precise convention, which is specified and implemented in the following snipper of code. The MP’s codes are univocal over the entire Europe.</p>
+<p><br>
+</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># DP representation of Sentinel-1 IW swath mnemonics </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>SWATH = {"IW1": 1, "IW2": 2, "IW3": 3} </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>LUT_SWATH = {} </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>for key in SWATH: </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    LUT_SWATH<span class="co">[</span><span class="ot">SWATH[key]</span><span class="co">]</span> = key </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># DP representation of IPE names </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>IPE = {"UNDEF": 0, "EGEOS": 1, "GAF": 2, "NORCE": 3, "TREA": 4} </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>LUT_IPE = {} </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>for key in IPE: </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    LUT_IPE<span class="co">[</span><span class="ot">IPE[key]</span><span class="co">]</span> = key </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># DP representation of polarization (ordered alphabetically). </span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>POL = {"HH": 0, "HV": 1,  "VH": 2, "VV": 3} </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>LUT_POL = {} </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>for key in POL: </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    LUT_POL<span class="co">[</span><span class="ot">POL[key]</span><span class="co">]</span> = key </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu"># base62 alphabet </span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>BASE62="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="fu"># base62 to DP lookup table for decoding </span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>LUT_BASE62 = {} </span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>for (i, c) in enumerate(BASE62): </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    LUT_BASE62<span class="co">[</span><span class="ot">c</span><span class="co">]</span> = i </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>def encode(n, p, pad=None): </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    if n &lt; 0: </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        raise ValueError("Cannot encode negative numbers.") </span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    res = "" </span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    while True: </span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        n, r = divmod(n, p) </span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        res = BASE62<span class="co">[</span><span class="ot">r</span><span class="co">]</span> + res </span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>        if n == 0: </span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>            break </span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    if pad is None: </span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        return res </span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    return res.rjust(pad, BASE62<span class="co">[</span><span class="ot">0</span><span class="co">]</span>) </span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>def decode(code, p): </span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    n = 0 </span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    for (i, c) in enumerate(code<span class="co">[</span><span class="ot">::-1</span><span class="co">]</span>): </span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>        n += LUT_BASE62<span class="co">[</span><span class="ot">c</span><span class="co">]</span>* p**i </span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    return n </span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>def get_point_id(line, pixel, base, pad=None): </span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    # Pixel: 16 bits (0-65535), S1 IW max = about 24,500 </span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    n = pixel </span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    b = 16 </span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    # Line: 11 bits (0-2047), S1 IW max = about 1,470 </span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    n += line*(1 &lt;&lt; b) </span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>    b += 11 </span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    return encode(n, base, pad) </span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>def get_burst_id(track, burstno, swath, pol, base, pad=None): </span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="in">    # Polarization: 2 bits (0-3), HH/HV/VH/VV </span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="in">    n = POL[pol] </span></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="in">    b = 2 </span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="in">    # Swath: 2 bits (1-3), S1: IW1/IW2/IW3 </span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="in">    n += SWATH[swath]*(1 &lt;&lt; b) </span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="in">    b += 2 </span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="in">    # Burst number: 12 bits ( 1-2148 ), S1 IW: 2147.xx burst cycles / orbit </span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="in">    n += burstno*(1 &lt;&lt; b) </span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="in">    b += 12 </span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="in">    # Track: 8 bits (1-175), S1: 175 orbits per repeat cycle </span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="in">    n += track*(1 &lt;&lt; b) </span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="in">    b += 8 </span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="in">    return encode(n, base, pad) </span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>def get_uid_b62(ipe, track, burstno, swath, pol, line, pixel): </span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>    point_id = get_point_id(line, pixel, 62, pad=5) </span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>    burst_id = get_burst_id(track, burstno, swath, pol, 62, pad=4) </span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>    ipe_id = BASE62<span class="co">[</span><span class="ot">IPE[ipe]</span><span class="co">]</span> </span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>    uid = ipe_id+burst_id+point_id </span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>    return uid </span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>def analyze_uid_b62(uid): </span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>    res = {} </span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>    res<span class="co">[</span><span class="ot">"IPE"</span><span class="co">]</span> = LUT_IPE<span class="co">[</span><span class="ot">decode(uid[0], 62)</span><span class="co">]</span> </span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="in">    n, i = divmod(decode(uid[1:5],62), 2**2) </span></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a><span class="in">    res["POL"] = LUT_POL[i] </span></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="in">    n, i = divmod(n, 2**2)     </span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="in">    res["SWATH"] = LUT_SWATH[i]     </span></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="in">    n, i = divmod(n, 2**12) </span></span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="in">    res["BURSTNO"] = i </span></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a><span class="in">    res["TRACK"]   = n </span></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a><span class="in">    n, i = divmod(decode(uid[5:], 62), 2**16) </span></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="in">    res["LINE"] = n </span></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="in">    res["PIXEL"] = i </span></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a><span class="in">    return res </span></span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>if __name__ == "__main__": </span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a><span class="in">    ## Example: </span></span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a><span class="in">    ipe = "NORCE" </span></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a><span class="in">    # Components of the burst ID </span></span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="in">    track = 88 </span></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a><span class="in">    burstno = 282 </span></span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a><span class="in">    swath = "IW2" </span></span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a><span class="in">    pol = "VV" </span></span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a><span class="in">    # Position of pixel within burst, where (0,0) is the </span></span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a><span class="in">    # first _valid_ line/pixel for the given burst in the reference scene for coregistration. </span></span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>​​    # * Note 1: If subpixel position estimation is used, ​​​ </span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>​​​    # ​please round to the integer​ ​​​​​​     ​line/pixel ​containing​​     ​ the ​​​ </span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a>​​    # ​measurement point </span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a>​​    # * Note 2: for multilooked DS measurements, please pick one ​   ​​ </span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>​​​    # ​line/pixel near the​​​​​     ​ centre of the multilooked DS, using an​ ​​ </span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>​​    # ​ algorithm that will not change over time. </span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>    # E.g., simply line = round(mean(lines)), and pixel = round(mean(lines)). This assumes that </span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>    # There is no full resolution PS in that pixel already, which should be a good assumption (?) </span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>    line = 1234 </span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>    pixel = 12345 </span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a><span class="in">    ## Point ID - Maximum value for S1 IW: </span></span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a><span class="in">    # get_point_id(1470, 24400, 62) = '6WKEy' </span></span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a><span class="in">    # -&gt; fits in 5 base62 digits </span></span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a><span class="in">    ## Burst ID - Maximum value used for S1 IW: </span></span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a><span class="in">    # get_burst_id(175, 2148, "IW3", "VV", 62) = 'mGV1' </span></span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a><span class="in">    # -&gt; fits in 4 base62 digits </span></span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a><span class="in">    # Calculate the unique point ID to be used for EGMS L2a/L2b products </span></span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a><span class="in">    uid_egms = get_uid_b62(ipe, track, burstno, swath, pol, line, pixel) </span></span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a><span class="in">    # Calculate the individual parts </span></span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a><span class="in">    point_id = get_point_id(line, pixel, 62, pad=5) </span></span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a><span class="in">    burst_id = get_burst_id(track, burstno, swath, pol, 62, pad=4) </span></span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a><span class="in">    ipe_id = BASE62[IPE[ipe]] </span></span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a><span class="in">    # Consistency checks </span></span>
+<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_egms == ipe_id + burst_id + point_id </span></span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_egms == "3ODTn5TNYv" </span></span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a><span class="in">    uid_decoded = analyze_uid_b62(uid_egms) </span></span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a><span class="in">    print("input:") </span></span>
+<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a><span class="in">    print("------") </span></span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a><span class="in">    print("IPE     : "+ipe) </span></span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a><span class="in">    print("POL     : "+pol) </span></span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a><span class="in">    print("SWATH   : "+swath) </span></span>
+<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a><span class="in">    print("BURSTNO : "+str(burstno)) </span></span>
+<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a><span class="in">    print("TRACK   : "+str(track)) </span></span>
+<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a><span class="in">    print("LINE    : "+str(line)) </span></span>
+<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a><span class="in">    print("PIXEL   : "+str(pixel)) </span></span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a><span class="in">    print("") </span></span>
+<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a><span class="in">    print("output") </span></span>
+<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a><span class="in">    print("------") </span></span>
+<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a><span class="in">    print("ipe_id   : "+ipe_id) </span></span>
+<span id="cb3-160"><a href="#cb3-160" aria-hidden="true" tabindex="-1"></a><span class="in">    print("burst id : "+burst_id) </span></span>
+<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a><span class="in">    print("point id : "+point_id) </span></span>
+<span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a><span class="in">    print("uid      : "+uid_egms) </span></span>
+<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a><span class="in">    print("") </span></span>
+<span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a><span class="in">    print("decoded output") </span></span>
+<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a><span class="in">    print("------") </span></span>
+<span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a><span class="in">    print(uid_decoded) </span></span>
+<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a><span class="in">    ## Check whether we got back the input: </span></span>
+<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_decoded["IPE"] == ipe </span></span>
+<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_decoded["POL"] == pol </span></span>
+<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_decoded["SWATH"] == swath </span></span>
+<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_decoded["BURSTNO"] == burstno </span></span>
+<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_decoded["TRACK"] == track </span></span>
+<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_decoded["LINE"] == line </span></span>
+<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_decoded["PIXEL"] == pixel </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Table 12 Unique MP's code over the entire Europe for Basic and Calibrated products.</em></p>
+<p>Each Ortho product measurement point’s code follows a precise convention, outlined by the formula in Table 13.</p>
+<p><br>
+</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>CODE = base62(IPE) + base62(y/100 * 2^32 + x/100)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Table 13 Unique MP's code over the entire Europe for Ortho products.</em></p>
+</section>
+<section id="data-field-evaluation" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="data-field-evaluation"><span class="header-section-number">11.4</span> Data Field Evaluation</h2>
+<p>The evaluation of the fields in Table 5 and Table 6 follows a specific convention which is described and implemented by the following snippet of code.</p>
+<p><br>
+</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>% File to be used as a "pseudo-code" just to define how the different </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>% parameters of EGMS deliverables (L2a) should be computed </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>% NI is the Number of Images(data) </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>% "time" is a column vector with "NI" acquisition dates - starting from 0 - <span class="co">[</span><span class="ot">year</span><span class="co">]</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>%% FORWARD - Generate a Time Series - vector <span class="co">[</span><span class="ot">NI x 1</span><span class="co">]</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>NI=300;  %% Number of images </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>time=(0<span class="sc">:6:</span>(NI-1)*6)'/365; %% <span class="co">[</span><span class="ot">year</span><span class="co">]</span> </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>Velocity     = 5*randn % <span class="co">[</span><span class="ot">mm/yr</span><span class="co">]</span> </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>Acceleration = 2*randn % <span class="co">[</span><span class="ot">mm/yr^2</span><span class="co">]</span> </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>SeasonAmp    = 10*rand % <span class="co">[</span><span class="ot">mm</span><span class="co">]</span> </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>Offset       = rand    % <span class="co">[</span><span class="ot">year</span><span class="co">]</span> </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>noise        = 4*randn(NI,1);     % <span class="co">[</span><span class="ot">mm</span><span class="co">]</span> </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>TimeSeries = 0.5*Acceleration*time.^2 + Velocity*time +... </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    SeasonAmp*cos(2*pi*(time-Offset))+noise; </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% </span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>%%%% TASK 1 - Computation of the RMSE of each Time Series </span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>%%%%          and estimation of the Amplitude of the Seasonal Component </span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% </span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>%%% Model Matrix - Third order polynomial + seasonality  </span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>G = <span class="co">[</span><span class="ot">time.^3 time.^2 time ones(NI,1) cos(2*pi*time) sin(2*pi*time)</span><span class="co">]</span>; </span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>%% inversion </span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>invG=inv(G'*G);  %% pseudoinverse(Moore-Penrose) </span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>COEFF = invG*G'*TimeSeries; </span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>Model=G*COEFF; </span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>% Compute RMSE </span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>RMSE = sqrt( mean( (TimeSeries-Model).^2 ) ) %%% <span class="co">[</span><span class="ot">mm</span><span class="co">]</span> </span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>% Compute the amplitude of the seasonal component and its StDev </span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>EstimatedSeasonAMP= sqrt( COEFF(5).^2+COEFF(6).^2 ); </span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>EstimatedSTD_SeasonAMP= sqrt( (4-pi)/2*(invG(5,5)+invG(6,6))/2 )*RMSE;  </span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>% In fact, this is the StDev of a Rayleigh distribution, since the amp of </span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>% the seasonal component is sqrt( COEFF(5).^2+COEFF(6).^2 ); and we </span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>% suppose a gaussian statistics </span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>Estimated_AMP_And_Std = <span class="co">[</span><span class="ot">EstimatedSeasonAMP EstimatedSTD_SeasonAMP</span><span class="co">]</span> </span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>% PLOT THE TIME SERIES </span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>plot(time,<span class="co">[</span><span class="ot">TimeSeries Model</span><span class="co">]</span>); </span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>legend('Data','Model'); </span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>xlabel('Time <span class="co">[</span><span class="ot">year</span><span class="co">]</span>'); </span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>ylabel('Displacement <span class="co">[</span><span class="ot">mm</span><span class="co">]</span>'); </span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>grid on </span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% </span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>%%%% TASK 2 - Compute Mean Velocity and its StdDev </span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% </span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>%%% Model Matrix - First order polynomial + seasonality  </span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% </span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>G = <span class="co">[</span><span class="ot">time ones(NI,1) cos(2*pi*time) sin(2*pi*time)</span><span class="co">]</span>; </span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>%%%%% inversion %%%%%% </span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>invG=inv(G'*G); </span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>COEFF = invG*G'*TimeSeries; </span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>Model=G*COEFF; </span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>EstimatedVelocity = COEFF(1); %%% <span class="co">[</span><span class="ot">mm/yr</span><span class="co">]</span> </span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>EstimatedSTD_Noise = std(TimeSeries-Model); </span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>EstimatedSTD_Vel = sqrt(invG(1,1))*EstimatedSTD_Noise; %%% in <span class="co">[</span><span class="ot">mm/yr</span><span class="co">]</span> </span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>Estimated_Vel_And_Std = <span class="co">[</span><span class="ot">EstimatedVelocity EstimatedSTD_Vel</span><span class="co">]</span> </span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% </span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>%%%% TASK 3 - Compute Acceleration and its StdDev </span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% </span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>%%% Model Matrix - Second order polynomial + seasonality  </span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% </span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>G = <span class="co">[</span><span class="ot">0.5*time.^2 time ones(NI,1) cos(2*pi*time) sin(2*pi*time)</span><span class="co">]</span>;</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>%%%%% inversion %%%%%% </span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>invG=inv(G'*G); </span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>COEFF = invG*G'*TimeSeries; </span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>Model=G*COEFF; </span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>EstimatedAcceleration = COEFF(1); %%% <span class="co">[</span><span class="ot">mm/yr</span><span class="co">]</span> </span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>EstimatedSTD_Noise = std(TimeSeries-Model); </span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>EstimatedSTD_Acc = sqrt(invG(1,1))*EstimatedSTD_Noise; %%% in <span class="co">[</span><span class="ot">mm/yr</span><span class="co">]</span> </span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>Estimated_Acc_And_Std = <span class="co">[</span><span class="ot">EstimatedAcceleration EstimatedSTD_Acc</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Table 14 Data delivery field evaluation</em></p><div style="page-break-after: always;"></div><p></p>
+</section>
+</section>
+<section id="document-control-information" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Document Control Information</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 46%">
+<col style="width: 29%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Settings</strong></td>
+<td><strong>Value</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Document Title:</strong></td>
+<td>Product Description and Format Specification</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Project Title:</strong></td>
+<td>EGMS-SC1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Project Owner:</strong></td>
+<td>Henrik Steen Andersen (EEA)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Document Code:</strong></td>
+<td>EGMS-D6-PDD-SC1-2.0-009</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Document Version:</strong></td>
+<td>2.0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Distribution:</strong></td>
+<td>Public</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Date:</strong></td>
+<td>25/10/2023</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Document Approver(s) and Reviewer(s):</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 28%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Name</strong></td>
+<td style="text-align: left;"><strong>Role</strong></td>
+<td style="text-align: left;"><strong>Action</strong></td>
+<td style="text-align: left;"><strong>Date</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lorenzo Solari</td>
+<td style="text-align: left;">Project Officer (EEA)</td>
+<td style="text-align: left;">Approve</td>
+<td style="text-align: left;">25/10/2023</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Document history:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 16%">
+<col style="width: 61%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Revision</strong></td>
+<td style="text-align: left;"><strong>Date</strong></td>
+<td style="text-align: left;"><strong>Short Description of Changes</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">draft 1.0</td>
+<td style="text-align: left;">18/06/2021</td>
+<td style="text-align: left;">Initial version</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">draft 1.1</td>
+<td style="text-align: left;">15/10/2021</td>
+<td style="text-align: left;">Updated according to review by EEA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">draft 1.2</td>
+<td style="text-align: left;">20/12/2021</td>
+<td style="text-align: left;">Updated according to review by EEA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">24/02/2022</td>
+<td style="text-align: left;">Changes to EGMS Basic data format</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.0</td>
+<td style="text-align: left;">25/10/2023</td>
+<td style="text-align: left;">Changes to EGMS Basic data naming convention</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/library\.land\.copernicus\.eu");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2025 EEA. All rights reserved.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
