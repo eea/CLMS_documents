@@ -2,14 +2,13 @@
 title: "Developing CLMS Standards for Generative AI Training and Web Crawlers Using Quarto Markdown and Sitemaps"
 subtitle: "Task 10.1: Information Provisioning for Generative Chatbots"
 author: "Ayan Chatterjee, Department of DIGITAL, NILU"
-date: "2024-10-30"
-bibliography: ./citations/references.bib   # Link to the bibliography file
-csl: ./citations/ieee.csl                  # Link to the CSL file for IEEE style
+date: "2024-09-10"
+bibliography: references.bib   # Link to the bibliography file
+csl: ieee.csl                  # Link to the CSL file for IEEE style
 sitemap: true           #Enables sitemap generation for web crawlers
 toc: true              # Enable the Table of Contents
 toc-title: "Index"      # Customize the title of the table of contents
 toc-depth: 3            # Include headings up to level 3 (###)
-number-sections: true
 keywords: ["CLMS standards", "web crawlers", "AI training", "information formatting"]
 format: 
   html: default
@@ -29,8 +28,8 @@ In addition, by providing clear guidelines for content formatting, cross-referen
 ::: {style="font-family: 'Times New Roman', serif; text-align: justify;"}
 \newpage
 
-# Introduction
-## Importance of Copernicus Land Monitoring Service (CLMS)
+# 1. Introduction
+## 1.1. Importance of Copernicus Land Monitoring Service (CLMS)
 The Copernicus Land Monitoring Service (CLMS) is a critical component of the Copernicus Programme, which is the European Union's Earth observation initiative [@CLMS]. The service is responsible for providing timely and accurate land cover and land use data, along with a wide range of environmental variables related to land ecosystems. This data is essential for understanding and managing Europe's environmental resources, supporting sustainable development, climate monitoring, and informed policy-making. The key areas where CLMS is vital include:
 
 - **Environmental Monitoring**: CLMS provides data on land cover, vegetation, soil, and water bodies, which are crucial for monitoring environmental changes such as deforestation, urban sprawl, and the health of ecosystems. This data supports conservation efforts and helps in tracking biodiversity and land degradation.
@@ -43,7 +42,7 @@ The Copernicus Land Monitoring Service (CLMS) is a critical component of the Cop
 
 - **Policy Support and Decision-Making**: The service supports EU environmental policies, including the Green Deal, Common Agricultural Policy (CAP), and the EU Biodiversity Strategy. The data provided by CLMS informs decision-makers at the European, national, and local levels, ensuring that policies are grounded in the latest environmental data.
 
-## Importance of CLMS Documentation for Web Crawlers: Enhancing Product Discoverability and Findability
+## 1.2. Importance of CLMS Documentation for Web Crawlers: Enhancing Product Discoverability and Findability
 The discoverability and findability of CLMS products on the web are crucial for ensuring that this valuable environmental data is accessible to a wide range of users, including researchers, policymakers, and environmental organizations. Making CLMS documentation available on the web for crawlers facilitates product discoverability by enabling search engines and AI-powered systems (like generative chatbots) to index, retrieve, and present relevant data to users. Here’s why ensuring that CLMS documents are available to web crawlers is essential:
 
 - **Increased Accessibility for Diverse Users**: CLMS products cater to a broad audience, including government agencies, NGOs, scientists, and the public. Properly formatted and exposed documentation allows these users to easily find and access data via search engines. Web crawlers can efficiently index CLMS products, simplifying the search for specific datasets without navigating complex databases.
@@ -62,7 +61,7 @@ The discoverability and findability of CLMS products on the web are crucial for 
 
 By making CLMS documents available to web crawlers using standardized formats such as HTML, PDF, and DOCX (which adhere to semantic structure, web standards, and use metadata), CLMS can ensure that its products are easily indexed, retrieved, and integrated into a variety of search engines, artificial intelligence systems, and chatbots. This strategy not only increases the visibility of CLMS products, but also improves accessibility to a global audience, ensuring that researchers, policymakers, and the public can effectively find and use CLMS data. At a time when timely, accurate environmental data is becoming increasingly important, optimizing CLMS products for web crawlers is a necessary step to ensure that everyone has access to these valuable resources. 
 
-## Web crawling and Information Provisioning for Generative Chatbots
+## 1.3. Web crawling and Information Provisioning for Generative Chatbots
 Web crawling is the process used by search engines to explore and index the web pages of websites. The crawler downloads pages, reads the content, and adds it to the search engine's index. Crawlers are designed to navigate from one page to another by following hyperlinks, allowing them to efficiently cover a website's entire structure. Search engines rely on crawlers to keep their results up-to-date by regularly visiting websites and checking for new or modified content. **Googlebot**, **Bingbot**, and **Yahoo Slurp** are some example of popular web crawlers. Key terms involved in web crawling are:
 
 - **Search engine**: A system that allows users to search for content on the web.
@@ -78,7 +77,7 @@ In recent years, generative chatbots have made great progress and become powerfu
 
 Web crawlers and AI models are critical to the discoverability of online information. Web crawlers that index websites rely on well-structured content to perform their tasks effectively. Similarly, generative AI models, including chatbots, require high-quality structured data to produce accurate and meaningful results. CLMS provides important environmental data, but in order for this data to be useful to AI models and easy for users to find, it must be properly formatted and made available.
 
-### Motivation
+### 1.3.1. Motivation
 The relationship between AI and web crawlers has led to new frontiers in both industries. The primary motivation for creating CLMS standards lies in the need for:
 
 - **Improved Crawling Efficiency**: Properly formatted content with metadata helps crawlers index relevant information faster and more accurately.
@@ -96,7 +95,7 @@ The following key aspects are critical for ensuring that data is structured and 
 
 - **Embedded structured data formats**: Incorporating structured data formats such as **JSON-LD**, **RDF**, or **XML** provides a precise way of representing information. These formats help web crawlers and AI systems understand relationships and attributes within the content, facilitating accurate extraction, interpretation, and use of the data across various platforms.
 
-### Importance
+### 1.3.2. Importance
 - **Enhanced Web Crawling**: Properly structured CLMS content will improve web crawlers' ability to index and retrieve information.
 
 - **Improved AI Training**: Structured data ensures higher-quality datasets, which result in better-trained AI models, particularly for generative chatbots.
@@ -111,10 +110,10 @@ Given the growing complexity of CLMS products and the increasing reliance on gen
 By standardizing the format and delivery of CLMS information, our goal is to ensure that generative AI applications, such as web crawlers and chatbots, can effectively access and use this data.
 :::
 
-# Content Standards
+# 2. Content Standards
 Developing content standards requires collaboration between content creators, data engineers, and AI researchers. The process typically follows these stages for different document types in use:
 
-## Content Structuring
+## 2.1. Content Structuring
 Content structuring involves organizing data into recognizable, standard components, such as:
 
 - **Title**: Main identifier of the content.
@@ -145,10 +144,10 @@ format:
 ---
 ```
 
-## HTML Structuring
+## 2.2. HTML Structuring
 The following structured approach in HTML allows web crawlers to effectively index and retrieve content while facilitating AI training for generative models, ensuring that information is both accessible and usable:
 
-### Semantic Structuring and Formatting
+### 2.2.1. Semantic Structuring and Formatting
 
 It is used to enhance both **machine readability** and **user comprehension**, we must follow structured and semantic formatting principles. This includes using HTML5 elements, schema markup, and providing clear metadata. Using HTML5 semantic elements like `<article>`, `<section>`, `<header>`, and `<footer>` helps structure the document meaningfully. For example:
 
@@ -168,7 +167,7 @@ It is used to enhance both **machine readability** and **user comprehension**, w
 </article>
 ```
 
-### Microdata for Enhancing Machine Readability
+### 2.2.2. Microdata for Enhancing Machine Readability
 
 Microdata attributes such as itemscope, itemtype, and itemprop provide semantic clarity for machines, enabling more efficient crawling and interpretation.
 
@@ -180,7 +179,7 @@ Microdata attributes such as itemscope, itemtype, and itemprop provide semantic 
   </header>
 </article>
 ```
-### Schema Markup for Structured Content
+### 2.2.3. Schema Markup for Structured Content
 Use Schema Markup (like ResearchArticle, Dataset, or CreativeWork) to define the content type and enhance machine readability. This helps both web crawlers and AI to categorize content accurately.
 
 ```html
@@ -191,7 +190,7 @@ Use Schema Markup (like ResearchArticle, Dataset, or CreativeWork) to define the
   </header>
 </article>
 ```
-### Headings and Subheadings
+### 2.2.4. Headings and Subheadings
 Provide clearly defined headings and subheadings to organize content for easier navigation and indexing by crawlers.
 
 ```yaml
@@ -203,7 +202,7 @@ Provide clearly defined headings and subheadings to organize content for easier 
 ---
 ```
 
-### Alt Text and Descriptions
+### 2.2.5. Alt Text and Descriptions
 For images and diagrams, always provide alt text and descriptions to improve accessibility.
 
 ```yaml
@@ -211,14 +210,14 @@ For images and diagrams, always provide alt text and descriptions to improve acc
 (images/web_crawlers.png){alt="A diagram of web crawler processes" width=50%}
 ```
 
-### Meta Tags and Descriptions
+### 2.2.6. Meta Tags and Descriptions
 Add meta tags and descriptions to help web crawlers index the content more accurately
 
 ```yaml
 <meta name="description" content="How web crawlers work effectively!" />
 ```
 
-### Phrasing and Content Presentation
+### 2.2.7. Phrasing and Content Presentation
 Ensure that important keywords are present in titles, headings, and throughout the content without overusing them (avoid keyword stuffing).
 
 ```yaml
@@ -246,7 +245,7 @@ Provide a brief abstract or summary at the beginning of each article or section 
 and their integration with AI.
 ```
 
-### Structured Data Repositories
+### 2.2.8. Structured Data Repositories
 It is used to enable knowledge transfer to generative AI, use standardized formats like JSON-LD, RDF, or XML to define metadata and structure.
 
 ```yaml
@@ -265,10 +264,10 @@ It is used to enable knowledge transfer to generative AI, use standardized forma
 </dataset>
 ```
 
-## PDF Structuring
+## 2.3. PDF Structuring
 The following structured approach in PDF will improve documents for indexing by web crawlers, integration with AI systems, and overall improved accessibility for users:
 
-### Accessible PDF Formats by Tagging
+### 2.3.1. Accessible PDF Formats by Tagging
 Ensure that the PDF is tagged properly so that screen readers and AI tools can interpret the document structure. For instance, headings, paragraphs, and lists should be tagged semantically.
 
 ```yaml
@@ -276,7 +275,7 @@ Ensure that the PDF is tagged properly so that screen readers and AI tools can i
 - List item 1 (tagged as <ul><li>)
 ```
 
-### Structuring and Formatting
+### 2.3.2. Structuring and Formatting
 The document structure should be accessible, with a clear hierarchy and a clickable table of contents (TOC). Accessible tagging, hierarchical organization, and text over image improve the usability for both humans and machines.
 
 Organize content into a well-defined hierarchy using headings (#, ##, ###). This improves both user navigation and machine parsing for AI and web crawlers.
@@ -289,7 +288,7 @@ toc: true
 toc-depth: 2
 ```
 
-### Adding Metadata
+### 2.3.3. Adding Metadata
 Embedding metadata such as document properties (e.g., Title, Author, Subject, and Keywords), XMP metadata, Schema.org metadata, and descriptive metadata helps search engines and AI systems index, categorize, and retrieve information efficiently. 
 
 ```yaml
@@ -314,7 +313,7 @@ XMP metadata is stored as XML in the PDF file, allowing for rich data descriptio
 }
 ```
 
-### Optimizing Content Presentation
+### 2.3.4. Optimizing Content Presentation
 Ensuring the proper placement of keywords, providing alt text for images, and correctly labeling figures and tables contribute to the searchability and accessibility of the content. This is crucial for effective interaction with web crawlers and AI models.
 
 ```yaml
@@ -323,7 +322,7 @@ Keywords: PDF accessibility, web crawlers, generative AI
 ![Figure 1: A table of contents structure](path/to/image.png){#fig-toc}
 ```
 
-### Setting Up for Knowledge Transfer to Generative AI
+### 2.3.5. Setting Up for Knowledge Transfer to Generative AI
 Using machine-readable fonts (e.g., Arial, Times New Roman), a clean and simple layout, and adding comments or annotations helps prepare the document for use in generative AI systems. AI models benefit from well-structured and easy-to-parse content, which improves their ability to understand and generate meaningful responses based on the content.
 
 ```yaml
@@ -337,13 +336,13 @@ This section introduces the importance of accessible PDFs for AI processing...
 By such structured practices, we can ensure that the content is both human-readable and machine-readable, facilitating easy discovery by web crawlers and seamless integration with AI training systems.
 :::
 
-# Developing CLMS Standards
+# 3. Developing CLMS Standards
 
 In the context of **Developing CLMS Standards**, it is essential to utilize advanced tools that support both the creation of well-structured documents and the easy discoverability of content for web crawlers and AI systems. Several tools are available for content formatting, documentation, and publication. Among these, **Quarto** stands out due to its versatility, allowing users to create, format, and publish documents in multiple formats (HTML, PDF, Word) with integrated support for code execution and structured content.
 
-This section compares several of these tools, explaining why **Quarto** is particularly suitable for creating CLMS-compliant documentation. We'll also cover how to configure Quarto with **RStudio** and the importance of using **Quarto Markdown** for CLMS content. A Quarto Markdown file provides a structured approach to documenting the development of CLMS standards, ensuring content is easily accessible by both web crawlers and AI systems.
+This section compares several of these tools, explaining why **Quarto** is particularly suitable for creating CLMS-compliant documentation. We'll also cover how to configure Quarto with **Jupyter Notebooks** and the importance of using **Quarto Markdown** for CLMS content. A Quarto Markdown file provides a structured approach to documenting the development of CLMS standards, ensuring content is easily accessible by both web crawlers and AI systems.
 
-## Tools for CLMS Documentation
+## 3.1. Tools for CLMS Documentation
 
 - **Quarto**: Quarto is a highly versatile tool for creating and publishing documents, including PDFs, with rich formatting, code integration, and support for multiple formats (HTML, PDF, Word). Quarto's cross-platform capabilities make it ideal for creating structured and searchable documents for CLMS, supporting web crawlers and AI applications.
   
@@ -380,7 +379,7 @@ The comparison of tools for CLMS documentation as shown in below [Table @tbl-ind
 
 :Comparative analysis of Quarto versus other formatting tools. {#tbl-indexing}
 
-## Quarto Markdown
+## 3.2. Quarto Markdown
 Markdown is a lightweight, easy-to-read syntax used for formatting plain text documents [@cookintroduction; @mati2023eviewsr; @paciorek2023example]. In Quarto, Markdown is extended to support additional features beyond standard Markdown, allowing users to write text, integrate code, and generate richly formatted documents in various formats such as HTML, PDF, and Word [@cookintroduction; @mati2023eviewsr; @paciorek2023example]. Quarto Markdown combines the simplicity of regular Markdown with powerful features for document rendering, making it ideal for data analysis, technical writing, academic papers, and reports [@cookintroduction; @mati2023eviewsr; @paciorek2023example].
 
 Quarto Markdown uses the standard Markdown syntax for headings, lists, emphasis, and links, while also supporting enhanced features like cross-referencing, citations, figures, tables, mathematical equations, and more [@cookintroduction; @mati2023eviewsr; @paciorek2023example]. Quarto also allows for code execution in multiple programming languages (such as Python, R, and Julia) embedded within the Markdown file, enabling dynamic document creation where the outputs are generated directly from the code [@cookintroduction; @mati2023eviewsr; @paciorek2023example; @miroshnychenko2023quarto].
@@ -395,40 +394,29 @@ Key features of **Markdown** in **Quarto** are:
 - **Citations**: Allows for referencing research papers and articles using BibTeX or CSL styles.
 - **Multi-output Format**: Enables seamless conversion to multiple formats like HTML, PDF, Word, presentations, and slides.
 
-### Significance
+### 3.2.1. Significance
 Markdown in Quarto can be significant due to its **simplicity and flexibility** for CLMS documentation. With an **easy-to-use syntax**, it allows users to format text without requiring complex tools, making it accessible to both non-technical users and programmers. This flexibility enables the creation of a wide variety of documents, ranging from blog posts to scientific reports. Quarto extends standard Markdown by supporting **rich formatting options** essential for technical and academic writing, including built-in support for tables, figures, equations, footnotes, and cross-referencing. The **integration of code and text** is another powerful feature, allowing Quarto Markdown to embed code execution within documents. This is critical for reproducible research, enabling the inclusion of tables, charts, and figures generated directly from code, making it highly suitable for data science and technical reporting. Additionally, Quarto Markdown supports **multi-format output**, allowing users to create content once and export it to multiple formats like HTML, PDF, and Word, streamlining document preparation for different audiences. When used for online content, its structured format **improves SEO (Search Engine Optimization)**, making it easier for search engines to index and enhance discoverability. The ease of **managing references, citations, and cross-references** further strengthens its utility in academic and research documentation. Since Markdown files are plain text, Quarto seamlessly integrates with **version control** tools like Git, enabling easy **collaboration** among multiple contributors, especially in open-source and research communities. Finally, Quarto Markdown's versatility in document creation extends across blogs, technical documentation, reports, scientific papers, and books, making it an ideal tool for content creators across various disciplines.
 
-### Configuring Quarto with RStudio
+### 3.2.2. Configuring Quarto with Jupyter Notebooks
 
-To integrate **Quarto** with **RStudio**:
+To integrate **Quarto** with **Jupyter Notebooks**:
 
-**Prerequisites**:
+- **Install Quarto**:
+   Download and install Quarto from [Quarto.org](https://quarto.org/docs/get-started/).
+   
+- **Install Jupyter**:
+   Ensure you have Jupyter installed. If not, install it using `pip`:
+   ```bash
+   pip install notebook
 
-1. **Install RStudio**: Download and install RStudio from [RStudio Download](https://posit.co/download/rstudio-desktop/).
-2. **Install Quarto**: Follow [Quarto installation](https://quarto.org/docs/get-started/) to install the Quarto CLI.
-
-**Basic Setup in RStudio**:
-
-1. **Create a New Quarto Document**:
-   - In RStudio, go to **File > New File > Quarto Document**.
-   - Choose the type of document (e.g., HTML) and enter your title and metadata in the YAML header.
-
-2. **Save the File**:
-   - Save the file with a `.qmd` extension to ensure it is treated as a Quarto Markdown file.
-
-3. **YAML Header Configuration**:
-   - Configure the YAML header with essential metadata to optimize the document for web crawling.
-
-
-**Rendering**:
-
-     You can directly write your content in RStudio and then render the *.qmd using Quarto to multiple formats:
+- **Rendering**:
+     You can directly write your content in Jupyter Notebooks and then render the notebook using Quarto to multiple formats:
     ```bash   
-    quarto render your-notebook.qmd --to html
-    quarto render your-notebook.qmd --to pdf
-    quarto render your-notebook.qmd --to docx   
+    quarto render your-notebook.ipynb --to html
+    quarto render your-notebook.ipynb --to pdf
+    quarto render your-notebook.ipynb --to docx   
     
-**YAML Header in R Studio**:
+-  **YAML Header in Jupyter**:
     
     ```yaml
     ---
@@ -441,7 +429,7 @@ To integrate **Quarto** with **RStudio**:
     ---
     ```
 
-## Indexing
+## 3.3. Indexing
 Proper indexing is essential for increasing the discoverability and accessibility of CLMS products [@hassan2014improving; @coe2016website]. By formatting documents using Quarto Markdown and generating a sitemap.xml, we can ensure that search engines and AI systems efficiently crawl and retrieve CLMS content [@hassan2014improving; @coe2016website]. Top improve document indexing for enhanced discoverability and accessibility we can adopt the following approaches:
 
 - Organize content using **structured headers** and **metadata** in Quarto Markdown.
@@ -458,7 +446,7 @@ description: "A detailed report on how CLMS data."
 ---
 ```
 
-### Sitemap Generation
+### 3.3.1. Sitemap Generation
 A sitemap.xml helps web crawlers discover all the content on the website [@hassan2014improving; @coe2016website]. By providing a clear roadmap, crawlers can index each document, ensuring that all CLMS resources are available for search and AI training. By using **Quarto Markdown** and generating a **sitemap.xml**, CLMS documents can be structured in a way that improves their **indexing**, making them more **discoverable** by search engines and AI systems. This approach ensures efficient crawling, improves search engine ranking, and enhances the accessibility of CLMS products for users and AI models alike.
 
 - **Search Engine Discoverability**: Users and AI systems can easily find the indexed CLMS documents.
@@ -480,14 +468,14 @@ A sitemap.xml helps web crawlers discover all the content on the website [@hassa
 </urlset>
 ```
 
-### Steps to Implement and Submit the Sitemap
+### 3.3.2. Steps to Implement and Submit the Sitemap
 - **Generate the Sitemap**: Use a sitemap generator tool (e.g., XML-Sitemaps or Screaming Frog) to create a sitemap, or have it generated automatically by a CMS like WordPress or a static site generator like Hugo.
 
 - **Upload the Sitemap**: Once generated, place the sitemap.xml file in the root directory of your website, e.g., https://www.example.com/sitemap.xml.
 
 - **Submit to Search Engines**: Submit your sitemap to search engines via tools like Google Search Console and Bing Webmaster Tools. This helps search engines index your site properly.
 
-### Enhancing Indexing for Web Crawlers and AI Models
+### 3.3.3. Enhancing Indexing for Web Crawlers and AI Models
 To ensure that CLMS documents are findable and accessible to web crawlers and AI models, it's important to implement proper steps for generating and submitting a sitemap and using structured data (such as metadata and JSON-LD) to enhance indexing. 
 
 - **Descriptive Filenames**: Use filenames that clearly describe the content of the document. For instance, instead of doc1.md, use clms-land-monitoring-data.md.
@@ -542,8 +530,8 @@ json-ld:
 To ensure that CLMS documents are findable and accessible to web crawlers and AI models, it's important to implement proper steps for generating and submitting a sitemap and using structured data (such as metadata and JSON-LD) to enhance indexing.
 :::
 
-# Recommended Standards for Information Formatting
-## Suggested Standards
+# 4. Recommended Standards for Information Formatting
+## 4.1. Suggested Standards
 One of the main challenges in this task is improving the findability and discoverability of CLMS products. With the extensive range of data and services offered by CLMS, users often struggle to locate specific datasets or resources. Chatbots serve as a potential solution by guiding users to the appropriate resources. For chatbots to effectively perform this role, the data must be properly structured, categorized, and indexed. To support this:
 
 - Documentation must be **accessible to third-party chatbots**. While CLMS chatbots will be the primary interaction point, external platforms should also access and retrieve relevant data. Exposing CLMS data in a structured and standardized format ensures interoperability across various chatbot systems, enhancing discoverability.
@@ -556,7 +544,7 @@ The recommended standards for CLMS will include the use of Quarto Markdown, site
 
 - **Implementing Sitemaps for Efficient Crawling**: Sitemaps provide a roadmap for web crawlers, ensuring that all relevant pages and data sources are indexed. By creating comprehensive sitemaps that expose the entirety of the CLMS data repository, the task ensures that web crawlers and AI systems can efficiently discover and retrieve content. This is essential for making CLMS data easily accessible to third-party chatbots and AI platforms.
 
-## Guideline for the Process Verification
+## 4.2. Guideline for the Process Verification
 We can compare the results of the search queries for both the unformatted and formatted documents. Typically, formatted documents with clear structure and metadata should provide better search accuracy because they provide more semantic meaning and context, making it easier for the search engine to retrieve relevant information. In this sub-section, we have outlined a step-by-step process for preparing and indexing documents to improve search accuracy. The focus is on comparing unformatted documents to formatted ones using Quarto Markdown, and how sitemap integration enhances search engine results.
 
 - Step 1: Document Preparation
@@ -584,14 +572,14 @@ We can compare the results of the search queries for both the unformatted and fo
     - Compare the performance of the search engine on unformatted versus formatted documents.
     - **Hypothesis**: Documents with structure and a sitemap will produce better search accuracy, yielding higher relevance in the results.
 
-This Quarto Markdown setup can be used in a RStudio (*.qmd) under a single section, maintaining clarity and structure in both the notebook and final rendered outputs (e.g., HTML, PDF, or DOCX).
+This Quarto Markdown setup can be used in a Jupyter notebook (ipynb) under a single section, maintaining clarity and structure in both the notebook and final rendered outputs (e.g., HTML, PDF, or DOCX).
 
-# Conclusion
+# 5. Conclusion
 The **European Environment Agency (EEA)** recognizes the growing need for generative chatbots and natural language analysis tools to facilitate easy access to CLMS data. In response, the EEA is undertaking preparatory efforts to establish the necessary standards and infrastructure for successful chatbot integration. These activities focus on ensuring that CLMS products are **findable** and **discoverable**, enabling users, regardless of technical expertise, to access environmental data seamlessly.
 
 A key part of this strategy is making CLMS documentation and data accessible to third-party generative AI platforms. By implementing standards for formatting and exposing information—particularly through **Quarto Markdown** and **sitemaps**—CLMS ensures that high-quality, structured data is available to chatbots and AI systems. This not only enhances product discoverability but also improves user experience, allowing chatbots to guide users through complex datasets and environmental resources.
 
 The collaboration between CLMS and the EEA lays the groundwork for a future where AI systems can efficiently retrieve and process environmental data, supporting informed decision-making and increasing public engagement with CLMS products.
 
-# References
+# 6. References
 :::
