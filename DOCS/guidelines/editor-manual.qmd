@@ -1,16 +1,14 @@
 ---
-title: "Guide for Writing Techncial Documentation"
+title: "Guide for Writing Technical Documentation"
 subtitle: "Copernicus Land Monitoring Service"
 author: "European Environment Agency (EEA)"
 version: 0.6
+category: "guidelines"
 description: "A comprehensive guide for creating technical documentation for the Copernicus
   Land Monitoring Service using Quarto. It covers Markdown basics, document rendering,
   and the review process, ensuring consistency and clarity in documentation."
-date: "2025-06-04"
+date: "2025-06-23"
 template-version: 1.0
-
-format:
-    html: default
 ---
 
 <!--# maybe we should promote (or at least describe the option of unsing variables in yaml that can be reused in the document:  e.g. product-name: "Example Product" ---  # Welcome to {{ product-name }} Documentation.      -->
@@ -23,7 +21,104 @@ This manual guides users through creating technical documentation for the Copern
 You don't need to be a programmer nor an expert to use Quarto. If you've ever written a document in Microsoft Word, you'll be able to use Quarto with a bit of practice.
 :::
 
-## Folder and File Structure
+# Required Software
+
+Before you can start writing documentation with Quarto, you’ll need to install a few tools. Most of them are quick to set up, and this chapter will guide you through what’s needed and why.
+
+These tools help with writing, saving versions of your documents, and converting them into professional formats like HTML or PDF.
+
+## Git
+
+Git keeps track of your document changes over time. It also makes it easy to work with others without accidentally overwriting each other’s work. You don’t have to learn Git right away- but having it installed is important.
+
+* **Windows** users: [Download Git for Windows](https://git-scm.com/download/win).
+* **macOS** users: Git may already be installed. If not, you can install it using the Terminal.
+* **Linux** users: Use your package manager, e.g., `sudo apt install git`.
+
+## RStudio
+
+RStudio is a user-friendly editor where you’ll write and preview your documentation. It works great with Quarto and supports rendering documents into different formats.
+
+* Download it from [rstudio.com](https://posit.co/download/rstudio-desktop/).
+
+::: callout-note
+Even though RStudio is made for programming in R, don’t worry—you’ll just use it as your writing tool for Quarto.
+:::
+
+## Quarto
+
+Quarto is the main tool you'll be using to write and convert your documents into formats like HTML or PDF. It works together with RStudio and Pandoc.
+
+Download it from [quarto.org](https://quarto.org/docs/get-started/)
+
+After installation, Quarto works quietly in the background when you click "Render" in RStudio.
+
+## Pandoc
+
+Pandoc is the tool that turns your Markdown text into beautiful documents.
+It often comes bundled with RStudio or Quarto. If you're not sure whether it's installed, don’t worry—Quarto will usually handle this for you behind the scenes.
+
+## A Command Line Tool
+
+Depending on your system, you’ll also need a basic command line tool to run a few simple commands:
+
+* **Windows**: Use **PowerShell**, which is already installed on most Windows computers.
+* **macOS or Linux**: Use the built-in **Terminal**, which gives you access to **bash** (the default command shell on most systems).
+
+::: callout-tip
+You’ll only need the command line for a few things, like starting a Quarto preview or checking if software is installed. We’ll walk you through these steps when the time comes.
+:::
+
+
+# Adding Documentation to Your Project
+
+To integrate the documentation into your project, follow the steps below. Full instructions are available at: [https://github.com/eea/CLMS_documents_base](https://github.com/eea/CLMS_documents_base)
+
+
+## Link the Base Repository
+
+Add the base documentation repository as a remote:
+
+```bash
+git remote add clms-docs-base git@github.com:eea/CLMS_documents_base.git
+```
+
+## Add the `DOCS/` Folder to Your Project
+
+Use the following command to pull in the documentation as a subtree:
+
+```bash
+git subtree add --prefix=DOCS clms-docs-base main --squash
+```
+
+After running this, your project will include a `DOCS/` directory containing all necessary documentation resources.
+
+## Set Up Git Shortcuts
+
+To simplify documentation management, run the appropriate setup script based on your operating system:
+
+```bash
+# On macOS or Linux:
+./DOCS/_meta/scripts/linux/setup-docs-aliases.sh
+
+# On Windows (PowerShell):
+./DOCS/_meta/scripts/win/setup-docs-aliases.ps1
+```
+
+This will configure convenient Git aliases for working with the documentation.
+
+## Available Git Aliases
+
+Once the setup is complete, you'll have access to these useful Git commands:
+
+- `git docs-update`: Syncs your local documentation with updates from the base repository.
+- `git docs-publish`: Pushes your documentation changes to the repository.
+- `git docs-preview`: Generates a local preview of your documentation.
+
+These shortcuts make it easy to keep your documentation up-to-date, share changes, and review your work.
+
+
+# Folder and File Structure
 
 <!--# If this is for the doc part only, does it make sense to mention also the potential insert into an IT project, but can exist also on their own...(something like this, just mentioning it) -->
 
@@ -1141,56 +1236,6 @@ This will bold specific text while keeping the rest of the table structure intac
 More issues will be added here as the system and workflow evolve. If you encounter a formatting issue or rendering problem that isn’t listed, ask your team lead or check how other documents handled similar cases.
 
 # Document Review and Git Workflow
-
-## Adding Documentation to Your Project
-
-To integrate the documentation into your project, follow the steps below. Full instructions are available at: [https://github.com/eea/CLMS_documents_base](https://github.com/eea/CLMS_documents_base)
-
-
-### Step 1: Link the Base Repository
-
-Add the base documentation repository as a remote:
-
-```bash
-git remote add clms-docs-base git@github.com:eea/CLMS_documents_base.git
-```
-
-### Step 2: Add the `DOCS/` Folder to Your Project
-
-Use the following command to pull in the documentation as a subtree:
-
-```bash
-git subtree add --prefix=DOCS clms-docs-base main --squash
-```
-
-After running this, your project will include a `DOCS/` directory containing all necessary documentation resources.
-
-### Step 3: Set Up Git Shortcuts
-
-To simplify documentation management, run the appropriate setup script based on your operating system:
-
-```bash
-# On macOS or Linux:
-./DOCS/_meta/scripts/linux/setup-docs-aliases.sh
-
-# On Windows (PowerShell):
-./DOCS/_meta/scripts/win/setup-docs-aliases.ps1
-```
-
-This will configure convenient Git aliases for working with the documentation.
-
-### Available Git Aliases
-
-Once the setup is complete, you'll have access to these useful Git commands:
-
-- `git docs-update`: Syncs your local documentation with updates from the base repository.
-- `git docs-publish`: Pushes your documentation changes to the repository.
-- `git docs-preview`: Generates a local preview of your documentation.
-
-These shortcuts make it easy to keep your documentation up-to-date, share changes, and review your work.
-
-
----
 
 ## Pushing Changes to Git
 

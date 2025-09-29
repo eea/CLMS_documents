@@ -1,5 +1,5 @@
 ---
-title: "Urban Atlas 2012-2018 Product User Manual (PUM)"
+title: "Urban Atlas 2012-2018 - Product User Manual (PUM)"
 subtitle: "Copernicus Land Monitoring Service"
 date: "2020"
 version: 6.3
@@ -8,8 +8,12 @@ description: "The Urban Atlas 2012–2018 Product User Manual is a comprehensive
 toc: true
 toc-title: "Content"
 toc-depth: 3
+
+category: "products"
 ---
 
+\
+**Contact:**
 
 ::: {custom-style="LeftAlign"}
 European Environment Agency (EEA)\
@@ -60,6 +64,8 @@ The table below includes the different Reference Documents (RD) related to the U
 +-----------+-----------------------------------------------------------------------------+-------------+--------------+-------------------------------------------------+
 |   RD\[8\] |   Urban Atlas 2012 Mapping Guide                                            |   5.0       |              |   UA2012 Mapping Guide                          |
 +-----------+-----------------------------------------------------------------------------+-------------+--------------+-------------------------------------------------+
+
+{{< pagebreak >}}
 
 # Mapping guide
 
@@ -116,7 +122,7 @@ Detailed specifications of Urban Atlas LU/LC product.
 
 The table provided in Annex 5.3 gives a more detailed description of the product specifications.
 
-![Example of the “look &amp; feel“ of the final Urban Atlas 2012 product for Brussels](./Urban-Atlas-mapping-guide-media/image20.jpeg)
+![Example of the “look &amp; feel“ of the final Urban Atlas 2012 product for Brussels](Urban_Atlas_Mapping_Guide_V6.3-media/image20.jpeg)
 
 ### Additional information layers
 
@@ -242,9 +248,9 @@ ESRI ArcGIS compatible or open source OGC-standard vector format with polygon to
 
 - Final vectors need to have a smooth appearance (no pixel-shaped polygons are allowed). The smoothing shall be done by the service provider by methods preserving the geometry of objects. It is to ensure that smoothed vectors still comply with the minimum width and minimum mapping units required for objects.
 
-![Example provided of the number for UA class 1.1.2.1](./Urban-Atlas-mapping-guide-media/image1.jpg)
+![Example provided of the number for UA class 1.1.2.1](Urban_Atlas_Mapping_Guide_V6.3-media/image1.jpg)
 
-![](./Urban-Atlas-mapping-guide-media/image2.jpg)
+![](Urban_Atlas_Mapping_Guide_V6.3-media/image2.jpg)
 
 Column data format:
 
@@ -294,7 +300,7 @@ As it is often quite difficult to predict the future LU/LC over an area resultin
 
 - Forest cuts are included in another class as soon as they occur at the edge of the forest and that the context given by VHR reference imagery justifies such a choice (e.g. pastures, orchards, future construction site, etc.).
 
-![Change Dynamics over FR010L2 Montpellier (2012-2018)](./Urban-Atlas-mapping-guide-media/image21.png)
+![Change Dynamics over FR010L2 Montpellier (2012-2018)](Urban_Atlas_Mapping_Guide_V6.3-media/image21.png)
 
 ### Street tree layer 
 
@@ -304,15 +310,15 @@ The following specific rules have to be applied:
 
 - [Exception to the 10 m MinMW rule: in order to maintain continuity, units smaller than 10 m over a distance up to 10 m can still be included in STL (see figures below).]{custom-style="NormalLine"}\
 
-![](./Urban-Atlas-mapping-guide-media/image22.jpg)
+![](Urban_Atlas_Mapping_Guide_V6.3-media/image22.jpg)
 
 - [Border effect correction: road network crossing wooded area and connecting cities and villages is fully classified as STL due to tree crown cover by default. Therefore, post-processing step needs to be implemented for correcting this misclassification.]{custom-style="NormalLine"}\
 
-![](./Urban-Atlas-mapping-guide-media/image24.png)
+![](Urban_Atlas_Mapping_Guide_V6.3-media/image24.png)
 
 An urban mask analysis to exclude road and railway networks connecting cities and villages shall be applied to solve this border effect. Urban Mask analysis needs to define a tolerance fixed to 50 m that well differentiate urban and interurban networks. Large railway infrastructures may be excluded from the mask, but this is not an issue knowing that trees are very rare in such areas.
 
-![](./Urban-Atlas-mapping-guide-media/image25.jpg)
+![](Urban_Atlas_Mapping_Guide_V6.3-media/image25.jpg)
 
 STL patches do not cover roads (codes 12210 and 12220) or railways (code 12230) connecting cities, that are outside the urban mask.
 
@@ -320,7 +326,7 @@ STL patches do not cover roads (codes 12210 and 12220) or railways (code 12230) 
 
 - The STL layer contains trees (STL = 1) or No data (STL= 99).
 
-![Comparison between VHR2018 scene (left) and STL2018 product (right)](./Urban-Atlas-mapping-guide-media/image27.jpg)
+![Comparison between VHR2018 scene (left) and STL2018 product (right)](Urban_Atlas_Mapping_Guide_V6.3-media/image27.jpg)
 
 ###  Digital Height Model layer (DHM)
 
@@ -368,7 +374,7 @@ The next step towards finally retrieving building block heights is the creation 
 
 ***nDSM = DSM -- DTM***
 
-![DSM computation principle (http://www.stadtentwicklung.berlin.de/umwelt/umweltatlas/ed610_03.htm) ](./Urban-Atlas-mapping-guide-media/image29.png)
+![DSM computation principle (http://www.stadtentwicklung.berlin.de/umwelt/umweltatlas/ed610_03.htm) ](Urban_Atlas_Mapping_Guide_V6.3-media/image29.png)
 
 As there are vegetation and other untilled areas included in the raw nDSM, hence a substantial further quality refinement with different ancillary datasets is necessary to generate a sharp and error-free digital building block height model.
 
@@ -378,7 +384,7 @@ The nDSM at this stage is a 3 m resolution intermediate product that is then res
 
 In a last refinement step the accuracy specifications are checked and if necessary, heights are adapted.
 
-![Coverage of Vienna core area with relevant UA 2012 built-up classes](./Urban-Atlas-mapping-guide-media/image30.jpg)
+![Coverage of Vienna core area with relevant UA 2012 built-up classes](Urban_Atlas_Mapping_Guide_V6.3-media/image30.jpg)
 
 5.  [Post processing and product finalization]{custom-style="NormalLine"}\
 
@@ -394,7 +400,7 @@ In the final post-processing and product package generation step, the properly r
 
 Each Building Block Height model (DHM) is clipped exactly to the AOI and assigned a folder with a corresponding name. As a further automated step, an INSPIRE compliant metadata file is generated for every product and a template for the delivery report is created for each DU and stored in the respective folder.
 
-![Final Digital Height Model (height values in m)](./Urban-Atlas-mapping-guide-media/image31.jpg)
+![Final Digital Height Model (height values in m)](Urban_Atlas_Mapping_Guide_V6.3-media/image31.jpg)
 
 ### Minimum mapping units and exceptions
 
@@ -418,7 +424,7 @@ Exception of minimum width 10m of a mapping unit: class 12220 (MMW = 6m).
 
 Exception of minimum width 10m of a mapping unit: to maintain continuity of linear structures, they can be mapped smaller than 10 m over a distance up to 50 m (see figure below).
 
-![](./Urban-Atlas-mapping-guide-media/image36.png)
+![](Urban_Atlas_Mapping_Guide_V6.3-media/image36.png)
 
 Priority mapping rules for areas smaller than the MMU:
 
@@ -572,9 +578,9 @@ A decision matric below illustrate the rules followed to apply LULC nomenclature
 
 Affectation of LULC classes follow the below decision matrix. A detailed matrix concerning artificial areas is illustrated next page.
 
-![Urban Atlas LULC decision matrix](./Urban-Atlas-mapping-guide-media/image37.png)
+![Urban Atlas LULC decision matrix](Urban_Atlas_Mapping_Guide_V6.3-media/image37.png)
 
-![Urban Atlas Decision Matrix for Artificial Surfaces](./Urban-Atlas-mapping-guide-media/image38.png)
+![Urban Atlas Decision Matrix for Artificial Surfaces](Urban_Atlas_Mapping_Guide_V6.3-media/image38.png)
 
 ## Description of LU/LC thematic classes
 
@@ -1275,11 +1281,11 @@ Outside these priority areas, class 9.1 (code 91000) will be used for areas cove
 
 b)  [No data (Missing imagery)]{custom-style="NormalLine"}\
 
-This class 9.2 (code 92000) includes areas without available satellite image or inadequate imagery (e.g. no STL data can be produced as the image acquisition is outside the vegetation period).
+This class 9.2 (code 92000) includes areas without available satellite image or inadequate imagery (e.g. no STL data can be produced as the image acquisition is outside the vegetation period).  {{< pagebreak >}}
 
-# Annex
+{{< pagebreak >}}
 
-## List of abbreviations
+# List of abbreviations
 
 | **Abbreviation** | **Full Form**                                                        |
 |------------------|----------------------------------------------------------------------|
@@ -1314,7 +1320,13 @@ This class 9.2 (code 92000) includes areas without available satellite image or 
 | SL               | Sealing Layer                                                        |
 | STL              | Street Tree Layer                                                    |
 | UA               | Urban Atlas                                                           |
-| VHR              | Very High Resolution                                                  |
+| VHR              | Very High Resolution                             
+
+{{< pagebreak >}}
+
+{{< pagebreak >}}
+
+# Annex
 
 ## Pre-processing and geometric adaptation of navigation data
 

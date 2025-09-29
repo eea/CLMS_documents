@@ -1,0 +1,25 @@
+documentclass: scrartcl
+toc: true # Enable the Table of Contents
+toc-title: "Index" # Customize the title of the table of contents
+toc-depth: 3 # Include headings up to level 3 (###)
+number-sections: true
+sitemap: true # Enables sitemap generation for web crawlers
+tbl-colwidths: auto
+license: "EUPL (>= 1.2)"
+keywords: "{keywords_str}"
+format:
+  html:
+    include-in-header:
+      - ../includes/json-ld.html
+    include-before-body: ../includes/default-before-body.html  
+    css: ../theme/styles.css
+    code-fold: true # Allow code blocks to be foldable
+    self-contained: false # Don't embed resources like CSS and images
+    filters:
+      - ../../.github/scripts/filters/extract-images.lua
+  docx:
+    toc-location: before-body
+    toc-pagebreak: true
+    data: false
+    reference-doc: ../theme/template-guideline.docx
+  pdf: default

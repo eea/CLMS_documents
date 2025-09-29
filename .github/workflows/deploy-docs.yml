@@ -40,11 +40,15 @@ jobs:
           options: -e GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} -v ${{ github.workspace }}:/app
           run: python .github/scripts/generate_intros_and_keywords.py modified_docs_list.txt
 
-      - name: Commit updated LLM cache
+
+
+      - name: Set up git user for commits
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
 
+      - name: Commit updated LLM cache
+        run: |
           git add .llm_cache
 
           if git diff --cached --quiet; then
@@ -56,12 +60,25 @@ jobs:
 
       - name: Build Docs
         run: .github/scripts/build-docs.sh
+        env:
+          SKIP_DOCX: ${{ github.ref_name != 'develop' && '1' || '' }}
+
+      - name: Commit updated non-browsable doc map
+        run: |
+          git add .github/non_browsable_doc_map.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update non-browsable doc map [skip ci]"
+            git push origin HEAD
+          fi
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: _site
+          folder: DOCS/_site
           target-folder: ${{ github.ref_name }}
           clean: true
           token: ${{ secrets.GITHUB_TOKEN }}
