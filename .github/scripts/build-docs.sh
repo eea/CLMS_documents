@@ -10,11 +10,18 @@ python3 .github/scripts/update_url_mappings.py
 echo "🔄 Grouping documents by category..."
 python3 .github/scripts/group_docs_by_category.py
 
+# Update change logs before rendering
+#python3 .github/scripts/update_change_logs.py
+
 # Change to DOCS directory as it'll be the root of rendered content
 cd DOCS
+
+# Copy quarto configuration and meta files from _meta to DOCS
+cp ../_meta/_quarto*.yml .
+cp -r ../_meta .
+
 # Link assets to origin_DOCS as these files need to be served from rendered content
 ln -s ../assets assets
-
 
 echo "🖼 Render all documents to HTML"
 if [[ -n "$SKIP_DOCX" ]]; then

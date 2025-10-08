@@ -1,4 +1,3 @@
-
 import os
 import shutil
 import re
@@ -9,10 +8,12 @@ from pathlib import Path
 import yaml
 
 
-EXCLUDED_DOCS_DIRS = {"templates", "theme", "includes"}
-
-# Quarto configuration files to copy
-QUARTO_CONFIG_FILES = ["_quarto.yml", "_quarto-index.yml", "_quarto-no-headers.yml"]
+EXCLUDED_DOCS_DIRS = {
+    "_meta",
+    "assets",
+    "_site",
+    ".quarto",
+}
 
 # Category to directory mapping
 # Multiple categories can map to the same directory
@@ -30,6 +31,7 @@ os.chdir(root_dir.resolve())
 # Non-browsable doc mapping file
 NON_BROWSABLE_MAP_PATH = Path(".github/non_browsable_doc_map.json")
 
+
 def load_secret_map():
     if NON_BROWSABLE_MAP_PATH.exists():
         with open(NON_BROWSABLE_MAP_PATH, "r", encoding="utf-8") as f:
@@ -37,21 +39,29 @@ def load_secret_map():
             return data.get("mappings", [])
     return []
 
+
 def save_secret_map(mappings):
     with open(NON_BROWSABLE_MAP_PATH, "w", encoding="utf-8") as f:
-        json.dump({
-            "_comment": "This file maps non-browsable QMD source files to their persistent random output names and URLs. Do not publish this file.",
-            "mappings": mappings
-        }, f, indent=2)
+        json.dump(
+            {
+                "_comment": "This file maps non-browsable QMD source files to their persistent random output names and URLs. Do not publish this file.",
+                "mappings": mappings,
+            },
+            f,
+            indent=2,
+        )
+
 
 def random_base(length=64):
-    return ''.join(random.choices(string.ascii_lowercase + string.digits, k=length))
+    return "".join(random.choices(string.ascii_lowercase + string.digits, k=length))
+
 
 def get_secret_mapping_for_source(mappings, source):
     for m in mappings:
         if m["source"] == source:
             return m
     return None
+
 
 def add_secret_mapping(mappings, source, base, url):
     mappings.append({"source": source, "base": base, "url": url})
@@ -120,7 +130,6 @@ def copy_media_directory_if_exists(qmd_file, target_folder):
     return False
 
 
-
 def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
     source_path = Path(source_dir)
     target_path = Path(target_dir)
@@ -161,13 +170,19 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
             if mapping is None:
                 base = random_base()
                 url = "/" + base + ".html"
-                secret_mappings = add_secret_mapping(secret_mappings, rel_source, base, url)
+                secret_mappings = add_secret_mapping(
+                    secret_mappings, rel_source, base, url
+                )
                 updated = True
-                print(f"\t[non-browsable] Assigned new random base '{base}' for {rel_source}")
+                print(
+                    f"\t[non-browsable] Assigned new random base '{base}' for {rel_source}"
+                )
             else:
                 base = mapping["base"]
                 url = mapping["url"]
-                print(f"\t[non-browsable] Using existing base '{base}' for {rel_source}")
+                print(
+                    f"\t[non-browsable] Using existing base '{base}' for {rel_source}"
+                )
 
             target_file = nb_dir / f"{base}.qmd"
             shutil.copy2(qmd_file, target_file)
@@ -177,7 +192,9 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
                 if target_media_dir.exists():
                     shutil.rmtree(target_media_dir)
                 shutil.copytree(orig_media_dir, target_media_dir)
-                print(f"\t\tCopied media directory: {base}-media (renamed for non-browsable)")
+                print(
+                    f"\t\tCopied media directory: {base}-media (renamed for non-browsable)"
+                )
                 # Update references in the copied .qmd file
                 try:
                     with open(target_file, "r", encoding="utf-8") as f:
@@ -188,10 +205,16 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
                         content = content.replace(old_media, new_media)
                         with open(target_file, "w", encoding="utf-8") as f:
                             f.write(content)
-                        print(f"\t\tRewrote media references in {base}.qmd (non-browsable)")
+                        print(
+                            f"\t\tRewrote media references in {base}.qmd (non-browsable)"
+                        )
                 except Exception as e:
-                    print(f"\t\t[ERROR] Failed to rewrite media references in {base}.qmd: {e}")
-            print(f"\t[non-browsable] Copied {qmd_file.name} → non-browsable/{base}.qmd (non-browsable)")
+                    print(
+                        f"\t\t[ERROR] Failed to rewrite media references in {base}.qmd: {e}"
+                    )
+            print(
+                f"\t[non-browsable] Copied {qmd_file.name} → non-browsable/{base}.qmd (non-browsable)"
+            )
         else:
             # Normal doc: group by category, prefix with project name to avoid collisions
             target_directory = get_directory_for_category(category)
@@ -220,16 +243,26 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
                         content = content.replace(old_media, new_media)
                         with open(target_file, "w", encoding="utf-8") as f:
                             f.write(content)
-                        print(f"\t\tRewrote media references in {prefix}{qmd_file.name}")
+                        print(
+                            f"\t\tRewrote media references in {prefix}{qmd_file.name}"
+                        )
                 except Exception as e:
-                    print(f"\t\t[ERROR] Failed to rewrite media references in {prefix}{qmd_file.name}: {e}")
+                    print(
+                        f"\t\t[ERROR] Failed to rewrite media references in {prefix}{qmd_file.name}: {e}"
+                    )
             if category:
                 if category in CATEGORY_TO_DIRECTORY_MAP:
-                    print(f"\tCopied {qmd_file.name} → {target_directory}/ as {prefix}{qmd_file.name} (category: {category})")
+                    print(
+                        f"\tCopied {qmd_file.name} → {target_directory}/ as {prefix}{qmd_file.name} (category: {category})"
+                    )
                 else:
-                    print(f"\tCopied {qmd_file.name} → {target_directory}/ as {prefix}{qmd_file.name}")
+                    print(
+                        f"\tCopied {qmd_file.name} → {target_directory}/ as {prefix}{qmd_file.name}"
+                    )
             else:
-                print(f"\tCopied {qmd_file.name} → {target_directory}/ as {prefix}{qmd_file.name} (no category found)")
+                print(
+                    f"\tCopied {qmd_file.name} → {target_directory}/ as {prefix}{qmd_file.name} (no category found)"
+                )
 
     # Save updated secret mapping if changed
     if updated:
@@ -249,24 +282,6 @@ def copy_excluded_dirs(source_dir="origin_DOCS", target_dir="DOCS"):
             if dst.exists():
                 shutil.rmtree(dst)
             shutil.copytree(src, dst)
-
-
-def copy_quarto_config_files(source_dir="origin_DOCS", target_dir="DOCS"):
-    source_path = Path(source_dir)
-    target_path = Path(target_dir)
-
-    # Ensure target directory exists
-    target_path.mkdir(exist_ok=True)
-
-    for quarto_file in QUARTO_CONFIG_FILES:
-        src_file = source_path / quarto_file
-        dst_file = target_path / quarto_file
-
-        if src_file.exists() and src_file.is_file():
-            shutil.copy2(src_file, dst_file)
-            print(f"Copied {quarto_file} to DOCS folder")
-        else:
-            print(f"Warning: {quarto_file} not found in {source_dir}")
 
 
 def update_bibliography_paths_before_regroup(
@@ -385,6 +400,5 @@ if __name__ == "__main__":
     group_qmd_files_by_category()
 
     copy_excluded_dirs()
-    copy_quarto_config_files()
 
     print("\nGrouping complete! Check the 'DOCS' folder.")

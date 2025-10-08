@@ -10,16 +10,18 @@ keywords: "{keywords_str}"
 format:
   html:
     include-in-header:
-      - ../includes/json-ld.html
-    include-before-body: ../includes/default-before-body.html  
-    css: ../theme/styles.css
+      - ../_meta/includes/json-ld.html
+    css: ../_meta/theme/styles.css
     code-fold: true # Allow code blocks to be foldable
     self-contained: false # Don't embed resources like CSS and images
     filters:
       - ../../.github/scripts/filters/extract-images.lua
+      - ../../.github/scripts/filters/inject_contact_info.lua
   docx:
     toc-location: before-body
     toc-pagebreak: true
     data: false
-    reference-doc: ../theme/template-guideline.docx
+    reference-doc: ../_meta/theme/template-guideline.docx
+    filters:
+      - ../../.github/scripts/filters/inject_contact_info.lua
   pdf: default

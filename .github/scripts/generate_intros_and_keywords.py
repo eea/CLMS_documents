@@ -22,7 +22,15 @@ INPUT_DIR = (SCRIPT_DIR / "../../DOCS").resolve()
 ROOT_DIR = (SCRIPT_DIR / "../../").resolve()
 CACHE_DIR = (SCRIPT_DIR / "../../.llm_cache").resolve()
 CACHE_DIR.mkdir(exist_ok=True)
-BLACKLISTED_DIRS = {"templates", "includes", "theme"}
+BLACKLISTED_DIRS = {
+    "templates",
+    "includes",
+    "theme",
+    "_meta",
+    "assets",
+    "_site",
+    ".quarto",
+}
 
 PROMPT = """You are an AI assistant helping to enrich technical documents for the Copernicus Land Monitoring Service (CLMS).
 
