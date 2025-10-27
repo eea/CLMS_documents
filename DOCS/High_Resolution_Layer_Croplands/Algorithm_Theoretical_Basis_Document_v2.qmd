@@ -54,7 +54,7 @@ In more detail, the document is structured as follows:
 
 The Base Vegetation Layer (BVL) is an internal processing layer to ensure better base consistency  between the VLCC product groups Croplands, Grasslands and Tree Cover & Forests. The BVL provides a gap-free yearly mapping of the areas with tree cover and cropland and/or grassland.  It also classifies a background class which comprises non-vegetated areas (e.g. bare ground,  urban areas, water), lichens and mosses as well as shrubs (as long as not for agriculture such as vineyards). This section details the applied methods for the production of the BVL. An overview  of the workflow is provided in Figure 1.
 
-![Figure 1: High-level flow chart of the BVL workflow and its usage by the downstream  processors for Tree Cover & Forests, Grasslands and Croplands.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-676c43b68eec6fd5be8bccbd542e4bc1c38175e2.png)
+![Figure 1: High-level flow chart of the BVL workflow and its usage by the downstream  processors for Tree Cover & Forests, Grasslands and Croplands.](Algorithm_Theoretical_Basis_Document_v2-media/img-676c43b68eec6fd5be8bccbd542e4bc1c38175e2.png)
 
 
 
@@ -90,7 +90,7 @@ In a subsequent post-processing step two further classes are derived to delineat
 
 The resulting Base Vegetation Layer is derived annually considering a time-window of five years  (e.g. 2017 – 2021) to delineate the boundaries between grassland, cropland, tree cover and  other land cover types (e.g. built-up areas, sealed areas, water, bare ground, permanent  snow/ice, non-agricultural shrubs) not relevant for further processing steps within the HRL VLCC.
 
-![Figure 2: Production units subdividing the EEA-38 area into homogenous biogeographical substrata for the production of the BVL (GF: French Guiana, GP: Guadeloupe, MQ: Martinique, RE:  Le Réunion, YT: Mayotte).](Vegetated_Land_Cover_Characteristics_ATBD-media/img-96d4f7ffe37f4b6d5ba2b5ac9886614e2b0e3258.jpg)
+![Figure 2: Production units subdividing the EEA-38 area into homogenous biogeographical substrata for the production of the BVL (GF: French Guiana, GP: Guadeloupe, MQ: Martinique, RE:  Le Réunion, YT: Mayotte).](Algorithm_Theoretical_Basis_Document_v2-media/img-96d4f7ffe37f4b6d5ba2b5ac9886614e2b0e3258.jpg)
 
 
 
@@ -130,7 +130,7 @@ Areas identified as overlaps of herbaceous and tree cover can be designated as b
 
 The HRL Tree Cover & Forests products comprise several annual status and 3-yearly change layers which are partially derived from the outputs of the BVL classification and combined with separate processing chain to estimate Tree Cover Density. This section details the applied methods for the production of the Tree Cover & Forests products. An overview of the workflow is provided in Figure 3.
 
-![Figure 3: High-level flow chart of the production workflow for the Tree Cover & Forests products TCD, DLT, TCPC and DLTC.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-8c75bc7b81f884492f16d2dc812579fecc761de9.png)
+![Figure 3: High-level flow chart of the production workflow for the Tree Cover & Forests products TCD, DLT, TCPC and DLTC.](Algorithm_Theoretical_Basis_Document_v2-media/img-8c75bc7b81f884492f16d2dc812579fecc761de9.png)
 
 
 
@@ -199,7 +199,7 @@ Table 2 FADSL - hierarchical intersection of input layers and resulting thematic
 
 It is worth mentioning that the derived delineation of non-forest tree cover areas has certain  limitations due to the specifications and thematic accuracies of the different input data (**DLT** with density values ranging from 10-100%; **CLC** 2018 with 25 ha MMU; **IMD** 2018 also  representing infrastructure). This includes the frequency and timelines of updates which  imposes the need use input layers that predate the actual reference year of the **FTY** (e.g. **FTY** 2021 was produced using still CLC 2018 and the first version of the **HRL IMD** 2018.
 
-![Figure 4: High-level flow chart of the production workflow for the Tree Cover & Forests products FADSL, FTY and aggregated products at 100m.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-ca3af50470b86f297c48a5a7e3b6625919df0077.png)
+![Figure 4: High-level flow chart of the production workflow for the Tree Cover & Forests products FADSL, FTY and aggregated products at 100m.](Algorithm_Theoretical_Basis_Document_v2-media/img-ca3af50470b86f297c48a5a7e3b6625919df0077.png)
 
 
 
@@ -237,7 +237,7 @@ The **TCPCCL** relies as well on the probabilities for coniferous and broadleave
 
 **Omission of sparse tree cover** is commonly known challenge for tree cover mapping since lower  canopy cover leads to a mixed reflectance signal that becomes increasingly dominated by the  understory. The issue is further aggravated by imperfections of the multi-temporal coregistration of the Sentinel-2 data. Sparse tree cover is common at the timber line but in  particular in the Mediterranean comprising agroforestry systems (Dehesas, Montados) and Olive  Groves. Initial classifications for the Iberian Peninsula and Southern Italy revealed large areas of  Olive Groves and Dehesas which triggered a reprocessing. This included the revision of  approximately 7000 additional samples and the collection of around 5500 additional tree cover  samples. Retraining the model with the revised sample database indeed provided major improvements. Further enhancements were implemented also in the post-processing to boost  tree cover probabilities in areas designated as Agroforestry, Olive Groves and other type of tree  cover according to the Corine Land Cover layer for 2018. An example for the status of the DLT  before and after the reprocessing is provided in Figure 5. Though the reprocessing has  significantly reduced the amount of omission errors, tree cover omission is generally still more  pronounced in the Mediterranean region.
 
-![Figure 5: Dominant Leaf Type for the reference year 2021 a) after initial classification and b) after reprocessing for agroforestry system in Andalusia, Spain (LAEA 3044254.4m, 1822153.02m) Background Google Maps VHR imagery 03/2021.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-76519c7ec6c010f538a443731db40973837bf1f3.jpg){width=70%}
+![Figure 5: Dominant Leaf Type for the reference year 2021 a) after initial classification and b) after reprocessing for agroforestry system in Andalusia, Spain (LAEA 3044254.4m, 1822153.02m) Background Google Maps VHR imagery 03/2021.](Algorithm_Theoretical_Basis_Document_v2-media/img-76519c7ec6c010f538a443731db40973837bf1f3.jpg){width=70%}
 
 
 
@@ -247,11 +247,11 @@ This concerns topographic effects where cast shadows result in dark features in 
 
 Underestimations and spatial patterns that are not related to actual variations of the canopies  can also be caused by cloud cover. On the one hand, this can be caused by clouds that are not  detected in the SCL accompanying the Sentinel-2 L2A data. On the other hand, frequent cloudcover during the peak period of the vegetation season can lead to a higher impact of scenes  from early spring that may depict broadleaved deciduous tree (especially those with later leaf  emergence such as Fagus and Quercus) still with leaf off conditions. A rigorous quality control  was conducted to detect such artefacts and adjust parameters for median time-feature  computation as much as possible. This included for example the usage of shorter time-windows  (starting only in May) or alternative statistical metrics such as 25th- and 75th percentiles. While  this enabled to significantly reduced the amount of artefacts as illustrated in Figure 7, it was not  possible to fully resolve all cases encountered.
 
-![Figure 6: Example for an area with imprints of topographic effects into the Tree Cover Density  layer in Northern Norway (LAEA. 4833337.67m, 5288588.26m) a) VHR image 07/2021 (Google  Maps) b) final TCD layer for 2021 and c) median of S-2 L2A band 3 over the vegetation season.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-bc1b609dee87f1e9ffa5ba0bf47c2f4e63f371a2.jpg){width=70%}
+![Figure 6: Example for an area with imprints of topographic effects into the Tree Cover Density  layer in Northern Norway (LAEA. 4833337.67m, 5288588.26m) a) VHR image 07/2021 (Google  Maps) b) final TCD layer for 2021 and c) median of S-2 L2A band 3 over the vegetation season.](Algorithm_Theoretical_Basis_Document_v2-media/img-bc1b609dee87f1e9ffa5ba0bf47c2f4e63f371a2.jpg){width=70%}
 
 
 
-![Figure 7: Example for initial TCD underestimation due to proportional high number of early  spring scenes with trees in leaf-off conditions in Northern Germany (LAEA, 4186992.95m  3368117.83m). a) initial (unmasked) TCD estimates using median features for March – October  2021 and showing severe underestimation for broadleaved deciduous canopies, b) VHR image  2021 and c) final TCD based on reduced time window from May to September 2021 and  percentile features.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-2dd3407d3fdf8a7517f3847a38faefdfec124e4d.jpg)
+![Figure 7: Example for initial TCD underestimation due to proportional high number of early  spring scenes with trees in leaf-off conditions in Northern Germany (LAEA, 4186992.95m  3368117.83m). a) initial (unmasked) TCD estimates using median features for March – October  2021 and showing severe underestimation for broadleaved deciduous canopies, b) VHR image  2021 and c) final TCD based on reduced time window from May to September 2021 and  percentile features.](Algorithm_Theoretical_Basis_Document_v2-media/img-2dd3407d3fdf8a7517f3847a38faefdfec124e4d.jpg)
 
 
 
@@ -329,7 +329,7 @@ To reduce salt-and-pepper noise, the final **PLOUGH** layer is filtered using a 
 
 Data outputs include the creation of Cloud-Optimized GeoTIFFs, accompanying colour tables,  and detailed metadata.
 
-![Figure 8: Flowchart of the PLOUGH decision logic](Vegetated_Land_Cover_Characteristics_ATBD-media/img-da90c1314ea785b85e939102f3c1d3f6e81a9387.png)
+![Figure 8: Flowchart of the PLOUGH decision logic](Algorithm_Theoretical_Basis_Document_v2-media/img-da90c1314ea785b85e939102f3c1d3f6e81a9387.png)
 
 
 
@@ -432,7 +432,7 @@ Initial tests demonstrated that the **HER time-series** was susceptible to false
 
 This issue was addressed by harmonizing the **HER** time-series by comparing it with a change  layer derived from the **HR-VPP PPI** (see @sec-GRAC). A **HER** pixel is only allowed to change  from one year to the next if there is a strong enough signal change detected in the **HR-VPP PPI**.  The rules were applied more rigorously to ensure a higher consistency. The following **Error! Reference source not found**. shows an example of the **GRAC** layer in EEA tile E39N31 comparing  changes from the previous test production vs. the processor deployed in production. The number of positive and negative changes decreased significantly due to the harder constraints on change during the years. The restrictions on **HER** layers being more consistent throughout the years propagates further to the **GRA** and **GRAC** layers.
 
-![Figure 9: Comparison of GRAC layers from test production and current production taken from EEA tile E39N31 (upper example in the centre around (3957750, 3114334), lower example in the centre around (3984094, 3150073). Blue areas indicate grassland gain, red areas indicate grassland loss (for year 2018 to 2021).](Vegetated_Land_Cover_Characteristics_ATBD-media/img-8719e7bd2267f1c5464a04d53f8f28dfc13d0098.jpg)
+![Figure 9: Comparison of GRAC layers from test production and current production taken from EEA tile E39N31 (upper example in the centre around (3957750, 3114334), lower example in the centre around (3984094, 3150073). Blue areas indicate grassland gain, red areas indicate grassland loss (for year 2018 to 2021).](Algorithm_Theoretical_Basis_Document_v2-media/img-8719e7bd2267f1c5464a04d53f8f28dfc13d0098.jpg)
 
 
 
@@ -440,7 +440,7 @@ The **HIS-PLOUGH** from 2012 to 2015 is based on Landsat data and hence not full
 
 This limitation is generally difficult to be solved completely due to the unavailability of suitable Sentinel-2 time-series before 2017.
 
-![Figure 10: EEA tile E35N25. On the left side PLOUGH 2015 in 20 m and on the right side, the PLOUGH 2017-2021. The orange (left) and the yellow (right) patch in the centre of the figures comes from the HIST-PLOUGH and therefore shows the outline of the 20 m pixel size at that time.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-1361d85aaefb1873757c904fc85aa2aa2698f10a.png)
+![Figure 10: EEA tile E35N25. On the left side PLOUGH 2015 in 20 m and on the right side, the PLOUGH 2017-2021. The orange (left) and the yellow (right) patch in the centre of the figures comes from the HIST-PLOUGH and therefore shows the outline of the 20 m pixel size at that time.](Algorithm_Theoretical_Basis_Document_v2-media/img-1361d85aaefb1873757c904fc85aa2aa2698f10a.png)
 
 
 
@@ -448,7 +448,7 @@ This limitation is generally difficult to be solved completely due to the unavai
 
 The introduction of the HER has caused inconsistency issues between the **HER**, **GRA** and the **HISPLOUGH**. Therefore, the **HIS-PLOUGH** product was adapted as the following: Class *0 - indication  of ploughing in current year, former class 0 converted to class 253, class 100* will contain all pixel  that change between two years due to changes in the **HER** but not ploughed to maintain  consistency between **PLOUGH**, **GRA** and **HER** layers. Please refer to **Error! Reference source not  found**. for a side-by-side view of the old and new class coding.
 
-![Figure 11: Colour palette and attributes of PLOUGH layer. Left: HRL GRA 2015/2018 and right  HRL VLCC.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-b47d1af3225b944dbe9e4f0eab771936c27a02f9.png)
+![Figure 11: Colour palette and attributes of PLOUGH layer. Left: HRL GRA 2015/2018 and right  HRL VLCC.](Algorithm_Theoretical_Basis_Document_v2-media/img-b47d1af3225b944dbe9e4f0eab771936c27a02f9.png)
 
 
 
@@ -476,15 +476,15 @@ Examples of the algorithm results are shown in Figure 12 and Figure 13. The NDVI
 
 A high-level overview of the first part of the workflow that is deployed to derive an intermediate version of the mowing dates, event counts and confidence layers is presented in Figure 14.
 
-![Figure 12: Single-pixel NDVI time series and mowing events (ground truth and detected) for 2021 (32TPT; WGS84 coordinates: 11.3151°E, 47.5911°N).](Vegetated_Land_Cover_Characteristics_ATBD-media/img-9a30382a1e822f8c20aba634c1b8b5fe39893347.png)
+![Figure 12: Single-pixel NDVI time series and mowing events (ground truth and detected) for 2021 (32TPT; WGS84 coordinates: 11.3151°E, 47.5911°N).](Algorithm_Theoretical_Basis_Document_v2-media/img-9a30382a1e822f8c20aba634c1b8b5fe39893347.png)
 
  
 
-![Figure 13: Single-pixel NDVI time series and mowing events (ground truth and detected) for  2021 (32TPT; WGS84 coordinates: 11.3103°E, 47.5884°N).](Vegetated_Land_Cover_Characteristics_ATBD-media/img-6beb035041b6456fa36fcdababaf84705f920bdf.png)
+![Figure 13: Single-pixel NDVI time series and mowing events (ground truth and detected) for  2021 (32TPT; WGS84 coordinates: 11.3103°E, 47.5884°N).](Algorithm_Theoretical_Basis_Document_v2-media/img-6beb035041b6456fa36fcdababaf84705f920bdf.png)
 
  
 
-![Figure 14: Processing workflow and pipeline for the GRAMD and GRAME layers part 1: Source  data selection, pre-processing and cloud masking, and mowing event detection.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-e3e2e358e2935abec94b3406f1fbcc86ad73801c.png)
+![Figure 14: Processing workflow and pipeline for the GRAMD and GRAME layers part 1: Source  data selection, pre-processing and cloud masking, and mowing event detection.](Algorithm_Theoretical_Basis_Document_v2-media/img-e3e2e358e2935abec94b3406f1fbcc86ad73801c.png)
 
  
 
@@ -494,7 +494,7 @@ NDVI time-series are computed from the Sentinel-2 L2A, observations with clouds 
 
 A high-level overview of the subsequent steps of the workflow is presented in Figure 15.
 
-![Figure 15: Processing workflow and pipeline for the GRAMD and GRAME layers: reprojection, shift to yearly timeframes, mosaic, MMU filtering and data export.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-303adab12940a2f66fe85851323e4e84adb79614.png){width=50%}
+![Figure 15: Processing workflow and pipeline for the GRAMD and GRAME layers: reprojection, shift to yearly timeframes, mosaic, MMU filtering and data export.](Algorithm_Theoretical_Basis_Document_v2-media/img-303adab12940a2f66fe85851323e4e84adb79614.png){width=50%}
 
 
 
@@ -594,11 +594,11 @@ In some case the atmospheric correction of the L2A also seems to be a cause of f
 
 For some tiles with an early start of the vegetation period, the mowing season associated with  a reference year may begin in the previous calendar year. Likewise, the subsequent season,  which for the next year, may already start within a given reference year. Since the production  of the VLCC products (incl. the GRAM) has been conducted in several phases (2017-2021, 2022-2023, 2024) this can result in incomplete detection of mowing events for the final year in the  production interval, as data from the following season is not yet processed. To ensure  consistency and completeness, it may be necessary to include an additional year of data for tiles  with early season starts and for the final year of the production interval.
 
-![Figure 16: Sentinel-2A and - 2B L1C data coverage in 2018. Shown are (a) average cloudiness, and (b) average gap between cloud-free observations.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-cc948934135584de49fbd4cb942740dcde2e9c17.jpg)
+![Figure 16: Sentinel-2A and - 2B L1C data coverage in 2018. Shown are (a) average cloudiness, and (b) average gap between cloud-free observations.](Algorithm_Theoretical_Basis_Document_v2-media/img-cc948934135584de49fbd4cb942740dcde2e9c17.jpg)
 
 
 
-![Figure 17: Visibility of the Sentinel-2 swath borders and the different swath coverage in the  GRAME layer (32TPT; WGS84 coordinates: 10.63480°E, 47.65318°N).](Vegetated_Land_Cover_Characteristics_ATBD-media/img-321da7a884def72c625e69183efbbe9654e38607.jpg)
+![Figure 17: Visibility of the Sentinel-2 swath borders and the different swath coverage in the  GRAME layer (32TPT; WGS84 coordinates: 10.63480°E, 47.65318°N).](Algorithm_Theoretical_Basis_Document_v2-media/img-321da7a884def72c625e69183efbbe9654e38607.jpg)
 
 
 
@@ -630,7 +630,7 @@ The model was trained on an extensive in-situ dataset of almost one million samp
 
 Finally, all training data was merged into a final representative training dataset, which was used to train a single model that generalizes well across all regions and can be reused for crop classification on a yearly basis.
 
-![Figure 18: Schematic overview of the crop type model architecture](Vegetated_Land_Cover_Characteristics_ATBD-media/img-30f252232ca825a8c65e2f9d4607446160de7470.png)
+![Figure 18: Schematic overview of the crop type model architecture](Algorithm_Theoretical_Basis_Document_v2-media/img-30f252232ca825a8c65e2f9d4607446160de7470.png)
 
 
 
@@ -677,11 +677,11 @@ Isolated pixels and small fields are finally cleaned using the GDAL Sieve operat
 
 Finally, 20km sub-tiles are combined in larger tiles to obtain the final 100km crop-type and  probability products.
 
-![Figure 19: CTY postprocessing pipeline flowchart](Vegetated_Land_Cover_Characteristics_ATBD-media/img-78c38c35d79557f1150fa0e6918cd84024ca4f22.png)
+![Figure 19: CTY postprocessing pipeline flowchart](Algorithm_Theoretical_Basis_Document_v2-media/img-78c38c35d79557f1150fa0e6918cd84024ca4f22.png)
 
 
 
-![Figure 20: Decision tree of the CTY postprocessing pipeline, outlining the main steps from  raw crop type probabilities to final output classes. For clarity, output categories are simplified to 'permanent' and 'annual' cropland, as the decision rules were specifically designed for  these classes. Note that spatial operations (defined in Figure 19) such as spatial smoothing  and GDAL Sieve, although they may further modify crop type labels, are not included in this  diagram to maintain readability](Vegetated_Land_Cover_Characteristics_ATBD-media/img-b752ff52dd8f50223ebe874203e33a0c3406029f.png){width=50%}
+![Figure 20: Decision tree of the CTY postprocessing pipeline, outlining the main steps from  raw crop type probabilities to final output classes. For clarity, output categories are simplified to 'permanent' and 'annual' cropland, as the decision rules were specifically designed for  these classes. Note that spatial operations (defined in Figure 19) such as spatial smoothing  and GDAL Sieve, although they may further modify crop type labels, are not included in this  diagram to maintain readability](Algorithm_Theoretical_Basis_Document_v2-media/img-b752ff52dd8f50223ebe874203e33a0c3406029f.png){width=50%}
 
 
 
@@ -741,7 +741,7 @@ All vector-based **CP** layers are rasterized to 10 m spatial resolution to alig
 
 In the following sections, the methods used to delineate growing season(s) and derive the  corresponding **CP** layers are described.
 
-![Figure 21: Schematic overview of cropping pattern products generation.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-5aebd0eb11363c76ebc7b03745474b57189972ca.png)
+![Figure 21: Schematic overview of cropping pattern products generation.](Algorithm_Theoretical_Basis_Document_v2-media/img-5aebd0eb11363c76ebc7b03745474b57189972ca.png)
 
 
 
@@ -749,7 +749,7 @@ In the following sections, the methods used to delineate growing season(s) and d
 
 The growing season delineation at field level forms the basis for the **CP** layers generation. The  methodology used to determine the growing season delineation is shown in Figure 22. The onset  and end of the season is based on the detected emergence and harvest events (see sections  below), respectively. The detected emergence and harvest events are used in expert rules to  determine the growing seasons (see sections below).
 
-![Figure 22: Schematic overview of the growing season delineation.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-7ada907705c4edf3e61d95d290fbdd4b8e17b4df.png)
+![Figure 22: Schematic overview of the growing season delineation.](Algorithm_Theoretical_Basis_Document_v2-media/img-7ada907705c4edf3e61d95d290fbdd4b8e17b4df.png)
 
 
 
@@ -759,7 +759,7 @@ The inflection behavior of the spectral signal around the moment of emergence is
 
 Field data on emergence dates (+- 200) of agricultural fields, located mainly in Belgium, were  used to investigate the behavior of the fAPAR signal around emergence. From this, generalizable  rules and threshold could be defined to allow a robust and consistent emergence detection as  shown on Figure 23. The values of the parameters are obtained by applying a Monte Carlo  simulation. Emergence is detected shortly after the occurrence of a slope inflection of the  CropSAR timeseries (Figure 23), this is also confirmed in literature (Gao et al., 2017; Gao et al.,  2021). Some additional parameters are used to check if the slope inflection is related with a clear  seasonal signal (i.e., amplitude, duration until season peak, …). Within the literature it is also  clearly confirmed that emergence typically occur after an inflection of the time series from  optical derived data (Gao et al., 2017; Gao et al., 2021). The detected emergence date  corresponds with the unfolding of the first leaves of the crop on the field. 
 
-![Figure 23: Different parameters selected for detecting an emergence event out of a seasonal profile.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-0b015b66e7689d69b6db9b63a616bcca4a767ec0.png)
+![Figure 23: Different parameters selected for detecting an emergence event out of a seasonal profile.](Algorithm_Theoretical_Basis_Document_v2-media/img-0b015b66e7689d69b6db9b63a616bcca4a767ec0.png)
 
 
 
@@ -882,7 +882,7 @@ days\;uncertainty_{\mathrm{event}} =
 $$
 
 
-![Figure 24: Schematic overview on the parameters used to calculate the uncertainty at an event  data (i.e., emergence or harvest). Event date is in this example, an emergence.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-23efa437cf45423915c018c5bdcd16023b7c710b.png)
+![Figure 24: Schematic overview on the parameters used to calculate the uncertainty at an event  data (i.e., emergence or harvest). Event date is in this example, an emergence.](Algorithm_Theoretical_Basis_Document_v2-media/img-23efa437cf45423915c018c5bdcd16023b7c710b.png)
 
 
 
@@ -988,7 +988,7 @@ The workflow applied to determine fallow land presence is shown in Figure 25. Af
 
 **Emergence-Emergence:** There are two emergences detected on the field but the maximum  fAPAR value stays below 0.35. These fields have bare soil/very sparse fallow vegetation  growth and are therefore considered as fallow.
 
-![Figure 25: Workflow for fallow land presence classification. With CP: cropping pattern, CTYCL: confidence value of CTY layer. For the Metzger based environmental zonation see Table 5.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-2e78c63221247c54d2de67164438c015ea8c8e30.jpg)
+![Figure 25: Workflow for fallow land presence classification. With CP: cropping pattern, CTYCL: confidence value of CTY layer. For the Metzger based environmental zonation see Table 5.](Algorithm_Theoretical_Basis_Document_v2-media/img-2e78c63221247c54d2de67164438c015ea8c8e30.jpg)
 
 For details on the calculation of the **Fallow Land Presence Confidence Layer (FLPCL)** please refer  to section 
 
@@ -1032,7 +1032,7 @@ In the case of double cropping seasons, there are instances where the seasonal l
 
 In addition to the challenges associated with labeling seasons, issues may arise from the  emergence and harvest detection processes themselves. For some specific crops like sunflowers,  it is observed that often the seasonal signal is too subtle (Figure 26) to allow any harvest  detection. This limitation has been particularly noted during the growing season of 2019 in  southern Spain. No training data on this specific crop in this area is available to be able to  improve the harvest detection algorithm. 
 
-![Figure 26: Example of CropSAR fAPAR signal for a sunflower field in southern Spain in 2019. The black lines show the detected emergence dates within the time series.](Vegetated_Land_Cover_Characteristics_ATBD-media/img-a014c53b4082d3774a361ab4665f133ec588819a.png)
+![Figure 26: Example of CropSAR fAPAR signal for a sunflower field in southern Spain in 2019. The black lines show the detected emergence dates within the time series.](Algorithm_Theoretical_Basis_Document_v2-media/img-a014c53b4082d3774a361ab4665f133ec588819a.png)
 
 
 
@@ -1224,20 +1224,20 @@ In contrast, for other (and most common) annual crop classes, around 95% of pixe
 
 # Annex I - Aggregation rules for 20m layers TCPC, DLTC and GRAC
 
-![](Vegetated_Land_Cover_Characteristics_ATBD-media/img1.png)
+![](Algorithm_Theoretical_Basis_Document_v2-media/img1.png)
 
-![](Vegetated_Land_Cover_Characteristics_ATBD-media/img2.png)
+![](Algorithm_Theoretical_Basis_Document_v2-media/img2.png)
 
-![](Vegetated_Land_Cover_Characteristics_ATBD-media/img3.png)
+![](Algorithm_Theoretical_Basis_Document_v2-media/img3.png)
 {{< pagebreak >}}
 
 # Annex II TCPC MMU filtering
 
 The Tree Cover Presence Change is defined with a Minimum Mapping Unit (MMU) of 1 ha. The  implementation of an MMU requires several choices and steps which are documented here. The  detected gains and losses are initially aggregated to 20m according to the rules defined in Annex  II. Holes smaller than the MMU and completely surrounded by either loss or gain are filled  according to majority of their surroundings, in situation where no majority can be found the tree  cover loss class dominates. Change patches smaller than the MMU are removed in such a way  that tree cover gains are recoded as class 10 (unchanged areas with tree cover) and tree cover  losses are recoded as class 0 (unchanged areas without tree cover).
 
-![](Vegetated_Land_Cover_Characteristics_ATBD-media/img4.png)
+![](Algorithm_Theoretical_Basis_Document_v2-media/img4.png)
 
-![](Vegetated_Land_Cover_Characteristics_ATBD-media/img5.png)
+![](Algorithm_Theoretical_Basis_Document_v2-media/img5.png)
 
 
 [^1]: https://gdal.org/en/stable/api/gdal_alg.html#_CPPv415GDALSieveFilter15GDALRasterBandH15GDALRasterBandH15GDALRasterBandHiiPPc16GDALProgressFuncPv 
