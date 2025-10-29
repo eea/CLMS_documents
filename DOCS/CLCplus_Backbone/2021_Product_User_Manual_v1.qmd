@@ -1,5 +1,5 @@
 ---
-title: "CLC+Backbone Product Specification and User Manual"
+title: "CLC+Backbone 2021 Product User Manual"
 subtitle: "Copernicus Land Monitoring Service"
 date: "2025-06-12"
 version: 1.2
@@ -55,13 +55,13 @@ This chapter provides a comprehensive overview of the CLC+ Backbone products’ 
 
 The CLC+ Raster Product Update for the reference year 2021 comprises the primary Raster Product, representing an 11-class land cover classification at 10m spatial resolution and an MMU of one pixel (10m\*10m = 100m²), as well as three expert products (see Figure 1). Those expert products are additional layers, which provide further information on quality of the Raster Product and comprise the Confidence Layer (the confidence of the initial class assignment), the Data Score Layer (the number of used valid Sentinel-2 observations) and the Raster Post-Processing Layer (marking pixels, whose initially assigned class code was adjusted during post-processing correction steps).
 
-![Figure 1: Overview of products, produced for the reference year 2021](Product_Specification_and_User_Manual_v1-media/img-b4fbbbdc4b33564621ee337d9861f70a86f3661e.png)
+![Figure 1: Overview of products, produced for the reference year 2021](2021_Product_User_Manual_v1-media/img-b4fbbbdc4b33564621ee337d9861f70a86f3661e.png)
 
 ## Raster Product {#sec-raster-product}
 
 The CLC+ Backbone Raster Product 2021 is a 10m pixel-based land cover map (see Figure 2) based on Sentinel data for the reference year 2021 ± 3 months. Each pixel shows the dominant land cover among the 11 basic land cover classes. The following sections provide information on the product specifications (@sec-technical-product-specifications) including the nomenclature concept and class definitions (@sec-nomenclature-concept-and-class-definitions) as well as the related decision tree approach (@sec-decision-tree-for-area-thesholds). Additionally, @sec-examples provides some illustrated examples of typical cases of the Raster Product nomenclature and decision tree application. Details on the production methodology (@sec-production-algorithm-and-methodology), including an overview of the input data, the time series classification approach and postprocessing steps are given in sections @sec-input-data to @sec-post-processing. Additionally, @sec-strength-and-limitations-of-the-applied-methodolgy provides a comprehensive overview of the strengths and limitations of the applied approach.
 
-![Figure 2: CLC+ BB Raster Product 2021 for the EEA-38 area.](Product_Specification_and_User_Manual_v1-media/img-12e5610281353b753a3417050e02fd6b68e04ddd.png)
+![Figure 2: CLC+ BB Raster Product 2021 for the EEA-38 area.](2021_Product_User_Manual_v1-media/img-12e5610281353b753a3417050e02fd6b68e04ddd.png)
 
 ### Technical Product Specifications {#sec-technical-product-specifications}
 
@@ -133,11 +133,11 @@ The Raster Product for the reference year 2018 by definition does not provide a 
 
 Most of the class definitions for CLC+ Backbone Raster Product comprise a 50% area threshold to express that the dominant land cover should be assigned. While this is a plausible approach there are many situations where the land cover within a single 10m pixel comprises a spatial mix of different classes and no single class reaches an absolute majority of 50%. A simple example is provided in Figure 3.
 
-![Figure 3: Exemplary 10x10m plot illustration of a situation where no single land cover class reaches 50%.](Product_Specification_and_User_Manual_v1-media/img-faa419a259fdd5e59310f4ac6d9b6a79f7e5c071.png)
+![Figure 3: Exemplary 10x10m plot illustration of a situation where no single land cover class reaches 50%.](2021_Product_User_Manual_v1-media/img-faa419a259fdd5e59310f4ac6d9b6a79f7e5c071.png)
 
 To address this issue, a relative majority is used in most cases for the class assignment. This logic is implemented in detail through a decision tree approach which does not only define the area threshold but further clarifies and limits for each class the Land Cover Component (Figure 4) considered when evaluating the area threshold. The approach is detailed in @sec-decision-tree-for-area-thresholds In general, the area fractions of different land cover classes are to be understood as what can be reasonably evaluated in HR and VHR remote sensing imagery at nadir.
 
-![Figure 4: Levels 1-4 of the EAGLE Land Cover Components (LCC) v3.1. The component hierarchy shall be used to resolve the class assignment in cases where no single land cover class dominates.](Product_Specification_and_User_Manual_v1-media/image4.png)
+![Figure 4: Levels 1-4 of the EAGLE Land Cover Components (LCC) v3.1. The component hierarchy shall be used to resolve the class assignment in cases where no single land cover class dominates.](2021_Product_User_Manual_v1-media/image4.png)
 
 **Remark on the temporal dimensions of the land cover classes:** In cases of land cover changes during the reference year and unless stated otherwise in the class definitions below (i.e. Permanent herbaceous vs. Periodically herbaceous, Snow and Ice), the dominant land cover (i.e. present \> 6 month/ year) shall be mapped.
 
@@ -256,7 +256,7 @@ Contains consolidated and unconsolidated materials as well as permanent bare soi
 
 The CLC+ Backbone Raster Product decision tree (Figure 5) complements the class definitions in @sec-nomenclature-concept-and-class-definitions and the EAGLE LCC matrix (cf. Figure 4), to ensure a seamless definition of the classes not only for “pure” pixels, but also in cases of mixed land cover at the scale of the 10m resolution of the Raster Product. At each decision level, the decision tree defines the reference area which should be considered (blue text next to the rhombus) and the area threshold for a specific land cover class in percentages of the reference area (white text in rhombus). Generally, the decision tree targets to define an unambiguous assignment of pixels with (pure or) mixed land cover to the dominant land cover class. In accordance with the EAGLE concept, it refers to the dominant land cover independent of the land use. Pixels which are for example dominated by Permanent Herbaceous should be considered as such, even though the dominant land use might be an orchard, fruit plantation or Dehesa. Further examples are given in @sec-examples
 
-![Figure 5: Decision tree for the usage of area thresholds for pixels with (pure or) spatially mixed land cover in the Raster Product.](Product_Specification_and_User_Manual_v1-media/img-6b363aeea02c234f42a1dce3fae11f9d8e5dda9c.png)
+![Figure 5: Decision tree for the usage of area thresholds for pixels with (pure or) spatially mixed land cover in the Raster Product.](2021_Product_User_Manual_v1-media/img-6b363aeea02c234f42a1dce3fae11f9d8e5dda9c.png)
 
 #### Examples {#sec-examples}
 
@@ -264,7 +264,7 @@ Some concrete examples for the usage of the decision tree are provided in the fo
 
 Example 1 – Hypothetical example - considering the mix which was already presented in Figure 3:
 
-![](Product_Specification_and_User_Manual_v1-media/img-f4616282bc6f3850c711288c37e17f15242e3baa.png)
+![](2021_Product_User_Manual_v1-media/img-f4616282bc6f3850c711288c37e17f15242e3baa.png)
 
 1.  Does Water cover more than 50% (considering the sum of Water ∪Biotic ∪ Abiotic)? \> NO
 
@@ -282,7 +282,7 @@ Example 1 – Hypothetical example - considering the mix which was already prese
 
 Example 2 – Real world example extracted from Figure 5 (Row 2, Column 5):
 
-![](Product_Specification_and_User_Manual_v1-media/img-3215f868ce96270cf1adfebba005b649b22f5397.png)
+![](2021_Product_User_Manual_v1-media/img-3215f868ce96270cf1adfebba005b649b22f5397.png)
 
 Sealed: 0 m²
 
@@ -306,43 +306,43 @@ Example 2 illustrates the application of the decision tree over an area with oli
 
 As illustrated in Figure 6, the same will apply for wide areas where such land cover characteristics are dominant, in line with the key paradigm of the EAGLE concept to disentangle land cover and land use.
 
-![Figure 6: Illustration of the CLC+ Backbone Raster Product decision tree approach to evaluate area thresholds for mixed land cover at olive groves, Castile-La Mancha, Spain. Upper left: 100x100m plot overlaid on aerial imagery. Upper right: Outlines of surfaces which are covered by Sealed, Permanent herbaceous, Broadleaved evergreen trees and Non- and sparsely-vegetated. 10m pixel grid overlaid on top. Lower left: Resulting class attribution of the 10m pixels when applying the threshold of Biotic \>30% to decide between Non- and sparsely-vegetated vs. one of the vegetation classes. Lower right: ©Google Street View of the area, showing the four dominant land cover classes.](Product_Specification_and_User_Manual_v1-media/img-5abbdf7f61e51450090d460e6f99aef4d8cee5da.png)
+![Figure 6: Illustration of the CLC+ Backbone Raster Product decision tree approach to evaluate area thresholds for mixed land cover at olive groves, Castile-La Mancha, Spain. Upper left: 100x100m plot overlaid on aerial imagery. Upper right: Outlines of surfaces which are covered by Sealed, Permanent herbaceous, Broadleaved evergreen trees and Non- and sparsely-vegetated. 10m pixel grid overlaid on top. Lower left: Resulting class attribution of the 10m pixels when applying the threshold of Biotic \>30% to decide between Non- and sparsely-vegetated vs. one of the vegetation classes. Lower right: ©Google Street View of the area, showing the four dominant land cover classes.](2021_Product_User_Manual_v1-media/img-5abbdf7f61e51450090d460e6f99aef4d8cee5da.png)
 
 Example 3 below (Figure 7) shows the map result for a rural area in France, illustrating some interruptions of small linear landscape elements (rural road in this case). The apparent omission of such narrow linear elements (e.g. narrow roads and water courses, narrow tree lines and hedge rows) is a common feature of the CLC+ BB raster Product, since a) such narrow landscape elements do often not occupy the majority of the pixels and b) are registered in the time series with a mixed spectral signal due to the sensor point spread function and imprecisions in the multi-temporal spatial co-registration.
 
-![Figure 7: CLC+ BB Raster Product (left) and ESRI World Imagery (right) for a rural area in France illustrating the interruption of narrow linear elements which do not reach the majority per 10 m pixels (black grid lines) and typically show mixed spectral signals in the Sentinel-2 time series.](Product_Specification_and_User_Manual_v1-media/img-9a1448c6e7124fd7a8c0e1560834fff3a0eb3396.png)
+![Figure 7: CLC+ BB Raster Product (left) and ESRI World Imagery (right) for a rural area in France illustrating the interruption of narrow linear elements which do not reach the majority per 10 m pixels (black grid lines) and typically show mixed spectral signals in the Sentinel-2 time series.](2021_Product_User_Manual_v1-media/img-9a1448c6e7124fd7a8c0e1560834fff3a0eb3396.png)
 
 Example 4 (Figure 8) illustrates the largely correct mapping of an area with sparse coniferous tree cover and herbaceous understory as class 6 (Permanent Herbaceous). While the mapping of such mixed areas might be unexpected for some users and might not be reflected in national / regional land cover maps, it correctly represents the dominant land cover and its spectral-temporal properties.
 
-![Figure 8: CLC+ BB Raster Product superimposed on ESRI World Imagery (left) and VHR IMAGE 2021 (right) for an area with sparse tree cover in the Alps. Sparse tree canopies dominated by herbaceous understory are mapped largely correct as class 6.](Product_Specification_and_User_Manual_v1-media/img-f2505742ef66e2c72f3b2bc1ecd9faca13bb5d50.png)
+![Figure 8: CLC+ BB Raster Product superimposed on ESRI World Imagery (left) and VHR IMAGE 2021 (right) for an area with sparse tree cover in the Alps. Sparse tree canopies dominated by herbaceous understory are mapped largely correct as class 6.](2021_Product_User_Manual_v1-media/img-f2505742ef66e2c72f3b2bc1ecd9faca13bb5d50.png)
 
 Example 5 concerns the mapping of Water and Permanent Snow & Ice, which are defined according to their spatio-temporal extent throughout the reference year, with at least 50% and 90% permanence within the period, respectively. As illustrated in Figure 9 and Figure 10, the production has taken these thresholds into account, considering temporal profiles of the NDVI and NDSI during the generation of training data, quality control and internal validation. It is therefore important to note that single satellite images at deliberate times can suggest different spatial extents for these two classes, depending on the time of acquisition. Time-series should be consulted in case of doubts for assessing the correctness of the extent in the Raster Product.
 
-![](Product_Specification_and_User_Manual_v1-media/img-349277b02736665865c69655a9a0243f9074b8d4.png)
+![](2021_Product_User_Manual_v1-media/img-349277b02736665865c69655a9a0243f9074b8d4.png)
 
 Figure 9: Example of the mapping of ephemeral classes in the CLC+ BB Raster Product. Water is mapped according to its spatio-temporal coverage during the reference year 2021. In the given example from the 2018 production, areas which are more than 50% of the observations covered by water (i.e. NDVI typically below 0), are correctly mapped as Water. Areas with shorter water coverage show an NDVI slightly above 0 for most of the time in this example and are correctly mapped as Sparsely- and Non-vegetated.
 
-![Figure 10: Example of the mapping of ephemeral classes in the CLC+ BB Raster Product. Permanent Snow and Ice is mapped according to its spatio-temporal coverage during the reference year 2021. In the given example from the 2018 production, areas which are more than 90% of the observations covered by snow or ice (i.e. NDSI typically above 0.41), are correctly mapped as Snow and Ice. Adjacent areas with shorter snow or ice coverage are correctly mapped as Sparsely- and Non-vegetated.](Product_Specification_and_User_Manual_v1-media/img-e86685f85d5413260b54cd186872dedeb9fac63a.png)
+![Figure 10: Example of the mapping of ephemeral classes in the CLC+ BB Raster Product. Permanent Snow and Ice is mapped according to its spatio-temporal coverage during the reference year 2021. In the given example from the 2018 production, areas which are more than 90% of the observations covered by snow or ice (i.e. NDSI typically above 0.41), are correctly mapped as Snow and Ice. Adjacent areas with shorter snow or ice coverage are correctly mapped as Sparsely- and Non-vegetated.](2021_Product_User_Manual_v1-media/img-e86685f85d5413260b54cd186872dedeb9fac63a.png)
 
 Example 6 (Figure 11) illustrates the mapping of some agricultural parcels in the Mediterranean, correctly as Non- and Sparsely Vegetated, if they have not been cultivated in the main growing season 2021 (i.e. October 2020 to July 2021 in the Mediterranean). The contrast is in particular clear, when contrasting with the temporal trajectory of neighbouring parcels, which were cultivated in the growing season (Figure 11 – Fields numbered as 2).
 
-![Figure 11: Example from the 2018 production of the mapping of temporarily barren agricultural fields in CLC+ BB Raster Product in Spain. Parcels that are cultivated during the main growing season (Mediterranean winter rain season) show a strong NDVI peak in early 2018. In contrast, parcels which are not cultivated during the vegetation season 2018 show a very faint NDVI signal until October of the reference year (i.e. actually the beginning of the cultivation season 2019) and are hence correctly mapped as Non- and Sparsely Vegetated.](Product_Specification_and_User_Manual_v1-media/img-761807dcf7166e8dd5dfe57a10df46110443a6a4.png)
+![Figure 11: Example from the 2018 production of the mapping of temporarily barren agricultural fields in CLC+ BB Raster Product in Spain. Parcels that are cultivated during the main growing season (Mediterranean winter rain season) show a strong NDVI peak in early 2018. In contrast, parcels which are not cultivated during the vegetation season 2018 show a very faint NDVI signal until October of the reference year (i.e. actually the beginning of the cultivation season 2019) and are hence correctly mapped as Non- and Sparsely Vegetated.](2021_Product_User_Manual_v1-media/img-761807dcf7166e8dd5dfe57a10df46110443a6a4.png)
 
 Example 7 (Figure 12) illustrates the mapping of dry grasslands (widespread in Southern Europe and Turkey) as Permanent Herbaceous. Though the vegetation signal is rather subtle, when compared to Permanent Herbaceous, for example in Central Europe, it is still sufficient to correctly distinguish such areas from Nonand Sparsely vegetated areas in those regions.
 
-![Figure 12: Example of the mapping of dry grasslands as Permanent Herbaceous in CLC+ BB Raster Product in Turkey. While in Central European and Northern Europe, permanently herbaceous areas are typically characterized by a strong NDVI peak during the vegetation season, dry grasslands in Southern Europe and Turkey are characterized by far fainter vegetation signals.](Product_Specification_and_User_Manual_v1-media/img-47297aba34f96a41e4c2b2ca7c9d7ee59972e816.png)
+![Figure 12: Example of the mapping of dry grasslands as Permanent Herbaceous in CLC+ BB Raster Product in Turkey. While in Central European and Northern Europe, permanently herbaceous areas are typically characterized by a strong NDVI peak during the vegetation season, dry grasslands in Southern Europe and Turkey are characterized by far fainter vegetation signals.](2021_Product_User_Manual_v1-media/img-47297aba34f96a41e4c2b2ca7c9d7ee59972e816.png)
 
 Example 8 (Figure 13) illustrates uncertainties in the mapping of intensively managed grassland (e.g. fodder crops) as either Permanent Herbaceous or Periodically Herbaceous. While the exposure of bare soil within the reference years can be clearly detected in most ploughed parcels (i.e. to be mapped as Periodically Herbaceous), there can be border cases where drought events and mowing events under rather dry conditions are not fully distinguishable from a bare soil exposure.
 
-![Figure 13: Example of the mapping of intensively used grassland (e.g. fodder crops). The distinction between the classes Permanent Herbaceous and Periodically Herbaceous depends on whether the bare soil is exposed (e.g. ploughed parcel on the right, mapped as Periodically Herbaceous) within the reference year or not. Especially under temporarily very dry conditions, the distinction of mowing events (i.e. no ploughing on the left parcel, mapped as Permanent Herbaceous) from actual exposure of bare soil can be very difficult.](Product_Specification_and_User_Manual_v1-media/img-bd9a18fb9fef08fefe83dbf6d12a26a471853f49.png)
+![Figure 13: Example of the mapping of intensively used grassland (e.g. fodder crops). The distinction between the classes Permanent Herbaceous and Periodically Herbaceous depends on whether the bare soil is exposed (e.g. ploughed parcel on the right, mapped as Periodically Herbaceous) within the reference year or not. Especially under temporarily very dry conditions, the distinction of mowing events (i.e. no ploughing on the left parcel, mapped as Permanent Herbaceous) from actual exposure of bare soil can be very difficult.](2021_Product_User_Manual_v1-media/img-bd9a18fb9fef08fefe83dbf6d12a26a471853f49.png)
 
 Example 9 (Figure 14) illustrates uncertainties in the mapping of the class Low-growing woody plants (bushes, shrubs) versus Woody trees. The main defining characteristics for the class Low-growing woody plants comprise the habitus (i.e. multiple stems emerging from the ground) and the typical height (i.e. typically below 5m), both of which are criteria which are typically difficult to evaluate from Sentinel-2 time series alone. While the spectral-temporal signature of shrubs allows a distinction from other land cover types to some degree (e.g. vineyards), there are many cases where this is less obvious. These comprise in particular sparse woody canopies in Nordic countries with mixtures of shrubs and trees even at the species level, Mediterranean Macchie mingle with trees or heathlands, with mixtures of dwarf shrubs and herbaceous species.
 
-![Figure 14: Example of the uncertainty in the mapping of Low-growing woody vegetation. This example from Northern Sweden illustrates that a sharp distinction of shrubs and trees is often difficult and sometimes remains fuzzy even at the level of the same species (here different specimens of Betula with sometime more tree-like, sometime more shrub-like habitus). In addition, the canopy is rather sparse and the understory comprises a mix of herbaceous species, dwarf shrubs as well as mosses and lichens.](Product_Specification_and_User_Manual_v1-media/img-a4a15f311fb5e12da94a79ecef0bfd52de50fa13.png)
+![Figure 14: Example of the uncertainty in the mapping of Low-growing woody vegetation. This example from Northern Sweden illustrates that a sharp distinction of shrubs and trees is often difficult and sometimes remains fuzzy even at the level of the same species (here different specimens of Betula with sometime more tree-like, sometime more shrub-like habitus). In addition, the canopy is rather sparse and the understory comprises a mix of herbaceous species, dwarf shrubs as well as mosses and lichens.](2021_Product_User_Manual_v1-media/img-a4a15f311fb5e12da94a79ecef0bfd52de50fa13.png)
 
 Example 10 (Figure 15) illustrates the typical similarity between surfaces covered by Lichens and Mosses versus Non- and Sparsely Vegetated areas with some fractions of sparse herbaceous vegetation. Both land cover compositions occur in the same biogeographic regions and are nearly indistinguishable in VHR imagery or NDVI time-series. In areas, where street level imagery and auxiliary data sources are available, it is possible to map and verify larger occurrences of this class, however, large uncertainties remain, in particular in remote areas with no or little adequate reference data.
 
-![Figure 15: Example of the uncertainty in the mapping of Lichens and Mosses in the CLC+ Backbone Raster Product. These two examples from Southern Norway illustrate the typical similarity between surfaces covered by Lichens and Mosses versus Non- and Sparsely Vegetated areas with some fractions of sparse herbaceous vegetation. Both land cover compositions occur under similar biogeographic conditions and are nearly indistinguishable in VHR imagery or NDVI time-series.](Product_Specification_and_User_Manual_v1-media/img-a53abcd90c99890ee1a908939a6805a83a00f70d.png)
+![Figure 15: Example of the uncertainty in the mapping of Lichens and Mosses in the CLC+ Backbone Raster Product. These two examples from Southern Norway illustrate the typical similarity between surfaces covered by Lichens and Mosses versus Non- and Sparsely Vegetated areas with some fractions of sparse herbaceous vegetation. Both land cover compositions occur under similar biogeographic conditions and are nearly indistinguishable in VHR imagery or NDVI time-series.](2021_Product_User_Manual_v1-media/img-a53abcd90c99890ee1a908939a6805a83a00f70d.png)
 
 ### Production Algorithm and Methodology {#sec-production-algorithm-and-methodology}
 
@@ -358,7 +358,7 @@ The training / validation and test data required for the model calibration is ba
 
 Given the heterogeneity of the addressed European landscapes, all classifier training, testing and, finally, LC classification, is performed along substrata based on biogeographical regions (Metzger et al. 2013) and existing LC layers. The AOI is subdivided in 132 of these substrata (i.e. Production Units, Figure 16). The regional calibration is performed iteratively using initially all readily collected samples from the 2018 production for a specific Production Unit to train and test a first model (i.e. 20% of the samples are withheld from training for testing). The classifier used is a Temporal Convolutional Neural Network (TempCNN) classifier, which outperforms the current state of the art classifiers for satellite image time series analysis, such as Random Forest (RF) or Recurrent Neural Networks (RNNs), as described in Pelletier et al. (2019).
 
-![Figure 16: Production units (French DOMs excluded) for the CLC+ BB Raster Product 2021](Product_Specification_and_User_Manual_v1-media/img-42bf5c09c27a718fe5a3a197d2368c1af3cc16e2.png)
+![Figure 16: Production units (French DOMs excluded) for the CLC+ BB Raster Product 2021](2021_Product_User_Manual_v1-media/img-42bf5c09c27a718fe5a3a197d2368c1af3cc16e2.png)
 
 During the model training there is an outlier detection, based on an open source python AI package called Cleanlab (Northcutt et al., 2021), which is identifying samples where the class label is in conflict with the expected characteristics for its class. This outlier detection was implemented in 15 iterations, where the train and test set composition is changing for each iteration. All samples that are flagged as potentially conflicting in each of the 15 iterations are finally extracted. Those so-called noisy samples are then reviewed by expert personnel and the class code is updated in case there has indeed been a LC change from 2018 to 2021 (or the sample had been mislabelled in the previous production). Subsequently the model is trained and tested again with the updated sample data base; this process is repeated until the accuracy metrics on the test set indicate that the required target accuracies are reached.
 
@@ -407,7 +407,7 @@ Implementation of the coastal seawater buffer separation
 
 As a last step of the post-processing, the newly introduced separation of the coastal seawater buffer from inland water, is performed. This is done by using the EUhydro coast line with further improvements, implemented manually and by using the EEA-38 boundary layer, to derive a mask, covering the seawater areas within the respective 250m coastal buffer zone. The underlying pixels are then recoded to a unique raster code with the help of this masking layer. The coding and naming for this separate technical class were defined as “coastal seawater buffer” with raster code 253. The raster code 253 is in the range of the outside area and the no data values (254 & 255), which separates it from the 11 basic LC classes and shall prevent to imply a newly introduced thematic class, which it is not. This recoding of the water areas in the coastal buffer zone is implemented to enable the derivation of reliable water statistics, especially for countries with long coastlines, where the area of seawater would distort any derived water statistics, otherwise. The remaining water areas (class 10) represent the inland water, regardless its salinity. Figure 17 shows the 2018 product in comparison to the 2021 Raster Product with the newly introduced recoding of the coastal seawater buffer.
 
-![Figure 17: 2018 Raster Product (left) and 2021 Raster Product (right) with recoded coastal seawater buffer (light blue)](Product_Specification_and_User_Manual_v1-media/img-db0b46869144e0cd243dc15d7c93f9c926aa2460.png)
+![Figure 17: 2018 Raster Product (left) and 2021 Raster Product (right) with recoded coastal seawater buffer (light blue)](2021_Product_User_Manual_v1-media/img-db0b46869144e0cd243dc15d7c93f9c926aa2460.png)
 
 It has to be considered, that the derivation of the coastal seawater buffer is based on ancillary data (with some manual improvements) and therefore dependent on the quality of this data. Therefore, there might be inconsistencies where pixels of class 10 (water) remain within the coastal buffer zone and where inland water might be partially coded as 253 (coastal seawater buffer), in case the ancillary data shows inaccuracies in outlining the coastline.
 
@@ -471,7 +471,7 @@ Delivery format: GeoTIFF incl. pyramids (*.ovr, resampling: Nearest Neighbour), 
 
 The Data Score Layer (DSL) for the reference year 2021 ± 3 months presents the number of valid Sentinel-2 observations available to interpolate the equidistant time series (54 time steps), which is finally ingested into the classifier. Valid observations are defined as i) having a cloud coverage in the Sentinel-2 L2A metadata of max. 80% and ii) cloud and shadow free according to the cloud masks, derived from the SCL. The DSL can be considered as indicator for the quality of the available data base for the raster classification. The clearly visible stripe patterns (see Figure 18) from SW to NE correctly represent the different data quantities between the overlapping areas of the S-2 swaths. Besides this normal general pattern of the DSL, there are some patterns that are worth further explaining. Sentinel-2 GRANULE overlaps are often visible as horizontal and vertical stripes with slightly higher observation counts. This is due to the fact that in the overlap areas, there is a higher chance that one of the GRANULES fulfils the 80% cloud cover threshold. Compared to the DSL of the 2018 raster production, the values of the 2021 DSL are in general lower, due to the shortened time window used for the production.
 
-![Figure 18: CLC+ BB Data Score Layer of the reference year 2021 (± 3 months)](Product_Specification_and_User_Manual_v1-media/img-19221ab04124c8c686e30662fbb4b097f7dfa540.png)
+![Figure 18: CLC+ BB Data Score Layer of the reference year 2021 (± 3 months)](2021_Product_User_Manual_v1-media/img-19221ab04124c8c686e30662fbb4b097f7dfa540.png)
 
 The DSL for the French DOMs (not displayed in the figure above) is available as separate raster files in the respective national projections.
 
@@ -513,13 +513,13 @@ Delivery format: GeoTIFF incl. pyramids (*.ovr, resampling: Nearest Neighbour), 
 
 The Raster Confidence Layer provides information about the reliability of the land cover class assignment per pixel (Figure 19). More specifically, it depicts the difference of the probabilities for the highest ranked class and the second highest ranked class (often referred to as probability margin), whereas high values are an indicator for a higher confidence of the classifier regarding the assigned class. The partially visible edges between adjacent Production Units are the result of different regional classification model trainings. Areas with lower confidence are typically concentrated in transition areas, with a higher degree of mixed spectral-temporal signatures from mixed land cover types.
 
-![Figure 19: CLC+ BB Raster Confidence Layer 2021](Product_Specification_and_User_Manual_v1-media/img-3dd6e98050d5f9a4ebaa5a73fcd25fc8a82510fd.png)
+![Figure 19: CLC+ BB Raster Confidence Layer 2021](2021_Product_User_Manual_v1-media/img-3dd6e98050d5f9a4ebaa5a73fcd25fc8a82510fd.png)
 
 The CONF for the French DOMs (not displayed in the figure above) is available as separate raster files in the respective national projections.
 
 The distribution of the raster confidence values is displayed in Figure 20. It shows a significant increase of confidence values from approximately 90% upwards. Overall, \~67% of all classified pixels have been assigned to the respective dominant class (out of max. 11 classes) with a confidence of ≥ 50%. Considering the classifier’s general difficulty to distinguish between up to 11 classes (depending on the present land cover in the respective regions), this shows that the classifier was able to draw on a sufficiently large data and sample basis, to resolve most uncertainties in the classification. While this measure of uncertainty is not always a good proxy for the distribution of errors (i.e. in case of spectral-temporal similarity, the classification can still commit an error with high confidence), it is worth noting that areas with lower confidence generally coincide with areas where land cover classification is generally more difficult (i.e. Southern Europe, Norway and Iceland)
 
-![Figure 20: Distribution of CLC+ BB Raster Confidence values across the EEA-38](Product_Specification_and_User_Manual_v1-media/img-eac0f2423dc5a495a417b23890e03f8e568597e3.png)
+![Figure 20: Distribution of CLC+ BB Raster Confidence values across the EEA-38](2021_Product_User_Manual_v1-media/img-eac0f2423dc5a495a417b23890e03f8e568597e3.png)
 
 ### Raster Post-processing Layer (POST) {#sec-raster-post-processing-layer-POST}
 
@@ -565,7 +565,7 @@ The product specifications for the CLC+ Backbone Raster Post-processing Layer ar
 
 The Raster Post-processing Layer for the CLC+ Backbone Raster Product 2021 marks all pixels, which were recoded during the post-processing of the raster classification (Figure 21). The green areas represent these recoded and thus improved areas. The rulesets were intentionally tailored to be rather conservative and introduce changes only where auxiliary layers provide very reliable information. This is reflected in the very small fraction of pixels that underwent automated corrections (0.1%) during the post-processing.
 
-![Figure 21: CLC+ BB Raster Post-processing Layer 2021](Product_Specification_and_User_Manual_v1-media/img-4f751e7bd8cdb48ed8c628345c3ca1e514fc00f5.png)
+![Figure 21: CLC+ BB Raster Post-processing Layer 2021](2021_Product_User_Manual_v1-media/img-4f751e7bd8cdb48ed8c628345c3ca1e514fc00f5.png)
 
 The POST for the French DOMs (not displayed in the figure above) is available as separate raster files in the respective national projections.
 
@@ -573,7 +573,7 @@ The POST for the French DOMs (not displayed in the figure above) is available as
 
 Besides the full EEA-38 extent, the CLC+ 2021 Raster Product is additionally available in the national projections of the single countries. In total there are 47 re-projected raster products, consisting of the 38 member and cooperating countries, including the French DOMs and the Portuguese and Spanish islands (Madeira, Azores, Canaries) as separate projections. Figure 22 shows the national projection of the CLC+ Raster Product 2021 for French Guiana as an example.
 
-![Figure 22: National projection of the CLC+ Raster Product 2021 for French Guiana](Product_Specification_and_User_Manual_v1-media/img-90beb29f480bb39421fe68a70bfa544fd9bd7ee9.png)
+![Figure 22: National projection of the CLC+ Raster Product 2021 for French Guiana](2021_Product_User_Manual_v1-media/img-90beb29f480bb39421fe68a70bfa544fd9bd7ee9.png)
 
 # Product Quality
 
@@ -589,7 +589,7 @@ The sampling design, implemented for CLC+ BB raster 2018 has been reused as a ba
 
 The sampling plan has been established in an appropriate sampling frame and sampling unit. The distribution of samples is done per validation reporting area (i.e. entire country, or group of countries for the smaller ones). The validation results are first given at European level, then the analysis was performed over the EEA-38 countries/groups (UK excluded after Brexit). The according reporting zones are shown in Figure 23.
 
-![Figure 23: Distribution of the sampling and reporting units for the EEA38 Raster Product](Product_Specification_and_User_Manual_v1-media/img-dc70829b3e91ed45c09c7f5efda5bed7239b648f.png)
+![Figure 23: Distribution of the sampling and reporting units for the EEA38 Raster Product](2021_Product_User_Manual_v1-media/img-dc70829b3e91ed45c09c7f5efda5bed7239b648f.png)
 
 An overview of the sampled areas and the distribution of samples per class for the Raster Product are provided in Table 2 and Table 3.
 
@@ -638,7 +638,7 @@ Table 3: Distribution of sampling units in each CLC+ BB Raster 2021 class
 | 11 | Snow and ice | 16 544,71 | 0,29% | 1294 |
 |  | Total | 5 781 965,57 | 100,00% | 40493 |
 
-![Figure 24: Sampling design distribution over the EEA-38](Product_Specification_and_User_Manual_v1-media/img-984e908801a86d07df904c3407f42f39083cb4da.png)
+![Figure 24: Sampling design distribution over the EEA-38](2021_Product_User_Manual_v1-media/img-984e908801a86d07df904c3407f42f39083cb4da.png)
 
 Figure 24 shows the sampling design distribution for the different zones of the EEA 38.
 
@@ -646,9 +646,9 @@ Response design
 
 Regarding the response design, a photo-interpretation tool was implemented (customization of QGIS software, Figure 25). Different source data sets are used in the interpretation process: Sentinel-2 data, VHR imagery provided by ESA and also Google Earth and Microsoft (Bing) as well. Within available Sentinel-2 data, whenever possible images of 2 seasons are displayed: summer and winter in order to better distinguish certain land cover classes. NDVI profiles are also available for each validation point – an example is shown in Figure 26.
 
-![Figure 25: Qgis validation tool to support the interpretation of large numbers of sampling units](Product_Specification_and_User_Manual_v1-media/img-14a326f4b4a3c5c6980335c3113e75e88d0445e2.png)
+![Figure 25: Qgis validation tool to support the interpretation of large numbers of sampling units](2021_Product_User_Manual_v1-media/img-14a326f4b4a3c5c6980335c3113e75e88d0445e2.png)
 
-![Figure 26: Example of NDVI profile](Product_Specification_and_User_Manual_v1-media/img-a6a275caf9dba06610be1c3f79e592c09811c18b.png)
+![Figure 26: Example of NDVI profile](2021_Product_User_Manual_v1-media/img-a6a275caf9dba06610be1c3f79e592c09811c18b.png)
 
 The 2021 CLC+ BB Raster Product validation is established on the basis of the same sampling design used to validate the 2018 CLC+ BB Raster Product. The validation samples are checked by experienced photointerpreters, in order to assess the correct 2021 code.
 
@@ -684,7 +684,7 @@ Table 5: Calculated accuracy parameters determined for the validation
 
 Table 6: List of CLC+ BB Raster Product classes
 
-![](Product_Specification_and_User_Manual_v1-media/table6.png)
+![](2021_Product_User_Manual_v1-media/table6.png)
 
 ## Results
 
@@ -731,7 +731,7 @@ More differentiated analyses of area-weighted Producer’s and User’s Accuraci
 
 Table 8: Area-weighted per class Producer’s and User’s Accuracies of the CLC+ Backbone Raster Product 2021 (EEA-38) in comparison to the 2018 results
 
-![](Product_Specification_and_User_Manual_v1-media/table8.png)
+![](2021_Product_User_Manual_v1-media/table8.png)
 
 The stratification and sampling design proved efficient ensuring a good representation of all eleven Land-Cover classes whilst providing precise overall thematic accuracy results for EEA-38.
 
@@ -743,19 +743,19 @@ Table 9 shows the raw confusion matrix for the validation of the CLC+ BB 2021 Ra
 
 Table 9: Raw confusion matrix, showing the number of samples by class
 
-![](Product_Specification_and_User_Manual_v1-media/table9.png)
+![](2021_Product_User_Manual_v1-media/table9.png)
 
 In case of class 5, one can see that the lower PA is mostly driven by confusions with the tree cover classes (2, 3, 4), permanent herbaceous (6) and non- and sparsely-vegetated (9). Shrubby vegetation is often associated with grassy vegetation or trees and sometimes the transition is fluent and it is very hard for the classifier to reliably assign the correct class in all cases. Especially in Mediterranean countries where bushy and sclerophyllous vegetation are associated with trees (maquis and garrigue), it is difficult to distinguish the low growing woody vegetation from Mediterranean forests. Another difficult part of the class 5 definition are vineyards which should be included in this class but are often having a grassy understory and thus are not easy to distinguish from permanent herbaceous vegetation (class 6). On the other hand, there are also cases where the vineyards are planted on bare ground and the bright signal of the bare soil/gravel is the more dominant one, causing commissions of class 9 in those areas. Generally, the class definition for class 5 is very broad and vegetation to be included shows largely varying spectral characteristics, as indicated in the Figure 27, also containing NDVI profiles.
 
-![Figure 27: Example for class 6 commission in a vineyard](Product_Specification_and_User_Manual_v1-media/image27.png)
+![Figure 27: Example for class 6 commission in a vineyard](2021_Product_User_Manual_v1-media/image27.png)
 
-![Figure 28: Example for class 4 commission in shrubby area](Product_Specification_and_User_Manual_v1-media/image28.png)
+![Figure 28: Example for class 4 commission in shrubby area](2021_Product_User_Manual_v1-media/image28.png)
 
-![Figure 29: Example for class 3 commission in an area with deciduous shrubs](Product_Specification_and_User_Manual_v1-media/img-a7b4212d6bded43329bb252cba3379eb4daac7ad.png)
+![Figure 29: Example for class 3 commission in an area with deciduous shrubs](2021_Product_User_Manual_v1-media/img-a7b4212d6bded43329bb252cba3379eb4daac7ad.png)
 
 Class 8 has a low producer accuracy (PA = 66.14%) but a good user accuracy (UA = 90.98%). The weak PA is mainly due to confusions with the permanent herbaceous cover class (6) and the non and sparsely vegetated class (9). Class 8 in general contains complex vegetation formations and the tendency is to accept class 8 in case the NDVI is in the range of 0.4 to 0.6 and to accept class 6, when the NDVI is higher than 0.6. The difficulty is mostly to dissociate graminoid formations from lichens and mosses, which is not possible when looking at S-2 imagery. The tundra formations in the polar and in the alpine regions are composed mainly of a combination of grasses, sedges, lichens, mosses and various types of shrubs, where it is very hard to decide, what the predominant land cover is. Further, Lichens and mosses are also found on bare rock, which cause confusions with class 9 (non and sparsely vegetated). Therefore, the distinction of class 9 from class 8 was based on the NDVI (where pixels with a value below 0.3 were considered as class 9) and further geo-spatial information, if available.
 
-![Figure 30: Example for a sample validated as omission due to the NDVI value](Product_Specification_and_User_Manual_v1-media/image28.png)
+![Figure 30: Example for a sample validated as omission due to the NDVI value](2021_Product_User_Manual_v1-media/image28.png)
 
 {{< pagebreak >}}
 
@@ -913,25 +913,25 @@ The CLC+ Backbone products are delivered with the following colour maps as *.clr
 
 Colour palette for the Raster Product
 
-![](Product_Specification_and_User_Manual_v1-media/image1.png)
+![](2021_Product_User_Manual_v1-media/image1.png)
 
 *Data Score Layer*
 
 Colour palette for the Data Score Layer
 
-![](Product_Specification_and_User_Manual_v1-media/image2.png)
+![](2021_Product_User_Manual_v1-media/image2.png)
 
 *Raster Confidence Layer*
 
 Colour palette for the Raster Confidence Layer
 
-![](Product_Specification_and_User_Manual_v1-media/image3.png)
+![](2021_Product_User_Manual_v1-media/image3.png)
 
 *Post-Processing Layer*
 
 Colour palette for the Raster Post-processing layer
 
-![](Product_Specification_and_User_Manual_v1-media/image3.1.png)
+![](2021_Product_User_Manual_v1-media/image3.1.png)
 
 ## Annex 3: Projection Parameters
 
@@ -971,7 +971,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 1
 |----------------------|---------|
 | 93.90                | 1.10    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 1](Product_Specification_and_User_Manual_v1-media/turkey.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 1](2021_Product_User_Manual_v1-media/turkey.png)
 
 **Zone 2 – France**
 
@@ -981,7 +981,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 2
 |----------------------|---------|
 | 94.90                | 1.10    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 2](Product_Specification_and_User_Manual_v1-media/france.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 2](2021_Product_User_Manual_v1-media/france.png)
 
 **Zone 3 – Spain & Andorra**
 
@@ -991,7 +991,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 3
 |----------------------|---------|
 | 93.50                | 1.20    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 3](Product_Specification_and_User_Manual_v1-media/spain.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 3](2021_Product_User_Manual_v1-media/spain.png)
 
 **Zone 4 – Sweden**
 
@@ -1001,7 +1001,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 4
 |----------------------|---------|
 | 95.10                | 1.10    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 4](Product_Specification_and_User_Manual_v1-media/sweden.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 4](2021_Product_User_Manual_v1-media/sweden.png)
 
 **Zone 5 – Germany**
 
@@ -1011,7 +1011,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 5
 |----------------------|---------|
 | 95.20                | 1.10    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 5](Product_Specification_and_User_Manual_v1-media/germany.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 5](2021_Product_User_Manual_v1-media/germany.png)
 
 **Zone 6 – Finland**
 
@@ -1021,7 +1021,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 6
 |----------------------|---------|
 | 94.50                | 1.20    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 6](Product_Specification_and_User_Manual_v1-media/finland.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 6](2021_Product_User_Manual_v1-media/finland.png)
 
 **Zone 7 – Norway**
 
@@ -1031,7 +1031,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 7
 |----------------------|---------|
 | 92,4                 | 1.3     |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 7](Product_Specification_and_User_Manual_v1-media/norway.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 7](2021_Product_User_Manual_v1-media/norway.png)
 
 **Zone 8 – Poland**
 
@@ -1041,7 +1041,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 8
 |----------------------|---------|
 | 96.80                | 0.90    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 8](Product_Specification_and_User_Manual_v1-media/poland.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 8](2021_Product_User_Manual_v1-media/poland.png)
 
 **Zone 9 – Italy-Malta**
 
@@ -1051,7 +1051,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 9
 |----------------------|---------|
 | 91.70                | 1.40%   |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 9](Product_Specification_and_User_Manual_v1-media/italy.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 9](2021_Product_User_Manual_v1-media/italy.png)
 
 **Zone 10 – Ireland**
 
@@ -1061,7 +1061,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 10
 |----------------------|---------|
 | 96.60                | 2.00    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 10](Product_Specification_and_User_Manual_v1-media/ireland.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 10](2021_Product_User_Manual_v1-media/ireland.png)
 
 **Zone 11 – Romania**
 
@@ -1071,7 +1071,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 11
 |----------------------|---------|
 | 94.90                | 1.10    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 11](Product_Specification_and_User_Manual_v1-media/romania.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 11](2021_Product_User_Manual_v1-media/romania.png)
 
 **Zone 12 – Cyprus-Greece**
 
@@ -1081,7 +1081,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 12
 |----------------------|---------|
 | 91.00                | 1.60    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 12](Product_Specification_and_User_Manual_v1-media/cyprus.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 12](2021_Product_User_Manual_v1-media/cyprus.png)
 
 **Zone 13 – Bulgaria**
 
@@ -1091,7 +1091,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 13
 |----------------------|---------|
 | 96.50                | 1.00    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 13](Product_Specification_and_User_Manual_v1-media/bulgaria.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 13](2021_Product_User_Manual_v1-media/bulgaria.png)
 
 **Zone 14 – Island**
 
@@ -1101,7 +1101,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 14
 |----------------------|---------|
 | 91.40                | 1.50    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 14](Product_Specification_and_User_Manual_v1-media/island.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 14](2021_Product_User_Manual_v1-media/island.png)
 
 **Zone 15 – Hungaria**
 
@@ -1111,7 +1111,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 15
 |----------------------|---------|
 | 97.70                | 0.70    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 15](Product_Specification_and_User_Manual_v1-media/hungaria.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 15](2021_Product_User_Manual_v1-media/hungaria.png)
 
 **Zone 16 – Portugal**
 
@@ -1121,7 +1121,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 16
 |----------------------|---------|
 | 89.80                | 1.60    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 16](Product_Specification_and_User_Manual_v1-media/portugal.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 16](2021_Product_User_Manual_v1-media/portugal.png)
 
 **Zone 17 – Austria-Switzerland-Liechtenstein**
 
@@ -1131,7 +1131,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 17
 |----------------------|---------|
 | 96.70                | 1.00    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 17](Product_Specification_and_User_Manual_v1-media/austria.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 17](2021_Product_User_Manual_v1-media/austria.png)
 
 **Zone 18 – Belgium-Denmark-Luxembourg-Netherlands**
 
@@ -1141,7 +1141,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 18
 |----------------------|---------|
 | 94.60                | 1.20    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 18](Product_Specification_and_User_Manual_v1-media/belgium.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 18](2021_Product_User_Manual_v1-media/belgium.png)
 
 **Zone 19 – Albania-Kosovo-Macedonia-Montenegro-Serbia**
 
@@ -1151,7 +1151,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 19
 |----------------------|---------|
 | 95.40                | 1.10    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 19](Product_Specification_and_User_Manual_v1-media/albania.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 19](2021_Product_User_Manual_v1-media/albania.png)
 
 **Zone 20 – Slovenia-Croatia-Bosnia & Herzegovina**
 
@@ -1161,7 +1161,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 20
 |----------------------|---------|
 | 93.80                | 1.30    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 20](Product_Specification_and_User_Manual_v1-media/slovenia.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 20](2021_Product_User_Manual_v1-media/slovenia.png)
 
 **Zone 21 – Czech Republic - Slovakia**
 
@@ -1171,7 +1171,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 21
 |----------------------|---------|
 | 97.20                | 0.80    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 21](Product_Specification_and_User_Manual_v1-media/czech.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 21](2021_Product_User_Manual_v1-media/czech.png)
 
 **Zone 22 – Latvia - Lithuania-Estonia**
 
@@ -1181,7 +1181,7 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 22
 |----------------------|---------|
 | 93.10                | 1.30    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 22](Product_Specification_and_User_Manual_v1-media/latvia.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 22](2021_Product_User_Manual_v1-media/latvia.png)
 
 **Zone 23 – French Overseas Departments**
 
@@ -1191,4 +1191,4 @@ Overall Accuracy for CLC+ Backbone Raster Product 2021 in percent for zone 23
 |----------------------|---------|
 | 98.30                | 0.60    |
 
-![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 23](Product_Specification_and_User_Manual_v1-media/french.png)
+![CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for zone 23](2021_Product_User_Manual_v1-media/french.png)
