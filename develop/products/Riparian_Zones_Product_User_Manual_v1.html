@@ -1,0 +1,2768 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-08-01">
+<meta name="keywords" content="Riparian zones, Land cover/Land use classification, Change detection mapping, Very high-resolution imagery, Mapping and Assessment of Ecosystems and their Services (MAES), Strahler stream order, European Catchment and Rivers Network System (ECRINS), European Terrestrial Reference System (ETRS89), INSPIRE metadata standard, Parent Scene Identification Layer (PSIL)">
+<meta name="description" content="This Product User Manual (PUM) provides comprehensive documentation for the Riparian Zones Land Cover/Land Use (LC/LU) product within the Copernicus Land Monitoring Service (CLMS) Priority Area Monitoring component. It details the product’s purpose – to deliver high-resolution land cover and land use data for riparian areas across the EEA-38 countries and the UK for 2012 and 2018, including change mapping – alongside its technical specifications, methodology, quality assessment, and application areas. The manual serves as a primary resource for users seeking to understand and effectively utilise the Riparian Zones product for environmental monitoring, policy support, and ecosystem service assessment.">
+
+<title>Riparian Zones LC/LU and change 2012-2018 - Product User Manual (PUM) – Technical Library</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-24cc52c546c003a7d891213737239288.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "Search ...",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Riparian Zones LC/LU and change 2012-2018 - Product User Manual (PUM)",
+    "description": "This Product User Manual (PUM) provides comprehensive documentation for the Riparian Zones Land Cover/Land Use (LC/LU) product within the Copernicus Land Monitoring Service (CLMS) Priority Area Monitoring component. It details the product’s purpose – to deliver high-resolution land cover and land use data for riparian areas across the EEA-38 countries and the UK for 2012 and 2018, including change mapping – alongside its technical specifications, methodology, quality assessment, and application areas. The manual serves as a primary resource for users seeking to understand and effectively utilise the Riparian Zones product for environmental monitoring, policy support, and ecosystem service assessment.",
+    "datePublished": "August 1, 2023",
+    "author": {
+      "@type": "Person",
+      "name": "?meta:author"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Copernicus Land Monitoring Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
+      }
+    },
+    "keywords": "?invalid meta type:keywords",
+    "articleSection": "General",
+    "isAccessibleForFree": "true",
+    "license": "",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": "article p"
+    }
+  }
+</script>
+
+
+<link rel="stylesheet" href="../_meta/theme/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Technical Library</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary"><span class="header-section-number">1</span> Executive summary</a></li>
+  <li><a href="#background-of-the-document" id="toc-background-of-the-document" class="nav-link" data-scroll-target="#background-of-the-document"><span class="header-section-number">2</span> Background of the document</a>
+  <ul class="collapse">
+  <li><a href="#who-is-this-guide-for" id="toc-who-is-this-guide-for" class="nav-link" data-scroll-target="#who-is-this-guide-for"><span class="header-section-number">2.1</span> Who is this guide for?</a></li>
+  <li><a href="#content-and-structure" id="toc-content-and-structure" class="nav-link" data-scroll-target="#content-and-structure"><span class="header-section-number">2.2</span> Content and structure</a></li>
+  </ul></li>
+  <li><a href="#review-of-user-requirements" id="toc-review-of-user-requirements" class="nav-link" data-scroll-target="#review-of-user-requirements"><span class="header-section-number">3</span> Review of user requirements</a></li>
+  <li><a href="#product-application-areas-andor-examples-of-use-cases" id="toc-product-application-areas-andor-examples-of-use-cases" class="nav-link" data-scroll-target="#product-application-areas-andor-examples-of-use-cases"><span class="header-section-number">4</span> Product application areas and/or examples of use cases</a>
+  <ul class="collapse">
+  <li><a href="#public-and-private-sector-and-private-interest-groups" id="toc-public-and-private-sector-and-private-interest-groups" class="nav-link" data-scroll-target="#public-and-private-sector-and-private-interest-groups"><span class="header-section-number">4.1</span> Public and private sector and private interest groups</a></li>
+  <li><a href="#use-cases" id="toc-use-cases" class="nav-link" data-scroll-target="#use-cases"><span class="header-section-number">4.2</span> Use cases</a>
+  <ul class="collapse">
+  <li><a href="#use-case-potential-flood-plains" id="toc-use-case-potential-flood-plains" class="nav-link" data-scroll-target="#use-case-potential-flood-plains"><span class="header-section-number">4.2.1</span> Use case: Potential Flood Plains</a></li>
+  <li><a href="#use-case-improving-water-quality-and-protecting-against-flooding" id="toc-use-case-improving-water-quality-and-protecting-against-flooding" class="nav-link" data-scroll-target="#use-case-improving-water-quality-and-protecting-against-flooding"><span class="header-section-number">4.2.2</span> Use case: Improving water quality and protecting against flooding</a></li>
+  <li><a href="#use-case-ecosystem-types-of-europe" id="toc-use-case-ecosystem-types-of-europe" class="nav-link" data-scroll-target="#use-case-ecosystem-types-of-europe"><span class="header-section-number">4.2.3</span> Use case: Ecosystem types of Europe</a></li>
+  <li><a href="#use-case-ecosystem-services-and-informing-policies-and-conservation-measures" id="toc-use-case-ecosystem-services-and-informing-policies-and-conservation-measures" class="nav-link" data-scroll-target="#use-case-ecosystem-services-and-informing-policies-and-conservation-measures"><span class="header-section-number">4.2.4</span> Use case: Ecosystem services and informing policies and conservation measures</a></li>
+  <li><a href="#use-case-biomass-production" id="toc-use-case-biomass-production" class="nav-link" data-scroll-target="#use-case-biomass-production"><span class="header-section-number">4.2.5</span> Use case: Biomass production</a></li>
+  <li><a href="#use-case-biodiversity-and-birds" id="toc-use-case-biodiversity-and-birds" class="nav-link" data-scroll-target="#use-case-biodiversity-and-birds"><span class="header-section-number">4.2.6</span> Use case: Biodiversity and birds</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#product-description" id="toc-product-description" class="nav-link" data-scroll-target="#product-description"><span class="header-section-number">5</span> Product description</a>
+  <ul class="collapse">
+  <li><a href="#product-overview" id="toc-product-overview" class="nav-link" data-scroll-target="#product-overview"><span class="header-section-number">5.1</span> Product overview</a>
+  <ul class="collapse">
+  <li><a href="#product-file-nomenclature" id="toc-product-file-nomenclature" class="nav-link" data-scroll-target="#product-file-nomenclature"><span class="header-section-number">5.1.1</span> Product File Nomenclature</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#product-methodology-and-workflow" id="toc-product-methodology-and-workflow" class="nav-link" data-scroll-target="#product-methodology-and-workflow"><span class="header-section-number">6</span> Product methodology and workflow</a>
+  <ul class="collapse">
+  <li><a href="#aoi-amendments" id="toc-aoi-amendments" class="nav-link" data-scroll-target="#aoi-amendments"><span class="header-section-number">6.1</span> AoI Amendments</a></li>
+  <li><a href="#eo-data-specifications" id="toc-eo-data-specifications" class="nav-link" data-scroll-target="#eo-data-specifications"><span class="header-section-number">6.2</span> EO Data Specifications</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">6.3</span> Methodology</a></li>
+  </ul></li>
+  <li><a href="#quality-assessment" id="toc-quality-assessment" class="nav-link" data-scroll-target="#quality-assessment"><span class="header-section-number">7</span> Quality assessment</a></li>
+  <li><a href="#terms-of-use-and-product-technical-support" id="toc-terms-of-use-and-product-technical-support" class="nav-link" data-scroll-target="#terms-of-use-and-product-technical-support"><span class="header-section-number">8</span> Terms of use and product technical support</a></li>
+  <li><a href="#abbreviations-acronyms" id="toc-abbreviations-acronyms" class="nav-link" data-scroll-target="#abbreviations-acronyms"><span class="header-section-number">9</span> Abbreviations &amp; Acronyms</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">10</span> References</a></li>
+  <li><a href="#annexes" id="toc-annexes" class="nav-link" data-scroll-target="#annexes"><span class="header-section-number">11</span> Annexes</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Riparian_Zones_Product_User_Manual_v1.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="Riparian_Zones_Product_User_Manual_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+<div class="logo-header">
+  <img src="../assets/copernicus-logo.svg" class="nav-logo">
+  <img src="../assets/lms_logo.svg" class="nav-logo">
+</div>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Riparian Zones LC/LU and change 2012-2018 - Product User Manual (PUM)</h1>
+<p class="subtitle lead">Copernicus Land Monitoring Service</p>
+</div>
+
+<div>
+  <div class="description">
+    This Product User Manual (PUM) provides comprehensive documentation for the Riparian Zones Land Cover/Land Use (LC/LU) product within the Copernicus Land Monitoring Service (CLMS) Priority Area Monitoring component. It details the product’s purpose – to deliver high-resolution land cover and land use data for riparian areas across the EEA-38 countries and the UK for 2012 and 2018, including change mapping – alongside its technical specifications, methodology, quality assessment, and application areas. The manual serves as a primary resource for users seeking to understand and effectively utilise the Riparian Zones product for environmental monitoring, policy support, and ecosystem service assessment.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 1, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>Riparian zones, Land cover/Land use classification, Change detection mapping, Very high-resolution imagery, Mapping and Assessment of Ecosystems and their Services (MAES), Strahler stream order, European Catchment and Rivers Network System (ECRINS), European Terrestrial Reference System (ETRS89), INSPIRE metadata standard, Parent Scene Identification Layer (PSIL)</p>
+  </div>
+</div>
+
+</header>
+
+
+<p><br>
+<strong>Contact:</strong></p>
+<div data-custom-style="LeftAlign">
+<p>European Environment Agency (EEA)<br>
+Kongens Nytorv 6<br>
+1050 Copenhagen K<br>
+Denmark<br>
+<a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
+</div>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Figure  1:  Riparian  Zones  2012-2018  product  portfolio","url":"Riparian_Zones_Product_User_Manual_v1-media/Fig1.png"},{"@type":"ImageObject","caption":"Figure  2:  The  43  Riparian  Zones  Delivery  Units  (based  on  ECRINS  v1.1)","url":"Riparian_Zones_Product_User_Manual_v1-media/image6.png"},{"@type":"ImageObject","caption":"","url":"Riparian_Zones_Product_User_Manual_v1-media/Table1.png"},{"@type":"ImageObject","caption":"","url":"Riparian_Zones_Product_User_Manual_v1-media/Table2.png"},{"@type":"ImageObject","caption":"","url":"Riparian_Zones_Product_User_Manual_v1-media/Table3.png"},{"@type":"ImageObject","caption":"","url":"Riparian_Zones_Product_User_Manual_v1-media/Table4.png"},{"@type":"ImageObject","caption":"Figure  3:  AoI  amendment  example  of  Str-2  hanging  rivers  connected  to  Str.  3","url":"Riparian_Zones_Product_User_Manual_v1-media/image7.png"},{"@type":"ImageObject","caption":"Figure  4:  AoI  amendment  to  include  Lake  Outline","url":"Riparian_Zones_Product_User_Manual_v1-media/image8.png"},{"@type":"ImageObject","caption":"Table  8:  Recoding  of  the  UA  Core  areas  into  the  RZ  Nomenclature","url":"Riparian_Zones_Product_User_Manual_v1-media/Picture1.png"},{"@type":"ImageObject","caption":"Figure  5:  UA2012/2018  Integration  into  the  RZ  project","url":"Riparian_Zones_Product_User_Manual_v1-media/image10.png"},{"@type":"ImageObject","caption":"Figure  6:  Delineation  avoiding  smooth  lines","url":"Riparian_Zones_Product_User_Manual_v1-media/image11.png"},{"@type":"ImageObject","caption":"Figure  7:  Delineation  avoiding  acute  angles","url":"Riparian_Zones_Product_User_Manual_v1-media/image14.png"},{"@type":"ImageObject","caption":"Figure  8:  MMU  exception  at  RZ  border","url":"Riparian_Zones_Product_User_Manual_v1-media/image15.png"},{"@type":"ImageObject","caption":"Figure  9:  MMU  exception  of  linear  elements","url":"Riparian_Zones_Product_User_Manual_v1-media/image16.png"},{"@type":"ImageObject","caption":"Figure  10:  MMU  exception  between  roads","url":"Riparian_Zones_Product_User_Manual_v1-media/image17.jpeg"},{"@type":"ImageObject","caption":"Figure  11:  MMW  exception","url":"Riparian_Zones_Product_User_Manual_v1-media/image18.png"},{"@type":"ImageObject","caption":"Figure  12:  A  Green  urban  area  (1.4.0.0)  ≥0,5  ha  in  2012  changes  into  Continuous  urban  fabric  (1.1.1.1)  in  2018","url":"Riparian_Zones_Product_User_Manual_v1-media/image19.png"},{"@type":"ImageObject","caption":"Figure  13:  Changes  (Continuous  urban  fabric  0,4  ha,  water  area  0,15  ha)  with  an  area  <0,5  ha  and  different  classes  make  up  a  complex  change  area  of  0,55  ha","url":"Riparian_Zones_Product_User_Manual_v1-media/image20.png"},{"@type":"ImageObject","caption":"Figure  14:  An  Olive  grove  (2.2.2.0)  changed  into  Vineyards,  fruit  trees  and  berry  plantations  (2.2.1.0)  and  Industrial,  commercial  and  military  units  (1.1.2.0),  but  because  the  areas  are  <0,5  ha,  they  are  merged  with  the  neighbouring  objects.","url":"Riparian_Zones_Product_User_Manual_v1-media/image21.png"},{"@type":"ImageObject","caption":"Figure  15:  Urban  expansion:  Several  changes  with  an  area  <0,5  ha  make  up  a  complex  change  area  of  0,5  ha  (0,1  ha  of  4.1.0.0  and  0,4  ha  of  2.1.1.0  changed  to  0,5  ha  of  1.1.1.1)","url":"Riparian_Zones_Product_User_Manual_v1-media/image22.png"},{"@type":"ImageObject","caption":"Figure  16:  Polygons  <0,5  ha  with  no  change  (4.1.0.0)  but  connected  to  polygons  (1.3.1)  where  there  is  a  change","url":"Riparian_Zones_Product_User_Manual_v1-media/image23.png"},{"@type":"ImageObject","caption":"Figure  17:  Simple  change","url":"Riparian_Zones_Product_User_Manual_v1-media/image24.png"},{"@type":"ImageObject","caption":"Figure  18:  Simple  change","url":"Riparian_Zones_Product_User_Manual_v1-media/image25.png"},{"@type":"ImageObject","caption":"Figure  19:  Small  change  integrated  into  adjacent  change","url":"Riparian_Zones_Product_User_Manual_v1-media/image26.png"},{"@type":"ImageObject","caption":"Figure  20:  Generalisation  (disappearing  polygon)","url":"Riparian_Zones_Product_User_Manual_v1-media/image27.png"},{"@type":"ImageObject","caption":"Figure  21:  A  new  Aquaculture  pond  (8.2.3)  is  established  on  semi-natural  grassland  (4.2.x).","url":"Riparian_Zones_Product_User_Manual_v1-media/image28.png"},{"@type":"ImageObject","caption":"Figure  22:  New  established  feature  with  splitted  change","url":"Riparian_Zones_Product_User_Manual_v1-media/image29.png"},{"@type":"ImageObject","caption":"","height":"1.3333333333333333in","url":"Riparian_Zones_Product_User_Manual_v1-media/image30.JPEG","width":"2.9032261592300963in"},{"@type":"ImageObject","caption":"","url":"Riparian_Zones_Product_User_Manual_v1-media/image31.JPG"},{"@type":"ImageObject","caption":"","url":"Riparian_Zones_Product_User_Manual_v1-media/image32.JPG"},{"@type":"ImageObject","caption":"","url":"Riparian_Zones_Product_User_Manual_v1-media/image33.JPG"},{"@type":"ImageObject","caption":"","height":"1.33in","url":"Riparian_Zones_Product_User_Manual_v1-media/image30.JPEG","width":"2.9in"},{"@type":"ImageObject","caption":"","height":"1.53in","url":"Riparian_Zones_Product_User_Manual_v1-media/image31.JPG","width":"2.27in"},{"@type":"ImageObject","caption":"","height":"1.03in","url":"Riparian_Zones_Product_User_Manual_v1-media/image32.JPG","width":"0.99in"},{"@type":"ImageObject","caption":"","height":"0.97in","url":"Riparian_Zones_Product_User_Manual_v1-media/image33.JPG","width":"1.30in"},{"@type":"ImageObject","caption":"","height":"0.87in","url":"Riparian_Zones_Product_User_Manual_v1-media/image34.JPEG","width":"2.90in"},{"@type":"ImageObject","caption":"","height":"0.39in","url":"Riparian_Zones_Product_User_Manual_v1-media/image35.png","width":"2.90in"},{"@type":"ImageObject","caption":"","height":"0.78in","url":"Riparian_Zones_Product_User_Manual_v1-media/image36.png","width":"2.85in"}]}
+</script>
+<section id="executive-summary" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Executive summary</h1>
+<p>Copernicus is the European Union’s Earth Observation (EO) Programme. It offers information services based on satellite earth observation and in situ (non-space) data and is an integrated part of European Environment Agency’s (EEA’s) strategy to improve environmental information. These information services are <strong>freely</strong> and <strong>openly</strong> accessible to its users through six thematic Copernicus services (atmosphere monitoring, marine environment monitoring, land monitoring, climate change, emergency management and security).</p>
+<p>The Copernicus Land Monitoring Service (CLMS) provides geographical information on land cover and its changes, land use, vegetation state, water cycle and earth surface energy variables to a broad range of users in Europe and across the world in the field of environmental terrestrial applications. CLMS information is based on space data combined with other sources. It addresses a wide range of policies such as environment, agriculture, regional development, transport and energy at EU level, and European commitments to International Conventions.</p>
+<p>CLMS is jointly implemented by the European Environment Agency and the European Commission (EC) DG Joint Research Centre (JRC).</p>
+<p>The Priority Area Monitoring (previously known as Local Component) is coordinated by the EEA as part of CLMS and aims to provide specific and more detailed information that is complementary to the information obtained through the pan-European component. It focuses on different “hotspots”, i.e., areas that are prone to specific environmental challenges and problems. It is based on Very High-Resolution (VHR) satellite imagery in combination with other available datasets (high and medium resolution images) over the pan-European area.</p>
+<p>In Europe, the EC has proposed a strategy to lead the world by example in reversing biodiversity loss, and in helping to ensure that by 2050 all of the world’s ecosystems are restored, resilient, and adequately protected: the European Biodiversity Strategy. In the previous version of this strategy, EU Biodiversity Strategy 2020, one of the targets were to focus on a better protection and restoration of ecosystems and the services they provide, and greater use of green infrastructure. As a consequence of this, riparian zones (RZ) started being mapped and monitored within the Copernicus program. Riparian Zones is a product within the Copernicus Land Monitoring Service’s Priority Area Monitoring component and was first created during the initial phase of the Copernicus Initial Operations in 2011-2013 [1].</p>
+<p>The Riparian LC/LU product provides a detailed LC/LU dataset for areas along a buffer zone of selected rivers covering EEA-38 + UK (i.e., the 38 EEA member and cooperating countries and the UK). This product provides a consistent, very high-resolution, delineation and characterisation of the riparian zones of major and medium sized rivers. For the reference year 2012, it is based on optical 2,5 m spatial resolution satellite imagery from the European Space Agency (ESA) Data Warehouse (DWH). The VHR_IMAGE_2018 dataset, with resolutions between 2 and 4 m from different sensors, is the main input for the reference year 2018. The project produces the change mapping between the reference years, 2012 and 2018, and the status production for 2012 and 2018. It covers the whole extension of the selected rivers of Strahler 2-9 levels.</p>
+<p>The mapping of LC/LU along a buffer zone of selected rivers had at the start as one of its main objectives to support the mapping and assessment of ecosystems and their services (MAES) [2] [3], as part of the EU Biodiversity Strategy to 2020.</p>
+<p>The initial Riparian Zones map was available for more than 550.000 km² of EEA-39 territory and covered modelled buffer areas around selected medium and large size rivers with Strahler [4] numbers from 3–8. The mapping was done for the reference year 2012 with a temporal coverage of satellite input data between 2010 and 2014. The production for Strahler from 3-8 was finalized in 2015. In 2017/2018 a geographic extension covering buffered (250 m) rivers with Strahler number 2 was performed, extending the total area to 805.177 km², and including the implementation of the newest version of EU-Hydro (public beta 0.9) that led to minor reclassification of larger rivers to Strahler level 9.</p>
+<p>In 2017, the nomenclature was revised with the aim to harmonize the Local Component products (mainly Riparian Zones, Natura 2000, Urban Atlas, and Coastal Zones products) while maintaining user requirements for products. The nomenclature of the RZ data is based on the MAES systematics and is reflected in the CODE values of the data The revision and update of the new Riparian Zones (RZ) nomenclature led to a simplification of some classes, decreasing the CODE level 4 of the nomenclature in a coherent and non-redundant way (previous nomenclature: 79 classes / new nomenclature: 56 classes). In 2021, the class codes and class names were reorganized and updated a further time in order to, again, achieve better harmonization of the nomenclatures of the CLMS Local Component products while the number of 56 classes (shown in Table 3) as well as the class definitions were maintained.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="background-of-the-document" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Background of the document</h1>
+<section id="who-is-this-guide-for" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="who-is-this-guide-for"><span class="header-section-number">2.1</span> Who is this guide for?</h2>
+<p>Product User Manual is the primary document that users are recommended to read before using the product. It provides an overview of the product characteristics, product methodology and workflows, user requirements and example/potential use cases, information about the quality assessment checks and their results as well as product technical support.</p>
+</section>
+<section id="content-and-structure" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="content-and-structure"><span class="header-section-number">2.2</span> Content and structure</h2>
+<p>The document is structured as follows:</p>
+<ul>
+<li><p>Chapter III recalls the user requirements</p></li>
+<li><p>Chapter IV presents potential product application areas and/or example use cases</p></li>
+<li><p>Chapter V presents product description (product file naming convention and format(s), product content and characteristics)</p></li>
+<li><p>Chapter VI provides a description of the product methodology and workflows</p></li>
+<li><p>Chapter VII summarizes the quality assessment and/or validation procedure and the results</p></li>
+<li><p>Chapter VIII provides information about product access and use conditions as well as the technical product support</p></li>
+<li><p>Chapter IX lists references to the cited literature</p></li>
+</ul>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="review-of-user-requirements" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Review of user requirements</h1>
+<p>Riparian zones (RZ) refer to areas adjacent to water bodies, such as rivers, water streams and lakes. Natural riparian zones are some of the most diverse, dynamic, and complex biophysical habitats on the terrestrial portion of the planet. These areas constitute biological and physical systems with unique soil and vegetation characteristics. Here nutrients, water and sediments mix, creating optimal conditions for the development of plant and animal communities that benefit from the productivity of these ecosystems. [1] [5] [6] [7] [8]</p>
+<p>RZ provide a wide range of ecological benefits, for instance:</p>
+<ul>
+<li><p>the recycling of nutrients and other chemical reactions which in turn benefit plant growth</p></li>
+<li><p>mitigates erosion effects caused by flooding events [3, 4, 5]</p></li>
+<li><p>they are hotspots for higher biodiversity of aquatic and terrestrial species</p></li>
+<li><p>the recycling of organic matter</p></li>
+<li><p>the improvement of water quality</p></li>
+<li><p>the filtering/buffering of sediment</p></li>
+</ul>
+<p>Worldwide, riparian zones have been significantly modified and degraded due to human activity. Fragmentation of these areas has led to a considerable loss of several plant and animal species. The reason for this is the loss of their habitat and the introduction of competing invasive species [9]. Alteration of the riparian zones inevitably leads to the loss of the ecological benefits that these ecosystems provide.</p>
+<p>In Europe, the EC proposed a strategy to lead the world by example in reversing biodiversity loss, and in helping to ensure that by 2050 all of the world’s ecosystems are restored, resilient, and adequately protected: the European Biodiversity Strategy. In the previous version of this strategy, EU Biodiversity strategy 2020, one of the targets were to focus on a better protection and restoration of ecosystems and the services they provide, and greater use of green infrastructure. Because of this, RZ started being mapped and monitored within the Copernicus program, which is the European initiative for Earth Observation and monitoring. “Riparian Zones” is a product within the Copernicus Land Monitoring Service’s local component and was first created during the initial phase of the Copernicus Initial Operations in 2011-2013 [1].</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="product-application-areas-andor-examples-of-use-cases" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Product application areas and/or examples of use cases</h1>
+<p>Mapping and modelling of riparian zones is important for the assessment and evaluation of the changes in these areas over time. This is true both for areas where ecosystem restoration measures are implemented, to measure the success, but also for existing areas and identifying changes, known or unknown, in the surrounding environment that have a negative impact on the riparian ecosystem, in order to counteract these in time to prevent serious damage.</p>
+<p>The Riparian Zones product was expected to support the MAES initiative (Mapping and Assessment of Ecosystems and their Services) and link to other European policy areas and initiatives such as;</p>
+<ul>
+<li><p>the Water Framework Directive</p></li>
+<li><p>the Habitats and Birds Directives including the Natura 2000 network</p></li>
+<li><p>the Floods Directive</p></li>
+<li><p>the EC’s Green Infrastructure strategy</p></li>
+<li><p>the Blueprint to safeguard Europe’s waters</p></li>
+<li><p>the Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services (IPBES)</p></li>
+</ul>
+<p>The latter stresses the importance and need to strengthen measures to help protect the water resources and become more resource (including water) efficient within the EU, encouraging measures such as the restoration of wetlands and floodplains to increase natural water retention.</p>
+<p>The Riparian Zones product could greatly benefit the work of the IPBES in their assessments on the state of biodiversity and of the ecosystem services it provides to society [1].</p>
+<p>The following subchapter will highlight some potential uses for the Riparian Zones product, and also present examples of where it has already been used.</p>
+<section id="public-and-private-sector-and-private-interest-groups" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="public-and-private-sector-and-private-interest-groups"><span class="header-section-number">4.1</span> Public and private sector and private interest groups</h2>
+<p><strong>Public sector</strong></p>
+<p>The state of riparian zones and their development provides information useful to governments in terms of informing on the state of biodiversity, water quality and the successes or failures in means of improving these by use of nature-based solutions. The Riparian Zones product can facilitate the identification of areas where challenges possibly related to degraded riparian zones, overlap with areas where riparian zones should or could be present. This can inform efforts in either reintroducing riparian zones or improving existing riparian zones and can highlight where the benefit of restoring riparian zones would be greatest, see more in section Use case: Ecosystem types of Europe. Well managed riparian zones can hinder pesticides, pollutants, and excessive nutrients from reaching water streams and downstream water sources. This in turn improves the quality of water sources and streams by limiting eutrophication and reducing the amount of treatment required for water in water treatment plants. Reduced eutrophication improves the oxygen levels and habitats for aquatic life and thus improves biodiversity as well as the water quality overall, see more in section Use case: Improving water quality and protecting against flooding.</p>
+<p>Through sustainable management of water sources, governments can assist local communities, support the private sector and encourage important synergies between healthy ecosystems and human well-being. The Riparian Zones product can aid adaptive management with appropriate monitoring and assessment on the current state.</p>
+<p>Healthy riparian zones also retain water masses during flooding and other high-water events, reducing the energy and velocity of water which impedes the risk of flooding damage to infrastructure downstream but may also play a role in limiting wild fires. The riparian zones maintain stable river banks by means of vegetation roots, which prevents sediment build-up and extreme bank erosion, which otherwise could cause damages downstream, see more in section Use case: Potential Flood Plains and Use case: Improving water quality and protecting against flooding.</p>
+<p>Riparian zones in addition provide recreational values such as canoeing, hiking, camping, bird watching and fishing, which are important for the wellbeing of inhabitants and may attract ecotourism, although care should be taken to combine these activities with keeping the riparian zone as undisturbed as possible by traffic and in a naturally vegetated state, see more in section Use case: Ecosystem services and informing policies and conservation measures and Use case: Biodiversity and birds.</p>
+<p>Riparian zones also provide educational opportunities [1], bringing students of all ages into nature to observe and learn about the benefits provided by these areas and how best to aid in their management and preservation, see section Use case: Ecosystem services and informing policies and conservation measures.</p>
+<p><strong>Private sector</strong></p>
+<p>The private sector could utilize the information available through the Riparian Zones product by adapting their businesses to protect and improve nearby riparian zones to increase the ecological value of their land as well as its sustainability. Private agricultural and farming areas could utilise the information of the benefits that riparian zones provide, such as increased biodiversity and habitats for, among other, pollinators which are beneficial for crops [10]. Other benefits may include reduced impacts from pest species, resulting in less need for use of pesticides [11] and thus a higher water quality. The private sector such as consultancies can use the freely available Riparian Zones product to improve the quality of their services. Well-informed decisions made in terms of different kinds of development increase the likelihood of holistic and sustainable solutions.<mark><br>
+</mark>The Riparian Zones product could inform the private sector, as well as the public, on where action in relation to other interventions in infrastructure, development or restoration projects, can achieve multiple benefits and synergies in for example quality improvement of biodiversity, water, habitats. Additionally the Riparian Zones product could be used to make more detailed assessments on the state of the riparian zone through field research. With this knowledge informed and targeted efforts to improve the ecosystem services can be implemented. Private companies such as map providers could also incorporate the riparian zones data into their existing maps to meet demands from certain interest groups but also raise awareness of its importance in the general public.</p>
+<p><strong>Private interest groups</strong></p>
+<p>Civil society can, through various interest organisations, NGO’s, academic organisations, scouts and social movements and campaigns – benefit from the information freely available through the Riparian Zones product, to mobilise or inform the general public on the importance of riparian zones and the benefits they provide. This may in turn spark an increased incentive for each citizen to take measures where they are able, to protect and improve these areas. Private interest groups in bird watching and fishing could use the provided information from the Riparian Zones product to localise and improve good breeding grounds and migration routes for both fish and birds. Extreme temperatures are moderated in riparian zones due to large mature trees and overhanging vegetation, fallen trees also provide shelter and habitat for fish and insects. This creates favourable habitats for both water- and land-living species. [12] Disturbed or degraded riparian zones offer possibilities for restoring wildlife habitat functions. Wildlife management groups might use the information in the Riparian Zones product for researching hot spots for wildlife and plant migration, which in part ties together fragmented habitats and allows for healthier populations of otherwise perhaps threatened species. The information provided can be used in combination with requirements for specific species in terms of restoring threatened species to healthy populations. Certain wildlife species for example require riparian zones of significant widths to breed, migrate between habitats, feed, nest and disperse to set up new territories [11] [12]. Other species such as fish require the stream to have a minimum number of stream crossings, and where necessary bridges rather than culverts, to migrate and breed. Wider riparian zones in general harbours a wider range of wildlife species, and the larger wildlife species as well as birds generally require the widest riparian zones. The Riparian Zones product can thus be used in informing preservation groups to protect and re-establish populations of certain species of interest, by locating either suitable existing riparian zones where the species occur naturally to reintroduce these species there – or in order to inform interventions to widen existing riparian zones to make them suitable habitats for native species which have decreased in number of even disappeared altogether. Native ecosystems with high biodiversity and low degree of human disturbances, as well as a wide and complex riparian zone, have been shown to be more robust against the introduction of invasive species [13] [14], and support a number of ecosystem services which invasive species will not. However, high biodiversity may also indicate a high introduction and establishment of invasive species, called propagule pressure, and suggests a higher level of invasion of an area. A high number of introduced and established invasive species is for most species, plants and terrestrial animals, linked to high degree of human disturbance. [15] Specific interest groups such as the Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services (IPBES) could very well use the product for in their assessments on the state of biodiversity and of the ecosystem services it provides to society. IPBES is an independent intergovernmental body established by States to strengthen the science-policy interface for biodiversity and ecosystem services for the conservation and sustainable use of biodiversity, long-term human well-being and sustainable development.<br>
+Pressure from interest groups can in turn influence policy making and political decision-making.</p>
+<p>The research community could use the product for identifying hot spots for research on biodiversity, ecosystem services, migration patterns, climate change adaptation, climate change impacts and theirs impacts on riparian zones. The Riparian Zones product could be an interesting tool in assessing riparian zones’ ability to adapting to or counteracting climate change effects as it is not clear as of today if these areas are particularly vulnerable to climate change due to their exposure; or if they are resilient due to their evolution during highly variable climates and environments [16].</p>
+</section>
+<section id="use-cases" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="use-cases"><span class="header-section-number">4.2</span> Use cases</h2>
+<section id="use-case-potential-flood-plains" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="use-case-potential-flood-plains"><span class="header-section-number">4.2.1</span> Use case: Potential Flood Plains</h3>
+<p>The European Environment Agency has produced a report which aims to provide an overview of the different aspects of floodplain management and to provide examples of the services that are important for the healthy functioning of floodplains [6]. The Riparian Zones product has been used as input to this report.</p>
+<p>Floodplains cover 7% of Europe’s landmass. These are part of its natural capital, covering up to 30% of the terrestrial Natura 2000 site areas. Studies have shown that 70-90% of floodplains have been environmentally degraded. [6] Many European policies are relevant for floodplains and flood prone areas, for example the Water Framework Directive, the Habitats and Birds Directives, and the Floods Directive. The floodplains represent the transition between land and freshwater ecosystems, with hydrology, soil and biotic conditions strongly influenced by stream water and flooding. Additionally they provide a range of important ecosystem services such as nutrient and water retention, flood control, carbon sequestration, a diversity of aquatic and wetland habitats, but they are under pressure. [17] Riparian zones constitute an integral part of flood plains.</p>
+<p>The severe degradation worldwide of freshwater ecosystems has posed a major threat to ecosystem services of floodplains, riparian zones and vegetation. This negative trend that has continued to increase for centuries due to changed land use patterns and might even be intensified because of climate change [10]. Therefore, restoration of floodplains and riparian zones would prove an important measure to mitigate the effects of such degradation.</p>
+<p>The Riparian Zones product can be used to inform efforts to show that natural and restored floodplains provide an alternative to structural measures for providing flood protection, and at the same time support achieving higher quality ecosystem services like improved water quality, improved conditions for biodiversity conservation and higher recreational value. [6]</p>
+</section>
+<section id="use-case-improving-water-quality-and-protecting-against-flooding" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="use-case-improving-water-quality-and-protecting-against-flooding"><span class="header-section-number">4.2.2</span> Use case: Improving water quality and protecting against flooding</h3>
+<p>Riparian zones provide an important function for waterways as a buffer between catchment areas and water recipients, through filtering catchment water from pollutants or excessive nutrients [13]. Restoring and improving riparian zones can act as an important measure in improving water quality and ecosystems in for example agricultural areas or otherwise managed land areas, in alignment with the Water Framework Directive (WFD) [18] but also target 7 and 10 in First draft of the post-2020 global biodiversity framework [19] and the Sustainable Development Goal (SDG) 6 [20].</p>
+<p>In addition, the riparian zones act a protection against flooding events, working towards target 11 in First draft of the post-2020 global biodiversity framework [19]. Human development in riparian zones has put pressure on the environmental roles that floodplains and riparian zones play during flooding events, and human made structural protections against floods in these areas have further exacerbated the problems [6]. With increasing populations living in riparian zones and more and more extreme weather events occurring, the need for restoration, protection and sustainable management of still functioning riparian zones increases, to protect more regions and people from the imminent risk of floods [21], in alignment with the Floods Directive [22].</p>
+<p>To restore riparian zones, river hydromorphology and sustainable river management, and not least to overbridge the gap left in different hydromorphological assessment policies concerning the importance of riparian vegetation, tools for assessment of the state of riparian vegetation are needed [23]. Using the Riparian Zones product to compare the extent of riparian zones from one year to another, can provide an indication of the progress in improving the ecosystem services from riparian zones, but also the progress in the protection against climate change impacts and resilience towards flooding events [6].</p>
+</section>
+<section id="use-case-ecosystem-types-of-europe" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="use-case-ecosystem-types-of-europe"><span class="header-section-number">4.2.3</span> Use case: Ecosystem types of Europe</h3>
+<p>The Riparian Zones product has been used as input contributing to a better biological characterization of terrestrial and marine ecosystems across Europe (EEA-39), through the dataset “Ecosystem types of Europe” [24]. It represents probabilities of EUNIS (European Nature Information System) habitat presence in terrestrial, freshwater and marine ecosystems. The work supports the Mapping and Assessment of Ecosystems and their Services (MAES), Action 5 of Target 2 the EU Biodiversity Strategy to 2020, established to achieve the Aichi targets of the Convention of Biological Diversity (CBD). [25]</p>
+</section>
+<section id="use-case-ecosystem-services-and-informing-policies-and-conservation-measures" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="use-case-ecosystem-services-and-informing-policies-and-conservation-measures"><span class="header-section-number">4.2.4</span> Use case: Ecosystem services and informing policies and conservation measures</h3>
+<p>Riparian zones provide <u>cultural services</u> in the form of for example recreation, aesthetic, spiritual and educational benefits; <u>provisional services</u> in the form of physical products such as for example biomass and genetic resources; and <u>regulation and maintenance services</u> such as for example filtration of pollutants and chemical conditions of freshwaters, carbon sequestration, flow regulation, erosion control, pollination and seed dispersal, pest control, maintenance of nursery populations and habitats, regulation of microclimate and fire effects mitigation. [10] Because of the functions these areas provide in terms of water provision, they are under threat from urbanisation and other human activities and land uses.</p>
+<p>The Riparian Zones product may aid in the efforts of monitoring progress in restoring riparian zones due to the improved technique for data collection, which is important both for feedback and guidance on how to evaluate the different strategies applied [26]. Riparian zones are often characterised by inaccessibility and dynamism [26], making a tool for monitoring the development of riparian zones through visual interpretation of vector data and satellite imagery an invaluable tool to assess successes and potential for optimisation in management and restoration efforts.</p>
+<p>Many indicators of riparian zone status can be monitored by remote sensing data, as is done in the Riparian Zones product. Examples of these indicators are water level width, riparian zone area, vegetation coverage, river connectivity and natural wetland conservation, which are closely related to riparian vegetation density, bedload transport capacity, flow regulation and biological abundance which are in turn crucial to the physical habitat. [26]</p>
+<p>Riparian zones are, despite their importance in water quality and flood mitigation, not specifically mentioned in the EU Floods Directive (FD) or the EU Water Framework Directive (WFD). The management of these dynamic socio-ecological systems require dynamic adaptive policies, and monitoring of riparian zones make an important cornerstone in achieving this. [21] The Riparian Zones product can prove an important aid in achieving policies more specifically targeted at restoring, protecting and optimising management of these areas, to protect habitats and biodiversity as well as the many ecosystem services that these areas provide. Monitoring and assessment are important factors in evaluating the effectiveness of policy making and optimising for the best possible results, given the complexity of the riparian zone ecosystems and interconnections, this aspect proves yet more important.</p>
+</section>
+<section id="use-case-biomass-production" class="level3" data-number="4.2.5">
+<h3 data-number="4.2.5" class="anchored" data-anchor-id="use-case-biomass-production"><span class="header-section-number">4.2.5</span> Use case: Biomass production</h3>
+<p>Agricultural areas located nearby riparian zones and streams could by own measures improve it by restoring native vegetation and keeping grazing cattle away from the stream to allow for vegetation to settle, stabilise the river banks and strengthen native species and ecosystems while also protecting downstream land from flooding. Used in combination with for example the Common Agricultural Policy (CAP) [27], and its three “specific objectives”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> concerning the environment and climate, useful synergies can be achieved. Additionally, riparian zones adjacent to agricultural land could be used for biomass generation with energy crop cultivations in order to meet the ever-increasing demand for renewable energy sources in climate change adaptation efforts [28]. This would increase the environmental benefits in the riparian zone, whilst maintaining productivity of the agricultural areas and achieving biomass outputs.</p>
+</section>
+<section id="use-case-biodiversity-and-birds" class="level3" data-number="4.2.6">
+<h3 data-number="4.2.6" class="anchored" data-anchor-id="use-case-biodiversity-and-birds"><span class="header-section-number">4.2.6</span> Use case: Biodiversity and birds</h3>
+<p>The vegetation cover and availability of food resources make riparian zones important habitats to many birds [29]. Due to their sensitivity to changes in the environment, birds are sentinel species which allow to detect environmental hazards, providing an early warning of different threats such as pollution, habitat quality, overall biodiversity, or emerging diseases. As climate and weather indicators, birds can be useful tools to monitor the impacts of climate change at large spatial scales. [30] Habitat loss and degradation are the most serious threats to the conservation of wild birds [31].</p>
+<p>Thus preserving and restoring riparian zones can provide an important measure to maintain and restore the populations of both native and migrating birds. Additionally long-term spatial variation on bird migration represents an interesting approach to indirectly identify environmental consequences of climate change across the globe. [30]</p>
+<p>The connection between bird watching and the recreational attractiveness of riparian zones provides an opportunity for the Riparian Zones product to support the aim of the Copernicus Bird Migration project, which is in part to “raise awareness among the general public of the effects of climate variations and the power and range of climate data available, to ultimately inform decision-making”. [30]</p>
+<p>Several habitats and species listed in the Habitats Directive (92/43/EEC) are found on active floodplains, as are birds listed within the Birds Directive (2009/147/EC). Restoring riparian zones would likely improve the conservation status assessments of these habitats and species, while also possibly increase connectivity between habitats and counteract habitat fragmentation [28]. Riparian forests are important nature types for providing connection between and counteracting fragmentation of Natura2000 woodland habitats [32] but also by providing ecological corridors for animals and plants which is important in conservation and nature management efforts [33]. This is especially important in areas where there is artificial land uses and agricultural areas which the forest species need to migrate across [32] but also for implementing restoration or conservation efforts through policy-making, or conducting habitat assessments [33] [1]. The Riparian Zones product has also been used to evaluate its suitability to measure the longitudinal connectivity of riparian forests and the capacity of riparian zones to provide Ecosystem Services (ES) [34].</p>
+<p>Invasive species are positively correlated with river management practices where the velocity, water depth and the distance to the water source is altered [13], thus advocating for water management practices which promote a return towards the original ecosystem, including riparian zones, may promote the biodiversity in native species [6]. This also aligns with target 6 in the First draft of the post-2020 global biodiversity framework [19] “A New Global Framework for Managing Nature Through 2030”, the successor to the UN Aichi biodiversity target 9 (of preventing and controlling invasive alien species and reducing direct pressures on biodiversity).</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+</section>
+<section id="product-description" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Product description</h1>
+<section id="product-overview" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="product-overview"><span class="header-section-number">5.1</span> Product overview</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/Fig1.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 1: Riparian Zones 2012-2018 product portfolio</figcaption>
+</figure>
+</div>
+<p>Riparian Zones provides a primary product (polygon layer with LU/LC of 2012 and 2018, including change mapping information) and an additional polygon layer providing information of the main EO data input used for generating the map production (Parent Scene Identification Layer (PSIL).</p>
+<p>The LC/LU product covers modelled buffer areas around selected medium and large size rivers with Strahler numbers from 2–9 extracted from EU-Hydro database (public beta 0.9) covering EEA-38 and the UK.</p>
+<p>The LC/LU data is delivered in 43 single Delivery Units (DUs) based on aggregated sub-basins of EEA’s European Catchment and Rivers Network System (ECRINS v1.1), clipped either to the Geographical Information System of the Commission (GISCO) boundaries in scale 1:100,000 or to the shoreline from EU-Hydro database.</p>
+<p>LU/LC 2012-2018 product contains fields with the thematic class corresponding to 2012, 2018 and a change code field indicating the change status for each polygon. These fields allow users to filter and obtain if desired, the specific products as separate layers: LU/LC for 2012, 2018 and a change map displaying the polygons that have changed. These products were produced in European ETRS89 Lambert Azimuthal Equal-Area (LAEA) projection. A more detailed description of the products and the methodology are provided in the next sections.</p>
+<p>The table below summarises the technical specification of the Riparian Zones product.</p>
+<p><strong>Product Specifications of the Land Cover and Land Use Product</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 96%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Product Title / Content</strong></td>
+<td>Riparian Zones: Land Cover and Land Use Classification within buffer zone of selected rivers for reference years 2012 and 2018 including change mapping.</td>
+</tr>
+<tr class="even">
+<td><strong>Product Short Name</strong></td>
+<td>RZ LC/LU</td>
+</tr>
+<tr class="odd">
+<td><strong>Product Definition</strong></td>
+<td>The Riparian LC/LU product provides a detailed LC/LU dataset for areas along a buffer zone of selected rivers of Strahler levels 2 – 9 covering EEA-38 and the UK.</td>
+</tr>
+<tr class="even">
+<td><strong>Input Data Sources</strong></td>
+<td><strong>1) Riparian Zones (Str. 2-9)</strong> <br><br> <strong>2) Image Data</strong> <br><br> <strong>Image data (2012)</strong> <br> <em>Products:</em> <br> - D2_MG2b_LOLA_011b <br> - D2_MG2b_NARA_011b <br> - DAP_MG2b_01 <br> - DWH_MG2b_CORE_03 <br> - DWH_MG2b_GEMS_ADD_003b <br> - VHR_IMAGE_2015 <br><br> <em>Missions:</em> <br> - GeoEye1 (2m) <br> - Pléiades (2m) <br> - SPOT-5 HRG (2.5 m) <br> - SPOT-6 (1.5m) <br> - WorldView-2 (1.8 m) <br><br> <strong>Image Data (2018)</strong> <br> <strong>VHR_IMAGE_2018</strong> <br> <em>Missions:</em> <br> - Pléiades 1A/B (2 m) <br> - SPOT-6 (4 m) <br> - SPOT-7 (4 m) <br> - Kompsat-03/04 (2 m) <br> - SuperView (2 m) <br> - Planet DOVE (4 m) <br> - TripleSat (4 m) <br> - Deimos-02 (4 m) <br><br> <strong>VHR_IMAGE_2018_ENHANCED</strong> <br> <em>Missions:</em> <br> - Pléiades 1A/B (2 m) <br> - SuperView (2 m) <br> - Kompsat-03/04 (2 m) <br><br> <strong>3) Additional Data:</strong> <br> - CLC 2006/2012/2018 <br> - Urban Atlas 2006/2012/2018 <br> - HRLs Imperviousness Degree and Tree Cover Density <br> - DWH_MG2_CORE_01 Coverage 1 (IRS 20m) &amp; 2 (RapidEye, 5m) <br> - Landsat-8 <br> - Sentinel 2 <br> - National orthophoto WMS <br> - Google Earth Pro <br> - Bing Maps <br> - Numerous reference data sources</td>
+</tr>
+<tr class="odd">
+<td><strong>Methodology</strong></td>
+<td>Computer assisted visual refinement of the status 2018 data based on the LC/LU product for reference year 2012. The main dataset for visual image interpretation of reference year 2012 was the DWH_MG2b_CORE_03 dataset (Optical VHR2 coverage over EU 2011-2013 and Riparian zones), mainly consisting of 1.5m VHR2 SPOT-6 and 2.5m VHR2 SPOT-5 HRG and 2m Pléiades satellite data. Image interpretation for reference year 2018 used the VHR_IMAGE_2018 dataset (Optical VHR coverage of EEA-39 2017-2019), consisting of 2m Pléiades, Kompsat 3/3A, SuperView-1 and 4m SPOT-6/7, TripleSat, PlanetScope and Deimos satellite data. Visual interpretation of LC/LU classes follows the pre-defined nomenclature on the basis of MAES2 typology of ecosystems (Level 1 to Level 43) and CORINE Land Cover. Subsequently, intersection of classification results with additional data (Urban Atlas 2012/2018) was performed.</td>
+</tr>
+<tr class="even">
+<td><strong>Geographic Coverage</strong></td>
+<td>EEA-39 (without Azores, Canarias, and French Départements et regions d’outre-mer (DOMs)) plus Andorra and Vatican City: ca. 5,819,516.50 km²</td>
+</tr>
+<tr class="odd">
+<td><strong>Geographic Bounding Box</strong></td>
+<td>North 71.185; South 34.562; West -24.532; East 44.819</td>
+</tr>
+<tr class="even">
+<td><strong>Temporal Reference</strong></td>
+<td>Reference year 2012: 2010 – 2014; 2018: 2017 – 2019</td>
+</tr>
+<tr class="odd">
+<td><strong>Geometric Resolution / Equivalent Scale</strong></td>
+<td>1:10.000</td>
+</tr>
+<tr class="even">
+<td><strong>Nomenclature</strong></td>
+<td>56 thematic classes</td>
+</tr>
+<tr class="odd">
+<td><strong>Minimum Mapping Unit</strong></td>
+<td>0.5 ha</td>
+</tr>
+<tr class="even">
+<td><strong>Minimum Mapping Length</strong></td>
+<td>N/A</td>
+</tr>
+<tr class="odd">
+<td><strong>Minimum Mapping Width</strong></td>
+<td>10 m</td>
+</tr>
+<tr class="even">
+<td><strong>Thematic/Positional Accuracy</strong></td>
+<td>Overall thematic accuracy demanded is &gt;85% considering the relative occurrence of the LC/LU classes for status layers of reference years 2012 and 2018 and &gt;80 % for change layer 2012-2018. Positional accuracy is defined as &lt;5 m.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 1: LC/LU 2012/2018 specifications</em></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 48%">
+<col style="width: 51%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Coordinate Reference System</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>ETRS_1989_LAEA</p>
+<p>WKID: 3035 Authority: EPSG</p>
+<p>Projection: Lambert_Azimuthal_Equal_Area</p>
+<p>false_easting: 4.321.000,0</p>
+<p>false_northing: 3.210.000,0</p>
+<p>central_meridian: 10,0</p>
+<p>latitude_of_origin: 52,0</p>
+<p>Linear Unit: Meter (1,0)</p></td>
+<td><p>Geographic Coordinate System: GCS_ETRS_1989</p>
+<p>Angular Unit: Degree (0,0174532925199433)</p>
+<p>Prime Meridian: Greenwich (0,0)</p>
+<p>Datum: D_ETRS_1989</p>
+<p>Spheroid: GRS_1980</p>
+<p>Semimajor Axis: 6.378.137,0</p>
+<p>Semiminor Axis: 6.356.752,314140356</p>
+<p>Inverse Flattening: 298,257222101</p></td>
+</tr>
+<tr class="even">
+<td><strong>Accuracy Assessment Approach</strong></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Stratified Random Point Sampling</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Data Type</strong></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Vector</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Delivery Format</strong></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Esri Shapefile Format (*.SHP)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th colspan="4" style="text-align: center;" data-quarto-table-cell-role="th"><strong>Class Coding / Attribution</strong></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><strong>Applicable Products</strong></th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th"><strong>Field</strong></th>
+<th data-quarto-table-cell-role="th"><strong>Description</strong></th>
+<th data-quarto-table-cell-role="th"><strong>Type</strong></th>
+<th data-quarto-table-cell-role="th"><strong>Value(s)</strong></th>
+<th data-quarto-table-cell-role="th"><strong>Status / Change</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[FID]</td>
+<td>Dynamic Feature Identifier</td>
+<td>Object ID</td>
+<td>0 to 2.147.483.647</td>
+<td>Status, Change</td>
+</tr>
+<tr class="even">
+<td>[Shape]</td>
+<td>Polygon (default by ESRI)</td>
+<td>Geometry</td>
+<td>Polygon</td>
+<td>Status, Change</td>
+</tr>
+<tr class="odd">
+<td>[UID]</td>
+<td>Unique Identifier of the feature geometry</td>
+<td>Long, Precision 6</td>
+<td>1 to 2.147.483.648</td>
+<td>Status, Change</td>
+</tr>
+<tr class="even">
+<td>[DU_ID]</td>
+<td>Unique Identifier of the Riparian Zones delivery unit (DU)</td>
+<td>String, Length 10</td>
+<td>DU001A to DU043A</td>
+<td>Status, Change</td>
+</tr>
+<tr class="odd">
+<td>[CODE_1_18]</td>
+<td>Class code of Level 1 for LC/LU 2018</td>
+<td>Long, Precision 9</td>
+<td>1 to 10</td>
+<td>Status, Change</td>
+</tr>
+<tr class="even">
+<td>[CODE_2_18]</td>
+<td>Class code of Level 2 for LC/LU 2018</td>
+<td>Long, Precision 9</td>
+<td>11 to 100</td>
+<td>Status, Change</td>
+</tr>
+<tr class="odd">
+<td>[CODE_3_18]</td>
+<td>Class code of Level 3 for LC/LU 2018</td>
+<td>Long, Precision 9</td>
+<td>111 to 1000</td>
+<td>Status, Change</td>
+</tr>
+<tr class="even">
+<td>[CODE_4_18]</td>
+<td>Class code of Level 4 for LC/LU 2018</td>
+<td>Long, Precision 9</td>
+<td>1111 to 10000</td>
+<td>Status, Change</td>
+</tr>
+<tr class="odd">
+<td>[UA_18]</td>
+<td>Urban Atlas 2018 flag</td>
+<td>String, Length 10</td>
+<td>UA2018[^4], UA2012, NoData</td>
+<td>Status, Change</td>
+</tr>
+<tr class="even">
+<td>[NODATA_18]</td>
+<td>Unclassifiable area due to clouds, shadows, snow, haze, or missing data</td>
+<td>Long, Precision 9</td>
+<td>0, 1</td>
+<td>Status, Change</td>
+</tr>
+<tr class="odd">
+<td>[COMMENT_18]</td>
+<td>Comment field for additional information for LC/LU 2018</td>
+<td>String, Length 254</td>
+<td>Standardized text comments, separated by Semicolon</td>
+<td>Status, Change</td>
+</tr>
+<tr class="even">
+<td>[CODE_1_12]</td>
+<td>Class code of Level 1 for LC/LU 2012</td>
+<td>Long, Precision 9</td>
+<td>1 to 10</td>
+<td>Status, Change</td>
+</tr>
+<tr class="odd">
+<td>[CODE_2_12]</td>
+<td>Class code of Level 2 for LC/LU 2012</td>
+<td>Long, Precision 9</td>
+<td>11 to 100</td>
+<td>Status, Change</td>
+</tr>
+<tr class="even">
+<td>[CODE_3_12]</td>
+<td>Class code of Level 3 for LC/LU 2012</td>
+<td>Long, Precision 9</td>
+<td>111 to 1000</td>
+<td>Status, Change</td>
+</tr>
+<tr class="odd">
+<td>[CODE_4_12]</td>
+<td>Class code of Level 4 for LC/LU 2012</td>
+<td>Long, Precision 9</td>
+<td>1111 to 10000</td>
+<td>Status, Change</td>
+</tr>
+<tr class="even">
+<td>[UA_12]</td>
+<td>Urban Atlas 2012 flag</td>
+<td>String, Length 10</td>
+<td>UA2012, NoData</td>
+<td>Status, Change</td>
+</tr>
+<tr class="odd">
+<td>[NODATA_12]</td>
+<td>Unclassifiable area due to clouds, shadows, snow, haze, or missing data</td>
+<td>Long, Precision 9</td>
+<td>0, 1</td>
+<td>Status, Change</td>
+</tr>
+<tr class="even">
+<td>[COMMENT_12]</td>
+<td>Comment field for additional information for LC/LU 2012</td>
+<td>String, Length 254</td>
+<td>Standardized text comments, separated by Semicolon</td>
+<td>Status, Change</td>
+</tr>
+<tr class="odd">
+<td>[CHANGECODE]</td>
+<td>Change Class code of Level 4 for LC/LU 2018 &amp; 2012</td>
+<td>String, Length 11</td>
+<td>1111_1111 to 10000_10000</td>
+<td>Change</td>
+</tr>
+<tr class="even">
+<td>[AREA_HA]</td>
+<td>Area in hectare [ha]</td>
+<td>Double</td>
+<td>0.001 to 1.8E308</td>
+<td>Status, Change</td>
+</tr>
+<tr class="odd">
+<td colspan="5"><strong>Metadata:</strong> ISO TC 211 compliant according to INSPIRE metadata standards in XML format</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 2: LU/LC 2012/2018 shapefile attribute definition</em></p>
+<section id="product-file-nomenclature" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="product-file-nomenclature"><span class="header-section-number">5.1.1</span> Product File Nomenclature</h3>
+<p>A product file naming convention has been developed, which was slightly adapted with version 3 of Riparian Zones products (i.e., change in the order of the reference years) to reflect the adjustments due to the harmonization of the CLMS Local Component products (i.e., the updates of the data structure/ attribution and the application of the RZ nomenclature (2021)). The product file name is composed of the following name constituents:</p>
+<p>THEME_DELIVERY UNIT ID_PRODUCT_VERSION</p>
+<p><em>with the following detailed meanings:</em></p>
+<ul>
+<li><p>THEME (3-letter abbreviation)</p>
+<ul>
+<li><span data-custom-style="NormalLine">‘rpz’ = “Riparian Zones”</span><br>
+</li>
+</ul></li>
+<li><p>DELIVERY UNIT ID (6-letter)</p>
+<ul>
+<li><p>‘DU001A’ = “Delivery Unit DU001A” (A = All; full delivery)</p></li>
+<li><p>‘DU002A’ = “Delivery Unit DU002A” (A = All; full delivery)</p></li>
+<li><p>‘DU003B’ = “Delivery Unit DU003B” (B - Z = partial delivery)</p></li>
+</ul></li>
+<li><p>PRODUCT (4-letter abbreviation)</p>
+<ul>
+<li><p>‘lclu’ = “Land Cover / Land Use Classification”</p></li>
+<li><p>‘2012_2018’ = “Reference years”</p></li>
+</ul></li>
+<li><p>VERSION</p>
+<ul>
+<li><p>‘v01’ = “Version 1”</p></li>
+<li><p>‘v02’ = “Version 2”</p></li>
+<li><p>‘v03’ = “Version 3”</p></li>
+</ul></li>
+<li><p>DATA FORMAT</p>
+<ul>
+<li><span data-custom-style="NormalLine">‘.shp’ = “ESRI shapefile format”</span><br>
+</li>
+</ul></li>
+</ul>
+<p>Example: rpz_DU001A_lclu_2012_2018_v03.shp</p>
+<p><strong>Delivery Units</strong></p>
+<p>RZ products have been produced for the whole EEA-39 plus Andorra and the Vatican City. Since Strahler 2 data has been included, the AoI covers further areas that were excluded during the previous phases because of absence of river Strahler 3 to 9 at Azores and Canary Islands. The French DOMs are still excluded from the current production.</p>
+<p>The data is delivered on a Delivery Unit level. The hydrologically meaningful Delivery Units are based on aggregated sub-basins of EEA’s European Catchment and Rivers Network System (ECRINS v1.1), clipped to the GISCO boundaries in scale 1:100,000 and are presented in Figure 2. Delivery Units, corresponding RZ AoI area and the associated catchments are provided in Table 11 in the Annex section.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image6.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 2: The 43 Riparian Zones Delivery Units (based on ECRINS v1.1)</figcaption>
+</figure>
+</div>
+<p><strong>Nomenclature</strong></p>
+<p>The Nomenclature for the LC/LU dataset is in accordance with the MAES ecosystem typed. Table 3 shows the main classes at <em>CODE</em> Level 1-4 which form the basis for the <em>CODE</em> classes of the RZ nomenclature.</p>
+<p>The nomenclature is then subdivided in several classes up to <em>CODE</em> level 4, with a total of 56 classes. The RZ <em>CODE</em> classes have been restructured as part of the harmonization of CLMS local component products. In Table 3 below the updated RZ nomenclature is shown.</p>
+<p>The detailed nomenclature guidelines are found in <a href="https://land.copernicus.eu/user-corner/technical-library/riparian_zones_nomenclature_guide">RZ Nomenclature Guideline v1.3: 06/06/18 (copernicus.eu)</a>.</p>
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/Table1.png" class="img-fluid"></p>
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/Table2.png" class="img-fluid"></p>
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/Table3.png" class="img-fluid"></p>
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/Table4.png" class="img-fluid"></p>
+<p><em>Table 3: Detailed Nomenclature for the LC/LU dataset</em></p>
+<p><strong>Metadata</strong></p>
+<p>Metadata are provided together with the products as Infrastructure for Spatial Information in Europe (INSPIRE)-compliant Extensible Markup Language (XML) files according to the EEA Metadata Standard for Geographic Information (MSGI). EEA-MSGI has been developed by EEA to meet needs and demands for inter-operability of metadata. EEA’s standard for metadata is a profile of the ISO/TC 19139:2007standard for geographic metadata and contains more elements than the minimum required to comply the INSPIRE metadata regulation.</p>
+<p>Detailed conceptual specifications on EEA-MSGI and other relevant information on metadata can be found at: <a href="http://www.eionet.europa.eu/gis" class="uri">http://www.eionet.europa.eu/gis</a>.</p>
+<p>For validation of metadata EEA Spatial Data Infrastructure (SDI) metadata editor was used, which can be found at: <a href="https://sdi.eea.europa.eu/editor-catalogue/srv/eng/catalog.search#/home" class="uri">https://sdi.eea.europa.eu/editor-catalogue/srv/eng/catalog.search#/home</a>.</p>
+<p>Metadata validation was performed using EEA SDI editor validation function and the external INSPIRE validator which can be accessed at: <a href="https://inspire.ec.europa.eu/validator/" class="uri">https://inspire.ec.europa.eu/validator/</a>.</p>
+<p><strong>Parent Scene Identification Layer (PSIL)</strong><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>The Parent Scene Identification Layer (PSIL) is an auxiliary vector file delivered together with dataset deliveries. It is provided as a one single Esri shapefile, projected in ETRS89/ETRS-LAEA (EPSG:3035) for the whole area of the RZ project. The PSIL fully covers the AoI and provides the main EO data input used for generating the map product for every location within the AoI. In case no suitable EO data is found the [NoData] field is activated. The main aim of the PSIL is to guarantee a reproducible data situation for any post production activities. It provides the spatial extent of the satellite image used for the image interpretation for both reference years.</p>
+<p>The PSIL should allow to:</p>
+<ol type="1">
+<li><span data-custom-style="NormalLine">Identify the main EO dataset used to produce any polygons in the map. This is important for:</span><br>
+</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li><p>understanding the delineation of polygons</p></li>
+<li><p>understanding the class of a polygon</p></li>
+<li><p>recreating the production environment (for validation or in case of discontinued production)</p></li>
+</ol>
+<!-- -->
+<ol start="2" type="1">
+<li><p>Easily identify (and locate) the EO data at the ESA DWH.</p></li>
+<li><p>Access basic content information of the used EO data such as Acquisition Date (phenology) and resolution.</p></li>
+<li><p>Compare input data from other CLMS.</p></li>
+</ol>
+<p>The PSIL contains the following specifications shown in Table 4.</p>
+<p><br>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 51%">
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: left;"><strong>Class Coding / Attribution</strong></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Field</strong></td>
+<td style="text-align: left;"><strong>Description</strong></td>
+<td><strong>Definition ArcGIS</strong></td>
+<td><strong>Definition QGIS</strong></td>
+<td><strong>Value(s)</strong></td>
+</tr>
+<tr class="even">
+<td>[FID]</td>
+<td style="text-align: left;">Dynamic Feature Identifier</td>
+<td>Object ID</td>
+<td>Object ID</td>
+<td>0 to 2.147.483.647</td>
+</tr>
+<tr class="odd">
+<td>[Shape]</td>
+<td style="text-align: left;">Polygon (default by ESRI)</td>
+<td>Geometry</td>
+<td>Geometry</td>
+<td>Polygon</td>
+</tr>
+<tr class="even">
+<td>[SceneName]</td>
+<td style="text-align: left;">Filename of the Satellite Scene available for LC/LU interpretation from the ESA DWH</td>
+<td>String, Length 100</td>
+<td>String, Length 100</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[AcqDate]</td>
+<td style="text-align: left;">Acquisition date of the satellite scene</td>
+<td>String, Length 10</td>
+<td>String, Length 10</td>
+<td>YYYYMMDD</td>
+</tr>
+<tr class="even">
+<td>[AcqTime]</td>
+<td style="text-align: left;">Time of satellite scene acquisition</td>
+<td>String, Length 10</td>
+<td>String, Length 10</td>
+<td>HHMMSS</td>
+</tr>
+<tr class="odd">
+<td>[SourceID]</td>
+<td style="text-align: left;">Naming convention of the ESA DWH product group (e.g.&nbsp;DAP_MG2b_01)</td>
+<td>String, Length 50</td>
+<td>String, Length 50</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[NoData]</td>
+<td style="text-align: left;">No adequate satellite data from ESA DWH available</td>
+<td>Long</td>
+<td>Integer, 5</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Sensor]</td>
+<td style="text-align: left;">Satellite sensor type according to sensor code list.</td>
+<td>String, Length 10</td>
+<td>String, Length 10</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[ProdName]</td>
+<td style="text-align: left;">Identifier of the specific product</td>
+<td>String, Length 10</td>
+<td>String, Length 10</td>
+<td>RZ2012</td>
+</tr>
+<tr class="odd">
+<td>[DeliveryID]</td>
+<td style="text-align: left;">Identifier of the Delivery Unit</td>
+<td>String, Length 10</td>
+<td>String, Length 10</td>
+<td>Prod_ID</td>
+</tr>
+<tr class="even">
+<td>[SpatialRes]</td>
+<td style="text-align: left;">Pixel dimension in cm</td>
+<td>Long, Precision 10</td>
+<td>Integer, 5</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Shape_Leng]</td>
+<td style="text-align: left;">Total length of the polygon perimeter, in the units used by the feature class’ coordinate system</td>
+<td>Double, Precision 0, Scale 0</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Shape_Area]</td>
+<td style="text-align: left;">The area of each polygon in the dataset</td>
+<td>Double, Precision 0, Scale 0</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 4: PSIL 2012 shapefile attribute definition</em></p>
+<p><br>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 49%">
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: left;"><strong>Class Coding / Attribution</strong></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Field</strong></td>
+<td style="text-align: left;"><strong>Description</strong></td>
+<td><strong>Definition ArcGIS</strong></td>
+<td><strong>Definition QGIS</strong></td>
+<td><strong>Value(s)</strong></td>
+</tr>
+<tr class="even">
+<td>[FID]</td>
+<td style="text-align: left;">Dynamic Feature Identifier</td>
+<td>Object ID</td>
+<td>Object ID</td>
+<td>0 to 2.147.483.647</td>
+</tr>
+<tr class="odd">
+<td>[Shape]</td>
+<td style="text-align: left;">Polygon (default by ESRI)</td>
+<td>Geometry</td>
+<td>Geometry</td>
+<td>Polygon</td>
+</tr>
+<tr class="even">
+<td>[SceneName]</td>
+<td style="text-align: left;">Filename of the Satellite Scene available for LC/LU interpretation from the ESA DWH</td>
+<td>String, Length 100</td>
+<td>String, Length 100</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[AcqDate]</td>
+<td style="text-align: left;">Acquisition date of the satellite scene</td>
+<td>String, Length 10</td>
+<td>String, Length 10</td>
+<td>YYYYMMDD</td>
+</tr>
+<tr class="even">
+<td>[AcqTime]</td>
+<td style="text-align: left;">Time of satellite scene acquisition</td>
+<td>String, Length 10</td>
+<td>String, Length 10</td>
+<td>HHMMSS</td>
+</tr>
+<tr class="odd">
+<td>[SpatialRes]</td>
+<td style="text-align: left;">Pixel dimension in cm</td>
+<td>Long, Precision 10</td>
+<td>Integer, 5</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[Sensor]</td>
+<td style="text-align: left;">Satellite sensor type according to sensor code list.</td>
+<td>String, Length 10</td>
+<td>String, Length 10</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[NoData]</td>
+<td style="text-align: left;">No adequate satellite data from ESA DWH available</td>
+<td>Long</td>
+<td>Integer, 5</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[SourceID]</td>
+<td style="text-align: left;">Naming convention of the ESA DWH product group (e.g.&nbsp;DAP_MG2b_01)</td>
+<td>String, Length 50</td>
+<td>String, Length 50</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[ProdName]</td>
+<td style="text-align: left;">Identifier of the specific product</td>
+<td>String, Length 10</td>
+<td>String, Length 10</td>
+<td>RZ2018</td>
+</tr>
+<tr class="even">
+<td>[DeliveryID]</td>
+<td style="text-align: left;">Identifier of the Delivery Unit</td>
+<td>String, Length 10</td>
+<td>String, Length 10</td>
+<td>Prod_ID</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 5: PSIL 2018 shapefile attribute definition</em></p>
+<p><br>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 52%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Entry for [Sensor]</strong></th>
+<th style="text-align: center;"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">SP4</td>
+<td style="text-align: center;">SPOT-4</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP5</td>
+<td style="text-align: center;">SPOT-5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP6</td>
+<td style="text-align: center;">SPOT-6</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP7</td>
+<td style="text-align: center;">SPOT-7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">IRS-LI3</td>
+<td style="text-align: center;">IRS-P6-LISS III</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">PHR</td>
+<td style="text-align: center;">Pleiades (1A/B)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">WV1</td>
+<td style="text-align: center;">WorldView 1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">WV2</td>
+<td style="text-align: center;">WorldView 2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">L5</td>
+<td style="text-align: center;">Landsat-5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">L8</td>
+<td style="text-align: center;">Landsat-8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">GE01</td>
+<td style="text-align: center;">GeoEye1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">EQ02</td>
+<td style="text-align: center;">Quickbird 02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">KS03/04</td>
+<td style="text-align: center;">Kompsat 03/04</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SW00</td>
+<td style="text-align: center;">SuperView</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">DOVE</td>
+<td style="text-align: center;">Planet DOVE</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">DM02</td>
+<td style="text-align: center;">Deimos-02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">TR00</td>
+<td style="text-align: center;">TripleSat</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">S2A/B</td>
+<td style="text-align: center;">Nominal Sentinel 2 Acquisition</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 6: List of allowed [Sensor] entries</em></p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+</section>
+<section id="product-methodology-and-workflow" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Product methodology and workflow</h1>
+<p>This chapter provides an overview of the applied technical product specifications with product file nomenclature, delivery units and metadata.</p>
+<section id="aoi-amendments" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="aoi-amendments"><span class="header-section-number">6.1</span> AoI Amendments</h2>
+<p>In addition to the Copernicus (GMES) Initial Operations phase, where the RZ AoI covered most of the rivers with Strahler numbers 3-8, an amendment has been performed to include the AoI of the rivers with Strahler number 2. This was done to also cover some still missing parts of Strahler 3-8, bringing the total area to a larger spatial extension.</p>
+<p>This amendment has been created, GIS-based, in a semi-automatic way, including certain manual refinements. Such are required to account for omissions of riparian features caused by (i) imprecisions of input data sets, (ii) deviations specifically between the input EU-Hydro versions used in the previous phase and the current Riparian Zones mapping (beta version vs.&nbsp;public beta 0.9), and to (iii) seamlessly match the new, extended AoI with the existing “old” AoI.</p>
+<p>The implementation of the amendment (fine-tuning) was done Delivery Unit per Delivery Unit. The resulting AoI constitutes the basis for subsequently deriving the land cover/land use of those areas for the reference years 2012 and 2018 and compilation of the LC/LU change layer 2012-2018.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image7.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 3: AoI amendment example of Str-2 hanging rivers connected to Str. 3</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image8.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 4: AoI amendment to include Lake Outline</figcaption>
+</figure>
+</div>
+</section>
+<section id="eo-data-specifications" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="eo-data-specifications"><span class="header-section-number">6.2</span> EO Data Specifications</h2>
+<p>The ESA DWH dataset DWH_MG2b_CORE_03 (Optical VHR2 coverage over EU 2011-2013 and Riparian zones) represents the primary data source for the LC/LU mapping task in the Riparian Zones for the reference year 2012. Detailed specifications of the used satellite data can be reviewed in the latest Copernicus Space Component Data Access Portfolio (DAP) document (Issue 2, Revision 5 of 14/12/2018), available at: <a href="https://spacedata.copernicus.eu/" class="uri">https://spacedata.copernicus.eu/</a>.</p>
+<p>However, due to gaps within the vegetation season of the relevant ESA DHW CORE_03 VHR datasets, an additional data provision was indispensable for the project to ensure feasibility of mapping the requested LC/LU product from a cloud-free VHR data coverage of the AoI, within the vegetation season.</p>
+<p>Therefore, to further reduce the remaining coverage gaps, access to “non-standard” DWH VHR datasets (typically individual, tailored datasets of small extent, previously acquired for other project’s specific purposes) has been offered and partially made available by ESA.</p>
+<p>The VHR_IMAGE_2015 dataset was also considered, however incorporating only data acquired in 2014 (since for the reference year 2012, only data within the range 2010 - 2014 are eligible).</p>
+<p>All considered VHR missions had to fulfil certain mission specifications to be eligible for this selection, to ensure suitability for subsequent LC/LU mapping and to ensure consistency to the previous RZ phases as far as feasible:</p>
+<ul>
+<li><p>Multispectral bands (incl.&nbsp;Near InfraRed (NIR))</p></li>
+<li><p>Spatial resolution better or equal 2,5m (resolution-/pan-merge is eligible), corresponding to DAP VHR2 (archive) category</p></li>
+<li><p>Acquisition within (extended) vegetation period</p></li>
+<li><p>Absence of Clouds, cloud shadows and haze (over the AoI, to large extent)</p></li>
+<li><p>Off-Nadir angle lower or equal than 30°</p></li>
+</ul>
+<p>According to these requirements, the following eligible Copernicus Contribution Missions (CCMs) were considered (see Table 7).</p>
+<p><br>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">CCM (2012) – VHR2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><p>SPOT-5 (2.5m pan-merge)</p>
+<p>SPOT-6 (1.5m pan-merge)</p>
+<p>SPOT-7 (1.5m pan-merge)</p>
+<p>PHR1A – Pléiades-1A (2m multispectral)</p>
+<p>PHR1B – Pléiades-1B (2m multispectral)</p>
+<p>WV02 – WorldView-2 (2m multispectral)</p>
+<p>QB02 – QuickBird-2 (2.4m multispectral)</p>
+<p>GE01 – GeoEye-1 (2m multispectral)</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 7: VHR2 CCM considered for scene searches</em></p>
+<p>All remaining gaps after this step were entered into a gap-filling VHR scene search which generated the D2_MG2b_NARA_011b dataset which enabled the completion of the AoI of 807.177 km².</p>
+<p>An almost cloud-free VHR optical dataset covering EEA-39 (<strong>VHR_IMAGE_2018</strong>), as available through the ESA DWH as well, was used for the status layer 2018 production. Its VHR imagery was acquired within predefined time windows corresponding to the vegetation season 2018 (±1 year), with a spectral resolution comprising visible and NIR bands. It is a mix of primary missions (Pléiades 1A &amp; 1B, SuperView-1, KOMPSat-3/3-A and PlanetScope) and backup missions (SPOT-6/-7, TripleSat and Deimos-2) at a spatial resolution of 2-4m. Where small gaps are still present, Sentinel 2 data is being used to complete the whole area.</p>
+<p>In Q1 2020 the VHR_IMAGE_2018_ENHANCED dataset was provided to complement the VHR_IMAGE_2018 in regions with lower resolved image data. This subset, acquired within an acquisition window of vegetation season 2018 (±1 year) and consisting of 2m Pléiades 1A/1B, SuperView-1, Kompsat-3/3A image data, was integrated into ongoing production of the RZ products.</p>
+</section>
+<section id="methodology" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="methodology"><span class="header-section-number">6.3</span> Methodology</h2>
+<p>This section provides a generic overview of the applied algorithms and methodology used to derive the Riparian Zones Land Cover and Land Use products for 2012 and 2018. The methodological approach consists of the following main steps:</p>
+<ol type="1">
+<li>Data preparation &amp; management:</li>
+</ol>
+<ul>
+<li><p>Creation of cloud-/shadow masks for cloudy/hazy scenes (for 2012 data).</p></li>
+<li><p>Preparation of Open Street Map (OSM) and national datasets.</p></li>
+<li><p>Preparation of Urban Atlas 2012/2018 (plus other possible placeholders such as UA2006 and CLC 2006/2012), as explained below.</p></li>
+<li><p>Harmonized nomenclature and borders to have a single uniform Strahler 2-9 dataset.</p></li>
+<li><p>Setup of a spatial database per delivery unit with its specific final integrated RZ AoI and creation of working sub-areas “Working Units” (WU) to be processed</p></li>
+</ul>
+<ol start="2" type="1">
+<li>Thematic processing comprising the following steps:</li>
+</ol>
+<ul>
+<li><p>Semi-automatic thematic classification with supervised and unsupervised elements (Seed &amp; Grow), leading to scene-based binary masks of water (performed only on original 2012 status layer). Interactive manual correction of the derived water masks (performed on 2012 layer)</p></li>
+<li><p>Visual interpretation of CODE level 4 classes in line with the Nomenclature Guidelines v. 1.5. It was done first only for 2012 and later, in a different phase, for change layer 2012-2018 and status layer 2018 (for both reference years).</p></li>
+<li><p>Update 2012 layer for correctly mapping changes where needed.</p></li>
+<li><p>Integration of UA2012/2018 data of Urban Atlas (UA) urban centres (as shown in following chapter)</p></li>
+</ul>
+<ol start="3" type="1">
+<li><p>Internal quality control of the classification results</p></li>
+<li><p>Final validation and quality control (consistency, nomenclature, plausibility checks, topological checks, ensuring OGC compliant geometric checks)</p></li>
+<li><p>Creation of INSPIRE compliant metadata</p></li>
+<li><p>Quantitative accuracy assessment (Stratified Random Point Sampling)</p></li>
+<li><p>Parent Scene Identification Layer (PSIL) shall be provided covering the whole AoI for both reference years (2012 and 2018)</p></li>
+</ol>
+<p><u><strong>Urban Atlas Integration</strong></u></p>
+<p>In order to avoid mapping areas twice, Urban Atlas 2012/2018 data within UA Urban centres (not the whole Functional Urban Areas - FUA) was foreseen as input data for the RZ project.</p>
+<p>The UA2012/UA2018 data is directly clipped into the Urban centres included into the Riparian Zones production for the respective reference years 2012 and 2018. As the nomenclature is slightly different, the UA codes have been adapted to the RZ nomenclature following the guide shown in Table 8 below. Not all the codes have a direct translation.</p>
+<p>In cases where the UA2018 is not totally covering the Urban centre areas, due to changes between the production areas of UA2012 and UA2018 (FUA2012/2018), formerly integrated UA2012 data (1st version provided by EEA in 2017) is used as a gap filler within the limits of the UA Urban centres for reference year 2018. Urban centres of URAU 2012 that were completely excluded from the UA2018 production have been remapped as part of the RZ LC/LU mapping.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/Picture1.png" class="img-fluid figure-img"></p>
+<figcaption>Table 8: Recoding of the UA Core areas into the RZ Nomenclature</figcaption>
+</figure>
+</div>
+<p>This results in a mapping product composed from two different sources: UA urban centre areas coming from UA products and the new mapping areas in the rest of the RZ AoI and surrounding these UA urban centres, as in Figure 5 below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image10.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 5: UA2012/2018 Integration into the RZ project</figcaption>
+</figure>
+</div>
+<p>To ensure a comparable quality of the Riparian Zones product (LC/LU) and a common look and feel of the data sets produced and provided by different Service Providers, a set of mapping and digitizing rules have been developed.</p>
+<p>The mapping rules for the LC/LU product are separately presented in the Riparian Zones Nomenclature Guideline issue 1.5 (issued 14.12.2021). The main mapping rules are however summarized below.</p>
+<p><strong>Object Delineation</strong></p>
+<p>Object delineation is performed on VHR EO data as primary data source. In areas, where two or more satellite scenes overlap, the scene within vegetation period closest to the reference years (2012 and 2018) or with best usability for visual interpretation (spatial resolution, data quality) is chosen as primary data source. An exception of this rule (closest to reference year) is made in northern and southern European regions, where images acquired during shortened / extended vegetation period were preferred if a selection of data was available, to support an optimum object discrimination.</p>
+<p>In cases where clouds or cloud shadows cover the area of interest, for reference year 2012, either overlapping neighbouring SPOT-5/6 data or DWH_MG2b_CORE_03‐Optical VHR SPOT (Satellite Pour l’Observation de la Terre) images acquired outside the preferred acquisition window from May-September are used. But also DWH_MG2_CORE_01 Coverage 1 (IRS-P6, 25 m) and Coverage 2 (RapidEye, 5 m) scenes or Landsat-8 data are employed in case no other adequate data source is available. In similar cases of clouds or shadows for reference year 2018, overlapping scenes of VHR_IMAGE_2018 data set were used or, where data availability is limited, scenes of nominal Sentinel-2 acquisition were used for regionally confined gap filling (narrow EO data gaps limited to widths of ~ hundred meters).</p>
+<p><strong>Delineation Rules</strong></p>
+<p>Object delineation, is performed as follows:</p>
+<ul>
+<li><span data-custom-style="NormalLine">Delineation shall be angular and not round</span><br>
+</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image11.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6: Delineation avoiding smooth lines</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>Avoid digitizing too many vertices: Use as few vertices as possible and only as many as necessary to define the shape of an object</p></li>
+<li><p>Avoid mapping sharp angles</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image14.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7: Delineation avoiding acute angles</figcaption>
+</figure>
+</div>
+<ul>
+<li><span data-custom-style="NormalLine">Use road centre (roads &lt;10 m width) as border between two objects if roads separate two features. E.g. a forest and an agricultural area which are separated by a road feature &lt;10 m width leads to mapping the border between forest and agriculture in the middle of the road.</span><br>
+</li>
+</ul>
+<p><strong>Minimum Mapping Unit (MMU)/ Minimum Mapping Width (MMW)</strong></p>
+<p>The minimum mapping unit defined is 0,5 ha for all objects. A minimum mapping width of 10 m is required for all linear features.</p>
+<p><u><strong>MMU Exceptions:</strong></u></p>
+<p>Objects located at the border of the riparian zone:</p>
+<ul>
+<li><span data-custom-style="NormalLine">If an object is cut by the riparian border and the portion lying inside the RZ therefore is &lt;0,5 ha, this feature is mapped, if the whole object (inside and outside the RZ) amounts to ≥0,5 ha. However, the area of the divided features inside the RZ must be at least ≥0,2 ha. Smaller objects will be generalised if no further MMU exception rule applies. These polygons will get the COMMENT attribute <u><em>“Area size exception (inside RZ_AoI / outside UA Urban centre)”</em></u>, see Figure 8.</span><br>
+</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image15.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 8: MMU exception at RZ border</figcaption>
+</figure>
+</div>
+<p>Exceptions to this rule will be made</p>
+<ul>
+<li><p>If the size of an object is &lt; MMU is due to a geometrical peculiarity of the AoI (i.e., the object is constrained between RZ AoI and/or UA Urban centre boundaries).</p></li>
+<li><p>In individual cases where features of network-forming classes (roads, railways, rivers), ≥ 0,01 ha and &lt;0,2 ha, are mapped, to provide connectivity outside the AoI.</p></li>
+</ul>
+<p>Objects located within the AoI of the riparian zone:</p>
+<ul>
+<li><span data-custom-style="NormalLine">Linear features (roads, railways, rivers) that are split into two or more polygons by other linear elements (e.g.&nbsp;the road/railway network) will be mapped, even if the resulting segments are smaller than the MMU, to preserve the network. However, features &lt;0,1 ha will be generalised, see Figure 9.</span><br>
+</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image16.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 9: MMU exception of linear elements</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>Objects inside Urban Atlas urban centres keep their MMU of 0,25 ha and will not be generalised.</p></li>
+<li><p>Urban objects which are confined by roads, railways, or rivers. Features &lt;0,25 ha will be generalised.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image17.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Figure 10: MMU exception between roads</figcaption>
+</figure>
+</div>
+<p>In addition, there are some MMU exceptions in relation to change mapping; these are presented in the chapter <em>Change mapping.</em></p>
+<p><u><strong>MMW Exceptions:</strong></u></p>
+<ul>
+<li><span data-custom-style="NormalLine">To maintain continuity of linear features (CODE classes 1.2.1.0, 1.2.2.0, 6.2.1.0, 6.2.2.0, 8.1.1.0 and 8.1.2.0); the MMW may fall below the limit of 10 m, over a distance of up to 100 m.</span><br>
+</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image18.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 11: MMW exception</figcaption>
+</figure>
+</div>
+<p><strong>Good Practice for Data Display – Mapping Scale</strong></p>
+<p>On-screen mapping scale is 1:5.000 – 1:10.000 depending on the landscape and feature class. Large homogeneous objects like agricultural areas or woodland are mapped at scales 1:8.000 – 1:10.000. For all other features, 1:5.000 mapping scale is applied.</p>
+<p><strong>Overlap Rules</strong></p>
+<p>Objects may not overlap. In case of real objects overlay, the following rules apply:</p>
+<ul>
+<li><p>If objects overlap on <strong>different levels</strong>, the top level is mapped. Example: if an artificial canal overlaps a river, the canal is mapped continuously.</p></li>
+<li><p>If objects overlap on <strong>the same level</strong>, the visually dominant object is mapped continuously. However, if roads and railways meet on the same level, railways are mapped continuously to maintain the railway network.</p></li>
+</ul>
+<p><strong>Priority Rules</strong></p>
+<p>The priority rules applied are defined as follows:</p>
+<ul>
+<li><p>Objects &lt;0,5 ha are added to the neighbouring object with the next lesser number of the same sub-class.</p></li>
+<li><p>Objects &lt;0,5 ha are added to the neighbouring object of the same upper class.</p></li>
+<li><p>Objects &lt;0,5 ha are added to the neighbouring object with the longest common border line. Exception: Objects surrounded by railways or roads. If an object is below the MMU size and is completely surrounded by a road or railway network, it shall be aggregated with that surrounding traffic line. However, an exception is made for urban objects. Please see respective definition with Class 1.x.x.x.</p></li>
+</ul>
+<p><strong>Application of Additional Data Sources</strong></p>
+<p>For data interpretation, additional data sources like CORINE Land Cover (CLC) 2006/2012/2018, Urban Atlas (UA) 2012/2018, topographic maps, national Web Map Service (WMS) services, Commercial Off-the-Shelf (COTS) navigation data and auxiliary data including local expertise is used.</p>
+<ul>
+<li><p><u>UA2012/2018</u>: UA2012/2018 data are integrated in the RZ data set, where UA urban centres<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> are located inside the RZ. In that case, the MMU of all UA objects is kept; however the UA class codes are recoded to RZ CODE values (as far as possible). Outside UA Urban centres, UA data are used as an important data source for class delineation and class interpretation. Thus, interpreting the same areas twice is avoided and data compatibility between UA and RZ is guaranteed.</p></li>
+<li><p><u>High-Resolution Layer (HRL) Imperviousness Degree (IM.D.)</u>: HRL Imperviousness Degree is used to support the imperviousness degree derivation of urban classes during the first mapping phase for the reference year 2012. IM.D. is determined by either visual interpretation based on EO data and the Imperviousness Degree layer or derived by an automatic routine based on the IM.D. layer and road segments.</p></li>
+<li><p><u>HRL Tree Cover Density (TCD)</u>: For the reference year 2012, HR Forest Layer is applied to support TCD classification. The classification is performed by either visual interpretation based on EO data and HR Forest Layer or derived by an automatic routine based on HR Forest Layer and forest segments.</p></li>
+<li><p><u>CLC2012/2018</u>: CLC2012/2018 is used as important data source for class assignment. CLC data use ensures data compatibility between CLC and RZ.</p></li>
+<li><p><u>Landsat-8/Sentinel-2 data sets</u>: For critical classes, Landsat-8/ Sentinel 2 data are used as additional data source. They are primarily used to support cropland/grassland differentiations and to detect irrigated areas, as in those cases, mono-temporal data analysis will not provide reliable results. Time series of summer images are collected for irrigated areas and images acquired in late summer/autumn/spring are used for grassland identification.</p></li>
+<li><p><u>In-situ data</u>: Diverse national in-situ data like WMS services, specific maps or classifications as well as descriptions and maps of Natura 2000 (N2000) or RAMSAR site are used to support the object interpretation.</p></li>
+</ul>
+<p><strong>Standard Comments</strong></p>
+<p>In order to clarify certain mapping delineations, there are some comments defined as product attributes. The following Table 9 lists the allowed entries for the product attributes [COMMENT_12] and [COMMENT_18]. In case of multiple comments, these must be separated by a semicolon followed by space character (“…; …”).</p>
+<p><br>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 69%">
+<col style="width: 25%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>List of standard comments</strong></th>
+<th></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Description; Note</strong></td>
+<td><strong>Comment</strong></td>
+<td style="text-align: center;"><strong>UA</strong></td>
+</tr>
+<tr class="even">
+<td><p><u><strong>External Border:</strong></u></p>
+<p>Polygons &lt;0,5 ha at AoI boundary or Urban Atlas Urban centre (polygons have shared line segment(s) with RZ_AoI boundary or UA Urban centre).</p>
+<p>Only polygons outside UA Urban centres are considered.</p></td>
+<td>“Area size exception (at RZ_AoI / UA Urban centre boundary)”</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td><p><u><strong>Internal Border:</strong></u></p>
+<p>Polygons &lt;0,5 ha inside RZ_AoI (for communicated exceptions only).</p>
+<p>Only polygons outside UA Urban centres are considered.</p></td>
+<td>“Area size exception (inside RZ_AoI / outside UA Urban centre)”</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td><p><u><strong>Urban Atlas:</strong></u></p>
+<p>UA2012 or UA2018 data inside UA Urban centre</p></td>
+<td></td>
+<td style="text-align: center;"><p>“UA2012”</p>
+<p>“UA2018”</p></td>
+</tr>
+<tr class="odd">
+<td><p><u><strong>Urban Atlas:</strong></u></p>
+<p>UA2012 data inside UA2012 Urban centre.</p>
+<p>Exception for UA2012 data captured in updated UA2012 Urban centre limits (not identical to URAU_2012_RG.shp).</p></td>
+<td>“UA2012_core_regions_update (name of update source)”</td>
+<td style="text-align: center;">“UA2012”</td>
+</tr>
+<tr class="even">
+<td><p><u><strong>Urban Atlas:</strong></u></p>
+<p>Gap within the UA region. The gap IS NOT in contact with the regular RZ mapping and is to be filled with mapped data in UA code range.</p></td>
+<td>“Adjusted data of UA Urban centre”</td>
+<td style="text-align: center;">“NoData”</td>
+</tr>
+<tr class="odd">
+<td><p><u><strong>Change Mapping:</strong></u></p>
+<p>Changes over several classes. Each change is &lt;0,5 ha but overall change (=sum of individual change areas) is ≥0,5 ha.</p></td>
+<td>“Splitted change”*</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td><p><u><strong>Change Mapping:</strong></u></p>
+<p>Polygons &lt;0,5 ha with no change but connected to change polygons (same code at a neighbouring polygon in one of the two years)</p></td>
+<td>“Areas related to change”</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td><p>Different water levels in comparison of image data taken during dry/wet season and “normal” water level. The water level of the “normal” situation should be used for delineation.</p>
+<p>only Polygons outside UA Urban centres are considered</p></td>
+<td>“Different water levels”</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>For areas completely or partially flooded by water (flooded land), only Polygons outside UA Urban centres are considered.</td>
+<td>“Flooded area”</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>* See section below for in-depth explanation</p>
+<p><em>Table 9: List of Standard Comments</em></p>
+<p><strong>Change mapping</strong></p>
+<p>Following definitions and rules for Land Cover Change (LCC) mapping are based on the LCC rules of CORINE Land Cover (CLC) change detection methodology [35]. The given rules were adopted and expanded to the Natura 2000 [36] specifications and requirements and are now implemented for the Riparian Zone change mapping. Therefore, the change mapping of the RZ dataset is fully aligned with the CLMS N2K dataset<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
+<p><em>Mapping of Land Cover Change in Riparian Zones project</em></p>
+<p>For the Riparian Zones, change mapping is carried out by visual interpretation of 2012 LC/LU vector data and satellite imagery of the timeframe 2012 and 2018 and subsequent direct delineation of change polygons. The final vector data file contains the complete LC/LU status for both timeframes (status layers) and the changes (change layer).</p>
+<p>Although the basis of identification of changes is the interpretation of detectable land cover differences on satellite images from 2012 and 2018, the support of ancillary data has proved being very useful.</p>
+<p>Not every change visible on the images is a real LC/LU change, e.g.:</p>
+<ul>
+<li><p>transient phenomena such as floods and temporary waterlogging</p></li>
+<li><p>seasonal changes in natural vegetation</p></li>
+<li><p>seasonal changes in agriculture, such as effects of crop rotation on arable land</p></li>
+<li><p>crop areas burned related to harvesting/seeding</p></li>
+<li><p>forest plantation growth, still not reaching the height and/or canopy closure of forest</p></li>
+<li><p>changes of water level</p></li>
+<li><p>temporal changes in water cover of fishpond cassettes being part of their management</p></li>
+<li><p>seasonal changes of snow spots in high mountains.</p></li>
+<li><p>…</p></li>
+</ul>
+<p>The introduction of false changes is avoided. As an example, highly non-probable changes are (non-exhaustive list):</p>
+<ul>
+<li><p>1.1.1 → 2.-8.x.x: urban areas seldom disappear</p></li>
+<li><p>5.1.x → 3.1.1 bushy vegetation of different climatic zones do not change to each other</p></li>
+<li><p>8.1.2 → X.X.X highly modified natural water courses and canals do not change to another class</p></li>
+<li><p>etc.</p></li>
+</ul>
+<p><strong>Plausibility checks</strong> are performed to detect unlikely or impossible changes.</p>
+<p>The <strong>Minimum Mapping Unit</strong> (MMU) for LCC is set to <strong>0,5 ha</strong>.</p>
+<p>The <strong>Minimum Mapping Width</strong> (MMW) for the LCC polygons is <strong>10 m</strong>.</p>
+<p><strong>Exceptions</strong> from the MMU, where a generalisation of change objects &lt;0,5 ha is not reasonable because it would discard valuable information, can occur. Where polygons &lt;0,5 ha have been generalised, an MMU exception COMMENT attribute is added (see Table 9.</p>
+<p>Land Cover Changes (LCC) are defined as changes that occur between 2012 (acquisition dates 2011–2014) and 2018 (+/-1 years). LCCs resulting from different interpretations of the same subject are not considered as a change.</p>
+<p><strong>There are two types of changes.</strong></p>
+<ul>
+<li><p><em>Simple Change</em></p></li>
+<li><p><em>Complex Change</em></p></li>
+</ul>
+<p><em>Simple Changes</em></p>
+<p><strong>Simple changes</strong> are defined as where either a single polygon changes from one LC/LU class to another, or a new polygon ≥0,5 ha emerges within an existing, larger polygon (see Figure 12).</p>
+<p><br>
+</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image19.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 12: A Green urban area (1.4.0.0) ≥0,5 ha in 2012 changes into Continuous urban fabric (1.1.1.1) in 2018</figcaption>
+</figure>
+</div>
+<p><em>Simple changes at RZ AoI border (MMU exception)</em></p>
+<p>Land Cover Changes (LCC) which are split by the border of a RZ AoI and have a total area (inside and outside of the RZ AoI) of ≥0,5 ha will be mapped, even if the area inside the RZ AoI is smaller than the MMU.</p>
+<p>The MMU of these border polygons is 0,05 ha. Objects &lt;0,05 ha will be generalised.</p>
+<p>The COMMENT attribute for these changes is <u><em>“area size exception”</em></u>, see Table 9, (necessary for topological checks).</p>
+<p><em>Complex Changes</em></p>
+<p><strong>Complex changes</strong> are defined as changes where more than two types of Land Cover polygons are involved. An example can be given by three different types of LC/LU, where two of the types fully or partially change into a third type. Some examples of complex changes are explained in the following sub-sections.</p>
+<p><em>Single change class: complex change consisting of different LC/LU classes, but mapped as single change class</em></p>
+<p><br>
+</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image20.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 13: Changes (Continuous urban fabric 0,4 ha, water area 0,15 ha) with an area &lt;0,5 ha and different classes make up a complex change area of 0,55 ha</figcaption>
+</figure>
+</div>
+<p>In 2018, 0,4 ha of Managed grassland (4.1.0.0) has changed into Continuous urban fabric (1.1.1.1) and 0,15 ha has changed into a small water surface. Thus, for 2018, there are two classes with individual areas &lt;0,5 ha which together are &gt;0,5 ha, while in 2012 there was only one class. These areas are combined to a complex change area of &gt;0,5 ha by integrating the small water area into the Continuous urban fabric change (1.1.1.1).</p>
+<p>This is a complex change without the COMMENT attribute <u><em>“Splitted change”</em></u> as the small water surface polygon is generalised to capture the overall change of Managed grassland into Continuous urban fabric.</p>
+<p><em>Disappearing polygons: complex change results in disappearing polygons</em></p>
+<p>An existing 2012 object (2.2.2.0) changes into two or more different objects (2.2.1.0 and 1.1.2.0) where each new area is below the MMU, see Figure 14. Because the areas of change are &lt;0,5 ha and located in areas with different LC/LU, the new objects will, because of generalization and priority rules, be incorporated into their respective existing surrounding object.</p>
+<p><br>
+</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image21.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 14: An Olive grove (2.2.2.0) changed into Vineyards, fruit trees and berry plantations (2.2.1.0) and Industrial, commercial and military units (1.1.2.0), but because the areas are &lt;0,5 ha, they are merged with the neighbouring objects.</figcaption>
+</figure>
+</div>
+<p>The Olive grove (2.2.2.0) in 2012 completely changed into Industrial, commercial and military units (1.1.2.0) and Vineyards, fruit trees and berry plantations (2.2.1.0). Both changes are &lt;0,5 ha. Therefore, in 2018, the industry patch is merged to Continuous urban fabric (1.1.1.1) and the fruit tree patch is merged to Semi-natural grassland (4.2.1.0).</p>
+<p><em>MMU exceptions: Complex change mapping</em></p>
+<p><em>Splitted change: Complex changes &lt; MMU</em></p>
+<p>Individual change areas will be mapped as a complex change polygon even if they are &lt;0,5 ha (MMU), if their total combined area is ≥0,5 ha, see Figure 15. The minimum mapping unit for single polygons of complex changes is 0,05 ha. Objects &lt;0,05 ha will be generalised.</p>
+<p>For topological reasons this type of complex change is given the COMMENT attribute <u><em>“Splitted change”</em></u> , see Table 9.</p>
+<p><br>
+</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image22.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 15: Urban expansion: Several changes with an area &lt;0,5 ha make up a complex change area of 0,5 ha (0,1 ha of 4.1.0.0 and 0,4 ha of 2.1.1.0 changed to 0,5 ha of 1.1.1.1)</figcaption>
+</figure>
+</div>
+<p><em>Areas related to change</em></p>
+<p>One other MMU exception beside the “splitted change” has been introduced for the change mapping, with the COMMENT attribute: <strong><em>“<u>areas related to change</u>”</em></strong>, see Figure 16. This COMMENT attribute is applied when an area is partially changed. In this case, if the remaining unchanged area is &lt;MMU, it will not change even though there is a change in the surrounding.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image23.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 16: Polygons &lt;0,5 ha with no change (4.1.0.0) but connected to polygons (1.3.1) where there is a change</figcaption>
+</figure>
+</div>
+<p>In 2012, a Managed grassland area (4.1.0.0) partially changed into a Mineral extraction […] site (1.3.1) in 2018. The unchanged grassland area is smaller than the MMU, i.e.&nbsp;&lt;0,5 ha. In this case the unchanged grassland area is given the attribute <u><em>“Areas related to change”</em></u> in the comment field<em>.</em> Only features with the same code in both years get this comment.</p>
+<p><em>Handling changes in, by definition, heterogeneous classes - changes at landscape level</em></p>
+<p>RZ nomenclature includes some land cover classes that, by definition, represent heterogeneous landscapes. These certain polygons are made up of a mosaic of smaller homogenous patches, especially following land cover classes:</p>
+<ul>
+<li><p>2.3.2 Complex cultivation patterns</p></li>
+<li><p>2.3.3 Land principally occupied by agriculture with significant areas of natural vegetation</p></li>
+<li><p>3.3.x Mixed Forest</p></li>
+</ul>
+<p>If individual land cover changes occur within polygons of these classes in a way that they altogether change the characteristics of the area, then possibly other classes must be delineated. As a result the original heterogeneous landscape class might disappear or be still present but in a smaller extent.</p>
+<p><em>Handling changes in, by definition, change classes - changes at landscape level</em></p>
+<p>RZ nomenclature includes some land cover classes that, by definition, are characterized by a land cover change. These classes are:</p>
+<ul>
+<li><p>1.3.1.0 Mineral extraction, dump and construction sites</p></li>
+<li><p>1.3.2.0 Land without current use</p></li>
+<li><p>3.4.0.0 Transitional woodland and scrub</p></li>
+<li><p>3.6.0.0 Damaged Forest</p></li>
+<li><p>6.3.2.0 Burnt areas (except burnt forest)</p></li>
+</ul>
+<p>Plausibility checks should be applied after change mapping production.</p>
+<p>If a construction site in 2012 is visible, a new construction, mainly urban, is likely to be visible in 2018 as well. If a construction site in 2018 is visible, another former land use, is likely to be visible in 2012.</p>
+<p>Transitional woodland indicates that a regrowth of forest should appear from 2012 to 2018 or deforestation between 2012 and 2018 (exception: slow growing afforestation areas such as cold or dry regions in northern and central Europe). Some theoretic examples can be seen here below:</p>
+<p><strong>Polygon ≥0,5 ha increases or decreases with a change ≥0,5 ha resulting in a polygon ≥0,5 ha.</strong></p>
+<p>Being the most frequently occurring change type, changes ≥0,5 ha connected to an existing polygon are always mapped (see Figure 17 and Figure 18).</p>
+<p><u>Increase from 2012 to 2018</u></p>
+<p><br>
+</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image24.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 17: Simple change</figcaption>
+</figure>
+</div>
+<p>Urban fabric (predominantly public and private units) (1.1.1) increases with an area ≥0,5 ha in 2018 by occupying Natural &amp; semi-natural grassland (4.2.x) from 2012.</p>
+<p><u>Decrease from 2012 to 2018</u></p>
+<p><br>
+</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image25.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 18: Simple change</figcaption>
+</figure>
+</div>
+<p>The area of an Olive grove (2.2.2) decreases in 2018. The remaining area of the 2.2.2 polygon is still ≥0,5 ha in 2018, and thus still mapped in the Riparian Zones product.</p>
+<p><u>Special case: change &lt;0,5 ha integrated into neighbouring change of ≥0,5 ha</u></p>
+<p>Change objects with an area smaller than the MMU can be integrated into an adjacent change with an area of ≥0,5 ha.</p>
+<p><br>
+</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image26.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 19: Small change integrated into adjacent change</figcaption>
+</figure>
+</div>
+<p>An Urban fabric area (1.1.1) in 2012 changed into a 0,8 ha construction site (1.3.1) and 0,3 ha water surface (8.x.x) in 2018. The area of the water surface is below the MMU for changes and is therefore not mapped in the Riparian Zones product. Instead the water surface area is integrated into the change area of the construction site which has an area large enough for being mapped as a change.</p>
+<p>In this case, in 2018, there are two classes mapped in the Riparian Zones product (1.1.1 and 1.3.1) and in 2012 one class (1.1.1). The &lt;0,5 ha 8.x.x polygon is generalised to capture the change but no COMMENT attribute <u><em>“Splitted change”</em></u> in the comment field is necessary.</p>
+<p><strong>Disappearing polygon: a polygon decreases to &lt;0,5 ha with a change ≥0,5 ha</strong></p>
+<p>If the size of a polygon decreases to below 0,5 ha due to a change of an area ≥0,5 ha, it will disappear in the 2018 interpretation because of generalisation (see Figure 20).</p>
+<p><br>
+</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image27.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 20: Generalisation (disappearing polygon)</figcaption>
+</figure>
+</div>
+<p>0,3 ha of a polygon of 0,7 ha Green urban area (1.4) in 2012 changed into Urban fabric (1.1.1) in 2018. The 0,4 ha area of the remaining Green urban area is then below the MMU. Consequently, this remaining part is generalised into Urban fabric (1.1.1) in 2018.</p>
+<p><strong>New polygon: a polygon grows to ≥0,5 ha with a change ≥0,5 ha</strong></p>
+<p>The evolution of a feature that existed in 2012 but was then ≤0,5 ha (and thus not mapped), to an area ≥0,5 ha in 2018. An increase with ≥0,5 ha must be mapped in 2018 (see Figure 21).</p>
+<p><br>
+</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image28.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 21: A new Aquaculture pond (8.2.3) is established on semi-natural grassland (4.2.x).</figcaption>
+</figure>
+</div>
+<p><strong>Special case: A new established feature with “splitted change”</strong></p>
+<p>A new feature ≥0,5 ha (or a feature that existed in 2012, but used to be ≤0,5 ha, thus, not mapped) which grows with a change ≥0,5 ha must be mapped.</p>
+<p><br>
+</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Riparian_Zones_Product_User_Manual_v1-media/image29.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 22: New established feature with splitted change</figcaption>
+</figure>
+</div>
+<p>In 2012 there is an industrial area (1.1.2) that is below the MMU. Part of a neighbouring urban area (1.1.1) &gt;0,5 ha changes into industrial area in 2018. The small industrial area from 2012 together with the new industrial area now has a total area large enough for mapping (&gt;MMU) and therefore the small industrial area “changes” along with the current change and forms a complex change area.</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="quality-assessment" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Quality assessment</h1>
+<p>Standardized Quality Assurance (QA) procedures have been developed to assure a comparable quality and a common Look &amp; Feel of the RZ products, which are provided by regionally distributed specialised Service Providers. Product-specific QC documents shall ensure that all relevant QA/QC steps have been successfully performed. In Table 10 detailed information on topology and plausibility checks is provided.</p>
+<p>The LC/LU product is subject to a permanent Quality Control by experienced image analysts and GIS experts. All relevant topology and plausibility checks to be performed in a geodatabase are listed in Table 10.</p>
+<p><strong>List of Quality Control Steps</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 9%">
+<col style="width: 24%">
+<col style="width: 18%">
+<col style="width: 42%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td rowspan="2">No. :========== 1</td>
+<td rowspan="2">Check :=========================== Multipart features m f s f</td>
+<td rowspan="2">Description :====================================================================== Check separates all ultipart d eatures into s inglepart eatures</td>
+<td rowspan="2">Purpose :=================================================== Assurance that all delivered ata is inglepart data</td>
+<td rowspan="2">Example | :==================================================================================================+ <img src="Riparian_Zones_Product_User_Manual_v1-media/image30.JPEG" style="width:2.90323in;height:1.33333in"><br>
+Source: Esri ArcGIS 10.2 Help |</td>
+</tr>
+<tr class="even">
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Missing vertices f s v c</td>
+<td>Check that all adjacent eatures i hare all t ertices at s ommon edges</td>
+<td>Assurance that delivery data s opologically ound</td>
+<td><img src="Riparian_Zones_Product_User_Manual_v1-media/image31.JPG" class="img-fluid"><br>
+Source: Interpretation data |</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Overlaps f p n e</td>
+<td>Check that eature d olygons do i ot overlap o ach other</td>
+<td>Assurance that elivery data s free of verlaps</td>
+<td><img src="Riparian_Zones_Product_User_Manual_v1-media/image32.JPG" class="img-fluid"><br>
+Source: Esri ArcGIS 10.2 Help |</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Gaps f p n g e</td>
+<td>Check that eature d olygons do i ot possess aps between ach other</td>
+<td>Assurance that elivery data s free of gaps</td>
+<td><img src="Riparian_Zones_Product_User_Manual_v1-media/image33.JPG" class="img-fluid"><br>
+Source: Esri ArcGIS 10.2 Help |</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 0%">
+<col style="width: 10%">
+<col style="width: 15%">
+<col style="width: 16%">
+<col style="width: 51%">
+<col style="width: 4%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td rowspan="2">No. :===: 1</td>
+<td rowspan="2">Check :================================================================= Multipart</td>
+<td rowspan="2">Description :============================================================================================== Check separates features into singlepart features s</td>
+<td rowspan="2">Purpose :======================================================================================================: Assurance that all delivered data is inglepart data.</td>
+<td colspan="2" rowspan="2">Example | :==============================================================================================================================================================================================================================================================================================================================:+ <img src="Riparian_Zones_Product_User_Manual_v1-media/image30.JPEG" style="width:2.9in;height:1.33in"> Source: Esri ArcGIS 10.2 Help</td>
+</tr>
+<tr class="even">
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Missing vertices</td>
+<td>Check that all adjacent features share all vertices at common edges ( c</td>
+<td>Assurance that delivery data is topologically sound share exactly ommon edges)</td>
+<td colspan="2"><img src="Riparian_Zones_Product_User_Manual_v1-media/image31.JPG" style="width:2.27in;height:1.53in"> | Source: Interpretation data |</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Overlaps</td>
+<td>Check that feature polygons do not overlap each other</td>
+<td>Assurance that delivery data is free of overlaps</td>
+<td colspan="2"><img src="Riparian_Zones_Product_User_Manual_v1-media/image32.JPG" style="width:0.99in;height:1.03in"> Source: Esri ArcGIS 10.2 Help</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Gaps</td>
+<td>Check that feature polygons do not possess gaps between each other</td>
+<td>Assurance that delivery data is free of gaps</td>
+<td colspan="2"><img src="Riparian_Zones_Product_User_Manual_v1-media/image33.JPG" style="width:1.3in;height:0.97in"> Source: Esri ArcGIS 10.2 Help</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>Validation of feature geometries</td>
+<td>Check for invalid feature geometries</td>
+<td>Assurance that delivery data consist of valid feature geometries (compliant to OGC standards)</td>
+<td>Following characteristics may not occur: Null geometries, Short segments, Incorrect ring ordering, Incorrect segment orientation, Self-intersections, Unclosed rings, Empty parts, Duplicate vertex, Discontinuous parts, Bad envelope, Bad dataset extent Source: Esri ArcGIS 10.5 Help</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>Validation of feature attribution</td>
+<td>Check for invalid feature attribution</td>
+<td>Verification of correct feature attribution</td>
+<td>Missing feature attribution corrected All attributes (e.g.&nbsp;CODE_4_12 / CODE_4_18 codes) are valid (not out of code range) All text attributes (strings) proved and verified (e.g.&nbsp;COMMENT)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>Data plausibility</td>
+<td>Check for implausible data / changes (feature attribution and feature relations)</td>
+<td>Verification that delivery data is plausible</td>
+<td>Check &amp; correction of CODE assignment for: Polygon of “Green urban area” (CODE 4: 1.4.0.0) not connected to “Urban area” polygon (CODE 4: 1.1.x.x) Polygons of “Croplands”, “Woodland and forest”, “Grassland” or “Heathland and scrub” (CODE 2: 2.x, 3.x, 4.x, 5.x) inside “Urban area” polygon (CODE 3: 1.1.x, 1.2.x, 1.4.x)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>Integration of Urban Atlas data into the UA Urban centres (2012)</td>
+<td>Check that all UA2012/ 2018 data is correctly integrated into the UA Urban centres (2012) i d</td>
+<td>Assurance that all available UA data of UA Urban centres (2012) is correctly ntegrated in elivery data</td>
+<td>Integration of missing UA 2012/2018 data into the UA Urban centres Assign missing flag attribute to UA2012/2018 data of UA Urban centres</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>Unnecessary polygon boundaries</td>
+<td>Check finds adjacent polygons with same attribution p</td>
+<td>Assurance that delivery data is free of unnecessary olygon boundaries</td>
+<td colspan="2"><img src="Riparian_Zones_Product_User_Manual_v1-media/image34.JPEG" style="width:2.9in;height:0.87in"> Source: interpretation data</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>Data coherence with neighbouring Delivery Units of LC/LU product</td>
+<td>Check for incoherence between neighbouring LC/LU products</td>
+<td>Assurance of data coherence between LC/LU products</td>
+<td>Visual check</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>Minimum Mapping Width</td>
+<td>Check for polygons beneath MMW</td>
+<td>Assurance that delivery data meet MMW</td>
+<td>Polygons beneath MMW will be corrected (e.g.&nbsp;expanded, deleted) to meet MMW.</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>Minimum Mapping Unit</td>
+<td>Check for polygons beneath MMU (agreed exceptions will be excluded from MMU check)</td>
+<td>Assurance that delivery data meet MMU</td>
+<td>Polygons beneath MMU will be corrected (e.g.&nbsp;merged, expanded, deleted) to reach the specified MMU. Exception: polygons sharing line segments with AoI borderline will be checked separately and be excluded from the MMU check within the AoI</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>Completeness</td>
+<td>Check for missing data inside and outside the final integrated RZ AoI</td>
+<td>Assurance that RZ AoI is completely covered by delivery data</td>
+<td>Missing data inside RZ AoI will be corrected (captured) Data outside RZ AoI will be deleted</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>Edge matching C a m b</td>
+<td>heck for geometrical and ttributional data ismatches at shared oundaries</td>
+<td>Assurance of geometrical and attributional data coherence between neighbouring RZ AoI</td>
+<td>Mismatches of data in attribution and geometry at shared edge of 2 neighbouring delivery units (full or partial delivery units) will be corrected (e.g.&nbsp;matching of feature attribution, snapping on vertices of neighbouring feature geometries)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>Attribution completeness of attribute tables</td>
+<td>Check completeness of attribute tables</td>
+<td>Assure that all attributes are complete and correct</td>
+<td colspan="2"><img src="Riparian_Zones_Product_User_Manual_v1-media/image35.png" style="width:2.9in;height:0.39in"></td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>Format specification</td>
+<td>Check format specification of LC/LU product specification</td>
+<td>Verification of correct data format</td>
+<td>Esri shapefile (*.SHP) File naming</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>Projection</td>
+<td>Check projection h</td>
+<td>LAEA-projection as to be defined</td>
+<td colspan="2"><img src="Riparian_Zones_Product_User_Manual_v1-media/image36.png" style="width:2.85in;height:0.78in"></td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>Metadata check</td>
+<td>Check of INSPIRE conform metadata description</td>
+<td>Assure INSPIRE conformity of associated metadata XML files</td>
+<td>https://inspire.ec.europa.eu/validator/ or the most recent and accurate one</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 10: LC/LU relevant Quality Control Steps</em></p>
+<p>In addition to the internal quality control performed by the Service providers in charge of production, the EEA performed an external thematic validation available at <a href="https://land.copernicus.eu/user-corner/technical-library/riparian_zones_validation_report_2018_partial">Microsoft Word - CLMS_RZ_LCLU_Validation_Report_SC04_1_3.docx (copernicus.eu)</a>.</p>
+<p>The thematic validation of the LCLU 2018 products shows very good results with an Overall Accuracy that meets the validation requirement in a plausibility analysis (with an Overall Accuracy of 91.5% ±0.2), even though the blind interpretation results show slightly but satisfying lower overall accuracies (88.7% ±0.2). The Change layer (2012-2018) also shows good results at Level 4 with an Overall Accuracy of 86.2% ±0.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="terms-of-use-and-product-technical-support" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Terms of use and product technical support</h1>
+<p><strong>Terms of use</strong></p>
+<p>The product(s) described in this document is/are created in the frame of the Copernicus programme of the European Union by the European Environment Agency (product custodian) and is/are owned by the European Union. The product(s) can be used following Copernicus full free and open data policy, which allows the use of the product(s) also for any commercial purpose. Derived products created by end users from the product(s) described in this document are owned by the end users, who have all intellectual rights to the derived products.</p>
+<p><strong>Citation</strong></p>
+<p>In cases of re-dissemination of the product(s) described in this document or when the product(s) is/are used to create a derived product it is required to provide a reference to the source. A template is provided below:</p>
+<p><em>“© European Union, Copernicus Land Monitoring Service &lt;year&gt;, European Environment Agency (EEA)”</em></p>
+<p><strong>Product technical support</strong></p>
+<p>Product technical support is provided by the product custodian through Copernicus Land Monitoring Service helpdesk at <a href="mailto:copernicus@eea.europa.eu" class="email">copernicus@eea.europa.eu</a>. Product technical support doesn’t include software specific user support or general GIS or remote sensing support.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="abbreviations-acronyms" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Abbreviations &amp; Acronyms</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 78%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">AoI</th>
+<th style="text-align: left;">Area of Interest</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CBD</td>
+<td style="text-align: left;">Convention on Biological Diversity</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CCM</td>
+<td style="text-align: left;">Copernicus Contribution Mission</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CLC</td>
+<td style="text-align: left;">CORINE Land Cover</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CLMS</td>
+<td style="text-align: left;">Copernicus Land Monitoring Service</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">COTS</td>
+<td style="text-align: left;">Commercial Off-the-Shelf</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DAP</td>
+<td style="text-align: left;">Data Access Portfolio</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DOM</td>
+<td style="text-align: left;">Départements et régions d’outre-mer</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DU</td>
+<td style="text-align: left;">Delivery Unit</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DWH</td>
+<td style="text-align: left;">Data Warehouse</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EC</td>
+<td style="text-align: left;">European Commission</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ECRINS</td>
+<td style="text-align: left;">European Catchments and Rivers Network System</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EEA</td>
+<td style="text-align: left;">European Environment Agency</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EEA-39</td>
+<td style="text-align: left;">The 39 EEA member and cooperating countries</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EIONET</td>
+<td style="text-align: left;">European Environment Information and Observation Network</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EO</td>
+<td style="text-align: left;">Earth Observation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EPSG</td>
+<td style="text-align: left;">European Petroleum Survey Group Geodesy</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ESA</td>
+<td style="text-align: left;">European Space Agency</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ETRS</td>
+<td style="text-align: left;">European Terrestrial Reference System</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EU</td>
+<td style="text-align: left;">European Union</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EUNIS</td>
+<td style="text-align: left;">European Nature Information System</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FD</td>
+<td style="text-align: left;">Floods Directive</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FID</td>
+<td style="text-align: left;">Feature Identifier</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FUA</td>
+<td style="text-align: left;">Functional Urban Areas</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GISCO</td>
+<td style="text-align: left;">Geographical Information System of the Commission</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HA</td>
+<td style="text-align: left;">Hectare</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HR</td>
+<td style="text-align: left;">High Resolution</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HRG</td>
+<td style="text-align: left;">High Resolution Geometrical</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HRL</td>
+<td style="text-align: left;">High Resolution Layer</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ID</td>
+<td style="text-align: left;">Identifier</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IM.D.</td>
+<td style="text-align: left;">Imperviousness Degree</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">INSPIRE</td>
+<td style="text-align: left;">Infrastructure for Spatial Information in Europe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ISO</td>
+<td style="text-align: left;">International Organization for Standardization</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LAEA</td>
+<td style="text-align: left;">Lambert Azimuthal Equal-Area</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LCC</td>
+<td style="text-align: left;">Land Cover Change</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LC/LU</td>
+<td style="text-align: left;">Land Cover/Land Use</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAES</td>
+<td style="text-align: left;">Mapping and Assessment of Ecosystems and their Services</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MMU</td>
+<td style="text-align: left;">Minimum Mapping Unit</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MMW</td>
+<td style="text-align: left;">Minimum Mapping Width</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MSGI</td>
+<td style="text-align: left;">Metadata Standard for Geographic Information</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N2000 / N2K</td>
+<td style="text-align: left;">Natura2000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NIR</td>
+<td style="text-align: left;">Near InfraRed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OSM</td>
+<td style="text-align: left;">Open Street Map</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PSIL</td>
+<td style="text-align: left;">Parent Scene Identification Layer</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">QA</td>
+<td style="text-align: left;">Quality Assurance</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">QC</td>
+<td style="text-align: left;">Quality Control</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RZ/RPZ</td>
+<td style="text-align: left;">Riparian Zones</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SDI</td>
+<td style="text-align: left;">Spatial Data Infrastructure</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SHP</td>
+<td style="text-align: left;">Shapefile</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SPOT</td>
+<td style="text-align: left;">Satellite Pour l’Observation de la Terre</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TC</td>
+<td style="text-align: left;">Technical Committee</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TCD</td>
+<td style="text-align: left;">Tree Cover Density</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">UA</td>
+<td style="text-align: left;">Urban Atlas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">URAU</td>
+<td style="text-align: left;">Urban Audit</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VHR</td>
+<td style="text-align: left;">Very High-Resolution</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WFD</td>
+<td style="text-align: left;">Water Framework Directive</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WMS</td>
+<td style="text-align: left;">Web Map Service</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WU</td>
+<td style="text-align: left;">Working Unit</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">XML</td>
+<td style="text-align: left;">Extensible Markup Language</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="references" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> References</h1>
+<p>[1] C. Weissteiner, M. Ickerott, H. Ott, M. Probeck, G. Ramminger, N. Clerici, H. Dufourmont and A. Sousa, “Europe’s Green Arteries—A Continental Dataset of Riparian Zones,” <em>Remote Sensing,</em> vol.&nbsp;8, 2016.</p>
+<p>[2] J. Maes, A. Teller, M. Erhard, C. Liquete, L. Braat, P. Berry, B. Egoh, P. Puydarrieux, C. Fiorina, F. Santos-Martin, M. L. Paracchini, H. Keune, H. Wittmer, J. Hauck, I. Fiala, P. H. Verburg, S. Condé, J. P. Schägner, J. San Miguel, C. Estregui, O. Ostermann, J. I. Barredo, H. M. Pereira, A. Stott, V. Laporte, A. Meiner, B. Olah, E. R. Gelabert, R. Spyropoulou, J.-E. Petersen, C. Maguire, N. Zal, E. Achilleos, A. Rubin, L. Ledoux, P. Murphy, M. Fritz, C. Brown, C. Raes, S. Jacobs, P. Raquez, M. Vandewalle, D. Connor and G. Bidoglio, “Mapping and Assessment of Ecosystems and their Services, An Analytical Framework for Ecosystems Assessment under Action 5 of the EU Biodiversity Strategy to 2020 - Discussion paper,” Publications office of the European Union, Luxembourg, 2013.</p>
+<p>[3] J. Maes, A. Teller, M. Erhard, P. Murphy, M. L. Paracchini, J. I. Barredo, B. Grizzetti, A. Cardoso, F. Somma, J.-E. Petersen, A. Meiner, E. R. Galabert, N. Zal, P. Kristensen, A. Bastrup-Birk, K. Biala, C. Romao, C. Piroddi, B. Egoh, C. Fiorina, F. Santos, V. Naruševičius, J. Verboven, H. Pereira, J. Bengtsson, G. Kremena, C. Marta-Pedroso, T. Snäll, C. Estreguil, J. San Miguel, L. Braat, A. Grêt-Regamey, M. Perez-Soba, P. Degeorges, G. Beaufaron, A. Lillebø, D. A. Malak, C. Liquete, S. Condé, J. Moen, Ö. Hannah, B. Czúcz, E. G. Drakou, G. Zulian and C. Lavalle, “Mapping and Assessment of Ecosystems and their Services - Indicators for ecosystem assessments under Action 5 of the EU Biodiversity Strategy to 2020, 2nd Report,” Publications office of the European Union, Luxembourg, 2014.</p>
+<p>[4] Wikipedia, “Strahler number,” 01 March 2022. [Online]. Available: https://en.wikipedia.org/wiki/Strahler_number. [Accessed 03 October 2022].</p>
+<p>[5] D. Theobald, D. Merritt and N. John, “Assessments of Threats to Riparian Ecosystems in the Western US,” January 2010. [Online]. Available: https://www.researchgate.net/publication/242639999_Assessments_of_Threats_to_Riparian_Ecosystems_in_the_Western_US. [Accessed 22 11 2022].</p>
+<p>[6] European Environment Agency; Christiansen, Trine; Azlak, Muhammet; Ivits-Wasser, Eva, “Floodplains: a natural system to preserve and restore,” Publications Office of the European Union, Luxembourg, 03 Mar 2020.</p>
+<p>[7] F. Nakamura, <em>Riparian Zone,</em> 2019.</p>
+<p>[8] National Research Council, Riparian Areas: Functions and Strategies for Management, Washington, DC: The National Academies Press, 2002.</p>
+<p>[9] K. Tockner and J. Stanford, “Riverine flood plains: present state and future trends,” <em>Environmental Conservation 2,</em> pp.&nbsp;308-330, 2002.</p>
+<p>[10] T. Riis, M. Kelly-Quinn, F. C. Aguiar, M. Paraskevi, D. Bruno, M. D. Bejerano, N. Clerici, M. R. Fernandes, J. C. Franco, N. Pettit, A. P. Portela, O. Tammeorg, P. Tammeorg, P. M. Rodríguez-González and S. Dufour, “Global Overview of Ecosystem Services Provided by Riparian Vegetation,” <em>BioScience,</em> vol.&nbsp;70, no. 6, pp.&nbsp;501-514, June 2020.</p>
+<p>[11] C. Catterall, R. Lynch and A. Jansen, “Riparian wildlife and habitats,” in <em>Principles for riparian lands management</em>, Canberra, Land &amp; Water Australia, 2007, pp.&nbsp;141-158.</p>
+<p>[12] Vermont Fish &amp; Wildlife Department, “A Landowner’s Guide - Wildlife Habitat Management for Lands in Vermont,” 2014. [Online]. Available: https://vtfishandwildlife.com/learn-more/landowner-resources/wildlife-habitat-management-a-landowners-guide. [Accessed 21 November 2022].</p>
+<p>[13] I. Zelnik, V. Klenovšek and A. Gaberščik, “Complex Undisturbed Riparian Zones Are Resistant to Colonisation by Invasive Alien Plant Species,” <em>Water,</em> vol.&nbsp;12, p.&nbsp;345, 25 January 2020.</p>
+<p>[14] S. Naeem, J. M. H. Knops, D. Tilman, K. M. Howe, T. Kennedy and S. Gale, “Plant diversity increases resistance to invasion in the absence of covarying extrinsic factors,” <em>Oikos,</em> vol.&nbsp;91, no. 1, pp.&nbsp;97-108, 2000.</p>
+<p>[15] R. P. Keller, J. Geist, J. M. Jeschke and I. Kühn, “Invasive species in Europe: ecology, status, and policy,” <em>Environmental Sciences Europe,</em> vol.&nbsp;23, no. 1, 20 June 2011.</p>
+<p>[16] S. Capon, L. Chambers and R. e. a. Mac Nally, “Riparian Ecosystems in the 21st Century: Hotspots for Climate Change Adaptation?,” <em>Ecosystems,</em> vol.&nbsp;16, pp.&nbsp;359-381, 2013.</p>
+<p>[17] European Environmental Agency, “Floodplain statistics viewer,” European Environmental Agency, 03 March 2020. [Online]. Available: https://www.eea.europa.eu/data-and-maps/data/data-viewers/floodplain-areas. [Accessed 02 October 2022].</p>
+<p>[18] European Commission, “Directive 2000/60/EC of the European Parliament and of the Council establishing a framework for Community action in the field of water policy,” 23 October 2000. [Online]. Available: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32000L0060. [Accessed 04 October 2022].</p>
+<p>[19] Convention on Biological Diversity, “ONE-PAGERS ON THE GOALS AND TARGETS IN THE FIRST DRAFT OF THE POST-2020 GLOBAL BIODIVERSITY FRAMEWORK,” Convention on Biological Diversity, 06 August 2021. [Online]. Available: https://www.cbd.int/article/first-draft-global-biodiversity-framework-one-pagers. [Accessed 30 November 2022].</p>
+<p>[20] United Nations, “Department of Economic and Social Affairs - Sustainable Development,” [Online]. Available: https://sdgs.un.org/goals/goal6. [Accessed 30 November 2022].</p>
+<p>[21] G. Urbanič, E. Politti, M. P. Rodríguez-González, R. Payne, D. Schook, M. H. Alves, A. Anđelković, D. Bruno, M. Chilikova-Lubomirova, S. Di Lonardo, R. Egozi, V. Garófano-Gómez, I. Gomes Marques, M. González del Tánago, Y. S. Gültekin, B. Gumiero, S. Hellsten, G. Hinkov, J. Jakubínský, P. Janssen, R. Jansson, M. Kelly-Quinn, T. Kiss, S. Lorenz, R. R. Martinez, Z. Mihaljević, E. Papastergiadou, M. Pavlin Urbanič, E. Penning, T. Riis, J. Šibík, M. Šibíková, T. Zlatanov and S. Dufour, “Riparian Zones—From Policy Neglected to Policy Integrated,” <em>Frontiers in Environmental Science,</em> vol.&nbsp;10, 28 April 2022.</p>
+<p>[22] European Commission, “Directive 2007/60/EC of the European parliament and the council on the assessment and management of flood risks,” 23 October 2007. [Online]. Available: https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32007L0060&amp;from=EN. [Accessed 04 October 2022].</p>
+<p>[23] M. González del Tánago, V. Martínez-Fernández, F. C. Aguiar, W. Bertoldi, S. Dufour, D. García de Jalón, V. Garófano-Gómez, D. Mandzukovski and P. M. Rodríguez-González, “Improving river hydromorphological assessment through better integration of riparian vegetation: Scientific evidence and guidelines,” <em>Journal of Environmental Management,</em> vol.&nbsp;292, 15 August 2021.</p>
+<p>[24] European Environment Agency, “Ecosystem type map (all classes),” European Environment Agency, 21 December 2018. [Online]. Available: https://www.eea.europa.eu/data-and-maps/figures/ecosystem-type-map-all-classes-1. [Accessed 03 March 2023].</p>
+<p>[25] E. E. Agency, “Ecosystem types of Europe,” European Environmental Agency, 17 December 2019. [Online]. Available: https://www.eea.europa.eu/data-and-maps/data/ecosystem-types-of-europe-1. [Accessed 20 September 2022].</p>
+<p>[26] G. Yang, Y. Li, T. Huang, B. Fu, J. Tang, X. Zhang and J. Wu, “Multi-scale evaluation of ecological restoration effects in the riparian zone using Landsat series images from 1980 to 2019,” <em>Ecological Indicators,</em> vol.&nbsp;132, 2021.</p>
+<p>[27] European commission, “The post-2020 Common Agricultural Policy - Environmental benefits and simplification,” 2019. [Online]. Available: https://ec.europa.eu/info/sites/info/files/food-farming-fisheries/key_policies/documents/cap-post-2020-environ-benefits-simplification_en.pdf. [Accessed 30 November 2022].</p>
+<p>[28] O. Englund, P. Börjesson, B. Mola-Yudego, G. Berndes, I. Dimitriou, C. Cederberg and N. Scarlat, “Strategic deployment of riparian buffers and windbreaks in Europe can co-deliver biomass and environmental benefits,” <em>Commun Earth Environ,</em> 27 August 2021.</p>
+<p>[29] G. C. Palmer and A. F. Bennett, “Riparian zones provide for distinct bird assemblages in forest mosaics of south-east Australia,” <em>Biological Conservation,</em> vol.&nbsp;130, no. 3, pp.&nbsp;447-457, 2006.</p>
+<p>[30] Copernicus, “Bird Migration,” European Commission, [Online]. Available: https://climate.copernicus.eu/bird-migration?q=climate-change-adaptation-and-bird-migration. [Accessed 26 September 2022].</p>
+<p>[31] European Commission, “The Birds Directive,” European Commission, [Online]. Available: https://ec.europa.eu/environment/nature/legislation/birdsdirective/index_en.htm. [Accessed 26 September 2022].</p>
+<p>[32] B. de la Fuente, M. C. Mateo-Sánchez, G. Rodríguez, A. Gastón, R. Pérez de Ayala, D. Colomina-Pérez, M. Melero and S. Saura, “Natura 2000 sites, public forests and riparian corridors: The connectivity backbone of forest green infrastructure,” <em>Land Use Policy,</em> vol.&nbsp;75, pp.&nbsp;429-441, 2018.</p>
+<p>[33] N. Clerici and P. Vogt, “Ranking European regions as providers of structural riparian corridors for conservation and management purposes,” <em>International Journal of Applied Earth Observation and Geoinformation,</em> vol.&nbsp;21, pp.&nbsp;477-483, 2013.</p>
+<p>[34] A. Fonseca, J.-P. Ugille, M. Adrien, P. Rodríguez-González, G. Duarte, M. Ferreira and M. R. Fernandes, “Assessing the Connectivity of Riparian Forests across a Gradient of Human Disturbance: The Potential of Copernicus”Riparian Zones” in Two Hydroregions,” <em>Forests,</em> vol.&nbsp;12, 2021.</p>
+<p>[35] G. Büttner, B. Kosztra, G. Maucha, R. Pataki, S. Kleeschulte, G. Hazeu, M. Vittek, C. Schröder and A. Littkopf, “Copernicus Land Monitoring Service CORINE Land Cover User Manual,” 20 April 2021. [Online]. Available: https://www.eea.europa.eu/publications/technical_report_2007_17. [Accessed 14 March 2023].</p>
+<p>[36] E. GmbH, “NOMENCLATURE and MAPPING GUIDELINE, Natura 2000 Mapping,” 2018.</p>
+<p>[37] J. Maes, C. Liquete, A. Teller, M. Erhard, M. L. Paracchini, J. I. Barredo, B. Grizzetti, A. Cardoso, F. Somma, J.-E. Petersen, A. Meiner, E. R. Gelabert, N. Zal, P. Kristensen and A. Bastrup-Birk, “An indicator framework for assessing ecosystem services in support of the EU Biodiversity Strategy to 2020,” <em>Ecosystem Services,</em> vol.&nbsp;17, pp.&nbsp;14-23, 2016.</p>
+<p>[38] N. R. Council, “Chapter 1: Introduction,” in <em>Riparian Areas: Functions and Strategies for Management</em>, Washington (DC), National Academy Press, 2002.</p>
+<p>[39] R. Naiman, H. Décamps, M. McClain and G. Likens, “Chapter 4: Structural Patterns,” in <em>Riparia: Ecology, Conservation and Management of Streamside Communities</em>, Academic Press, 2005, pp.&nbsp;79-123.</p>
+<p>[40] Copernicus, “Migratory Birds,” European Commission, [Online]. Available: https://birdmigration.climate.copernicus.eu/migratory-birds. [Accessed 26 September 2022].</p>
+<p>[41] D. N. Pennington, J. Hansel and R. B. Blair, “The conservation value of urban riparian areas for landbirds during spring migration: Land cover, scale, and vegetation effects,” <em>Biological Conservation,</em> vol.&nbsp;141, pp.&nbsp;1235-1248, May 2008.</p>
+<p>[42] L. Lind, E. M. Hasselquist and H. Laudon, “Towards ecologically functional riparian zones: A meta-analysis to develop guidelines for protecting ecosystem functions and biodiversity in agricultural landscapes,” <em>Journal of Environmental Management,</em> vol.&nbsp;249, November 2019.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="annexes" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Annexes</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 5%">
+<col style="width: 66%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Riparian Zones Delivery Units</strong></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>No.</strong></td>
+<td><strong>DU ID</strong></td>
+<td><strong>Catchment Name(s) per Unit</strong></td>
+<td><strong>RZ AoI Str. 2-9 [km²]</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td>DU001A</td>
+<td>Aegean Islands, Black Sea Basin District, Turkey West</td>
+<td>17.003,02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td>DU002A</td>
+<td>Attica, Crete, Eastern Peloponnese, Eastern Sterea Ellada, Seman, Thessalia, Western Macedonia, Western Sterea Ellada</td>
+<td>14.627,61</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td>DU003A</td>
+<td>Turkey South, Cyprus</td>
+<td>12.048,10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td>DU004A</td>
+<td>Adriatic Sea coastal catchments and small basins, Central Macedonia, Crni Drim / Drin, Drini i Zi, Neretva, North Adriatic, West Aegean Region Basin District</td>
+<td>15.487,18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5</td>
+<td>DU005A</td>
+<td>Middle Appenines, Serchio, Sicily, Southern Appenines</td>
+<td>25.454,12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td>DU006A</td>
+<td>Balearic Islands, Corsica, Sardinia</td>
+<td>5.330,56</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7</td>
+<td>DU007A</td>
+<td>Dniestr, Pregolya, Vistula</td>
+<td>22.657,56</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8</td>
+<td>DU008A</td>
+<td>Ems, Weser</td>
+<td>10.199,01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9</td>
+<td>DU009A</td>
+<td>Meuse, Scheldt (Brussels Area), Seine, Channel Islands</td>
+<td>17.507,41</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10</td>
+<td>DU010A</td>
+<td>Turkey North</td>
+<td>17.425,68</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11</td>
+<td>DU011A</td>
+<td>Turkey East</td>
+<td>17.647,16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12</td>
+<td>DU012A</td>
+<td>Danube East</td>
+<td>30.718,71</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">13</td>
+<td>DU013A</td>
+<td>Danube North</td>
+<td>46.978,77</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">14</td>
+<td>DU014A</td>
+<td>Danube South</td>
+<td>25.936,27</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">15</td>
+<td>DU015A</td>
+<td>Danube West</td>
+<td>36.469,28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">16</td>
+<td>DU016A</td>
+<td>Rhine</td>
+<td>29.839,20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">17</td>
+<td>DU017A</td>
+<td>Loire, Brittany, and Vendee coastal waters</td>
+<td>17.536,04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">18</td>
+<td>DU018A</td>
+<td>Eastern Alps, Po Basin</td>
+<td>27.993,27</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">19</td>
+<td>DU019A</td>
+<td>Ebro, Internal Basins of Catalonia, Jucar</td>
+<td>19.386,97</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">20</td>
+<td>DU020A</td>
+<td>Algarve Basins, Guadiana, Sado and Mira, Tagus and Western Basins, Azores, Madeira, Canaries</td>
+<td>22.493,10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">21</td>
+<td>DU021A</td>
+<td>Basque County internal basins, Cavado, Ave and Leca, Douro, Galician Coast, Minho, and Lima, Vouga, Mondego and Lis</td>
+<td>25.214,70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">22</td>
+<td>DU022A</td>
+<td>Eastern, IE South Eastern, IE South Western, Neagh Bann, North Eastern, North Western, Shannon</td>
+<td>9.537,20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">23</td>
+<td>DU023A</td>
+<td>Anglian, Dee, Humber, North West, Thames, UK South East, UK South West, Western Wales, Isle of Man</td>
+<td>14.400,28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">24</td>
+<td>DU024A</td>
+<td>Northumbria, Scotland, Solway Tweed</td>
+<td>13.839,72</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">25</td>
+<td>DU025A</td>
+<td>Lielupe, Nemunas, Venta</td>
+<td>9.725,29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">26</td>
+<td>DU026A</td>
+<td>Schlei/Trave, Vidaa-Krusaa, Warnow/Peene</td>
+<td>2.821,89</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">27</td>
+<td>DU027A</td>
+<td>North Baltic, Skagerrak and Kattegat, South Baltic</td>
+<td>36.208,84</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">28</td>
+<td>DU028A</td>
+<td>Glomma, Moere and Romsdal, Troendelag</td>
+<td>12.664,46</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">29</td>
+<td>DU029A</td>
+<td>Kokemoenjoki-Archipelago Sea-Bothnian Sea, Kymijoki-Gulf of Finland</td>
+<td>19.171,74</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">30</td>
+<td>DU030A</td>
+<td>Nordland, Troms</td>
+<td>7.120,65</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">31</td>
+<td>DU031A</td>
+<td>Bothnian Sea</td>
+<td>26.224,37</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">32</td>
+<td>DU032A</td>
+<td>Elbe, Elbe coastal catchments</td>
+<td>21.209,31</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">33</td>
+<td>DU033A</td>
+<td>Ucker</td>
+<td>16.053,29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">34</td>
+<td>DU034A</td>
+<td>Tornionjoki (Finnish part)</td>
+<td>27.538,23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">35</td>
+<td>DU035A</td>
+<td>Jutland and Funen, Zealand</td>
+<td>3.965,58</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">36</td>
+<td>DU036A</td>
+<td>SE South West, West Bay</td>
+<td>13.460,29</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">37</td>
+<td>DU037A</td>
+<td>Finnmark, Kemijoki, Teno-, Nootom- and Paatsjoki (Finnish part)</td>
+<td>17.137,81</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">38</td>
+<td>DU038A</td>
+<td>Oulujoki-Iijoki, Vuoksi</td>
+<td>27.767,52</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">39</td>
+<td>DU039A</td>
+<td>Daugava, East Estonia, Gauja, West Estonia</td>
+<td>10.152,22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">40</td>
+<td>DU040A</td>
+<td>Andalusia Atlantic Basins, Andalusia Mediterranean Basins</td>
+<td>13.589,11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">41</td>
+<td>DU041A</td>
+<td>Adour, Garonne, Dordogne, Charente, and coastal waters of Aquitania</td>
+<td>15.198,04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">42</td>
+<td>DU042A</td>
+<td>Iceland</td>
+<td>7.527,65</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">43</td>
+<td>DU043A</td>
+<td>Rhone and Coastal Mediterranean</td>
+<td>21.910,16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Total area</strong></td>
+<td></td>
+<td></td>
+<td><strong>805.177,34</strong></td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 11: Riparian Zones Delivery Units</em></p>
+
+
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>contribute to climate change mitigation and adaptation, as well as sustainable energy; foster sustainable development and efficient management of natural resources such as water, soil and air; contribute to the protection of biodiversity, enhance ecosystem services and preserve habitats and landscapes.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://cws-expert.eea.europa.eu/RiparianZones/"><strong>Index of /RiparianZones (europa.eu)</strong></a><u><strong>,</strong></u> <strong>Username: cwsexpert, Password: expertcws</strong><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:Urban_centre">Glossary:Urban centre - Statistics Explained (europa.eu)</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://land.copernicus.eu/local/natura">Natura 2000 (N2K) — Copernicus Land Monitoring Service</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/library\.land\.copernicus\.eu");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2025 EEA. All rights reserved.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
