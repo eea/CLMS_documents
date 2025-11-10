@@ -1,8 +1,8 @@
 ---
 title: "European Ground Motion Service (EGMS) - Product Description and Format Specification"
 subtitle: "Copernicus Land Monitoring Service"
-date: "25/10/2023"
-version: 2.0
+date: "07/08/2025"
+version: 3.0
 
 toc: true
 toc-title: "Content"
@@ -55,7 +55,7 @@ An outline of each follow:
 
 ## The EGMS Basic product
 
-![Figure 1 EGMS Basic (L2a) product. Provided as a 2D, colour-coded by average velocity, map. Displacement data provided in the satellite line-of-sight, and in radar geometry, with annotated geolocalisation and quality measures per measurement point. A time series plot is associated with each point.](Product_Description_v2-media/image3.png)
+![Figure 1 EGMS Basic (L2a) product. Provided as a 2D, colour-coded by average velocity, map. Displacement data provided in the satellite line-of-sight, and in radar geometry, with annotated geolocalisation and quality measures per measurement point. A time series plot is associated with each point.](Product_Description_v3-media/image3.png)
 
 The EGMS *Basic* product provides InSAR displacement data provided in the satellite line-of-sight, with annotated geolocalisation and quality measures per measurement point (MP). Satellite line-of-sight means that measurements are projected along the imaginary line which connects the satellite to the target, and which have to be reprojected to assume the meaning of vertical/horizontal displacement.
 
@@ -75,7 +75,7 @@ Some isolated islands may not have GNSS data available. For these areas, *Calibr
 
 ## The EGMS Ortho product
 
-![Figure 2 EGMS Ortho product. Absolute, vertical displacement. The gridded nature of the data is clearly visible.](Product_Description_v2-media/image4.png)
+![Figure 2 EGMS Ortho product. Absolute, vertical displacement. The gridded nature of the data is clearly visible.](Product_Description_v3-media/image4.png)
 
 The EGMS *Ortho* product exploits the discrete look-angles provided by the *Calibrated* product to derive two further layers; one of purely vertical displacements, the other of purely east-west displacements. Both layers are resampled to a 100 m grid to coincide with other *Copernicus* products. Vertical and east-west displacement components can be estimated taking advantage of the prior information coming from GNSS data. Refer to RD1 for more details about the Ortho products generation process.
 
@@ -343,64 +343,34 @@ This section details the data-fields (attributes) that are provided with each of
 
 ## Basic and Calibrated product attributes 
 
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Parameter               Unit of measure  Meaning                                                                                                                                                                                                                                                                                                   Example         Data format
-  ---------------------- ----------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------ ----------------------
-  pid                           \-         MP unique identifier -- 10 characters.                                                                                                                                                                                                                                                                   3ODTn5TNYv   Alphanumeric Base 62
-
-  cluster_label                 \-         [Available just for *Basic* products.]{.underline}\                                                                                                                                                                                                                                                          0              integer
-                                           Label which identifies, for each MP, the cluster it belongs to.\                                                                                                                                                                                                                                                     
-                                           The label is 0 if there is just one cluster in the burst.\                                                                                                                                                                                                                                                           
-                                           The label assumes the values from 1 to N if there are more than one clusters in the burst (with N the number of clusters).                                                                                                                                                                                           
-
-  mp_type                      m^2^        'Effective Area' of the DS (#Looks x Area of 1 pixel over flat terrain). 0 = PS                                                                                                                                                                                                                             400             integer
-
-  latitude                      deg        MP latitude. 6 digits after the point.                                                                                                                                                                                                                                                                   45.567812            6 DP
-
-  longitude                     deg        MP longitude. 6 digits after the point.                                                                                                                                                                                                                                                                  12.123412            6 DP
-
-  easting                        m         ETRS89-LAEA.                                                                                                                                                                                                                                                                                             4662111.45           2 DP
-
-  northing                       m         ETRS89-LAEA.                                                                                                                                                                                                                                                                                             115345.12            2 DP
-
-  height                         m         MP orthometric height wrt EGM2008 geoid.                                                                                                                                                                                                                                                                    67.4              1 DP
-
-  height_wgs84                   m         MP ellipsoidal height wrt to WGS84 ellipsoid.                                                                                                                                                                                                                                                               72.3              1 DP
-
-  line                         pixel       Azimuth position of the MPs within the burst wrt the reference product annotated in metadata.                                                                                                                                                                                                               456             integer
-
-  pixel                        pixel       Range position of the MPs within the burst wrt the reference product annotated in metadata.                                                                                                                                                                                                                 124             integer
-
-  rmse                          mm         Evaluated on the time series residuals after applying a regression model of a third order polynomial plus a seasonal (sinusoidal) component.                                                                                                                                                                4.5               1 DP
-
-  temporal_coherence            \-         MP coherence with respect to the linear regressed velocity.                                                                                                                                                                                                                                                 0.54              2 DP
-
-  amplitude_dispersion          \-         Amplitude Dispersion Index -- Standard Deviation of amplitude / Mean amplitude                                                                                                                                                                                                                              0.25              2 DP
-
-  incidence_angle               deg        Incidence angle for each MP.                                                                                                                                                                                                                                                                               40.56              2 DP
-
-  track_angle                   deg        Track angle for each MP.                                                                                                                                                                                                                                                                                    8.23              2 DP
-
-  los_east                      \-         LOS direction cosine, east                                                                                                                                                                                                                                                                                 0.345              3 DP
-
-  los_north                     \-         LOS direction cosine, north                                                                                                                                                                                                                                                                                -0.012             3 DP
-
-  los_up                        \-         LOS direction cosine, up                                                                                                                                                                                                                                                                                   0.546              3 DP
-
-  mean_velocity               mm/year      Evaluated on the time series residuals after applying a regression model of a first order polynomial plus a seasonal (sinusoidal) component.                                                                                                                                                                4.5               1 DP
-
-  mean_velocity_std           mm/year      Estimated standard deviation of the mean velocity using variance propagation on the regression model, without considering the atmospheric phase screen.                                                                                                                                                     2.1               1 DP
-
-  acceleration              mm/ year^2^    Evaluated on the time series residuals after applying a regression model of a second order polynomial plus a seasonal (sinusoidal) component. The value of the field is double of the second order coefficient of the polynomial (considering a model of the kind $a_{0} + a_{1}x + a_{2}^{2}x^{2}$).       0.51              2 DP
-
-  acceleration_std          mm/ year^2^    Estimated standard deviation of the acceleration using variance propagation on the regression model.                                                                                                                                                                                                        0.42              2 DP
-
-  seasonality                   mm         Evaluated on the time series residuals after applying a regression model of a third order polynomial plus a seasonal (sinusoidal) component. The value of the field is the amplitude of the seasonal oscillation.                                                                                           2.3               1 DP
-
-  seasonality_std               mm         Estimated standard deviation of the seasonal amplitude.                                                                                                                                                                                                                                                     3.4               1 DP
-
-  Time-series                   mm         Displacement values at each image acquisition. The header of each date will be in the format yyyymmdd without any prefix or suffix.                                                                                                                                                                         3.6               1 DP
-  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Parameter|Unit of measure|Meaning|Example|Data format|
+|--|--|--|--|--|
+|pid|-|MP unique identifier – 10 characters.|3ODTn5TNYv|Alphanumeric Base 62|
+|cluster_label|-|Available just for Basic products.Label which identifies, for each MP, the cluster it belongs to. The label is 0 if there is just one cluster in the burst.The label assumes the values from 1 to N if there are more than one clusters in the burst (with N the number of clusters).|0 |integer|
+|mp_type|m2|‘Effective Area’ of the DS (#Looks x Area of 1 pixel over flat terrain). 0 = PS|400|integer|
+|latitude|deg|MP latitude. 6 digits after the point.|45.567812|6 DP|
+|longitude|deg|MP longitude. 6 digits after the point.|12.123412|6 DP|
+|easting|m |ETRS89-LAEA.|4662111.45|2 DP|
+|northing|m |ETRS89-LAEA.|115345.12|2 DP|
+|height|m|MP orthometric height wrt EGM2008 geoid.|67.4|1 DP|
+|height_wgs84|m|MP ellipsoidal height wrt to WGS84 ellipsoid.|72.3|1 DP|
+|line|pixel|Azimuth position of the MPs within the burst wrt the reference product annotated in metadata.|456|integer|
+|pixel|pixel|Range position of the MPs within the burst wrt the reference product annotated in metadata.|124|integer|
+|rmse|mm|Evaluated on the time series residuals after applying a regression model of a third order polynomial plus a seasonal (sinusoidal) component.|4.5|1 DP|
+|temporal_coherence|-|MP coherence with respect to the linear regressed velocity.|0.54|2 DP|
+|amplitude_dispersion|-|Amplitude Dispersion Index –Standard Deviation of amplitude / Mean amplitude|0.25|2 DP|
+|incidence_angle|deg|Incidence angle for each MP.|40.56|2 DP|
+|track_angle|deg|Track angle for each MP.Values vary between 0 and 360° or -180° and 270°|8.23|2 DP|
+|los_east|- |LOS direction cosine, east|0.345|3 DP|
+|los_north|- |LOS direction cosine, north|-0.012|3 DP|
+|los_up|- |LOS direction cosine, up|0.546|3 DP|
+|mean_velocity|mm/year|Evaluated on the time series residuals after applying a regression model of a first orderpolynomial plus a seasonal (sinusoidal) component.|4.5|1 DP|
+|mean_velocity_std|mm/year|Estimated standard deviation of the mean velocity using variance propagation on the regression model, without considering the atmospheric phase screen.|2.1|1 DP|
+|acceleration|mm/ year2|Evaluated on the time series residuals after applying a regression model of a second order polynomial plus a seasonal (sinusoidal) component. The value of the field is double of the second order coefficient of the polynomial (considering a model of the kind \(a_{0}+a_{1}x+a_{2}^{2}x^{2}\)     ).|0.51|2 DP|
+|acceleration_std|mm/ year2|Estimated standard deviation of the acceleration using variance propagation on the regression model.|0.42|2 DP|
+|seasonality|mm|Evaluated on the time series residuals after applying a regression model of a third order polynomial plus a seasonal (sinusoidal) component. The value of the field is the amplitude of the seasonal oscillation.|2.3|1 DP|
+|seasonality_std|mm|Estimated standard deviation of the seasonal amplitude.|3.4|1 DP|
+|Time-series|mm|Displacement values at each image acquisition. The header of each date will be in the format yyyymmdd without any prefix or suffix.|3.6|1 DP|
 
   : Table 5 EGMS Basic and Calibrated product attributes. DP, digits precision
 
@@ -484,7 +454,7 @@ This section details the standard format of EGMS products. Note, for *Basic* and
 
 *Ortho* products, differently from products L2a and L2b which are packed on a single burst logic, are split into 100 km x 100 km tiles, as reported in Figure 3.
 
-![Figure 3 Ortho products grid.](Product_Description_v2-media/image5.png)
+![Figure 3 Ortho products grid.](Product_Description_v3-media/image5.png)
 
 For each tile there are two Geotiff files containing the vertical mean velocity and the east-west mean velocity. Associated with each Geotiff there is a .zip archive file, containing the previously specified CSV file (fields listed in Table 6 from top to bottom are stored as columns from left to right), and XML header file, (with the fields in Table 9). The name of the .zip archive follows the aforementioned convention, and it resembles the name of the contained CSV and XML files, apart from the .zip extension.
 
@@ -1091,17 +1061,12 @@ Estimated_Acc_And_Std = [EstimatedAcceleration EstimatedSTD_Acc]
 
 **Document history:**
 
-  -------------- ------------ ----------------------------------------------
-  **Revision**   **Date**     **Short Description of Changes**
-
-  draft 1.0      18/06/2021   Initial version
-
-  draft 1.1      15/10/2021   Updated according to review by EEA
-
-  draft 1.2      20/12/2021   Updated according to review by EEA
-
-  1.0            24/02/2022   Changes to EGMS Basic data format
-
-  2.0            25/10/2023   Changes to EGMS Basic data naming convention
-  -------------- ------------ ----------------------------------------------
+|Revision|Date|Short Description of Changes|
+|--|--|--|--|
+|draft 1.0|18/06/2021|Initial version|
+|draft 1.1|15/10/2021|Updated according to review by EEA|
+|draft 1.2|20/12/2021|Updated according to review by EEA|
+|1.0|24/02/2022|Changes to EGMS Basic data format|
+|2.0|25/10/2023|Changes to EGMS Basic data naming convention|
+|3.0|06/08/2025|Additional details in the track angle on Table 5|
 
