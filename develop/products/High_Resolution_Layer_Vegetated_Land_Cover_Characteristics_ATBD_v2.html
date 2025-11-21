@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2025-06-27">
-<meta name="keywords" content="Base Vegetation Layer (BVL), Temporal Convolutional Neural Network, Tree Cover Density (TCD), Dominant Leaf Type (DLT), Herbaceous Cover (HER), Ploughing Indicator (PLOUGH), Grassland Mowing Events (GRAME), Dynamic Time Warp (DTW), CropSAR technology, Interannual consistency correction">
-<meta name="description" content="This Algorithm Theoretical Basis Document (ATBD) comprehensively details the scientific methodologies and processing workflows employed to generate the Copernicus Land Monitoring Service’s (CLMS) High-Resolution Vegetated Land Cover Characteristics (HRL VLCC) products. These products provide annual land cover maps and change layers focusing on Tree Cover &amp; Forests, Grasslands, and Croplands at 10-meter and 20-meter resolutions. The document describes the algorithms, input data (primarily Sentinel-2 imagery), and post-processing techniques used to produce various layers, including the Base Vegetation Layer (BVL), Dominant Leaf Type (DLT), Tree Cover Density (TCD), Herbaceous Cover (HER), Ploughing Indicator (PLOUGH), Crop Type (CTY), and Grassland Mowing Events (GRAME). It also addresses encountered issues, known limitations, and confidence layers associated with each product.">
+<meta name="keywords" content="Base Vegetation Layer, Temporal Convolutional Neural Network, Tree Cover Density, Grassland Mowing Events, Crop Type Classification, Harvest Event Detection, Growing Season Delineation, Fallow Land Identification, Sentinel-2 Time-Series Analysis, Minimum Mapping Unit filtering">
+<meta name="description" content="This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive description of the methodologies and algorithms used to generate the High-Resolution Vegetated Land Cover Characteristics (HRL VLCC) products within the Copernicus Land Monitoring Service (CLMS). The HRL VLCC product suite includes detailed annual maps and change layers for Tree Cover &amp; Forests, Grasslands, and Croplands at 10-meter and 20-meter resolutions, leveraging multi-source satellite data, particularly Sentinel-2 imagery. The document details the creation of the Base Vegetation Layer (BVL) and the specific algorithms for various land cover characteristics, covering topics such as temporal convolutional neural networks, spectral analysis, post-classification processing, and the generation of confidence layers. It serves as a key resource for understanding the scientific basis and technical implementation of these products.">
 
-<title>High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical Basis Document (ATBD) – Technical Library</title>
+<title>High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical Basis Document – Technical Library</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,8 +73,8 @@ ul.task-list li input[type="checkbox"] {
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical Basis Document (ATBD)",
-    "description": "This Algorithm Theoretical Basis Document (ATBD) comprehensively details the scientific methodologies and processing workflows employed to generate the Copernicus Land Monitoring Service’s (CLMS) High-Resolution Vegetated Land Cover Characteristics (HRL VLCC) products. These products provide annual land cover maps and change layers focusing on Tree Cover & Forests, Grasslands, and Croplands at 10-meter and 20-meter resolutions. The document describes the algorithms, input data (primarily Sentinel-2 imagery), and post-processing techniques used to produce various layers, including the Base Vegetation Layer (BVL), Dominant Leaf Type (DLT), Tree Cover Density (TCD), Herbaceous Cover (HER), Ploughing Indicator (PLOUGH), Crop Type (CTY), and Grassland Mowing Events (GRAME). It also addresses encountered issues, known limitations, and confidence layers associated with each product.",
+    "headline": "High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical Basis Document",
+    "description": "This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive description of the methodologies and algorithms used to generate the High-Resolution Vegetated Land Cover Characteristics (HRL VLCC) products within the Copernicus Land Monitoring Service (CLMS). The HRL VLCC product suite includes detailed annual maps and change layers for Tree Cover & Forests, Grasslands, and Croplands at 10-meter and 20-meter resolutions, leveraging multi-source satellite data, particularly Sentinel-2 imagery. The document details the creation of the Base Vegetation Layer (BVL) and the specific algorithms for various land cover characteristics, covering topics such as temporal convolutional neural networks, spectral analysis, post-classification processing, and the generation of confidence layers. It serves as a key resource for understanding the scientific basis and technical implementation of these products.",
     "datePublished": "June 27, 2025",
     "author": {
       "@type": "Person",
@@ -237,13 +237,13 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical Basis Document (ATBD)</h1>
+<h1 class="title">High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical Basis Document</h1>
 <p class="subtitle lead">Copernicus Land Monitoring Service</p>
 </div>
 
 <div>
   <div class="description">
-    This Algorithm Theoretical Basis Document (ATBD) comprehensively details the scientific methodologies and processing workflows employed to generate the Copernicus Land Monitoring Service’s (CLMS) High-Resolution Vegetated Land Cover Characteristics (HRL VLCC) products. These products provide annual land cover maps and change layers focusing on Tree Cover &amp; Forests, Grasslands, and Croplands at 10-meter and 20-meter resolutions. The document describes the algorithms, input data (primarily Sentinel-2 imagery), and post-processing techniques used to produce various layers, including the Base Vegetation Layer (BVL), Dominant Leaf Type (DLT), Tree Cover Density (TCD), Herbaceous Cover (HER), Ploughing Indicator (PLOUGH), Crop Type (CTY), and Grassland Mowing Events (GRAME). It also addresses encountered issues, known limitations, and confidence layers associated with each product.
+    This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive description of the methodologies and algorithms used to generate the High-Resolution Vegetated Land Cover Characteristics (HRL VLCC) products within the Copernicus Land Monitoring Service (CLMS). The HRL VLCC product suite includes detailed annual maps and change layers for Tree Cover &amp; Forests, Grasslands, and Croplands at 10-meter and 20-meter resolutions, leveraging multi-source satellite data, particularly Sentinel-2 imagery. The document details the creation of the Base Vegetation Layer (BVL) and the specific algorithms for various land cover characteristics, covering topics such as temporal convolutional neural networks, spectral analysis, post-classification processing, and the generation of confidence layers. It serves as a key resource for understanding the scientific basis and technical implementation of these products.
   </div>
 </div>
 
@@ -265,7 +265,7 @@ window.Quarto = {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>Base Vegetation Layer (BVL), Temporal Convolutional Neural Network, Tree Cover Density (TCD), Dominant Leaf Type (DLT), Herbaceous Cover (HER), Ploughing Indicator (PLOUGH), Grassland Mowing Events (GRAME), Dynamic Time Warp (DTW), CropSAR technology, Interannual consistency correction</p>
+    <p>Base Vegetation Layer, Temporal Convolutional Neural Network, Tree Cover Density, Grassland Mowing Events, Crop Type Classification, Harvest Event Detection, Growing Season Delineation, Fallow Land Identification, Sentinel-2 Time-Series Analysis, Minimum Mapping Unit filtering</p>
   </div>
 </div>
 
