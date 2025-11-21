@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-04-01">
+<meta name="keywords" content="Sentinel-2 time series, Land cover classification, Temporal Convolutional Neural Network, Bilateral filtering, Interannual calibration, Cloud Optimized GeoTIFF, Raster Confidence Layer, Raster Data Score Layer, Production Units, Sample data base">
+<meta name="description" content="This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive description of the Copernicus Land Monitoring Service’s (CLMS) CLCplus Backbone 2023 product. As the first component of the CLCplus Product Suite, the Backbone represents a significant advancement in European land cover and land use monitoring, building upon the legacy of the CORINE Land Cover (CLC) initiative. This document details the product’s characteristics, including its 10-meter resolution, 11 land cover classes derived from Sentinel-2 imagery, and the methodologies and workflows used in its production, along with the auxiliary quality layers.">
+
+<title>CLCplus Backbone 2023 Algorith Theoretical Basis Document (ATBD) – Technical Library</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-24cc52c546c003a7d891213737239288.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "Search ...",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "CLCplus Backbone 2023 Algorith Theoretical Basis Document (ATBD)",
+    "description": "This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive description of the Copernicus Land Monitoring Service’s (CLMS) CLCplus Backbone 2023 product. As the first component of the CLCplus Product Suite, the Backbone represents a significant advancement in European land cover and land use monitoring, building upon the legacy of the CORINE Land Cover (CLC) initiative. This document details the product’s characteristics, including its 10-meter resolution, 11 land cover classes derived from Sentinel-2 imagery, and the methodologies and workflows used in its production, along with the auxiliary quality layers.",
+    "datePublished": "April 1, 2025",
+    "author": {
+      "@type": "Person",
+      "name": "?meta:author"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Copernicus Land Monitoring Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
+      }
+    },
+    "keywords": "?invalid meta type:keywords",
+    "articleSection": "General",
+    "isAccessibleForFree": "true",
+    "license": "",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": "article p"
+    }
+  }
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../_meta/theme/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Technical Library</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary"><span class="header-section-number">1</span> Executive summary</a></li>
+  <li><a href="#background-of-the-document" id="toc-background-of-the-document" class="nav-link" data-scroll-target="#background-of-the-document"><span class="header-section-number">2</span> Background of the document</a>
+  <ul class="collapse">
+  <li><a href="#scope-and-objectives" id="toc-scope-and-objectives" class="nav-link" data-scroll-target="#scope-and-objectives"><span class="header-section-number">2.1</span> Scope and objectives</a></li>
+  <li><a href="#content-and-structure" id="toc-content-and-structure" class="nav-link" data-scroll-target="#content-and-structure"><span class="header-section-number">2.2</span> Content and structure</a></li>
+  </ul></li>
+  <li><a href="#product-descriptions-and-methodologies" id="toc-product-descriptions-and-methodologies" class="nav-link" data-scroll-target="#product-descriptions-and-methodologies"><span class="header-section-number">3</span> Product descriptions and methodologies</a>
+  <ul class="collapse">
+  <li><a href="#clcplus-backbone-2023-raster-ras" id="toc-clcplus-backbone-2023-raster-ras" class="nav-link" data-scroll-target="#clcplus-backbone-2023-raster-ras"><span class="header-section-number">3.1</span> CLCplus Backbone 2023 raster (RAS)</a>
+  <ul class="collapse">
+  <li><a href="#technical-product-specifications" id="toc-technical-product-specifications" class="nav-link" data-scroll-target="#technical-product-specifications"><span class="header-section-number">3.1.1</span> Technical product specifications</a></li>
+  <li><a href="#production-algorithm-and-methodology" id="toc-production-algorithm-and-methodology" class="nav-link" data-scroll-target="#production-algorithm-and-methodology"><span class="header-section-number">3.1.2</span> Production algorithm and methodology</a></li>
+  <li><a href="#input-data" id="toc-input-data" class="nav-link" data-scroll-target="#input-data"><span class="header-section-number">3.1.3</span> Input data</a></li>
+  <li><a href="#production-units" id="toc-production-units" class="nav-link" data-scroll-target="#production-units"><span class="header-section-number">3.1.4</span> Production units</a></li>
+  <li><a href="#time-series-classification" id="toc-time-series-classification" class="nav-link" data-scroll-target="#time-series-classification"><span class="header-section-number">3.1.5</span> Time series classification</a></li>
+  <li><a href="#post-processing" id="toc-post-processing" class="nav-link" data-scroll-target="#post-processing"><span class="header-section-number">3.1.6</span> Post-processing</a></li>
+  <li><a href="#strengths-and-limitations-of-the-applied-methodology" id="toc-strengths-and-limitations-of-the-applied-methodology" class="nav-link" data-scroll-target="#strengths-and-limitations-of-the-applied-methodology"><span class="header-section-number">3.1.7</span> Strengths and limitations of the applied methodology</a></li>
+  </ul></li>
+  <li><a href="#raster-confidence-layer-rascl" id="toc-raster-confidence-layer-rascl" class="nav-link" data-scroll-target="#raster-confidence-layer-rascl"><span class="header-section-number">3.2</span> Raster Confidence Layer (RASCL)</a>
+  <ul class="collapse">
+  <li><a href="#technical-product-specifications-1" id="toc-technical-product-specifications-1" class="nav-link" data-scroll-target="#technical-product-specifications-1"><span class="header-section-number">3.2.1</span> Technical product specifications</a></li>
+  <li><a href="#production-algorithm-and-methodology-1" id="toc-production-algorithm-and-methodology-1" class="nav-link" data-scroll-target="#production-algorithm-and-methodology-1"><span class="header-section-number">3.2.2</span> Production algorithm and methodology</a></li>
+  </ul></li>
+  <li><a href="#raster-data-score-layer-rasdl" id="toc-raster-data-score-layer-rasdl" class="nav-link" data-scroll-target="#raster-data-score-layer-rasdl"><span class="header-section-number">3.3</span> Raster Data Score Layer (RASDL)</a>
+  <ul class="collapse">
+  <li><a href="#technical-product-specifications-2" id="toc-technical-product-specifications-2" class="nav-link" data-scroll-target="#technical-product-specifications-2"><span class="header-section-number">3.3.1</span> Technical product specifications</a></li>
+  <li><a href="#production-algorithm-and-methodology-2" id="toc-production-algorithm-and-methodology-2" class="nav-link" data-scroll-target="#production-algorithm-and-methodology-2"><span class="header-section-number">3.3.2</span> Production algorithm and methodology</a></li>
+  </ul></li>
+  <li><a href="#raster-post-processing-layer-raspl" id="toc-raster-post-processing-layer-raspl" class="nav-link" data-scroll-target="#raster-post-processing-layer-raspl"><span class="header-section-number">3.4</span> Raster Post-Processing Layer (RASPL)</a>
+  <ul class="collapse">
+  <li><a href="#technical-product-specifications-3" id="toc-technical-product-specifications-3" class="nav-link" data-scroll-target="#technical-product-specifications-3"><span class="header-section-number">3.4.1</span> Technical product specifications</a></li>
+  <li><a href="#production-algorithm-and-methodology-3" id="toc-production-algorithm-and-methodology-3" class="nav-link" data-scroll-target="#production-algorithm-and-methodology-3"><span class="header-section-number">3.4.2</span> Production algorithm and methodology</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#terms-of-use-and-product-technical-support" id="toc-terms-of-use-and-product-technical-support" class="nav-link" data-scroll-target="#terms-of-use-and-product-technical-support"><span class="header-section-number">4</span> Terms of use and product technical support</a>
+  <ul class="collapse">
+  <li><a href="#terms-of-use" id="toc-terms-of-use" class="nav-link" data-scroll-target="#terms-of-use"><span class="header-section-number">4.1</span> Terms of use</a></li>
+  <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation"><span class="header-section-number">4.2</span> Citation</a></li>
+  <li><a href="#product-technical-support" id="toc-product-technical-support" class="nav-link" data-scroll-target="#product-technical-support"><span class="header-section-number">4.3</span> Product technical support</a></li>
+  </ul></li>
+  <li><a href="#list-of-abbreviations" id="toc-list-of-abbreviations" class="nav-link" data-scroll-target="#list-of-abbreviations"><span class="header-section-number">5</span> List of abbreviations</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
+  <li><a href="#document-history" id="toc-document-history" class="nav-link" data-scroll-target="#document-history"><span class="header-section-number">7</span> Document history</a></li>
+  <li><a href="#applicable-documents" id="toc-applicable-documents" class="nav-link" data-scroll-target="#applicable-documents"><span class="header-section-number">8</span> Applicable documents</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="CLCplus_Backbone_2023_ATBD_v1.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="CLCplus_Backbone_2023_ATBD_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+<div class="logo-header">
+  <img src="../assets/copernicus-logo.svg" class="nav-logo">
+  <img src="../assets/lms_logo.svg" class="nav-logo">
+</div>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">CLCplus Backbone 2023 Algorith Theoretical Basis Document (ATBD)</h1>
+<p class="subtitle lead">Copernicus Land Monitoring Service</p>
+</div>
+
+<div>
+  <div class="description">
+    This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive description of the Copernicus Land Monitoring Service’s (CLMS) CLCplus Backbone 2023 product. As the first component of the CLCplus Product Suite, the Backbone represents a significant advancement in European land cover and land use monitoring, building upon the legacy of the CORINE Land Cover (CLC) initiative. This document details the product’s characteristics, including its 10-meter resolution, 11 land cover classes derived from Sentinel-2 imagery, and the methodologies and workflows used in its production, along with the auxiliary quality layers.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 1, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>Sentinel-2 time series, Land cover classification, Temporal Convolutional Neural Network, Bilateral filtering, Interannual calibration, Cloud Optimized GeoTIFF, Raster Confidence Layer, Raster Data Score Layer, Production Units, Sample data base</p>
+  </div>
+</div>
+
+</header>
+
+
+<p><br>
+<strong>Contact:</strong></p>
+<div data-custom-style="LeftAlign">
+<p>European Environment Agency (EEA)<br>
+Kongens Nytorv 6<br>
+1050 Copenhagen K<br>
+Denmark<br>
+<a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
+</div>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Figure  1:  General  workflow  of  the  CLCplus  Backbone  2023  production.","url":"CLCplus_Backbone_2023_ATBD_v1-media/img-d86af53513d44e0fc06c590f00f0705e2ad9a943.png"},{"@type":"ImageObject","caption":"Figure  2:  Production  Units  (without  French  DOMs)  for  the  CLCplus  Backbone  2023  production  and  Global  Environmental  Zones  in  the  background  (GEnZ  version  3  according  to  Metzger  et  al. 2013).","url":"CLCplus_Backbone_2023_ATBD_v1-media/img-2958cf50b8c5670c63e3f8d65b82303e8b13eb02.png"},{"@type":"ImageObject","caption":"Figure  3:  CLCplus  Backbone  2018  Raster  Product  (left)  and  2023  Raster  Product  (right)  with  recoded  coastal  seawater  buffer  (light  blue).","url":"CLCplus_Backbone_2023_ATBD_v1-media/img-7cc57154edc902e772bfe23ce96737478c11dbba.png"}]}
+</script>
+<section id="executive-summary" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Executive summary</h1>
+<p>The Copernicus Land Monitoring Service (CLMS) provides geospatial information on land cover and its changes, land use, vegetation state, water cycle and Earth’s surface energy variables to a broad range of users in Europe and across the World in the field of environmental terrestrial applications. It supports applications in a variety of domains such as spatial and urban planning, forest management, water management, agriculture and food security, nature conservation and restoration, rural development, ecosystem accounting and mitigation/adaptation to climate change. CLMS is jointly implemented by the European Environment Agency (EEA) and the European Commission DG Joint Research Centre (JRC) and has been operational since 2012.</p>
+<p>CLCplus Backbone constitutes the first component of CLMS’ CLCplus Product Suite, which represents a true paradigm change in European land cover/land use monitoring, building on the rich legacy of the European CORINE Land Cover (CLC) flagship product. The CLCplus Backbone is a large scale, seamless and high-resolution inventory of European land cover. It covers the whole of EEA38 territory, the United Kingdom (UK) and the French Overseas Departments (DOMs). The CLCplus Backbone products are freely available, enabling the use by a broad audience, for a wide range of applications.</p>
+<p>The CLCplus Backbone 2023 is a geospatial raster product containing 11 basic land cover classes and is based on a time series of high-resolution Sentinel-2 satellite imagery. The input timeseries for this 2023 production covers the reference year ± three months, i.e.&nbsp;01.10.2022 to 31.03.2024, which is needed to enable the distinction of the 11 land cover classes. CLCplus Backbone maps the dominant (spatially and temporally throughout the specific reference year) land cover for each 10m-raster cell (pixel), applying specific rules according to a comprehensive decision tree. The product has first been produced for the reference year 2018, has been updated for 2021 (excluding the UK) and now as well for 2023, switching to a biennial update cycle and re-including the UK.</p>
+<p>This document constitutes the Algorithm Theoretical Basis Document (ATBD), providing a description of the product characteristics, as well as the production methodologies and workflows of the CLCplus Backbone 2023 and the additional quality products.</p>
+</section>
+<section id="background-of-the-document" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Background of the document</h1>
+<section id="scope-and-objectives" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="scope-and-objectives"><span class="header-section-number">2.1</span> Scope and objectives</h2>
+<p>This Algorithm Theoretical Basis Document (ATBD) provides a description of the product characteristics, production methodologies and workflows of the CLCplus Backbone 2023 main (RAS) and its auxiliary layers. The intention of this document is to facilitate an advanced understanding of the product (including its strengths and weaknesses), a description of the input data, the production processes, as well as underlying methodologies and algorithms.</p>
+</section>
+<section id="content-and-structure" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="content-and-structure"><span class="header-section-number">2.2</span> Content and structure</h2>
+<p>The ATBD is structured along the different layers, starting with the CLCplus Backbone’s main raster (RAS) layer, i.e.&nbsp;the land cover status classification for 2023, in section 3.1. This includes the provision of the detailed technical product specifications and a stepwise description of the production methodology and algorithms. The subsequent sections provide the technical specifications and a description of the production methodology of the auxiliary layers contained by CLCplus Backbone 2023, i.e.&nbsp;the Raster Confidence Layer (section 3.2), the Raster Data Score Layer (section 3.3) and the Raster Post-Processing Layer (section 3.4).</p>
+</section>
+</section>
+<section id="product-descriptions-and-methodologies" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Product descriptions and methodologies</h1>
+<p>This chapter describes the technical specifications, as well as the methodologies and algorithms used during production of CLCplus Backbone 2023. For detailed information on the class description and nomenclature applied with CLCplus Backbone 2023, please have a look at the corresponding Product User Manual [AD-1AD-1]AD-1.</p>
+<section id="clcplus-backbone-2023-raster-ras" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="clcplus-backbone-2023-raster-ras"><span class="header-section-number">3.1</span> CLCplus Backbone 2023 raster (RAS)</h2>
+<p>The CLCplus Backbone 2023 raster layer (RAS) is a 10m pixel-based land cover map, based on Sentinel-2 data for the reference year 2023 (± 3 months). Each pixel shows the dominant land cover among the 11 basic land cover classes.</p>
+<section id="technical-product-specifications" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="technical-product-specifications"><span class="header-section-number">3.1.1</span> Technical product specifications</h3>
+<p>The technical product specifications for the CLCplus Backbone 2023 are presented below, in Table 1.</p>
+</section>
+<section id="production-algorithm-and-methodology" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="production-algorithm-and-methodology"><span class="header-section-number">3.1.2</span> Production algorithm and methodology</h3>
+<p>This section provides a methodological description of the production approach for the CLCplus Backbone 2023. Figure 1 shows the general workflow diagram of the production. The most important processing steps are subsequently described in detail.</p>
+<p><strong><em>Technical specifications of the CLCplus Backbone:</em></strong></p>
+<p><strong>Name:</strong> CLCplus Backbone Raster</p>
+<p><strong>Acronym:</strong> RAS</p>
+<p><strong>Product family:</strong> CLMS_CLCPLUS</p>
+<p><strong>Summary:</strong> CLCplus Backbone is a spatially detailed, large scale, EO-based land cover inventory. The CLCplus Backbone RASlayer is a 10m pixel-based land cover map based on a Sentinel-2 time series from October 2022 to March 2024 and auxiliary features. For each pixel it shows the dominant land cover among the 11 basic land cover classes.</p>
+<p><strong>Reference year:</strong> 2023</p>
+<p><strong>Geometric resolution:</strong> Pixel resolution 10m x 10m, fully conform with the EEA reference grid</p>
+<p><strong>Coordinate Reference System:</strong> European ETRS89 LAEA projection / WGS84 and the respective UTM zone for the French DOMs</p>
+<p><strong>Coverage:</strong> 6.002.105 km² (covering the full EEA38 + UK)</p>
+<p><strong>Geometric accuracy (positioning scale):</strong> Equals Sentinel-2 positional accuracy in 2023 (&lt; 9m at 95.5 % confidence level)</p>
+<p><strong>Thematic accuracy:</strong> 90 % overall accuracy, not more than 15 % omission errors and 15 % commission errors per class (the amount of omission and commission errors for particular difficult classes such as Low-growing woody plants and Lichens and Moses might regionally exceed those thresholds)</p>
+<p><strong>Data type:</strong> 8bit unsigned raster with LZW compression</p>
+<p><strong>Minimum Mapping Unit (MMU):</strong> Pixel-based (no MMU)</p>
+<p><strong>Necessary attributes:</strong> value, count, Class_name, Area_km2, Area_perc</p>
+<p><strong>Raster coding (thematic pixel values):</strong></p>
+<ul>
+<li><p>1: Sealed</p></li>
+<li><p>2: Woody needle leaved trees</p></li>
+<li><p>3: Woody broadleaved deciduous trees</p></li>
+<li><p>4: Woody broadleaved evergreen trees</p></li>
+<li><p>5: Low-growing woody plants</p></li>
+<li><p>6: Permanent herbaceous</p></li>
+<li><p>7: Periodically herbaceous</p></li>
+<li><p>8: Lichens and mosses</p></li>
+<li><p>9: Non and sparsely vegetated</p></li>
+<li><p>10: Water</p></li>
+<li><p>11: Snow and ice</p></li>
+<li><p>253: Coastal seawater buffer</p></li>
+<li><p>254: Outside area</p></li>
+<li><p>255: No data</p></li>
+</ul>
+<p><strong>Metadata:</strong> XML metadata files according to INSPIRE metadata standards</p>
+<p><strong>Delivery format:</strong> Cloud optimized GeoTIFFs as 100x100km tiles incl.&nbsp;pyramids and embedded colour map (<em>.tif), attribute table (</em>.aux.xml), and INSPIRE-compliant metadata in XML format (*.xml)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CLCplus_Backbone_2023_ATBD_v1-media/img-d86af53513d44e0fc06c590f00f0705e2ad9a943.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 1: General workflow of the CLCplus Backbone 2023 production.</figcaption>
+</figure>
+</div>
+</section>
+<section id="input-data" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="input-data"><span class="header-section-number">3.1.3</span> Input data</h3>
+<p>The main input data source for the raster classification was Sentinel-2 (S-2) time-series data, covering a period of 1.5 years, i.e.&nbsp;the reference year ±3 months. Since the production of the reference year 2021, the input time series was shortened to the reference year ±3 months compared to the reference year 2018 which was still produced with reference year ±6 months. This change was performed in order to reduce the data volume and processing efforts, and to enable a timelier production of the respective reference years.</p>
+<p>Initially, all S-2 scenes at processing level L2A and with a cloud coverage lower than 80% were retrieved from Amazon Web Services (AWS), where the S-2 data is available as Cloud Optimized GeoTIFFs (COGs). If already available at the time of the production start (i.e.&nbsp;beginning of April 2024), Collection-1 data (i.e.&nbsp;ESA S-2 processing baseline ≥ 5.0) was used. If for a certain part of the production AOI and/or time within the reference period, Collection-1 was not available, the time series was complemented with pre-Collection 1 data (i.e.&nbsp;ESA S-2 processing baseline 4.00). This was mainly the case for the period from October to December 2022.</p>
+<p>Cloud-masks were computed using the Scene Classification Layer (SCL) provided with each L2A scene by ESA. The S-2 COGs were processed in their native WGS84 UTM projection. After masking out clouds and cloud shadows, all valid observations were taken into account to interpolate an equidistant time-series with a 10-day interval (resulting in a total of 54 timesteps). This processing step included the S-2 bands B1, B3, B4, B5, B8, B9, B11, B12 and four spectral indices, i.e.&nbsp;the Normalized Difference Vegetation Index (NDVI), the Normalized Difference Water Index (NDWI), the Normalized Difference Moisture Index (NDMI) and the Normalized Burn Ratio (NBR). The included 20m S-2 bands were therefore resampled to 10m spatial resolution, applying nearest neighbour resampling. The resulting inputs for the classification were therefore 12 separate raster layers for all features (i.e.&nbsp;8 S-2 bands and 4 spectral indices), each containing 54 raster bands with the values of the 54 equidistant time steps, described above.</p>
+<p>The use of the above bands and indices turned out to provide the best ratio of processing effort and resulting quality. Additional input data to support the classification in particularly difficult areas (i.e.&nbsp;Sentinel-1 time-series, mono-temporal auxiliary features extracted from DEMs, distance features derived from existing LC/LU maps) were extensively tested at several test sites during the ramp up phase of the CLCplus Backbone 2018 production. Nevertheless, these tests demonstrated, that the inclusion of such additional features did in most cases not lead to any significant accuracy gains. Considering the overhead in terms of implementation, I/O and computational footprints, such additional data sources were finally not integrated in the workflow for the CLCplus Backbone production. Additional sampling and post-processing strategies were found more efficient, to address remaining issues in the classification results in difficult regions<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>The training and test data required for the model calibration was based on the sample data base (Sample DB) from the 2018 production, which was compiled from various sources, i.e.&nbsp;from adjusted and filtered LUCAS 2018 data, from stratified automated land cover class annotations based on existing CLMS land cover products, as well as from additional visual sample point photo-interpretation that was supported by VHR imagery, NDVI time series and other auxiliary datasets. The latter comprise available national LC datasets, aerial imagery and LiDAR data that were all collected by a European network of involved regional experts back then. The Sample DB has previously been updated for the CLCplus Backbone 2021 reference year production. Another update and revision of the contained training samples was performed for the 2023 reference year (see section b. Model training in chapter 3.1.5) to account for land cover changes since the previous production and to assure the highest possible quality of the training data. In total, the Sample DB comprised more than 1 million sample points.</p>
+</section>
+<section id="production-units" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="production-units"><span class="header-section-number">3.1.4</span> Production units</h3>
+<p>The first CLCplus Backbone raster production for the reference year 2018 was stratified into 232 Production Units (PUs) with an average size of approximately 28,000km². The units were delineated targeting homogeneous environmental characteristics based on the Global Environmental Zones (GEnZ version 3) as described by Metzger et al.&nbsp;(2013). The aim of this stratification was to enable a better regional calibration of the model(s) and hence higher accuracies.</p>
+<p>With the CLCplus Backbone 2021 production, the United Kingdom (UK) was excluded and the remaining 223 PUs were aggregated to 132 PUs, as the 2018 production had shown that it would be possible to aggregate some PUs with similar bio-geographical conditions, while retaining good regional calibrations at the same time. As the UK officially re-joined Copernicus in 2024, its territory was added to the ongoing production of the reference year 2023. Accordingly, the PU layout was adapted to now contain 138 PUs that cover the full production area, i.e.&nbsp;the EEA38+UK and the 5 French DOMs. Figure 2 shows the outlines of the PUs for the CLCplus Backbone 2023 production (without the French DOMs).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CLCplus_Backbone_2023_ATBD_v1-media/img-2958cf50b8c5670c63e3f8d65b82303e8b13eb02.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 2: Production Units (without French DOMs) for the CLCplus Backbone 2023 production and Global Environmental Zones in the background (GEnZ version 3 according to Metzger et al.&nbsp;2013).</figcaption>
+</figure>
+</div>
+<p>The homogenous character of the PUs facilitated the regional calibration of the land cover classification models that were trained specifically for each PU. Furthermore, the partitioning allowed to orchestrate and distribute the computation efficiently. The production was generally performed with a spatial overlap of 10 km to neighbouring PU in order to enable post-hoc border harmonization and to avoid any border effects.</p>
+</section>
+<section id="time-series-classification" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="time-series-classification"><span class="header-section-number">3.1.5</span> Time series classification</h3>
+<p>The time series classification comprises three main steps, which are described in detail in the following sections:</p>
+<p><strong>a. Time series extraction</strong></p>
+<p>The S-2 input data time series, as described in section 3.1.3, was in a first step only computed for the training sample locations (i.e.&nbsp;single 10m pixels) and stored per sample point in a dedicated database. This approach enabled an efficient model training as it reduced the data processing effort to a minimum. In a second step, the time series was extracted for the complete Sample DB (see section 3.1.3) of the EEA38+UK area and subsequently used for the separate training of classification models per PU as described below.</p>
+<p><strong>b. Model training</strong></p>
+<p>The training of classification models was performed in an iterative manner and initially using all training samples from the Sample DB (see section 3.1.3) for a specific PU to train and test models in several stages. The classifier applied was a Temporal Convolutional Neural Network (TempCNN, Pelletier et al.&nbsp;2019), which proved to be robust, accurate and efficient for operational, large-area analysis of satellite image time series and to outperform well-known classification algorithms such as Random Forest or Recurrent Neural Networks. A cyclic learning rate schedule was used which is known to yield higher accuracies compared to the training, described in the original paper by Pelletier et al.&nbsp;(2019).</p>
+<p>The initialmodel training process included an integrated outlier detection using the open-source Python package Cleanlab v2.6.3. (Northcutt et al., 2021) to identify samples where the assigned class label from the previous production deviated from the expected (i.e.&nbsp;modelled) characteristics for the class. This outlier detection was implemented in 15 iterations, where the train and test set compositions changed for each iteration. All samples flagged as potentially conflicting in each of the 15 iterations were finally extracted. The potentially erroneous samples were then reviewed by thematic experts and the class code was updated where land cover change has occurred since the previous production (or in case the sample had been mislabelled in the previous production). Subsequently, the model was trained and tested again with the updated sample data base. In this iteration, 20% of the samples were withheld from training to facilitate model testing and the retrieval of accuracy statistics. Where necessary, the process of sample revisions was repeated until the accuracy metrics achieved with the test set indicated that the product target accuracies were reached.</p>
+<p>As a final step, the PU-specific models were trained using all available training samples for the model training, i.e.&nbsp;without splitting the samples into train and test sets. This ensured that the final models were trained on the best-available sample base.</p>
+<p><strong>c.&nbsp;Roll out</strong></p>
+<p>The trained models were then used to roll out the raster classification to the whole PUs. To this end, the time series data had to be computed with full coverage. The spatial units for this computation were tiles of 25 x 25km (instead of full S-2 scenes) to increase computational performance. The tile grid was nested in the S-2 tile grid to ensure positional accuracy and compliance of all data.</p>
+<p>In a second step, the classification was performed on the trained model and input data time series. The classification output was a probability raster with eleven bands - each band representing the per-pixel probabilities for each of the eleven classes. This interim result was then input to the post-processing, as described in the following section.</p>
+</section>
+<section id="post-processing" class="level3" data-number="3.1.6">
+<h3 data-number="3.1.6" class="anchored" data-anchor-id="post-processing"><span class="header-section-number">3.1.6</span> Post-processing</h3>
+<p>The post-processing steps applied to the interim per-pixel class probability raster are described in the following sub-sections.</p>
+<p><strong>a. Bilateral filtering</strong></p>
+<p>A bilateral filter was applied to the class probabilities to reduce the salt and pepper noise (i.e.&nbsp;scattered and isolated pixelsthat are wrongly classified as a result of noise contained in the input imagery and the classification algorithm) in the classification while preserving edges. This type of filter was chosen as it is known to provide a good compromise between computational complexity and accuracy improvements (Schindler 2012). A small window size (win_size=4) and low standard deviation (sigma_spatial=0.8; sigma_color=0.25) was used to parametrize the filter in a way that favoured the preservation of small details while still reducing label noise significantly.</p>
+<p><strong>b. Blending</strong></p>
+<p>The training data used for model calibration of neighbouring PUs was created with some overlap to ensure consistency in the classification of neighbouring PUs. Nevertheless, differences in the model calibration could still lead to undesired edge effects at the borders of PUs. To circumvent this issue, each PU was initially produced with a buffer of 10km to always ensure an overlap of 20 km between neighbouring PUs. Within this overlap, a distance-weighted averaging of the classification probabilities was performed so that probabilities from both models had equal weights at the centre of the overlap area and de-/increasing weights as a function of the distance from the centre of the overlap.</p>
+<p><strong>c.&nbsp;Interannual calibration</strong></p>
+<p>Finally, the 2023 class probabilities were calibrated with the combined 2018/2021 probabilities to create best-possible consistency of the CLCplus BB product time series, while allowing for changes in the class assignment where real land cover change or previous misclassifications were detected. For each pixel, the combined probabilities considered the values of the 2018 probabilities where the CLCplus Backbone class remained the same in 2018 and 2021 as well as the values of the 2021 probabilities where it had changed from 2018 to 2021.</p>
+<p>As such, the interannual calibration built around the computation of a pixel-based measure of change between the prediction probabilities of 2018/2021 and 2023. Since the probabilities for each of the 11 possible classes per pixel can be interpreted as a point in an 11-dimensional space, the measure of change between two such points, i.e.&nbsp;the probabilities of 2018/2021 (p1821) and 2023 (p2023), can be defined as the Euclidean distance between them:</p>
+<p><span class="math display">\[
+M_{\text{change}} = \sqrt[2]{ \sum_{i=1}^{11} (p_{2023}^i - p_{1821}^i)^2 }
+\]</span></p>
+<p>The highest possible value for <span class="math inline">\(M_{change}\)</span> is given by a change between two class predictions made with 100% certainty, as shown for a change from class 1 to class 2 here:</p>
+<p><span class="math display">\[
+P_{2023}=(1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0)
+\]</span></p>
+<p><span class="math display">\[
+p_{1821}=(0\ 1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0)
+\]</span></p>
+<p><span class="math display">\[
+M^{max}_{meas}=\sqrt[2]{2}=1.414...
+\]</span></p>
+<p>With the direction of change known from the comparison of the 2021 and 2023 prediction rasters, it further allowed the implementation of class-specific change thresholds (based on percentiles) and a categorization of pixels in the 2023 raster into low- and high-probability changes. For the majority of pixels experiencing changes between productions, a standard threshold (i.e.&nbsp;the 90th percentile) was used (in theory, 110 change directions are possible). However, change direction-specific thresholds were also applied for particular situations:</p>
+<ul>
+<li><p>very high thresholds for unreasonable changes,such as changes between tree leaf types (i.e.&nbsp;class 2 vs.&nbsp;class 3/4), and</p></li>
+<li><p>lower thresholds between classes that are more reasonable and likely to change, such as vegetated classes (especially classes 2-7) to Non-sparsely vegetated (class 9) and Sealed (class 1) due to land conversion and/or construction activity).</p></li>
+</ul>
+<p>Based on the above thresholds, changes in the assigned CLCplus Backbone class between 2021 and 2023 were allowed or suppressed, respectively.</p>
+<p><strong>d.&nbsp;Further optional post-processing</strong></p>
+<p>In cases where significant remaining misclassifications in the raster classification were detected after the cross-calibration during the quality control, those were addressed with a semiautomatic post-processing approach that defined the AOIs of misclassification and subsequently corrected them using available external third-party datasets that had been translated to the CLCplus Backbone nomenclature. This included the correction of omission and commission of sealed surfaces based on the latest release (at the end of the reference period) of Open Street Map (Geofabrik, 2024) and corrections for confusions between classes 6, 7 and partially 5, leveraging data from the Land Parcel Information System (LPIS; where accessible for an affected area). Further, where no adequate auxiliary data was available, a recoding was alternatively based on the expertise of experienced interpreters, who identified the correct class and defined the AOI where changes should be applied. All pixels adapted during this semiautomatic post-processing are documented in the Raster Post-Processing Layer (see section 3.4).</p>
+<p><strong>e. Coastal seawater buffer recoding</strong></p>
+<p>As a last step of the post-processing, the separation of the coastal seawater buffer area from inland water, as introduced in the 2021 production, was performed to enable the derivation of reliable inland water statistics also for countries with significant coastlines. This was done by using the CLMS EU-Hydro coastline product (EEA, 2020) with further manually implemented improvements and the Copernicus EEA39 Boundary Layer with 250 m buffer (EEA, 2019) to derive a mask, covering the respective seawater areas. The underlying pixels were then recoded to a unique raster code with the help of this masking layer. The naming and coding for this technical class is ‘coastal seawater buffer’ with raster code 253, respectively. The raster code 253 is in the range of the outside area and the no data values (254 &amp; 255), which separates it from the 11 thematic land cover classes and does not imply a newly introduced thematic class. Figure 3 shows the CLCplus Backbone 2018 product in comparison to the respective2023 product with the subsequently introduced recoding of the coastal seawater buffer.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CLCplus_Backbone_2023_ATBD_v1-media/img-7cc57154edc902e772bfe23ce96737478c11dbba.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 3: CLCplus Backbone 2018 Raster Product (left) and 2023 Raster Product (right) with recoded coastal seawater buffer (light blue).</figcaption>
+</figure>
+</div>
+</section>
+<section id="strengths-and-limitations-of-the-applied-methodology" class="level3" data-number="3.1.7">
+<h3 data-number="3.1.7" class="anchored" data-anchor-id="strengths-and-limitations-of-the-applied-methodology"><span class="header-section-number">3.1.7</span> Strengths and limitations of the applied methodology</h3>
+<p>The strongest point of the applied methodology is a generally high accuracy and robustness for the majority of land cover classes and biogeographical regions. This is the result of several elements including:</p>
+<ul>
+<li>The ingestion of a full time series of 1.5 years (i.e.&nbsp;2023 ± 0.25 years) of Sentinel-2 data, which comprises very rich information on the spectral-temporal dynamics of different land cover classes. This generally enables a very good separability of the 11 target classes and partially even compensates for known shortcomings in the Sentinel-2 L2A input data, such as topographic over-normalization<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> on north-to west-facing slopes.</li>
+</ul>
+<!-- -->
+<ul>
+<li><p>The usage of a state-of-the-art Deep Learning architecture that enables to fully leverage the full time-series without the need for feature engineering orselection which typically leads to a certain loss of information.</p></li>
+<li><p>A rich sample database of more than 1 million sample points, which have been allocated, curated and quality-checked based on various sources.</p></li>
+<li><p>A regional calibration approach, which allows to address regional differences and particularly difficult cases in the classification.</p></li>
+<li><p>A tailored post-processing that comprises the reduction of label noise (i.e.&nbsp;bilateral filtering), assurance of wall-to-wall consistency (i.e.&nbsp;blending) and consistency of the CLCplus Backbone raster time series (i.e.&nbsp;cross-calibration), as well as rule-based reduction of omission and commission errors.</p></li>
+</ul>
+<p>Despite the excellent quality achieved with the applied methodology, some limitations remain. It is worth mentioning, that areas of heterogeneous land cover and small landscape features typically cause an uncertainty due to mixed spectral and temporal signals. Particularly, the classes Low-growing woody plants (class 5) and Lichens and mosses (class 8) have some inherent uncertainty due to i) some fuzziness in the class definition, ii) limited spectral-temporal separability and/or iii) limited reference data, in particular in remote areas. All three factors mentioned above can only be resolved to a certain extent, considering the largely automated approach and the requirements for the timely availability of the product. To a lesser degree, this also concerns areas with intensively managed grassland, where the non-/exposure of bare soil within the reference year cannot always be determined from the input time series with last certainty. As such, confusions of permanent and periodically herbaceous areas (classes 6 vs.&nbsp;7) may occur.</p>
+</section>
+</section>
+<section id="raster-confidence-layer-rascl" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="raster-confidence-layer-rascl"><span class="header-section-number">3.2</span> Raster Confidence Layer (RASCL)</h2>
+<p>The Raster Confidence Layer (RASCL) provides information on the confidence of the classifier in the class assignment of each 10m pixel.</p>
+<section id="technical-product-specifications-1" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="technical-product-specifications-1"><span class="header-section-number">3.2.1</span> Technical product specifications</h3>
+<p>Below summarizes the technical specifications of the Raster Confidence Layer.</p>
+<p><strong><em>Technical specifications of the Raster Confidence Layer:</em></strong></p>
+<p><strong>Name:</strong> CLCplus Backbone Raster Confidence Layer</p>
+<p><strong>Acronym:</strong> RASCL</p>
+<p><strong>Product family:</strong> CLMS_CLCplus</p>
+<p><strong>Summary:</strong> The RASCL is a 10m pixel-based auxiliary layer for the CLCplus Backbone RAS. It provides information about the reliability of the land cover class assignment per pixel.</p>
+<p><strong>Reference year:</strong> 2023</p>
+<p><strong>Geometric resolution:</strong> Pixel resolution 10m x 10m, fully conform with the EEA reference grid</p>
+<p><strong>Coordinate Reference System:</strong> European ETRS89 LAEA projection / WGS84 and the respective UTM zone for the French DOMs</p>
+<p><strong>Coverage:</strong> 6.002.105 km² (covering the full EEA38 + UK)</p>
+<p><strong>Geometric accuracy (positioning scale):</strong> equals the Sentinel-2 positional accuracy in 2023 (&lt;9m at 95.5% confidence)</p>
+<p><strong>Data type:</strong> 8bit unsigned raster with LZW compression</p>
+<p><strong>Minimum Mapping Unit (MMU):</strong> Pixel-based (no MMU)</p>
+<p><strong>Attributes:</strong> Value, Count, Confidence</p>
+<p><strong>Raster coding:</strong></p>
+<ul>
+<li><p>0-100: Confidence values</p></li>
+<li><p>254: Outside area</p></li>
+</ul>
+<p><strong>Metadata:</strong> XML metadata files according to INSPIRE metadata standards</p>
+<p><strong>Delivery format:</strong> Cloud optimized GeoTIFFs as 100x100km tiles incl.&nbsp;pyramids and embedded colour map (<em>.tif), attribute table (</em>.aux.xml), and INSPIRE-compliant metadata in XML format (*.xml)</p>
+</section>
+<section id="production-algorithm-and-methodology-1" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="production-algorithm-and-methodology-1"><span class="header-section-number">3.2.2</span> Production algorithm and methodology</h3>
+<p>The RASCL value was calculated for each pixel as the difference between the highest class probability (i.e.&nbsp;the probability of the class that was assigned to the pixel) minus the second highest class probability. This so called (confidence-) margin is conceptually simple, robust and well adapted for multi-class classification problems with variable number of classes. The higher the confidence value, the more reliable the class assignment for a pixel, and vice versa. The value range of RASCL is 0-100.</p>
+</section>
+</section>
+<section id="raster-data-score-layer-rasdl" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="raster-data-score-layer-rasdl"><span class="header-section-number">3.3</span> Raster Data Score Layer (RASDL)</h2>
+<p>The Data Score Layer (RASDL) quantifies the number of valid observations in the S-2 image time series which were the input for the equidistant time series interpolation to 10-day intervals.</p>
+<section id="technical-product-specifications-2" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="technical-product-specifications-2"><span class="header-section-number">3.3.1</span> Technical product specifications</h3>
+<p>The general technical specifications of the RASDL are provided below.</p>
+<p><strong><em>Technical specifications of the Raster Data Score Layer</em></strong></p>
+<p><strong>Name:</strong> CLCplus Backbone Raster Data Score Layer</p>
+<p><strong>Acronym:</strong> RASDL</p>
+<p><strong>Product family:</strong> CLMS_CLCplus</p>
+<p><strong>Summary:</strong> The RASDL is a 10m pixel-based auxiliary layer for the CLCplus Backbone RAS. It is based on a filtered Sentinel-2time series from October 2022 to March 2024 and auxiliary features.</p>
+<p><strong>Reference year:</strong> 2023</p>
+<p><strong>Geometric resolution:</strong> Pixel resolution 10m x 10m, fully conform with the EEA reference grid</p>
+<p><strong>Coordinate Reference System:</strong> European ETRS89 LAEA projection / WGS84 and the respective UTM zone for the French DOMs</p>
+<p><strong>Coverage:</strong> 6.002.105 km² (covering the full EEA38 + UK)</p>
+<p><strong>Geometric accuracy (positioning scale):</strong> equals the Sentinel-2 positional accuracy in 2023 (&lt;9m at 95.5% confidence)</p>
+<p><strong>Data type:</strong> 16bit unsigned raster with LZW compression</p>
+<p><strong>Minimum Mapping Unit (MMU):</strong> Pixel-based (no MMU)</p>
+<p><strong>Necessary attributes:</strong> Value, Count, Obs_count</p>
+<p><strong>Raster coding:</strong></p>
+<ul>
+<li><p>0-200: Valid observations count</p></li>
+<li><p>65535: Outside area</p></li>
+</ul>
+<p><strong>Metadata:</strong> XML metadata files according to INSPIRE metadata standards</p>
+<p><strong>Delivery format:</strong> Cloud optimized GeoTIFFs as 100x100km tiles incl.&nbsp;pyramids and embedded colour map (<em>.tif), attribute table (</em>.aux.xml), and INSPIRE-compliant metadata in XML format (*.xml)</p>
+</section>
+<section id="production-algorithm-and-methodology-2" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="production-algorithm-and-methodology-2"><span class="header-section-number">3.3.2</span> Production algorithm and methodology</h3>
+<p>As mentioned above, the RASDL quantifies the number of valid observations in the input time series. A valid observation is in the first place defined as a cloud-free and (cloud-) shadow-free pixel in aS-2 acquisition.</p>
+<p>As a preselection, only S-2 acquisitions with an overall cloud coverage below 80% (according to S-2 L2A metadata) were considered for the classification to reduce the data volume and avoid the processing of non-usable image data. The selected S-2 images were then masked based on cloud masks, created for each acquisition, based on the Scene Classification Layer (SCL) provided with the S-2 data. The SCL classes, used for masking the data were classes 2 (dark features/shadows), 3 (cloud shadows), 8 (cloud medium probability) and 9 (cloud high probability). The remaining cloud-free and (cloud-) shadow-free pixels are considered a valid observation and were being counted for each 10m pixel for the complete time window of the reference year ±3 months, i.e.&nbsp;1.5 years. This count is then stored in a dedicated raster layer.</p>
+</section>
+</section>
+<section id="raster-post-processing-layer-raspl" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="raster-post-processing-layer-raspl"><span class="header-section-number">3.4</span> Raster Post-Processing Layer (RASPL)</h2>
+<p>The Raster Post-Processing Layer (RASPL) provides information, if a pixel’s class has been adapted during the optional post processing routine (described in section 3.1.6).</p>
+<section id="technical-product-specifications-3" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="technical-product-specifications-3"><span class="header-section-number">3.4.1</span> Technical product specifications</h3>
+<p>The technical product specifications of the Raster Post-processing layer are provided below.</p>
+<p><strong><em>Technical specifications of the Raster Post-Processing Layer</em></strong></p>
+<p><strong>Name:</strong> CLCplus Backbone Raster Post-Processing Layer</p>
+<p><strong>Acronym:</strong> RASPL</p>
+<p><strong>Product family:</strong> CLMS_CLCplus</p>
+<p><strong>Summary:</strong> The RASPL is a 10m pixel-based auxiliary layer for the CLCplus Backbone RAS. It provides information of pixels that were re-coded during post-processing of the raster classification.</p>
+<p><strong>Reference year:</strong> 2023</p>
+<p><strong>Geometric resolution:</strong> Pixel resolution 10m x 10m, fully conform with the EEA reference grid</p>
+<p><strong>Coordinate Reference System:</strong> European ETRS89 LAEA projection / WGS84 and the respective UTM zone for the French DOMs</p>
+<p><strong>Coverage:</strong> 6.002.105 km² (covering the full EEA38 + UK)</p>
+<p><strong>Geometric accuracy (positioning scale):</strong> equals the Sentinel-2 positional accuracy in 2023 (&lt;9m at 95.5% confidence)</p>
+<p><strong>Data type:</strong> 8bit unsigned raster with LZW compression</p>
+<p><strong>Minimum Mapping Unit (MMU):</strong> Pixel-based (no MMU)</p>
+<p><strong>Raster coding:</strong></p>
+<ul>
+<li><p>0: No change during post-processing</p></li>
+<li><p>1: Recoded during post-processing</p></li>
+<li><p>254: Outside area</p></li>
+</ul>
+<p><strong>Attributes:</strong> Value, Count, Class_name</p>
+<p><strong>Metadata:</strong> XML metadata files according to INSPIRE metadata standards</p>
+<p><strong>Delivery format:</strong> Cloud optimized GeoTIFFs as 100x100km tiles incl.&nbsp;pyramids and embedded colour map (<em>.tif), attribute table (</em>.aux.xml), and INSPIRE-compliant metadata in XML format (*.xml)</p>
+</section>
+<section id="production-algorithm-and-methodology-3" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="production-algorithm-and-methodology-3"><span class="header-section-number">3.4.2</span> Production algorithm and methodology</h3>
+<p>The RASPL provides information, if a pixel’s class code has been adapted during the postprocessing. This excludes potential changes coming from the bilateral filtering and the interannual calibration, being part of the general post-processing, but forming integral processing steps towards the initial class assignment. Only pixels that were changed thereafter, i.e.&nbsp;in the additional optional post-processing steps for further refinement of the initial class assignment, are flagged as ‘Recoded during post-processing’ in the RASPL.</p>
+<p>The adapted areas are simply identified by a comparison of the final classification result with the interim outcome after the interannual calibration step. Where the assigned class codes do not match, the pixels are assigned with value 1 and value 0 is assigned to all unchanged pixels.</p>
+</section>
+</section>
+</section>
+<section id="terms-of-use-and-product-technical-support" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Terms of use and product technical support</h1>
+<section id="terms-of-use" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="terms-of-use"><span class="header-section-number">4.1</span> Terms of use</h2>
+<p>The Terms of Use for the product(s) described in this document acknowledge the following:</p>
+<p>Free, full and open access to the products and services of the Copernicus Land Monitoring Service is made on the conditions that:</p>
+<ol type="1">
+<li><p>When distributing or communicating Copernicus Land Monitoring Service products and services (data, software scripts, web services, user and methodological documentation and similar) to the public, users shall inform the public of the source of these products and services and shall acknowledge that the Copernicus Land Monitoring Service products and services were produced “with funding by the European Union”.</p></li>
+<li><p>Where the Copernicus Land Monitoring Service products and services have been adapted or modified by the user, the user shall clearly state this.</p></li>
+<li><p>Users shall make sure not to convey the impression to the public that the user’s activities are officially endorsed by the European Union.</p></li>
+</ol>
+<p>The user has all intellectual property rights to the products he/she has created based on the Copernicus Land Monitoring Service products and services.</p>
+<p>Consult <a href="https://land.copernicus.eu/en/data-policy">Data policy — Copernicus Land Monitoring Service</a> for further details.</p>
+</section>
+<section id="citation" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="citation"><span class="header-section-number">4.2</span> Citation</h2>
+<p>When planning a publication (scientific, commercial, etc.), it shall explicitly mention:</p>
+<p>“This publication has been prepared using European Union’s Copernicus Land Monitoring Service information; &lt;insert all relevant DOI links here, if applicable&gt;”</p>
+<p>When developing a product or service using the products or services of the Copernicus Land Monitoring Service, it shall explicitly mention:</p>
+<p>“Generated using European Union’s Copernicus Land Monitoring Service information;&lt;insert all relevant DOI links here, if applicable&gt;”</p>
+<p>When redistributing a part of the Copernicus Land Monitoring Service (product, dataset, documentation, picture, web service, etc.), it shall explicitly mention:</p>
+<p>“European Union’s Copernicus Land Monitoring Service information; &lt;insert all relevant DOI links here, if applicable&gt;”</p>
+<p>Consult <a href="https://land.copernicus.eu/en/data-policy">Data policy — Copernicus Land Monitoring Service</a> for further details.</p>
+</section>
+<section id="product-technical-support" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="product-technical-support"><span class="header-section-number">4.3</span> Product technical support</h2>
+<p>Product technical support is provided by the product custodian through <a href="https://land.copernicus.eu/en/contact-service-helpdesk">Copernicus Land Monitoring Service – Service desk</a>. Product technical support does not include software specific user support or general GIS or remote sensing support.</p>
+<p>More information on the products can be found on the Copernicus Land Monitoring Service website (https://land.copernicus.eu/)</p>
+</section>
+</section>
+<section id="list-of-abbreviations" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> List of abbreviations</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Abbreviation</th>
+<th>Name</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ADs</td>
+<td>Applicable Documents</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>AI</td>
+<td>Action Item</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>AOI</td>
+<td>Area Of Interest</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ATBD</td>
+<td>Algorithm Theoretical Basis Document</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BB</td>
+<td>(Corine Land Cover plus) Backbone</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>CLC</td>
+<td>CORINE Land Cover</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>CLCplus</td>
+<td>CORINE Land Cover plus</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>CLMS</td>
+<td>Copernicus Land Monitoring Service</td>
+<td>https://land.copernicus.eu/en</td>
+</tr>
+<tr class="odd">
+<td>COG</td>
+<td>Cloud Optimized GeoTiff</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DB</td>
+<td>Data Base</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>DOMs</td>
+<td>French Overseas Departments</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>EEA</td>
+<td>European Environment Agency</td>
+<td>www.eea.europa.eu</td>
+</tr>
+<tr class="odd">
+<td>EEA38</td>
+<td>The 32 member and 6 cooperating countries of the EEA</td>
+<td>https://land.copernicus.eu/en/faq/general-questions/what-is-eea38</td>
+</tr>
+<tr class="even">
+<td>EEA39</td>
+<td>The 39 member and cooperating countries of the EEA, before UK´s withdrawal</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>EO</td>
+<td>Earth Observation</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ESA</td>
+<td>European Space Agency</td>
+<td>https://www.esa.int/</td>
+</tr>
+<tr class="odd">
+<td>FWC</td>
+<td>Framework Service Contract</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>INSPIRE</td>
+<td>Infrastructure for Spatial Information in Europe</td>
+<td>https://knowledge-base.inspire.ec.europa.eu/index_en</td>
+</tr>
+<tr class="odd">
+<td>JRC</td>
+<td>European Commission DG Joint Research Centre</td>
+<td>Joint Research Centre</td>
+</tr>
+<tr class="even">
+<td>LC</td>
+<td>Land cover</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>LiDAR</td>
+<td>Light Detection and Ranging</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LPIS</td>
+<td>Land Parcel Information System</td>
+<td>LPIS - land parcel identification system a.k.a. identification system for agricultural parcels -Guidance and Tools for CAP (GTCAP) - EC Public Wiki</td>
+</tr>
+<tr class="odd">
+<td>LU</td>
+<td>Land use</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LUCAS</td>
+<td>Land Use/Cover Area frame Survey</td>
+<td>LUCAS - Land use and land cover survey - Statistics Explained</td>
+</tr>
+<tr class="odd">
+<td>L2A</td>
+<td>Level 2A (processing level of Sentinel-2 satellite data)</td>
+<td>https://sentiwiki.copernicus.eu/web/s2-processing#S2Processing-L2AAlgorithmsS2-Processing-L2A-Algorithmstrue</td>
+</tr>
+<tr class="even">
+<td>MMU</td>
+<td>Minimum Mapping Unit</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NBR</td>
+<td>Normalized Burn Ratio</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>NDMI</td>
+<td>Normalized Difference Moisture Index</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NDVI</td>
+<td>Normalized Difference Vegetation Index</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>NDWI</td>
+<td>Normalized Difference Water Index</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>OSM</td>
+<td>Open Street Map</td>
+<td>https://www.openstreetmap.org</td>
+</tr>
+<tr class="even">
+<td>PU</td>
+<td>Production Unit</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>RfS</td>
+<td>Request for Service</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>RAS</td>
+<td>CLCplus BB Raster Product</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>RASCL</td>
+<td>Raster Confidence Layer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>RASDL</td>
+<td>Raster Data Score Layer</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>RASPL</td>
+<td>Raster Post-processing Layer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>SC</td>
+<td>Specific Contract</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>SCL</td>
+<td>Scene Classification Layer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>S-2</td>
+<td>Sentinel-2</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>UK</td>
+<td>United Kingdom</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>VHR</td>
+<td>Very High Resolution</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="references" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> References</h1>
+<ul>
+<li><p>EEA (European Environment Agency) (2019). Copernicus EEA39 Boundary Layer with 250 m buffer (raster 10m), version 3, Jan.&nbsp;2019. https://sdi.eea.europa.eu/catalogue/srv/api/records/1ba7fc7e-490f-45b2-875c-5ca9742f2c0d [31.01.2025]</p></li>
+<li><p>EEA (European Environment Agency) (2020). EU-Hydro River Network Database 2006-2012 (vector), Europe - version 1.3, Nov.&nbsp;2020. https://doi.org/10.2909/393359a7-7ebd-4a52-80ac-1a18d5f3db9c [27.03.2025]</p></li>
+<li><p>Geofabrik (2024). Open Street Map data, accessed on 2024/04/04. https://www.geofabrik.de/geofabrik/openstreetmap.html [27.03.2025]</p></li>
+<li><p>Metzger, M. J., Bunce, R. G., Jongman, R. H., Sayre, R., Trabucco, A., &amp; Zomer, R. (2013). A high‐resolution bioclimate map of the world: a unifying framework for global biodiversity research and monitoring. Global Ecology and Biogeography, 22(5), 630-638.</p></li>
+<li><p>Pelletier, C., Webb G.I. &amp; Petitjean, F. (2019). Temporal Convolutional Neural Network for the Classification of Satellite Image Time Series. Remote Sensing 11, no. 5: 523. https://doi.org/10.3390/rs11050523</p></li>
+<li><p>Northcutt, C., Jiang, L., &amp; Chuang, I. (2021). Confident learning: Estimating uncertainty in dataset labels. Journal of Artificial Intelligence Research, 70, 1373-1411. https://doi.org/10.48550/arXiv.1911.00068 [27.03.2025]</p></li>
+<li><p>Schindler, K. (2012). An overview and comparison of smooth labeling methods for landcover classification. IEEE Transactions on Geoscience and Remote Sensing, 50(11), 4534-4545. https://ieeexplore.ieee.org/document/6198886 [27.03.2025]</p></li>
+</ul>
+</section>
+<section id="document-history" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Document history</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Short description of changes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.2</td>
+<td>01.04.2025</td>
+<td>Initial published version</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="applicable-documents" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Applicable documents</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Applicable document</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AD-1</td>
+<td><a href="https://land.copernicus.eu/en/products/clc-backbone?tab=documentation">CLCplus Backbone 2023 - Product User Manual (PUM)</a></td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>The difficulties in those areas are manifold and range e.g.&nbsp;from very dry conditions, causing low vegetation cover and soil signal contamination in the Mediterranean, to illumination effects/shadows and short vegetation cycles (prolonged snow cover) in the northern areas of Europe.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This issue has been described in S2 MPC - Level-2A Algorithm Theoretical Basis Document (Ref. S2-PDGS-MPC-ATBDL2A; https://step.esa.int/thirdparties/sen2cor/2.10.0/docs/S2-PDGS-MPC-L2A-ATBD-V2.10.0.pdf)<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/library\.land\.copernicus\.eu");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2025 EEA. All rights reserved.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
