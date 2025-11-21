@@ -62,7 +62,7 @@ def upload_pdf_and_get_id(pdf_path):
     return upload_id
 
 
-def download_markdown_qmd(upload_id, output_qmd_path, max_wait_s=600, delay_s=15):
+def download_markdown_qmd(upload_id, output_qmd_path, max_wait_s=300, delay_s=15):
     token = _get_api_token()
     headers = {"Authorization": f"Bearer {token}"}
 
@@ -119,6 +119,8 @@ title: "TITLE"
 subtitle: "SUBTITLE"
 date: "2025--14"
 version: 1.5
+
+category: products
 
 toc: true
 toc-title: "Content"
