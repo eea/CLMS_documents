@@ -137,6 +137,11 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
     # Create target directory if it doesn't exist
     target_path.mkdir(exist_ok=True)
 
+    # Initialize path mapping for changelog system
+    path_mappings = {}
+    meta_dir = target_path / "_meta"
+    meta_dir.mkdir(exist_ok=True)
+
     # Load secret doc mapping
     secret_mappings = load_secret_map()
     updated = False
@@ -186,6 +191,11 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
 
             target_file = nb_dir / f"{base}.qmd"
             shutil.copy2(qmd_file, target_file)
+
+            # Record path mapping for changelog system
+            original_path = str(qmd_file.relative_to(source_path))
+            regrouped_path = str(target_file.relative_to(target_path))
+            path_mappings[regrouped_path] = original_path
             orig_media_dir = qmd_file.parent / f"{qmd_file.stem}-media"
             target_media_dir = nb_dir / f"{base}-media"
             if orig_media_dir.exists() and orig_media_dir.is_dir():
@@ -223,6 +233,11 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
             prefix = f"{project_name}_" if project_name else ""
             target_file = target_folder / f"{prefix}{qmd_file.name}"
             shutil.copy2(qmd_file, target_file)
+
+            # Record path mapping for changelog system
+            original_path = str(qmd_file.relative_to(source_path))
+            regrouped_path = str(target_file.relative_to(target_path))
+            path_mappings[regrouped_path] = original_path
             # Copy media dir with prefix
             orig_media_dir = qmd_file.parent / f"{qmd_file.stem}-media"
             if orig_media_dir.exists() and orig_media_dir.is_dir():
@@ -271,6 +286,14 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
     else:
         print(f"[non-browsable] No changes to mapping file: {NON_BROWSABLE_MAP_PATH}")
 
+    # Save path mappings for changelog system
+    mapping_file = target_path / "_meta" / ".temp_path_mapping.json"
+    import json
+
+    with open(mapping_file, "w", encoding="utf-8") as f:
+        json.dump(path_mappings, f, indent=2)
+    print(f"[path-mapping] Saved {len(path_mappings)} path mappings to {mapping_file}")
+
 
 def copy_excluded_dirs(source_dir="origin_DOCS", target_dir="DOCS"):
     source_path = Path(source_dir)
@@ -282,6 +305,80 @@ def copy_excluded_dirs(source_dir="origin_DOCS", target_dir="DOCS"):
             if dst.exists():
                 shutil.rmtree(dst)
             shutil.copytree(src, dst)
+
+
+def inject_original_filename_in_qmd_files(docs_dir="origin_DOCS"):
+    """
+    Add original-filename field to all QMD files for changelog lookup.
+    This eliminates the need for Lua filters to detect filenames.
+    """
+    docs_path = Path(docs_dir)
+
+    print("Injecting original filename field into QMD files...")
+
+    processed_files = 0
+
+    # Find all .qmd files in the docs directory
+    for qmd_file in docs_path.rglob("*.qmd"):
+        # Skip files in excluded directories
+        if any(excluded in qmd_file.parts for excluded in EXCLUDED_DOCS_DIRS):
+            continue
+
+        # Get relative path from docs_dir root (this will be used for changelog lookup)
+        relative_path = qmd_file.relative_to(docs_path)
+        original_filename_field = str(relative_path)
+
+        try:
+            with open(qmd_file, "r", encoding="utf-8") as file:
+                content = file.read()
+
+            # Split content into YAML header and body
+            if not content.startswith("---"):
+                print(
+                    f"    Warning: {qmd_file.name} doesn't have YAML header, skipping"
+                )
+                continue
+
+            parts = content.split("---", 2)
+            if len(parts) < 3:
+                print(
+                    f"    Warning: {qmd_file.name} has malformed YAML header, skipping"
+                )
+                continue
+
+            yaml_header = parts[1]
+            body = parts[2]
+
+            # Parse YAML header
+            try:
+                yaml_data = yaml.safe_load(yaml_header)
+                if yaml_data is None:
+                    yaml_data = {}
+            except yaml.YAMLError as e:
+                print(f"    Error parsing YAML in {qmd_file.name}: {e}")
+                continue
+
+            # Inject the original filename field
+            yaml_data["original-filename"] = original_filename_field
+
+            # Convert YAML data back to string
+            new_yaml_header = yaml.dump(
+                yaml_data, default_flow_style=False, allow_unicode=True
+            )
+            new_content = f"---\n{new_yaml_header}---{body}"
+
+            with open(qmd_file, "w", encoding="utf-8") as file:
+                file.write(new_content)
+
+            print(
+                f"    Added original-filename: {original_filename_field} to {qmd_file.name}"
+            )
+            processed_files += 1
+
+        except Exception as e:
+            print(f"    Error processing {qmd_file.name}: {e}")
+
+    print(f"Processed {processed_files} QMD files with original filename injection.")
 
 
 def update_bibliography_paths_before_regroup(
@@ -395,6 +492,8 @@ def update_qmd_bibliography_reference(qmd_file_path, new_bib_reference):
 
 
 if __name__ == "__main__":
+    inject_original_filename_in_qmd_files()
+
     update_bibliography_paths_before_regroup()
 
     group_qmd_files_by_category()

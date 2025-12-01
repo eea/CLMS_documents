@@ -1,0 +1,188 @@
+You are analyzing git diffs of technical documentation files.
+
+**CRITICAL: You must analyze ALL {{NUM_FILES}} files listed below:**
+{{FILE_LIST}}
+
+For EACH file, you must provide TWO outputs:
+1. Semantic version bump decision (MINOR or PATCH)
+2. Changelog summary of changes
+
+═══════════════════════════════════════════════════════════════════════
+PART 1: VERSION BUMP ANALYSIS
+═══════════════════════════════════════════════════════════════════════
+
+**Understanding Git Diffs:**
+- Lines starting with `+` show additions
+- Lines starting with `-` show deletions
+- Lines with both `-` and `+` in sequence indicate modifications
+- `@@` lines show line numbers (ignore these)
+- Context lines (no prefix) show unchanged content around changes
+- Focus on the actual content being changed, not the diff syntax
+
+**Version Bump Classification Rules:**
+
+**MINOR version bump (Y++) when:**
+- New chapters, sections, or subsections added (## or ### headers)
+- New features, APIs, or functionality documented
+- Significant content additions (>20% new content or >50 lines)
+- Major restructuring or reorganization
+- New diagrams, tables, or substantial examples added
+- Breaking changes in documented procedures
+- New requirements or specifications introduced
+- Substantial updates to existing sections
+
+**PATCH version bump (Z++) when:**
+- Typo corrections and grammar fixes
+- Formatting improvements (spacing, styling, markdown)
+- Clarifications without adding new information
+- Minor wording improvements
+- Link updates or corrections
+- Small additions (<20 lines, <5 sentences)
+- Metadata-only updates (YAML frontmatter)
+- Fixing broken references or cross-links
+- Minor corrections to existing content
+
+**Decision Guidelines:**
+- If mixed changes: choose MINOR if ANY significant change exists
+- If only YAML/metadata changes: PATCH
+- If only formatting/whitespace: PATCH  
+- If uncertain: lean towards MINOR to be conservative
+- Empty/no changes: PATCH
+
+═══════════════════════════════════════════════════════════════════════
+PART 2: CHANGELOG SUMMARY GENERATION
+═══════════════════════════════════════════════════════════════════════
+
+**Format Selection Rules:**
+
+Use **PARAGRAPH format** when:
+- 1-3 related changes that flow naturally together
+- Changes are to a single section or closely related topics
+- Simple modifications or updates
+- Format: Write 1-3 clear sentences in prose
+
+Use **BULLET POINT format** when:
+- 4 or more distinct changes
+- Changes span multiple unrelated sections or topics
+- Mix of additions, modifications, and removals
+- Each change is independent and actionable
+- Format: Use HTML unordered list format: `<ul><li>Change 1</li><li>Change 2</li></ul>`, maximum 10 items
+
+**Changelog Writing Guidelines:**
+- **Be concise but informative**: Changelogs appear in document version tables - balance brevity with clarity
+- **Length limits**: 
+  - Paragraph format: Maximum 3-4 sentences (60-100 words)
+  - Bullet format: Maximum 8-10 items, each item 8-20 words
+- **Be specific**: Instead of "updated information", write "updated processing algorithm from version 2.1 to 2.3"
+- **Use concrete details**: Include version numbers, dates, parameter names, section titles, dataset names
+- **Quantify when relevant**: "added 5 new validation metrics" not "added validation information"
+- **Prioritize**: Lead with the most significant changes (new features > modifications > removals)
+- **User-focused**: Explain the practical impact, not just the technical change
+- **Active voice**: "Added new quality flags" not "New quality flags were added"
+- **British English** spelling and terminology
+
+**Changelog Examples:**
+
+*Paragraph format (1-3 related changes) - CONCISE:*
+"Updated processing algorithm from version 2.1 to 2.3, improving cloud detection accuracy by 15%. Added validation metrics (accuracy, precision, recall) and updated recommended threshold to 0.8."
+
+*Bullet format (4+ distinct changes) - use HTML, keep items SHORT:*
+"<ul><li>Updated processing algorithm to version 2.3</li><li>Added quality flag interpretation section</li><li>Added three validation metrics</li><li>Updated threshold from 0.7 to 0.8</li><li>Replaced deprecated v1 endpoints with v2</li></ul>"
+
+*BAD - Too verbose:*
+"<ul><li>Updated processing algorithm from version 2.1 to 2.3 which resulted in a 15% improvement in cloud detection accuracy according to validation tests</li><li>Added a completely new section on quality flag interpretation that includes detailed examples and explanations for each flag type</li></ul>"
+
+*Good specificity examples (but keep BRIEF):*
+✓ "Corrected Sentinel-2 spatial resolution from 20m to 10m for visible bands"
+✗ "Fixed technical details about resolution"
+
+✓ "Added troubleshooting section covering authentication, timeout, and format errors"
+✗ "Added troubleshooting information"
+
+*Remember: BREVITY is critical - these appear in version history tables*
+
+**For minor changes only:**
+- Use "Minor formatting and metadata updates" if ONLY markdown formatting, spacing, or metadata changed
+- Use "Document maintenance updates" if changes are purely technical (fixing typos, broken links, formatting consistency) with no content impact
+
+**SECURITY: HTML restrictions (CRITICAL):**
+- ONLY use `<ul>`, `<li>`, and `</ul>`, `</li>` tags - NO other HTML tags allowed
+- NO JavaScript, CSS, style attributes, or event handlers
+- NO external links, images, or embedded content
+- NO script tags, iframe, object, embed, or similar elements
+- NO HTML attributes except standard list structure
+- Keep content as plain text within `<li>` tags
+
+═══════════════════════════════════════════════════════════════════════
+OUTPUT FORMAT REQUIREMENTS
+═══════════════════════════════════════════════════════════════════════
+
+**CRITICAL REQUIREMENT:**
+You MUST return a result for EVERY file in the batch, even if you cannot analyze it.
+If a file's diff is unreadable, empty, or causes analysis issues, use:
+```json
+{
+  "version": {
+    "bump": "error",
+    "reason": "Cannot analyze: [specific reason]",
+    "confidence": "none"
+  },
+  "changelog": {
+    "format": "error",
+    "summary": "Unable to generate changelog due to analysis error"
+  }
+}
+```
+
+**Required JSON Structure:**
+Return a JSON object with ALL file paths as keys (one entry per file in the batch):
+
+```json
+{
+  "DOCS/path/to/file1_v1.qmd": {
+    "version": {
+      "bump": "minor",
+      "reason": "Added new section on API authentication with 3 subsections and code examples",
+      "confidence": "high"
+    },
+    "changelog": {
+      "format": "paragraph",
+      "summary": "Added comprehensive API authentication section covering OAuth 2.0, JWT tokens, and API key management with practical code examples and security best practices."
+    }
+  },
+  "DOCS/path/to/file2_v2.qmd": {
+    "version": {
+      "bump": "patch",
+      "reason": "Fixed typos in introduction and updated formatting throughout",
+      "confidence": "high"
+    },
+    "changelog": {
+      "format": "bullet",
+      "summary": "<ul><li>Fixed 8 typos in introduction and methodology sections</li><li>Standardised code block formatting for consistency</li><li>Updated broken cross-references to sections 4.2 and 5.1</li><li>Corrected unit notation from 'meters' to 'm' throughout document</li></ul>"
+    }
+  }
+}
+```
+
+**Field Definitions:**
+- `version.bump`: "minor", "patch", or "error"
+- `version.reason`: Clear explanation referencing specific changes (1-2 sentences)
+- `version.confidence`: "high", "medium", "low", or "none"
+- `changelog.format`: "paragraph", "bullet", or "error"
+- `changelog.summary`: The actual changelog text (plain text for paragraph, HTML list for bullet)
+
+**Validation Checklist Before Responding:**
+✓ Have I included ALL {{NUM_FILES}} files from the batch?
+✓ Does each file have both version AND changelog?
+✓ Are version bumps consistent with changelog summaries?
+✓ For MINOR bumps, does the changelog reflect significant changes?
+✓ For PATCH bumps, does the changelog reflect minor changes?
+✓ Is HTML properly formatted (only <ul>/<li> tags, properly closed)?
+✓ Are changelogs specific and detailed (not generic)?
+✓ Is British English used consistently?
+
+**REMINDER: Your JSON response MUST include all {{NUM_FILES}} files:**
+{{FILE_LIST}}
+
+Return ONLY the JSON object, no additional text.
+Count your JSON keys to verify you have exactly {{NUM_FILES}} entries before responding.

@@ -10,8 +10,6 @@ python3 .github/scripts/update_url_mappings.py
 echo "🔄 Grouping documents by category..."
 python3 .github/scripts/group_docs_by_category.py
 
-# Update change logs before rendering
-#python3 .github/scripts/update_change_logs.py
 
 # Change to DOCS directory as it'll be the root of rendered content
 cd DOCS
@@ -40,7 +38,9 @@ else
   # _quarto.yml is already the default with headers - no copying needed
 fi
 
-QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to html --no-clean
+# Render all files together (changelog filter uses original-filename from YAML headers)
+echo "🔄 Rendering all documents to HTML..."
+QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to html --no-clean 
 
 # Backup the correct sitemap as it may be overwritten by next operations
 sleep 5
