@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Get PR title
         id: title
@@ -25,10 +27,30 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Generate commit message body
+        id: commit_body
+        run: |
+          body=$(.github/scripts/generate_commit_message.sh ${{ github.event.pull_request.number }})
+          
+          # Save to output (use delimiter for multiline)
+          {
+            echo 'body<<EOF'
+            echo "$body"
+            echo 'EOF'
+          } >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Auto-merge the PR
         run: |
+          # Create commit message file
+          cat > /tmp/commit_msg.txt << 'EOF'
+          ${{ steps.title.outputs.title }}
+          ${{ steps.commit_body.outputs.body }}
+          EOF
+          
           gh pr merge ${{ github.event.pull_request.number }} \
             --squash \
-            --subject "${{ steps.title.outputs.title }}"
+            --body "$(cat /tmp/commit_msg.txt)"
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
