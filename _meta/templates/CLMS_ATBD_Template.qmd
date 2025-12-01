@@ -1,0 +1,476 @@
+---
+title: "Product SHORT NAME ALGORITHM THEORETICAL BASIS DOCUMENT (ATBD)"
+subtitle: "ATBD Copernicus Land Monitoring Service -- Product full name"
+date: "2022-10-06"
+version: Issue x.y (“(x) version of the document” + “.”+ “(y) version  of the document
+  update”)
+template-version: 1.0.0
+product-name: Product Name
+description: "Product DESCRIPTION"
+
+format:
+  html:
+    css: ../styles/styles.css
+  docx:
+    reference-doc: ../styles/template-atbd.docx
+    hidden: true
+  pdf: default  
+---
+
+{{< pagebreak >}}
+
+::: {.subtitle custom-style="subtitle"}
+CLMS Algorithm Theoretical Basis Document Template
+\
+\
+\
+IMPORTANT: Please read this section then delete before submitting your report.
+\
+:::
+
+# How to use the CLMS Algorithm Theoretical Basis Document template {.unnumbered .unlisted}
+
+This is the Algorithm Theoretical Basis Document (ATBD) template. You should use it to write the ATBD reports for the Copernicus Land Monitoring Service. The template provides the structure and guidelines as you develop your report.
+
+For more information about the design and style, please refer to the "CLMS Word template CLMS_February" and the CLMS Brand Guidelines or contact the communications team at the EEA.
+
+The ATBD template is organised into a set of chapters and subchapters that are mandatory or optional.
+
+You may insert a new subchapter (not described in the current structure) if you deem it necessary.
+
+If any of the mandatory sections of the ATBD cannot be described or are not applicable, please include a statement in the corresponding section explaining the reason.
+
+The ATBD template contains the following information:
+
+-   The structure of chapters and subchapters that must be used when editing the report.
+
+-   Information for internal project use only that must be deleted before the product is published. This information is presented in [blue boxes]{.blue-box custom-style="blue-box-line"}.
+
+-   Instructions (e.g. an overview of the content that should be followed when editing the section). This information is presented in [yellow boxes]{.yellow-box custom-style="yellow-box-line"} and must be deleted and replaced with your content (e.g. text, tables, figures).
+
+-   Examples of standard text and tables for chapters or subchapters (these examples are presented in [grey boxes]{.grey-box custom-style="grey-box-line"}) that can be adapted accordingly.
+
+For visual insets such as charts, graphs, diagrams, tables, maps and photos, follow these guidelines:
+
+-   Assign each inset a numbered caption with a clear and descriptive title (follow the design and style instructions given in the "CLMS Word template CLMS_February").Use automatic numbering for insets, to ensure that insets are numbered sequentially in **bold** (e.g., **Figure 1**, **Table 1**).
+
+-   In the body text, refer to the inset\'s caption number in **bold**, explaining the visual\'s content (e.g., "As shown in **Inset 1**, the data highlights the following trend..."). Always use Word's cross-reference tool for referencing insets, ensuring that references update automatically if numbers change.
+
+-   Label all units clearly (e.g., x and y axes, legends, column headers, parts of graphs and diagrams).
+
+-   Include the source of the data or image if you did not create it yourself.
+
+-   Ensure that the data or image is not distorted in any way.
+
+A guide on best practices and principles for data visualisation, is available at the URL \"<https://data.europa.eu/apps/data-visualisation-guide/>\".
+
+# End of instructions. Delete up to here. {.unnumbered .unlisted}
+
+:::{.blue-box custom-style="blue-box"}
+The document information presented in this page is only for internal project use and **MUST BE DELETED BEFORE THE PRODUCT IS PUBLISHED!**
+:::
+
+## Document control information: (internal project use) {.unnumbered .unlisted}
+
+:::{.blue-box custom-style="blue-box"}
+Details about the management and oversight of the document, including version control, document identifiers, and distribution lists.
+
+  -------------------------------------------------------------------------------------------------
+  Document Title                      Dx.y Algorithm Theoretical Basis Document
+  ----------------------------------- -------------------------------------------------------------
+  Project Title                       Copernicus Land Monitoring Service -- "name of the product"
+
+  Document Author                     Name (Entity)
+
+  Project Owner                       Name (Entity)
+
+  Project Manager                     Name (Entity)
+
+  Document Code                       Dx.y
+
+  Document Version                    x.y
+
+  Distribution                        Parties to whom the document is provided
+
+  Date                                dd.mm.yyyy
+  -------------------------------------------------------------------------------------------------
+
+:::
+
+## Document approver(s) and reviewer(s): (internal project use) {.unnumbered .unlisted}
+
+:::{.blue-box custom-style="blue-box"}
+Names and roles of individuals who have reviewed and approved the document, ensuring its accuracy, completeness, and compliance with relevant standards.
+
+  -----------------------------------------------------------------------
+  Name              Role              Action            Date
+  ----------------- ----------------- ----------------- -----------------
+                    Author                              dd.mm.yyyy
+
+                    Review                              dd.mm.yyyy
+
+                    Approval                            dd.mm.yyyy
+  -----------------------------------------------------------------------
+
+:::
+## Document history: (internal project use) {.unnumbered .unlisted}
+
+:::{.blue-box custom-style="blue-box"}
+Record of changes made to the document **before the initial published version**, including version numbers, dates of revisions, and a summary of modifications.
+
+  -----------------------------------------------------------------------------------------------
+  Version       Date         Created by         Short description of changes
+  ------------- ------------ ------------------ -------------------------------------------------
+  0.1           dd.mm.yyyy                      Initial draft
+
+  0.2           dd.mm.yyyy                      Content revisions (e.g., structure, formatting)
+
+  0.3           dd.mm.yyyy                      Minor revisions (e.g., grammar fixes)
+  -----------------------------------------------------------------------------------------------
+:::
+
+## Document history: {.unnumbered .unlisted}
+
+:::{.grey-box custom-style="grey-box"}
+Record of changes made to the document over time **after the initial published version**, including version numbers, dates of revisions, and a summary of modifications. This table must be only included in the **initial ATBD published version** and without the personal information ("Created by:" filed must be removed).
+
+  --------------------------------------------------------------------------
+  Version       Date         Short description of changes
+  ------------- ------------ -----------------------------------------------
+  1.0           dd.mm.yyyy   Initial published issue
+
+  1.1           dd.mm.yyyy   Minor revisions (e.g., grammar fixes)
+
+  x.y           dd.mm.yyyy   ...
+  --------------------------------------------------------------------------
+:::
+
+{{< pagebreak >}}
+# Executive summary [(mandatory chapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Presents an overview of the product, including purpose and main features.
+
+An executive summary should concisely communicate the key points of the CLMS product to decision-makers and stakeholders. It should provide an overview of the CLMS, highlight the products generated, and summarize what the ATBD presents. To achieve this, consider the following suggestions:
+
+1.  **Know the audience**: Write with executives and stakeholders in mind. Focus on what they need to know to make informed decisions and avoid unnecessary details.
+
+2.  **Highlight key points**: Clearly summarize the most important aspects of the product, including objectives, key findings, and recommendations, being direct and to the point.
+
+3.  **Be clear and concise**: Use straightforward language, aiming for sentences to be no longer than 20--25 words whenever possible. This executive summary should not exceed two pages.
+
+4.  **Prioritize Information**: Lead with the most critical information and ensure that the most important details are easily accessible. Use bullet points or subheadings to break down complex information.
+
+5.  **Use active voice**: Make your writing more engaging by using active voice. Focus on actions and outcomes, emphasizing what has been done and what is recommended.
+
+6.  **Minimize jargon**: Use technical terms only when necessary, and ensure they are clearly explained, and avoid industry-specific jargon that might be unfamiliar to a broader audience.
+
+:::
+
+{{< pagebreak >}}
+# Background of the document [(mandatory chapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Details the scope, the intended audience, content, and structure of the document.
+:::
+
+## Scope and objectives [(mandatory subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Explains the primary purpose and coverage of the document.
+:::
+
+:::{.grey-box custom-style="grey-box"}
+Here an example:
+
+This Algorithm Theoretical Basis Document summarizes the product characteristics and describes production methodologies and workflows of "PRODUCT SHORT NAME".
+:::
+
+
+## Content and structure [(mandatory subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Outlines the document\'s structure, including chapters on product descriptions, quality, access, and references.
+
+In detail, the document is structured as follows:
+:::
+
+:::{.grey-box custom-style="grey-box"}
+-   Chapter 1 provides the executive summary of the project along with a general information about European Union\'s Earth Observation Programme and Copernicus Land Monitoring Service (CLMS).
+
+-   Chapter 2 outlines the scope, content and structure of this document.
+
+-   Chapter 3 details the general thematic content and product descriptions with the methodology, workflows and internal quality control processes.
+
+-   Chapter 4 discusses know issues of the current methodology and the product.
+
+-   Chapter 5 presents the terms of use, citation guidelines, and technical support for the product.
+
+-   Chapter 6 defines key terms used in the document.
+
+-   and the Abbreviations & Acronyms, References, Annex, and Appendices Chapters provide citations, supplementary information, and additional reference materials.
+:::
+
+{{< pagebreak >}}
+# Methodology [(mandatory chapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Describes the workflow, input datasets, production methodology including data pre-processing, processing, post-processing and quality control and product verification.
+
+In the "Methodology Description" chapter, some of the subchapters are classified as mandatory, but only if they are relevant to the methodology being described. Optional subchapters can be included or omitted, allowing flexibility to adapt the structure to the specific characteristics of the product.
+
+If any of the following mandatory sections cannot be described or are not applicable, please include a statement in the corresponding section explaining the reason.
+
+Provide an overview table of methodology. Follow the example below:
+:::
+
+```{=html}
+<table>
+  <thead>
+    <tr>
+      <th>Category Title</th>
+      <th>Description/Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Retrieval Methodology</td>
+      <td>Example: Convolutional Neural Network (CNN), Time Series Analysis, Change Detection, etc.</td>
+    </tr>
+    <tr>
+      <td>Input Data</td>
+      <td>Example: Sentinel-2 (S2A, S2B), Level-2ª (processing baseline 05.11), retrieved via ESA Copernicus Open Access Hub</td>
+    </tr>
+    <tr>
+      <td>Ancillary Data</td>
+      <td>Example: OSM: Open Street Map roads, parking lots, runways and building footprints, CLC: CORINE Land Cover 2018 (1.2.2 Road and rail networks and associated land)</td>
+    </tr>
+    <tr>
+      <td>Processing Workflow</td>
+      <td>Example: Cloud masking, atmospheric correction, radiometric calibration, temporal compositing</td>
+    </tr>
+    <tr>
+      <td>Spatial/Temporal Resolution</td>
+      <td>Example: 10m spatial resolution</td>
+    </tr>
+    <tr>
+      <td>Verification and Accuracy</td>
+      <td>Example: Product verification using ground-based reference, accuracy assessment with RMSE calculations.</td>
+    </tr>
+  </tbody>
+</table>
+```
+{{< pagebreak >}}
+
+## Theoretical Background [(optional subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Provides an overview of concepts, common definitions and assumptions of the product and links it to related previous studies and work to allow an understanding of the product and applied methodology.
+:::
+
+## Methodology and workflow [(mandatory subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Provides an overview of the product generation, highlighting the workflow, the input datasets, key processes involved, and algorithms used. Ideally, the description is complemented by a traceability diagram that allows users to understand the uncertainty budget of the product as a result of its inputs and workflow (if needed, add subchapter).
+
+Below is a generic example that should be adapted to the specific needs of the product to provide an overview of the production process workflow.
+:::
+
+![Figure 1.1 Example of a generic workflow (insert your caption here, delete feature and insert your feature)](CLMS_ATBD_Template-media/figure_1.png){width="100%"}
+
+{{< pagebreak >}}
+
+## Source data [(mandatory subchapter)]{.yellow-box custom-style="yellow-box-line"} 
+
+:::{.yellow-box custom-style="yellow-box"}
+Explain which datasets (e.g., Sentinel-x, DEM, or other CLMS products) serve as input for the product. Clarify internal dependencies within the product, such as primary data used to generate secondary outputs. Reference external thematic data where applicable and ensure the workflow diagram illustrates the connections between different datasets.
+:::
+
+## Pre-processing [(optional subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Details the initial steps taken to prepare the data for further processing, including corrections and adjustments to raw data. Sub-chapter structure optional.
+:::
+
+### Pre-processing overview [(optional subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Introduces the pre-processing stage, outlining its purpose and significance in the overall methodology.
+:::
+
+### Input data for pre-processing [(optional subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Lists the various input datasets used in the pre-processing stage.
+:::
+
+### Pre-processing methodology [(optional subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Describes the specific workflow and steps involved in pre-processing the input data, including correction (e.g. atmospheric, topographic, geometric corrections) and cleaning operations within the project activities.
+:::
+
+### Intermediate outputs [(optional subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Specifies the types of output data generated from the pre-processing stage, which will be used in subsequent processing steps.
+:::
+
+## Processing [(mandatory subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Details the core processing steps that transform pre-processed data into the final products, and the configuration of the tools used for corrections. Product derivation tasks, such as aggregation rules and change layer calculation can be described in this section.
+
+The subchapter structure is optional.
+:::
+
+### Processing overview [(optional subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Summarizes the main goals and components of the processing stage.
+:::
+
+### Input data for processing [(optional subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Identifies the input data required for the processing stage, including pre-processed datasets and additional ancillary data.
+:::
+
+### Processing methodology [(optional subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Outlines the workflow and methods used during the processing stage, detailing each step.
+:::
+
+### Algorithm descriptions [(optional subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Provides detailed descriptions of the algorithms used in the processing stage.
+:::
+
+## Post-processing [(optional subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Presents tasks typically involved in the refinement, quality assurance and control, and finalization of the datasets such has manual steps, filtering and smoothing, integration of ancillary data, reprojecting, resampling or merging, classification improvements and preparing data for end-users. A subchapter structure as suggested with previous sections may be introduced if necessary.
+:::
+
+## Output products [(mandatory subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Specifies the types of output products generated (e.g., status layer/change/auxiliary layer, reference layer, near-real time).
+:::
+
+{{< pagebreak >}}
+# Quality control and production verification [(mandatory subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Discusses the methods and criteria used to assess the internal quality assurance and control process as well as production verification, the quality and accuracy of the products, ensuring they meet the required standards and specifications.
+:::
+
+{{< pagebreak >}}
+# Recognized technical issues [(mandatory chapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Discusses any challenges or limitations of the current methodology, algorithm, input and reference data or technical aspects relevant to the product that might influence its quality, validity or reliability. At the same time, any foreseeable planned developments could be mentioned here.
+:::
+
+{{< pagebreak >}}
+# Terms of use and product technical support [(mandatory chapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Presents information on the terms of use, citation guidelines, and technical support for the products.
+:::
+
+## Terms of use [(mandatory subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Presents information on the legal use of data for added products or derivative works.
+
+Here an example of a standard text.
+:::
+
+:::{.grey-box custom-style="grey-box"}
+The Terms of Use for the product(s) described in this document, acknowledge the following:  
+Free, full and open access to the products and services of the Copernicus Land Monitoring Service is made on the conditions that:
+
+1.  When distributing or communicating Copernicus Land Monitoring Service products and services (data, software scripts, web services, user and methodological documentation and similar) to the public, users shall inform the public of the source of these products and services and shall acknowledge that the Copernicus Land Monitoring Service products and services were produced "with funding by the European Union".
+
+2.  Where the Copernicus Land Monitoring Service products and services have been adapted or modified by the user, the user shall clearly state this.
+
+3.  Users shall make sure not to convey the impression to the public that the user\'s activities are officially endorsed by the European Union.
+
+The user has all intellectual property rights to the products he/she has created based on the Copernicus Land Monitoring Service products and services. 
+
+[Consult Data policy — Copernicus Land Monitoring Service for further details](https://land.copernicus.eu/en/data-policy)
+:::
+
+## Citation [(mandatory subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Presents guidelines on how to properly cite and reference the products and services of the CLMS.
+
+Here are examples of standard text to be used according to the situation:
+:::
+
+:::{.grey-box custom-style="grey-box"}
+When **planning to publish a publication (scientific, commercial, etc.)**, it shall explicitly mention:
+
+> "This publication has been prepared using European Union\'s Copernicus Land Monitoring Service information; \<insert all relevant DOI links here, if applicable\>"
+
+When developing a **product or service using the products or services of the Copernicus Land Monitoring Service**, it shall explicitly mention:
+
+> "Generated using European Union\'s Copernicus Land Monitoring Service information; \<insert all relevant DOI links here, if applicable\>"
+
+When **redistributing a part of the Copernicus Land Monitoring Service (product, dataset, documentation, picture, web service, etc.)**, it shall explicitly mention:
+
+> "European Union\'s Copernicus Land Monitoring Service information; \<insert all relevant DOI links here, if applicable\>"
+
+[Consult Data policy — Copernicus Land Monitoring Service for further details](https://land.copernicus.eu/en/data-policy)
+
+:::
+
+## Product technical support [(mandatory subchapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Presents information on the support available for users of the product, including contact details.
+
+Here an example of a standard text.
+:::
+
+:::{.grey-box custom-style="grey-box"}
+Product technical support is provided by the product custodian through [Copernicus Land Monitoring Service -- Service desk](https://land.copernicus.eu/en/data-policy). Product technical support does not include software specific user support or general GIS or remote sensing support.  
+More information on the products can be found on the Copernicus Land Monitoring Service website (https://land.copernicus.eu/)
+:::
+
+{{< pagebreak >}}
+# List of abbreviations & acronyms [(mandatory chapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Lists abbreviations and acronyms used throughout the document.
+:::
+
+  ------------------------------------------------------------------------------
+  Abbreviation    Name                                   Reference
+  --------------- -------------------------------------- -----------------------
+  ATBD            Algorithm Theoretical Basis Document   
+
+  DOI             Digital Object Identifier              
+
+  EEA             European Environment Agency            www.eea.europa.eu
+
+  PUM             Product User Manual                    
+  ------------------------------------------------------------------------------
+
+{{< pagebreak >}}
+# References [(mandatory chapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Lists references cited throughout the document.
+:::
+
+{{< pagebreak >}}
+# Annexes [(optional chapter)]{.yellow-box custom-style="yellow-box-line"}
+
+:::{.yellow-box custom-style="yellow-box"}
+Annexes should be kept to a minimum but can be placed as needed to present technical details, data and information repository, resources on product development.
+:::
