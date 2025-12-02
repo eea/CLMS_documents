@@ -470,8 +470,19 @@ def save_changelogs_for_injection(changelog_entries):
         if normalized_path not in existing_changelogs:
             existing_changelogs[normalized_path] = []
 
-        # Prepend new entry (most recent first)
-        existing_changelogs[normalized_path].insert(0, new_entry)
+        # Check if this version already exists (avoid duplicates)
+        existing_versions = [entry.get('version') for entry in existing_changelogs[normalized_path]]
+        if new_entry['version'] in existing_versions:
+            # Update existing entry instead of adding duplicate
+            for i, entry in enumerate(existing_changelogs[normalized_path]):
+                if entry.get('version') == new_entry['version']:
+                    # Update date and summary
+                    existing_changelogs[normalized_path][i] = new_entry
+                    print(f"[INFO] Updated existing changelog entry for {normalized_path} v{new_entry['version']}")
+                    break
+        else:
+            # Prepend new entry (most recent first)
+            existing_changelogs[normalized_path].insert(0, new_entry)
 
         # Keep only last 20 entries per file (limit history size)
         existing_changelogs[normalized_path] = existing_changelogs[normalized_path][:20]
