@@ -13,7 +13,7 @@ os.chdir(root_dir.resolve())
 
 
 DOCS_DIR = "DOCS"
-EXCLUDED_DOCS_DIRS = {"templates", "theme", "includes"}
+EXCLUDED_DOCS_DIRS = {"templates", "theme", "includes", "_meta"}
 
 # Define allowed categories
 ALLOWED_CATEGORIES = {
