@@ -963,7 +963,7 @@ def initialize_first_release(all_files):
 
     versions_metadata = load_versions_metadata()
     changelog_entries = {}
-    today = datetime.now().isoformat()
+    today = datetime.now().strftime("%Y-%m-%d")  # YYYY-MM-DD format
 
     for filepath in all_files:
         filename = os.path.basename(filepath)
