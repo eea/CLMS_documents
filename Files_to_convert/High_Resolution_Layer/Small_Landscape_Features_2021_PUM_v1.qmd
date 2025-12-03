@@ -1,0 +1,941 @@
+---
+title: "TITLE"
+subtitle: "SUBTITLE"
+date: "2025--14"
+version: 1.5
+
+category: products
+
+toc: true
+toc-title: "Content"
+toc-depth: 3
+
+#### REMOVE THE SECTION BELOW BEFORE PUBLISHING 
+format:
+  html:
+    css: ../theme/styles.css
+    code-fold: true 
+    self-contained: false
+    embed-resources: true
+  docx:
+    toc-location: before-body
+    toc-pagebreak: true
+    data: false
+    reference-doc: ../theme/template-guideline.docx
+#### 
+---
+
+![img](Small_Landscape_Features_2021_PUM_v1-media/img-4aed71f5e5226c80327ca50397751a1a4fdfd869.png)
+
+![img](Small_Landscape_Features_2021_PUM_v1-media/img-107476384b0c803c493b77b604b5b58486f4611a.png)
+
+![img](Small_Landscape_Features_2021_PUM_v1-media/img-60dcb34b4ea348608abdb631d5633e0b6c3c0c32.png)
+
+Copernicus Land Monitoring Service –High Resolution Layer Small Landscape  Features
+
+HRL SLF Product User Manual (PUM)
+
+![img](Small_Landscape_Features_2021_PUM_v1-media/img-64628bf66c01dd3a99c4b33288290985468f2a82.png)
+
+DATE: 16.09.2025
+
+DOC. VERSION Issue 1.0
+
+Kongens Nytorv 6 1050 Copenhagen K Denmark Tel.: +45 336 7100 Fax: +45 3336 7199 eea.europa.eu
+
+Document history:
+
+Record of changes made to the document over time after the initial published version, including version  numbers, dates of revisions, and a summary of modifications. This table must be only included in the  initial PUM published version and without the personal information (“Created by:” filed must be  removed).
+
+|Version|Date|Short description of changes|
+|--|--|--|
+|1.0|16.09.2025|Initial published issue|
+
+
+Contents
+
+Document history:....................................................................................................................................2
+
+List of tables .............................................................................................................................................4
+
+List of Figures............................................................................................................................................4
+
+Non-technical summary ...............................................................................................................................4
+
+Executive summary ......................................................................................................................................6
+
+Scope of the document ................................................................................................................................7
+
+Scope ........................................................................................................................................................7
+
+Content and structure ..............................................................................................................................7
+
+Lineage of product........................................................................................................................................8
+
+Initial release in 2015 ...............................................................................................................................8
+
+Product update 2018................................................................................................................................8
+
+Product update 2021................................................................................................................................8
+
+User requirements .......................................................................................................................................9
+
+Product application areas and use case examples.....................................................................................10
+
+Use case: Carbon storage assessment in agroforestry systems.............................................................10
+
+Use case: CAP Indicator for preservation of biodiversity and farmed landscape features ....................10
+
+Product description ....................................................................................................................................12
+
+Overview of the product and contained layers......................................................................................12
+
+Product characteristics...........................................................................................................................12
+
+Woody Vegetation Layer....................................................................................................................12
+
+Small Woody Features Layer..............................................................................................................13
+
+Street Tree Layer ................................................................................................................................14
+
+Change Layer......................................................................................................................................14
+
+Auxiliary Layers...................................................................................................................................14
+
+Reference Data...................................................................................................................................14
+
+Product specifications ............................................................................................................................15
+
+Primary Layers....................................................................................................................................15
+
+Aggregated Layers..............................................................................................................................19
+
+Auxiliary Layers...................................................................................................................................21
+
+Reference Data...................................................................................................................................25
+
+Known thematic overlaps of the product...............................................................................................27
+
+Woody Vegetation Layer....................................................................................................................27
+
+Small Woody Features layers .............................................................................................................27
+
+Street Tree Layer ................................................................................................................................27
+
+Production methodology and workflow overview.....................................................................................28
+
+Preprocessing of EO data .......................................................................................................................28
+
+CLMS_PUM_HRLSLF_v1.0.docx0.3
+
+Page | 3
+
+|WVL 2021 processing .............................................................................................................................28|WVL 2021 processing .............................................................................................................................28|
+|--|--|
+|SWF and derived products processing ...................................................................................................28|SWF and derived products processing ...................................................................................................28|
+|Change Layer production .......................................................................................................................29|Change Layer production .......................................................................................................................29|
+|Terms of use and product technical support .............................................................................................30|Terms of use and product technical support .............................................................................................30|
+|Terms of use ...........................................................................................................................................30|Terms of use ...........................................................................................................................................30|
+|Citation ...................................................................................................................................................30|Citation ...................................................................................................................................................30|
+|Product Technical support......................................................................................................................30|Product Technical support......................................................................................................................30|
+|List of abbreviations & acronyms...............................................................................................................31|List of abbreviations & acronyms...............................................................................................................31|
+|References..................................................................................................................................................33|References..................................................................................................................................................33|
+|Annexes.....................................................................................................................................................|..34|
+
+
+List of tables
+
+|Table 1: SWF key features through the years............................................................................................|...8|
+|--|--|
+|Table 2:Thematic definition of SWF 2021 .................................................................................................|.13|
+|Table 3: Small Woody Features vector......................................................................................................|.15|
+|Table 4: Street Tree Layer vector ..............................................................................................................|.16|
+|Table 5: Woody Vegetation Layer 5m raster.............................................................................................|.17|
+|Table 6: Small Woody Features 5m raster ................................................................................................|.18|
+|Table 7: Small Woody Features 100m raster ............................................................................................|.19|
+|Table 8: Small Woody Features Change raster..........................................................................................|.20|
+|Table 9: Parent Scene Identification Layer................................................................................................|.21|
+|Table 10: Woody Vegetation Confidence Layer ........................................................................................|.22|
+|Table 11: Forest Mask ...............................................................................................................................|.23|
+|Table 12: Crop Mask..................................................................................................................................|.24|
+|Table 13: Training Dataset (vector) ...........................................................................................................|.25|
+|Table 14: Validation Dataset (vector)........................................................................................................|.26|
+|Table 15: Attribute Table of the PSIL.........................................................................................................|.34|
+
+
+List of Figures
+
+Figure 1: Share of agricultural area (AA) covered with woody landscape features at different NUTS levels based on SWF 2015 (Kleeschulte, 2020). ...................................................................................................11
+
+Figure 2: HRL SLF 2021 product suite. ........................................................................................................12
+
+# Non-technical summary
+
+The Copernicus High-Resolution Layer Small Landscape Features 2021 is a product developed to map and monitor small woody features across Europe and it is part of the European Union’s Earth observation program. This product uses satellite data to map small woody features and detect changes between 2018 and 2021. It plays a critical role in environmental monitoring, policymaking, and landscape management. Product key Features:
+
+• Woody Vegetation Layer: A map providing information about the presence or absence of trees  of any type across Europe. Contrary to the Woody Vegetation Mask that was part of HRL SWF  2018 product suite, this product is not masked nor have geometric rules applied. This helps users understand the distribution of these features across different regions and provide a “all tree layer” that user can use to derive their own application.
+
+• Small Woody Features: Derived from Woody Vegetation Layer, this dataset identifies small  woody features based on their morphological specifications. This helps in understanding woody  vegetation outside of forested areas or plantation areas and its environmental impacts.
+
+• Street Tree Layer: Derived from Woody Vegetation Layer and CLMS Urban Atlas 2021, this  dataset categorizes woody vegetation within urban areas across Europe.
+
+• Change Detection: A map that shows where small woody features have increased or decreased  between 2018 and 2021. This helps identify landscape changes, including habitat loss or  restoration.
+
+Why is this product important? It provides detailed data for environmental research, landscape management, and policymaking. It is especially useful for monitoring biodiversity and climate change impacts. This product also supports reports required by international organizations, including the United Nations and the European Union. It helps governments and organizations make informed decisions to protect ecosystems.
+
+Who can use it? This information is available to a wide range of users, including environmental agencies,  scientists, policymakers, and conservationists. The data is openly accessible and can be used for research,  policy reporting, and practical landscape management tasks, like planning conservation efforts or  protecting small woody features from degradation.
+
+# Executive summary
+
+The Copernicus Land Monitoring Service (CLMS) provides geographical information on land cover and its  changes, land use, vegetation state, water cycle and earth surface energy variables to a broad range of  users in Europe and across the world for various domains and applications. CLMS is jointly implemented  by the European Environment Agency (EEA) and the European Commission’s Directorate-General Joint  Research Centre (JRC).
+
+This Product User Manual (PUM) aims to guide users with the usage of the High-Resolution Layer Small  Landscape Features (SLF) for the 2021 reference year and captures detailed definitions and product  specifications. The SLF portfolio currently comprises raster and vector layers dedicated to woody  vegetation mapping, including forested areas, trees outside forest and urban trees. This 2021 release of  HRL SLF covers the area of 38 EEA members and cooperating countries and UK at spatial resolutions of  5m and 100 m. It is compliant with the established specifications of the existing time series of the product,  previously known as Small Woody Features (SWF). The product and its contained layers have been  updated following the regular three-year cycle and additionally contain new Woody Vegetation Layer,  Street Tree Layer (previously part of the CLMS Urban Atlas product) and the change layer between 2018  and 2021. 
+
+All layers contained here are derived from automatic image processing methods of Very High Resolution Earth Observation Imagery and high-resolution optical satellite image time series (Sentinel-2). They provide dedicated information on woody vegetation during the reference year 2021 (i.e. status) and detected dynamics between 2018 and 2021 (i.e. change). The aim of these layers is to provide reliable status and frequent updates on these land cover characteristics to facilitate environmental monitoring applications, regional and transnational analyses and, generally, to support decision-making that is based on spatial evidence.
+
+# Scope of the document
+
+## Scope
+
+The Product User Manual (PUM) is designed for a broad audience of users who seek to understand and utilize the product effectively. It is intended primarily for end-users who require an overview of the product’s features, quality, and usage guidelines without needing deep technical expertise. This includes operational users, decision-makers, and general users who need to assess the product’s suitability for their applications.
+
+The PUM provides essential information on product characteristics, quality indicators, terms of use, and available technical support. However, it is not intended as a technical document.
+
+## Content and structure
+
+The document is structured as follows:
+
+Chapter 4 summarizes the evolution of the product portfolio over time.
+
+Chapter 5 recalls the user requirements.
+
+Chapter 6 presents potential application areas and/or example use cases.
+
+Chapter 7 presents the product description (product file naming convention and format(s),  product content and characteristics).
+
+Chapter 8 provides information about the methodology used to derive HRL SLF products.
+
+Chapter 9 presents terms of use and product technical support.
+
+## Lineage of product
+
+## Initial release in 2015
+
+The Copernicus High-Resolution Layer Small Woody Features was first introduced in 2015 as part of the  European Union’s Earth observation program. This initial release provided pan-European information on  linear structures such as hedgerows and patches of woody features outside of forested areas, excluding  also agricultural tree plantations such as orchards or vineyards. The data were available in both vector  format and raster files with a spatial resolution of 5 meters and aggregated 100 meters.
+
+To ensure continuity between mapped features (linear or patchy features) and reflects ground reality, an  additional class (additional woody features: AWF) was added to include in the product elements that were  measured as out of the technical specifications (e.g.: too wide) but which connected valid linear or patchy  features together.
+
+This product aimed to enhance the understanding of landscapes, support biodiversity assessments, and inform sustainable land management practices. 
+
+## Product update 2018
+
+In 2018, the Copernicus High-Resolution Layer Small Woody Features was updated to include more refined data and improved detection capabilities. The 2018 version continued to provide detailed information on small woody features, including linear and patchy elements, but did not differentiate further into specific types like linear, patchy or additional woody features.
+
+The update leveraged advancements in data processing techniques and Very High Resolution (VHR) satellite imagery to offer more accurate and comprehensive datasets.
+
+This update included new layers:
+
+- Woody Vegetation Mask (WVM) which aimed at mapping woody vegetation outside of forested areas without any geometrical rules applied,
+
+- Forest mask which aimed at ensuring better understanding of the SWF products (i.e. area  considered as forest and therefore excluded from the SWF products),
+
+- Change Layer 2015-2018 at 100m spatial resolution, mapping increase or decrease of SWF.
+
+## Product update 2021
+
+The 2021 update of Copernicus High-Resolution Layer Small Landscape Features builds on lessons learned from previous production while taking advantage of latest development in Earth Observation processing technology to improve accuracy of the product. The data processing still relies on VHR data but also implement time-series of Sentinel-2, using Super Resolution algorithms. 
+
+The product suite ensure continuity with previous production by including existing SWF layers, but also includes new products:
+
+- Woody Vegetation Layer, which replaces the previous Woody Vegetation Mask. This layer aims at mapping, at 5m resolution, woody vegetation without any differentiation of height, size or nature without masking forested areas.
+
+- Street Tree Layer (STL): previously part of the Urban Atlas suite, this layer aims at mapping woody  vegetation within artificial areas of Urban Atlas Functional Urban Areas (FUA)
+
+- Crop Mask: Derived from HRL NVLCC, this layer provides information about crops location and areas where geometrical rules are applied differently to derive valid SWF.
+
+TABLE 1: SWF KEY FEATURES THROUGH THE YEARS
+
+|Product reference year|2015|2018|2021|
+|--|--|--|--|
+|New Key Features(unless          stated otherwise, key features|-    Initial release-   Derived from VHR analysis|- AWF and SWF are merged in one|- WVM is replaced by WVL|
+
+
+CLMS_PUM_HRLSLF_v1.0.docx0.3
+
+|from       previous reference years apply to current product)|- Contains SWF and AWF|unique   class   of SWF-    Introduction    of WVM-    Introduction    of Change      Layer 100m-   Forest     Mask included         in product suite|- STL is now part of SLF suite-    Introduction    of Crop Mask-    Sentinel-2 introduced      as input         datatogether with VHR|
+|--|--|--|--|
+
+
+# User requirements
+
+Small woody landscape features are important vectors of biodiversity and provide information on the fragmentation and connectivity of habitats, especially considering the importance of Green Infrastructure and hazard protection. Moreover, the HRL Small Woody Features contributes to monitor and evaluate the United Nations (UN) Sustainable Development Goals (SDGs). It can specifically support the Ecosystem assessment and land accounting in the context of SDG 15 “Life on Land”.
+
+In the frame of the Horizon 2020 (H2020) project EcoLaSS, a survey 1 of key stakeholders has been performed in order to evaluate the user requirements towards the evolution of existing and future Copernicus products. This survey also made use of the results from the Nextspace User Study 2 and revealed that High Resolution Layers (HRL) users (such as European institutions, service industry, research and academia, national agencies, regional administrations, NGOs or private users) would in general appreciate:
+
+• High accuracy of the products
+
+• No data gaps - due to enhanced cloud gap mitigation
+
+• Extensive coverage of the product
+
+• Sufficient spatial and timely resolution concerning both, status layer and change layer
+
+• Short update cycles
+
+• Change monitoring
+
+• Free and open access
+
+• High technical quality
+
+• High thematic quality/meaningful and application-oriented product definitions
+
+• Standardised and comparable nomenclature
+
+• Transparent and scientific workflows and state-of-the-art methodology
+
+• Detailed documentation of these workflows and the respective methodology
+
+• Consistency of the pan-European products enabling synergistic use of all products
+
+• Streamlining the pan-European product with global ones
+
+• Availability of historic data and compatibility of time series
+
+• Open access to the original Copernicus Sentinel data
+
+• Sophisticated product presentation and visualisation possibilities in an online viewer on the  Copernicus platform
+
+• IPCC conformity
+
+CLMS_PUM_HRLSLF
+
+It is the strength of the HRL products that many of the mentioned requirements are already satisfied or at least considered in current or upcoming implementations.
+
+Frequently updated reliable data about forests and woodlands in general, and specifically linear and  patchy woody elements in Europe is crucial to many key Copernicus users and stakeholders. A wall-towall detailed mapping of small woody features across EEA38 + UK already serves several purposes, such  as a meaningful spatial location of a pan-European green corridor ecological network connecting natural  and semi-natural habitats, reservoir of biodiversity, and preserving protected areas. It also reflects the  regional variety and identity of old Europe’s rural and agricultural landscapes and its modern  transformation, along with the increase of urbanisation and artificial surfaces. Even though SWF usually  represents stable landscape markers across time, the Small Woody Features Change product 2018-2021 at 100m spatial resolution is an indicator of the European territory’s profound mutation in recent years.  However, key Copernicus users and stakeholders would appreciate a more precise delineation of these  changes which are currently difficult to capture mainly due, to difference of methodological approach between SWF 2018 and SWF 2021 and to EO data current limitations (e.g., still insufficient VHR spatial  resolution ≤ 2 m, geographical misregistration between 2 monitoring cycles, etc.). Ultimately, the  interlocking between SWF and HRL VLCC Forest Tree Cover Density (TCD) product, and in general with  other HRL products, still needs improvement, as SWF somehow fills the gaps of the VLCC products while  the coarser spatial 10m resolution of the latter can mask out significant SWF.
+
+# Product application areas and use case examples
+
+Compared to the other HRLs, the HRL SLF is a relatively new product. However, few use case have already been documented.
+
+## Use case: Carbon storage assessment in agroforestry systems
+
+In 2021, a multi-disciplinary team working in fields (such as landscape ecology and planning, agricultural  landscape research, agronomy, organic farming and environmental science), led an interesting piece of  research work on the role of small woody landscape features and agroforestry systems for national carbon  budgeting in Germany (Golicz et al., 2021). This showed that the intensification of food production  systems has resulted in landscape simplification, with trees and hedges disappearing from agricultural  land, principally in industrialised countries. In recent years, the potential of agroforestry systems and small  woody landscape features to sequester carbon was highlighted as one of the strategies to combat global  climate change. The Federal Republic of Germany was one of the first countries to develop a long-term  action plan for a low carbon economy and is considered a pioneer in this transition. Limited information  exists on the carbon storage potential of emerging land use system such as agroforestry. The SWF 2015  dataset was used in conjunction with CLC 2012 in order to define several agricultural system types.  Overall, this study showed that the implementation of agroforestry is promising for reducing agricultural  Green House Gas emissions.
+
+## Use case: CAP Indicator for preservation of biodiversity and farmed landscape features
+
+The Common Agricultural Policy (CAP) comprises 9 key objectives for the period 2021-2027, among which  the preservation of biodiversity and farmed landscapes as explained in Brief no \(6^{3}\). The disappearing of  landscape features and semi-natural vegetation in agricultural land over the past decades, being a  pressure on biodiversity and the environment has become a concern. Landscape features play an  important role as a support to biodiversity and ecosystem services (e.g., habitat provision, mitigation of  soil erosion, improvement of soil fertility), and also have aesthetic and cultural values attached. Thus, the  importance to develop a stable and consistent indicator based on a sustainable and reproducible data 
+
+CLMS_PUM_HRLSLF_v1.0.docx0.3
+
+source for monitoring changes and to track changes of landscape features in European agricultural landscapes. The CAP Indicator I.21 aims to assess the area covered by landscape features in the agricultural land. The Copernicus Small Woody Features products are proposed as one of the information sources for the creation of the CAP I.21 indicator on landscape features. The agricultural area is derived with the help of Corine Land Cover (CLC) data which is spatially refined with Copernicus High Resolution Layers (HRL). 
+
+![img](Small_Landscape_Features_2021_PUM_v1-media/img-3a19d0780acfafe464786f6a2f981693595afb0d.png)
+
+### LEVELS BASED ON SWF 2015 (KLEESCHULTE, 2020).
+
+# Product description
+
+## Overview of the product and contained layers
+
+The HRL Small Landscape Features portfolio comprises four main primary status layers, provided in panEuropean LAEA projection (EPSG:3035):
+
+• Woody Vegetation Layer at 5m spatial resolution
+
+• SWF vector
+
+• SWF raster at 5m spatial resolution
+
+• Street Tree Layer vector
+
+Aggregated products (spatial resolution 100m) are also provided:
+
+• SWF Density raster at 100m spatial resolution (in pan-European LAEA)
+
+• Mosaic of Small Woody Features Change for the 2018-2021 period at 100m spatial resolution
+
+Furthermore, other ancillary data and reference data are provided:
+
+• Mosaic of Confidence Layer for WVL at 5m spatial resolution
+
+• Parent Scene Identification Layer (PSIL) in vector format
+
+• Forest Mask 2021 and Crop Mask 2021 at 5m spatial resolution
+
+• Reference data used for training
+
+• Reference data used for internal quality control
+
+![img](Small_Landscape_Features_2021_PUM_v1-media/img-5d37127d1ef51bc6f9ef04c1e338203de056620f.png)
+
+FIGURE 2: HRL SLF 2021 PRODUCT SUITE.
+
+All layers are distributed in tiles corresponding to 100km LAEA grid cells.
+
+## Product characteristics
+
+### Woody Vegetation Layer
+
+Woody Vegetation Layer is a newly introduced layer that contains information about woody vegetation  without height, size, or shape differentiation. Objective of this layer is to provide an “all trees” layer (with  the exception of vineyards) which allows the user to flexibly apply their own rules to derive any type of  features they specifically require for their topic of interest. The layer is available as a raster layer at 5m  spatial resolution.
+
+### Small Woody Features Layer
+
+Derived from WVL, Small Woody Features layers contain information about linear and patchy woody  vegetation outside forest, with the exception of artificial tree rows like orchards, tree plantation or  vineyards.
+
+• Linear structures include:
+
+- Hedgerows
+
+- Tree alignments or scrubs along field margins
+
+- Tree alignments or scrubs along roads
+
+- Riparian woody vegetation along waterways and streams
+
+• Patchy structures include:
+
+- Scattered group of trees/scrubs
+
+- Isolated trees/scrubs
+
+No height differentiation (trees vs. scrubs/bushes) is applied.
+
+Elements to be included or excluded in Small Woody Features 2021 are summarised in Table 2.
+
+TABLE 2:THEMATIC DEFINITION OF SWF 2021
+
+|Elements included in small woody features|Elements excluded from small woody features|
+|--|--|
+|• linear hedgerows and scrubs• tree rows (along field boundaries)• isolated/scattered patches of trees areas, storm damages, insect-infested damages, etc.)|• stone walls•   drainage ditches• grass margins• field boundaries without hedgerows or trees•   any kind of “grey” infrastructure such as roads• artificial tree rows like olive tree plantations, vineyards, and orchards|
+
+
+To ensure connectivity between mapped linear and patchy elements, features that are outside of the geometric specification can be included in the product if they are:
+
+• Connected to a valid (e.g., geometrically compliant) linear or patch, with no min/max criterion;
+
+• Isolated and with an area comprised between 0.15 and 5 ha.
+
+Furthermore, SWF 2021 includes a forest masking, preventing any mapping of SWF in forested areas. These forested areas are aligned with canopy cover criteria of the FAO forest definition4 and are derived from HRL VLCC TCD 2021 and HRL VLCC CTY 2021 products (cf. section 0).
+
+The small woody feature information is provided in 3 different layers:
+
+• Small Woody Features 5m raster layer
+
+• Small Woody Features vector layer
+
+• Small Woody Features 100m raster layer (density of SWF)
+
+CLMS_PUM_HRLSLF_v1.0.docx0.3
+
+### Street Tree Layer
+
+Street Tree Layer provides information about presence of trees within urban areas as defined by CLMS Urban Atlas Functional Urban Areas (FUA). 
+
+It includes contiguous rows or patches of trees covering 500m² or more and with a minimum width  (MMW) of 10m over Artificial surfaces (nomenclature class 1) inside each FUA covered by Urban Atlas  2021, without including trees along road or railway networks connecting cities and villages.
+
+This layer is provided as a vector layer.
+
+### Change Layer
+
+Small Woody Features Change 2018-2021 product aims to map, at 100m only, SWF increase, decrease or  stable levels. It is based on difference between status products of the corresponding reference years with  additional filtering and decision trees to discriminate real changes from technical changes. 
+
+### Auxiliary Layers
+
+#### Parent Scene Identification Layer (PSIL)
+
+This vector layer includes the reference to any data source which was used as a direct input for the  classification process and therefore allows to precisely trace which data from which period was used to  derive the final products. 
+
+#### WVL confidence layer
+
+This layer provides useful supplemental information about the product’s quality and reliance of mapped  features. It allows users to take into account the different reliability of the SWF product, e.g., caused by  input data quality, and e.g., exclude information with high uncertainty from further analysis.
+
+#### Forest Mask
+
+To limit overlaps of SWF with large and densely tree covered areas, the production workflow for the 2021 update includes a masking approach using the HRL 2021 VLCC TCD layer. This mask follows as much as  possible the FAO forest definition while considering landscape specifications to exclude from the forest  mask valid SWF.
+
+#### Crop Mask
+
+To limit overlaps of SWF with crop areas, and especially permanent crops which are excluded from the  SWF definition, a crop mask is derived to apply a dedicated post-processing over crop areas. This layer is  derived from HRL VLCC CTY 2021 and consists of CTY classes converted into a binary layer crop/non-crop.
+
+### Reference Data
+
+#### Reference data for training and calibration
+
+This database contains reference data used for training and calibrate classification algorithms across European landscapes. It consists of areas of 2.5x2.5km labelled as woody / non-woody landcover.
+
+#### Reference data for validation
+
+This database contains reference data used for internal verification of SWF layers thematic accuracy. It  consists of areas of 100x100m labelled as SWF/non-SWF.
+
+## Product specifications
+
+### Primary Layers
+
+TABLE 3: SMALL WOODY FEATURES VECTOR
+
+|Field|Content description|Content description|Content description|Content description|Content description|
+|--|--|--|--|--|--|
+|Layer name|Small Woody Features 2021 vector|Small Woody Features 2021 vector|Small Woody Features 2021 vector|Small Woody Features 2021 vector|Small Woody Features 2021 vector|
+|Acronym|SWF VEC|SWF VEC|SWF VEC|SWF VEC|SWF VEC|
+|Product (group/family)|High Resolution Layer|High Resolution Layer|High Resolution Layer|High Resolution Layer|High Resolution Layer|
+|Dataset category|Status|Status|Status|Status|Status|
+|Summary|Woody features outside forested areas, provided in vector format, using specifications described in section 7.2|Woody features outside forested areas, provided in vector format, using specifications described in section 7.2|Woody features outside forested areas, provided in vector format, using specifications described in section 7.2|Woody features outside forested areas, provided in vector format, using specifications described in section 7.2|Woody features outside forested areas, provided in vector format, using specifications described in section 7.2|
+|Reference year/cycle/period|2021|2021|2021|2021|2021|
+|Geometric resolution|Equivalent 1:5 000|Equivalent 1:5 000|Equivalent 1:5 000|Equivalent 1:5 000|Equivalent 1:5 000|
+|Coordinate Reference System|European ETRS89 LAEA projection|European ETRS89 LAEA projection|European ETRS89 LAEA projection|European ETRS89 LAEA projection|European ETRS89 LAEA projection|
+|Coverage|EEA-38 + UK|EEA-38 + UK|EEA-38 + UK|EEA-38 + UK|EEA-38 + UK|
+|Geometric accuracy|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|
+|Thematic accuracy|93.97% Producer Accuracy and 81.28% user accuracy for the SWF class, according to internal verification|93.97% Producer Accuracy and 81.28% user accuracy for the SWF class, according to internal verification|93.97% Producer Accuracy and 81.28% user accuracy for the SWF class, according to internal verification|93.97% Producer Accuracy and 81.28% user accuracy for the SWF class, according to internal verification|93.97% Producer Accuracy and 81.28% user accuracy for the SWF class, according to internal verification|
+|Minimum Mapping Unit|No MMU for the linear elements. MMU for Patchy structures of trees and scrub: 200m2 (size limit of 5000m2)|No MMU for the linear elements. MMU for Patchy structures of trees and scrub: 200m2 (size limit of 5000m2)|No MMU for the linear elements. MMU for Patchy structures of trees and scrub: 200m2 (size limit of 5000m2)|No MMU for the linear elements. MMU for Patchy structures of trees and scrub: 200m2 (size limit of 5000m2)|No MMU for the linear elements. MMU for Patchy structures of trees and scrub: 200m2 (size limit of 5000m2)|
+|Minimum Mapping Width|Linear structures/elements: >= 30m length. No MML for Patchy structures|Linear structures/elements: >= 30m length. No MML for Patchy structures|Linear structures/elements: >= 30m length. No MML for Patchy structures|Linear structures/elements: >= 30m length. No MML for Patchy structures|Linear structures/elements: >= 30m length. No MML for Patchy structures|
+|Vector classes|1: Small structures of trees, hedges, bushes and scrub|1: Small structures of trees, hedges, bushes and scrub|1: Small structures of trees, hedges, bushes and scrub|1: Small structures of trees, hedges, bushes and scrub|1: Small structures of trees, hedges, bushes and scrub|
+|Attributes|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|
+|Attributes|Field|Description|Type|Value(s)|NoData value|
+|Attributes|Shape|Polygon|Geometry|Polygon|NA|
+|Attributes|Area|Area|Double|0.001 to 1.8E308|NA|
+|Attributes|Class Name|Class Name|Text|Small structures of trees, hedges, bushes and scrub|NA|
+|Attributes|Code|Numeric code|Integer|1|NA|
+|Metadata|XML metadata files according to INSPIRE metadata standards|XML metadata files according to INSPIRE metadata standards|XML metadata files according to INSPIRE metadata standards|XML metadata files according to INSPIRE metadata standards|XML metadata files according to INSPIRE metadata standards|
+|Delivery format|Geopackage|Geopackage|Geopackage|Geopackage|Geopackage|
+|Quality   –    Production verification|Layer thematic accuracy reached/exceed the 80% producer’s and user’s target|Layer thematic accuracy reached/exceed the 80% producer’s and user’s target|Layer thematic accuracy reached/exceed the 80% producer’s and user’s target|Layer thematic accuracy reached/exceed the 80% producer’s and user’s target|Layer thematic accuracy reached/exceed the 80% producer’s and user’s target|
+
+
+TABLE 4: STREET TREE LAYER VECTOR
+
+|Field|Content description|Content description|Content description|Content description|Content description|
+|--|--|--|--|--|--|
+|Layer name|Street Tree Layer 2021 vector|Street Tree Layer 2021 vector|Street Tree Layer 2021 vector|Street Tree Layer 2021 vector|Street Tree Layer 2021 vector|
+|Acronym|STL|STL|STL|STL|STL|
+|Product (group/family)|Priority Area Monitoring|Priority Area Monitoring|Priority Area Monitoring|Priority Area Monitoring|Priority Area Monitoring|
+|Dataset category|Status|Status|Status|Status|Status|
+|Summary|Urban woody vegetation within Urban Atlas FUA|Urban woody vegetation within Urban Atlas FUA|Urban woody vegetation within Urban Atlas FUA|Urban woody vegetation within Urban Atlas FUA|Urban woody vegetation within Urban Atlas FUA|
+|Reference year/cycle/period|2021|2021|2021|2021|2021|
+|Geometric resolution|Equivalent 1:5 000|Equivalent 1:5 000|Equivalent 1:5 000|Equivalent 1:5 000|Equivalent 1:5 000|
+|Coordinate Reference System|European ETRS89 LAEA projection|European ETRS89 LAEA projection|European ETRS89 LAEA projection|European ETRS89 LAEA projection|European ETRS89 LAEA projection|
+|Coverage|Urban Atlas FUAs|Urban Atlas FUAs|Urban Atlas FUAs|Urban Atlas FUAs|Urban Atlas FUAs|
+|Geometric accuracy|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|
+|Thematic accuracy|NA|NA|NA|NA|NA|
+|Minimum Mapping Unit|500m²|500m²|500m²|500m²|500m²|
+|Minimum Mapping Width|10m|10m|10m|10m|10m|
+|Vector classes|1: Street Tree Layer|1: Street Tree Layer|1: Street Tree Layer|1: Street Tree Layer|1: Street Tree Layer|
+|Attributes|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|
+|Attributes|Field|Description|Type|Value(s)|NoData value|
+|Attributes|Shape|Polygon|Geometry|Polygon|NA|
+|Attributes|Area|Area|Double|0.001 to 1.8E308|NA|
+|Attributes|Class Name|Class Name|Text|Street Trees|NA|
+|Attributes|Code|Numeric code|Integer|1|NA|
+|Metadata|XML metadata files compliant with INSPIRE metadata standards|XML metadata files compliant with INSPIRE metadata standards|XML metadata files compliant with INSPIRE metadata standards|XML metadata files compliant with INSPIRE metadata standards|XML metadata files compliant with INSPIRE metadata standards|
+|Delivery format|Geopackage|Geopackage|Geopackage|Geopackage|Geopackage|
+|Quality   –    Production verification|Layer thematic accuracy reached/exceed the 80% producer’s and user’s target|Layer thematic accuracy reached/exceed the 80% producer’s and user’s target|Layer thematic accuracy reached/exceed the 80% producer’s and user’s target|Layer thematic accuracy reached/exceed the 80% producer’s and user’s target|Layer thematic accuracy reached/exceed the 80% producer’s and user’s target|
+
+
+### TABLE 5: WOODY VEGETATION LAYER 5M RASTER
+
+|Field|Content description|
+|--|--|
+|Layer name|Woody Vegetation Layer 2021 5m|
+|Acronym|WVL|
+|Product (group/family)|High Resolution Layer|
+|Dataset category|Status|
+|Summary|Woody vegetation for reference year 2021, based on specification described in section 7.2|
+|Reference year/cycle/period|2021|
+|Geometric resolution|Pixel resolution 5m x 5m, conform with the EEA reference grid|
+|Coordinate Reference System|European ETRS89 LAEA projection|
+|Coverage|EEA-38 + UK|
+|Geometric accuracy|Based on the ortho-rectified satellite imagery provided by ESA|
+|Thematic accuracy|NA|
+|Minimum Mapping Unit (MMU)|NA|
+|Raster coding|0: All non-tree covered areas1: Tree covered areas255: Outside area|
+|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table|
+|Delivery format|GeoTiff|
+|Quality – Production Verification|NA|
+
+
+### TABLE 6: SMALL WOODY FEATURES 5M RASTER
+
+|Field|Content description|
+|--|--|
+|Layer name|Small Woody Feature 2021 5m raster|
+|Acronym|SWF 5m|
+|Product (group/family)|High Resolution Layer|
+|Dataset category|Status|
+|Summary|Woody features outside forested areas, provided in raster format, using specifications described in section 7.2|
+|Reference year/cycle/period|2021|
+|Geometric resolution|Pixel resolution 5m x 5m, conform with the EEA reference grid|
+|Coordinate Reference System|European ETRS89 LAEA projection|
+|Coverage|EEA-38 + UK|
+|Geometric accuracy|Based on the ortho-rectified satellite imagery provided by ESA|
+|Thematic accuracy|80%|
+|Minimum Mapping Unit (MMU)|No MMU for the linear elements. MMU for Patchy structures of trees and scrub: 200m2 (size limit of 5000m2)|
+|Raster coding|0: All non SWF covered areas1: SWF covered areas255: Outside area|
+|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table|
+|Delivery format|GeoTiff|
+|Quality – Production Verification|NA|
+
+
+### Aggregated Layers
+
+### TABLE 7: SMALL WOODY FEATURES 100M RASTER
+
+|Field|Content description|
+|--|--|
+|Layer name|Small Woody Feature 2021 100m raster|
+|Acronym|SWF 100m|
+|Product (group/family)|High Resolution Layer|
+|Dataset category|Status|
+|Summary|Density of Small Woody Features outside forested areas, provided in rasterformat, using specifications described in section 7.2|
+|Reference year/cycle/period|2021|
+|Geometric resolution|Pixel resolution 100m x 100m, conform with the EEA reference grid|
+|Coordinate Reference System|European ETRS89 LAEA projection|
+|Coverage|EEA-38 + UK|
+|Geometric accuracy|Based on the ortho-rectified satellite imagery provided by ESA|
+|Thematic accuracy|NA|
+|Minimum Mapping Unit (MMU)|NA|
+|Raster coding|0: All non-SWF covered areas1-100: SWF density %255: Outside area|
+|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table|
+|Delivery format|GeoTiff|
+|Quality – Production Verification|NA|
+
+
+TABLE 8: SMALL WOODY FEATURES CHANGE RASTER
+
+|Field|Content description|
+|--|--|
+|Layer name|Small Woody Feature Change 2018-2021 100m raster|
+|Acronym|SWFC|
+|Product (group/family)|High Resolution Layer|
+|Dataset category|Change|
+|Summary|Increase / Decrease of Small Woody Features outside forested areas, provided in raster format, using specifications described in section 7.2|
+|Reference year/cycle/period|2018-2021|
+|Geometric resolution|Pixel resolution 100m x 100m, conform with the EEA reference grid|
+|Coordinate Reference System|European ETRS89 LAEA projection|
+|Coverage|EEA-38 + UK|
+|Geometric accuracy|Based on the ortho-rectified satellite imagery provided by ESA|
+|Thematic accuracy|NA|
+|Minimum Mapping Unit (MMU)|NA|
+|Raster coding|0: All stable areas1: Increase in SWF density2: Decrease in SWF density201: Area covered by Forest Mask in 2018202: Area covered by Forest Mask in 2021203: Area covered by Forest Mask in 2018 & 2021255: Outside area|
+|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table|
+|Delivery format|GeoTiff|
+|Quality – Production Verification|NA|
+
+
+Auxiliary Layers
+
+### TABLE 9: PARENT SCENE IDENTIFICATION LAYER
+
+|Field|Content description|
+|--|--|
+|Layer name|Parent Scene Identification Layer|
+|Acronym|PSIL|
+|Product (group/family)|High Resolution Layer|
+|Dataset category|Status|
+|Summary|Earth Observation image used for SLF 2021 production|
+|Reference year/cycle/period|2021|
+|Geometric resolution|Equivalent 1:5 000|
+|Coordinate Reference System|European ETRS89 LAEA projection|
+|Coverage|EEA-38 + UK|
+|Geometric accuracy|Based on the ortho-rectified satellite imagery provided by ESA|
+|Thematic accuracy|NA|
+|Minimum Mapping Unit|NA|
+|Minimum Mapping Width|NA|
+|Vector classes|Cf Annex I|
+|Attributes|Cf Annex I|
+|Metadata|XML metadata files according to INSPIRE metadata standards|
+|Delivery format|Geopackage|
+|Quality   –    Production verification|NA|
+
+
+### TABLE 10: WOODY VEGETATION CONFIDENCE LAYER
+
+|Field|Content description|
+|--|--|
+|Layer name|Woody Vegetation Confidence Layer 2021 5m|
+|Acronym|WVCL|
+|Product (group/family)|High Resolution Layer|
+|Dataset category|Status|
+|Summary|Supplemental information about the product’s quality and reliance of mapped woody features (cf. section 7.2)|
+|Reference year/cycle/period|2021|
+|Geometric resolution|Pixel resolution 5m x 5m, conform with the EEA reference grid|
+|Coordinate Reference System|European ETRS89 LAEA projection|
+|Coverage|EEA-38 + UK|
+|Geometric accuracy|Based on the ortho-rectified satellite imagery provided by ESA|
+|Thematic accuracy|NA|
+|Minimum Mapping Unit (MMU)|NA|
+|Raster coding|0-100: Confidence in WVL classification255: Outside area|
+|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table|
+|Delivery format|GeoTiff|
+|Quality – Production Verification|NA|
+
+
+### TABLE 11: FOREST MASK
+
+|Field|Content description|
+|--|--|
+|Layer name|Forest Mask 2021|
+|Acronym|FM|
+|Product (group/family)|High Resolution Layer|
+|Dataset category|Status|
+|Summary|Forest mask 2021 for exclusion of forested areas, based on specification described in section 7.2|
+|Reference year/cycle/period|2021|
+|Geometric resolution|Pixel resolution 5m x 5m, conform with the EEA reference grid|
+|Coordinate Reference System|European ETRS89 LAEA projection|
+|Coverage|EEA-38 + UK|
+|Geometric accuracy|Based on the Sentinel-2 satellite imagery provided by ESA|
+|Thematic accuracy|NA|
+|Minimum Mapping Unit (MMU)|5 ha|
+|Raster coding|0: All non-forested covered areas1: Forest covered areas255: Outside area|
+|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table|
+|Delivery format|GeoTiff|
+|Quality – Production Verification|NA|
+
+
+### TABLE 12: CROP MASK
+
+|Field|Content description|
+|--|--|
+|Layer name|Crop Mask 2021|
+|Acronym|CM|
+|Product (group/family)|High Resolution Layer|
+|Dataset category|Status|
+|Summary|Crop mask 2021 for identification of crop areas, based on specification described in section 7.2|
+|Reference year/cycle/period|2021|
+|Geometric resolution|Pixel resolution 5m x 5m, conform with the EEA reference grid|
+|Coordinate Reference System|European ETRS89 LAEA projection|
+|Coverage|EEA-38 + UK|
+|Geometric accuracy|Based on the ortho-rectified satellite imagery provided by ESA|
+|Thematic accuracy|NA|
+|Minimum Mapping Unit (MMU)|NA|
+|Raster coding|0: All non-crop covered areas1: Crop covered areas255: Outside area|
+|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table|
+|Delivery format|GeoTiff|
+|Quality – Production Verification|NA|
+
+
+## Reference Data
+
+### TABLE 13: TRAINING DATASET (VECTOR)
+
+|Field|Content description|Content description|Content description|Content description|Content description|
+|--|--|--|--|--|--|
+|Layer name|Small Landscape Features 2021 Reference Database for Training|Small Landscape Features 2021 Reference Database for Training|Small Landscape Features 2021 Reference Database for Training|Small Landscape Features 2021 Reference Database for Training|Small Landscape Features 2021 Reference Database for Training|
+|Acronym|SLFRefDBT|SLFRefDBT|SLFRefDBT|SLFRefDBT|SLFRefDBT|
+|Product (group/family)|High Resolution Layer|High Resolution Layer|High Resolution Layer|High Resolution Layer|High Resolution Layer|
+|Dataset category|Status|Status|Status|Status|Status|
+|Summary|Reference dataset used for training and calibration of classification algorithms|Reference dataset used for training and calibration of classification algorithms|Reference dataset used for training and calibration of classification algorithms|Reference dataset used for training and calibration of classification algorithms|Reference dataset used for training and calibration of classification algorithms|
+|Reference year/cycle/period|2021|2021|2021|2021|2021|
+|Geometric resolution|Equivalent 1:5 000|Equivalent 1:5 000|Equivalent 1:5 000|Equivalent 1:5 000|Equivalent 1:5 000|
+|Coordinate Reference System|European ETRS89 LAEA projection|European ETRS89 LAEA projection|European ETRS89 LAEA projection|European ETRS89 LAEA projection|European ETRS89 LAEA projection|
+|Coverage|EEA-38 + UK|EEA-38 + UK|EEA-38 + UK|EEA-38 + UK|EEA-38 + UK|
+|Geometric accuracy|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|
+|Thematic accuracy|NA|NA|NA|NA|NA|
+|Minimum Mapping Unit|NA|NA|NA|NA|NA|
+|Minimum Mapping Width|NA|NA|NA|NA|NA|
+|Vector classes|0: Non-tree covered areas1: Tree covered areas|0: Non-tree covered areas1: Tree covered areas|0: Non-tree covered areas1: Tree covered areas|0: Non-tree covered areas1: Tree covered areas|0: Non-tree covered areas1: Tree covered areas|
+|Attributes|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|
+|Attributes|Field|Description|Type|Value(s)|NoData value|
+|Attributes|Shape|Polygon|Geometry|Polygon|NA|
+|Attributes|Area|Area|Double|0.001 to 1.8E308|NA|
+|Attributes|Code|Numeric code|Integer|0-1|NA|
+|Metadata|XML metadata files according to INSPIRE metadata standards|XML metadata files according to INSPIRE metadata standards|XML metadata files according to INSPIRE metadata standards|XML metadata files according to INSPIRE metadata standards|XML metadata files according to INSPIRE metadata standards|
+|Delivery format|Geopackage|Geopackage|Geopackage|Geopackage|Geopackage|
+|Quality   –    Production verification|NA|NA|NA|NA|NA|
+
+
+### TABLE 14: VALIDATION DATASET (VECTOR)
+
+|Field|Content description|Content description|Content description|Content description|Content description|
+|--|--|--|--|--|--|
+|Layer name|Small Landscape Features 2021 Reference Database for Validation|Small Landscape Features 2021 Reference Database for Validation|Small Landscape Features 2021 Reference Database for Validation|Small Landscape Features 2021 Reference Database for Validation|Small Landscape Features 2021 Reference Database for Validation|
+|Acronym|SLFRefDBV|SLFRefDBV|SLFRefDBV|SLFRefDBV|SLFRefDBV|
+|Product (group/family)|High Resolution Layer|High Resolution Layer|High Resolution Layer|High Resolution Layer|High Resolution Layer|
+|Dataset category|Status|Status|Status|Status|Status|
+|Summary|Reference dataset used for validation of classification algorithms|Reference dataset used for validation of classification algorithms|Reference dataset used for validation of classification algorithms|Reference dataset used for validation of classification algorithms|Reference dataset used for validation of classification algorithms|
+|Reference year/cycle/period|2021|2021|2021|2021|2021|
+|Geometric resolution|Equivalent 1:5 000|Equivalent 1:5 000|Equivalent 1:5 000|Equivalent 1:5 000|Equivalent 1:5 000|
+|Coordinate Reference System|European ETRS89 LAEA projection|European ETRS89 LAEA projection|European ETRS89 LAEA projection|European ETRS89 LAEA projection|European ETRS89 LAEA projection|
+|Coverage|EEA-38 + UK|EEA-38 + UK|EEA-38 + UK|EEA-38 + UK|EEA-38 + UK|
+|Geometric accuracy|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|Based on the ortho-rectified satellite imagery provided by ESA|
+|Thematic accuracy|NA|NA|NA|NA|NA|
+|Minimum Mapping Unit|NA|NA|NA|NA|NA|
+|Minimum Mapping Width|NA|NA|NA|NA|NA|
+|Vector classes|0: Non-tree covered areas1: Tree covered areas|0: Non-tree covered areas1: Tree covered areas|0: Non-tree covered areas1: Tree covered areas|0: Non-tree covered areas1: Tree covered areas|0: Non-tree covered areas1: Tree covered areas|
+|Attributes|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|Attribute information associated with vector features, including the following minimum fields:|
+|Attributes|Field|Description|Type|Value(s)|NoData value|
+|Attributes|Shape|Polygon|Geometry|Polygon|NA|
+|Attributes|Area|Area|Double|0.001 to 1.8E308|NA|
+|Attributes|Code|Numeric code|Integer|0-1|NA|
+|Metadata|XML metadata files according to INSPIRE metadata standards|XML metadata files according to INSPIRE metadata standards|XML metadata files according to INSPIRE metadata standards|XML metadata files according to INSPIRE metadata standards|XML metadata files according to INSPIRE metadata standards|
+|Delivery format|Geopackage|Geopackage|Geopackage|Geopackage|Geopackage|
+|Quality   –    Production verification|NA|NA|NA|NA|NA|
+
+
+## Known thematic overlaps of the product
+
+HRL SLF products present few thematic overlaps with other CLMS products.
+
+Woody Vegetation Layer
+
+HRL SLF WVL, by mapping trees across Europe, overlaps with the HRL VLCC Forest and HRL VLCC Crop Type layers. While WVL presents more detailed spatial resolution, the HRL VLCC layers are theme-specific and present additional information about tree density, leaf type or crop types. The HRL SLF Forest and  Crop Masks allow users to identify precisely areas where these CLMS products overlaps with the HRL WVL.
+
+### Small Woody Features layers
+
+HRL SLF SWF partially overlaps with the HRL VLCC Forest layers, due to its very nature: mapping trees  outside forested areas. Although forested areas are excluded from SWF based on the HRL VLCC Forest,  the applied definition of the Forest Mask (cf. section 7.2) implies an overlap between the SWF layers and  the HRL VLCC Forest layers. While SWF provides a more detailed mapping of trees outside forests due to  its 5m spatial resolution, the HRL VLCC layers provide annual updates and more detailed thematic  information about their respective topics.
+
+Street Tree Layer
+
+Focused on urban areas mapped by CLMS Urban Atlas, STL overlaps UA LULC product and provide additional information about presence of trees within cities.
+
+# Production methodology and workflow overview
+
+This section provides an overview of the methods and workflow used for production of SLF 2021 products. Details, illustrations and more advanced concepts are described in the HRL SLF ATBD document. Details about internal verification (accuracy assessment) can be found in the Product Delivery and Quality Control Report. Details about external validation can be found in the Validation Report.
+
+## Preprocessing of EO data
+
+The EO data processing involves two datasets: VHR_IMAGE_2021 and Sentinel-2. The VHR_IMAGE_2021 dataset, collected from ESA’s DWH, was resampled to 2m spatial resolution and converted to 8-bit COG  format for bulk automated image processing. 
+
+The Sentinel-2 processing workflow began with time-series data of Sentinel-2 L2A products, organized per  tile in the UTM projection, and made accessible through various cloud providers. The analysis included all  10m and 20m spectral bands, as well as the Scene Classification Layer (SCL) for cloud weighting. Within a  standard year, all available scenes were composited into cloud-free images, one per band, by calculating  the 20th percentile for each tile and band. Additionally, a 90th-percentile NDVI layer was generated and  used as input for training and classification. The time-series observations capture intra-annual land cover  variations, which were extracted using an ordinary least squares fit to a sinusoidal function. This  methodology was optimized for robustness and resource efficiency, generating key layers that served as  input for the deep learning algorithm.
+
+## WVL 2021 processing
+
+For the production of WVL 2021, a reference database for calibration was essential for supervised land  cover classification from optical satellite imagery. The reference dataset, representative of the LC of  interest and covering the whole EEA38 territory, was selected automatically based on a stratified  approach. Each reference sample consists of a 2560x2560m cell containing woody vs non-woody  information. The geographic distribution of the reference training samples included the UK, ensuring  consistency between the reference dataset and EO dataset.
+
+The model training and prediction involved two classification steps: VHR and Sentinel-2. For VHR imagery  classification, a pre-trained foundation model for remote sensing analysis was adapted for segmentation  of trees from the EO data. The model, based on a Swin Transformer with a U‑Net segmentation head, was  fine-tuned using VHR_IMAGE_2021 and the reference database.
+
+The Sentinel-2 classification leveraged a modified U-Net architecture. Despite its lower spatial resolution  compared to VHR datasets, Sentinel-2’s higher acquisition frequency and higher spectral resolution  enhanced the classification process. The U-Net architecture can produce outputs at finer resolutions, a  process known as "super resolution," which has been used to generate high-resolution delineations of  tree lines and single trees. For SWF production, this technique predicted woody vegetation probabilities  at 5m resolution, facilitating a seamless comparison of maps generated from both VHR and Sentinel-2 datasets.
+
+The combination of VHR and HR classification steps involved combining probability maps from respective  VHR and Sentinel-2 classification through a set of decision rules to obtain the WVL 2021.
+
+## SWF and derived products processing 
+
+The merged result from the previous step was used as input for producing the final output, which includes  raster products at 5m and 10m resolutions, as well as a vector product. The process involved several steps:
+
+First, a Forest Mask was created from HRL VLCC TCD 2021, applying a 10% canopy cover threshold to meet  the FAO forest definition. A morphological filter removed linear elements, and a minimal mapping unit of  5 ha was applied to exclude small forest areas. A 10m external buffer prevents wrongly detected SWF at  forest boundaries, and areas covered by the crop mask are excluded.
+
+CLMS_PUM_HRLSLF_v1.0.docx0.3
+
+Next, a Crop Mask was created from the HRL VLCC CTY 2021 product, representing crop areas in a binary format. This mask excludes crop areas, ensuring only non-agricultural woody vegetation is included in the analysis.
+
+Raster Property Extraction involved calculating geometric and spatial properties to distinguish linear and patchy features. Distance transform calculation, erosion and dilation operations, and connected component analysis were performed. Properties such as width, area, and agricultural coverage percentage were calculated for each component.
+
+Raster to Vector Conversion transformed the raster data into a spatial database, where key properties  were calculated for each feature. Features were classified and simplified based on their properties, and  those not meeting specifications were filtered out. Connected features not covered by the crop mask  were reintroduced.
+
+Finally, the remaining features were simplified using the Douglas-Peucker algorithm and converted back  into raster format. The primary raster product was generated at 5m resolution, with a 100m version  created using mean aggregation. The final geometries are stored in a Geopackage format. The final  outputs of this steps include SWF 5m raster, SWF vector and SWF 100m raster. The same approach was  applied, with corresponding specifications, to derive STL from WVL over the extent of urban areas  extracted from Urban Atlas 2021.
+
+## Change Layer production
+
+In progress.
+
+# Terms of use and product technical support
+
+## Terms of use
+
+The product(s) described in this document is/are created in the frame of the Copernicus programme of the European Union by the European Environment Agency (product custodian) and is/are owned by the European Union. The product(s) can be used following Copernicus full free and open data policy, which allows the use of the product(s) also for any commercial purpose. Derived products created by end users from the product(s) described in this document are owned by the end users, who have all intellectual  rights to the derived products.
+
+## Citation
+
+When planning to publish a publication (scientific, commercial, etc.), it should be explicitly mentioned:
+
+“This publication has been prepared using European Union's Copernicus Land Monitoring Service information; <insert all relevant DOI links here, if applicable>”
+
+When developing a product or service using the products or services of the Copernicus Land Monitoring Service, it should explicitly mentioned:
+
+“Generated using European Union's Copernicus Land Monitoring Service information; <insert all relevant DOI links here, if applicable>
+
+When redistributing a part of the Copernicus Land Monitoring Service (product, dataset, documentation, picture, web service, etc.), it should explicitly mentioned:
+
+“European Union's Copernicus Land Monitoring Service information; <insert all relevant DOI links here, if applicable>”
+
+## Product Technical support
+
+Product technical support is provided by the product custodian through Copernicus Land Monitoring  Service desk5. Product technical support does not include software specific user support or general GIS or  remote sensing support.
+
+More information on the products can be found on the Copernicus Land Monitoring Service website  (https://land.copernicus.eu/)
+
+# List of abbreviations & acronyms
+
+|Abbreviation|Name|Reference|
+|--|--|--|
+|ATBD|Algorithm Theoretical Basis Document||
+|CAP|Common Agricultural Policy||
+|CLC|Corine Land Cover||
+|CLMS|Copernicus Land Monitoring Services|land.copernicus.eu|
+|COG|Cloud Optimized Geotiff||
+|CTY|Crop Type||
+|DOI|Digital Object Identifier||
+|DWH|Data WareHouse||
+|EEA|European Environment Agency|www.eea.europa.eu|
+|EO|Earth Observation||
+|EPSG|European Petroleum Survey Group||
+|ESA|European Space Agency||
+|FAO|Food and Agriculture Organization||
+|FUA|Functional Urban Areas||
+|GIS|Geographic Information System||
+|HR|High Resolution||
+|HRL|High Resolution Layer||
+|IPCC|Intergovernmental Panel on Climate Change||
+|JRC|Joint Research Centre||
+|LAEA|Lambert azimuthal equal-area||
+|LC|Land Cover||
+|LULC|Land Use Land Cover||
+|MML|Minimum Mapping Length||
+|MMU|Minimum Mapping Unit||
+|MMW|Minimum Mapping Width||
+|NDVI|Normalized Difference Vegetation Index||
+|NUTS|Nomenclature of territorial units for statistics||
+|NVLCC|Non Vegetated Land Cover Characteristics||
+|PSIL|Parent Scene Identification Layer||
+|PUM|Product User Manual||
+|SCL|Scene Classification Layer||
+|SDG|Sustainable Development Goal||
+|SLF|Small Landscape Features||
+|STL|Street Tree Layer||
+|SWF|Small Woody Features||
+|TCD|Tree Cover Density||
+|UA|Urban Atlas||
+|UK|United Kingdom||
+|UN|United Nations||
+|UTM|Universal Transverse Mercator||
+|VHR|Very High Resolution||
+|VLCC|Vegetated Land Cover Characteristics||
+|WVL|Woody Vegetation Layer||
+
+
+# References
+
+Golicz, K., Ghazaryan, G., Niether, W., Wartenberg, A. C., Breuer, L., Gattinger, A., ... & Große-Stoltenberg,  A. (2021). The role of small woody landscape features and agroforestry systems for national carbon  budgeting in Germany. Land, 10(10), 1028.
+
+https://doi.org/10.3390/land10101028
+
+CLMS_PUM_HRLSLF_v1.0.docx0.3
+
+Page | 33
+
+# Annexes
+
+## TABLE 15: ATTRIBUTE TABLE OF THE PSIL
+
+|Field|Description|Sample|
+|--|--|--|
+|id|Row   unique identifier|48715|
+|delunit|Delivery Unit|AL|
+|product_id|Product unique identifier (EOP Identifier)|urn:eop:PHR:MULTISPECTRAL_2m:DS_PHR1A_202207200941593_FR1_PX_E019 N42_0811_03280_dc33|
+|product_na|Product name|PH1A_PHR_MS___3_20220720T094159_20220720T094204_TOU_1234_dc33.DIMA.tar|
+|crc|CRC code|dc33|
+|prod_statu|Production status|delivered|
+|subdat_id|Sub    Dataset Identifier|VHR_IMAGE_2021/AL/Level_3|
+|order_id|Order Identifier|DO#VHR_IMAGE_2021#PH00#0002|
+|sun_glint|Encoding    of Sun Glint|no|
+|cqc_sun_gl|CQC value for Sun Glint (if disagreement)||
+|datastrip|Datastrip identifier|DS_PHR1A_202207200941593_FR1_PX_E019N42_0811_03280|
+|acq_year|Acquisition year|2022|
+|satellite|Satellite code|PH1A|
+|mission|Mission Type|PHR|
+|provider|Provider|AIRBUS|
+|area_ref|Reference Cloud free Area skm|42.4011016|
+|area_prod|Produced Area skm|76.08308192|
+|cell_id_li|Cell id list|AL_08056,AL_08181|
+|delivery_d|Delivery date|2023-01-31|
+|ql_url|Reference   to the   Datastrip Quick Look|prod/QL/PH00/DS_PHR1A_202207200941593_FR1_PX_E019N42_0811_03280.tif htps://storage.googleapis.com/bucket-vhr-public-|
+|cov_step|Coverage Step|CCR2022|
+
+
