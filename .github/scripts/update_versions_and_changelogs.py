@@ -1061,6 +1061,7 @@ def main():
     file_info = {}
 
     for filepath in changed_files:
+        # Use full path with DOCS/ everywhere - no normalization
         filename = os.path.basename(filepath)
 
         try:
@@ -1082,19 +1083,13 @@ def main():
         diff = clean_diff_for_ai(diff)
         diff = truncate_large_diff(diff, filepath)
 
-        # Normalize filepath for metadata lookup
-        normalized_filepath = (
-            filepath.replace("DOCS/", "", 1)
-            if filepath.startswith("DOCS/")
-            else filepath
-        )
-
+        # Use full filepath with DOCS/ everywhere
         file_diffs[filepath] = diff
         file_info[filepath] = {
             "major_version": major_version,
-            "current_version": versions_metadata.get(
-                normalized_filepath, versions_metadata.get(filepath, {})
-            ).get("current_version", f"{major_version}.0.0"),
+            "current_version": versions_metadata.get(filepath, {}).get(
+                "current_version", f"{major_version}.0.0"
+            ),
         }
 
     if not file_diffs:
@@ -1155,30 +1150,23 @@ def main():
         changelog_entry = {
             "version": new_version,
             "date": today,
-            "summary": changelog_summary,  # Changed from "changes" to "summary" for consistency
+            "summary": changelog_summary,
         }
 
-        # Normalize filepath for storage
-        normalized_filepath = (
-            filepath.replace("DOCS/", "", 1)
-            if filepath.startswith("DOCS/")
-            else filepath
-        )
+        # Use full filepath with DOCS/ - no normalization
+        changelog_entries[filepath] = changelog_entry
 
-        # Store changelog entry for later saving
-        changelog_entries[normalized_filepath] = changelog_entry
-
-        versions_metadata[normalized_filepath] = {
+        versions_metadata[filepath] = {
             "current_version": new_version,
             "major_from_filename": major_version,
             "last_updated": today,
             "last_release_tag": current_tag,
             "last_bump": bump_type,
             "last_bump_reason": version_reason,
-            "last_changelog": changelog_summary[:200],  # Store excerpt
+            "last_changelog": changelog_summary[:200],
         }
 
-        # Update only version in .qmd file (changelog stored in change_logs.json)
+        # Update .qmd file - filepath already has DOCS/
         update_qmd_version_only(filepath, new_version)
 
         # Log the change
