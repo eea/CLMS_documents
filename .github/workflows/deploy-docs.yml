@@ -6,6 +6,7 @@ on:
       - develop
       - test
       - main
+  workflow_dispatch:  # Allow manual triggers from GitHub UI
 
 jobs:
   deploy_docs:
@@ -46,6 +47,14 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
+
+      - name: Update versions and changelogs (test/main only)
+        if: github.ref_name == 'test' || github.ref_name == 'main'
+        uses: addnab/docker-run-action@v3
+        with:
+          image: mckeea/llm-doc-annotator:latest
+          options: -e GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} -v ${{ github.workspace }}:/app
+          run: python .github/scripts/update_versions_and_changelogs.py
 
       - name: Commit updated LLM cache
         run: |

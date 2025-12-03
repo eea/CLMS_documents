@@ -6,7 +6,7 @@ from pathlib import Path
 
 DOCS_DIR = "origin_DOCS"
 CATEGORIZED_DOCS_DIR = "DOCS/_site"
-EXCLUDED_DOCS_DIRS = {"templates", "theme", "includes", "_site", ".quarto", "assets"}
+EXCLUDED_DOCS_DIRS = {"_meta", "_site", ".quarto", "assets"}
 
 
 DOMAIN = "https://library.land.copernicus.eu"

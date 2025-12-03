@@ -14,67 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Get next version (dry run)
-        id: version
-        run: |
-          npx semantic-release --dry-run --no-ci > output.log || true
-          version=$(grep -oE 'The next release version is [0-9]+\.[0-9]+\.[0-9]+' output.log | tail -1 | awk '{print $6}')
-          echo "Next version: $version"
-          echo "version=$version" >> $GITHUB_OUTPUT
-
       - name: Generate PR Title
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const pr = context.payload.pull_request;
-            if (!pr) {
-              core.setFailed("No PR context found.");
-              return;
-            }
-
-            const base = pr.base.ref;
-            const head = pr.head.ref;
-
-            // Define semantic-release type
-            const typeMap = {
-              test: 'feat',
-              main: 'release'
-            };
-            const type = typeMap[base] || 'chore';
-
-            // Sanitize and prepare title content
-            const sanitize = (name) => name.toLowerCase().replace(/[^\w.-]/g, '-');
-
-            // Add version from previous step if available
-            const version = "${{ steps.version.outputs.version }}";
-            const hasVersion = version && version.trim() !== "";
-
-            // Construct title
-            const contentBase = `promote ${sanitize(head)} to ${sanitize(base)}`;
-            const versionSuffix = hasVersion ? ` for v${version}` : '';
-            const content = `${contentBase}${versionSuffix}`;
-            let title = `${type}(merge): ${content}`;
-
-            // Truncate to 100 characters safely
-            if (title.length > 100) {
-              const maxContentLength = 100 - `${type}(merge): `.length;
-              const truncatedContent = content.slice(0, maxContentLength - 1) + '…';
-              title = `${type}(merge): ${truncatedContent}`;
-            }
-
-            console.log(`Setting PR title to: ${title}`);
-
-            await github.rest.pulls.update({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: pr.number,
-              title: title
-            });
+            const script = require('./.github/scripts/generate_pr_title.js');
+            await script({github, context, core, version: ""});
 
   validate_merge_origin:
     needs: generate_pr_title
