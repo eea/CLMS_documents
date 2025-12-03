@@ -40,22 +40,24 @@ def resolve_original_path(current_path, path_mapping):
     """
     Resolve the current file path to the original path using the mapping.
     The mapping keys are regrouped paths (without DOCS/), values are original paths (without DOCS/).
-    Returns the original path WITHOUT DOCS/ prefix to match changelog keys.
+    Returns the full path WITH DOCS/ prefix to match changelog keys.
     """
 
-    # Strip DOCS/ prefix to get lookup path
-    if current_path.startswith("DOCS/"):
-        lookup_path = current_path[5:]  # Remove "DOCS/"
-    else:
-        lookup_path = current_path
+    # Ensure DOCS/ prefix
+    if not current_path.startswith("DOCS/"):
+        current_path = f"DOCS/{current_path}"
+    
+    # Strip DOCS/ for mapping lookup
+    lookup_path = current_path[5:]  # Remove "DOCS/"
 
     # Direct mapping lookup (lookup_path is the regrouped path, we want the original)
     if lookup_path in path_mapping:
         original = path_mapping[lookup_path]
-        return original
+        # Return with DOCS/ prefix to match changelog keys
+        return f"DOCS/{original}"
 
-    # No mapping found, return lookup path (without DOCS/ prefix for consistency with changelog keys)
-    return lookup_path
+    # No mapping found, return current_path (with DOCS/ prefix for consistency with changelog keys)
+    return current_path
 
 
 def sanitize_html_summary(summary):

@@ -458,13 +458,11 @@ def save_changelogs_for_injection(changelog_entries):
             print(f"[WARNING] Could not load existing changelogs: {e}")
 
     # Add new entries for changed files (prepend to history)
-    # Normalize keys: strip "DOCS/" prefix to match inject_changelog.py expectations
+    # Keep DOCS/ prefix to match inject_changelog.py expectations
     for filepath, new_entry in changelog_entries.items():
-        # Normalize: DOCS/products/file.qmd → products/file.qmd
+        # Ensure DOCS/ prefix
         normalized_path = (
-            filepath.replace("DOCS/", "", 1)
-            if filepath.startswith("DOCS/")
-            else filepath
+            filepath if filepath.startswith("DOCS/") else f"DOCS/{filepath}"
         )
 
         if normalized_path not in existing_changelogs:
