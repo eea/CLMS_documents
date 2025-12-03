@@ -471,14 +471,18 @@ def save_changelogs_for_injection(changelog_entries):
             existing_changelogs[normalized_path] = []
 
         # Check if this version already exists (avoid duplicates)
-        existing_versions = [entry.get('version') for entry in existing_changelogs[normalized_path]]
-        if new_entry['version'] in existing_versions:
+        existing_versions = [
+            entry.get("version") for entry in existing_changelogs[normalized_path]
+        ]
+        if new_entry["version"] in existing_versions:
             # Update existing entry instead of adding duplicate
             for i, entry in enumerate(existing_changelogs[normalized_path]):
-                if entry.get('version') == new_entry['version']:
+                if entry.get("version") == new_entry["version"]:
                     # Update date and summary
                     existing_changelogs[normalized_path][i] = new_entry
-                    print(f"[INFO] Updated existing changelog entry for {normalized_path} v{new_entry['version']}")
+                    print(
+                        f"[INFO] Updated existing changelog entry for {normalized_path} v{new_entry['version']}"
+                    )
                     break
         else:
             # Prepend new entry (most recent first)
@@ -1078,12 +1082,19 @@ def main():
         diff = clean_diff_for_ai(diff)
         diff = truncate_large_diff(diff, filepath)
 
+        # Normalize filepath for metadata lookup
+        normalized_filepath = (
+            filepath.replace("DOCS/", "", 1)
+            if filepath.startswith("DOCS/")
+            else filepath
+        )
+
         file_diffs[filepath] = diff
         file_info[filepath] = {
             "major_version": major_version,
-            "current_version": versions_metadata.get(filepath, {}).get(
-                "current_version", f"{major_version}.0.0"
-            ),
+            "current_version": versions_metadata.get(
+                normalized_filepath, versions_metadata.get(filepath, {})
+            ).get("current_version", f"{major_version}.0.0"),
         }
 
     if not file_diffs:
@@ -1147,10 +1158,17 @@ def main():
             "summary": changelog_summary,  # Changed from "changes" to "summary" for consistency
         }
 
-        # Store changelog entry for later saving
-        changelog_entries[filepath] = changelog_entry
+        # Normalize filepath for storage
+        normalized_filepath = (
+            filepath.replace("DOCS/", "", 1)
+            if filepath.startswith("DOCS/")
+            else filepath
+        )
 
-        versions_metadata[filepath] = {
+        # Store changelog entry for later saving
+        changelog_entries[normalized_filepath] = changelog_entry
+
+        versions_metadata[normalized_filepath] = {
             "current_version": new_version,
             "major_from_filename": major_version,
             "last_updated": today,
