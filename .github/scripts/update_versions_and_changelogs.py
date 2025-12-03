@@ -1029,8 +1029,9 @@ def main():
 
     changed_files, renames = get_changed_files_with_renames(last_tag)
 
-    # Handle first release
-    if not last_tag:
+    # Handle first release - only if no tags AND no existing version data
+    versions_metadata = load_versions_metadata()
+    if not last_tag and not versions_metadata:
         initialize_first_release(changed_files)
         return
 
@@ -1052,7 +1053,7 @@ def main():
         )
         changed_files = changed_files[:MAX_FILES_FOR_TESTING]
 
-    versions_metadata = load_versions_metadata()
+    # versions_metadata already loaded earlier, just handle renames
     if renames:
         migrate_rename_metadata(renames, versions_metadata)
 
