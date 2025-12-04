@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2025-04-01">
-<meta name="keywords" content="Sentinel-2 time series, Land cover classification, Temporal Convolutional Neural Network, Bilateral filtering, Interannual calibration, Cloud Optimized GeoTIFF, Raster Confidence Layer, Raster Data Score Layer, Production Units, Sample data base">
-<meta name="description" content="This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive description of the Copernicus Land Monitoring Service’s (CLMS) CLCplus Backbone 2023 product. As the first component of the CLCplus Product Suite, the Backbone represents a significant advancement in European land cover and land use monitoring, building upon the legacy of the CORINE Land Cover (CLC) initiative. This document details the product’s characteristics, including its 10-meter resolution, 11 land cover classes derived from Sentinel-2 imagery, and the methodologies and workflows used in its production, along with the auxiliary quality layers.">
+<meta name="keywords" content="Land cover classification, Sentinel-2 time series, Temporal Convolutional Neural Network, Bilateral filtering, Interannual calibration, Raster Confidence Layer, Raster Data Score Layer, Production Units stratification, Spectral-temporal dynamics, Coastal seawater buffer">
+<meta name="description" content="This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive overview of the CLCplus Backbone 2023, a core component of the Copernicus Land Monitoring Service (CLMS). It details the product characteristics, production methodologies, and workflows employed in generating the 2023 land cover raster and its auxiliary layers, including the Raster Confidence Layer, Raster Data Score Layer, and Raster Post-Processing Layer. The document aims to provide a thorough understanding of the product’s strengths, limitations, input data, and underlying algorithms, facilitating informed use and interpretation of the CLCplus Backbone 2023 data.">
 
 <title>CLCplus Backbone 2023 Algorith Theoretical Basis Document (ATBD) – Technical Library</title>
 <style>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "CLCplus Backbone 2023 Algorith Theoretical Basis Document (ATBD)",
-    "description": "This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive description of the Copernicus Land Monitoring Service’s (CLMS) CLCplus Backbone 2023 product. As the first component of the CLCplus Product Suite, the Backbone represents a significant advancement in European land cover and land use monitoring, building upon the legacy of the CORINE Land Cover (CLC) initiative. This document details the product’s characteristics, including its 10-meter resolution, 11 land cover classes derived from Sentinel-2 imagery, and the methodologies and workflows used in its production, along with the auxiliary quality layers.",
+    "description": "This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive overview of the CLCplus Backbone 2023, a core component of the Copernicus Land Monitoring Service (CLMS). It details the product characteristics, production methodologies, and workflows employed in generating the 2023 land cover raster and its auxiliary layers, including the Raster Confidence Layer, Raster Data Score Layer, and Raster Post-Processing Layer. The document aims to provide a thorough understanding of the product’s strengths, limitations, input data, and underlying algorithms, facilitating informed use and interpretation of the CLCplus Backbone 2023 data.",
     "datePublished": "April 1, 2025",
     "author": {
       "@type": "Person",
@@ -202,6 +202,7 @@ window.Quarto = {
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
   <li><a href="#document-history" id="toc-document-history" class="nav-link" data-scroll-target="#document-history"><span class="header-section-number">7</span> Document history</a></li>
   <li><a href="#applicable-documents" id="toc-applicable-documents" class="nav-link" data-scroll-target="#applicable-documents"><span class="header-section-number">8</span> Applicable documents</a></li>
+  <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">9</span> Change Log</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="CLCplus_Backbone_2023_ATBD_v1.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="CLCplus_Backbone_2023_ATBD_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -220,7 +221,7 @@ window.Quarto = {
 
 <div>
   <div class="description">
-    This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive description of the Copernicus Land Monitoring Service’s (CLMS) CLCplus Backbone 2023 product. As the first component of the CLCplus Product Suite, the Backbone represents a significant advancement in European land cover and land use monitoring, building upon the legacy of the CORINE Land Cover (CLC) initiative. This document details the product’s characteristics, including its 10-meter resolution, 11 land cover classes derived from Sentinel-2 imagery, and the methodologies and workflows used in its production, along with the auxiliary quality layers.
+    This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive overview of the CLCplus Backbone 2023, a core component of the Copernicus Land Monitoring Service (CLMS). It details the product characteristics, production methodologies, and workflows employed in generating the 2023 land cover raster and its auxiliary layers, including the Raster Confidence Layer, Raster Data Score Layer, and Raster Post-Processing Layer. The document aims to provide a thorough understanding of the product’s strengths, limitations, input data, and underlying algorithms, facilitating informed use and interpretation of the CLCplus Backbone 2023 data.
   </div>
 </div>
 
@@ -242,7 +243,7 @@ window.Quarto = {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>Sentinel-2 time series, Land cover classification, Temporal Convolutional Neural Network, Bilateral filtering, Interannual calibration, Cloud Optimized GeoTIFF, Raster Confidence Layer, Raster Data Score Layer, Production Units, Sample data base</p>
+    <p>Land cover classification, Sentinel-2 time series, Temporal Convolutional Neural Network, Bilateral filtering, Interannual calibration, Raster Confidence Layer, Raster Data Score Layer, Production Units stratification, Spectral-temporal dynamics, Coastal seawater buffer</p>
   </div>
 </div>
 
@@ -829,6 +830,25 @@ M^{max}_{meas}=\sqrt[2]{2}=1.414...
 </table>
 
 
+</section>
+<section id="change-log" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Change Log</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Version</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2025-12-02</td>
+<td>1.2.0</td>
+<td>Initial release</td>
+</tr>
+</tbody>
+</table>
 </section>
 
 

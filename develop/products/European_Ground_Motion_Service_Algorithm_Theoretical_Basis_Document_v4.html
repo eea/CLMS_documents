@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2025-08-07">
-<meta name="keywords" content="SAR interferometry, Persistent Scatterer Interferometry (PSI), multi-interferogram techniques, atmospheric phase screen (APS), GNSS calibration, line-of-sight displacement, Sentinel-1 data, Enhanced Spectral Diversity (ESD), geometric decorrelation, temporal coherence">
-<meta name="description" content="This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive overview of the scientific and technical foundations underpinning the European Ground Motion Service (EGMS) within the Copernicus Land Monitoring Service (CLMS). It details the theoretical principles, data processing algorithms, and practical implementation aspects involved in generating EGMS products, ranging from Basic (L2a) to Calibrated (L2b) and Ortho (L3) InSAR datasets. The document elaborates on SAR interferometry fundamentals, multi-interferogram processing chains, and the specific adaptations employed by the four independent InSAR Processing Entities (IPEs) contributing to EGMS. It includes considerations for wide-area processing, GNSS integration, and product updates, ensuring consistency and homogeneity across the service.">
+<meta name="keywords" content="SAR interferometry, Persistent Scatterer Interferometry (PSI), Small Baseline Subset (SBAS), Atmospheric Phase Screen (APS), GNSS calibration, Multi-interferogram techniques, Distributed scatterers (DS), Enhanced Spectral Diversity (ESD), European Terrestrial Reference System 1989 (ETRS89), Terrain Observation with Progressive Scan (TOPS)">
+<meta name="description" content="This document serves as the Algorithm Theoretical Basis Document for the European Ground Motion Service (EGMS), a core component of the Copernicus Land Monitoring Service. It details the scientific and technical underpinnings of EGMS product generation, encompassing the entire process from basic Synthetic Aperture Radar (SAR) interferometry principles to the specifics of generating Basic (L2a), Calibrated (L2b), and Ortho (L3) InSAR products. The document outlines the theoretical framework, processing chains, and calibration methodologies employed, while also highlighting the consistency and homogeneity achieved through careful tuning and cross-check procedures across the independent InSAR processing chains contributing to EGMS deliverables.">
 
 <title>European Ground Motion Service (EGMS) - Algorithm Theoretical Basis Document – Technical Library</title>
 <style>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "European Ground Motion Service (EGMS) - Algorithm Theoretical Basis Document",
-    "description": "This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive overview of the scientific and technical foundations underpinning the European Ground Motion Service (EGMS) within the Copernicus Land Monitoring Service (CLMS). It details the theoretical principles, data processing algorithms, and practical implementation aspects involved in generating EGMS products, ranging from Basic (L2a) to Calibrated (L2b) and Ortho (L3) InSAR datasets. The document elaborates on SAR interferometry fundamentals, multi-interferogram processing chains, and the specific adaptations employed by the four independent InSAR Processing Entities (IPEs) contributing to EGMS. It includes considerations for wide-area processing, GNSS integration, and product updates, ensuring consistency and homogeneity across the service.",
+    "description": "This document serves as the Algorithm Theoretical Basis Document for the European Ground Motion Service (EGMS), a core component of the Copernicus Land Monitoring Service. It details the scientific and technical underpinnings of EGMS product generation, encompassing the entire process from basic Synthetic Aperture Radar (SAR) interferometry principles to the specifics of generating Basic (L2a), Calibrated (L2b), and Ortho (L3) InSAR products. The document outlines the theoretical framework, processing chains, and calibration methodologies employed, while also highlighting the consistency and homogeneity achieved through careful tuning and cross-check procedures across the independent InSAR processing chains contributing to EGMS deliverables.",
     "datePublished": "August 7, 2025",
     "author": {
       "@type": "Person",
@@ -253,6 +253,7 @@ window.Quarto = {
   <li><a href="#document-approvers-and-reviewers" id="toc-document-approvers-and-reviewers" class="nav-link" data-scroll-target="#document-approvers-and-reviewers"><span class="header-section-number">11.1</span> Document Approver(s) and Reviewer(s):</a></li>
   <li><a href="#document-history" id="toc-document-history" class="nav-link" data-scroll-target="#document-history"><span class="header-section-number">11.2</span> Document history:</a></li>
   </ul></li>
+  <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">12</span> Change Log</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="European_Ground_Motion_Service_Algorithm_Theoretical_Basis_Document_v4.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="European_Ground_Motion_Service_Algorithm_Theoretical_Basis_Document_v4.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -271,7 +272,7 @@ window.Quarto = {
 
 <div>
   <div class="description">
-    This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive overview of the scientific and technical foundations underpinning the European Ground Motion Service (EGMS) within the Copernicus Land Monitoring Service (CLMS). It details the theoretical principles, data processing algorithms, and practical implementation aspects involved in generating EGMS products, ranging from Basic (L2a) to Calibrated (L2b) and Ortho (L3) InSAR datasets. The document elaborates on SAR interferometry fundamentals, multi-interferogram processing chains, and the specific adaptations employed by the four independent InSAR Processing Entities (IPEs) contributing to EGMS. It includes considerations for wide-area processing, GNSS integration, and product updates, ensuring consistency and homogeneity across the service.
+    This document serves as the Algorithm Theoretical Basis Document for the European Ground Motion Service (EGMS), a core component of the Copernicus Land Monitoring Service. It details the scientific and technical underpinnings of EGMS product generation, encompassing the entire process from basic Synthetic Aperture Radar (SAR) interferometry principles to the specifics of generating Basic (L2a), Calibrated (L2b), and Ortho (L3) InSAR products. The document outlines the theoretical framework, processing chains, and calibration methodologies employed, while also highlighting the consistency and homogeneity achieved through careful tuning and cross-check procedures across the independent InSAR processing chains contributing to EGMS deliverables.
   </div>
 </div>
 
@@ -293,7 +294,7 @@ window.Quarto = {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>SAR interferometry, Persistent Scatterer Interferometry (PSI), multi-interferogram techniques, atmospheric phase screen (APS), GNSS calibration, line-of-sight displacement, Sentinel-1 data, Enhanced Spectral Diversity (ESD), geometric decorrelation, temporal coherence</p>
+    <p>SAR interferometry, Persistent Scatterer Interferometry (PSI), Small Baseline Subset (SBAS), Atmospheric Phase Screen (APS), GNSS calibration, Multi-interferogram techniques, Distributed scatterers (DS), Enhanced Spectral Diversity (ESD), European Terrestrial Reference System 1989 (ETRS89), Terrain Observation with Progressive Scan (TOPS)</p>
   </div>
 </div>
 
@@ -2456,6 +2457,25 @@ d_z
 
 
 </section>
+</section>
+<section id="change-log" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Change Log</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Version</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2025-12-03</td>
+<td>4.0.0</td>
+<td>Initial release</td>
+</tr>
+</tbody>
+</table>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->

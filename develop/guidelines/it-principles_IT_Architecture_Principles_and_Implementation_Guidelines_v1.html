@@ -8,8 +8,8 @@
 
 <meta name="author" content="European Environment Agency (EEA)">
 <meta name="dcterms.date" content="2025-06-19">
-<meta name="keywords" content="Modular microservice architecture, Docker containerisation, REST API service integration, Cloud agnostic solutions, Data pre-processing workflow description, Software development tool listing, CI/CD DevOps setup, EUPL-1.2 licensing, Role-based access control, Disaster recovery planning">
-<meta name="description" content="This document outlines the IT architecture principles and implementation guidelines for the Copernicus Land Monitoring Service (CLMS), managed by the European Environment Agency (EEA). It establishes a consistent framework for delivering scalable and secure IT solutions within the CLMS programme. Emphasising modularity, reproducibility, transparency, maintainability, observability, IT security, and resilience, these guidelines ensure that all IT solutions are coherent, adaptable, and efficiently operated across the CLMS IT landscape.">
+<meta name="keywords" content="microservice architecture, REST API service, Continuous Integration and Continuous Deployment, Infrastructure-as-a-code, role-based access control, disaster recovery plan, Docker containers, automation scripts, pre-processing workflow, serverless functions">
+<meta name="description" content="This document outlines the IT Architecture Principles and Implementation Guidelines for the Copernicus Land Monitoring Service (CLMS), overseen by the European Environment Agency (EEA). It establishes a framework promoting consistent, scalable and secure IT solutions. Emphasising modularity, reproducibility, transparency and maintainability, the guidelines are designed to support the CLMS programme’s IT vision, ensuring solutions are coherent, adaptable and operate efficiently. This document provides guidance on the design, development and operation of IT solutions within the CLMS ecosystem, ensuring alignment with best practices and evolving technologies.">
 
 <title>IT Architecture Principles and Implementation Guidelines – Technical Library</title>
 <style>
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "IT Architecture Principles and Implementation Guidelines",
-    "description": "This document outlines the IT architecture principles and implementation guidelines for the Copernicus Land Monitoring Service (CLMS), managed by the European Environment Agency (EEA). It establishes a consistent framework for delivering scalable and secure IT solutions within the CLMS programme. Emphasising modularity, reproducibility, transparency, maintainability, observability, IT security, and resilience, these guidelines ensure that all IT solutions are coherent, adaptable, and efficiently operated across the CLMS IT landscape.",
+    "description": "This document outlines the IT Architecture Principles and Implementation Guidelines for the Copernicus Land Monitoring Service (CLMS), overseen by the European Environment Agency (EEA). It establishes a framework promoting consistent, scalable and secure IT solutions. Emphasising modularity, reproducibility, transparency and maintainability, the guidelines are designed to support the CLMS programme’s IT vision, ensuring solutions are coherent, adaptable and operate efficiently. This document provides guidance on the design, development and operation of IT solutions within the CLMS ecosystem, ensuring alignment with best practices and evolving technologies.",
     "datePublished": "June 19, 2025",
     "author": {
       "@type": "Person",
@@ -131,20 +131,20 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface"><span class="header-section-number">1</span> Preface</a></li>
-  <li><a href="#intro0000" id="toc-intro0000" class="nav-link" data-scroll-target="#intro0000"><span class="header-section-number">2</span> New CHapter</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">3</span> Introduction</a></li>
-  <li><a href="#scope-and-key-terms" id="toc-scope-and-key-terms" class="nav-link" data-scroll-target="#scope-and-key-terms"><span class="header-section-number">4</span> Scope and key terms</a></li>
-  <li><a href="#principles" id="toc-principles" class="nav-link" data-scroll-target="#principles"><span class="header-section-number">5</span> Principles</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">2</span> Introduction</a></li>
+  <li><a href="#scope-and-key-terms" id="toc-scope-and-key-terms" class="nav-link" data-scroll-target="#scope-and-key-terms"><span class="header-section-number">3</span> Scope and key terms</a></li>
+  <li><a href="#principles" id="toc-principles" class="nav-link" data-scroll-target="#principles"><span class="header-section-number">4</span> Principles</a>
   <ul class="collapse">
-  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture"><span class="header-section-number">5.1</span> Architecture</a></li>
-  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility"><span class="header-section-number">5.2</span> Reproducibility</a></li>
-  <li><a href="#reusability" id="toc-reusability" class="nav-link" data-scroll-target="#reusability"><span class="header-section-number">5.3</span> Reusability</a></li>
-  <li><a href="#transparency" id="toc-transparency" class="nav-link" data-scroll-target="#transparency"><span class="header-section-number">5.4</span> Transparency</a></li>
-  <li><a href="#maintainability" id="toc-maintainability" class="nav-link" data-scroll-target="#maintainability"><span class="header-section-number">5.5</span> Maintainability</a></li>
-  <li><a href="#observability" id="toc-observability" class="nav-link" data-scroll-target="#observability"><span class="header-section-number">5.6</span> Observability</a></li>
-  <li><a href="#it-security" id="toc-it-security" class="nav-link" data-scroll-target="#it-security"><span class="header-section-number">5.7</span> IT security</a></li>
-  <li><a href="#resilience" id="toc-resilience" class="nav-link" data-scroll-target="#resilience"><span class="header-section-number">5.8</span> Resilience</a></li>
+  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture"><span class="header-section-number">4.1</span> Architecture</a></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility"><span class="header-section-number">4.2</span> Reproducibility</a></li>
+  <li><a href="#reusability" id="toc-reusability" class="nav-link" data-scroll-target="#reusability"><span class="header-section-number">4.3</span> Reusability</a></li>
+  <li><a href="#transparency" id="toc-transparency" class="nav-link" data-scroll-target="#transparency"><span class="header-section-number">4.4</span> Transparency</a></li>
+  <li><a href="#maintainability" id="toc-maintainability" class="nav-link" data-scroll-target="#maintainability"><span class="header-section-number">4.5</span> Maintainability</a></li>
+  <li><a href="#observability" id="toc-observability" class="nav-link" data-scroll-target="#observability"><span class="header-section-number">4.6</span> Observability</a></li>
+  <li><a href="#it-security" id="toc-it-security" class="nav-link" data-scroll-target="#it-security"><span class="header-section-number">4.7</span> IT security</a></li>
+  <li><a href="#resilience" id="toc-resilience" class="nav-link" data-scroll-target="#resilience"><span class="header-section-number">4.8</span> Resilience</a></li>
   </ul></li>
+  <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">5</span> Change Log</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="it-principles_IT_Architecture_Principles_and_Implementation_Guidelines_v1.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="it-principles_IT_Architecture_Principles_and_Implementation_Guidelines_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -163,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    This document outlines the IT architecture principles and implementation guidelines for the Copernicus Land Monitoring Service (CLMS), managed by the European Environment Agency (EEA). It establishes a consistent framework for delivering scalable and secure IT solutions within the CLMS programme. Emphasising modularity, reproducibility, transparency, maintainability, observability, IT security, and resilience, these guidelines ensure that all IT solutions are coherent, adaptable, and efficiently operated across the CLMS IT landscape.
+    This document outlines the IT Architecture Principles and Implementation Guidelines for the Copernicus Land Monitoring Service (CLMS), overseen by the European Environment Agency (EEA). It establishes a framework promoting consistent, scalable and secure IT solutions. Emphasising modularity, reproducibility, transparency and maintainability, the guidelines are designed to support the CLMS programme’s IT vision, ensuring solutions are coherent, adaptable and operate efficiently. This document provides guidance on the design, development and operation of IT solutions within the CLMS ecosystem, ensuring alignment with best practices and evolving technologies.
   </div>
 </div>
 
@@ -191,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>Modular microservice architecture, Docker containerisation, REST API service integration, Cloud agnostic solutions, Data pre-processing workflow description, Software development tool listing, CI/CD DevOps setup, EUPL-1.2 licensing, Role-based access control, Disaster recovery planning</p>
+    <p>microservice architecture, REST API service, Continuous Integration and Continuous Deployment, Infrastructure-as-a-code, role-based access control, disaster recovery plan, Docker containers, automation scripts, pre-processing workflow, serverless functions</p>
   </div>
 </div>
 
@@ -211,18 +211,14 @@ Denmark<br>
 <h1 data-number="1"><span class="header-section-number">1</span> Preface</h1>
 <p>The EEA (European Environment Agency) CLMS IT architecture principles are indicative and must be evaluated in all IT deliverables.</p>
 </section>
-<section id="intro0000" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> New CHapter</h1>
-<p>abcdef</p>
-</section>
-<section id="introduction" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Introduction</h1>
+<section id="introduction" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Introduction</h1>
 <p>NEW DATA ADDEED FOR TESTING 123 The IT architecture principles set the overall framework for the EEA CLMS IT landscape. The principles are designed to ensure a consistency in deliverables and at the same time support the CLMS program’s IT vision and -strategy. The principles are designed to ensure that IT solutions are coherent, can be further developed and operated efficiently, that they support business needs and security requirements, etc.</p>
 <p>A uniform approach is required to ensure the coherency goal. The EEA CLMS programs IT applications may depend on and interact with each other. It is therefore important that IT solutions focus on connectivity and potential synergy effects to ensure continued coherence in the IT landscape.</p>
 <p>Any application provided may be developed, operated, maintained, and further developed by a supplier different from the supplier who delivered the initial application. Therefore, efforts must always be made to be supplier independent. Other suppliers must be able to continue working from where the previous supplier left off.</p>
 </section>
-<section id="scope-and-key-terms" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Scope and key terms</h1>
+<section id="scope-and-key-terms" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Scope and key terms</h1>
 <p>The scope of the EEA CLMS IT architecture principles is IT solutions to be delivered to the CLMS. The solutions delivered will include functionalities required to support the program (for Example, maintain and operate CLC+ Core multi-use grid-based Land Cover/Land Use hybrid data repository). This includes also the dependencies of these IT solutions to other internal or external systems.</p>
 <p>Definition of the key terms used within this document:</p>
 <p><strong>Application Programming Interface (API)</strong> - is a set of protocols, tools, and definitions that allow different software applications to communicate with each other. It defines the methods and data structures that developers can use to interact with a service or application, facilitating the exchange of data and functionality.</p>
@@ -245,8 +241,8 @@ Denmark<br>
 <p><strong>Source code</strong> - a set of instructions and statements written by a programmer using human-readable programming language. It is the original code written and saved in files before being compiled or interpreted into executable programs. Source code serves as the blueprint for creating software applications.</p>
 <p><strong>Workflow</strong> - systematic sequence of processes and activities.</p>
 </section>
-<section id="principles" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Principles</h1>
+<section id="principles" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Principles</h1>
 <p>The principles are grouped into 8 overarching IT architectural themes:</p>
 <ol type="1">
 <li><p><strong>Architecture</strong> - foundational and design principles for sound infrastructure and IT solution architecture.</p></li>
@@ -259,8 +255,8 @@ Denmark<br>
 <li><p><strong>Resilience</strong> - IT solutions of the EEA CLMS are designed to withstand and recover from disruptions by remaining operational during unforeseen events.</p></li>
 </ol>
 <p>Together, these principles guide design, development, and evolution of the IT solutions in the EEA CLMS program. The principles should be periodically reviewed and updated to ensure alignment with the latest technological advancements and emerging best practices. This ongoing evaluation will help maintaining the relevance, effectiveness, and security of the IT solutions.</p>
-<section id="architecture" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="architecture"><span class="header-section-number">5.1</span> Architecture</h2>
+<section id="architecture" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="architecture"><span class="header-section-number">4.1</span> Architecture</h2>
 <p>Foundational and design principles for maintaining sound infrastructure and IT solution architecture. These sub-principles addresses best-practices and industry standard design patterns.</p>
 <table class="caption-top table">
 <colgroup>
@@ -383,8 +379,8 @@ Denmark<br>
 </tbody>
 </table>
 </section>
-<section id="reproducibility" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="reproducibility"><span class="header-section-number">5.2</span> Reproducibility</h2>
+<section id="reproducibility" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="reproducibility"><span class="header-section-number">4.2</span> Reproducibility</h2>
 <p>The overarching principle of reproducibility is further unfolded below in the following sub-principles:</p>
 <table class="caption-top table">
 <colgroup>
@@ -537,8 +533,8 @@ Denmark<br>
 </tbody>
 </table>
 </section>
-<section id="reusability" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="reusability"><span class="header-section-number">5.3</span> Reusability</h2>
+<section id="reusability" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="reusability"><span class="header-section-number">4.3</span> Reusability</h2>
 <p>The principle of reusability is detailed in the following sub-principles:</p>
 <table class="caption-top table">
 <colgroup>
@@ -601,8 +597,8 @@ Denmark<br>
 </tbody>
 </table>
 </section>
-<section id="transparency" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="transparency"><span class="header-section-number">5.4</span> Transparency</h2>
+<section id="transparency" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="transparency"><span class="header-section-number">4.4</span> Transparency</h2>
 <p>The CLMS is funded by the EU and supports its community with data and services. As such, these products and services are to be part of the foundation for further work in the field and accessible to the community. To support this, the principle of transparency is detailed in the following subprinciples:</p>
 <table class="caption-top table">
 <colgroup>
@@ -695,8 +691,8 @@ Denmark<br>
 </tbody>
 </table>
 </section>
-<section id="maintainability" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="maintainability"><span class="header-section-number">5.5</span> Maintainability</h2>
+<section id="maintainability" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="maintainability"><span class="header-section-number">4.5</span> Maintainability</h2>
 <p>The EEA aims in the CLMS program to be able to provide updated products when new data becomes available. To reduce the time to market the principle of maintainability is to be followed.</p>
 <table class="caption-top table">
 <colgroup>
@@ -849,8 +845,8 @@ Denmark<br>
 </tbody>
 </table>
 </section>
-<section id="observability" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="observability"><span class="header-section-number">5.6</span> Observability</h2>
+<section id="observability" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="observability"><span class="header-section-number">4.6</span> Observability</h2>
 <p>IT solutions of the EEA CLMS must collect relevant metrics for monitoring and assessment, to detect any issues and have predictable operation of the solutions.</p>
 <table class="caption-top table">
 <colgroup>
@@ -913,8 +909,8 @@ Denmark<br>
 </tbody>
 </table>
 </section>
-<section id="it-security" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="it-security"><span class="header-section-number">5.7</span> IT security</h2>
+<section id="it-security" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="it-security"><span class="header-section-number">4.7</span> IT security</h2>
 <p>The IT solutions of the CLMS program shall ensure system integrity against various security threats, protection of the data, and maintenance of privacy. The following sub-principals are to be followed:</p>
 <table class="caption-top table">
 <colgroup>
@@ -1037,8 +1033,8 @@ Denmark<br>
 </tbody>
 </table>
 </section>
-<section id="resilience" class="level2" data-number="5.8">
-<h2 data-number="5.8" class="anchored" data-anchor-id="resilience"><span class="header-section-number">5.8</span> Resilience</h2>
+<section id="resilience" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="resilience"><span class="header-section-number">4.8</span> Resilience</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -1102,6 +1098,25 @@ Denmark<br>
 
 
 </section>
+</section>
+<section id="change-log" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Change Log</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Version</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2025-12-02</td>
+<td>1.4.0</td>
+<td>Initial release</td>
+</tr>
+</tbody>
+</table>
 </section>
 
 
