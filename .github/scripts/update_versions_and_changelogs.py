@@ -458,20 +458,33 @@ def save_changelogs_for_injection(changelog_entries):
             print(f"[WARNING] Could not load existing changelogs: {e}")
 
     # Add new entries for changed files (prepend to history)
-    # Normalize keys: strip "DOCS/" prefix to match inject_changelog.py expectations
+    # Keep DOCS/ prefix to match inject_changelog.py expectations
     for filepath, new_entry in changelog_entries.items():
-        # Normalize: DOCS/products/file.qmd → products/file.qmd
+        # Ensure DOCS/ prefix
         normalized_path = (
-            filepath.replace("DOCS/", "", 1)
-            if filepath.startswith("DOCS/")
-            else filepath
+            filepath if filepath.startswith("DOCS/") else f"DOCS/{filepath}"
         )
 
         if normalized_path not in existing_changelogs:
             existing_changelogs[normalized_path] = []
 
-        # Prepend new entry (most recent first)
-        existing_changelogs[normalized_path].insert(0, new_entry)
+        # Check if this version already exists (avoid duplicates)
+        existing_versions = [
+            entry.get("version") for entry in existing_changelogs[normalized_path]
+        ]
+        if new_entry["version"] in existing_versions:
+            # Update existing entry instead of adding duplicate
+            for i, entry in enumerate(existing_changelogs[normalized_path]):
+                if entry.get("version") == new_entry["version"]:
+                    # Update date and summary
+                    existing_changelogs[normalized_path][i] = new_entry
+                    print(
+                        f"[INFO] Updated existing changelog entry for {normalized_path} v{new_entry['version']}"
+                    )
+                    break
+        else:
+            # Prepend new entry (most recent first)
+            existing_changelogs[normalized_path].insert(0, new_entry)
 
         # Keep only last 20 entries per file (limit history size)
         existing_changelogs[normalized_path] = existing_changelogs[normalized_path][:20]
@@ -573,9 +586,7 @@ def create_smart_batches(file_diffs):
 
 def get_combined_prompt(file_list):
     """Return the comprehensive combined prompt for version + changelog"""
-    template_path = os.path.join(
-        os.path.dirname(__file__), "prompt_templates", "prompt_template.txt"
-    )
+    template_path = os.path.join(os.path.dirname(__file__), "prompt_template.txt")
     with open(template_path, "r") as f:
         template = f.read()
 
@@ -965,7 +976,7 @@ def initialize_first_release(all_files):
 
     versions_metadata = load_versions_metadata()
     changelog_entries = {}
-    today = datetime.now().isoformat()
+    today = datetime.now().strftime("%Y-%m-%d")  # YYYY-MM-DD format
 
     for filepath in all_files:
         filename = os.path.basename(filepath)
@@ -1016,8 +1027,9 @@ def main():
 
     changed_files, renames = get_changed_files_with_renames(last_tag)
 
-    # Handle first release
-    if not last_tag:
+    # Handle first release - only if no tags AND no existing version data
+    versions_metadata = load_versions_metadata()
+    if not last_tag and not versions_metadata:
         initialize_first_release(changed_files)
         return
 
@@ -1039,7 +1051,7 @@ def main():
         )
         changed_files = changed_files[:MAX_FILES_FOR_TESTING]
 
-    versions_metadata = load_versions_metadata()
+    # versions_metadata already loaded earlier, just handle renames
     if renames:
         migrate_rename_metadata(renames, versions_metadata)
 
@@ -1048,6 +1060,7 @@ def main():
     file_info = {}
 
     for filepath in changed_files:
+        # Use full path with DOCS/ everywhere - no normalization
         filename = os.path.basename(filepath)
 
         try:
@@ -1069,6 +1082,7 @@ def main():
         diff = clean_diff_for_ai(diff)
         diff = truncate_large_diff(diff, filepath)
 
+        # Use full filepath with DOCS/ everywhere
         file_diffs[filepath] = diff
         file_info[filepath] = {
             "major_version": major_version,
@@ -1135,10 +1149,10 @@ def main():
         changelog_entry = {
             "version": new_version,
             "date": today,
-            "summary": changelog_summary,  # Changed from "changes" to "summary" for consistency
+            "summary": changelog_summary,
         }
 
-        # Store changelog entry for later saving
+        # Use full filepath with DOCS/ - no normalization
         changelog_entries[filepath] = changelog_entry
 
         versions_metadata[filepath] = {
@@ -1148,10 +1162,10 @@ def main():
             "last_release_tag": current_tag,
             "last_bump": bump_type,
             "last_bump_reason": version_reason,
-            "last_changelog": changelog_summary[:200],  # Store excerpt
+            "last_changelog": changelog_summary[:200],
         }
 
-        # Update only version in .qmd file (changelog stored in change_logs.json)
+        # Update .qmd file - filepath already has DOCS/
         update_qmd_version_only(filepath, new_version)
 
         # Log the change
