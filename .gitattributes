@@ -1,25 +1,35 @@
 # .gitattributes for CLMS_documents
+
 # Always keep the target branch's version of .llm_cache during merges
-.llm_cache merge=ours
+.llm_cache/** merge=ours linguist-generated
 
-# Treat all shell scripts as text with LF endings
+# Text files with LF line endings
 *.sh text eol=lf
+*.py text eol=lf
+*.js text eol=lf
+*.qmd text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.json text eol=lf
+*.lua text eol=lf
 
-# Treat images as binary (no diff)
+# Images as binary (no diff, case-insensitive)
 *.png binary
 *.jpg binary
 *.jpeg binary
 *.svg binary
 *.emf binary
 *.wmf binary
-*.JPG binary
-*.PNG binary
-*.SVG binary
+*.gif binary
 
-# Optional: treat docx/pdf as binary
+# Documents as binary
 *.docx binary
 *.pdf binary
 
-# Exclude secrets or temp files from export/archive
+# Exclude from export/archive
 *.env export-ignore
 *.bak export-ignore
+.llm_cache/ export-ignore
