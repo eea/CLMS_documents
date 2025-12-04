@@ -1,0 +1,3702 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Copernicus Land Monitoring Service">
+<meta name="dcterms.date" content="2025-11-03">
+<meta name="keywords" content="Crop Types layer, Cropping Patterns, Base Vegetation Layer, Sentinel-2 imagery, Bare Soil duration, Main Crop Emergence, Fallow Land Presence, Accuracy Assessment, LUCAS Survey, Cloud-Optimized GeoTIFFs">
+<meta name="description" content="This Product User Manual provides comprehensive details on the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands product, a crucial component of the vegetated land cover characteristics portfolio. It outlines the product’s scope, production methodologies, and quality assessment procedures. The manual describes the various layers, including crop types, cropping patterns, and associated confidence layers, providing users with the necessary information to effectively utilise the data for environmental monitoring, agricultural policy support, and various land management applications across Europe.">
+
+<title>High Resolution Layer Croplands - Product User Manual – Technical Library</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-24cc52c546c003a7d891213737239288.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "Search ...",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "High Resolution Layer Croplands - Product User Manual",
+    "description": "This Product User Manual provides comprehensive details on the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands product, a crucial component of the vegetated land cover characteristics portfolio. It outlines the product’s scope, production methodologies, and quality assessment procedures. The manual describes the various layers, including crop types, cropping patterns, and associated confidence layers, providing users with the necessary information to effectively utilise the data for environmental monitoring, agricultural policy support, and various land management applications across Europe.",
+    "datePublished": "November 3, 2025",
+    "author": {
+      "@type": "Person",
+      "name": "Copernicus Land Monitoring Service"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Copernicus Land Monitoring Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
+      }
+    },
+    "keywords": "?invalid meta type:keywords",
+    "articleSection": "General",
+    "isAccessibleForFree": "true",
+    "license": "",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": "article p"
+    }
+  }
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../_meta/theme/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Technical Library</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary"><span class="header-section-number">1</span> Executive summary</a></li>
+  <li><a href="#background-of-the-document" id="toc-background-of-the-document" class="nav-link" data-scroll-target="#background-of-the-document"><span class="header-section-number">2</span> Background of the document</a>
+  <ul class="collapse">
+  <li><a href="#scope" id="toc-scope" class="nav-link" data-scroll-target="#scope"><span class="header-section-number">2.1</span> Scope</a></li>
+  <li><a href="#content-and-structure" id="toc-content-and-structure" class="nav-link" data-scroll-target="#content-and-structure"><span class="header-section-number">2.2</span> Content and structure</a></li>
+  </ul></li>
+  <li><a href="#lineage-of-hrl-tree-cover-and-forests-grasslands-and-croplands" id="toc-lineage-of-hrl-tree-cover-and-forests-grasslands-and-croplands" class="nav-link" data-scroll-target="#lineage-of-hrl-tree-cover-and-forests-grasslands-and-croplands"><span class="header-section-number">3</span> Lineage of HRL Tree Cover and Forests, Grasslands, and Croplands</a></li>
+  <li><a href="#review-of-user-requirements" id="toc-review-of-user-requirements" class="nav-link" data-scroll-target="#review-of-user-requirements"><span class="header-section-number">4</span> Review of User Requirements</a></li>
+  <li><a href="#product-structure---what-are-the-high-resolution-layers" id="toc-product-structure---what-are-the-high-resolution-layers" class="nav-link" data-scroll-target="#product-structure---what-are-the-high-resolution-layers"><span class="header-section-number">5</span> Product structure - What are the High Resolution Layers?</a></li>
+  <li><a href="#product-application-areas-and-examples-of-use-cases" id="toc-product-application-areas-and-examples-of-use-cases" class="nav-link" data-scroll-target="#product-application-areas-and-examples-of-use-cases"><span class="header-section-number">6</span> Product application areas and examples of use cases</a>
+  <ul class="collapse">
+  <li><a href="#use-case-c3c4-crops-specific-parametrization-for-biomass-monitoring." id="toc-use-case-c3c4-crops-specific-parametrization-for-biomass-monitoring." class="nav-link" data-scroll-target="#use-case-c3c4-crops-specific-parametrization-for-biomass-monitoring."><span class="header-section-number">6.1</span> Use case: C3/C4 crops specific parametrization for biomass monitoring.</a></li>
+  <li><a href="#use-case-land-cover-specific-monitoring" id="toc-use-case-land-cover-specific-monitoring" class="nav-link" data-scroll-target="#use-case-land-cover-specific-monitoring"><span class="header-section-number">6.2</span> Use case: Land cover specific monitoring</a></li>
+  </ul></li>
+  <li><a href="#product-description" id="toc-product-description" class="nav-link" data-scroll-target="#product-description"><span class="header-section-number">7</span> Product description</a>
+  <ul class="collapse">
+  <li><a href="#thematic-characteristics-of-the-hrl-croplands-layers" id="toc-thematic-characteristics-of-the-hrl-croplands-layers" class="nav-link" data-scroll-target="#thematic-characteristics-of-the-hrl-croplands-layers"><span class="header-section-number">7.1</span> Thematic characteristics of the HRL Croplands layers</a></li>
+  <li><a href="#download-content-file-naming-convention-and-file-formats" id="toc-download-content-file-naming-convention-and-file-formats" class="nav-link" data-scroll-target="#download-content-file-naming-convention-and-file-formats"><span class="header-section-number">7.2</span> Download content, file naming convention and file format(s)</a></li>
+  <li><a href="#projection-and-spatial-coverage" id="toc-projection-and-spatial-coverage" class="nav-link" data-scroll-target="#projection-and-spatial-coverage"><span class="header-section-number">7.3</span> Projection and spatial coverage</a></li>
+  <li><a href="#spatial-resolution" id="toc-spatial-resolution" class="nav-link" data-scroll-target="#spatial-resolution"><span class="header-section-number">7.4</span> Spatial resolution</a></li>
+  <li><a href="#temporal-information" id="toc-temporal-information" class="nav-link" data-scroll-target="#temporal-information"><span class="header-section-number">7.5</span> Temporal information</a></li>
+  <li><a href="#product-characteristics-and-class-codes" id="toc-product-characteristics-and-class-codes" class="nav-link" data-scroll-target="#product-characteristics-and-class-codes"><span class="header-section-number">7.6</span> Product characteristics and class codes</a></li>
+  </ul></li>
+  <li><a href="#production-quality-assessment" id="toc-production-quality-assessment" class="nav-link" data-scroll-target="#production-quality-assessment"><span class="header-section-number">8</span> Production quality assessment</a>
+  <ul class="collapse">
+  <li><a href="#layers-to-be-verified" id="toc-layers-to-be-verified" class="nav-link" data-scroll-target="#layers-to-be-verified"><span class="header-section-number">8.1</span> Layers to be verified</a></li>
+  <li><a href="#sampling-design" id="toc-sampling-design" class="nav-link" data-scroll-target="#sampling-design"><span class="header-section-number">8.2</span> Sampling Design</a></li>
+  <li><a href="#response-design" id="toc-response-design" class="nav-link" data-scroll-target="#response-design"><span class="header-section-number">8.3</span> Response Design</a></li>
+  <li><a href="#statistical-analysis" id="toc-statistical-analysis" class="nav-link" data-scroll-target="#statistical-analysis"><span class="header-section-number">8.4</span> Statistical Analysis</a></li>
+  <li><a href="#verification-results" id="toc-verification-results" class="nav-link" data-scroll-target="#verification-results"><span class="header-section-number">8.5</span> Verification Results</a>
+  <ul class="collapse">
+  <li><a href="#crop-group-level" id="toc-crop-group-level" class="nav-link" data-scroll-target="#crop-group-level"><span class="header-section-number">8.5.1</span> Crop Group level</a></li>
+  <li><a href="#aggregation-level-1" id="toc-aggregation-level-1" class="nav-link" data-scroll-target="#aggregation-level-1"><span class="header-section-number">8.5.2</span> Aggregation level 1</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#terms-of-use-and-product-technical-support" id="toc-terms-of-use-and-product-technical-support" class="nav-link" data-scroll-target="#terms-of-use-and-product-technical-support"><span class="header-section-number">9</span> Terms of use and product technical support</a>
+  <ul class="collapse">
+  <li><a href="#terms-of-use" id="toc-terms-of-use" class="nav-link" data-scroll-target="#terms-of-use"><span class="header-section-number">9.1</span> Terms of use</a></li>
+  <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation"><span class="header-section-number">9.2</span> Citation</a></li>
+  <li><a href="#product-technical-support" id="toc-product-technical-support" class="nav-link" data-scroll-target="#product-technical-support"><span class="header-section-number">9.3</span> Product technical support</a></li>
+  </ul></li>
+  <li><a href="#list-of-abbreviations-acronyms" id="toc-list-of-abbreviations-acronyms" class="nav-link" data-scroll-target="#list-of-abbreviations-acronyms"><span class="header-section-number">10</span> List of Abbreviations &amp; Acronyms</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">11</span> References</a></li>
+  <li><a href="#annex-i-colour-tables-for-hrl-croplands" id="toc-annex-i-colour-tables-for-hrl-croplands" class="nav-link" data-scroll-target="#annex-i-colour-tables-for-hrl-croplands"><span class="header-section-number">12</span> Annex I – Colour tables for HRL Croplands</a></li>
+  <li><a href="#document-control-information" id="toc-document-control-information" class="nav-link" data-scroll-target="#document-control-information"><span class="header-section-number">13</span> Document Control Information:</a></li>
+  <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">14</span> Change Log</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="High_Resolution_Layer_Croplands_2017-present_PUM_v2.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="High_Resolution_Layer_Croplands_2017-present_PUM_v2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Remove link to .docx file
+    //
+    document.querySelectorAll("a[href$='.docx']").forEach((link) => (link.style.display = "none"));
+
+    // Add Version to the title's metadata
+    //
+    const titleMetaEl = document.querySelector(".quarto-title-meta");
+    const wrapperDiv = document.createElement("div");
+    wrapperDiv.innerHTML = `
+        <div class="quarto-title-meta-heading">Version</div>
+        <div class="quarto-title-meta-contents">
+          <p>2.3</p>
+        </div>
+      `;
+    titleMetaEl.appendChild(wrapperDiv);
+  });
+</script>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">High Resolution Layer Croplands - Product User Manual</h1>
+<p class="subtitle lead">Copernicus Land Monitoring Service</p>
+</div>
+
+<div>
+  <div class="description">
+    This Product User Manual provides comprehensive details on the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands product, a crucial component of the vegetated land cover characteristics portfolio. It outlines the product’s scope, production methodologies, and quality assessment procedures. The manual describes the various layers, including crop types, cropping patterns, and associated confidence layers, providing users with the necessary information to effectively utilise the data for environmental monitoring, agricultural policy support, and various land management applications across Europe.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page-left">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Copernicus Land Monitoring Service </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 3, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>Crop Types layer, Cropping Patterns, Base Vegetation Layer, Sentinel-2 imagery, Bare Soil duration, Main Crop Emergence, Fallow Land Presence, Accuracy Assessment, LUCAS Survey, Cloud-Optimized GeoTIFFs</p>
+  </div>
+</div>
+
+</header>
+
+
+<p><br>
+<strong>Contact:</strong></p>
+<div data-custom-style="LeftAlign">
+<p>European Environment Agency (EEA)<br>
+Kongens Nytorv 6<br>
+1050 Copenhagen K<br>
+Denmark<br>
+<a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
+</div>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Figure  3-1  Evolution  of  HRL  Forest  and  Grassland  towards  the  three product  groups  HRL  Tree  Cover  &  Forests,  HRL  Grasslands,  HRL Croplands.","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image1.png"},{"@type":"ImageObject","caption":"Figure  5-1:  Products  within  the  HRL  vegetated  land  cover characteristics.","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-e8467516151840ea4a22d7d91f3cf2c6ceebe367.png"},{"@type":"ImageObject","caption":"Figure  5-2:  High-level  overview  of  the  relationship  between  the  Base Vegetation  Layer  and  the  subsequent  production  of  Grasslands,  Croplands and  Tree  Cover  &  Forests products","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-6bc33732696023251e282e419d868126e4611b92.png"},{"@type":"ImageObject","caption":"Figure  7-1:  LAEA  tile  layout  incl. distinction  between  tiles  to  cover EU27  and EEA38.","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-ca1eb55e3cba78bf3f78fb81c831ae27ef69af7e.png"},{"@type":"ImageObject","caption":"Figure  7-2  HRL  Croplands  product overview","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-f66692b52cdab6bf7c00868d035160c85d2d44d8.png"},{"@type":"ImageObject","caption":"Table  7-1:  HRL  Crop  Types  nomenclature  and  aggregation levels","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/Table7-1.png"},{"@type":"ImageObject","caption":"Figure  7-3:  Example  how  the  different  cropping  patterns  layers  for  a barley  field  located  in  Belgium  are  generated  for  the  reference  year 2019.  The  season  delineation  is  based  on  the  predicted  emergence  (black line)  and  harvest  dates  (red  line).  The  green  timeseries  curve  is  the daily  fAPAR  value  (with  uncertainty).  BS  after  stands  for  the  length  of the  bare  soil  period  after  the  main season.","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-80e6a4a68bfe83b945921f20705162656feeb945.png"},{"@type":"ImageObject","caption":"Figure  8-1:  Approach  I  sample  distribution  for  verification  at  Crop Group Level","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-c861206239383485c44d6e1af9b25dabed4cf2e7.png"},{"@type":"ImageObject","caption":"Figure  8-2:  Approach  II  sample  distribution  depending  on  LUCAS  points containing  crop  type  information  for  the  year 2018","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-9e704a7c3da9f900c7030e35f7e20b360d0ffd69.png"},{"@type":"ImageObject","caption":"Figure  8-3:  Approach  II  sample  distribution  depending  on  LUCAS  points containing  crop  type  information  for  the  year 2022","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-e2575e0f399b4b95661426ae2f21c6c5c7a0b9bd.png"},{"@type":"ImageObject","caption":"Figure  8-4:  GSAA  data  availability,  per  country  per year","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-d2276222fad84e13af99fab131c83599787f58a8.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image2.png"},{"@type":"ImageObject","caption":"Table  0-1:  Colour  palette  and  attributes  of  HRL  Crop  Types  (CTY) layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image3.png"},{"@type":"ImageObject","caption":"Table  0-2:  Colour  palette  and  attributes  of  CTYCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image4.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image5.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image6.png"},{"@type":"ImageObject","caption":"Table  0-3:  Colour  palette  and  attributes  of  CPMCH layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image7.png"},{"@type":"ImageObject","caption":"Table  0-4:  Colour  palette  and  attributes  of  CPMCHCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image8.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image9.png"},{"@type":"ImageObject","caption":"Table  0-5:  Colour  palette  and  attributes  of  CPMCE layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image10.png"},{"@type":"ImageObject","caption":"Table  0-6:  Colour  palette  and  attributes  of  CPMCECL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image11.png"},{"@type":"ImageObject","caption":"Table  0-7:  Colour  palette  and  attributes  of  CPMCD layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image12.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image13.png"},{"@type":"ImageObject","caption":"Table  0-8:  Colour  palette  and  attributes  of  CPMCDCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image14.png"},{"@type":"ImageObject","caption":"Table  0-9:  Colour  palette  and  attributes  of  CPBSB layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image15.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image16.png"},{"@type":"ImageObject","caption":"Table  0-10:  Colour  palette  and  attributes  of  CPBSBCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image17.png"},{"@type":"ImageObject","caption":"Table  0-11:  Colour  palette  and  attributes  of  CPBSA layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image18.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image19.png"},{"@type":"ImageObject","caption":"Table  0-12:  Colour  palette  and  attributes  of  CPBSBCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image20.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image21.png"},{"@type":"ImageObject","caption":"Table  0-13:  Colour  palette  and  attributes  of  CPSCT layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image22.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image23.png"},{"@type":"ImageObject","caption":"Table  0-14:  Colour  palette  and  attributes  of  CPSCE layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image24.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image25.png"},{"@type":"ImageObject","caption":"Table  0-15:  Colour  palette  and  attributes  of  CPSCD layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image26.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image27.png"},{"@type":"ImageObject","caption":"Table  0-16:  Colour  palette  and  attributes  of  CPSCDCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image28.png"},{"@type":"ImageObject","caption":"Table  0-17:  Colour  palette  and  attributes  of  CPFLP layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image29.png"},{"@type":"ImageObject","caption":"Table  0-18:  Colour  palette  and  attributes  of  CPFLPCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image30.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image31.png"},{"@type":"ImageObject","caption":"Table  0-19:  Colour  palette  and  attributes  of  CPFLD layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image32.png"},{"@type":"ImageObject","caption":"Table  0-20:  Colour  palette  and  attributes  of  CPFLDCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image33.png"},{"@type":"ImageObject","caption":"Table  0-21:  Colour  palette  and  attributes  of  CPCSY layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image34.png"},{"@type":"ImageObject","caption":"Table  0-22:  Colour  palette  and  attributes  of  CPCST layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image35.png"}]}
+</script>
+<section id="executive-summary" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Executive summary</h1>
+<p>Copernicus is the European Union’s Earth Observation Programme. It offers information services based on satellite Earth observation and in situ (non-space) data. These information services are freely and openly accessible to its users through six thematic Copernicus services (Atmosphere Monitoring, Marine Environment Monitoring, Land Monitoring, Climate Change, Emergency Management and Security).</p>
+<p>The Copernicus Land Monitoring Service (CLMS) provides geographical information on land cover and its changes, land use, vegetation state, water cycle and earth surface energy variables to a broad range of users in Europe and across the world in the field of environmental terrestrial applications.</p>
+<p>CLMS is jointly implemented by the European Environment Agency (EEA) and the European Commission’s DG Joint Research Centre (JRC).</p>
+<p>The High Resolution Layer (HRL) Vegetated land cover characteristics are a set of harmonised yearly maps dedicated to the thematic themes Tree Cover &amp; Forests, Grasslands and Croplands. These include a rich suite of raster products mapping the yearly status of those land cover types at a spatial resolution of 10 metres and change layers at 3-yearly interval and 20-metre resolution. HRL vegetated land cover characteristics extends the time-series of the existing HRL’s Tree Cover &amp; Forests and Grasslands and complements the CLMS portfolio with new layer dedicated to the mapping of crop types and agricultural practices such as mowing, harvest and cover crops.</p>
+</section>
+<section id="background-of-the-document" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Background of the document</h1>
+<section id="scope" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="scope"><span class="header-section-number">2.1</span> Scope</h2>
+<p>This Product User Manual is the primary document that users are recommended to read before using the product. It provides a description of the product characteristics, production methodologies and workflows, and information about the product quality of the annual provision of HRL Croplands. Furthermore, it gives information on the terms of use and product technical support. More detailed information on the methodologies and processing workflows that were used to produce the products can be found in the Algorithm Theoretical Baseline Document (ATBD) [7].</p>
+</section>
+<section id="content-and-structure" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="content-and-structure"><span class="header-section-number">2.2</span> Content and structure</h2>
+<p>In more detail, the document is structured as follows:</p>
+<ul>
+<li><p>Chapter 3 provides an overview of the lineage of the products in relation to previous productions;</p></li>
+<li><p>Chapter 4 contains a review of user requirements;</p></li>
+<li><p>Chapter 5 provides on overview of what is included in the High Resolution Layers vegetated land cover characteristics and how the comprised products relate to each other;</p></li>
+<li><p>Chapter 6 presents potential application areas and example use cases;</p></li>
+<li><p>Chapter 7 provides a description of the products including the nomenclature and class definitions, file naming, spatial resolution format(s), etc.;</p></li>
+<li><p>Chapter 8 summarizes the quality assessment, validation procedure and the results;</p></li>
+<li><p>Chapter 9 provides information about product access and use conditions as well as the technical product support.</p></li>
+</ul>
+</section>
+</section>
+<section id="lineage-of-hrl-tree-cover-and-forests-grasslands-and-croplands" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Lineage of HRL Tree Cover and Forests, Grasslands, and Croplands</h1>
+<p>High Resolution Layers (HRL) on Tree Cover &amp; Forests had already been established in the Copernicus Land Monitoring Service (CLMS) portfolio since the reference years 2012 producing initially a Dominant Leaf Type (DLT), a Tree Cover Density (TCD), and a Forest Type (FTY) map at a spatial resolution of 20 metres (Figure 3-1). Change layers and reference datasets were included with the reference year 2015. At the same time the accuracy targets were raised towards at least 90% user’s and producer’s accuracy for the DLT and TCD status layers. A further important step followed with the first production for the reference years 2018 (further referred to as Historic HRL Forest 2018) where the spatial resolution of the status layers was raised to 10 metres, the implementation of the change layers was partially reconsidered and target accuracies of 90% user’s and producer’s accuracy for the change layers were defined. In addition, new aggregated layers depicting the density of coniferous and broadleaved tree cover were introduced. With the HRL Tree Cover &amp; Forests starting from the reference year 2018 the product specifications have been kept largely in line with the definitions used for the Historic HRL Forest 2018 [8] whereas major changes concerned in particular the move to a yearly update cycle for the status layers and changes to some confidence layers (not shown in Figure 3-1). The new HRL Tree Cover &amp; Forests therefore replace and extend the Historic HRL Forest 2018. This does not include an update of the change layer 2015 – 2018; the new status layers for 2018 are therefore not consistent with the original change layers 2015 – 2018.</p>
+<p>HRL’s on Grasslands had already been established in the Copernicus Land Monitoring Service (CLMS) portfolio since the reference years 2015 initially producing a status layer on the absence / presence of grassland (Figure 3-1) with a target Overall Accuracy of 85%. With the reference year 2018, the spatial resolution of the status layers was increased to 10 metres and a change layer with a target Overall Accuracy of 80% was introduced. With the HRL Grasslands starting from the reference year 2017, the product specifications have been largely maintained to ensure consistency with the definitions used for the Historic HRL Grassland 2018 [9]. In particular, the HRL Grassland (GRA) layer has been transitioned to an annual update cycle for the status layers, complemented by an additional yearly Herbaceous Cover layer that also includes temporary grassland in the reference year. A further methodological enhancement concerns the removal of the Minimum Mapping Unit (MMU) from both the PLOUGH and GRA layer starting from 2022. This adjustment was introduced to improve the current consistency between the GRA, HER, and PLOUGH layers and to eliminate artificial gains and losses resulting from MMU-induced filtering. While this change enhances the internal coherence and spatial detail of the current HRL Grassland layers, it may lead to minor differences when compared to historic layers (years before 2022) where MMU thresholds were still applied. Consequently, users should be aware that actual small-area grassland changes may be partly mixed with technical changes resulting from the removal of the MMU. New layers on the count and timing of Grassland Mowing (Minimum Mapping Unit of 0.25 ha) and changes to some confidence layers (not shown in detail in Figure 3-1) are introduced. The new HRL Grasslands therefore replaces and extends the Historic HRL Grassland 2018. This does not include an update of the change layer 2015 – 2018; the new status layers for 2018 are therefore not consistent with the original change layers 2015 – 2018.</p>
+<p>The HRL Croplands is a new set of layers dedicated to agriculture and comprises several yearly layers mapping crop types (10-metre spatial resolution) and agricultural practices such as harvest, fallow land and secondary crops (10-metre spatial resolution, Minimum Mapping Unit of 0.25 ha).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image1.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 3-1 Evolution of HRL Forest and Grassland towards the three product groups HRL Tree Cover &amp; Forests, HRL Grasslands, HRL Croplands.</figcaption>
+</figure>
+</div>
+</section>
+<section id="review-of-user-requirements" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Review of User Requirements</h1>
+<p>In the frame of the Horizon 2020 (H2020) project ECoLaSS a survey [5] of key stakeholders has been performed in order to evaluate the user requirements towards the evolution of existing and future Copernicus products. This survey made also use of the results from the Nextspace User Study [6] and revealed that HRL users like European institutions, service industry, research and academia, national agencies, regional administrations, NGOs or private users would in general appreciate:</p>
+<ul>
+<li><p>High thematic quality/meaningful and application-oriented product definitions;</p></li>
+<li><p>Sufficient spatial and timely resolution concerning both, status layer and change layer;</p></li>
+<li><p>Short update cycles;</p></li>
+<li><p>Change monitoring;</p></li>
+<li><p>Free and open access;</p></li>
+<li><p>High technical quality;</p></li>
+<li><p>Standardized and comparable nomenclature;</p></li>
+<li><p>Transparent and scientific workflows and state-of-the-art methodology;</p></li>
+<li><p>Detailed documentation of these workflow and the respective methodology;</p></li>
+<li><p>Consistency of the Pan-European products enabling synergistic use of all products;</p></li>
+<li><p>Streamlining the pan-European product with global ones;</p></li>
+<li><p>Availability of historic data and compatibility of time series;</p></li>
+<li><p>Open access to the original Copernicus Sentinel data;</p></li>
+<li><p>Sophisticated product presentation and visualisation possibilities in an online viewer on the Copernicus platform;</p></li>
+<li><p>IPCC -compliant land-use categories.</p></li>
+</ul>
+<p>While many of these requirements had already been satisfied with previous HRL reference years some could only be implemented within the current update:</p>
+<ul>
+<li><p>A long-standing thematic gap in the European CLMS portfolio concerning the monitoring of agriculture has been addressed though new products on crop types and agricultural activities. This also improves the separation between grassland and cropland and the IPCC conformity;</p></li>
+<li><p>Yearly update cycle for status layer;</p></li>
+<li><p>Grassland use intensity (or the dynamics of intensification/ extensification) is partially addressed through a new product on Grassland mowing.</p></li>
+</ul>
+<p>Further requirements that remain to be considered for future updates are for example:</p>
+<ul>
+<li><p>More fine-grained differentiation among species-rich (extensively used) and separation from species-poor (intensively used) and managed grassland;</p></li>
+<li><p>Tree-species compositions and shifts between extensive and intensive management;</p></li>
+<li><p>Increased timeliness of availability of the products: The mid-term goal is a product provision at latest 12 months after the end of the reference year.</p></li>
+</ul>
+</section>
+<section id="product-structure---what-are-the-high-resolution-layers" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Product structure - What are the High Resolution Layers?</h1>
+<p>The High Resolution Layers (HRL) vegetated land cover characteristics portfolio consists of Tree Cover &amp; Forests, Grasslands and Croplands products (Figure 5-1), which together cover most of what is defined as the Biotic component of the EAGLE Land Cover Components<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. More specifically, the mapping is focused on surfaces with a vegetation cover above 30%; an exception to this is tree cover where the objective is to map tree cover with a continuous range of 1-100% Tree Cover Density (TDC), i.e.&nbsp;also below 30%, as far as detectable from 10-metre resolution satellite imagery. This definition is also in line with the Sparsely Vegetated class in the Corine Land Cover (CLC)+ Backbone Raster<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> and considers that detection / classification of vegetation below this threshold is typically more error-prone. The definition also aims at largely avoiding overlaps with the non-vegetated land cover characteristics such as HRL Imperviousness, which is focused on areas with less than 10% vegetation cover during any time of the year, for a reference period of 3 year.</p>
+<p>Some overlaps between the three product groups are allowed by definition, for example areas with tree crops (i.e.&nbsp;olive, fruit and nut trees) which are included in both the Tree Cover &amp; Forests and the Croplands products. Furthermore, specific vegetations types are not included in the HRLVLCC portfolio; this concerns areas dominated by natural shrubs (i.e.&nbsp;shrubs that are not under agricultural use) and associations of lichens and mosses.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-e8467516151840ea4a22d7d91f3cf2c6ceebe367.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 5-1: Products within the HRL vegetated land cover characteristics.</figcaption>
+</figure>
+</div>
+<p>Given several interdependencies and potential overlaps among the Grasslands, Croplands and Tree Cover &amp; Forests products, the overall workflow starts with the classification of Base Vegetation Layer (BVL). A high-level description is provided for the overall workflow in Figure 5-2. The yearly BVL classification initially targets the separation of five basic land cover classes being:</p>
+<ol type="1">
+<li><p>herbaceous vegetation;</p></li>
+<li><p>cropland;</p></li>
+<li><p>tree cover;</p></li>
+</ol>
+<ul>
+<li>tree crops (i.e.&nbsp;nomenclature overlap between broadleaved tree cover and permanent crops in the Croplands product);</li>
+</ul>
+<ol start="4" type="1">
+<li>background class (including bare and sparsely vegetated areas and non-agricultural shrubs);</li>
+</ol>
+<p>In a subsequent post-processing step two further classes are derived to delineate the:</p>
+<ol start="5" type="1">
+<li><p>potential overlap herbaceous – cropland (i.e.&nbsp;pixels which are classified as cropland and herbaceous at least once in the time-series);</p></li>
+<li><p>The second derived class is derived from the intersection of all areas classified as tree cover and a preliminary version of the Tree Cover Density to delineate areas with low Tree Cover Density and hence allowed overlaps of herbaceous and tree cover.</p></li>
+</ol>
+<p>The derived yearly BVL is considered for the downstream productions of Grasslands, Croplands and Tree Cover &amp; Forests products as follows:</p>
+<ul>
+<li><p>For the production of the Grasslands layers: all areas classified as herbaceous, overlap herbaceous – tree cover, or overlap herbaceous – Cropland are considered as the potential maximum extent for the Herbaceous Cover (HER) layer. In addition, the BVL classification probabilities for the herbaceous class are used as the main input for the derivation of the HER layer.</p></li>
+<li><p>For the Croplands layers: the areas delineated as cropland, overlap herbaceous –cropland, or Tree Crops are considered as the maximum extent for the CTY classification and further refinement.</p></li>
+<li><p>For the Tree Cover &amp; Forests layers: the areas classified as tree cover, overlap herbaceous – tree cover, tree crops and the respective probabilities are used directly to derive the respective change layers and yearly DLT and TCD status layers.</p></li>
+</ul>
+<p>Within the areas identified as overlap herbaceous – cropland, a further harmonization step is carried out downstream. To this end the CTY classification initially includes a class for fodder crops which are transferred to the HER layer if occurring in the designated overlap class.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-6bc33732696023251e282e419d868126e4611b92.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 5-2: High-level overview of the relationship between the Base Vegetation Layer and the subsequent production of Grasslands, Croplands and Tree Cover &amp; Forests products</figcaption>
+</figure>
+</div>
+</section>
+<section id="product-application-areas-and-examples-of-use-cases" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Product application areas and examples of use cases</h1>
+<p>The HRL Tree Cover &amp; Forests, Grasslands and Croplands set of products is designed for use by a broad user community as basis for environmental and regional analysis and for supporting political decision-making, such as the Common Agricultural Policy (CAP), LULUCF (Land Use, Land Use Change and Forestry) regulation, the Nature Restoration Regulation (NRR), or the proposed European Forest Monitoring Law (FML). With the new products the EEA will ensure continuity and further densification of the well-established HRL Tree Cover &amp; Forests and Grasslands product time series. Those include a rich suite of raster products at a 3-yearly interval mapping the status of those land cover types with a spatial resolution of 10-metre and change layers at 20-metre spatial resolution.</p>
+<p>As an example, the following sections provide short information on (potential) use cases at national level, for which the Copernicus HRL Croplands product represent a fundamental input.</p>
+<section id="use-case-c3c4-crops-specific-parametrization-for-biomass-monitoring." class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="use-case-c3c4-crops-specific-parametrization-for-biomass-monitoring."><span class="header-section-number">6.1</span> Use case: C3/C4 crops specific parametrization for biomass monitoring.</h2>
+<p>The HRL Crop Types (CTY) layer offers comprehensive information on various crop types, allowing for further differentiation between C3 and C4 crops (if class not mixed-up). Maize, being the most common C4 crop cultivated in Europe could be easily derived from this dataset. By providing detailed information on crop types and their specific locations, the CTY layer enables the use of tailored parameters for biomass estimation at C3/C4 crop locations on an annual basis. This information is particularly relevant for on-going work within the Evoland<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> project, where the enhancement of biomass mapping for both crop and grassland areas is envisaged. In this respect, the reliability of the biomass mapping could benefit from the availability of this detailed crop type information. Moreover, the distinction between C3 and C4 crops is useful for better estimating autotrophic respiration, which in turn allows for more accurate conversions of gross primary productivity to net primary productivity. Given that C3 and C4 crops have distinct photosynthetic pathways and respiration rates, this differentiation supports the use of more precise parameters in productivity models, contributing to enhanced biomass mapping across crop landscapes.</p>
+</section>
+<section id="use-case-land-cover-specific-monitoring" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="use-case-land-cover-specific-monitoring"><span class="header-section-number">6.2</span> Use case: Land cover specific monitoring</h2>
+<p>Detailed and dynamic information on the state of the land as provided by the HRL Croplands layers allows to analyse regional trends in the area occupied by these land covers, which could be relevant information for authorities and policy makers. Furthermore, applications which require information on the land cover status can benefit from the HRL Croplands. For example, in case of biomass mapping often land cover specific parametrization is applied. Using HRL Croplands, allows to do this in a much more detailed and dynamic way. In case of the Evoland project, it is intended to use these layers to apply specific parametrization over crop and grassland locations.</p>
+</section>
+</section>
+<section id="product-description" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Product description</h1>
+<p>The HRL Croplands layers are generally provided in 100km Lambert Azimuthal Equal Area (LAEA) projection tiles as shown in Figure 7-1. The five French Oversea Territories are provided in UTM with the layout of the respective territory. The layers are available as Cloud-Optimized GeoTIFFs (COG) per reference year and 100km LAEA tile aligned with the EEA reference grid. Each raster file is accompanied by a Persistent Auxiliary Metadata (PAM) XML and an INSPIRE XML.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-ca1eb55e3cba78bf3f78fb81c831ae27ef69af7e.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7-1: LAEA tile layout incl.&nbsp;distinction between tiles to cover EU27 and EEA38.</figcaption>
+</figure>
+</div>
+<p>The HRL Croplands information aims at filling the data gap needed for detailed agricultural monitoring and enables repeatable and harmonised continental scale assessments within the CLMS portfolio. The HRL Croplands layers entail the mapping the extent of croplands and crop types, delineation of parcel-complexes, mapping agricultural practices on large scale and with wall-to-wall coverage and high spatial details.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-f66692b52cdab6bf7c00868d035160c85d2d44d8.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7-2 HRL Croplands product overview</figcaption>
+</figure>
+</div>
+<p>The primary layer is the yearly Crop Types (CTY) layer at 10 metre, which maps the specific crop grown in the main growing season for all pixels identified as arable or permanent crops by the BVL. Maximum uniformity, comparability, and interpretability of the final product is guaranteed across different regions in Europe by focusing on the main growing season. Besides the CTY layer a supportive Crop Types Confidence Layer (CTYCL) layer is provided to match the CTY layer. CTYCL indicates the degree of confidence of the provided crop type label. The probability value from the winning class as determined by the model is taken as the confidence level.</p>
+<p>Several further status HRL Cropping Patterns (CP) layers, covering 5 thematic domains, give information on the agricultural practices within the classified cropland area for the following domains:</p>
+<ul>
+<li><p>Main Crops;</p></li>
+<li><p>Bare Soil;</p></li>
+<li><p>Secondary Crops;</p></li>
+<li><p>Fallow Land;</p></li>
+<li><p>Cropping Seasons;</p></li>
+</ul>
+<p>All the CP layers are only applied over annual arable land, excluding permanent crops. Permanent crops do not have specific seasonal cycles, which is the primary focus of the cropping pattern layers. The workflow used to define the different agricultural practices is applied at field level scale, to ensure homogeneity in the seasonal signal and reduce signal noise. Afterwards, all the different layers are rasterized and aligned on the same spatial grid as the CTY layer. Therefore, only for those locations where initially a field could be delineated and where it coincides with a classified annual cropland, the Cropping Pattern layers are generated (excluding crop rotation layer, see last paragraph of section). Since the MMU is applied to the originally delineated parcel geometry used for defining CP information, further alignment with annual cropland may result in smaller spatial patterns due to the clipping of the original field boundaries. However, the CP information itself remains based on an MMU of at least 0.25 ha, as it is still derived from the original parcel geometry.</p>
+<p>The Main Crops (MC) layers focus on the characteristics of the main growing season which usually takes place during (part of) the summer season. These layers provide information on the emergence (CPMCE) and harvest (CPMCH) of the main growing season, as well as the duration of the season (CPMCD). Each of these layers include a Confidence Layer (CL) that indicates the level of uncertainty in days. Information on the characteristics of the growing season and its variations over time give valuable information on how growing seasons are impacted by (extreme) weather conditions and climate change at regional and national levels.</p>
+<p>The Bare Soil (BS) group of layers include information on the duration of the bare soil period. Presence of a period of Bare Soil Before (CPBSB) the emergence of the main crop season and Bare Soil After (CPBSA) the harvest of the main crop season are evaluated. Both layers also feature a CL that indicates the level of uncertainty in the duration of the bare soil period in days. This uncertainty is based on the uncertainty of the emergence and/or harvest events that define the bare soil period. The bare soil period is only defined for the duration within the reference year. Therefore, emergence events occurring after the calendar year that marks the end of the bare soil period following the main season will not be considered in the uncertainty calculation. Similarly, for the bare soil period before the main season, if the preceding harvest event took place in the previous calendar year, it will not be included in the uncertainty calculation. Information of bare soil periods are relevant for policy makers to assess the susceptibility of soils to leaching and erosion.</p>
+<p>The Secondary Crops (SC) group of layers provides information on agricultural parcels where an off-season secondary growing season occurs. Typically, this secondary season involves planting a cover crop in the field. Secondary season presence in only evaluated if a main season is detected. The secondary season is categorized into four Secondary Crop Types (CPSCT) based on the emergence date and length of the season: short/long summer and short/long winter secondary seasons. In addition, to this classification, information on the Secondary Crop Emergence (CPSCE) and Secondary Crop Duration (CPSCD) of the season is included. Similarly, as for the Main Crops (MC) layer, uncertainty information is provided for both the duration and emergence of the secondary crops. The SC layers offer valuable information for assessing policy implementation to prevent soil degradation and monitoring cropping changes during off-season over time at regional and national level.</p>
+<p>The Fallow Land (FL) layers give information on Fallow Land Presence (CPFLP) and Fallow Land Duration (CPFLD). Fallow land presence is defined as agricultural land where, temporarily, no agricultural activity takes place. Fallow land duration indicates the number of days a parcel is left fallow for the five-year period i.e., 2017-2021. Both the FLP layer and the FLD layer have an accompanying Confidence Layer (CL).</p>
+<p>Finally, the Cropping Seasons layers provide information on the number of detected growing seasons in the Cropping Seasons Yearly (CPCSY) layer and information on main crop rotation in the Cropping Seasons Types over 3 years (CPCST) layer. The CPCSY layer is based on the CTY and the CPSCT layers to count the number of growing seasons in a specific year. CPCST is based on the crop diversity count and contains the number of unique crop types grown in the main agricultural season over a 3-year period. Since, CPCST is based on information of previous year’s crop types, it is only available for the 2017-2019, 2018-2020, and 2019 till 2021 time periods. Furthermore, it does not rely on the delineation of parcel complexes compared to the other CP layers as it is a purely CTY based layer. Information on crop rotation provides valuable insights to monitor the application of monoculture or rotation cycle in specific regions.</p>
+<section id="thematic-characteristics-of-the-hrl-croplands-layers" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="thematic-characteristics-of-the-hrl-croplands-layers"><span class="header-section-number">7.1</span> Thematic characteristics of the HRL Croplands layers</h2>
+<p>The HRL Croplands layers are only provided for those locations where the BVL designates arable or permanent cropland (i.e., BVL classes cropland, tree crops and overlap herbaceous and crops). For those locations the pixel-based crop type algorithm classifies according to the crop type grown in the main growing season. A main crop season is defined as the most crucial period for cultivating crops of economic value. Initially, the algorithm also classifies the grassland and fodders crops that are present in the applied BVL mask (overlap herbaceous and crops), but those locations are transferred to the Herbaceous Cover (HER) layer (see 5.2). In Table 7-1, the final mapped crop types and the aggregation levels of the hierarchical nomenclature are given. The crop type aggregation level is used within the Crop Types (CTY) layer. For those cases where the classification algorithm remains undecided due to low confidence values, a separate category is added, subdivided in unclassified arable and permanent crop. This output is further spatially cleaned and harmonised over the years to enhance temporal and spatial consistency of the product. As a result of these post-processing steps, it might happen that there is some minimal overlap between the HRL Croplands and Grassland layers that are both located within the arable or permanent crops classes defined by BVL [7]. This potential overlap can be present in the published layers and solely occurs at borders between cropland and temporary grassland.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/Table7-1.png" class="img-fluid figure-img"></p>
+<figcaption>Table 7-1: HRL Crop Types nomenclature and aggregation levels</figcaption>
+</figure>
+</div>
+<p>The emergence and harvest detection are the main input for the different HRL Cropping Patterns (CP) layers that provide information on the agricultural practices. The following definitions of emergence and harvest are used to detect these events from satellite imagery:</p>
+<ul>
+<li><p>Emergence is defined as the moment when the first leaves of the crop unfold</p></li>
+<li><p>Harvest is defined as the moment when all standing biomass is removed.</p></li>
+</ul>
+<p>A main crop season is defined as the most crucial period for cultivating crops of economic value. Expert rules, developed by analysing seasonal boundaries in Europe and using USDA crop calendar data, are used to classify seasons as main or secondary [7]. Region specific seasonal boundaries are selected to reflect the seasonal shifts across Europe. Additionally, rules for prioritization are established to resolve conflicts in cases where multiple main seasons are possible. The complete procedure for selecting the growing season is outlined in the ATBD; while the detection is only performed for annual crops it is fully independent from the crop type label of the annual crop defined in the CTY layer [7]. However, due to the complexity of agricultural patterns, there may be challenges in accurately distinguishing the main season from the secondary season. This is particularly true in cases where a very late onset of the main growing season follows on a season with similar behaviour as winter cereals. Since the cultivation of winter cereals is also considered, the main season onset may occur before the reference year. Additionally, in rare instances, the harvest of the main season crop may occur shortly after the end of the year. In some situations, it is impossible to generate a Cropping Pattern product for the main crop layer based on the defined seasonal boundaries (i.e., season length should fall between 40 and 366 days, period of main growing season) and the detection of emergence and harvest events. In such cases, the corresponding pixels are flagged with dedicated codes (see Table 7-7).</p>
+<p>The Secondary Crop (SC) layers follow a similar methodology to the main season classification, but with distinct seasonal boundaries based on the emergence and harvest detected for the secondary crop. The secondary season can occur both preceding and following the main growing season, although preference is given to labelling a secondary season that follows the main season when multiple instances arise. If there are more than one seasonal signal after the main season within the same calendar year, the SC product may not align with the actual cover crop sown, but rather with a short-term crop planted in a double cropping system. Each secondary crop season is subdivided into four categories, short/long summer, and short/long winter secondary seasons. A seasonal length shorter than 100 days is considered as a short growing variant, otherwise it is a long variant. If the secondary crop emergence is before September and takes place after the end of the main season, it is a summer variant. In all other cases, it is a winter variant.</p>
+<p>The Bare Soil layers indicate the period before and after the main growing season when no crop cultivation activities occur. This period is determined by the detection of emergence and harvest events within that year in a particular field. Since a specific bare soil detection algorithm is not employed, there may be instances where the field is not completely bare during this period, possibly due to weed growth or the presence of residual crop remnants. Additionally, activities such as fertilization or ploughing of the field can fall within the bare soil period.</p>
+<p>The Fallow Land layers consider only delineated parcels that are classified as annual cropland by the CTY layer, other parcels are omitted for the fallow land evaluation. For the determination of fallow land presence thematic rules, based on the expected behaviour of fallow land, are used. The rules consider the average Crop Types Confidence Layer (CTYCL), the number and sequence of detected harvests and emergences in combination with the maximum fAPAR value. Harvest dates are used to determine the fallow land duration. Therefore, the accuracy of the fallow land layers depends on the accuracy of the CTYCL, the detected harvests and emergence, and the fAPAR timeseries.</p>
+<p>The Cropping Seasons layers provide insights into the annual crop rotation strategy and the number of growing seasons at specific locations. Note however that a maximum limit of two growing seasons is considered. If more than two seasons are identified, they will not be considered. Permanent crops are ignored in counting the crop diversity.</p>
+<p>An overview of how cropping pattern layers (excluding Fallow Land and Cropping Seasonslayers) can be generated at the field level based on the identified emergence and harvest events within a six-month period before and after the calendar year is given in Figure 7-3. The emergence and harvest events are used to classify the season as either main or secondary based on predefined seasonal boundaries. In the example shown in Figure 7-3, the main season corresponds to a winter cereal, resulting in no bare soil period before the main season for the reference year. Instead, a bare soil period is indicated between the main and secondary seasons, defined by the harvest of the main season and the emergence of the secondary season. The secondary season is classified as a long winter variant. The uncertainty surrounding fAPAR values around the emergence and harvest events is utilized to generate the respective Confidence Layers.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-80e6a4a68bfe83b945921f20705162656feeb945.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7-3: Example how the different cropping patterns layers for a barley field located in Belgium are generated for the reference year 2019. The season delineation is based on the predicted emergence (black line) and harvest dates (red line). The green timeseries curve is the daily fAPAR value (with uncertainty). BS after stands for the length of the bare soil period after the main season.</figcaption>
+</figure>
+</div>
+</section>
+<section id="download-content-file-naming-convention-and-file-formats" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="download-content-file-naming-convention-and-file-formats"><span class="header-section-number">7.2</span> Download content, file naming convention and file format(s)</h2>
+<p>Table 7-2: Download content, file naming convention and file format(s) for the HRL Croplands layers</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name of layer</th>
+<th>Acronym</th>
+<th>Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Crop types</td>
+<td>CTY</td>
+<td>CTY_S2017_R10m<br>CTY_S2018_R10m<br> …<br>CTY_S2023_R10m</td>
+</tr>
+<tr class="even">
+<td>Crop types confidence</td>
+<td>CTYCL</td>
+<td>CTYCL_S2017_R10m<br>CTYCL_S2018_R10m<br> …<br>CTYCL_S2023_R10m</td>
+</tr>
+<tr class="odd">
+<td>Main Crop Harvest</td>
+<td>CPMCH</td>
+<td>CPMCH_S2017_R10m<br>CPMCH_S2018_R10m<br> …<br>CPMCH_S2023_R10m</td>
+</tr>
+<tr class="even">
+<td>Main Crop Harvest Confidence Layer</td>
+<td>CPMCHCL</td>
+<td>CPMCHCL_S2017_R10m<br>CPMCHCL_S2018_R10m<br> …<br>CPMCHCL_S2023_R10m</td>
+</tr>
+<tr class="odd">
+<td>Main Crop Emergence</td>
+<td>CPMCE</td>
+<td>CPMCE_S2017_R10m<br>CPMCE_S2018_R10m<br> …<br>CPMCE_S2023_R10m</td>
+</tr>
+<tr class="even">
+<td>Main Crop Emergence Confidence Layer</td>
+<td>CPMCECL</td>
+<td>CPMCECL_S2017_R10m<br>CPMCECL_S2018_R10m<br> …<br>CPMCECL_S2023_R10m</td>
+</tr>
+<tr class="odd">
+<td>Main Crop Duration</td>
+<td>CPMCD</td>
+<td>CPMCD_S2017_R10m<br>CPMCD_S2018_R10m<br> …<br>CPMCD_S2023_R10m</td>
+</tr>
+<tr class="even">
+<td>Main Crop Duration Confidence Layer</td>
+<td>CPMCDCL</td>
+<td>CPMCDCL_S2017_R10m<br>CPMCDCL_S2018_R10m<br> …<br>CPMCDCL_S2023_R10m</td>
+</tr>
+<tr class="odd">
+<td>Bare Soil Before</td>
+<td>CPBSB</td>
+<td>CPBSB_S2017_R10m<br>CPBSB_S2018_R10m<br> …<br>CPBSB_S2023_R10m</td>
+</tr>
+<tr class="even">
+<td>Bare Soil Before Confidence Layer</td>
+<td>CPBSBCL</td>
+<td>CPBSBCL_S2017_R10m<br>CPBSBCL_S2018_R10m <br>…<br>CPBSBCL_S2023_R10m</td>
+</tr>
+<tr class="odd">
+<td>Bare Soil After</td>
+<td>CPBSA</td>
+<td>CPBSA_S2017_R10m<br>CPBSA_S2018_R10m<br> …<br>CPBSA_S2023_R10m</td>
+</tr>
+<tr class="even">
+<td>Bare Soil After Confidence Layer</td>
+<td>CPBSACL</td>
+<td>CPBSACL_S2017_R10m<br>CPBSACL_S2018_R10m<br> …<br>CPBSACL_S2023_R10m</td>
+</tr>
+<tr class="odd">
+<td>Secondary Crops Type</td>
+<td>CPSCT</td>
+<td>CPSCT_S2017_R10m<br>CPSCT_S2018_R10m<br> …<br>CPSCT_S2023_R10m</td>
+</tr>
+<tr class="even">
+<td>Secondary Crops Emergence</td>
+<td>CPSCE</td>
+<td>CPSCE_S2017_R10m<br>CPSCE_S2018_R10m<br> …<br>CPSCE_S2023_R10m</td>
+</tr>
+<tr class="odd">
+<td>Secondary Crops Duration</td>
+<td>CPSCD</td>
+<td>CPSCD_S2017_R10m<br>CPSCD_S2018_R10m<br> …<br>CPSCD_S2023_R10m</td>
+</tr>
+<tr class="even">
+<td>Secondary Crops Duration Confidence Layer</td>
+<td>CPSCDCL</td>
+<td>CPSCDCL_S2017_R10m<br>CPSCDCL_S2018_R10m<br> …<br>CPSCDCL_S2023_R10m</td>
+</tr>
+<tr class="odd">
+<td>Fallow Land Presence</td>
+<td>CPFLP</td>
+<td>CPFLP_S2017_R10m<br>CPFLP_S2018_R10m<br> …<br>CPFLP_S2023_R10m</td>
+</tr>
+<tr class="even">
+<td>Fallow Land Presence Confidence Layer</td>
+<td>CPFLPCL</td>
+<td>CPFLPCL_S2017_R10m<br>CPFLPCL_S2018_R10m<br> …<br>CPFLPCL_S2023_R10m</td>
+</tr>
+<tr class="odd">
+<td>Fallow Land Duration</td>
+<td>CPFLD</td>
+<td>CPFLD_P2017-2021_R10m<br>CPFLD_P2018-2022_R10m<br> …<br>CPFLD_P2020-2024_R10m</td>
+</tr>
+<tr class="even">
+<td>Fallow Land Duration Confidence Layer</td>
+<td>CPFLDCL</td>
+<td>CPFLDCL_P2017-2021_R10m<br>CPFLDCL_P2018-2022_R10m<br> …<br>CPFLDCL_P2020-2024_R10m</td>
+</tr>
+<tr class="odd">
+<td>Cropping Seasons Yearly</td>
+<td>CPCSY</td>
+<td>CPCSY_S2017_R10m<br> …<br>CPCSY_S2023_R10m</td>
+</tr>
+<tr class="even">
+<td>Cropping SeasonsTypes over 3 years</td>
+<td>CPCST</td>
+<td>CPCST_P2017-2019_R10m<br>CPCST_P2018-2020_R10m<br> …<br>CPCST_P2021-2023_R10m</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Delivery format (for Crop types &amp; Crop types confidence):</strong><br>
+Tiles of Cloud-Optimized GeoTIFF aligned with the 100km LAEA grid with embedded colormaps, as well as separate colour legends in the formats <em>.qml,</em> .sld and *.lyr</p>
+<p><strong>Delivery format (for all rows except Crop types &amp; Crop types confidence):</strong> Tiles of Cloud-Optimized GeoTIFF aligned with the 100km LAEA grid. Separate colour legends in the formats <em>.qml,</em> .sld and *.lyr</p>
+<p><strong>Metadata (applies to all rows):</strong><br>
+XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table.</p>
+</section>
+<section id="projection-and-spatial-coverage" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="projection-and-spatial-coverage"><span class="header-section-number">7.3</span> Projection and spatial coverage</h2>
+<p>Table 7-3: Projection and spatial coverage for the HRL Croplands layers</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Name of layer</th>
+<th>Acronym</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Crop types</td>
+<td>CTY</td>
+</tr>
+<tr class="even">
+<td>Crop types confidence</td>
+<td>CTYCL</td>
+</tr>
+<tr class="odd">
+<td>Main Crop Harvest</td>
+<td>CPMCH</td>
+</tr>
+<tr class="even">
+<td>Main Crop Harvest Confidence Layer</td>
+<td>CPMCHCL</td>
+</tr>
+<tr class="odd">
+<td>Main Crop Emergence</td>
+<td>CPMCE</td>
+</tr>
+<tr class="even">
+<td>Main Crop Emergence Confidence Layer</td>
+<td>CPMCECL</td>
+</tr>
+<tr class="odd">
+<td>Main Crop Duration</td>
+<td>CPMCD</td>
+</tr>
+<tr class="even">
+<td>Main Crop Duration Confidence Layer</td>
+<td>CPMCDCL</td>
+</tr>
+<tr class="odd">
+<td>Bare Soil Before</td>
+<td>CPBSB</td>
+</tr>
+<tr class="even">
+<td>Bare Soil Before Confidence Layer</td>
+<td>CPBSBCL</td>
+</tr>
+<tr class="odd">
+<td>Bare Soil After</td>
+<td>CPBSA</td>
+</tr>
+<tr class="even">
+<td>Bare Soil After Confidence Layer</td>
+<td>CPBSACL</td>
+</tr>
+<tr class="odd">
+<td>Secondary Crops Type</td>
+<td>CPSCT</td>
+</tr>
+<tr class="even">
+<td>Secondary Crops Emergence</td>
+<td>CPSCE</td>
+</tr>
+<tr class="odd">
+<td>Secondary Crops Duration</td>
+<td>CPSCD</td>
+</tr>
+<tr class="even">
+<td>Secondary Crops Duration Confidence Layer</td>
+<td>CPSCDCL</td>
+</tr>
+<tr class="odd">
+<td>Fallow Land Presence</td>
+<td>CPFLP</td>
+</tr>
+<tr class="even">
+<td>Fallow Land Presence Confidence Layer</td>
+<td>CPFLPCL</td>
+</tr>
+<tr class="odd">
+<td>Fallow Land Duration</td>
+<td>CPFLD</td>
+</tr>
+<tr class="even">
+<td>Fallow Land Duration Confidence Layer</td>
+<td>CPFLDCL</td>
+</tr>
+<tr class="odd">
+<td>Cropping Seasons Yearly</td>
+<td>CPCSY</td>
+</tr>
+<tr class="even">
+<td>Cropping Seasons Types over 3 years</td>
+<td>CPCST</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Spatial coverage (applies to all rows):</strong> 5.751.002 km² (covering the full EEA-38)</p>
+<p><strong>Coordinate reference system (WKT) (applies to all rows):</strong> PROJCS[“ETRS89-extended / LAEA Europe”, GEOGCS[“ETRS89”, DATUM[“European_Terrestrial_Reference_System_1989”, SPHEROID[“GRS 1980”,6378137,298.257222101, AUTHORITY[“EPSG”,“7019”]], AUTHORITY[“EPSG”,“6258”]], PRIMEM[“Greenwich”,0, AUTHORITY[“EPSG”,“8901”]], UNIT[“degree”,0.0174532925199433, AUTHORITY[“EPSG”,“9122”]], AUTHORITY[“EPSG”,“4258”]], PROJECTION[“Lambert_Azimuthal_Equal_Area”], PARAMETRE[“latitude_of_center”,52], PARAMETRE[“longitude_of_center”,10], PARAMETRE[“false_easting”,4321000], PARAMETRE[“false_northing”,3210000], UNIT[“metre”,1, AUTHORITY[“EPSG”,“9001”]], AXIS[“Northing”,NORTH], AXIS[“Easting”,EAST], AUTHORITY[“EPSG”,“3035”]] Except for French DOMs where the following CRS are used: YT: EPSG 32738 RE: EPSG 32740 MQ: EPSG 32620 GP: EPSG 32620 GF: EPSG 32620</p>
+</section>
+<section id="spatial-resolution" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="spatial-resolution"><span class="header-section-number">7.4</span> Spatial resolution</h2>
+<p>The native spatial resolution of the HRL Cropland products CTY and the Cropping Patterns is 10 metres and linked to the highest resolution of Sentinel-2 (red, blue, green and near-infrared bands) as the primary input data source. The spatial resolution should, however, not be confused with the size and location-precision of the elements that can be represented in the maps. The latter is limited by certain factors that are intrinsic to the available input data:</p>
+<ul>
+<li><p>Ground Resolved Distance (GRD) is a metric that better reflects the spatial resolution of a satellite sensor than the spatial resolution of the image. For Sentinel-2 recent estimates suggest a GRD around 12.5 metres [10]</p></li>
+<li><p>To fully leverage Sentinel-2, the analyses of the time-series are essential. Since the completion of the reprocessing of Sentinel-2 Colllection-1 the multi-temporal coregistration is better than 4m in most cases<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> whereas observations until August 2021 only had a co-registration accuracy of 12 metres before the reprocessing<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Most other input data have a coarser spatial resolution (e.g. Sentinel-1 ~20 metre, Sentinel-2 short wave infrared at 20 metre).</p></li>
+<li><p>The detectability of land cover elements can be further limited by the intensity of their reflectance. This concerns for example vegetation on very bright soils or in urban areas where the reflectance of the brighter non-vegetated surfaces easily dominates the recorded reflectance within one pixel.</p></li>
+</ul>
+<p>While it is difficult to quantify the cumulative effect and variability of these factors, limited detectability and spatial uncertainty of elements at a scale from 10-20 metres should probably be considered for the usage and validation of the maps.</p>
+<p>Table 7-4: Spatial resolution for the HRL Croplands layers</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Name of layer</th>
+<th>Acronym</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Crop types</td>
+<td>CTY</td>
+</tr>
+<tr class="even">
+<td>Crop types confidence</td>
+<td>CTYCL</td>
+</tr>
+<tr class="odd">
+<td>Main Crop Harvest</td>
+<td>CPMCH</td>
+</tr>
+<tr class="even">
+<td>Main Crop Harvest Confidence Layer</td>
+<td>CPMCHCL</td>
+</tr>
+<tr class="odd">
+<td>Main Crop Emergence</td>
+<td>CPMCE</td>
+</tr>
+<tr class="even">
+<td>Main Crop Emergence Confidence Layer</td>
+<td>CPMCECL</td>
+</tr>
+<tr class="odd">
+<td>Main Crop Duration</td>
+<td>CPMCD</td>
+</tr>
+<tr class="even">
+<td>Main Crop Duration Confidence Layer</td>
+<td>CPMCDCL</td>
+</tr>
+<tr class="odd">
+<td>Bare Soil Before</td>
+<td>CPBSB</td>
+</tr>
+<tr class="even">
+<td>Bare Soil Before Confidence Layer</td>
+<td>CPBSBCL</td>
+</tr>
+<tr class="odd">
+<td>Bare Soil After</td>
+<td>CPBSA</td>
+</tr>
+<tr class="even">
+<td>Bare Soil After Confidence Layer</td>
+<td>CPBSACL</td>
+</tr>
+<tr class="odd">
+<td>Secondary Crops Type</td>
+<td>CPSCT</td>
+</tr>
+<tr class="even">
+<td>Secondary Crops Emergence</td>
+<td>CPSCE</td>
+</tr>
+<tr class="odd">
+<td>Secondary Crops Duration</td>
+<td>CPSCD</td>
+</tr>
+<tr class="even">
+<td>Secondary Crops Duration Confidence Layer</td>
+<td>CPSCDCL</td>
+</tr>
+<tr class="odd">
+<td>Fallow Land Presence</td>
+<td>CPFLP</td>
+</tr>
+<tr class="even">
+<td>Fallow Land Presence Confidence Layer</td>
+<td>CPFLPCL</td>
+</tr>
+<tr class="odd">
+<td>Fallow Land Duration</td>
+<td>CPFLD</td>
+</tr>
+<tr class="even">
+<td>Fallow Land Duration Confidence Layer</td>
+<td>CPFLDCL</td>
+</tr>
+<tr class="odd">
+<td>Cropping Seasons Yearly</td>
+<td>CPCSY</td>
+</tr>
+<tr class="even">
+<td>Cropping Seasons Types over 3 years</td>
+<td>CPCST</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pixel size (applies to all rows):</strong> → 10m</p>
+<p><strong>MMU (applies to all rows):</strong> → 0.25ha*</p>
+<ul>
+<li>For CP layers, smaller patterns may appear due to alignment with annual cropland. However, the CP information is derived from the original parcel geometries (before alignment), which adhere to the MMU requirements.</li>
+</ul>
+</section>
+<section id="temporal-information" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="temporal-information"><span class="header-section-number">7.5</span> Temporal information</h2>
+<p>Table 7-5: Temporal information for the HRL Croplands layers</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name of layer</th>
+<th>Acronym</th>
+<th>Reference year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Crop types</td>
+<td>CTY</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="even">
+<td>Crop types confidence</td>
+<td>CTYCL</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="odd">
+<td>Main Crop Harvest</td>
+<td>CPMCH</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="even">
+<td>Main Crop Harvest Confidence Layer</td>
+<td>CPMCHCL</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="odd">
+<td>Main Crop Emergence</td>
+<td>CPMCE</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="even">
+<td>Main Crop Emergence Confidence Layer</td>
+<td>CPMCECL</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="odd">
+<td>Main Crop Duration</td>
+<td>CPMCD</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="even">
+<td>Main Crop Duration Confidence Layer</td>
+<td>CPMCDCL</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="odd">
+<td>Bare Soil Before</td>
+<td>CPBSB</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="even">
+<td>Bare Soil Before Confidence Layer</td>
+<td>CPBSBCL</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="odd">
+<td>Bare Soil After</td>
+<td>CPBSA</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="even">
+<td>Bare Soil After Confidence Layer</td>
+<td>CPBSACL</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="odd">
+<td>Secondary Crops Type</td>
+<td>CPSCT</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="even">
+<td>Secondary Crops Emergence</td>
+<td>CPSCE</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="odd">
+<td>Secondary Crops Duration</td>
+<td>CPSCD</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="even">
+<td>Secondary Crops Duration Confidence Layer</td>
+<td>CPSCDCL</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="odd">
+<td>Fallow Land Presence</td>
+<td>CPFLP</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="even">
+<td>Fallow Land Presence Confidence Layer</td>
+<td>CPFLPCL</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021<br>2022<br>2023</td>
+</tr>
+<tr class="odd">
+<td>Fallow Land Duration</td>
+<td>CPFLD</td>
+<td>2017-2021</td>
+</tr>
+<tr class="even">
+<td>Fallow Land Duration Confidence Layer</td>
+<td>CPFLDCL</td>
+<td>2017-2021</td>
+</tr>
+<tr class="odd">
+<td>Cropping Seasons Yearly</td>
+<td>CPCSY</td>
+<td>2017<br>2018<br>2019<br>2020<br>2021</td>
+</tr>
+<tr class="even">
+<td>Cropping Seasons Types over 3 years</td>
+<td>CPCST</td>
+<td>2017-2019<br>2018-2020<br>2019-2021</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="product-characteristics-and-class-codes" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="product-characteristics-and-class-codes"><span class="header-section-number">7.6</span> Product characteristics and class codes</h2>
+<p>Table 7-6: Overview of the used quality flags within the HRL Croplands layers</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quality flag</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>Flags locations where the respective Croplands product could not be produced (used in all except CPFLPCL &amp; CTYCL). Below an overview of the meaning per layer category:<br><br>CTY: No cropland CPCST: Over the three years period this location is not consistently classified as an annual crop.<br>CPFLP, CPFLD, CPFLDCL: No fallow land location.<br>All other CP layers (excluding CPFLPCL): No annual cropland</td>
+</tr>
+<tr class="even">
+<td>253</td>
+<td>CPFLPCL: No fallow land<br>CTYCL: No cropland.</td>
+</tr>
+<tr class="odd">
+<td>255</td>
+<td>Outside area in case of CTYCL.</td>
+</tr>
+<tr class="even">
+<td>65526</td>
+<td>Fallow land occurrence and hence only fallow land related layers will be generated. The other layers will be flagged with at locations of fallow land (used for all cropping pattern layers, excluding CPCST, CPFLD, CPFLDCL, CPFLPCL, CPFLP).</td>
+</tr>
+<tr class="odd">
+<td>65527</td>
+<td>No delineated field geometry overlaps with an annual cropland location (from CTY) and hence no Cropping Pattern (CP) layers could be defined (used for all CP layers, excluding CPCST, CPFLD, CPFLDCL, CPFLPCL, CPFLP).</td>
+</tr>
+<tr class="even">
+<td>65528</td>
+<td>No CPCST could be defined for this location. This occurs when the CTY has labelled this location in the reference year as a permanent or grassland or fodder crop, whereas in the previous year(s) it was classified as an annual crop (used only for CPCST layer).</td>
+</tr>
+<tr class="odd">
+<td>65529</td>
+<td>It is not possible to derive this specific bare soil period (before or after) since it does not occur within the calendar boundaries of the reference year (used for all Bare Soil related layers).</td>
+</tr>
+<tr class="even">
+<td>65530</td>
+<td>No secondary crop growing season could be delineated beyond the main growing season delineated for that location (used for all Secondary Crop layers).</td>
+</tr>
+<tr class="odd">
+<td>65531</td>
+<td>There are not enough satellite observations to utilize the emergence and harvest detection algorithm, which is crucial for deriving the cropping pattern layers. Insufficient observations occur when there is a temporal gap of more than 60 days in Sentinel-1 observations or when no Sentinel-2 observations are available after cloud masking, which may occur near bright surfaces (used for all Cropping Patterns, except Fallow Land related layers and CPCST).</td>
+</tr>
+<tr class="even">
+<td>65532</td>
+<td>No season delineation is possible based on the output of the emergence and harvest detection algorithms. This can happen under the following situations:<br><br>- No harvest event or emergence event has been detected.<br>- No harvest event does occur after the emergence event. <br>- All the linked season(s) are too long (&gt;366 days) or too short (&lt;40 days).<br>- The start of the linked season(s) is after the start of the reference year.- The end of the linked season(s) is before the start of the reference year. <br><br>Used for all Cropping Pattern layers, except Fallow Land related layers and CPCST.</td>
+</tr>
+<tr class="odd">
+<td>65533</td>
+<td>If the identified growing season(s) has not been flagged by the conditions in flag 65532, and the derived seasonality period extends beyond the defined timeframe for the main growing season, then it is not feasible to produce any Cropping Pattern layer in this situation.<br><br>Used for all Cropping Pattern layers, except Fallow Land related layers and CPCST.</td>
+</tr>
+<tr class="even">
+<td>65534</td>
+<td>This flag is utilized when none of the aforementioned flags are already in effect, indicating that no confidence can be calculated for the specific Cropping Patterns layer. The confidence assessment for the layers relies on the uncertainty of the satellite time series at the identified emergence and harvest date(s). If the uncertainty is deemed significant or impossible to calculate, this flag will be applied. If this situation happens to derive the confidence level on the harvest date(s), it will impact only those layers that utilized these specific harvest date(s), and similarly for the emergence date(s).<br><br>In case of the CPFLDCL layer, this flag could also occur when the Fallow Land Duration over the years always entails the full calendar year. As a result, it is not possible to calculate a confidence without information on the confidence at the start or end point defined by a harvest event. <br><br>Used for all Cropping Patterns Confidence Layers.</td>
+</tr>
+<tr class="odd">
+<td>65535</td>
+<td>Outside area</td>
+</tr>
+</tbody>
+</table>
+<p>Table 7-7: Summary of the applicable quality flags of the HRL Croplands layers</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name of layer</th>
+<th>Acronym</th>
+<th>Classified feature</th>
+<th>Class coding</th>
+<th>Applicable quality flags</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Crop types</td>
+<td>CTY</td>
+<td>Categorical label on crop type.</td>
+<td>0: No cropland <br>1110: Wheat<br>1120: Barley<br>1130: Maize<br>1140: Rice<br>1150: Other cereals<br>1210: Fresh Vegetables<br>1220: Dry Pulses<br>1310: Potatoes<br>1320: Sugar Beet<br>1410: Sunflower<br>1420: Soybeans<br>1430: Rapeseed<br>1440: Flax cotton and hemp<br>2100: Grapes<br>2200: Olives<br>2310: Fruits <br>2320: Nuts<br>3100: Unclassified annual crop<br>3200: Unclassified permanent crop <br>65535: outside area</td>
+<td>[0, 65535]</td>
+</tr>
+<tr class="even">
+<td>Crop types confidence</td>
+<td>CTYCL</td>
+<td>Probability as obtained from the confidence of the selected crop type class.</td>
+<td>0-100: Probability expressed as a percentage.</td>
+<td>[253,255]</td>
+</tr>
+<tr class="odd">
+<td>Main Crop Harvest</td>
+<td>CPMCH</td>
+<td>The harvest date of the main (annual) crop seasons expressed in DOY (days of the year).</td>
+<td>YYDOY where YY = last 2 digits of the year (e.g., 19 for 2019) and DOY is the day of the year (1-366).</td>
+<td>[0, 65526, 65527, 65531, 65532, 65533, 65535]</td>
+</tr>
+<tr class="even">
+<td>Main Crop Harvest Confidence Layer</td>
+<td>CPMCHCL</td>
+<td>The confidence layer for the harvest date indicating the uncertainty (days) on the detected harvest date of the main (annual) crop.</td>
+<td>Uncertainty in days (1-40)</td>
+<td>[0, 65526, 65527, 65531, 65532, 65533, 65534, 65535]</td>
+</tr>
+<tr class="odd">
+<td>Main Crop Emergence</td>
+<td>CPMCE</td>
+<td>The emergence date of the main (annual) crop expressed in DOY (day of year).</td>
+<td>YYDOY where YY = last 2 digits of the year (e.g., 19 for 2019) and DOY is the day of the year (1-366).</td>
+<td>[0, 65526, 65527, 65531, 65532, 65533, 65535]</td>
+</tr>
+<tr class="even">
+<td>Main Crop Emergence Confidence Layer</td>
+<td>CPMCECL</td>
+<td>The uncertainty of the emergence date of the main (annual) crop expressed in days.</td>
+<td>Uncertainty in days (1-40)</td>
+<td>[0, 65526, 65527, 65531, 65532, 65533, 65534, 65535]</td>
+</tr>
+<tr class="odd">
+<td>Main Crop Duration</td>
+<td>CPMCD</td>
+<td>The duration (in days) on the season duration of the main (annual) crop.</td>
+<td>Days (40-366)</td>
+<td>[0, 65526, 65527, 65531, 65532, 65533, 65535]</td>
+</tr>
+<tr class="even">
+<td>Main Crop Duration Confidence Layer</td>
+<td>CPMCDCL</td>
+<td>The uncertainty (in days) on the season duration of the main (annual) crop.</td>
+<td>Uncertainty in days (1-80)</td>
+<td>[0, 65526, 65527, 65531, 65532, 65533, 65534, 65535]</td>
+</tr>
+<tr class="odd">
+<td>Bare Soil Before</td>
+<td>CPBSB</td>
+<td>The bare soil period (in days) before the emergence of the main annual crop.</td>
+<td>Days (1-295)</td>
+<td>[0, 65526, 65527, 65529, 65531, 65532, 65533, 65535]</td>
+</tr>
+<tr class="even">
+<td>Bare Soil Before Confidence Layer</td>
+<td>CPBSBCL</td>
+<td>The uncertainty of the bare soil period (in days) before the emergence of the main annual crop.</td>
+<td>Uncertainty in days (1-80)</td>
+<td>[0, 65526, 65527, 65529, 65531, 65532, 65533, 65534, 65535]</td>
+</tr>
+<tr class="odd">
+<td>Bare Soil After</td>
+<td>CPBSA</td>
+<td>The bare soil period (in days) after the harvest of the main annual crop.</td>
+<td>Days (1-275)</td>
+<td>[0, 65526, 65527, 65529, 65531, 65532, 65533, 65535]</td>
+</tr>
+<tr class="even">
+<td>Bare Soil After Confidence Layer</td>
+<td>CPBSACL</td>
+<td>The uncertainty of the bare soil period (in days) after the harvest of the main annual crop.</td>
+<td>Uncertainty in days (1-80)</td>
+<td>[0, 65526, 65527, 65529, 65531, 65532, 65533, 65534, 65535]</td>
+</tr>
+<tr class="odd">
+<td>Secondary Crops Type</td>
+<td>CPSCT</td>
+<td>Indicates the presence of a secondary (cover crop) season and differentiates it into four possible categories.</td>
+<td>1: Short Summer<br>2: Long Summer<br>3: Short Winter<br>4: Long Winter</td>
+<td>[0, 65526, 65527, 65530, 65531, 65532, 65533, 65535]</td>
+</tr>
+<tr class="even">
+<td>Secondary Crops Emergence</td>
+<td>CPSCE</td>
+<td>The emergence date of the secondary crop in DOY.</td>
+<td>YYDOY where YY = last 2 digits of the year (e.g., 19 for 2019) and DOY is the day of the year (1-366).</td>
+<td>[0, 65526, 65527, 65530, 65531, 65532, 65533, 65535]</td>
+</tr>
+<tr class="odd">
+<td>Secondary Crops Duration</td>
+<td>CPSCD</td>
+<td>The duration (in days) of the secondary crop season.</td>
+<td>Days (40-366)</td>
+<td>[0, 65526, 65527, 65530, 65531, 65532, 65533, 65535]</td>
+</tr>
+<tr class="even">
+<td>Secondary Crops Duration Confidence Layer</td>
+<td>CPSCDCL</td>
+<td>The uncertainty (in days) of the duration of the secondary of asecondary crop season.</td>
+<td>Uncertainty in days (1-80)</td>
+<td>[0, 65526, 65527, 65530, 65531, 65532, 65533, 65534, 65535]</td>
+</tr>
+<tr class="odd">
+<td>Fallow Land Presence</td>
+<td>CPFLP</td>
+<td>Yearly fallow land classification indicating if arable land has been left fallow in the respective calendar year.</td>
+<td>1: Fallow land</td>
+<td>[0, 65535]</td>
+</tr>
+<tr class="even">
+<td>Fallow Land Presence Confidence Layer</td>
+<td>CPFLPCL</td>
+<td>Uncertainty of the fallow presence classification</td>
+<td>0-100: Probability expressed as percentage</td>
+<td>[253, 65535]</td>
+</tr>
+<tr class="odd">
+<td>Fallow Land Duration</td>
+<td>CPFLD</td>
+<td>The total fallow land duration (in days) over the period 2017-2021.</td>
+<td>Days (1-1826)</td>
+<td>[0,65535]</td>
+</tr>
+<tr class="even">
+<td>Fallow Land Duration Confidence Layer</td>
+<td>CPFLDCL</td>
+<td>The uncertainty (in days) of the total fallow land duration over the period 2017-2021.</td>
+<td>Uncertainty in days (1-200)</td>
+<td>[0, 65534, 65535]</td>
+</tr>
+<tr class="odd">
+<td>Cropping Seasons Yearly</td>
+<td>CPCSY</td>
+<td>Number of growing seasons detected within 1 year.</td>
+<td>[1-2]</td>
+<td>[0, 65526, 65527,65531, 65532, 65533 65535]</td>
+</tr>
+<tr class="even">
+<td>Cropping Seasons Types over 3 years</td>
+<td>CPCST</td>
+<td>Indicating the number of different crop types grown in a 3-year period (excl. secondary crops)</td>
+<td>[1-3]</td>
+<td>[0, 65528, 65535]</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="production-quality-assessment" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Production quality assessment</h1>
+<p>The aim of this chapter is to inform about the procedures for internal validation and accuracy assessment for the status and change layer across the full EEA38 area. While the different layers have their own quality requirements, all have in common an assessment of the thematic quality which relies on comparing mapped information within the layers with reference data at selected locations.</p>
+<p>This procedure contains 3 steps that will be described in the following sections:</p>
+<ul>
+<li><p>Sampling design</p></li>
+<li><p>Response design</p></li>
+<li><p>Statistical Analysis</p></li>
+</ul>
+<p>The internal validation of the HRL Croplands layers follows scientifically accepted and operationally proven validation design, applied in previous productions of various HRL’s of reference years 2012, 2015 and 2018. According to the product specifications, results will be presented in the form of Overall Accuracies (OA), Producer’s and User’s Accuracies or F-Score measure.</p>
+<section id="layers-to-be-verified" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="layers-to-be-verified"><span class="header-section-number">8.1</span> Layers to be verified</h2>
+<p>While the full portfolio of the HRL Croplands product includes numerous layers and reference years, only a subset of them is concerned by the internal verification exercise. The focus of the assessment has been set on the primary layer being the Crop Types layer and the reference years 2018 and 2021, 2022. The rationale for this selection has been mainly the availability of essential reference datasets such as LUCAS 2018 [1] and LUCAS 2022 [2], the VHR IMAGE coverages of 2018 and 2021 imagery, and publicly available GSAA datasets. An overview of the verified layers and their target accuracies is given in Table 8-1.</p>
+<p>Table 8-1: Layers to be verified and target accuracies</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Layers</th>
+<th>Reference year or period</th>
+<th>Target accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Crop Types 10 m</td>
+<td>2018, 2021, 2022</td>
+<td>F-score &gt; 85% at crop group level (6 classes)<br><br>F-score &gt; 80% at aggregation level 2 (11 classes)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sampling-design" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="sampling-design"><span class="header-section-number">8.2</span> Sampling Design</h2>
+<p>Two sampling approaches are considered to ensure an adequate accuracy assessment of the layers at different hierarchical nomenclature levels.</p>
+<p>The first sampling approach is dedicated to assess the accuracies of the Crop Typeslayer at crop group level. At pan-European level, this corresponds to a non-stratified, systematic and random sampling approach based on the 2 km by 2 km LUCAS grid. For the assessment of status layers, 10 000 samples (Primary Sampling Units) were randomly selected over the extended LUCAS grid (Figure 8-1). An additional 4000 samples have been allocated for the assessment of the HRL change layers Tree Cover Presence Change 2018-2021 [11] and Grassland Change 2018-2021[12] and are used here as well to exploit synergies.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-c861206239383485c44d6e1af9b25dabed4cf2e7.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 8-1: Approach I sample distribution for verification at Crop Group Level</figcaption>
+</figure>
+</div>
+<p>The second sampling approach is dedicated to the accuracy assessment of the Crop Types layer at aggregation level 1 which contains 11 classes (Table 8-2). To ensure a correct and precise identification of crop parcels during the verification exercise, the use of LUCAS and GSAA data as reference data is mandatory. However, some limitations of those datasets exist:</p>
+<ul>
+<li><p>LUCAS survey information exists for the years 2018 and 2022 but not for the year 2021.</p></li>
+<li><p>GSAA data is not openly available for all countries and for all reference years.</p></li>
+</ul>
+<p>To circumvent those limitations, the approach II proposes to:</p>
+<ul>
+<li><p>For the year 2018, take advantage of the LUCAS survey information by using all “LUCAS crops” (e.g.&nbsp;LUCAS point with crop type information) which were not used as calibration/training data for the year 2018 (3226 LUCAS points when excluding UK). The location of the samples is illustrated in Figure 8-2.</p></li>
+<li><p>Use of GSAA data when and where available: per country, a random sampling of crop parcels (among those not used for calibration/training purposes) is performed to populate the reference database. This sampling is done on the year 2021 when GSAA was available but can be done on years 2020 or 2019 depending on GSAA availability for said country. This is illustrated on Figure 8-4. The total amount of samples selected from GSAA data is similar to the sampling effort for the year 2018 when considering LUCAS crop sample (~3300 samples). For efficiency reasons it was not possible to collect and harmonize further GSAA datasets for following years.</p></li>
+<li><p>For the year 2022 the LUCAS survey information was used by selecting all LUCAS points for which the Copernicus protocol was applied and crop type information was available. Since LUCAS 2022 was not used at all for training and calibration during the production all samples could be used for the accuracy assessment. This amounts to a total of 32 732 LUCAS points that could be used to assess the accuracy at level 1 of the CTY nomenclature Figure 8-3.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-9e704a7c3da9f900c7030e35f7e20b360d0ffd69.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 8-2: Approach II sample distribution depending on LUCAS points containing crop type information for the year 2018</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-e2575e0f399b4b95661426ae2f21c6c5c7a0b9bd.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 8-3: Approach II sample distribution depending on LUCAS points containing crop type information for the year 2022</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-d2276222fad84e13af99fab131c83599787f58a8.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 8-4: GSAA data availability, per country per year</figcaption>
+</figure>
+</div>
+<p>It is important to note that those samplings do not cover the whole EEA38 due to the availability and specifications of GSAA and LUCAS data, so the reporting levels will differ from approach I.</p>
+</section>
+<section id="response-design" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="response-design"><span class="header-section-number">8.3</span> Response Design</h2>
+<p>The response design is the protocol used for retrieval of the validation/reference information for all sample units. Two types of datasets are used to perform the interpretation of samples units: guiding data and reference data.</p>
+<p>Guiding data are those used for production of HRL Croplands layers and consist mainly of timeseries of Sentinel data.</p>
+<p>Reference data are complementary and independent data that can provide more spatial details and landscape context:</p>
+<ul>
+<li><p>VHR_IMAGE_20186 and VHR_IMAGE_20217: very high resolution optical earth observation imagery, covering EEA38 for the reference years 2018 and 2021 (+-1 year).</p></li>
+<li><p>Other external datasets:</p>
+<ul>
+<li><p>Bing maps image/ cartography layer</p></li>
+<li><p>Open Street Map data</p></li>
+<li><p>Google Earth Image / cartography data</p></li>
+<li><p>LUCAS data for the years 2018 and 2022 (where available)</p></li>
+<li><p>GSAA data for the year 2018 and 2021 (where available)</p></li>
+<li><p>Sentinel-2 imagery from January / March / May and July 2022</p></li>
+</ul></li>
+</ul>
+<p>The interpretation workflow for the verification of the crop group consists of thematic plausibility analysis of the sample units. Plausibility analysis means that the class assigned by the layer is known by the interpreter during the interpretation. The Primary Sampling Units were interpreted at the crop group level (Table 8-2) using guiding and reference datasets, considering the surrounding of the sample (typically crop parcel) to properly account for the MMU of 0.25 ha.</p>
+<p>Table 8-2: Crop Types layer nomenclature and aggregation levels</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Class code</th>
+<th>Land Cover</th>
+<th>Crop Group</th>
+<th>Level 1(accuracy aggregation)</th>
+<th>Crop types (Level 2)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1110</td>
+<td>Arable Crops</td>
+<td>Cereals</td>
+<td>Cereals</td>
+<td>Wheat</td>
+</tr>
+<tr class="even">
+<td>1120</td>
+<td>Arable Crops</td>
+<td>Cereals</td>
+<td>Cereals</td>
+<td>Barley</td>
+</tr>
+<tr class="odd">
+<td>1130</td>
+<td>Arable Crops</td>
+<td>Cereals</td>
+<td>Maize</td>
+<td>Maize</td>
+</tr>
+<tr class="even">
+<td>1140</td>
+<td>Arable Crops</td>
+<td>Cereals</td>
+<td>Rice</td>
+<td>Rice</td>
+</tr>
+<tr class="odd">
+<td>1150</td>
+<td>Arable Crops</td>
+<td>Cereals</td>
+<td>Cereals</td>
+<td>Other cereals</td>
+</tr>
+<tr class="even">
+<td>1210</td>
+<td>Arable Crops</td>
+<td>Dry pulses &amp; Vegetables</td>
+<td>Dry Pulses, Fresh vegetables and Potatoes</td>
+<td>Fresh Vegetables</td>
+</tr>
+<tr class="odd">
+<td>1220</td>
+<td>Arable Crops</td>
+<td>Dry pulses &amp; Vegetables</td>
+<td>Dry Pulses, Fresh vegetables and Potatoes</td>
+<td>Dry pulses</td>
+</tr>
+<tr class="even">
+<td>1310</td>
+<td>Arable Crops</td>
+<td>Root/tuber crops</td>
+<td>Dry Pulses, Fresh vegetables and Potatoes</td>
+<td>Potatoes</td>
+</tr>
+<tr class="odd">
+<td>1320</td>
+<td>Arable Crops</td>
+<td>Root/tuber crops</td>
+<td>Sugar beet</td>
+<td>Sugar Beet</td>
+</tr>
+<tr class="even">
+<td>1410</td>
+<td>Arable Crops</td>
+<td>Non-permanent industrial crops</td>
+<td>Sunflower</td>
+<td>Sunflower</td>
+</tr>
+<tr class="odd">
+<td>1420</td>
+<td>Arable Crops</td>
+<td>Non-permanent industrial crops</td>
+<td>Soybeans</td>
+<td>Soybeans</td>
+</tr>
+<tr class="even">
+<td>1430</td>
+<td>Arable Crops</td>
+<td>Non-permanent industrial crops</td>
+<td>Rapeseed</td>
+<td>Rapeseed</td>
+</tr>
+<tr class="odd">
+<td>1440</td>
+<td>Arable Crops</td>
+<td>Non-permanent industrial crops</td>
+<td>Flax, cotton and hemp</td>
+<td>Flax, cotton and hemp</td>
+</tr>
+<tr class="even">
+<td>2100</td>
+<td>Permanent Crops</td>
+<td>Permanent Crops</td>
+<td>Permanent crops</td>
+<td>Grapes</td>
+</tr>
+<tr class="odd">
+<td>2200</td>
+<td>Permanent Crops</td>
+<td>Permanent Crops</td>
+<td>Permanent crops</td>
+<td>Olives</td>
+</tr>
+<tr class="even">
+<td>2310</td>
+<td>Permanent Crops</td>
+<td>Permanent Crops</td>
+<td>Permanent crops</td>
+<td>Fruits</td>
+</tr>
+<tr class="odd">
+<td>2320</td>
+<td>Permanent Crops</td>
+<td>Permanent Crops</td>
+<td>Permanent crops</td>
+<td>Nuts</td>
+</tr>
+<tr class="even">
+<td>3100</td>
+<td>Arable Crops</td>
+<td>Unclassified arable crop</td>
+<td>Unclassified arable crop</td>
+<td>Unclassified arable crop</td>
+</tr>
+<tr class="odd">
+<td>3200</td>
+<td>Permanent Crops</td>
+<td>Unclassified permanent crop</td>
+<td>Unclassified permanent crop</td>
+<td>Unclassified permanent crop</td>
+</tr>
+</tbody>
+</table>
+<p>For layers where the second sampling design has been applied (see 8.2) and the use of LUCAS and GSAA data were used, the response design is simplified. No visual interpretation is required as the reference class is extracted from LUCAS/GSAA data to be compared to the Crop Types layer without any additional process.</p>
+</section>
+<section id="statistical-analysis" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="statistical-analysis"><span class="header-section-number">8.4</span> Statistical Analysis</h2>
+<p>The thematic accuracy level or the Crop Types layer is defined in terms of F-score, which can be derived from confusion matrices. To this end, the row and column totals and the diagonal of the matrix are used to assess two further types of accuracy, the User’s and Producer’s Accuracy:</p>
+<ul>
+<li><p>Producer’s Accuracy (PA) for a given class = <span class="math display">\[\alpha\alpha/C\alpha\]</span>, representing an (inversely proportional) measure of Omission Error. For instance, an observation has been identified as tree-covered in the validation dataset but was actually classified as another class: it has been omitted from the target class.</p></li>
+<li><p>User’s Accuracy (UA) for a given class = 𝛼<span class="math display">\[\alpha\alpha/R\alpha\]</span>, representing an (inversely proportional) measure of the Commission Error (or contamination risk), i.e.&nbsp;errors due to the wrong allocation of an observation (i.e.&nbsp;mapped landcover) to a landcover class. For instance, an observation is classified as broadleaved tree cover, but identified as belonging to another class during the validation process: this observation has contaminated another class.</p></li>
+</ul>
+<p>F-score is a measure of accuracy calculated as the harmonic mean of the Producer’s and the User’s Accuracies calculated as:</p>
+<p><span class="math display">\[
+F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
+\]</span></p>
+<p>For both Crop Types layers 2018 and 2021 the F1 scores are computed derived for each class of crop group level (6 classes) and aggregation level 1 (11 classes) (Table 8-2).</p>
+</section>
+<section id="verification-results" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="verification-results"><span class="header-section-number">8.5</span> Verification Results</h2>
+<p>The assessed accuracies for the Crop Types layers are presented at the crop group level (gridbased random sampling) and the aggregation level 1 (11 classes, opportunistic sampling from LUCAS and GSAA data). For the rationale on the different sampling designs please refer to section 8.2)</p>
+<section id="crop-group-level" class="level3" data-number="8.5.1">
+<h3 data-number="8.5.1" class="anchored" data-anchor-id="crop-group-level"><span class="header-section-number">8.5.1</span> Crop Group level</h3>
+<p>At the crop group level, a total of 12960 (out of 14000 initially allocated) are available for the statistical analysis. The reminder has been disregarded due factors such as uncertain reference data or locations partially outside the area of interest. Accuracy figures for crop group level are presented in the confusion matrices shown for the EU27 in Table 8-4 and the EEA38 in Table 8-5.</p>
+<p>At the crop group level, the layers should reach an F1-score of 85% for each class. This is the case for all classes for all reference years 2018, 2021 and 2022 at EU27 level, even crop types which present a lower number of samples such as root/tuber or dry pulses and vegetables. At EEA38 level, the results are similar with the exception of permanent crops class that reach accuracies slightly below the 85% threshold (83-84%). Generally, the accuracies at the crop group level are also fairly consistent across the different reference years.</p>
+<p>Since the unclassified crop class’ purpose is to express uncertainty of the classification rather than presenting an actual class no accuracies are given, sample counts are still provided for the sake of completeness.</p>
+<p>Table 8-3 Crop group level class codes</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Class code</th>
+<th>Crop Group</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>11</td>
+<td>Cereals</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>Dry pulses &amp; Vegetables</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>Root/tuber crops</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>Non-permanent industrial crops</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>Permanent Crops</td>
+</tr>
+<tr class="even">
+<td>30</td>
+<td>Unclassified crop</td>
+</tr>
+</tbody>
+</table>
+<p>Table 8-4 HRL Crop Types accuracies for crop groups, EU27 (for the class codes see Table 8-3)</p>
+<p><strong>CTY2018 - EU27 (Weighted)</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Product</th>
+<th>Ref. 0</th>
+<th>Ref. 11</th>
+<th>Ref. 12</th>
+<th>Ref. 13</th>
+<th>Ref. 14</th>
+<th>Ref. 20</th>
+<th>Ref. 30</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>5156.57</td>
+<td>164.00</td>
+<td>2.01</td>
+<td>0.01</td>
+<td>2.00</td>
+<td>21.02</td>
+<td>1.00</td>
+<td>5346.60</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>2.00</td>
+<td>816.07</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>818.07</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td></td>
+<td></td>
+<td>63.01</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>63.01</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td></td>
+<td></td>
+<td></td>
+<td>51.00</td>
+<td></td>
+<td></td>
+<td></td>
+<td>51.00</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>1.00</td>
+<td>1.00</td>
+<td></td>
+<td></td>
+<td>203.01</td>
+<td>1.00</td>
+<td></td>
+<td>206.01</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>10.01</td>
+<td>4.00</td>
+<td></td>
+<td></td>
+<td></td>
+<td>160.46</td>
+<td>1.00</td>
+<td>175.48</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>3.00</td>
+<td>25.00</td>
+<td></td>
+<td></td>
+<td></td>
+<td>1.00</td>
+<td>8.04</td>
+<td>37.04</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>5172.58</td>
+<td>1010.07</td>
+<td>65.02</td>
+<td>51.01</td>
+<td>205.01</td>
+<td>183.49</td>
+<td>10.04</td>
+<td>6697.22</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>0</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>20</th>
+<th>30</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Prod. Acc.</strong></td>
+<td>99.69%</td>
+<td>80.79%</td>
+<td>96.91%</td>
+<td>99.99%</td>
+<td>99.02%</td>
+<td>87.45%</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>User Acc.</strong></td>
+<td>96.45%</td>
+<td>99.76%</td>
+<td>100.00%</td>
+<td>100.00%</td>
+<td>98.54%</td>
+<td>91.45%</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>F-score</strong></td>
+<td>98.04%</td>
+<td>89.28%</td>
+<td>98.43%</td>
+<td>99.99%</td>
+<td>98.78%</td>
+<td>89.40%</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>CTY2021 - EU27 (Weighted)</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Product</th>
+<th>Ref. 0</th>
+<th>Ref. 11</th>
+<th>Ref. 12</th>
+<th>Ref. 13</th>
+<th>Ref. 14</th>
+<th>Ref. 20</th>
+<th>Ref. 30</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>5127.29</td>
+<td>133.02</td>
+<td>0.01</td>
+<td>0.00</td>
+<td>2.00</td>
+<td>19.04</td>
+<td>1.00</td>
+<td>5282.36</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>6.01</td>
+<td>898.75</td>
+<td></td>
+<td></td>
+<td></td>
+<td>0.01</td>
+<td></td>
+<td>904.77</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>1.00</td>
+<td></td>
+<td>72.16</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>73.16</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td></td>
+<td></td>
+<td></td>
+<td>49.06</td>
+<td></td>
+<td></td>
+<td></td>
+<td>49.06</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>3.00</td>
+<td>1.00</td>
+<td></td>
+<td></td>
+<td>197.19</td>
+<td></td>
+<td></td>
+<td>201.19</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>10.02</td>
+<td>2.01</td>
+<td></td>
+<td></td>
+<td></td>
+<td>164.56</td>
+<td>0.00</td>
+<td>176.59</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>1.00</td>
+<td>5.00</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>6.07</td>
+<td>12.07</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>5148.32</td>
+<td>1039.78</td>
+<td>72.17</td>
+<td>49.06</td>
+<td>199.19</td>
+<td>183.61</td>
+<td>7.07</td>
+<td>6699.20</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>0</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>20</th>
+<th>30</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Prod. Acc.</strong></td>
+<td>99.59%</td>
+<td>86.44%</td>
+<td>99.99%</td>
+<td>100.00%</td>
+<td>99.00%</td>
+<td>89.63%</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>User Acc.</strong></td>
+<td>97.06%</td>
+<td>99.33%</td>
+<td>98.63%</td>
+<td>100.00%</td>
+<td>98.01%</td>
+<td>93.19%</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>F-score</strong></td>
+<td>98.31%</td>
+<td>92.44%</td>
+<td>99.31%</td>
+<td>100.00%</td>
+<td>98.50%</td>
+<td>91.37%</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>CTY2022 - EU27 (Weighted)</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Product</th>
+<th>Ref. 0</th>
+<th>Ref. 11</th>
+<th>Ref. 12</th>
+<th>Ref. 13</th>
+<th>Ref. 14</th>
+<th>Ref. 20</th>
+<th>Ref. 30</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>5155.97</td>
+<td>75.21</td>
+<td>0.01</td>
+<td>0.00</td>
+<td>2.01</td>
+<td>21.06</td>
+<td>0.00</td>
+<td>5254.27</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>9.08</td>
+<td>874.54</td>
+<td>0.01</td>
+<td></td>
+<td>6.01</td>
+<td>1.00</td>
+<td></td>
+<td>890.63</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>2.03</td>
+<td></td>
+<td>79.12</td>
+<td></td>
+<td>1.00</td>
+<td>3.00</td>
+<td></td>
+<td>85.16</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>0.00</td>
+<td>4.00</td>
+<td></td>
+<td>27.03</td>
+<td>1.00</td>
+<td></td>
+<td></td>
+<td>32.03</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>0.00</td>
+<td></td>
+<td></td>
+<td></td>
+<td>205.25</td>
+<td></td>
+<td></td>
+<td>205.26</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>14.11</td>
+<td>7.00</td>
+<td>2.01</td>
+<td></td>
+<td>1.01</td>
+<td>167.65</td>
+<td>1.00</td>
+<td>192.77</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>3.04</td>
+<td>7.03</td>
+<td>1.00</td>
+<td></td>
+<td>1.00</td>
+<td>0.01</td>
+<td>7.01</td>
+<td>19.08</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>5184.23</td>
+<td>967.78</td>
+<td>82.15</td>
+<td>27.03</td>
+<td>217.27</td>
+<td>192.71</td>
+<td>8.01</td>
+<td>6679.20</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>0</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>20</th>
+<th>30</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Prod. Acc.</strong></td>
+<td>99.45%</td>
+<td>90.36%</td>
+<td>96.32%</td>
+<td>99.99%</td>
+<td>94.47%</td>
+<td>86.99%</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>User Acc.</strong></td>
+<td>98.13%</td>
+<td>98.19%</td>
+<td>92.91%</td>
+<td>84.38%</td>
+<td>100.00%</td>
+<td>86.97%</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>F-score</strong></td>
+<td>98.79%</td>
+<td>94.12%</td>
+<td>94.59%</td>
+<td>91.52%</td>
+<td>97.15%</td>
+<td>86.98%</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table 8-5: HRL Crop Types accuracies for crop groups, EEA38 (for the class codes see Table 8-3)</p>
+<p><strong>CTY2018 - EEA38 (Weighted)</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Product</th>
+<th>Ref. 0</th>
+<th>Ref. 11</th>
+<th>Ref. 12</th>
+<th>Ref. 13</th>
+<th>Ref. 14</th>
+<th>Ref. 20</th>
+<th>Ref. 30</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>6810.95</td>
+<td>188.08</td>
+<td>3.01</td>
+<td>0.01</td>
+<td>31.00</td>
+<td>42.06</td>
+<td>1.00</td>
+<td>7076.11</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>20.02</td>
+<td>960.10</td>
+<td></td>
+<td>0.00</td>
+<td>18.00</td>
+<td></td>
+<td></td>
+<td>998.12</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>2.00</td>
+<td>3.00</td>
+<td>93.04</td>
+<td></td>
+<td>1.00</td>
+<td></td>
+<td></td>
+<td>99.04</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td></td>
+<td>1.00</td>
+<td></td>
+<td>52.00</td>
+<td></td>
+<td></td>
+<td></td>
+<td>53.00</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>1.00</td>
+<td>13.00</td>
+<td></td>
+<td></td>
+<td>226.01</td>
+<td>1.00</td>
+<td></td>
+<td>241.01</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>18.02</td>
+<td>5.00</td>
+<td></td>
+<td></td>
+<td>2.00</td>
+<td>179.51</td>
+<td>1.00</td>
+<td>205.54</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>5.00</td>
+<td>26.01</td>
+<td>1.00</td>
+<td></td>
+<td>4.00</td>
+<td>1.00</td>
+<td>8.04</td>
+<td>45.05</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>6857.00</td>
+<td>1196.19</td>
+<td>97.05</td>
+<td>52.01</td>
+<td>282.02</td>
+<td>223.56</td>
+<td>10.04</td>
+<td>8717.87</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>0</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>20</th>
+<th>30</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Prod. Acc.</strong></td>
+<td>99.33%</td>
+<td>80.26%</td>
+<td>95.87%</td>
+<td>99.98%</td>
+<td>80.14%</td>
+<td>80.29%</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>User Acc.</strong></td>
+<td>96.25%</td>
+<td>96.19%</td>
+<td>93.94%</td>
+<td>98.11%</td>
+<td>93.78%</td>
+<td>87.34%</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>F-score</strong></td>
+<td>97.77%</td>
+<td>87.51%</td>
+<td>94.89%</td>
+<td>99.04%</td>
+<td>86.42%</td>
+<td>83.67%</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>CTY2021 - EEA38 (Weighted)</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Product</th>
+<th>Ref. 0</th>
+<th>Ref. 11</th>
+<th>Ref. 12</th>
+<th>Ref. 13</th>
+<th>Ref. 14</th>
+<th>Ref. 20</th>
+<th>Ref. 30</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>6784.24</td>
+<td>157.07</td>
+<td>1.01</td>
+<td>0.01</td>
+<td>23.00</td>
+<td>48.07</td>
+<td>1.01</td>
+<td>7014.40</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>22.07</td>
+<td>1041.09</td>
+<td>6.00</td>
+<td></td>
+<td>26.00</td>
+<td>0.01</td>
+<td></td>
+<td>1095.17</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>1.01</td>
+<td>4.02</td>
+<td>82.18</td>
+<td></td>
+<td>2.00</td>
+<td></td>
+<td>1.00</td>
+<td>90.21</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>1.00</td>
+<td></td>
+<td></td>
+<td>52.07</td>
+<td>1.00</td>
+<td></td>
+<td>0.00</td>
+<td>54.07</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>4.00</td>
+<td>20.01</td>
+<td>2.00</td>
+<td></td>
+<td>216.22</td>
+<td>1.01</td>
+<td></td>
+<td>243.24</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>17.02</td>
+<td>3.02</td>
+<td></td>
+<td></td>
+<td>2.00</td>
+<td>179.61</td>
+<td>0.00</td>
+<td>201.65</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>2.02</td>
+<td>8.00</td>
+<td>2.00</td>
+<td></td>
+<td>3.00</td>
+<td></td>
+<td>8.07</td>
+<td>23.09</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>6831.37</td>
+<td>1233.21</td>
+<td>93.19</td>
+<td>52.08</td>
+<td>273.22</td>
+<td>228.70</td>
+<td>10.09</td>
+<td>8721.85</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>0</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>20</th>
+<th>30</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Prod. Acc.</strong></td>
+<td>99.31%</td>
+<td>84.42%</td>
+<td>88.18%</td>
+<td>99.99%</td>
+<td>79.14%</td>
+<td>78.54%</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>User Acc.</strong></td>
+<td>96.72%</td>
+<td>95.06%</td>
+<td>91.10%</td>
+<td>96.30%</td>
+<td>88.89%</td>
+<td>89.07%</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>F-score</strong></td>
+<td>98.00%</td>
+<td>89.43%</td>
+<td>89.62%</td>
+<td>98.11%</td>
+<td>83.73%</td>
+<td>83.47%</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>CTY2022 - EEA38 (Weighted)</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Product</th>
+<th>Ref. 0</th>
+<th>Ref. 11</th>
+<th>Ref. 12</th>
+<th>Ref. 13</th>
+<th>Ref. 14</th>
+<th>Ref. 20</th>
+<th>Ref. 30</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>7058.92</td>
+<td>88.25</td>
+<td>0.01</td>
+<td>0.00</td>
+<td>10.01</td>
+<td>42.10</td>
+<td>1.01</td>
+<td>7200.31</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>16.08</td>
+<td>1050.90</td>
+<td></td>
+<td></td>
+<td>11.01</td>
+<td>1.01</td>
+<td>0.00</td>
+<td>1079.00</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>0.03</td>
+<td></td>
+<td>98.19</td>
+<td></td>
+<td></td>
+<td>1.01</td>
+<td></td>
+<td>99.23</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td></td>
+<td></td>
+<td></td>
+<td>42.05</td>
+<td></td>
+<td></td>
+<td></td>
+<td>42.05</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>0.01</td>
+<td>14.00</td>
+<td></td>
+<td></td>
+<td>240.30</td>
+<td>0.00</td>
+<td>1.00</td>
+<td>255.32</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>17.12</td>
+<td>9.01</td>
+<td>2.01</td>
+<td></td>
+<td>2.01</td>
+<td>187.68</td>
+<td>1.00</td>
+<td>218.83</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>4.05</td>
+<td>19.05</td>
+<td>2.00</td>
+<td>0.00</td>
+<td>3.00</td>
+<td>0.01</td>
+<td>8.01</td>
+<td>36.13</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>7096.20</td>
+<td>1181.22</td>
+<td>102.21</td>
+<td>42.05</td>
+<td>266.33</td>
+<td>231.82</td>
+<td>11.03</td>
+<td>8930.86</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>0</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>20</th>
+<th>30</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Prod. Acc.</strong></td>
+<td>99.47%</td>
+<td>88.97%</td>
+<td>96.07%</td>
+<td>99.99%</td>
+<td>90.23%</td>
+<td>80.96%</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>User Acc.</strong></td>
+<td>98.04%</td>
+<td>97.40%</td>
+<td>98.95%</td>
+<td>100.00%</td>
+<td>94.12%</td>
+<td>85.77%</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>F-score</strong></td>
+<td>98.75%</td>
+<td>92.99%</td>
+<td>97.49%</td>
+<td>99.99%</td>
+<td>92.13%</td>
+<td>83.29%</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aggregation-level-1" class="level3" data-number="8.5.2">
+<h3 data-number="8.5.2" class="anchored" data-anchor-id="aggregation-level-1"><span class="header-section-number">8.5.2</span> Aggregation level 1</h3>
+<p>Accuracy figures and sample counts for Crop Types layers at Aggregation Level 1 are presented in Table 8-6 below, according to the comparisons with LUCAS and GSSA data.</p>
+<p>The target accuracy at this analysis level is an F-Score of 80% for each of the classes. The crop types cereals and maize generally exceed the 80% threshold in all years, sugar beet, sunflower, and rapeseed meet or miss the threshold depending on the year and reference dataset. The accuracies for the other classes generally remain below the 80% threshold. The F-scores for classes / years with very few samples (flax, cotton, hemp, rice, and soybean) must be interpreted with caution.</p>
+<p>While the assessed accuracies vary depending on the reference datasets and reference years there is a general tendency for the figures to improve with an increasing number of available reference samples (see last row in Table 8-6).</p>
+<p>Table 8-6: Accuracies for CTY 2018-2021 at aggregation level-1</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>All GSAA data (2019 2020, 2021)</th>
+<th>All GSAA data (2019 2020, 2021)</th>
+<th>LUCAS 2018</th>
+<th>LUCAS 2018</th>
+<th>LUCAS 2022</th>
+<th>LUCAS 2022</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Class</td>
+<td>Code</td>
+<td>n samples</td>
+<td>F-score</td>
+<td>n samples</td>
+<td>F-score</td>
+<td>n samples</td>
+<td>F-score</td>
+</tr>
+<tr class="even">
+<td>Other Cereals</td>
+<td>11</td>
+<td>921</td>
+<td>85.00%</td>
+<td>1571</td>
+<td>84.50%</td>
+<td>16072</td>
+<td>89.90%</td>
+</tr>
+<tr class="odd">
+<td>Maize</td>
+<td>1130</td>
+<td>400</td>
+<td>87.90%</td>
+<td>458</td>
+<td>82.20%</td>
+<td>5038</td>
+<td>91.04%</td>
+</tr>
+<tr class="even">
+<td>Rice</td>
+<td>1140</td>
+<td>0</td>
+<td></td>
+<td>2</td>
+<td></td>
+<td>21</td>
+<td>66.67%</td>
+</tr>
+<tr class="odd">
+<td>Dry pulses, Fresh vegetables &amp; potatoes</td>
+<td>12</td>
+<td>193</td>
+<td>65.40%</td>
+<td>185</td>
+<td>66.70%</td>
+<td>1884</td>
+<td>73.41%</td>
+</tr>
+<tr class="even">
+<td>Sugar beet</td>
+<td>1320</td>
+<td>17</td>
+<td>68.60%</td>
+<td>70</td>
+<td>91.50%</td>
+<td>673</td>
+<td>81.15%</td>
+</tr>
+<tr class="odd">
+<td>Sunflower</td>
+<td>1410</td>
+<td>36</td>
+<td>77.10%</td>
+<td>130</td>
+<td>79.20%</td>
+<td>1319</td>
+<td>89.03%</td>
+</tr>
+<tr class="even">
+<td>Soybeans</td>
+<td>1420</td>
+<td>20</td>
+<td>65.40%</td>
+<td>22</td>
+<td>50.00%</td>
+<td>401</td>
+<td>77.24%</td>
+</tr>
+<tr class="odd">
+<td>Rapeseed</td>
+<td>1430</td>
+<td>84</td>
+<td>80.40%</td>
+<td>148</td>
+<td>83.00%</td>
+<td>2505</td>
+<td>76.75%</td>
+</tr>
+<tr class="even">
+<td>Flax, cotton and hemp</td>
+<td>1440</td>
+<td>4</td>
+<td>50.00%</td>
+<td>10</td>
+<td>77.80%</td>
+<td>189</td>
+<td>79.67%</td>
+</tr>
+<tr class="odd">
+<td>Permanent crops</td>
+<td>20</td>
+<td>300</td>
+<td>73.50%</td>
+<td>385</td>
+<td>67.30%</td>
+<td>4208</td>
+<td>63.46%</td>
+</tr>
+<tr class="even">
+<td>Macro average</td>
+<td></td>
+<td>198</td>
+<td>72.59%</td>
+<td>298</td>
+<td>75.80%</td>
+<td>3231</td>
+<td>78.83%</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="terms-of-use-and-product-technical-support" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Terms of use and product technical support</h1>
+<section id="terms-of-use" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="terms-of-use"><span class="header-section-number">9.1</span> Terms of use</h2>
+<p>The product(s) described in this document is/are created in the frame of the Copernicus programme of the European Union by the European Environment Agency (product custodian) and is/are owned by the European Union. The product(s) can be used following Copernicus full free and open data policy, which allows the use of the product(s) also for any commercial purpose. Derived products created by end users from the product(s) described in this document are owned by the end users, who have all intellectual rights to the derived products.</p>
+</section>
+<section id="citation" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="citation"><span class="header-section-number">9.2</span> Citation</h2>
+<p>In cases of re-dissemination of the product(s) described in this document or when the product(s) is/are used to create a derived product it is required to provide a reference to the source. A template is provided below:</p>
+<p>“© European Union, Copernicus Land Monitoring Service <year>, European Environment Agency (EEA)”</year></p>
+</section>
+<section id="product-technical-support" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="product-technical-support"><span class="header-section-number">9.3</span> Product technical support</h2>
+<p>Product technical support is provided by the product custodian through Copernicus Land Monitoring Service helpdesk at copernicus@eea.europa.eu. Product technical support does not include software specific user support or general GIS or remote sensing support.</p>
+</section>
+</section>
+<section id="list-of-abbreviations-acronyms" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> List of Abbreviations &amp; Acronyms</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 81%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Abbreviation</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ATBD</td>
+<td>Algorithm Theoretical Basis Document</td>
+</tr>
+<tr class="even">
+<td>BS</td>
+<td>Bare Soil</td>
+</tr>
+<tr class="odd">
+<td>BVL</td>
+<td>Base Vegetation Layer</td>
+</tr>
+<tr class="even">
+<td>CAP</td>
+<td>Common Agricultural Policy</td>
+</tr>
+<tr class="odd">
+<td>CL</td>
+<td>Confidence Layer</td>
+</tr>
+<tr class="even">
+<td>CLC</td>
+<td>CORINE Land Cover</td>
+</tr>
+<tr class="odd">
+<td>CLMS</td>
+<td>Copernicus Land Monitoring Service</td>
+</tr>
+<tr class="even">
+<td>COG</td>
+<td>Cloud-Optimized GeoTIFFs</td>
+</tr>
+<tr class="odd">
+<td>CORINE</td>
+<td>Coordination of information on the environment</td>
+</tr>
+<tr class="even">
+<td>CP</td>
+<td>Cropping Patterns</td>
+</tr>
+<tr class="odd">
+<td>CPBSB</td>
+<td>Bare Soil Before</td>
+</tr>
+<tr class="even">
+<td>CPBSBCL</td>
+<td>Bare Soil Before Confidence Layer</td>
+</tr>
+<tr class="odd">
+<td>CPBSA</td>
+<td>Bare Soil After</td>
+</tr>
+<tr class="even">
+<td>CPBSACL</td>
+<td>Bare Soil After Confidence Layer</td>
+</tr>
+<tr class="odd">
+<td>CPCST</td>
+<td>Cropping Seasons Types over 3 years</td>
+</tr>
+<tr class="even">
+<td>CPCSY</td>
+<td>Cropping Seasons Yearly</td>
+</tr>
+<tr class="odd">
+<td>CPFLD</td>
+<td>Fallow Land Duration</td>
+</tr>
+<tr class="even">
+<td>CPFLDCL</td>
+<td>Fallow Land Duration Confidence Layer</td>
+</tr>
+<tr class="odd">
+<td>CPFLP</td>
+<td>Fallow Land Presence</td>
+</tr>
+<tr class="even">
+<td>CPFLPCL</td>
+<td>Fallow Land Presence Confidence Layer</td>
+</tr>
+<tr class="odd">
+<td>CPMCD</td>
+<td>Main Crop Duration</td>
+</tr>
+<tr class="even">
+<td>CPMCDCL</td>
+<td>Main Crop Duration Confidence Layer</td>
+</tr>
+<tr class="odd">
+<td>CPMCE</td>
+<td>Main Crop Emergence</td>
+</tr>
+<tr class="even">
+<td>CPMCECL</td>
+<td>Main Crop Emergence Confidence Layer</td>
+</tr>
+<tr class="odd">
+<td>CPMCH</td>
+<td>Main Crop Harvest</td>
+</tr>
+<tr class="even">
+<td>CPMCHCL</td>
+<td>Main Crop Harvest Confidence Layer</td>
+</tr>
+<tr class="odd">
+<td>CPSCT</td>
+<td>Secondary Crops Type</td>
+</tr>
+<tr class="even">
+<td>CPSD</td>
+<td>Secondary Crops Duration</td>
+</tr>
+<tr class="odd">
+<td>CPSCDCL</td>
+<td>Secondary Crops Duration Confidence Layer</td>
+</tr>
+<tr class="even">
+<td>CPSE</td>
+<td>Secondary Crops Emergence</td>
+</tr>
+<tr class="odd">
+<td>CTY</td>
+<td>Crop Types</td>
+</tr>
+<tr class="even">
+<td>CTYCL</td>
+<td>Crop Types Confidence Layer</td>
+</tr>
+<tr class="odd">
+<td>DLT</td>
+<td>Dominant Leaf Type</td>
+</tr>
+<tr class="even">
+<td>DLTC</td>
+<td>Dominant Leaf Type Change</td>
+</tr>
+<tr class="odd">
+<td>DOY</td>
+<td>Day Of Year</td>
+</tr>
+<tr class="even">
+<td>EAGLE</td>
+<td>EIONET Action Group on Land monitoring in Europe</td>
+</tr>
+<tr class="odd">
+<td>ECoLaSS</td>
+<td>Evolution of Copernicus Land Services based on Sentinel Data</td>
+</tr>
+<tr class="even">
+<td>EEA</td>
+<td>European Environment Agency</td>
+</tr>
+<tr class="odd">
+<td>EEA38</td>
+<td>The 32 member and 6 cooperating countries of the EEA</td>
+</tr>
+<tr class="even">
+<td>EIONET</td>
+<td>European Environment Information and Observation Network</td>
+</tr>
+<tr class="odd">
+<td>EO</td>
+<td>Earth Observation</td>
+</tr>
+<tr class="even">
+<td>EU</td>
+<td>European Union</td>
+</tr>
+<tr class="odd">
+<td>EU27</td>
+<td>The 27 member states of the EU</td>
+</tr>
+<tr class="even">
+<td>fAPAR</td>
+<td>Fraction of absorbed photosynthetically active radiation</td>
+</tr>
+<tr class="odd">
+<td>FLP</td>
+<td>Fallow Land Presence</td>
+</tr>
+<tr class="even">
+<td>FML</td>
+<td>Forest Monitoring Law</td>
+</tr>
+<tr class="odd">
+<td>GIS</td>
+<td>Geographic Information System</td>
+</tr>
+<tr class="even">
+<td>GRD</td>
+<td>Ground Resolved Distance</td>
+</tr>
+<tr class="odd">
+<td>GSAA</td>
+<td>GeoSpatial Aid Application</td>
+</tr>
+<tr class="even">
+<td>H2020</td>
+<td>Horizon2020</td>
+</tr>
+<tr class="odd">
+<td>HER</td>
+<td>Herbaceous Cover Layer</td>
+</tr>
+<tr class="even">
+<td>HR</td>
+<td>High Resolution</td>
+</tr>
+<tr class="odd">
+<td>HRL / HRLs</td>
+<td>High Resolution Layer / High Resolution Layers</td>
+</tr>
+<tr class="even">
+<td>HRL VLCC</td>
+<td>High Resolution Layer – Vegetated Land Cover Characteristics</td>
+</tr>
+<tr class="odd">
+<td>ID</td>
+<td>Identification Number</td>
+</tr>
+<tr class="even">
+<td>IPCC</td>
+<td>Intergovernmental Panel on Climate Change</td>
+</tr>
+<tr class="odd">
+<td>JRC</td>
+<td>Joint Research Centre</td>
+</tr>
+<tr class="even">
+<td>LAEA</td>
+<td>Lambert Azimuthal Equal Area projection</td>
+</tr>
+<tr class="odd">
+<td>LU</td>
+<td>Land Use</td>
+</tr>
+<tr class="even">
+<td>LUCAS</td>
+<td>Land Use / Cover Area frame Survey</td>
+</tr>
+<tr class="odd">
+<td>LULUCF</td>
+<td>Land Use, Land Use Change and Forestry</td>
+</tr>
+<tr class="even">
+<td>MC</td>
+<td>Main Crops</td>
+</tr>
+<tr class="odd">
+<td>MMU</td>
+<td>Minimum Mapping Unit</td>
+</tr>
+<tr class="even">
+<td>OA</td>
+<td>Overall Accuracy</td>
+</tr>
+<tr class="odd">
+<td>PA</td>
+<td>Producer Accuracy</td>
+</tr>
+<tr class="even">
+<td>PAM</td>
+<td>Permanent Auxiliary metadata</td>
+</tr>
+<tr class="odd">
+<td>SC</td>
+<td>Secondary Crops</td>
+</tr>
+<tr class="even">
+<td>TCD</td>
+<td>Tree Cover Density</td>
+</tr>
+<tr class="odd">
+<td>UA</td>
+<td>User’s Accuracy</td>
+</tr>
+<tr class="even">
+<td>UK</td>
+<td>United Kingdom</td>
+</tr>
+<tr class="odd">
+<td>USDA</td>
+<td>U.S. Department of Agriculture</td>
+</tr>
+<tr class="even">
+<td>UTM</td>
+<td>Universal Transverse Mercator</td>
+</tr>
+<tr class="odd">
+<td>VHR</td>
+<td>Very High Resolution</td>
+</tr>
+<tr class="even">
+<td>VITO</td>
+<td>Vlaamse Instelling voor Technologisch Onderzoek</td>
+</tr>
+<tr class="odd">
+<td>XML</td>
+<td>Extensible Markup Language</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="references" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> References</h1>
+<p>[1] Eurostat. (2018). LUCAS Survey 2018. [Data set]. https://ec.europa.eu/eurostat/web/lucas/database/primary-data.</p>
+<p>[2] Eurostat. (2022). LUCAS Survey 2022. [Data set]. https://ec.europa.eu/eurostat/web/lucas/database/primary-data.</p>
+<p>[3] Selkowitz, D. J., &amp; Stehman, S. V. (2011). Thematic accuracy of the National Land Cover Database (NLCD) 2001 land cover for Alaska. Remote Sensing of Environment, 115(6), 1401-1407.</p>
+<p>[4] Olofsson, P., Foody, G. M., Stehman, S. V., &amp; Woodcock, C. E. (2013). Making better use of accuracy data in land change studies: Estimating accuracy and area and quantifying uncertainty using stratified estimation. Remote Sensing of Environment, 129, 122-131.</p>
+<p>[5] ECoLaSS (2019). Deliverable D3.2 - Service Evolution Requirements Report Vol. 2 https://www.ecolass.eu/_files/ugd/c90769_5a431f06039141a6b4db4d6b4596d272.pdf (accessed 28 October 2024)</p>
+<p>[6] Nextspace (2018 ). Work performed by the Nextspace consortium – Observation Requirements (February 2018); https://www.copernicus.eu/en/documentation/technicaldocuments/technical-documents (accessed 28 October 2024)</p>
+<p>[7] CLMS HRL VLCC (2025). HRL VLCC Algorithm Theoretical Basis Document; https://land.copernicus.eu/en/technical-library/algorithm-theoretical-basis-documentpan-european-land-cover-characteristics</p>
+<p>[8] CLMS HRL Forests 2018 (2021). HRL Tree-cover/forest and change 2015-2018 User Manual, https://land.copernicus.eu/en/technical-library/hrl-forest-2018</p>
+<p>[9] CLMS HRL Grassland 2018 (2021). Grassland 2018 and Grassland change 2015-2018 User Manual, https://land.copernicus.eu/en/technical-library/hrl-grassland-2018-product-usermanual</p>
+<p>[10] Dadrass Javan, F., Samadzadegan, F., Toosi, A., Schneider, M., &amp; Persello, C. (2025). Ground Resolved Distance Estimation of Sentinel-2 Imagery Using Edge-based SceneDriven Approach. PFG – Journal of Photogrammetry, Remote Sensing and Geoinformation Science, 93(2), 131–152. https://doi.org/10.1007/s41064-024-00330-x</p>
+<p>[11] CLMS HRL Tree Cover &amp; Forests (2025). CLMS HRL Tree Cover &amp; Forests - Product User Manual; https://land.copernicus.eu/en/technical-library/product-user-manual-tree-coverand-forests-2018-present</p>
+<p>[12] CLMS HRL Grasslands (2025). CLMS HRL Grasslands - Product User Manual; https://land.copernicus.eu/en/technical-library/product-user-manual-grasslands-2017-present</p>
+</section>
+<section id="annex-i-colour-tables-for-hrl-croplands" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Annex I – Colour tables for HRL Croplands</h1>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image2.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image3.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-1: Colour palette and attributes of HRL Crop Types (CTY) layer</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image4.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-2: Colour palette and attributes of CTYCL layer</figcaption>
+</figure>
+</div>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image5.png" class="img-fluid"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image6.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image7.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-3: Colour palette and attributes of CPMCH layer</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image8.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-4: Colour palette and attributes of CPMCHCL layer</figcaption>
+</figure>
+</div>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image9.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image10.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-5: Colour palette and attributes of CPMCE layer</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image11.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-6: Colour palette and attributes of CPMCECL layer</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image12.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-7: Colour palette and attributes of CPMCD layer</figcaption>
+</figure>
+</div>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image13.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image14.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-8: Colour palette and attributes of CPMCDCL layer</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image15.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-9: Colour palette and attributes of CPBSB layer</figcaption>
+</figure>
+</div>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image16.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image17.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-10: Colour palette and attributes of CPBSBCL layer</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image18.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-11: Colour palette and attributes of CPBSA layer</figcaption>
+</figure>
+</div>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image19.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image20.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-12: Colour palette and attributes of CPBSBCL layer</figcaption>
+</figure>
+</div>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image21.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image22.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-13: Colour palette and attributes of CPSCT layer</figcaption>
+</figure>
+</div>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image23.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image24.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-14: Colour palette and attributes of CPSCE layer</figcaption>
+</figure>
+</div>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image25.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image26.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-15: Colour palette and attributes of CPSCD layer</figcaption>
+</figure>
+</div>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image27.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image28.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-16: Colour palette and attributes of CPSCDCL layer</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image29.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-17: Colour palette and attributes of CPFLP layer</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image30.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-18: Colour palette and attributes of CPFLPCL layer</figcaption>
+</figure>
+</div>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image31.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image32.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-19: Colour palette and attributes of CPFLD layer</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image33.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-20: Colour palette and attributes of CPFLDCL layer</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image34.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-21: Colour palette and attributes of CPCSY layer</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image35.png" class="img-fluid figure-img"></p>
+<figcaption>Table 0-22: Colour palette and attributes of CPCST layer</figcaption>
+</figure>
+</div>
+</section>
+<section id="document-control-information" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Document Control Information:</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Document Title</th>
+<th>D1.12 HRL Croplands - Product User Manual</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Project Title</td>
+<td>Copernicus Land Monitoring Service – High Resolution Layer - Vegetated Land Cover Characteristics</td>
+</tr>
+<tr class="even">
+<td>Document Author</td>
+<td>André Stumpf, Stephanie Wegscheider, Christian Siegert, Elcin Acar (GAF AG), Bert De Roo, Kasper Bonte (VITO), Tanja Gasber (GeoVille), Loïc Faucqueur (CLS)</td>
+</tr>
+<tr class="odd">
+<td>Project Owner</td>
+<td>Luca Battistella (EEA)</td>
+</tr>
+<tr class="even">
+<td>Project Manager</td>
+<td>Christian Siegert (GAF)</td>
+</tr>
+<tr class="odd">
+<td>Document Code</td>
+<td>D1.12 HRL CTY</td>
+</tr>
+<tr class="even">
+<td>Document Version</td>
+<td>2.3</td>
+</tr>
+<tr class="odd">
+<td>Distribution</td>
+<td>Public</td>
+</tr>
+<tr class="even">
+<td>Date</td>
+<td>2025-11-03</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+<section id="change-log" class="level1" data-number="14">
+<h1 data-number="14"><span class="header-section-number">14</span> Change Log</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Version</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2025-12-02</td>
+<td>2.3.0</td>
+<td>Initial release</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>https://land.copernicus.eu/en/eagle?tab=technical_implementation<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>https://land.copernicus.eu/en/technical-library/product-user-manual-clc-backbone-2021<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>https://www.evo-land.eu/method/biomass-mapping/<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>https://sentiwiki.copernicus.eu/__attachments/1673423/OMPC.CS.DQR.001.08-2025-Sentinel-2-MSI-L1C-DQR-September-2025-115.pdf?inst-v=21d709d1-2d56-4cc7-aec1-05e4dd76e738<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>S2-PDGS-MPC-DQR Issue: 66 Date: 02/08/2021<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/library\.land\.copernicus\.eu");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2025 EEA. All rights reserved.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
