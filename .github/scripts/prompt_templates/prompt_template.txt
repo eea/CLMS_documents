@@ -1,9 +1,11 @@
 You are analyzing git diffs of technical documentation files.
 
-**CRITICAL: You must analyze ALL {{NUM_FILES}} files listed below:**
+**TASK: Process exactly {{NUM_FILES}} file(s) - ALL files must be included in your response.**
+
+Files to analyze:
 {{FILE_LIST}}
 
-For EACH file, you must provide TWO outputs:
+**For EACH file, provide:**
 1. Semantic version bump decision (MINOR or PATCH)
 2. Changelog summary of changes
 
@@ -12,29 +14,29 @@ PART 1: VERSION BUMP ANALYSIS
 ═══════════════════════════════════════════════════════════════════════
 
 **Understanding Git Diffs:**
-- Lines starting with `+` show additions
-- Lines starting with `-` show deletions
-- Lines with both `-` and `+` in sequence indicate modifications
-- `@@` lines show line numbers (ignore these)
-- Context lines (no prefix) show unchanged content around changes
-- Focus on the actual content being changed, not the diff syntax
+- Lines with `+` = additions
+- Lines with `-` = deletions  
+- Lines with `-` then `+` = modifications
+- `@@` lines = line numbers (ignore)
+- Context lines (no prefix) = unchanged content
+- Focus on content changes, not diff syntax
 
-**Version Bump Classification Rules:**
+**Version Bump Rules:**
 
-**MINOR version bump (Y++) when:**
-- New chapters, sections, or subsections added (## or ### headers)
+**MINOR (Y++) when:**
+- New chapters/sections/subsections (## or ### headers)
 - New features, APIs, or functionality documented
 - Significant content additions (>20% new content or >50 lines)
 - Major restructuring or reorganization
-- New diagrams, tables, or substantial examples added
+- New diagrams, tables, or substantial examples
 - Breaking changes in documented procedures
-- New requirements or specifications introduced
+- New requirements or specifications
 - Substantial updates to existing sections
 
-**PATCH version bump (Z++) when:**
-- Typo corrections and grammar fixes
+**PATCH (Z++) when:**
+- Typo/grammar fixes
 - Formatting improvements (spacing, styling, markdown)
-- Clarifications without adding new information
+- Clarifications without new information
 - Minor wording improvements
 - Link updates or corrections
 - Small additions (<20 lines, <5 sentences)
@@ -43,10 +45,10 @@ PART 1: VERSION BUMP ANALYSIS
 - Minor corrections to existing content
 
 **Decision Guidelines:**
-- If mixed changes: choose MINOR if ANY significant change exists
-- If only YAML/metadata changes: PATCH
-- If only formatting/whitespace: PATCH  
-- If uncertain: lean towards MINOR to be conservative
+- Mixed changes: MINOR if ANY significant change
+- Only YAML/metadata: PATCH
+- Only formatting/whitespace: PATCH  
+- If uncertain: lean towards MINOR
 - Empty/no changes: PATCH
 
 ═══════════════════════════════════════════════════════════════════════
@@ -171,18 +173,26 @@ Return a JSON object with ALL file paths as keys (one entry per file in the batc
 - `changelog.format`: "paragraph", "bullet", or "error"
 - `changelog.summary`: The actual changelog text (plain text for paragraph, HTML list for bullet)
 
-**Validation Checklist Before Responding:**
-✓ Have I included ALL {{NUM_FILES}} files from the batch?
-✓ Does each file have both version AND changelog?
-✓ Are version bumps consistent with changelog summaries?
-✓ For MINOR bumps, does the changelog reflect significant changes?
-✓ For PATCH bumps, does the changelog reflect minor changes?
-✓ Is HTML properly formatted (only <ul>/<li> tags, properly closed)?
-✓ Are changelogs specific and detailed (not generic)?
-✓ Is British English used consistently?
+**CRITICAL REQUIREMENTS:**
+✓ Include ALL {{NUM_FILES}} files in response
+✓ Each file needs both version AND changelog
+✓ Version bumps must match changelog significance
+✓ HTML only: `<ul>`, `<li>` tags (properly closed)
+✓ Changelogs: specific and concise
+✓ Use British English
+✓ Return ONLY valid JSON (no markdown, no explanations)
 
-**REMINDER: Your JSON response MUST include all {{NUM_FILES}} files:**
+**VERIFICATION CHECKLIST BEFORE RESPONDING:**
+□ Did I process file #1 in the list?
+□ Did I process file #{{NUM_FILES}} in the list?
+□ Do ALL files have version.bump, version.reason, version.confidence?
+□ Do ALL files have changelog.format and changelog.summary?
+□ Are MINOR bumps justified by significant changes in changelog?
+□ Are PATCH bumps justified by minor changes in changelog?
+□ Is my JSON valid (no trailing commas, all braces closed)?
+□ Did I count: do I have exactly {{NUM_FILES}} keys?
+
+**Files to include in response (verify each one):**
 {{FILE_LIST}}
 
-Return ONLY the JSON object, no additional text.
-Count your JSON keys to verify you have exactly {{NUM_FILES}} entries before responding.
+Begin your response with { and end with }

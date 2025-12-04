@@ -573,7 +573,9 @@ def create_smart_batches(file_diffs):
 
 def get_combined_prompt(file_list):
     """Return the comprehensive combined prompt for version + changelog"""
-    template_path = os.path.join(os.path.dirname(__file__), "prompt_template.txt")
+    template_path = os.path.join(
+        os.path.dirname(__file__), "prompt_templates", "prompt_template.txt"
+    )
     with open(template_path, "r") as f:
         template = f.read()
 
