@@ -67,8 +67,28 @@ cp _quarto_not_used.yml _quarto.yml && rm _quarto_not_used.yml
 
 
 echo "📄 Converting .docx files to .pdf..."
-timeout 3s ../.github/scripts/convert_docx_to_pdf.sh 2>&1 | grep -E '(Error|Failed|Warning|Complete|✅)' || true
-timeout 20m ../.github/scripts/convert_docx_to_pdf.sh 2>&1 | grep -E '(Error|Failed|Warning|Complete|✅)'
+docx_count=$(find _site -name "*.docx" -type f | wc -l)
+echo "   Found $docx_count DOCX files to convert"
+
+# Quick 3-second test run
+echo "   Running quick test conversion..."
+timeout 3s ../.github/scripts/convert_docx_to_pdf.sh 2>&1 | head -20 || true
+
+# Full conversion with detailed error reporting
+echo "   Starting full PDF conversion (timeout: 20m)..."
+if ! timeout 20m ../.github/scripts/convert_docx_to_pdf.sh 2>&1 | tee conversion.log; then
+  exit_code=$?
+  echo "❌ PDF conversion failed with exit code: $exit_code"
+  echo "   Last 30 lines of output:"
+  tail -30 conversion.log
+  echo "   DOCX files present:"
+  find _site -name "*.docx" -type f | head -10
+  exit $exit_code
+fi
+
+echo "✅ PDF conversion completed successfully"
+pdf_count=$(find _site -name "*.pdf" -type f | wc -l)
+echo "   Generated $pdf_count PDF files"
 
 # Clean up DOCX files if requested (they're only needed for PDF conversion)
 if [[ -n "$SKIP_DOCX" ]]; then
