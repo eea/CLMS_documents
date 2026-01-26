@@ -348,9 +348,31 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#pushing-changes-to-git" id="toc-pushing-changes-to-git" class="nav-link" data-scroll-target="#pushing-changes-to-git"><span class="header-section-number">15.1</span> Pushing Changes to Git</a></li>
   <li><a href="#reviewing-documents" id="toc-reviewing-documents" class="nav-link" data-scroll-target="#reviewing-documents"><span class="header-section-number">15.2</span> Reviewing Documents</a></li>
-  <li><a href="#releasing-official-documentation" id="toc-releasing-official-documentation" class="nav-link" data-scroll-target="#releasing-official-documentation"><span class="header-section-number">15.3</span> Releasing Official Documentation</a></li>
+  <li><a href="#releasing-official-documentation" id="toc-releasing-official-documentation" class="nav-link" data-scroll-target="#releasing-official-documentation"><span class="header-section-number">15.3</span> Releasing Official Documentation</a>
+  <ul class="collapse">
+  <li><a href="#version-number-assignment" id="toc-version-number-assignment" class="nav-link" data-scroll-target="#version-number-assignment"><span class="header-section-number">15.3.1</span> Version Number Assignment</a></li>
   </ul></li>
-  <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">16</span> Change Log</a></li>
+  </ul></li>
+  <li><a href="#restoring-previous-documentation-versions" id="toc-restoring-previous-documentation-versions" class="nav-link" data-scroll-target="#restoring-previous-documentation-versions"><span class="header-section-number">16</span> Restoring Previous Documentation Versions</a>
+  <ul class="collapse">
+  <li><a href="#quick-reference" id="toc-quick-reference" class="nav-link" data-scroll-target="#quick-reference"><span class="header-section-number">16.1</span> Quick Reference</a></li>
+  <li><a href="#what-restore-means" id="toc-what-restore-means" class="nav-link" data-scroll-target="#what-restore-means"><span class="header-section-number">16.2</span> What “Restore” Means</a></li>
+  <li><a href="#common-scenarios" id="toc-common-scenarios" class="nav-link" data-scroll-target="#common-scenarios"><span class="header-section-number">16.3</span> Common Scenarios</a></li>
+  <li><a href="#the-workflow" id="toc-the-workflow" class="nav-link" data-scroll-target="#the-workflow"><span class="header-section-number">16.4</span> The Workflow</a></li>
+  <li><a href="#checking-available-versions" id="toc-checking-available-versions" class="nav-link" data-scroll-target="#checking-available-versions"><span class="header-section-number">16.5</span> Checking Available Versions</a>
+  <ul class="collapse">
+  <li><a href="#list-all-published-files" id="toc-list-all-published-files" class="nav-link" data-scroll-target="#list-all-published-files"><span class="header-section-number">16.5.1</span> List All Published Files</a></li>
+  <li><a href="#list-versions-for-a-specific-file" id="toc-list-versions-for-a-specific-file" class="nav-link" data-scroll-target="#list-versions-for-a-specific-file"><span class="header-section-number">16.5.2</span> List Versions for a Specific File</a></li>
+  </ul></li>
+  <li><a href="#restoring-files" id="toc-restoring-files" class="nav-link" data-scroll-target="#restoring-files"><span class="header-section-number">16.6</span> Restoring Files</a>
+  <ul class="collapse">
+  <li><a href="#restore-a-specific-version" id="toc-restore-a-specific-version" class="nav-link" data-scroll-target="#restore-a-specific-version"><span class="header-section-number">16.6.1</span> Restore a Specific Version</a></li>
+  <li><a href="#restore-the-latest-published-version" id="toc-restore-the-latest-published-version" class="nav-link" data-scroll-target="#restore-the-latest-published-version"><span class="header-section-number">16.6.2</span> Restore the Latest Published Version</a></li>
+  <li><a href="#restore-a-deleted-file" id="toc-restore-a-deleted-file" class="nav-link" data-scroll-target="#restore-a-deleted-file"><span class="header-section-number">16.6.3</span> Restore a Deleted File</a></li>
+  </ul></li>
+  <li><a href="#after-restoring" id="toc-after-restoring" class="nav-link" data-scroll-target="#after-restoring"><span class="header-section-number">16.7</span> After Restoring</a></li>
+  </ul></li>
+  <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">17</span> Change Log</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="guidelines_editor-manual_v1.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="guidelines_editor-manual_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -1750,16 +1772,158 @@ Note
 <li>Upon review approval:
 <ul>
 <li>The PR is merged.</li>
-<li>The final, official version is automatically rendered and published at <a href="https://eea.github.io/CLMS_documents/main/index.html">https://eea.github.io/CLMS_documents/main/index.html</a></li>
+<li>The final, official version is automatically rendered and published at <a href="https://https://library.land.copernicus.eu">https://library.land.copernicus.eu/</a></li>
 </ul></li>
 </ol>
-<p>Version numbers for both pre-releases and official releases are <strong>automatically generated</strong> as part of the release workflow.</p>
+<section id="version-number-assignment" class="level3" data-number="15.3.1">
+<h3 data-number="15.3.1" class="anchored" data-anchor-id="version-number-assignment"><span class="header-section-number">15.3.1</span> Version Number Assignment</h3>
+<p>Version numbers are <strong>automatically generated</strong> during the release workflow using semantic versioning (major.minor.patch format).</p>
+<p>When documents are merged into the <code>main</code> branch:</p>
+<ul>
+<li>An AI service analyzes the changes made to each modified document</li>
+<li>Based on the scope and nature of changes, it assigns the next appropriate version number</li>
+<li>Minor changes (typos, small clarifications) increment the patch version (e.g., 2.1.0 → 2.1.1)</li>
+<li>New content or features increment the minor version (e.g., 2.1.0 → 2.2.0)</li>
+<li>Breaking changes or major rewrites increment the major version (e.g., 2.1.0 → 3.0.0, which may also update the filename from v2 to v3)</li>
+</ul>
+<p>The major version number in your document filename (e.g., <code>document_name_v2.qmd</code>) represents the base major version. The complete version tracking is managed automatically by the Technical Library system.</p>
+</section>
+</section>
+</section>
+<section id="restoring-previous-documentation-versions" class="level1" data-number="16">
+<h1 data-number="16"><span class="header-section-number">16</span> Restoring Previous Documentation Versions</h1>
+<p>The restore feature lets you fetch any published version of a documentation file into your local project. This is useful when you need to recover deleted content, start from a previous version, or review what changed between releases.</p>
+<section id="quick-reference" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="quick-reference"><span class="header-section-number">16.1</span> Quick Reference</h2>
+<div class="sourceCode" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List all published files and their versions</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore <span class="at">--list-all</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># List all versions for a specific file</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore <span class="at">--list</span> docs/CLMS_HRL-Forest_PUM_v2.qmd</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore a specific version</span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore the latest published version</span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore <span class="at">--latest</span> docs/CLMS_HRL-Forest_PUM_v2.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="what-restore-means" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="what-restore-means"><span class="header-section-number">16.2</span> What “Restore” Means</h2>
+<p><strong>Restore fetches a file to your local project</strong> - it doesn’t roll back or change anything in the published Technical Library. You’re getting a copy of a previous version that you can work on, edit, and eventually publish as a new version.</p>
+<p>Think of it as “start editing from version X” rather than “undo to version X in the library.”</p>
+</section>
+<section id="common-scenarios" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="common-scenarios"><span class="header-section-number">16.3</span> Common Scenarios</h2>
+<p><strong>Recovering deleted content:</strong> You accidentally removed an important section from your local file. Restore the latest published version to get it back, then continue editing.</p>
+<p><strong>Starting from a previous version:</strong> Version 2.2.0 introduced problems. Restore version 2.0.0, make corrections, and publish. When the library is released, your changes will be assigned a new version number based on their scope.</p>
+<p><strong>Bringing back a deleted file:</strong> A file was removed from your project but still exists in the Technical Library. Restore it to recreate the file locally, then you can update and republish it.</p>
+</section>
+<section id="the-workflow" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="the-workflow"><span class="header-section-number">16.4</span> The Workflow</h2>
+<p>Here’s what happens when you restore and publish:</p>
+<ol type="1">
+<li><strong>Restore:</strong> Fetch version 2.0.0 of <code>docs/CLMS_HRL-Forest_PUM_v2.qmd</code> to your project</li>
+<li><strong>Edit:</strong> Make changes locally (file is still named <code>CLMS_HRL-Forest_PUM_v2.qmd</code>)</li>
+<li><strong>Publish to develop:</strong> Push changes with <code>git docs-publish</code> - your document appears in the develop environment for preview</li>
+<li><strong>Release process:</strong> When the Technical Library is released (develop → test → main), AI analyzes your changes and assigns the next version number</li>
+<li><strong>Result:</strong> Your edited document appears in the Technical Library with a new version (e.g., 2.3.0 for new features, 2.2.1 for fixes, or 3.0.0 for breaking changes)</li>
+</ol>
+<p>Note that version numbers are assigned only during the final release, not when you push to develop. See the “Releasing Official Documentation” section for details on how versioning works.</p>
+</section>
+<section id="checking-available-versions" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="checking-available-versions"><span class="header-section-number">16.5</span> Checking Available Versions</h2>
+<section id="list-all-published-files" class="level3" data-number="16.5.1">
+<h3 data-number="16.5.1" class="anchored" data-anchor-id="list-all-published-files"><span class="header-section-number">16.5.1</span> List All Published Files</h3>
+<p>To see every documentation file with published versions:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore <span class="at">--list-all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Output shows the latest version, release date, and current status:</p>
+<pre><code>Published files for MyProject:
+
+docs/CLMS_HRL-Forest_PUM_v2.qmd
+  latest: 2.2.0 (released: 2025-12-01)
+  status: active
+
+docs/CLMS_Water-Bodies_ATBD_v1.qmd
+  latest: 1.5.0 (released: 2024-06-15)
+  status: deleted (deleted: 2025-01-10)</code></pre>
+<p>Files marked “deleted” were removed from your project but still exist in the Technical Library - you can restore any of their versions.</p>
+</section>
+<section id="list-versions-for-a-specific-file" class="level3" data-number="16.5.2">
+<h3 data-number="16.5.2" class="anchored" data-anchor-id="list-versions-for-a-specific-file"><span class="header-section-number">16.5.2</span> List Versions for a Specific File</h3>
+<p>To see the complete version history of a file:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore <span class="at">--list</span> docs/CLMS_HRL-Forest_PUM_v2.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You’ll get a timeline of all published releases:</p>
+<pre><code>Available versions for docs/CLMS_HRL-Forest_PUM_v2.qmd:
+
+2.2.0 (released: 2025-12-01) [latest]
+2.1.0 (released: 2025-09-15)
+2.0.0 (released: 2025-06-10)</code></pre>
+</section>
+</section>
+<section id="restoring-files" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="restoring-files"><span class="header-section-number">16.6</span> Restoring Files</h2>
+<section id="restore-a-specific-version" class="level3" data-number="16.6.1">
+<h3 data-number="16.6.1" class="anchored" data-anchor-id="restore-a-specific-version"><span class="header-section-number">16.6.1</span> Restore a Specific Version</h3>
+<p>Choose any published version and fetch it to your project:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you have uncommitted changes to that file, you’ll need to commit or stash them first. The command won’t overwrite your work without warning.</p>
+<p>The file is replaced with the requested version and ready for you to edit.</p>
+</section>
+<section id="restore-the-latest-published-version" class="level3" data-number="16.6.2">
+<h3 data-number="16.6.2" class="anchored" data-anchor-id="restore-the-latest-published-version"><span class="header-section-number">16.6.2</span> Restore the Latest Published Version</h3>
+<p>To get the most recent released version:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore <span class="at">--latest</span> docs/CLMS_HRL-Forest_PUM_v2.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This is useful after experimenting with changes you want to discard - just fetch the latest published version and start fresh.</p>
+</section>
+<section id="restore-a-deleted-file" class="level3" data-number="16.6.3">
+<h3 data-number="16.6.3" class="anchored" data-anchor-id="restore-a-deleted-file"><span class="header-section-number">16.6.3</span> Restore a Deleted File</h3>
+<p>If a file shows <code>status: deleted</code> in the list, you can still restore it:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore docs/CLMS_Water-Bodies_ATBD_v1.qmd 1.5.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This recreates the file in your project at the specified version. From there, you can update it and publish as usual.</p>
+</section>
+</section>
+<section id="after-restoring" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="after-restoring"><span class="header-section-number">16.7</span> After Restoring</h2>
+<p>Once you’ve restored a file to your local project:</p>
+<ol type="1">
+<li><strong>Review the content</strong> - Open it in RStudio or your editor to see what you’re working with</li>
+<li><strong>Make your edits</strong> - Treat it like any other working file</li>
+<li><strong>Test rendering</strong> - Make sure it builds correctly</li>
+<li><strong>Commit and publish</strong> - When ready, commit your changes and run <code>git docs-publish</code></li>
+</ol>
+<p>Your changes will appear in the develop environment for preview. Version numbers are assigned later during the release process (see “Releasing Official Documentation” for details).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Restore only affects your local project. Nothing changes in the published Technical Library until you explicitly publish your work. You can restore, review, and discard without any consequences to the published documentation.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can run restore commands from any directory in your project. The system handles paths automatically, so <code>git docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd</code> works whether you’re at the project root or in a subdirectory.</p>
+</div>
+</div>
 
 
 </section>
 </section>
-<section id="change-log" class="level1" data-number="16">
-<h1 data-number="16"><span class="header-section-number">16</span> Change Log</h1>
+<section id="change-log" class="level1" data-number="17">
+<h1 data-number="17"><span class="header-section-number">17</span> Change Log</h1>
 <table class="caption-top table">
 <thead>
 <tr class="header">

@@ -1082,7 +1082,56 @@
     "href": "guidelines/guidelines_editor-manual_v1.html#releasing-official-documentation",
     "title": "Guide for Writing Technical Documentation",
     "section": "15.3 Releasing Official Documentation",
-    "text": "15.3 Releasing Official Documentation\nTo publish the final release version:\n\nA Technical Library owner must create a PR from test to main.\nThis PR also must be reviewed and approved by another repository owner.\nUpon review approval:\n\nThe PR is merged.\nThe final, official version is automatically rendered and published at https://eea.github.io/CLMS_documents/main/index.html\n\n\nVersion numbers for both pre-releases and official releases are automatically generated as part of the release workflow."
+    "text": "15.3 Releasing Official Documentation\nTo publish the final release version:\n\nA Technical Library owner must create a PR from test to main.\nThis PR also must be reviewed and approved by another repository owner.\nUpon review approval:\n\nThe PR is merged.\nThe final, official version is automatically rendered and published at https://library.land.copernicus.eu/\n\n\n\n15.3.1 Version Number Assignment\nVersion numbers are automatically generated during the release workflow using semantic versioning (major.minor.patch format).\nWhen documents are merged into the main branch:\n\nAn AI service analyzes the changes made to each modified document\nBased on the scope and nature of changes, it assigns the next appropriate version number\nMinor changes (typos, small clarifications) increment the patch version (e.g., 2.1.0 → 2.1.1)\nNew content or features increment the minor version (e.g., 2.1.0 → 2.2.0)\nBreaking changes or major rewrites increment the major version (e.g., 2.1.0 → 3.0.0, which may also update the filename from v2 to v3)\n\nThe major version number in your document filename (e.g., document_name_v2.qmd) represents the base major version. The complete version tracking is managed automatically by the Technical Library system."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#quick-reference",
+    "href": "guidelines/guidelines_editor-manual_v1.html#quick-reference",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "16.1 Quick Reference",
+    "text": "16.1 Quick Reference\n# List all published files and their versions\ngit docs-restore --list-all\n\n# List all versions for a specific file\ngit docs-restore --list docs/CLMS_HRL-Forest_PUM_v2.qmd\n\n# Restore a specific version\ngit docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0\n\n# Restore the latest published version\ngit docs-restore --latest docs/CLMS_HRL-Forest_PUM_v2.qmd"
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#what-restore-means",
+    "href": "guidelines/guidelines_editor-manual_v1.html#what-restore-means",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "16.2 What “Restore” Means",
+    "text": "16.2 What “Restore” Means\nRestore fetches a file to your local project - it doesn’t roll back or change anything in the published Technical Library. You’re getting a copy of a previous version that you can work on, edit, and eventually publish as a new version.\nThink of it as “start editing from version X” rather than “undo to version X in the library.”"
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#common-scenarios",
+    "href": "guidelines/guidelines_editor-manual_v1.html#common-scenarios",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "16.3 Common Scenarios",
+    "text": "16.3 Common Scenarios\nRecovering deleted content: You accidentally removed an important section from your local file. Restore the latest published version to get it back, then continue editing.\nStarting from a previous version: Version 2.2.0 introduced problems. Restore version 2.0.0, make corrections, and publish. When the library is released, your changes will be assigned a new version number based on their scope.\nBringing back a deleted file: A file was removed from your project but still exists in the Technical Library. Restore it to recreate the file locally, then you can update and republish it."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#the-workflow",
+    "href": "guidelines/guidelines_editor-manual_v1.html#the-workflow",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "16.4 The Workflow",
+    "text": "16.4 The Workflow\nHere’s what happens when you restore and publish:\n\nRestore: Fetch version 2.0.0 of docs/CLMS_HRL-Forest_PUM_v2.qmd to your project\nEdit: Make changes locally (file is still named CLMS_HRL-Forest_PUM_v2.qmd)\nPublish to develop: Push changes with git docs-publish - your document appears in the develop environment for preview\nRelease process: When the Technical Library is released (develop → test → main), AI analyzes your changes and assigns the next version number\nResult: Your edited document appears in the Technical Library with a new version (e.g., 2.3.0 for new features, 2.2.1 for fixes, or 3.0.0 for breaking changes)\n\nNote that version numbers are assigned only during the final release, not when you push to develop. See the “Releasing Official Documentation” section for details on how versioning works."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#checking-available-versions",
+    "href": "guidelines/guidelines_editor-manual_v1.html#checking-available-versions",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "16.5 Checking Available Versions",
+    "text": "16.5 Checking Available Versions\n\n16.5.1 List All Published Files\nTo see every documentation file with published versions:\ngit docs-restore --list-all\nOutput shows the latest version, release date, and current status:\nPublished files for MyProject:\n\ndocs/CLMS_HRL-Forest_PUM_v2.qmd\n  latest: 2.2.0 (released: 2025-12-01)\n  status: active\n\ndocs/CLMS_Water-Bodies_ATBD_v1.qmd\n  latest: 1.5.0 (released: 2024-06-15)\n  status: deleted (deleted: 2025-01-10)\nFiles marked “deleted” were removed from your project but still exist in the Technical Library - you can restore any of their versions.\n\n\n16.5.2 List Versions for a Specific File\nTo see the complete version history of a file:\ngit docs-restore --list docs/CLMS_HRL-Forest_PUM_v2.qmd\nYou’ll get a timeline of all published releases:\nAvailable versions for docs/CLMS_HRL-Forest_PUM_v2.qmd:\n\n2.2.0 (released: 2025-12-01) [latest]\n2.1.0 (released: 2025-09-15)\n2.0.0 (released: 2025-06-10)"
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#restoring-files",
+    "href": "guidelines/guidelines_editor-manual_v1.html#restoring-files",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "16.6 Restoring Files",
+    "text": "16.6 Restoring Files\n\n16.6.1 Restore a Specific Version\nChoose any published version and fetch it to your project:\ngit docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0\nIf you have uncommitted changes to that file, you’ll need to commit or stash them first. The command won’t overwrite your work without warning.\nThe file is replaced with the requested version and ready for you to edit.\n\n\n16.6.2 Restore the Latest Published Version\nTo get the most recent released version:\ngit docs-restore --latest docs/CLMS_HRL-Forest_PUM_v2.qmd\nThis is useful after experimenting with changes you want to discard - just fetch the latest published version and start fresh.\n\n\n16.6.3 Restore a Deleted File\nIf a file shows status: deleted in the list, you can still restore it:\ngit docs-restore docs/CLMS_Water-Bodies_ATBD_v1.qmd 1.5.0\nThis recreates the file in your project at the specified version. From there, you can update it and publish as usual."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#after-restoring",
+    "href": "guidelines/guidelines_editor-manual_v1.html#after-restoring",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "16.7 After Restoring",
+    "text": "16.7 After Restoring\nOnce you’ve restored a file to your local project:\n\nReview the content - Open it in RStudio or your editor to see what you’re working with\nMake your edits - Treat it like any other working file\nTest rendering - Make sure it builds correctly\nCommit and publish - When ready, commit your changes and run git docs-publish\n\nYour changes will appear in the develop environment for preview. Version numbers are assigned later during the release process (see “Releasing Official Documentation” for details).\n\n\n\n\n\n\nImportant\n\n\n\nRestore only affects your local project. Nothing changes in the published Technical Library until you explicitly publish your work. You can restore, review, and discard without any consequences to the published documentation.\n\n\n\n\n\n\n\n\nTip\n\n\n\nYou can run restore commands from any directory in your project. The system handles paths automatically, so git docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd works whether you’re at the project root or in a subdirectory."
   },
   {
     "objectID": "guidelines/it-principles_IT_Architecture_Principles_and_Implementation_Guidelines_v1.html",
