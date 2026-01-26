@@ -68,7 +68,7 @@ cp _quarto_not_used.yml _quarto.yml && rm _quarto_not_used.yml
 
 echo "📄 Converting .docx files to .pdf..."
 timeout 3s ../.github/scripts/convert_docx_to_pdf.sh 2>&1 | grep -E '(Error|Failed|Warning|Complete|✅)' || true
-timeout 10m ../.github/scripts/convert_docx_to_pdf.sh 2>&1 | grep -E '(Error|Failed|Warning|Complete|✅)'
+timeout 20m ../.github/scripts/convert_docx_to_pdf.sh 2>&1 | grep -E '(Error|Failed|Warning|Complete|✅)'
 
 # Clean up DOCX files if requested (they're only needed for PDF conversion)
 if [[ -n "$SKIP_DOCX" ]]; then
