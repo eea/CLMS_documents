@@ -40,7 +40,7 @@ fi
 
 # Render all files together (changelog filter uses original-filename from YAML headers)
 echo "🔄 Rendering all documents to HTML..."
-QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to html --no-clean 
+QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to html --no-clean --quiet 
 
 # Backup the correct sitemap as it may be overwritten by next operations
 sleep 5
@@ -48,7 +48,7 @@ mv _site/sitemap.xml _site/sitemap.xml.bkp
 
 # Generate DOCX files (always needed for PDF conversion)
 echo "📄 Generating DOCX files for PDF conversion..."
-QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to docx --no-clean
+QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to docx --no-clean --quiet
 find _site -type f -name 'index.docx' -delete
 
 echo "🛠 Generate index.qmd files for all DOCS/* folders"e
@@ -57,17 +57,18 @@ node ../.github/scripts/generate_index_all.mjs
 echo "📄 Render only index.qmd files using 'index' profile"
 mv _quarto.yml _quarto_not_used.yml
 mv _quarto-index.yml _quarto.yml
+index_count=$(find ./ -type f -name index.qmd | wc -l)
+echo "   Rendering $index_count index files..."
 find ./ -type f -name index.qmd -print0 | while IFS= read -r -d '' src; do
-  echo "🔧 Rendering $src using profile=index..."
-  QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render "$src" --profile index --to html --no-clean $QUARTO_FLAGS
+  QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render "$src" --profile index --to html --no-clean --quiet $QUARTO_FLAGS
 done
 mv _quarto.yml _quarto-index.yml
 cp _quarto_not_used.yml _quarto.yml && rm _quarto_not_used.yml
 
 
 echo "📄 Converting .docx files to .pdf..."
-timeout 3s ../.github/scripts/convert_docx_to_pdf.sh || true
-timeout 10m ../.github/scripts/convert_docx_to_pdf.sh
+timeout 3s ../.github/scripts/convert_docx_to_pdf.sh 2>&1 | grep -E '(Error|Failed|Warning|Complete|✅)' || true
+timeout 10m ../.github/scripts/convert_docx_to_pdf.sh 2>&1 | grep -E '(Error|Failed|Warning|Complete|✅)'
 
 # Clean up DOCX files if requested (they're only needed for PDF conversion)
 if [[ -n "$SKIP_DOCX" ]]; then

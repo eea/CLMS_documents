@@ -1,14 +1,15 @@
 ---
-title: "Guide for Writing Technical Documentation"
-subtitle: "Copernicus Land Monitoring Service"
-author: "European Environment Agency (EEA)"
-version: 0.6
-category: "guidelines"
-description: "A comprehensive guide for creating technical documentation for the Copernicus
+author: European Environment Agency (EEA)
+category: guidelines
+date: '2025-06-23'
+description: A comprehensive guide for creating technical documentation for the Copernicus
   Land Monitoring Service using Quarto. It covers Markdown basics, document rendering,
-  and the review process, ensuring consistency and clarity in documentation."
-date: "2025-06-23"
+  and the review process, ensuring consistency and clarity in documentation.
+original-filename: guidelines/editor-manual_v1.qmd
+subtitle: Copernicus Land Monitoring Service
 template-version: 1.0
+title: Guide for Writing Technical Documentation
+version: 0.6
 ---
 
 <!--# maybe we should promote (or at least describe the option of unsing variables in yaml that can be reused in the document:  e.g. product-name: "Example Product" ---  # Welcome to {{ product-name }} Documentation.      -->
@@ -1281,7 +1282,165 @@ To publish the final release version:
 2. This PR also must be **reviewed and approved by another repository owner**.
 3. Upon review approval:
     - The PR is merged.
-    - The final, official version is automatically rendered and published at [https://eea.github.io/CLMS_documents/main/index.html](https://eea.github.io/CLMS_documents/main/index.html)
+    - The final, official version is automatically rendered and published at [https://library.land.copernicus.eu/](https://https://library.land.copernicus.eu)
 
-Version numbers for both pre-releases and official releases are **automatically generated** as part of the release workflow.
+### Version Number Assignment
+
+Version numbers are **automatically generated** during the release workflow using semantic versioning (major.minor.patch format). 
+
+When documents are merged into the `main` branch:
+
+ - An AI service analyzes the changes made to each modified document
+ - Based on the scope and nature of changes, it assigns the next appropriate version number
+ - Minor changes (typos, small clarifications) increment the patch version (e.g., 2.1.0 → 2.1.1)
+ - New content or features increment the minor version (e.g., 2.1.0 → 2.2.0)
+ - Breaking changes or major rewrites increment the major version (e.g., 2.1.0 → 3.0.0, which may also update the filename from v2 to v3)
+
+The major version number in your document filename (e.g., `document_name_v2.qmd`) represents the base major version. The complete version tracking is managed automatically by the Technical Library system.
+
+# Restoring Previous Documentation Versions
+
+The restore feature lets you fetch any published version of a documentation file into your local project. This is useful when you need to recover deleted content, start from a previous version, or review what changed between releases.
+
+## Quick Reference
+
+```bash
+# List all published files and their versions
+git docs-restore --list-all
+
+# List all versions for a specific file
+git docs-restore --list docs/CLMS_HRL-Forest_PUM_v2.qmd
+
+# Restore a specific version
+git docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0
+
+# Restore the latest published version
+git docs-restore --latest docs/CLMS_HRL-Forest_PUM_v2.qmd
+```
+
+## What "Restore" Means
+
+**Restore fetches a file to your local project** - it doesn't roll back or change anything in the published Technical Library. You're getting a copy of a previous version that you can work on, edit, and eventually publish as a new version.
+
+Think of it as "start editing from version X" rather than "undo to version X in the library."
+
+## Common Scenarios
+
+**Recovering deleted content:**
+You accidentally removed an important section from your local file. Restore the latest published version to get it back, then continue editing.
+
+**Starting from a previous version:**
+Version 2.2.0 introduced problems. Restore version 2.0.0, make corrections, and publish. When the library is released, your changes will be assigned a new version number based on their scope.
+
+**Bringing back a deleted file:**
+A file was removed from your project but still exists in the Technical Library. Restore it to recreate the file locally, then you can update and republish it.
+
+## The Workflow
+
+Here's what happens when you restore and publish:
+
+1. **Restore:** Fetch version 2.0.0 of `docs/CLMS_HRL-Forest_PUM_v2.qmd` to your project
+2. **Edit:** Make changes locally (file is still named `CLMS_HRL-Forest_PUM_v2.qmd`)
+3. **Publish to develop:** Push changes with `git docs-publish` - your document appears in the develop environment for preview
+4. **Release process:** When the Technical Library is released (develop → test → main), AI analyzes your changes and assigns the next version number
+5. **Result:** Your edited document appears in the Technical Library with a new version (e.g., 2.3.0 for new features, 2.2.1 for fixes, or 3.0.0 for breaking changes)
+
+Note that version numbers are assigned only during the final release, not when you push to develop. See the "Releasing Official Documentation" section for details on how versioning works.
+
+## Checking Available Versions
+
+### List All Published Files
+
+To see every documentation file with published versions:
+
+```bash
+git docs-restore --list-all
+```
+
+Output shows the latest version, release date, and current status:
+
+```
+Published files for MyProject:
+
+docs/CLMS_HRL-Forest_PUM_v2.qmd
+  latest: 2.2.0 (released: 2025-12-01)
+  status: active
+
+docs/CLMS_Water-Bodies_ATBD_v1.qmd
+  latest: 1.5.0 (released: 2024-06-15)
+  status: deleted (deleted: 2025-01-10)
+```
+
+Files marked "deleted" were removed from your project but still exist in the Technical Library - you can restore any of their versions.
+
+### List Versions for a Specific File
+
+To see the complete version history of a file:
+
+```bash
+git docs-restore --list docs/CLMS_HRL-Forest_PUM_v2.qmd
+```
+
+You'll get a timeline of all published releases:
+
+```
+Available versions for docs/CLMS_HRL-Forest_PUM_v2.qmd:
+
+2.2.0 (released: 2025-12-01) [latest]
+2.1.0 (released: 2025-09-15)
+2.0.0 (released: 2025-06-10)
+```
+
+## Restoring Files
+
+### Restore a Specific Version
+
+Choose any published version and fetch it to your project:
+
+```bash
+git docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0
+```
+
+If you have uncommitted changes to that file, you'll need to commit or stash them first. The command won't overwrite your work without warning.
+
+The file is replaced with the requested version and ready for you to edit.
+
+### Restore the Latest Published Version
+
+To get the most recent released version:
+
+```bash
+git docs-restore --latest docs/CLMS_HRL-Forest_PUM_v2.qmd
+```
+
+This is useful after experimenting with changes you want to discard - just fetch the latest published version and start fresh.
+
+### Restore a Deleted File
+
+If a file shows `status: deleted` in the list, you can still restore it:
+
+```bash
+git docs-restore docs/CLMS_Water-Bodies_ATBD_v1.qmd 1.5.0
+```
+
+This recreates the file in your project at the specified version. From there, you can update it and publish as usual.
+
+## After Restoring
+
+Once you've restored a file to your local project:
+
+1. **Review the content** - Open it in RStudio or your editor to see what you're working with
+2. **Make your edits** - Treat it like any other working file
+3. **Test rendering** - Make sure it builds correctly
+4. **Commit and publish** - When ready, commit your changes and run `git docs-publish`
+
+Your changes will appear in the develop environment for preview. Version numbers are assigned later during the release process (see "Releasing Official Documentation" for details).
+
+::: callout-important
+Restore only affects your local project. Nothing changes in the published Technical Library until you explicitly publish your work. You can restore, review, and discard without any consequences to the published documentation.
+:::
+
+::: callout-tip
+You can run restore commands from any directory in your project. The system handles paths automatically, so `git docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd` works whether you're at the project root or in a subdirectory.
+:::
 
