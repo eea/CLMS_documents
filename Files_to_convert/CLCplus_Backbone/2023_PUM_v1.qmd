@@ -125,7 +125,7 @@ Countries reporting to the United Nations Framework Convention on Climate Change
 
 - Forest Management: Foresters can use CLCplus Backbone to monitor the patterns and extent of different basic tree covers, aiding in sustainable forestry practices and combating illegal logging. 
 
-Natural Disaster Management: 
+### Natural Disaster Management: 
 
 - Flood Risk Assessment: CLCplus Backbone can help to identify flood-prone areas and design flood mitigation strategies. 
 
@@ -169,27 +169,11 @@ The following chapter describes the CLCplus Backbone 2023 raster layer (RAS), it
 
 The CLCplus Backbone 2023 is a 10m pixel-based land cover map (see Figure 2) based on  Sentinel-2 (S-2) data for the reference year 2023 ±3 months. The product has no defined MMU  but maps the dominant land cover among 11 thematic land cover classes (see Table 2) for  individual raster cells (i.e. 1 pixel = 10 x 10m = 100m²). The applied class nomenclature is based  on the EAGLE Land Cover Components (LCC), whereas there are slight deviations for some  classes, as described in detail in chapter 6.1.2. CLCplus Backbone 2023 is available for the  territory of the 38 EEA member and cooperating countries and the United Kingdom (i.e. EEA38 + UK), including the French DOMs, and maps an area of approximately 6 million km².
 
-Table 2: Thematic raster classes of CLCplus Backbone 2023, their class codes and colours.
-
-|CLCplus Backbone thematic raster classes|CLCplus Backbone thematic raster classes|
-|--|--|
-|Class code and colour|Class Name|
-|1 |Sealed|
-|2 |Woody needle leaved trees|
-|3 |Woody broadleaved deciduous trees|
-|4 |Woody broadleaved evergreen trees|
-|5 |Low-growing woody plants|
-|6 |Permanent herbaceous|
-|7 |Periodically herbaceous|
-|8 |Lichens and mosses|
-|9 |Non- and sparsely vegetated|
-|10|Water|
-|11|Snow and ice|
+Table 2: Thematic raster classes of CLCplus Backbone 2023, their class codes and colours
+![](2023_PUM_v1-media/Table2.png)
 
 
-![img](2023_PUM_v1-media/img-9df408152771d42bb0f22ad96081a803854b9e76.png)
-
-Figure 2: CLCplus Backbone 2023 for the EEA38+UK (note: French DOMs are not shown).
+![Figure 2: CLCplus Backbone 2023 for the EEA38+UK (note: French DOMs are not shown)](2023_PUM_v1-media/img-9df408152771d42bb0f22ad96081a803854b9e76.png)
 
 ### 6.1.1 Technical specifications of CLCplus Backbone 2023
 
@@ -197,21 +181,15 @@ Figure 2: CLCplus Backbone 2023 for the EEA38+UK (note: French DOMs are not show
 
 CLCplus Backbone 2023 is available as 100 x 100km tiles, based on the EEA grid. Each of the tiles  has a unique identifier, referring to its spatial extent (e.g. ‘E44N36’). In total, the EEA38+UK is  represented by 897 raster tiles, each of them accompanied by an INSPIRE compliant metadata  file (.xml) and an attribute table in aux.xml format. For tile E44N36 for example the following  files are available:
 
-- Raster classification file:
+- Raster classification file: CLMS_CLCPLUS_RAS_S2023_R10m_E44N36_03035_V01_R00.tif
 
-CLMS_CLCPLUS_RAS_S2023_R10m_E44N36_03035_V01_R00.tif
-
-- Attribute table file:
-
-CLMS_CLCPLUS_RAS_S2023_R10m_E44N36_03035_V01_R00.tif.aux.xml
+- Attribute table file: CLMS_CLCPLUS_RAS_S2023_R10m_E44N36_03035_V01_R00.tif.aux.xml
 
 - Metadata file: CLMS_CLCPLUS_RAS_S2023_R10m_E44N36_03035_V01_R00.xml
 
 Additionally, symbology files in .lyr, .qml and .sld are available in order to ease the visualization  in specific software applications.
 
-![img](2023_PUM_v1-media/img-66b2331d63fc430e212e30aa8999c547d0b8dc82.png)
-
-Figure 3: CLCplus Backbone 2023 for tile E44N36 (Copenhagen).
+![Figure 3: CLCplus Backbone 2023 for tile E44N36 (Copenhagen)](2023_PUM_v1-media/img-66b2331d63fc430e212e30aa8999c547d0b8dc82.png)
 
 Figure 3 displays a single tile (E44N36) of the CLCplus Backbone 2023, showing the area around Copenhagen. Besides the tiles for the EEA38+UK extent, the CLCplus Backbone 2023 is available in the national projections for the French DOMs.
 
@@ -219,14 +197,15 @@ Figure 3 displays a single tile (E44N36) of the CLCplus Backbone 2023, showing t
 
 The filenames for the CLCplus Backbone 2023 are composed of the following elements:
 
-Prefix_DataTheme_DataSub-Theme_TemporalReference_DataTypeSpatialResolution_SpatialExtent_EPSGCode_VersionNumber_RevisionNumber
+*Prefix_DataTheme_DataSub-Theme_TemporalReference_DataTypeSpatialResolution_SpatialExtent_EPSGCode_VersionNumber_RevisionNumber*
 
-##### ➔ CLMS_CLCPLUS_RAS_S2023_R10m_EXXNXX_03035_V01_R00
+**➔ CLMS_CLCPLUS_RAS_S2023_R10m_EXXNXX_03035_V01_R00**
 
-###### Where:
+Where:
 
-|Prefix: CLMS|SpatialResolution (SpatialResolutionUnit): 10m|
+|  |  |
 |--|--|
+|Prefix: CLMS|SpatialResolution (SpatialResolutionUnit): 10m||Prefix: CLMS|SpatialResolution (SpatialResolutionUnit): 10m|
 |DataTheme: CLCPLUS|SpatialExtent: EXXNXX or GF, GP, MQ, RE, YT for French DOMs|
 |DataSub-Theme: RAS|EPSGCode: 03035 (or EPSG codes for national projections of DOMs)|
 |TemporalReference: S2023|VersionNumber: V01|
@@ -237,89 +216,45 @@ The product specifications for the CLCplus Backbone for the reference year 2023 
 
 Table 3: Technical specifications of the CLCplus Backbone.
 
-|CLCplus Backbone Raster|Acronym: RAS|Product family: CLMS_CLCplus|
-|--|--|--|
-|SummaryCLCplus Backbone is a spatially detailed, large scale, EO-based land cover inventory. The CLCplus Backbone RAS layer is a 10m pixel-based land cover map based on a Sentinel-2 time series from October 2022 to March 2024 and auxiliary features. For each pixel it shows the dominant land cover among the 11 basic land cover classes.|SummaryCLCplus Backbone is a spatially detailed, large scale, EO-based land cover inventory. The CLCplus Backbone RAS layer is a 10m pixel-based land cover map based on a Sentinel-2 time series from October 2022 to March 2024 and auxiliary features. For each pixel it shows the dominant land cover among the 11 basic land cover classes.|SummaryCLCplus Backbone is a spatially detailed, large scale, EO-based land cover inventory. The CLCplus Backbone RAS layer is a 10m pixel-based land cover map based on a Sentinel-2 time series from October 2022 to March 2024 and auxiliary features. For each pixel it shows the dominant land cover among the 11 basic land cover classes.|
-|Reference year2023|Reference year2023|Reference year2023|
-|Geometric resolutionPixel resolution 10m x 10m, fully conform with the EEA reference grid|Geometric resolutionPixel resolution 10m x 10m, fully conform with the EEA reference grid|Geometric resolutionPixel resolution 10m x 10m, fully conform with the EEA reference grid|
-|Coordinate Reference SystemEuropean ETRS89 LAEA projection / WGS84 and the respective UTM zone for French DOMs|Coordinate Reference SystemEuropean ETRS89 LAEA projection / WGS84 and the respective UTM zone for French DOMs|Coordinate Reference SystemEuropean ETRS89 LAEA projection / WGS84 and the respective UTM zone for French DOMs|
-|Coverage6.002.105 km² (covering the full EEA38 + UK)|Coverage6.002.105 km² (covering the full EEA38 + UK)|Coverage6.002.105 km² (covering the full EEA38 + UK)|
-|Geometric accuracy (positioning scale)Equals Sentinel-2 positional accuracy in 2023 (<9m at 95.5 % confidence level)|Geometric accuracy (positioning scale)Equals Sentinel-2 positional accuracy in 2023 (<9m at 95.5 % confidence level)|Geometric accuracy (positioning scale)Equals Sentinel-2 positional accuracy in 2023 (<9m at 95.5 % confidence level)|
-|Thematic accuracy90 % overall accuracy, not more than 15 % omission errors and 15 % commission errors per class (the amount of omission and commission errors for particular difficult classes such as Low-growing woody plants and Lichens and Mosses might regionally exceed those thresholds)|Thematic accuracy90 % overall accuracy, not more than 15 % omission errors and 15 % commission errors per class (the amount of omission and commission errors for particular difficult classes such as Low-growing woody plants and Lichens and Mosses might regionally exceed those thresholds)|Thematic accuracy90 % overall accuracy, not more than 15 % omission errors and 15 % commission errors per class (the amount of omission and commission errors for particular difficult classes such as Low-growing woody plants and Lichens and Mosses might regionally exceed those thresholds)|
-|Data type8bit unsigned raster with LZW compression|Data type8bit unsigned raster with LZW compression|Data type8bit unsigned raster with LZW compression|
-|Minimum Mapping Unit (MMU)Pixel-based (no MMU)|Minimum Mapping Unit (MMU)Pixel-based (no MMU)|Minimum Mapping Unit (MMU)Pixel-based (no MMU)|
-|Necessary attributesValue, Count, Class_name, Area_km2, Area_perc|Necessary attributesValue, Count, Class_name, Area_km2, Area_perc|Necessary attributesValue, Count, Class_name, Area_km2, Area_perc|
-
-
-Raster coding (thematic pixel values)
-
-###### 1: Sealed
-
-2: Woody needle leaved trees
-
-3: Woody broadleaved deciduous trees
-
-4: Woody broadleaved evergreen trees
-
-5: Low-growing woody plants
-
-6: Permanent herbaceous
-
-6: 
-
-7: Periodically herbaceous
-
-8: Lichens and mosses
-
-9: Non and sparsely vegetated
-
-10: Water
-
-11: Snow and ice
-
-253: Coastal seawater buffer
-
-254: Outside area
-
-255: No data
-
-Metadata
-
-XML metadata files according to INSPIRE metadata standards
-
-Delivery format
-
-Cloud optimized GeoTIFFs as 100x100km tiles incl. pyramids and embedded colour map (*.tif), attribute table
-
-(*.aux.xml), and INSPIRE-compliant metadata in XML format (*.xml)
+|CLCplus Backbone Raster / Acronym: RAS / Product family: CLMS_CLCplus|
+|--|
+|**Summary**: CLCplus Backbone is a spatially detailed, large scale, EO-based land cover inventory. The CLCplus Backbone RAS layer is a 10m pixel-based land cover map based on a Sentinel-2 time series from October 2022 to March 2024 and auxiliary features. For each pixel it shows the dominant land cover among the 11 basic land cover classes|
+|**Reference year**: 2023|
+|**Geometric resolution**: Pixel resolution 10m x 10m, fully conform with the EEA reference grid|
+|**Coordinate Reference Syste**m: European ETRS89 LAEA projection / WGS84 and the respective UTM zone for French DOMs|
+|**Coverage**: 6.002.105 km² (covering the full EEA38 + UK)|
+|**Geometric accuracy (positioning scale)**: Equals Sentinel-2 positional accuracy in 2023 (<9m at 95.5 % confidence level)|
+|**Thematic accuracy**: 90 % overall accuracy, not more than 15 % omission errors and 15 % commission errors per class (the amount of omission and commission errors for particular difficult classes such as Low-growing woody plants and Lichens and Mosses might regionally exceed those thresholds)
+|**Data type**: 8bit unsigned raster with LZW compression|
+|**Minimum Mapping Unit (MMU)**: Pixel-based (no MMU)|
+|**Necessary attributes**: Value, Count, Class_name, Area_km2, Area_perc|
+|**Raster coding (thematic pixel values)**: <br> 1: Sealed <br> 2: Woody needle leaved trees <br> 3: Woody broadleaved deciduous trees <br> 4: Woody broadleaved evergreen trees <br> 5: Low-growing woody plants <br> 6: Permanent herbaceous <br> 7: Periodically herbaceous <br> 8: Lichens and mosses <br> 9: Non and sparsely vegetated <br> 10: Water <br> 11: Snow and ice <br> 253: Coastal seawater buffer <br> 254: Outside area <br> 255: No data|
+|**Metadata**: XML metadata files according to INSPIRE metadata standards|
+|**Delivery format**: Cloud optimized GeoTIFFs as 100x100km tiles incl. pyramids and embedded colour map (\*.tif), attribute table (\*.aux.xml), and INSPIRE-compliant metadata in XML format (*.xml)|
 
 ### 6.1.2 Nomenclature concept and class definitions
 
 Most of the class definitions for the CLCplus Backbone 2023comprise a 50% area threshold to  express that the dominant land cover should be assigned. While this is a plausible approach  there are many situations where the land cover within a single 10m pixel comprises a spatial mix  of different classes and no single class reaches an absolute majority of 50%. A simple example is  provided in Figure 4. 
 
-![img](2023_PUM_v1-media/img-0f13569c926a8fcffb56ce87a86f6969e7efe854.png)
-
-Figure 4: Exemplary 10x10m plot illustration of a situation where no single land cover class  covers 50% of the area.
+![Figure 4: Exemplary 10x10m plot illustration of a situation where no single land cover class  covers 50% of the area](2023_PUM_v1-media/img-0f13569c926a8fcffb56ce87a86f6969e7efe854.png)
 
 To address this issue, a relative majority is used in most cases for the class assignment. This logic  is implemented in detail through a decision tree approach (see Figure 6) which does not only  define the area threshold but further clarifies and limits for each class the EAGLE Land Cover  Component (see Figure 5) and EAGLE Land Characteristics (LCH, where needed) considered with  the evaluation of the area threshold. The approach is detailed in section 6.1.3. In general, the  area fractions of different land cover classes are to be understood as what can be reasonably  evaluated in HR and VHR remote sensing imagery at nadir. 
 
-![img](2023_PUM_v1-media/img-eeda59c50bb28bb4c441bd411b0a293d236bdfac.png)
-
-Figure 5: Levels 1-5 of the EAGLE Land Cover Components (LCC) v3.21. The hierarchical  levels allow for resolving the LCC assignment in the most suitable way. In case level 1 is too  general, the most suitable lower level is chosen.
+![Figure 5: Levels 1-5 of the EAGLE Land Cover Components (LCC) v3.21. The hierarchical  levels allow for resolving the LCC assignment in the most suitable way. In case level 1 is too  general, the most suitable lower level is chosen](2023_PUM_v1-media/img-eeda59c50bb28bb4c441bd411b0a293d236bdfac.png)
 
 Remark on the temporal dimensions of the land cover classes: In cases of land cover changes  during the reference year and unless stated otherwise in the class definitions below (i.e.  Permanent herbaceous vs. Periodically herbaceous, Snow and Ice), the dominant land cover (i.e.  present >6 months per year) shall be mapped.
 
 Textual descriptions of the main land cover components and land characteristics included in  each of the 11 classes are provided in the following paragraphs and respective area thresholds  are explained in more detail in section 6.1.3. 
 
-#### 1. Sealed (CLCplus BB class code 1; EAGLE LCC 1.1.1 Sealed Artificial Surfaces and  Constructions)
+**1. Sealed (CLCplus BB class code 1; EAGLE LCC 1.1.1 Sealed Artificial Surfaces and  Constructions)?**
 
 Sealed artificial surfaces include all impervious and sealed surfaces that are covered mainly by  features with a specific height above ground (buildings and artificial constructions) or features  without a specific height above ground (flat impervious surfaces). Flat surfaces covered by any  type of impervious material that is used for artificial surface pavements (e.g. asphalt, concrete,  tarmacadam).
 
-• Includes: All sealed artificial surfaces and constructions including Buildings, Specific  structures and facilities, and open sealed surfaces (in accordance with respective EAGLE  LCC). Also vegetated rooftops are to be mapped under this class. Deviating from the  EAGLE LCC 1.1.1.3, railway tracks are also considered as part of this class since they  typically comprise impervious structural elements (which makes them spectrally hardly  separable) and a highly compacted subsoil. Further elements to be included are  permanent and temporary (foil covered) greenhouses (if present for more than 50% of  the reference year) and solar parks (if applicable, considering the area threshold).
+- Includes: All sealed artificial surfaces and constructions including Buildings, Specific  structures and facilities, and open sealed surfaces (in accordance with respective EAGLE  LCC). Also vegetated rooftops are to be mapped under this class. Deviating from the  EAGLE LCC 1.1.1.3, railway tracks are also considered as part of this class since they  typically comprise impervious structural elements (which makes them spectrally hardly  separable) and a highly compacted subsoil. Further elements to be included are  permanent and temporary (foil covered) greenhouses (if present for more than 50% of  the reference year) and solar parks (if applicable, considering the area threshold).
 
-• Excludes: Waste materials (e.g. communal / industrial waste), non-sealed and semisealed artificial surfaces (e.g. natural materials displaced from original place, artificially  consolidated, e.g. logistic and storage areas, festive squares, non-vegetated sport fields,  grass pavers, permeable paving. Such areas are to be mapped as Non- and sparselyvegetated since biotic land cover components do typically not exceed 30%.
+- Excludes: Waste materials (e.g. communal / industrial waste), non-sealed and semisealed artificial surfaces (e.g. natural materials displaced from original place, artificially  consolidated, e.g. logistic and storage areas, festive squares, non-vegetated sport fields,  grass pavers, permeable paving. Such areas are to be mapped as Non- and sparselyvegetated since biotic land cover components do typically not exceed 30%.
 
-##### 2. Woody – trees
+**2. Woody – trees**
 
 Perennial woody plants with single, self-supporting main stem or trunk, containing woody tissue  and branching into smaller branches and shoots.
 
@@ -331,101 +266,99 @@ Perennial woody plants with single, self-supporting main stem or trunk, containi
 |Musa|Permanent herbaceous|
 
 
-#### 2. 1. Woody needle leaved trees (CLCplus BB class code 2; EAGLE LCC 2.1.1, LCH 3.1.1)
+**2. 1. Woody needle leaved trees (CLCplus BB class code 2; EAGLE LCC 2.1.1, LCH 3.1.1)**
 
 Needle leaved trees: referring to trees of the botanical group Gymnospermae (Ford-Robertson,  1971) carrying typical needle-shaped leaves. An exception is Ginkgo biloba which belongs to the  Gymnospermae but is considered here as Broadleaved deciduous tree.
 
-2. 2. Broadleaved trees (see BB classes below): referring to trees of the botanical group  Angiospermae, with the exception of ginkgo (Ginkgo biloba), which belongs to the  Gymnospermae taxonomically:
+**2. 2. Broadleaved trees (see BB classes below)**: referring to trees of the botanical group  Angiospermae, with the exception of ginkgo (Ginkgo biloba), which belongs to the  Gymnospermae taxonomically:
 
-• 2. 2. 1 Woody broadleaved deciduous trees (CLCplus BB class code 3; EAGLE LCC 2.1.1, LCH 3.2.2): broadleaved trees which are leafless for a certain period of the year;
+**2. 2. 1 Woody broadleaved deciduous trees (CLCplus BB class code 3; EAGLE LCC 2.1.1, LCH 3.2.2)**: broadleaved trees which are leafless for a certain period of the year;
 
-• 2. 2. 2 Woody broadleaved evergreen trees (CLCplus BB class code 4; EAGLE LCC 2.1.1,  LCH 3.2.1): trees that are never entirely without green foliage (includes palm-leaved  species).
+**2. 2. 2 Woody broadleaved evergreen trees (CLCplus BB class code 4; EAGLE LCC 2.1.1,  LCH 3.2.1)**: trees that are never entirely without green foliage (includes palm-leaved  species).
 
-#### 5. Low-growing woody plants (CLCplus BB class code 5; EAGLE LCC 2.1.2 Bushes, Shrubs)
+**5. Low-growing woody plants (CLCplus BB class code 5; EAGLE LCC 2.1.2 Bushes, Shrubs)**
 
 Perennial woody plants with shrub growth form, i.e. multiple stems arising at or near the base,  and height usually less than 5 metres. Leaf type can be needle leaf, broadleaf or palm leaf,  phenology is either evergreen or deciduous, and leaf surface type can be regular or  sclerophyllous. 
 
-• Includes: regular bushes and dwarf shrubs, species such as Pinus mugo, Alnus viridis, shrub forms from the genus Ephedra, Taxus, Juniperus and Betula, and subshrubs such as Thymus spec., Salvia, Rosmarinus, Calluna vulgaris, Erica spec. The class also includes Vitis spec. and Humulus spec., which are typically permanent crops, as well as Opuntia ficus-indica. Individual small trees in shrub-dominated areas are allowed in this class.
+- Includes: regular bushes and dwarf shrubs, species such as Pinus mugo, Alnus viridis, shrub forms from the genus Ephedra, Taxus, Juniperus and Betula, and subshrubs such as Thymus spec., Salvia, Rosmarinus, Calluna vulgaris, Erica spec. The class also includes Vitis spec. and Humulus spec., which are typically permanent crops, as well as Opuntia ficus-indica. Individual small trees in shrub-dominated areas are allowed in this class.
 
-• Excludes: Low-growing fruit trees (e.g. apple plantations), tree cover regrowth (e.g. after  clear cuts) with sufficient density and trees in nurseries, which should be classified  according to the definitions for Woody-trees (i.e. CLCplus codes 2, 3 and 4).
+- Excludes: Low-growing fruit trees (e.g. apple plantations), tree cover regrowth (e.g. after  clear cuts) with sufficient density and trees in nurseries, which should be classified  according to the definitions for Woody-trees (i.e. CLCplus codes 2, 3 and 4).
 
 Remark: Due to the difficulty of differentiating class 5 Low-growing woody plants from woody  trees (class 2 Woody needle leaved trees, class 3 Woody broadleaved deciduous trees or class 4  Woody broadleaved evergreen trees) and herbaceous vegetation (class 6 Permanent herbaceous or class 7 Periodically herbaceous), the accuracies could be regionally below the defined target  accuracies.
 
-#### 6. Permanent herbaceous (CLCplus BB class code 6; EAGLE LCC 2.2 Herbaceous Vegetation)
+**6. Permanent herbaceous (CLCplus BB class code 6; EAGLE LCC 2.2 Herbaceous Vegetation)**
 
 Permanent herbaceous areas are characterized by a continuous vegetation cover (i.e. >30%areal  cover) throughout a year. No bare soil occurs within a year. These areas are either unmanaged  or extensively managed natural grasslands or permanently managed grasslands, or arable areas  with a permanent vegetation cover (e.g. fodder crops) or even set-aside land in agriculture. For  managed grasslands, the biomass will vary over the year, depending on the number of mowing  (grassland cuts) or grazing events. The class includes regular graminaceous (grasses), reeds and forbs, notably also natural dry grassland in Southern, South-Eastern Europe and Turkey, as well as banana plantations (Musa spec.). 
 
 Remark: According to the Integrated Administration and Control System (IACS) and the Land  Parcel Identification System (LPIS), permanent and managed grassland may be ploughed every  3-5 years for amelioration purposes followed by an artificial seeding phase and a renewal of  vegetation cover, thus potentially showing a phase of bare soil within a time frame of 5-6 years.  Given that the observation period considered for the CLCplus Backbone is 1.5 years and its focus  is on land cover, such longer-term land use patterns cannot be considered and therefore  grasslands which underwent ploughing within the reference year are typically mapped as class  7 Periodically herbaceous.
 
-#### 7. Periodically herbaceous (CLCplus BB class code 7; EAGLE LCC 2.2 Herbaceous Vegetation)
+**7. Periodically herbaceous (CLCplus BB class code 7; EAGLE LCC 2.2 Herbaceous Vegetation)**
 
 Periodically herbaceous areas are characterized by at least one land cover change between bare  soil and herbaceous vegetation within the observation period. Depending on the prevailing  management intensities, these areas can also have more than one land cover change within the  observation period. In many cases, the areas mapped under class 7 are managed arable lands.
 
-#### 8. Lichens and mosses (CLCplus BB class code 8; EAGLE LCC 2.4 Lichens, Mosses, Algae)
+**8. Lichens and mosses (CLCplus BB class code 8; EAGLE LCC 2.4 Lichens, Mosses, Algae)**
 
-• Any type of lichens: composite organisms formed by a symbiotic relationship of a fungus and a photosynthetic partner (usually green algae or cyanobacteria); 
+- Any type of lichens: composite organisms formed by a symbiotic relationship of a fungus and a photosynthetic partner (usually green algae or cyanobacteria); 
 
-• Mosses: Non-vascular plants in the land plant division Bryophyta. They are small (a few  centimetres tall) herbaceous (non-woody) plants that absorb water and nutrients  mainly through their leaves and but also photosynthesis; 
+- Mosses: Non-vascular plants in the land plant division Bryophyta. They are small (a few  centimetres tall) herbaceous (non-woody) plants that absorb water and nutrients  mainly through their leaves and but also photosynthesis; 
 
-• Typical vegetation class of northern European Tundra vegetation.
+- Typical vegetation class of northern European Tundra vegetation.
 
 Remark: The mapping of this class is focused on larger areas in northern Europe where sufficient  in situ data is available. Due to the difficulty to distinguish Lichens and Mosses from herbaceous  vegetation and dwarf shrubs lower accuracies for this class are to be expected.
 
-#### 9. Non and sparsely vegetated (CLCplus BB class code 9; EAGLE LCC 1.2 Natural Material  Surfaces; EAGLE LCC 1.1.2 Non-Sealed Artificial Surfaces)
+**9. Non and sparsely vegetated (CLCplus BB class code 9; EAGLE LCC 1.2 Natural Material  Surfaces; EAGLE LCC 1.1.2 Non-Sealed Artificial Surfaces)**
 
 Contains consolidated and unconsolidated materials as well as permanent bare soils, where  non-vegetated areas cover ≥70% of the land surface, such as:
 
-##### • Consolidated surfaces (rocks): 
+- Consolidated surfaces (rocks): 
 
-o The rock surface is largely continuous except individual cracks in the consolidated material. Some areas may be covered by shallow layers of soil or there could be isolated pockets of soil or a mixture of both;
+  - The rock surface is largely continuous except individual cracks in the consolidated material. Some areas may be covered by shallow layers of soil or there could be isolated pockets of soil or a mixture of both;
 
-o Examples: solid (closed) rock formations, fresh lava flows, quarries, mineral extraction sites, open pit mines.
+  - Examples: solid (closed) rock formations, fresh lava flows, quarries, mineral extraction sites, open pit mines.
 
-• Unconsolidated surfaces (screes, sand, permanent bare soil):
+- Unconsolidated surfaces (screes, sand, permanent bare soil):
 
-o Mineral fragments are the result of physical and chemical disintegration and the  processes involved most often cover geological timespans under natural conditions. The contained materials accumulate on site due to sedimentary processes and/or  human activity; 
+  - Mineral fragments are the result of physical and chemical disintegration and the  processes involved most often cover geological timespans under natural conditions. The contained materials accumulate on site due to sedimentary processes and/or  human activity; 
 
-o Includes variable particle sizes: boulders, stones, pebble, gravel, sand and clay
+  - Includes variable particle sizes: boulders, stones, pebble, gravel, sand and clay
 
-o Examples of typical formations: mountain slope debris, gravel riverbanks, open pit  pebble mining of fossil riverbanks or fluvial sediments, volcanic lapilli fields, sand  dunes, sand beaches, river sand banks, volcanic ash. 
+  - Examples of typical formations: mountain slope debris, gravel riverbanks, open pit  pebble mining of fossil riverbanks or fluvial sediments, volcanic lapilli fields, sand  dunes, sand beaches, river sand banks, volcanic ash. 
 
-##### • Permanent bare soil:
+- Permanent bare soil:
 
-o Mixture of mineral and organic material that is fertile enough and capable of  sustaining plant life but continuously un-vegetated during the entire observation  period.
+  - Mixture of mineral and organic material that is fertile enough and capable of  sustaining plant life but continuously un-vegetated during the entire observation  period.
 
-• Sparsely vegetated areas:
+- Sparsely vegetated areas:
 
-o Sparsely vegetated on unstable areas (stones, boulders, rubble on steep slopes, or anthropogenic activity), due to harsh environmental conditions or anthropogenic interference. Vegetation covers <30% of the area.
+  - Sparsely vegetated on unstable areas (stones, boulders, rubble on steep slopes, or anthropogenic activity), due to harsh environmental conditions or anthropogenic interference. Vegetation covers <30% of the area.
 
-• Any other non-sealed artificial surfaces and constructions with a vegetation cover <30%.
+- Any other non-sealed artificial surfaces and constructions with a vegetation cover <30%.
 
-• Organic and in-organic deposits with a vegetation cover <30%.
+- Organic and in-organic deposits with a vegetation cover <30%.
 
-#### 10. Water (CLCplus BB class code 10; EAGLE LCC 3.1 Liquid Water Bodies)
+**10. Water (CLCplus BB class code 10; EAGLE LCC 3.1 Liquid Water Bodies)**
 
-• Inland water in liquid state of aggregation, regardless of its shape, salinity and origin (natural or artificial); 
+- Inland water in liquid state of aggregation, regardless of its shape, salinity and origin (natural or artificial); 
 
-• Includes: running water (water courses) and standing water (natural lakes, fishponds, man-made reservoirs, pools, irrigation ponds, etc.); 
+- Includes: running water (water courses) and standing water (natural lakes, fishponds, man-made reservoirs, pools, irrigation ponds, etc.); 
 
-• Excludes: Seawater that is included in a buffer around the coastline. All water pixels  beyond the coastline are classified as “coastal seawater buffer” (class code 253). This  distinction is made to enable the derivation of reliable water statistics, especially for  countries with long coastlines, where the area of seawater would distort any derived  water statistics, otherwise. For more details on the methodology for the coastal  seawater buffer derivation see AD-1.
+- Excludes: Seawater that is included in a buffer around the coastline. All water pixels  beyond the coastline are classified as “coastal seawater buffer” (class code 253). This  distinction is made to enable the derivation of reliable water statistics, especially for  countries with long coastlines, where the area of seawater would distort any derived  water statistics, otherwise. For more details on the methodology for the coastal  seawater buffer derivation see AD-1.
 
 Remark: Regarding the temporal coverage the area should be under water at least 50% of the observation period; temporary ice cover of water bodies is included.
 
-#### 11. Snow and ice (CLCplus BB class code 11; LCC 3.2 Solid Waters)
+**11. Snow and ice (CLCplus BB class code 11; LCC 3.2 Solid Waters)**
 
-• Snow: areas covered permanently (>90% of observation period) with snow throughout  the year;
+- Snow: areas covered permanently (>90% of observation period) with snow throughout  the year;
 
-• Ice: persistent ice cover formed by accumulation of snow (up to 100% of observation  period);
+- Ice: persistent ice cover formed by accumulation of snow (up to 100% of observation  period);
 
-• and combinations of both (e.g. in case of glaciers being covered by snow for parts of the  year).
+- and combinations of both (e.g. in case of glaciers being covered by snow for parts of the  year).
 
 ### 6.1.3 Decision tree for area thresholds
 
 The CLCplus Backbone decision tree (Figure 6) complements the class definitions in section 6.1.2 and the EAGLE LCC matrix (cf. Figure 5), to ensure a seamless definition of the classes not only  for ‘pure’ pixels, but also in cases of mixed land cover at the scale of the product’s 10m spatial  resolution. At each decision level in Figure 6, the decision tree defines the reference area which  should be considered (blue text next to the rhombus) and the area threshold for a specific land  cover class as percentage of the reference area (white text in rhombus). Generally, the decision  tree targets to define an unambiguous assignment of pixels with (pure or) mixed land cover to  the dominant land cover class. In accordance with the EAGLE concept, it refers to the dominant  land cover independent of the land use. Pixels which are for example dominated by Permanent  herbaceous (class 7) land cover should be considered as such, even though the dominant land  use might be an orchard, fruit plantation or Dehesa. Further examples are given in sub-section  6.1.4.
 
-Figure 6: Decision tree for the usage of area thresholds for pixels with (pure or) spatially mixed land cover in the CLCplus Backbone.
-
-![img](2023_PUM_v1-media/img-dc7fffd1594ddeea432815b9578cf21c994675b4.png)
+![Figure 6: Decision tree for the usage of area thresholds for pixels with (pure or) spatially mixed land cover in the CLCplus Backbone](2023_PUM_v1-media/img-dc7fffd1594ddeea432815b9578cf21c994675b4.png)
 
 ### 6.1.4 Examples for class assignment
 
@@ -911,11 +844,6 @@ PROJCS["ETRS89-extended / LAEA Europe",
  AXIS["Northing",NORTH],
  AXIS["Easting",EAST],
  AUTHORITY["EPSG","3035"]]
- 
- 
-Date: 01/04/2025
-
-Doc. Version: 1.2
 
 # Document history
 
@@ -931,4 +859,3 @@ Doc. Version: 1.2
 |ID|Applicable Document|
 |--|--|
 |AD-1|CLCplus Backbone 2023 - Algorithm Theoretical Basis Document (ATBD)|
-
