@@ -1,7 +1,7 @@
 ---
-title: "TITLE"
-subtitle: "SUBTITLE"
-date: "2025--14"
+title: "Copernicus Land Monitoring Service – CLCplus Backbone 2023"
+subtitle: "Product User Manual (PUM)"
+date: "01/04/2025"
 version: 1.5
 
 category: products
@@ -25,169 +25,6 @@ format:
 #### 
 ---
 
-Copernicus Land Monitoring  Service – CLCplus Backbone  2023
-
-PRODUCT USER MANUAL (PUM)
-
-![img](2023_PUM_v1-media/img-e98fea0d7493f42f945608fa2338df8f78279d7b.png)
-
-Date: 01/04/2025
-
-Doc. Version: 1.2
-
-# Document history
-
-|Version|Date|Short description of changes|
-|--|--|--|
-|1.2|01.04.2025|Initial published issue|
-||||
-||||
-
-
-# Applicable documents
-
-|ID|Applicable Document|
-|--|--|
-|AD-1|CLCplus Backbone 2023 - Algorithm Theoretical Basis Document (ATBD)|
-
-
-Contents
-
-|Document history.......................................................................................................................|2....|
-|--|--|
-|Applicable documents................................................................................................................|2....|
-|Contents.....................................................................................................................................|3....|
-|Figures........................................................................................................................................|.... 4|
-|Tables.........................................................................................................................................|.... 5|
-|1 Executive summary.............................................................................................................|6....|
-|2 Scope of the document.......................................................................................................|.... 7|
-|3 Lineage of product..............................................................................................................|.... 7|
-|4 Review of user requirements..............................................................................................|8....|
-|5 Product application areas and exemplary use cases..........................................................|.... 9|
-|5.1 Use case on climate change mitigation and the policy support for LULUCF via CLCplus LULUCF Instance........................................................................................................|the .... 9|
-|5.2 Thematic application areas.......................................................................................|.. 10|
-|6 Product description.............................................................................................................|.. 11|
-|6.1 CLCplus Backbone 2023 Raster.................................................................................|.. 11|
-|6.1.1 Technical specifications of CLCplus Backbone 2023 ............................................|.. 13|
-|6.1.2 Nomenclature concept and class definitions.......................................................|.. 15|
-|6.1.3 Decision tree for area thresholds.........................................................................|.. 19|
-|6.1.4 Examples for class assignment.............................................................................|.. 21|
-|6.2 Auxiliary layers..........................................................................................................|.. 31|
-|6.2.1 Raster Data Score Layer........................................................................................|.. 31|
-|6.2.2 Raster Confidence Layer.......................................................................................|.. 33|
-|6.2.3 Raster Post-processing Layer................................................................................|.. 36|
-|7 Product methodology and workflow ..................................................................................|.. 38|
-|7.1 Input data..................................................................................................................|38..|
-|7.2 Production units........................................................................................................|.. 38|
-|7.3 Time series classification ..........................................................................................|.. 38|
-|7.4 Post-processing.........................................................................................................|.. 38|
-|8 Terms of use and product technical support......................................................................|.. 39|
-|f8..............................................................................................................1Termsoseu    |39..|
-|8.2 Citation......................................................................................................................|39..|
-|8.3 Product technical support ........................................................................................|.. 39|
-|List of abbreviations & acronyms...............................................................................................|.. 40|
-|References..................................................................................................................................|.. 41|
-|Annexes......................................................................................................................................|2..4|
-
-
-# Figures
-
-Figure 1: Overview of CLCplus Backbone layers produced for the reference year 2023. .......... 11
-
-## Figure 2: CLCplus Backbone 2023 for the EEA38+UK (note: French DOMs are not shown)....... 12
-
-Figure 3: CLCplus Backbone 2023 for tile E44N36 (Copenhagen)............................................... 13
-
-Figure 4: Exemplary 10x10m plot illustration of a situation where no single land cover class  covers 50% of the area................................................................................................................ 15
-
-Figure 5: Levels 1-5 of the EAGLE Land Cover Components (LCC) v3.2. The hierarchical levels  allow for resolving the LCC assignment in the most suitable way. In case level 1 is too general,  the most suitable lower level is chosen. ..................................................................................... 16
-
-Figure 6: Decision tree for the usage of area thresholds for pixels with (pure or) spatially mixed  land cover in the CLCplus Backbone. .......................................................................................... 20
-
-Figure 7: Illustration of the CLCplus Backbone decision tree approach to evaluate area thresholds  for mixed land cover at olive groves, Castile-La Mancha, Spain. Upper left: 100x100m plot  overlaid on aerial imagery. Upper right: Outlines of surfaces which are covered by Sealed,  Permanent herbaceous, Broadleaved evergreen trees and Non- and sparsely-vegetated. 10m  pixel grid overlaid on top. Lower left: Resulting class attribution of the 10m pixels when applying  the threshold of Biotic >30% to decide between Non- and sparsely-vegetated vs. one of the  vegetation classes. Lower right: ©Google Street View of the area, showing the four dominant  land cover classes........................................................................................................................ 22
-
-## Figure 8: CLCplus Backbone (CLCplus BB RAS; left) and ESRI World Imagery (right) for a rural area
-
-## in France illustrating the interruptions of narrow linear elements which do not reach the majority
-
-## per 10 m pixels (black grid lines) and typically show mixed spectral signals in the Sentinel-2 time
-
-series. .......................................................................................................................................... 23
-
-Figure 9: CLCplus Backbone (CLCplus BB RAS) superimposed on ESRI World Imagery (left) and  VHR IMAGE 2018 (right) for an area with sparse tree cover in the Alps. Sparse tree canopies  dominated by herbaceous understory are largely mapped correctly as class 6. ....................... 23
-
-Figure 10: Example of the mapping of ephemeral classes in the CLCplus Backbone (CLCplus BB  RAS). Water is mapped according to its spatial-temporal coverage during the reference year. In  the given example from the 2018 production, areas which are more than 50% of the reference  year (blue box) covered by water (i.e. NDVI typically below 0; dotted line), are correctly mapped  as Water. Areas with shorter water coverage show an NDVI slightly above 0 for most of the time  in this example and are correctly mapped as Non- and sparsely vegetated.............................. 24
-
-Figure 11: Example of the mapping of ephemeral classes in the CLCplus Backbone (CLCplus BB  RAS). Class Snow and Ice is mapped according to its spatial-temporal coverage during the  reference year. In the given example from the 2018 production, areas which are more than 90%  of the reference year (blue box) covered by snow or ice (i.e. NDSI typically above 0.4; dotted  line), are correctly mapped as Snow and Ice. Adjacent areas with shorter snow or ice coverage  are correctly mapped as Non- and sparsely vegetated. ............................................................. 25
-
-Figure 12: Example from the 2023 production of the mapping of temporarily barren agricultural  fields in contrast to cultivated fields in the CLCplus Backbone (CLCplus BB RAS) in Spain. The  parcels that are cultivated during the reference year (point 2 in the image) show at least one  strong NDVI peak in 2023 (blue box) and a drop in the NDVI, referring to ploughing (bare soil)  and are therefore correctly classified as periodically herbaceous. In contrast, parcels which are  not cultivated during the reference year (point 1 in the image) show a very faint NDVI signal,  peaking around 0.2 (dotted line) and are hence correctly mapped as class Non and sparsely  vegetated. ................................................................................................................................... 26
-
-Figure 13: Example of the mapping of dry grasslands as class Permanent herbaceous in the  CLCplus Backbone (CLCplus BB RAS) in Turkey. While in Central European and Northern Europe, 
-
-## permanently herbaceous areas are typically characterized by a strong NDVI peak during the
-
-## vegetation season, dry grasslands in Southern Europe and Turkey are characterized by far fainter
-
-## vegetation signals, exceeding the value of 0.2 (dotted line) only slightly for a certain part of the
-
-reference year (blue box)............................................................................................................ 27
-
-Figure 14: Example of the mapping of intensively used grassland (e.g. fodder crops). The  distinction between the classes Permanent herbaceous and Periodically herbaceous depends on  whether the bare soil is exposed (e.g. ploughed parcel on the right, mapped as Periodically  herbaceous) within the reference year (blue box) or not. Especially under extensive dry  conditions, the distinction of mowing events (i.e. no ploughing on the left parcel, mapped as  class Permanent herbaceous) and actual exposure of bare soil is challenging.......................... 28
-
-## Figure 15: Example of the uncertainty in the mapping of Low-growing woody plants. This
-
-## example from Northern Sweden illustrates that a sharp distinction of shrubs and trees is often
-
-## difficult and sometimes remains fuzzy even at the level of the same species (here different
-
-## specimens of Betula with sometimes more tree-like, sometimes more shrub-like habitus). In
-
-addition, the canopy is rather sparse and the understorey comprises a mix of herbaceous
-
-species, dwarf shrubs as well as mosses and lichens.................................................................. 29
-
-## Figure 16: Example of the uncertainty in the mapping of the class Lichens and mosses in the
-
-## CLCplus Backbone (CLCplus BB RAS). These two examples from Southern Norway illustrate the
-
-## typical similarity between surfaces covered by class Lichens and mosses versus class Non- and
-
-sparsely vegetated areas with sparse herbaceous vegetation. Both land cover compositions
-
-## occur under similar biogeographic conditions and are nearly indistinguishable in VHR imagery or
-
-NDVI time-series (blue box indicates reference year). ............................................................... 30
-
-Figure 17: CLCplus Backbone Data Score Layer (RASDL) of the reference year 2023 (±3 months).
-
-..................................................................................................................................................... 31
-
-Figure 18: CLCplus Backbone Raster Confidence Layer 2023. .................................................... 33
-
-## Figure 19: Closeup of the RASCL showing edges as a result of separate training models per
-
-production unit. .......................................................................................................................... 34
-
-Figure 20: Distribution and fractions of values in the Raster Confidence Layer (RASCL) of CLCplus
-
-Backbone 2023 across the EEA38+UK......................................................................................... 34
-
-Figure 21: CLCplus Backbone Raster Post-Processing Layer (RASPL) 2023................................. 36
-
-# Tables
-
-Table 1: User requirements for CLCplus Backbone (CLCplus BB) products. ................................. 8
-
-Table 2: Thematic raster classes of CLCplus Backbone 2023, their class codes and colours...... 12
-
-Table 3: Technical specifications of the CLCplus Backbone. ....................................................... 14
-
-Table 4: Technical specifications of the Raster Data Score Layer. .............................................. 32
-
-Table 5: Technical specifications of the CLCplus Backbone Raster Confidence Layer................ 35
-
-Table 6: Technical specifications of the Raster Post-Processing Layer....................................... 37
-
 # 1 Executive summary
 
 The Copernicus Land Monitoring Service (CLMS) provides geospatial information on land cover  and its changes, land use, vegetation state, water cycle and Earth's surface energy variables to  a broad range of users in Europe and across the World in the field of environmental terrestrial  applications. It supports applications in a variety of domains such as spatial and urban planning,  forest management, water management, agriculture and food security, nature conservation and  restoration, rural development, ecosystem accounting and mitigation/adaptation to climate  change. CLMS is jointly implemented by the European Environment Agency (EEA) and the  European Commission DG Joint Research Centre (JRC) and has been operational since 2012.
@@ -208,21 +45,21 @@ This Product User Manual (PUM) is the primary document that users are recommende
 
 The CLCplus Backbone 2023 is the third product of its kind and extends the time series of the  existing 2018 and 2021 products. Since the first production for the 2018 reference year the  nature of the product is largely unchanged, i.e. mapping 11 land cover classes with consistent  definitions in a raster at 10m spatial resolution. Nevertheless, there have been some technical  changes and adaptations on the way to the most recent product update for the reference year  2023, as follows:
 
-• The time window for the Sentinel-2 input data has been shortened from 2 years for the 2018 production (i.e. 2018 ±6 months) to 1.5 years for the 2021 and 2023 productions (i.e. reference year ±3 months) to enable a timelier production that is closer to the actual reference year.
+- The time window for the Sentinel-2 input data has been shortened from 2 years for the 2018 production (i.e. 2018 ±6 months) to 1.5 years for the 2021 and 2023 productions (i.e. reference year ±3 months) to enable a timelier production that is closer to the actual reference year.
 
-• A separate technical class has been introduced for the seawater areas in the buffer  around the production AOI since the 2021 production (see chapter 7 and AD-1).
+- A separate technical class has been introduced for the seawater areas in the buffer  around the production AOI since the 2021 production (see chapter 7 and AD-1).
 
-• The United Kingdom (UK) has been excluded for the 2021 production, while it has been  re-introduced in the 2023 production. The 2021 gap for the UK remains and at this stage  there are no plans for post-production.
+- The United Kingdom (UK) has been excluded for the 2021 production, while it has been  re-introduced in the 2023 production. The 2021 gap for the UK remains and at this stage  there are no plans for post-production.
 
-• Since the 2023 reference year, the file naming has been adapted as described in chapter 6.1. 
+- Since the 2023 reference year, the file naming has been adapted as described in chapter 6.1. 
 
-• The format of the product has been changed from a single pan-European mosaic to a  tiled format with 100 x 100km tile size. Nevertheless, the French DOMs are still available  as national mosaics. 
+- The format of the product has been changed from a single pan-European mosaic to a  tiled format with 100 x 100km tile size. Nevertheless, the French DOMs are still available  as national mosaics. 
 
 # 4 Review of user requirements
 
 The following key user requirements were considered in the concept and design of CLCplus BB.  Each CLCplus Backbone production is expected to comply with these original user requirements  and compliance of the product shall be ensured. User requirements may be reviewed as needed  and production shall account for altered requirements where possible.
 
-Table 1: User requirements for CLCplus Backbone (CLCplus BB) products.
+Table 1: User requirements for CLCplus Backbone (CLCplus BB) products
 
 |No.|Description|Comment|
 |--|--|--|
@@ -246,29 +83,29 @@ Table 1: User requirements for CLCplus Backbone (CLCplus BB) products.
 
 Land cover is the result of complex interactions and dynamics between and among human  activities (land use) and natural conditions (e.g. climate, biota, soil, hydrology, topography). Land  cover is potentially a bulk proxy of all the processes involved. To this end, a geospatial land cover  dataset at continental scale provides the baseline information to serve a diverse range of  disciplines and domains. Key features of CLCplus Backbone comprise:
 
-• High-accuracy and high-detail land cover data record at continental scale,
+- High-accuracy and high-detail land cover data record at continental scale,
 
-• Thematically consistent and harmonized data record,
+- Thematically consistent and harmonized data record,
 
-• Regular and frequent status updates,
+- Regular and frequent status updates,
 
-• Timely availability of status updates, 
+- Timely availability of status updates, 
 
-• Transparent and consistent data model (EAGLE) that enables combined use with other  land cover and thematic datasets, and
+- Transparent and consistent data model (EAGLE) that enables combined use with other  land cover and thematic datasets, and
 
-• Open and documented production system and data quality.
+- Open and documented production system and data quality.
 
 From the above, CLCplus Backbone enables applications in the following domains – among  others (see also section 5.2): 
 
-• Traditional land cover monitoring incl. spatial assessments and planning,
+- Traditional land cover monitoring incl. spatial assessments and planning,
 
-• Transnational resource management (e.g. catchment hydrology) and conservation,
+- Transnational resource management (e.g. catchment hydrology) and conservation,
 
-• Environmental policy monitoring and reporting at different spatial scales,
+- Environmental policy monitoring and reporting at different spatial scales,
 
-• Support to large-scale economic modelling and risk assessment (e.g. natural capital,  climate vulnerability),
+- Support to large-scale economic modelling and risk assessment (e.g. natural capital,  climate vulnerability),
 
-• Model parametrization and improved spatial-temporal estimation of meteorological  land surface variables.
+- Model parametrization and improved spatial-temporal estimation of meteorological  land surface variables.
 
 ## 5.1 Use case on climate change mitigation and the policy  support for LULUCF via the CLCplus LULUCF Instance
 
@@ -278,53 +115,51 @@ Countries reporting to the United Nations Framework Convention on Climate Change
 
 ### Environmental Monitoring: 
 
-• Habitat Assessment: Conservationists and ecologists will find it useful to apply CLCplus Backbone to assess the distribution of certain habitatsthat can be related to land cover, helping to monitor their health and biodiversity. 
+- Habitat Assessment: Conservationists and ecologists will find it useful to apply CLCplus Backbone to assess the distribution of certain habitatsthat can be related to land cover, helping to monitor their health and biodiversity. 
 
-• Water Quality Assessment: CLCplus Backbone can be used to identify areas with a high risk of water pollution, such as areas of agricultural activity or urban development. 
+- Water Quality Assessment: CLCplus Backbone can be used to identify areas with a high risk of water pollution, such as areas of agricultural activity or urban development. 
 
 ### Agriculture and Forestry: 
 
-• Crop Management: Farmers and agricultural researchers can use CLCplus Backbone to  monitor and relate land cover information to aspects of land management and  potentially land use and to assess e.g. the suitability of land for specific crops. 
+- Crop Management: Farmers and agricultural researchers can use CLCplus Backbone to  monitor and relate land cover information to aspects of land management and  potentially land use and to assess e.g. the suitability of land for specific crops. 
 
-• Forest Management: Foresters can use CLCplus Backbone to monitor the patterns and extent of different basic tree covers, aiding in sustainable forestry practices and combating illegal logging. 
+- Forest Management: Foresters can use CLCplus Backbone to monitor the patterns and extent of different basic tree covers, aiding in sustainable forestry practices and combating illegal logging. 
 
 Natural Disaster Management: 
 
-• Flood Risk Assessment: CLCplus Backbone can help to identify flood-prone areas and design flood mitigation strategies. 
+- Flood Risk Assessment: CLCplus Backbone can help to identify flood-prone areas and design flood mitigation strategies. 
 
-• Wildfire Risk Assessment: CLCplus Backbone may be useful to assess the risk of wildfires by identifying landscape patterns of vegetation structure or urban-rural interfaces. 
+- Wildfire Risk Assessment: CLCplus Backbone may be useful to assess the risk of wildfires by identifying landscape patterns of vegetation structure or urban-rural interfaces. 
 
 ### Climate Change Studies:
 
-• Carbon Sequestration: Researchers can use CLCplus Backbone to estimate the potential  for carbon sequestration in different land cover types, aiding in climate change  mitigation efforts. 
+- Carbon Sequestration: Researchers can use CLCplus Backbone to estimate the potential  for carbon sequestration in different land cover types, aiding in climate change  mitigation efforts. 
 
-• Climate Adaptation: Urban heat island studies will benefit from CLCplus Backbone to  analyse the impact of land cover on local temperatures and recommend adaptation strategies in cities. 
+- Climate Adaptation: Urban heat island studies will benefit from CLCplus Backbone to  analyse the impact of land cover on local temperatures and recommend adaptation strategies in cities. 
 
 ### Infrastructure Development:
 
-• Energy Planning: CLCplus Backbone can help energy companies and communities to  identify suitable areas for renewable energy projects such as wind farms and solar  installations. 
+- Energy Planning: CLCplus Backbone can help energy companies and communities to  identify suitable areas for renewable energy projects such as wind farms and solar  installations. 
 
-• Industrial Site Selection: Businesses and communities could use CLCplus Backbone to  assist assessments on the suitability of locations for industrial facilities based on land  cover and other data sources. 
+- Industrial Site Selection: Businesses and communities could use CLCplus Backbone to  assist assessments on the suitability of locations for industrial facilities based on land  cover and other data sources. 
 
 ### Tourism and Recreation:
 
-• Tourism Planning: Tourism agencies may find CLCplus Backbone useful to identify areas  of natural beauty or recreational value, helping to promote tourism and outdoor  activities. 
+- Tourism Planning: Tourism agencies may find CLCplus Backbone useful to identify areas  of natural beauty or recreational value, helping to promote tourism and outdoor  activities. 
 
-• Nature Conservation: Conservation organizations can use CLCplus Backbone to identify  and protect areas of ecological importance. 
+- Nature Conservation: Conservation organizations can use CLCplus Backbone to identify  and protect areas of ecological importance. 
 
 ### Research and Education:
 
-• Academic Research: Researchers across various disciplines will befit from CLCplus  Backbone to study land cover dynamics and their implications for the environment and  society. 
+- Academic Research: Researchers across various disciplines will befit from CLCplus  Backbone to study land cover dynamics and their implications for the environment and  society. 
 
-• Educational Tools: CLCplus Backbone aims to be comprehensive for everyone and can thus support educational materials and tools to raise awareness about land-related topics and phenomena as well as environmental concepts. 
+- Educational Tools: CLCplus Backbone aims to be comprehensive for everyone and can thus support educational materials and tools to raise awareness about land-related topics and phenomena as well as environmental concepts. 
 
 # 6 Product description
 
 The CLCplus Backbone 2023 product comprises an updated layer of the main land cover raster  layer, as well as three auxiliary layers (see Figure 1). 
 
-![img](2023_PUM_v1-media/img-3ae7a950b89b88ab5164a45a96c174e993f664d9.png)
-
-Figure 1: Overview of CLCplus Backbone layers produced for the reference year 2023.
+![Figure 1: Overview of CLCplus Backbone layers produced for the reference year 2023](2023_PUM_v1-media/img-3ae7a950b89b88ab5164a45a96c174e993f664d9.png)
 
 The following subchapters describe each of the layers, including detailed technical  specifications.
 
@@ -1076,4 +911,24 @@ PROJCS["ETRS89-extended / LAEA Europe",
  AXIS["Northing",NORTH],
  AXIS["Easting",EAST],
  AUTHORITY["EPSG","3035"]]
+ 
+ 
+Date: 01/04/2025
+
+Doc. Version: 1.2
+
+# Document history
+
+|Version|Date|Short description of changes|
+|--|--|--|
+|1.2|01.04.2025|Initial published issue|
+||||
+||||
+
+
+# Applicable documents
+
+|ID|Applicable Document|
+|--|--|
+|AD-1|CLCplus Backbone 2023 - Algorithm Theoretical Basis Document (ATBD)|
 
