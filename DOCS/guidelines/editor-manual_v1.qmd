@@ -1,7 +1,7 @@
 ---
 author: European Environment Agency (EEA)
 category: guidelines
-date: '2025-06-23'
+date: '2026-01-27'
 description: A comprehensive guide for creating technical documentation for the Copernicus
   Land Monitoring Service using Quarto. It covers Markdown basics, document rendering,
   and the review process, ensuring consistency and clarity in documentation.
@@ -9,7 +9,6 @@ original-filename: guidelines/editor-manual_v1.qmd
 subtitle: Copernicus Land Monitoring Service
 template-version: 1.0
 title: Guide for Writing Technical Documentation
-version: 0.6
 ---
 
 <!--# maybe we should promote (or at least describe the option of unsing variables in yaml that can be reused in the document:  e.g. product-name: "Example Product" ---  # Welcome to {{ product-name }} Documentation.      -->
@@ -115,8 +114,9 @@ Once the setup is complete, you'll have access to these useful Git commands:
 - `git docs-update`: Syncs your local documentation with updates from the base repository.
 - `git docs-publish`: Pushes your documentation changes to the repository.
 - `git docs-preview`: Generates a local preview of your documentation.
+- `git docs-restore`: Retrieves previous published versions of documentation files (see "Restoring Previous Documentation Versions" for details).
 
-These shortcuts make it easy to keep your documentation up-to-date, share changes, and review your work.
+These shortcuts make it easy to keep your documentation up-to-date, share changes, review your work, and recover previous versions when needed.
 
 
 # Folder and File Structure
@@ -134,12 +134,12 @@ DOCS/
 ├── templates/          # Document templates (do not edit)
 ├── theme/              # Styling definitions (do not edit)
 ├── _quarto.yml         # Project-wide Quarto config
-├── CLMS_your-product-one_ATBD.qmd
-├── CLMS_your-product-one_ATBD-media/
-├── CLMS_your-product-two_PUM.qmd
-├── CLMS_your-product-two_PUM-media/
+├── CLMS_your-product-one_ATBD_v1.qmd
+├── CLMS_your-product-one_ATBD_v1-media/
+├── CLMS_your-product-two_PUM_v2.qmd
+├── CLMS_your-product-two_PUM_v2-media/
 ├── ...
-└── CLMS_your-product-last_PUM.qmd
+└── CLMS_your-product-last_PUM_v1.qmd
 ```
 
 ### What You Should Do
@@ -151,8 +151,8 @@ DOCS/
 
   ```text
   DOCS/
-  ├── CLMS_your-product-one_ATBD.qmd
-  └── CLMS_your-product-one_ATBD-media/
+  ├── CLMS_HRL-Forest_PUM_v2.qmd
+  └── CLMS_HRL-Forest_PUM_v2-media/
       └── figure1.png
   ```
 
@@ -789,7 +789,6 @@ Here's a basic header you can use:
 title: "Product SHORT NAME"
 subtitle: "Product full name"
 date: "2022-10-06"
-version: 1.0
 template-version: 1.0.0
 product-name: Product Name
 description: "Product DESCRIPTION"
@@ -806,25 +805,107 @@ description: "Product DESCRIPTION"
 
 > These fields must be filled in by the user. Only other fields — such as shared configuration or output format — are pre-filled in the template.
 
+# Creating Major Version Updates
+
+Sometimes you need to create a major version update of existing documentation - for example, moving from v2 to v3. This happens when you're making substantial changes that warrant keeping both versions available in the Technical Library.
+
+## When to Create a Major Version
+
+Create a new major version file (v3 alongside v2) when:
+
+- You're completely rewriting the document with a different structure or approach
+- The changes would break existing user workflows or references
+- You need to maintain the old version for users of legacy systems or products
+
+For smaller updates, corrections, or additions, just edit the existing file - the versioning system will handle incrementing minor or patch versions automatically during release.
+
+## The Workflow
+
+To create a major version update:
+
+1. **Copy your existing file**
+   ```bash
+   cp docs/CLMS_HRL-Forest_PUM_v2.qmd docs/CLMS_HRL-Forest_PUM_v3.qmd
+   cp -r docs/CLMS_HRL-Forest_PUM_v2-media docs/CLMS_HRL-Forest_PUM_v3-media
+   ```
+
+2. **Edit the new v3 file**
+   - Update the content with your major changes
+   - The YAML header fields (title, description, etc.) can stay the same or be updated as needed
+   - Update image paths if you're using the new media folder: `CLMS_HRL-Forest_PUM_v3-media/`
+
+3. **Publish both files**
+   ```bash
+   git add docs/CLMS_HRL-Forest_PUM_v3.qmd docs/CLMS_HRL-Forest_PUM_v3-media/
+   git commit -m "docs: add v3 of HRL Forest PUM"
+   git docs-publish
+   ```
+
+4. **Both versions coexist**
+   - The v2 file remains in the library and can still receive updates (patches like 2.5.1, 2.5.2)
+   - The v3 file starts its own version history (3.0.0, 3.1.0, etc.)
+   - Users can access either version based on their needs
+
+## What Happens During Release
+
+When the Technical Library is released:
+
+- The AI analyzes changes to your new v3 file
+- Because it's a new filename with `_v3`, it starts at version 3.0.0
+- The AI will increment minor and patch versions (3.1.0, 3.0.1, etc.) based on future changes
+- Your existing v2 file keeps its version history unchanged (2.x.x versions continue independently)
+- Both appear in the published Technical Library as separate documents
+
+See "Releasing Official Documentation" for details on how the AI assigns minor and patch versions.
+
 # Importance of File Naming
 
-Each `.qmd` file has a filename, like `my-document.qmd`, and this name plays an important role in how your documentation is organized and accessed online.
+Each `.qmd` file has a filename that plays an important role in how your documentation is organized, versioned, and accessed online.
 
-The filename (without the `.qmd` extension):
+## Naming Convention
 
--   Is used to generate the final HTML file name.
--   Becomes part of the document’s **URL** after publishing.
+Documentation files follow this naming pattern:
 
-**Example:** If your file is named `products/data-guide.qmd`, the published URL will be `https://your-docs-site.org/products/data-guide.html`.
+```
+CLMS_<Product-Name>_<Document-Type>_v<Major-Version>.qmd
+```
 
-To avoid issues:
+**Examples:**
 
--   Choose a clear, short, and consistent name when creating the file.
--   Avoid renaming it later, as it can break links and references.
--   Use lowercase letters and dashes (e.g. `product-user-manual.qmd`).
+- `CLMS_HRL-Forest_PUM_v2.qmd` - Product User Manual for HRL Forest, major version 2
+- `CLMS_Water-Bodies_ATBD_v1.qmd` - Algorithm Theoretical Basis Document for Water Bodies, major version 1
+
+## The Version Suffix
+
+The `_v<number>` suffix at the end of the filename represents the **major version** of the document and is set by you, the editor:
+
+- `_v1` - First major version (versions 1.0.0, 1.1.0, 1.2.3, etc.)
+- `_v2` - Second major version (versions 2.0.0, 2.1.0, 2.2.1, etc.)
+- `_v3` - Third major version (versions 3.0.0, 3.1.0, etc.)
+
+The minor and patch numbers (the second and third parts of the version) are managed automatically by the Technical Library system during the release process. You control the major version by choosing the filename suffix.
+
+## URL Generation
+
+The filename (without the `.qmd` extension) becomes part of the document's URL after publishing.
+
+**Example:** 
+
+- File: `docs/CLMS_HRL-Forest_PUM_v2.qmd`
+- URL: `https://library.land.copernicus.eu/hrl/CLMS_HRL-Forest_PUM_v2.html`
+
+## Naming Guidelines
+
+When creating documentation files:
+
+- Follow the CLMS naming convention shown above
+- Start with `_v1` for new documents
+- Use clear, descriptive product names
+- Avoid renaming files after creation, as it breaks links and references
+- Only change the version suffix when creating a major version update (see "Creating Major Version Updates")
 
 ::: callout-important
-Stick with the original name once created unless you have a strong reason and can update all links accordingly.
+The filename is permanent once published. Changing it later breaks URLs, cross-references, and the version history tracking. If you need to make major changes, create a new major version file (e.g., v2 → v3) rather than renaming the existing file.
 :::
 
 # Ready-Made QMD Templates
@@ -835,7 +916,7 @@ Templates are stored in the `templates/` directory. Currently, two types of temp
 
 ## ATBD Template
 
-**Filename:** ``` CLMS``_Template``_ATBD.qmd ```
+**Filename:** ``CLMS_Template_ATBD.qmd ``
 
 This template is used for creating an **Algorithm Theoretical Basis Document (ATBD)**.
 
@@ -850,7 +931,7 @@ It includes:
 
 ## PUM Template
 
-**Filename:** ``` CLMS``_Template``_PUM.qmd ```
+**Filename:** `` CLMS_Template_PUM.qmd ``
 
 This template is used for creating a **Product User Manual (PUM)**.
 
@@ -865,7 +946,7 @@ It includes:
 ## How to Use the Templates
 
 1.  Go to `templates/`
-2.  Choose either ``` CLMS``_Template``_ATBD.qmd ``` or ``` CLMS``_Template``_PUM.qmd ```
+2.  Choose either `` CLMS_Template_ATBD.qmd `` or `` CLMS_Template_PUM.qmd ``
 3.  Copy the file into the `products/` folder
 4.  Rename it to match your project (e.g. `my-product.qmd`)
 5.  Begin editing based on the guidance in the template
@@ -1282,7 +1363,7 @@ To publish the final release version:
 2. This PR also must be **reviewed and approved by another repository owner**.
 3. Upon review approval:
     - The PR is merged.
-    - The final, official version is automatically rendered and published at [https://library.land.copernicus.eu/](https://https://library.land.copernicus.eu)
+    - The final, official version is automatically rendered and published at [https://library.land.copernicus.eu](https://library.land.copernicus.eu)
 
 ### Version Number Assignment
 
@@ -1290,13 +1371,18 @@ Version numbers are **automatically generated** during the release workflow usin
 
 When documents are merged into the `main` branch:
 
- - An AI service analyzes the changes made to each modified document
- - Based on the scope and nature of changes, it assigns the next appropriate version number
- - Minor changes (typos, small clarifications) increment the patch version (e.g., 2.1.0 → 2.1.1)
- - New content or features increment the minor version (e.g., 2.1.0 → 2.2.0)
- - Breaking changes or major rewrites increment the major version (e.g., 2.1.0 → 3.0.0, which may also update the filename from v2 to v3)
+- An AI service analyzes the changes made to each modified document
+- The AI determines whether to increment the **minor** or **patch** version based on the scope of changes
+- Small fixes and corrections increment the patch version (e.g., 2.1.0 → 2.1.1)
+- New content, features, or improvements increment the minor version (e.g., 2.1.0 → 2.2.0)
 
-The major version number in your document filename (e.g., `document_name_v2.qmd`) represents the base major version. The complete version tracking is managed automatically by the Technical Library system.
+The **major version** is controlled by the filename suffix (e.g., `_v2` in `document_v2.qmd`). To create a new major version, you must create a new file with the updated suffix (see "Creating Major Version Updates" for details).
+
+**Example:** If you have `CLMS_HRL-Forest_PUM_v2.qmd` currently at version 2.3.5:
+
+- Minor changes → AI assigns 2.3.6 (patch++)
+- New features → AI assigns 2.4.0 (minor++)
+- Major rewrite → You create `CLMS_HRL-Forest_PUM_v3.qmd`, which starts at 3.0.0
 
 # Restoring Previous Documentation Versions
 
@@ -1330,7 +1416,7 @@ Think of it as "start editing from version X" rather than "undo to version X in 
 You accidentally removed an important section from your local file. Restore the latest published version to get it back, then continue editing.
 
 **Starting from a previous version:**
-Version 2.2.0 introduced problems. Restore version 2.0.0, make corrections, and publish. When the library is released, your changes will be assigned a new version number based on their scope.
+Version 2.2.0 introduced problems. Restore version 2.0.0, make corrections, and publish. When the library is released, your changes will be assigned a new minor or patch version (like 2.3.0 or 2.2.1) based on their scope.
 
 **Bringing back a deleted file:**
 A file was removed from your project but still exists in the Technical Library. Restore it to recreate the file locally, then you can update and republish it.
@@ -1340,12 +1426,12 @@ A file was removed from your project but still exists in the Technical Library. 
 Here's what happens when you restore and publish:
 
 1. **Restore:** Fetch version 2.0.0 of `docs/CLMS_HRL-Forest_PUM_v2.qmd` to your project
-2. **Edit:** Make changes locally (file is still named `CLMS_HRL-Forest_PUM_v2.qmd`)
+2. **Edit:** Make changes locally (file is still named `CLMS_HRL-Forest_PUM_v2.qmd` with `_v2` suffix)
 3. **Publish to develop:** Push changes with `git docs-publish` - your document appears in the develop environment for preview
-4. **Release process:** When the Technical Library is released (develop → test → main), AI analyzes your changes and assigns the next version number
-5. **Result:** Your edited document appears in the Technical Library with a new version (e.g., 2.3.0 for new features, 2.2.1 for fixes, or 3.0.0 for breaking changes)
+4. **Release process:** When the Technical Library is released (develop → test → main), AI analyzes your changes and assigns the next minor or patch version
+5. **Result:** Your edited document appears in the Technical Library with a new version (e.g., 2.3.0 for new features, 2.2.1 for fixes)
 
-Note that version numbers are assigned only during the final release, not when you push to develop. See the "Releasing Official Documentation" section for details on how versioning works.
+Note that version numbers are assigned only during the final release, not when you push to develop. The AI only controls minor and patch versions - if you need a major version change (v2 → v3), you must create a new file (see "Creating Major Version Updates"). See the "Releasing Official Documentation" section for details on how versioning works.
 
 ## Checking Available Versions
 
@@ -1443,4 +1529,3 @@ Restore only affects your local project. Nothing changes in the published Techni
 ::: callout-tip
 You can run restore commands from any directory in your project. The system handles paths automatically, so `git docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd` works whether you're at the project root or in a subdirectory.
 :::
-
