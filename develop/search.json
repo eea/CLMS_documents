@@ -774,7 +774,7 @@
     "href": "guidelines/guidelines_editor-manual_v1.html#available-git-aliases",
     "title": "Guide for Writing Technical Documentation",
     "section": "3.4 Available Git Aliases",
-    "text": "3.4 Available Git Aliases\nOnce the setup is complete, you’ll have access to these useful Git commands:\n\ngit docs-update: Syncs your local documentation with updates from the base repository.\ngit docs-publish: Pushes your documentation changes to the repository.\ngit docs-preview: Generates a local preview of your documentation.\n\nThese shortcuts make it easy to keep your documentation up-to-date, share changes, and review your work."
+    "text": "3.4 Available Git Aliases\nOnce the setup is complete, you’ll have access to these useful Git commands:\n\ngit docs-update: Syncs your local documentation with updates from the base repository.\ngit docs-publish: Pushes your documentation changes to the repository.\ngit docs-preview: Generates a local preview of your documentation.\ngit docs-restore: Retrieves previous published versions of documentation files (see “Restoring Previous Documentation Versions” for details).\n\nThese shortcuts make it easy to keep your documentation up-to-date, share changes, review your work, and recover previous versions when needed."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#line-breaks-and-new-lines",
@@ -900,238 +900,287 @@
     "href": "guidelines/guidelines_editor-manual_v1.html#step-3-add-or-adjust-the-yaml-header",
     "title": "Guide for Writing Technical Documentation",
     "section": "6.3 Step 3: Add or Adjust the YAML Header",
-    "text": "6.3 Step 3: Add or Adjust the YAML Header\nIf you’re creating the .qmd file from scratch (i.e. not using one of the provided ATBD or PUM templates), you typically do not need to specify the format field manually. Quarto will automatically apply its default rendering format, which is sufficient in most cases.\nHowever, if you need to customize the rendering outputs (e.g. to apply a specific DOCX style), then you must define the format: field carefully.\nThese fields are required for correct rendering:\n\nformat: controls how your document is rendered (HTML, styled DOCX, PDF)\n\n\n\n\n\n\n\nImportant\n\n\n\nYou must include the pdf: default format in the YAML header.\nAlthough PDF is not rendered directly during this step, defining it here ensures compatibility with the automated rendering workflow later. Details are explained in the Rendering Documentation section.\n\n\nIf you override the format section, please follow these strict guidelines:\n\nOnly modify the format: block.\nYou must define all three output formats:\n\nhtml:\ndocx: (with reference-doc: pointing to the style template)\npdf:\n\n\nImproper modifications can break the rendering process locally or in the central Technical Library. To see correct examples of a fully-defined format block, refer to the template files in DOCS/templates/.\nHere’s a basic header you can use:\n---\ntitle: \"Product SHORT NAME\"\nsubtitle: \"Product full name\"\ndate: \"2022-10-06\"\nversion: 1.0\ntemplate-version: 1.0.0\nproduct-name: Product Name\ndescription: \"Product DESCRIPTION\"\n---\n\n6.3.1 Field Descriptions:\n\ntitle: The main title of the document (displayed in the rendered output).\nsubtitle: An optional second line of text under the title.\ndate: The publication or last updated date.\nversion: The version of your document (e.g. “1.0”, “v2.3-draft”).\ntemplate-version: Not rendered — this is a special internal field that helps keep track of which template was originally used. Do not remove or modify this field unless you’re updating the template version intentionally.\n\n\nThese fields must be filled in by the user. Only other fields — such as shared configuration or output format — are pre-filled in the template."
+    "text": "6.3 Step 3: Add or Adjust the YAML Header\nIf you’re creating the .qmd file from scratch (i.e. not using one of the provided ATBD or PUM templates), you typically do not need to specify the format field manually. Quarto will automatically apply its default rendering format, which is sufficient in most cases.\nHowever, if you need to customize the rendering outputs (e.g. to apply a specific DOCX style), then you must define the format: field carefully.\nThese fields are required for correct rendering:\n\nformat: controls how your document is rendered (HTML, styled DOCX, PDF)\n\n\n\n\n\n\n\nImportant\n\n\n\nYou must include the pdf: default format in the YAML header.\nAlthough PDF is not rendered directly during this step, defining it here ensures compatibility with the automated rendering workflow later. Details are explained in the Rendering Documentation section.\n\n\nIf you override the format section, please follow these strict guidelines:\n\nOnly modify the format: block.\nYou must define all three output formats:\n\nhtml:\ndocx: (with reference-doc: pointing to the style template)\npdf:\n\n\nImproper modifications can break the rendering process locally or in the central Technical Library. To see correct examples of a fully-defined format block, refer to the template files in DOCS/templates/.\nHere’s a basic header you can use:\n---\ntitle: \"Product SHORT NAME\"\nsubtitle: \"Product full name\"\ndate: \"2022-10-06\"\ntemplate-version: 1.0.0\nproduct-name: Product Name\ndescription: \"Product DESCRIPTION\"\n---\n\n6.3.1 Field Descriptions:\n\ntitle: The main title of the document (displayed in the rendered output).\nsubtitle: An optional second line of text under the title.\ndate: The publication or last updated date.\nversion: The version of your document (e.g. “1.0”, “v2.3-draft”).\ntemplate-version: Not rendered — this is a special internal field that helps keep track of which template was originally used. Do not remove or modify this field unless you’re updating the template version intentionally.\n\n\nThese fields must be filled in by the user. Only other fields — such as shared configuration or output format — are pre-filled in the template."
   },
   {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#atbd-template",
-    "href": "guidelines/guidelines_editor-manual_v1.html#atbd-template",
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#when-to-create-a-major-version",
+    "href": "guidelines/guidelines_editor-manual_v1.html#when-to-create-a-major-version",
     "title": "Guide for Writing Technical Documentation",
-    "section": "8.1 ATBD Template",
-    "text": "8.1 ATBD Template\nFilename: CLMS``_Template``_ATBD.qmd\nThis template is used for creating an Algorithm Theoretical Basis Document (ATBD).\nIt includes:\n\nA structured outline based on standard ATBD requirements\nPlaceholder sections for theory, algorithm descriptions, validation, and references\nYAML metadata pre-filled with necessary fields and style settings\nCommented guidance within each section\n\n\n💡 Use this template when documenting the scientific or technical foundation of a data product."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#pum-template",
-    "href": "guidelines/guidelines_editor-manual_v1.html#pum-template",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "8.2 PUM Template",
-    "text": "8.2 PUM Template\nFilename: CLMS``_Template``_PUM.qmd\nThis template is used for creating a Product User Manual (PUM).\nIt includes:\n\nSections for product overview, data access, interpretation, and use\nNotes on where to insert images, tables, and figures\nYAML header configured for standard rendering\n\n\n💡 Use this template when documenting how users should interact with or interpret a product."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#how-to-use-the-templates",
-    "href": "guidelines/guidelines_editor-manual_v1.html#how-to-use-the-templates",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "8.3 How to Use the Templates",
-    "text": "8.3 How to Use the Templates\n\nGo to templates/\nChoose either CLMS``_Template``_ATBD.qmd or CLMS``_Template``_PUM.qmd\nCopy the file into the products/ folder\nRename it to match your project (e.g. my-product.qmd)\nBegin editing based on the guidance in the template\n\nIf you’re unsure which template to use, ask your team lead or check what was used in previous similar documents.\n\n\n\n\n\n\nImportant\n\n\n\nDo not modify the structure of the template unless absolutely necessary.\nKeeping the structure consistent across all documents ensures that the documentation system stays clear, professional, and easy to navigate for all users and reviewers."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#what-is-pandoc",
-    "href": "guidelines/guidelines_editor-manual_v1.html#what-is-pandoc",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "9.1 What is Pandoc?",
-    "text": "9.1 What is Pandoc?\nPandoc is a powerful command-line tool that can convert documents between various formats, including Markdown, DOCX, HTML, LaTeX, and more.\nTo use Pandoc on your computer, download and install it from the official site: https://pandoc.org/installing.html"
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#when-and-how-to-use-it",
-    "href": "guidelines/guidelines_editor-manual_v1.html#when-and-how-to-use-it",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "9.2 When and How to Use It",
-    "text": "9.2 When and How to Use It\nUse Pandoc only for converting existing .docx documents into .qmd. Do not use it to convert PDFs — Pandoc does not support PDF as an input format. This approach is ideal when you’re: \n\nMigrating legacy documentation into the Quarto system\nCreating a quick starting point for manual cleanup\nExtracting embedded images and figures from .docx"
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#basic-usage-example",
-    "href": "guidelines/guidelines_editor-manual_v1.html#basic-usage-example",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "9.3 Basic Usage Example",
-    "text": "9.3 Basic Usage Example\nOpen a terminal or command prompt — ideally from within RStudio’s Terminal tab so you can stay in one environment — and run the following command. You can provide either a relative or full path to the .docx file:\n$ pandoc my-doc.docx -o my-doc.qmd --wrap=none --from=docx --to=markdown+fenced_divs+grid_tables+pipe_tables+smart\n\n9.3.1 What this command does:\n\nmy-doc.docx: The input Word document.\n-o my-doc.qmd: Output file in Markdown format.\n--wrap=none: Prevents Pandoc from breaking long lines into multiple lines.\n--from=docx: Specifies that the input file is a Word document.\n--to=markdown+fenced_divs+grid_tables+pipe_tables+smart: Sets output format and enables enhanced table and layout options."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#where-are-media-files-stored",
-    "href": "guidelines/guidelines_editor-manual_v1.html#where-are-media-files-stored",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "9.4 Where Are Media Files Stored?",
-    "text": "9.4 Where Are Media Files Stored?\nWhen Pandoc finds images or other media in the .docx file, it extracts them automatically into a new folder.\nBy default, extracted media will be placed into a subfolder named media/, located next to your output .qmd file. \nThis is created automatically and will contain all image assets referenced in the converted file.\n\n9.4.1 Changing the Media Folder Name\nYou can change the default media folder name using the --extract-media option:\n$ pandoc my-doc.docx -o my-doc.qmd --extract-media=custom-media-folder\n\n\n\n\n\n\nNote\n\n\n\nPandoc will create a media/ subfolder inside the folder you specify. For example, running the above command will result in:\ncustom-media-folder/media/\nIf you want to follow the structure expected by your project (e.g. my-doc-media/), make sure to move the contents out of that inner media/ folder and place them in the right location manually."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#next-steps",
-    "href": "guidelines/guidelines_editor-manual_v1.html#next-steps",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "9.5 Next Steps",
-    "text": "9.5 Next Steps\nAfter conversion, you’ll likely need to:\n\nClean up unnecessary styles or extra spacing\nRename and organize media files \nAdd a proper YAML header at the top of the .qmd file \nRestructure the content to match your template or documentation style \n\nWhile not perfect, this method gives you a solid starting point — especially for long or complex documents."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#shared-styling-configuration",
-    "href": "guidelines/guidelines_editor-manual_v1.html#shared-styling-configuration",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "10.1 Shared Styling Configuration",
-    "text": "10.1 Shared Styling Configuration\nMost formatting options (fonts, colors, spacing, margins, etc.) are defined in shared configuration files. These files are stored in styles directory and include:\n\nA custom DOCX file for styling PDF output\nA CSS stylesheet for HTML\nMetadata files for shared fields like project name, institution, and contributors\n\nDon’t edit them! — they’re used automatically by the rendering scripts."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#theme",
-    "href": "guidelines/guidelines_editor-manual_v1.html#theme",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "10.2 Theme ",
-    "text": "10.2 Theme \nIt ensures that all documents have a clean, modern, and consistent appearance — both in HTML and PDF output.\n\nThis theme is applied automatically. You do not need to configure it manually in your documents."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#table-of-contents",
-    "href": "guidelines/guidelines_editor-manual_v1.html#table-of-contents",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "10.3 Table of Contents",
-    "text": "10.3 Table of Contents\nThe table of contents (TOC) is enabled by default and appears on the left-hand side in HTML documents.\nYou can control how many heading levels are shown by adjusting toc-depth in your YAML header, though the default setting (toc-depth: 3) is usually enough."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#customizing-per-document-settings",
-    "href": "guidelines/guidelines_editor-manual_v1.html#customizing-per-document-settings",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "10.4 Customizing Per-Document Settings",
-    "text": "10.4 Customizing Per-Document Settings\nIf needed, you can override the default styles or add extra options in your document’s YAML header. For example:\nformat:\n  html:\n    toc: true\n    toc-depth: 3\n  docx:\n    reference-doc: ../styles/custom-reference.docx\n  pdf: default"
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#how-it-works",
-    "href": "guidelines/guidelines_editor-manual_v1.html#how-it-works",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "11.1 How It Works",
-    "text": "11.1 How It Works\n\nThe default Quarto metadata configuration automatically injects a special placeholder value into the keywords: field in your document’s header.\nWhen your document is rendered and processed for publication, an AI service analyzes its content and automatically generates 10 relevant keywords.\nThese keywords help with document indexing, search, and classification on the publication platform.\n\nThis process ensures consistent keyword formatting and reduces the work required from authors."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#what-you-should-do-1",
-    "href": "guidelines/guidelines_editor-manual_v1.html#what-you-should-do-1",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "11.2 What You Should Do",
-    "text": "11.2 What You Should Do\nNothing!\nSimply leave the keywords: field untouched or omit it entirely. The publishing system will take care of it for you.\nIf you do add custom keywords for internal purposes, they will be overwritten during the publishing step — so it’s best to let the system manage them."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#opening-your-project",
-    "href": "guidelines/guidelines_editor-manual_v1.html#opening-your-project",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "12.1 Opening Your Project",
-    "text": "12.1 Opening Your Project\n\nOpen RStudio.\nUse File &gt; Open Project… and select the root folder of the Technical Library.\nNavigate to the products/ folder.\nOpen the .qmd file you want to edit."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#editing-qmd-files",
-    "href": "guidelines/guidelines_editor-manual_v1.html#editing-qmd-files",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "12.2 Editing QMD Files",
-    "text": "12.2 Editing QMD Files\nYou can edit .qmd files just like regular text documents. RStudio provides:\n\nSyntax highlighting for Markdown and code blocks\nA live preview of rendered output\nAuto-saving and formatting support\nInstant feedback when rendering errors occur\n\nUse the Preview on Save option (checkbox in the toolbar) to automatically render your file every time you save it. This makes editing more efficient."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#managing-media-files",
-    "href": "guidelines/guidelines_editor-manual_v1.html#managing-media-files",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "12.3 Managing Media Files",
-    "text": "12.3 Managing Media Files\nIf your document uses images or diagrams:\n\nPlace them in a dedicated media folder (e.g. my-doc-media/)\nUse relative paths in your .qmd file, like:\n\n![Data Flow Diagram](my-doc-media/diagram.png)"
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#render-to-html",
-    "href": "guidelines/guidelines_editor-manual_v1.html#render-to-html",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "13.1 Render to HTML",
-    "text": "13.1 Render to HTML\n\nHTML is the default output format and is useful for previewing your document in a web browser while you work. Rendered HTML uses the custom Technical Library theme and includes a table of contents, clickable navigation, and consistent styles. It’s a great way to check formatting, layout, and images as you write.\nThere are two ways to preview your .qmd file:\n\nClick the Render button at the top of the RStudio window. \nOr enable Preview on Save (in the RStudio IDE toolbar). This option automatically re-renders your document every time you save it. \n\nAfter clicking the Render button (or saving the file with Preview on Save enabled), the HTML version of your document will appear in the Viewer tab, located in the Output pane (typically in the lower right corner of RStudio).\n\nIf the Viewer tab is not visible:\n\nGo to Tools &gt; Global Options in the top menu.\nNavigate to the R Markdown section.\nEnsure that Show output preview in: is set to Viewer Pane.\n\n\nThis setting ensures that rendered documents are displayed within RStudio, providing a seamless preview experience."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#render-to-pdf-via-docx-and-libreoffice",
-    "href": "guidelines/guidelines_editor-manual_v1.html#render-to-pdf-via-docx-and-libreoffice",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "13.2 Render to PDF via DOCX and LibreOffice",
-    "text": "13.2 Render to PDF via DOCX and LibreOffice\nPDFs are not generated directly by Quarto. Instead, the process involves a few automatic steps:\n\nQuarto first generates a .docx (Word) file using the styles and settings defined in the YAML header and shared config files.\nThen, a LibreOffice macro automatically converts the .docx to .pdf. \nThe resulting PDF file is saved in the output location.\n\nThis approach ensures consistent and well-formatted PDFs, even across different systems.\n\n\n\n\n\n\nImportant\n\n\n\n\nMake sure pdf: default is included in your YAML header — this triggers the PDF pipeline.\nDo not define custom pdf: options unless you know what you’re doing. \n\n\n\n\n13.2.1 Preview with DOCX Instead of PDF\nInstead of manually generating a PDF (which involves running scripts or waiting for the automated conversion), you can simply render a .docx file. It will look almost exactly like the final PDF because it uses the same styles and layout rules.\nThis is a great option when you want to quickly check how your document will look in PDF format — especially while you’re still editing the .qmd file.\nYou don’t need to change the order of output formats in the YAML header. Just click the black arrow next to the Render button in RStudio and select “Render MS Word” from the dropdown menu.\n\nAfter rendering, the .docx file will automatically open in your default DOCX editor (e.g., Microsoft Word or LibreOffice Writer). If it doesn’t open automatically, you can still find it saved in the same folder as your .qmd file, with the same base filename.\nThis approach is fast and avoids editing the YAML just to preview layout changes."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#output-location",
-    "href": "guidelines/guidelines_editor-manual_v1.html#output-location",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "13.3 Output Location",
-    "text": "13.3 Output Location\nWhen you render a single .qmd file locally (e.g. using RStudio or the command line), the output (HTML or DOCX/PDF) is saved next to your source file — usually inside the products/ folder.\nIf you run the full command:\n$ quarto render\nthen Quarto will build the entire Technical Library and save the results in a special _site folder. However, this is typically handled automatically by the rendering workflow in the GitHub repository during the publishing process.\n\n💡 You do not need to render the entire library yourself. Just focus on rendering the file you are currently working on. This keeps things faster and easier to manage during editing.\n\n\n\n13.3.1 About the _quarto.yaml File\nThe _quarto.yaml file is a special configuration file that defines project-wide settings, including the default output folder — which is _site.\nWhen this file is present in the root of your project, RStudio (and Quarto) assumes you’re working in project mode. That means it tries to render the entire site, not just the file you’re editing.\nThis can cause a few issues during local editing:\n\nSlower preview performance\nRStudio sometimes doesn’t pick up the latest changes right away (likely due to caching)\nViewer pane might not display fresh output\n\nUnfortunately, this behavior isn’t clearly documented — but it can be confusing and frustrating.\n\n\n13.3.2 Recommended Setup for Efficient Editing\nTo avoid these issues, the repository includes a renamed config file: _quarto-not-used.yaml. This allows users to edit and preview individual files efficiently without triggering full-site rendering.\nBy default, this means:\n\nRStudio operates in “single file mode”\nOutput files (HTML, DOCX) are written directly next to the .qmd file (e.g. in products/)\n\n\n\n13.3.3 Rendering the Full Project\nWhen you need to preview or build the entire Technical Library locally:\n\nRename _quarto-not-used.yaml to _quarto.yaml\nRun:\n\n$ quarto render\nThis builds the full site into the _site/ folder as defined in the YAML config.\n\n⚠️ Working with _quarto.yaml in place during regular editing can work, but it may lead to slower performance or outdated previews in the Viewer pane. For a smoother editing experience, keep it renamed by default."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#text-styling-in-docx",
-    "href": "guidelines/guidelines_editor-manual_v1.html#text-styling-in-docx",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "14.1 Text Styling in DOCX",
-    "text": "14.1 Text Styling in DOCX\nProblem\nYou want to style or color specific parts of text in the final document, such as bolding only part of a sentence or changing its color.\nSolution\nUse a custom character style from the template DOCX file. For example:\n[**AD**]{custom-style=\"BoldRowText\"}\nThis style (BoldRowText) is already defined in the template.docx file.\n\n\n\n\n\n\nNote\n\n\n\nIf you’re adding a new style to the .docx reference file, make sure it’s a character style so it works correctly when applied inline in .qmd files. Custom styles must always be defined as character styles — not paragraph styles. Using the wrong type can cause formatting issues across the entire document."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#figure-and-image-numbering",
-    "href": "guidelines/guidelines_editor-manual_v1.html#figure-and-image-numbering",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "14.2 Figure and Image Numbering",
-    "text": "14.2 Figure and Image Numbering\nProblem\nFigures and images inserted into .qmd files do not automatically include numbers in the rendered DOCX or PDF file. \nWorkaround\nYou can use figure referencing like this:\n![Short description](my-doc-media/image.jpg){{#fig-3 height=356px}}\nHowever, this approach wraps the image in a table structure, which might cause visible borders or layout issues — especially if your styling is strict or minimal.\nBest Practice\nFor clean results: \n\nAdd a manual figure number and title directly as text under the image.\nAvoid using automatic figure references unless necessary for cross-referencing.\n\nExample:\n![Diagram of processing flow](my-doc-media/flow-diagram.png)\n**Figure 3.** Data processing flow chart."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#table-styling-and-formatting",
-    "href": "guidelines/guidelines_editor-manual_v1.html#table-styling-and-formatting",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "14.3 Table Styling and Formatting",
-    "text": "14.3 Table Styling and Formatting\nProblem\nOnly one table style is applied to all tables via the DOCX template, and additional formatting — like emphasizing specific rows — isn’t applied automatically.\nSolution \nUse a custom character style (like BoldRowText) within cells that require special formatting.\n[**MRVPP**]{custom-style=\"BoldRowText\"}\nThis will bold specific text while keeping the rest of the table structure intact.\nBest Practice\n\nDo not change the table structure or layout in the DOCX file manually.\nAlways apply row or cell formatting by using inline styled text directly in the .qmd source.\n\n\n💡 If you need to format a row differently (e.g. a header row within the body of the table), apply the style inline using the method above.\n\n\nMore issues will be added here as the system and workflow evolve. If you encounter a formatting issue or rendering problem that isn’t listed, ask your team lead or check how other documents handled similar cases."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#pushing-changes-to-git",
-    "href": "guidelines/guidelines_editor-manual_v1.html#pushing-changes-to-git",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "15.1 Pushing Changes to Git",
-    "text": "15.1 Pushing Changes to Git\nEach project maintains documentation in its own DOCS/ directory. When published to the Technical Library, your project’s documents are available under a directory named after your project’s Git repository name (&lt;PROJECT_NAME&gt;). These directories are managed as git subtrees, meaning their version history is isolated from the main repository for clarity and independence.\nTo publish updates to the central Technical Library:\n\nCommit all your modified documentation files within your project repository:\ngit add DOCS/\ngit commit -m \"docs: update [brief description]\"\nRun the following command:\ngit docs-publish\nThis command merges your subtree changes into the develop branch of the central Technical Library repository.\nAfter rendering, the updated Technical Library (develop version) becomes accessible at https://eea.github.io/CLMS_documents/develop/index.html"
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#reviewing-documents",
-    "href": "guidelines/guidelines_editor-manual_v1.html#reviewing-documents",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "15.2 Reviewing Documents",
-    "text": "15.2 Reviewing Documents\nThe release of the complete Technical Library is controlled by the Technical Library owner.\n\nThe process begins with the creation of a pull request (PR) from the develop branch to the test branch.\nThis is a pre-release stage and is not automated.\nWhen the PR is created, the PR title is automatically generated by GitHub Actions to conform to semantic commit format rules.\nOnly a Technical Library owner can create this PR.\nRepository rules require that the PR must be reviewed and accepted by at least one other Technical Library owner.\nOnce the review is approved:\n\nThe PR is merged.\nThe preview (test) version is automatically rendered and published at https://eea.github.io/CLMS_documents/test/index.html"
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#releasing-official-documentation",
-    "href": "guidelines/guidelines_editor-manual_v1.html#releasing-official-documentation",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "15.3 Releasing Official Documentation",
-    "text": "15.3 Releasing Official Documentation\nTo publish the final release version:\n\nA Technical Library owner must create a PR from test to main.\nThis PR also must be reviewed and approved by another repository owner.\nUpon review approval:\n\nThe PR is merged.\nThe final, official version is automatically rendered and published at https://library.land.copernicus.eu/\n\n\n\n15.3.1 Version Number Assignment\nVersion numbers are automatically generated during the release workflow using semantic versioning (major.minor.patch format).\nWhen documents are merged into the main branch:\n\nAn AI service analyzes the changes made to each modified document\nBased on the scope and nature of changes, it assigns the next appropriate version number\nMinor changes (typos, small clarifications) increment the patch version (e.g., 2.1.0 → 2.1.1)\nNew content or features increment the minor version (e.g., 2.1.0 → 2.2.0)\nBreaking changes or major rewrites increment the major version (e.g., 2.1.0 → 3.0.0, which may also update the filename from v2 to v3)\n\nThe major version number in your document filename (e.g., document_name_v2.qmd) represents the base major version. The complete version tracking is managed automatically by the Technical Library system."
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#quick-reference",
-    "href": "guidelines/guidelines_editor-manual_v1.html#quick-reference",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "16.1 Quick Reference",
-    "text": "16.1 Quick Reference\n# List all published files and their versions\ngit docs-restore --list-all\n\n# List all versions for a specific file\ngit docs-restore --list docs/CLMS_HRL-Forest_PUM_v2.qmd\n\n# Restore a specific version\ngit docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0\n\n# Restore the latest published version\ngit docs-restore --latest docs/CLMS_HRL-Forest_PUM_v2.qmd"
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#what-restore-means",
-    "href": "guidelines/guidelines_editor-manual_v1.html#what-restore-means",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "16.2 What “Restore” Means",
-    "text": "16.2 What “Restore” Means\nRestore fetches a file to your local project - it doesn’t roll back or change anything in the published Technical Library. You’re getting a copy of a previous version that you can work on, edit, and eventually publish as a new version.\nThink of it as “start editing from version X” rather than “undo to version X in the library.”"
-  },
-  {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#common-scenarios",
-    "href": "guidelines/guidelines_editor-manual_v1.html#common-scenarios",
-    "title": "Guide for Writing Technical Documentation",
-    "section": "16.3 Common Scenarios",
-    "text": "16.3 Common Scenarios\nRecovering deleted content: You accidentally removed an important section from your local file. Restore the latest published version to get it back, then continue editing.\nStarting from a previous version: Version 2.2.0 introduced problems. Restore version 2.0.0, make corrections, and publish. When the library is released, your changes will be assigned a new version number based on their scope.\nBringing back a deleted file: A file was removed from your project but still exists in the Technical Library. Restore it to recreate the file locally, then you can update and republish it."
+    "section": "7.1 When to Create a Major Version",
+    "text": "7.1 When to Create a Major Version\nCreate a new major version file (v3 alongside v2) when:\n\nYou’re completely rewriting the document with a different structure or approach\nThe changes would break existing user workflows or references\nYou need to maintain the old version for users of legacy systems or products\n\nFor smaller updates, corrections, or additions, just edit the existing file - the versioning system will handle incrementing minor or patch versions automatically during release."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#the-workflow",
     "href": "guidelines/guidelines_editor-manual_v1.html#the-workflow",
     "title": "Guide for Writing Technical Documentation",
-    "section": "16.4 The Workflow",
-    "text": "16.4 The Workflow\nHere’s what happens when you restore and publish:\n\nRestore: Fetch version 2.0.0 of docs/CLMS_HRL-Forest_PUM_v2.qmd to your project\nEdit: Make changes locally (file is still named CLMS_HRL-Forest_PUM_v2.qmd)\nPublish to develop: Push changes with git docs-publish - your document appears in the develop environment for preview\nRelease process: When the Technical Library is released (develop → test → main), AI analyzes your changes and assigns the next version number\nResult: Your edited document appears in the Technical Library with a new version (e.g., 2.3.0 for new features, 2.2.1 for fixes, or 3.0.0 for breaking changes)\n\nNote that version numbers are assigned only during the final release, not when you push to develop. See the “Releasing Official Documentation” section for details on how versioning works."
+    "section": "7.2 The Workflow",
+    "text": "7.2 The Workflow\nTo create a major version update:\n\nCopy your existing file\ncp docs/CLMS_HRL-Forest_PUM_v2.qmd docs/CLMS_HRL-Forest_PUM_v3.qmd\ncp -r docs/CLMS_HRL-Forest_PUM_v2-media docs/CLMS_HRL-Forest_PUM_v3-media\nEdit the new v3 file\n\nUpdate the content with your major changes\nThe YAML header fields (title, description, etc.) can stay the same or be updated as needed\nUpdate image paths if you’re using the new media folder: CLMS_HRL-Forest_PUM_v3-media/\n\nPublish both files\ngit add docs/CLMS_HRL-Forest_PUM_v3.qmd docs/CLMS_HRL-Forest_PUM_v3-media/\ngit commit -m \"docs: add v3 of HRL Forest PUM\"\ngit docs-publish\nBoth versions coexist\n\nThe v2 file remains in the library and can still receive updates (patches like 2.5.1, 2.5.2)\nThe v3 file starts its own version history (3.0.0, 3.1.0, etc.)\nUsers can access either version based on their needs"
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#what-happens-during-release",
+    "href": "guidelines/guidelines_editor-manual_v1.html#what-happens-during-release",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "7.3 What Happens During Release",
+    "text": "7.3 What Happens During Release\nWhen the Technical Library is released:\n\nThe AI analyzes changes to your new v3 file\nBecause it’s a new filename with _v3, it starts at version 3.0.0\nThe AI will increment minor and patch versions (3.1.0, 3.0.1, etc.) based on future changes\nYour existing v2 file keeps its version history unchanged (2.x.x versions continue independently)\nBoth appear in the published Technical Library as separate documents\n\nSee “Releasing Official Documentation” for details on how the AI assigns minor and patch versions."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#naming-convention",
+    "href": "guidelines/guidelines_editor-manual_v1.html#naming-convention",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "8.1 Naming Convention",
+    "text": "8.1 Naming Convention\nDocumentation files follow this naming pattern:\nCLMS_&lt;Product-Name&gt;_&lt;Document-Type&gt;_v&lt;Major-Version&gt;.qmd\nExamples:\n\nCLMS_HRL-Forest_PUM_v2.qmd - Product User Manual for HRL Forest, major version 2\nCLMS_Water-Bodies_ATBD_v1.qmd - Algorithm Theoretical Basis Document for Water Bodies, major version 1"
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#the-version-suffix",
+    "href": "guidelines/guidelines_editor-manual_v1.html#the-version-suffix",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "8.2 The Version Suffix",
+    "text": "8.2 The Version Suffix\nThe _v&lt;number&gt; suffix at the end of the filename represents the major version of the document and is set by you, the editor:\n\n_v1 - First major version (versions 1.0.0, 1.1.0, 1.2.3, etc.)\n_v2 - Second major version (versions 2.0.0, 2.1.0, 2.2.1, etc.)\n_v3 - Third major version (versions 3.0.0, 3.1.0, etc.)\n\nThe minor and patch numbers (the second and third parts of the version) are managed automatically by the Technical Library system during the release process. You control the major version by choosing the filename suffix."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#url-generation",
+    "href": "guidelines/guidelines_editor-manual_v1.html#url-generation",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "8.3 URL Generation",
+    "text": "8.3 URL Generation\nThe filename (without the .qmd extension) becomes part of the document’s URL after publishing.\nExample:\n\nFile: docs/CLMS_HRL-Forest_PUM_v2.qmd\nURL: https://library.land.copernicus.eu/hrl/CLMS_HRL-Forest_PUM_v2.html"
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#naming-guidelines",
+    "href": "guidelines/guidelines_editor-manual_v1.html#naming-guidelines",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "8.4 Naming Guidelines",
+    "text": "8.4 Naming Guidelines\nWhen creating documentation files:\n\nFollow the CLMS naming convention shown above\nStart with _v1 for new documents\nUse clear, descriptive product names\nAvoid renaming files after creation, as it breaks links and references\nOnly change the version suffix when creating a major version update (see “Creating Major Version Updates”)\n\n\n\n\n\n\n\nImportant\n\n\n\nThe filename is permanent once published. Changing it later breaks URLs, cross-references, and the version history tracking. If you need to make major changes, create a new major version file (e.g., v2 → v3) rather than renaming the existing file."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#atbd-template",
+    "href": "guidelines/guidelines_editor-manual_v1.html#atbd-template",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "9.1 ATBD Template",
+    "text": "9.1 ATBD Template\nFilename: CLMS_Template_ATBD.qmd\nThis template is used for creating an Algorithm Theoretical Basis Document (ATBD).\nIt includes:\n\nA structured outline based on standard ATBD requirements\nPlaceholder sections for theory, algorithm descriptions, validation, and references\nYAML metadata pre-filled with necessary fields and style settings\nCommented guidance within each section\n\n\n💡 Use this template when documenting the scientific or technical foundation of a data product."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#pum-template",
+    "href": "guidelines/guidelines_editor-manual_v1.html#pum-template",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "9.2 PUM Template",
+    "text": "9.2 PUM Template\nFilename: CLMS_Template_PUM.qmd\nThis template is used for creating a Product User Manual (PUM).\nIt includes:\n\nSections for product overview, data access, interpretation, and use\nNotes on where to insert images, tables, and figures\nYAML header configured for standard rendering\n\n\n💡 Use this template when documenting how users should interact with or interpret a product."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#how-to-use-the-templates",
+    "href": "guidelines/guidelines_editor-manual_v1.html#how-to-use-the-templates",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "9.3 How to Use the Templates",
+    "text": "9.3 How to Use the Templates\n\nGo to templates/\nChoose either CLMS_Template_ATBD.qmd or CLMS_Template_PUM.qmd\nCopy the file into the products/ folder\nRename it to match your project (e.g. my-product.qmd)\nBegin editing based on the guidance in the template\n\nIf you’re unsure which template to use, ask your team lead or check what was used in previous similar documents.\n\n\n\n\n\n\nImportant\n\n\n\nDo not modify the structure of the template unless absolutely necessary.\nKeeping the structure consistent across all documents ensures that the documentation system stays clear, professional, and easy to navigate for all users and reviewers."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#what-is-pandoc",
+    "href": "guidelines/guidelines_editor-manual_v1.html#what-is-pandoc",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "10.1 What is Pandoc?",
+    "text": "10.1 What is Pandoc?\nPandoc is a powerful command-line tool that can convert documents between various formats, including Markdown, DOCX, HTML, LaTeX, and more.\nTo use Pandoc on your computer, download and install it from the official site: https://pandoc.org/installing.html"
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#when-and-how-to-use-it",
+    "href": "guidelines/guidelines_editor-manual_v1.html#when-and-how-to-use-it",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "10.2 When and How to Use It",
+    "text": "10.2 When and How to Use It\nUse Pandoc only for converting existing .docx documents into .qmd. Do not use it to convert PDFs — Pandoc does not support PDF as an input format. This approach is ideal when you’re: \n\nMigrating legacy documentation into the Quarto system\nCreating a quick starting point for manual cleanup\nExtracting embedded images and figures from .docx"
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#basic-usage-example",
+    "href": "guidelines/guidelines_editor-manual_v1.html#basic-usage-example",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "10.3 Basic Usage Example",
+    "text": "10.3 Basic Usage Example\nOpen a terminal or command prompt — ideally from within RStudio’s Terminal tab so you can stay in one environment — and run the following command. You can provide either a relative or full path to the .docx file:\n$ pandoc my-doc.docx -o my-doc.qmd --wrap=none --from=docx --to=markdown+fenced_divs+grid_tables+pipe_tables+smart\n\n10.3.1 What this command does:\n\nmy-doc.docx: The input Word document.\n-o my-doc.qmd: Output file in Markdown format.\n--wrap=none: Prevents Pandoc from breaking long lines into multiple lines.\n--from=docx: Specifies that the input file is a Word document.\n--to=markdown+fenced_divs+grid_tables+pipe_tables+smart: Sets output format and enables enhanced table and layout options."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#where-are-media-files-stored",
+    "href": "guidelines/guidelines_editor-manual_v1.html#where-are-media-files-stored",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "10.4 Where Are Media Files Stored?",
+    "text": "10.4 Where Are Media Files Stored?\nWhen Pandoc finds images or other media in the .docx file, it extracts them automatically into a new folder.\nBy default, extracted media will be placed into a subfolder named media/, located next to your output .qmd file. \nThis is created automatically and will contain all image assets referenced in the converted file.\n\n10.4.1 Changing the Media Folder Name\nYou can change the default media folder name using the --extract-media option:\n$ pandoc my-doc.docx -o my-doc.qmd --extract-media=custom-media-folder\n\n\n\n\n\n\nNote\n\n\n\nPandoc will create a media/ subfolder inside the folder you specify. For example, running the above command will result in:\ncustom-media-folder/media/\nIf you want to follow the structure expected by your project (e.g. my-doc-media/), make sure to move the contents out of that inner media/ folder and place them in the right location manually."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#next-steps",
+    "href": "guidelines/guidelines_editor-manual_v1.html#next-steps",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "10.5 Next Steps",
+    "text": "10.5 Next Steps\nAfter conversion, you’ll likely need to:\n\nClean up unnecessary styles or extra spacing\nRename and organize media files \nAdd a proper YAML header at the top of the .qmd file \nRestructure the content to match your template or documentation style \n\nWhile not perfect, this method gives you a solid starting point — especially for long or complex documents."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#shared-styling-configuration",
+    "href": "guidelines/guidelines_editor-manual_v1.html#shared-styling-configuration",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "11.1 Shared Styling Configuration",
+    "text": "11.1 Shared Styling Configuration\nMost formatting options (fonts, colors, spacing, margins, etc.) are defined in shared configuration files. These files are stored in styles directory and include:\n\nA custom DOCX file for styling PDF output\nA CSS stylesheet for HTML\nMetadata files for shared fields like project name, institution, and contributors\n\nDon’t edit them! — they’re used automatically by the rendering scripts."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#theme",
+    "href": "guidelines/guidelines_editor-manual_v1.html#theme",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "11.2 Theme ",
+    "text": "11.2 Theme \nIt ensures that all documents have a clean, modern, and consistent appearance — both in HTML and PDF output.\n\nThis theme is applied automatically. You do not need to configure it manually in your documents."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#table-of-contents",
+    "href": "guidelines/guidelines_editor-manual_v1.html#table-of-contents",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "11.3 Table of Contents",
+    "text": "11.3 Table of Contents\nThe table of contents (TOC) is enabled by default and appears on the left-hand side in HTML documents.\nYou can control how many heading levels are shown by adjusting toc-depth in your YAML header, though the default setting (toc-depth: 3) is usually enough."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#customizing-per-document-settings",
+    "href": "guidelines/guidelines_editor-manual_v1.html#customizing-per-document-settings",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "11.4 Customizing Per-Document Settings",
+    "text": "11.4 Customizing Per-Document Settings\nIf needed, you can override the default styles or add extra options in your document’s YAML header. For example:\nformat:\n  html:\n    toc: true\n    toc-depth: 3\n  docx:\n    reference-doc: ../styles/custom-reference.docx\n  pdf: default"
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#how-it-works",
+    "href": "guidelines/guidelines_editor-manual_v1.html#how-it-works",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "12.1 How It Works",
+    "text": "12.1 How It Works\n\nThe default Quarto metadata configuration automatically injects a special placeholder value into the keywords: field in your document’s header.\nWhen your document is rendered and processed for publication, an AI service analyzes its content and automatically generates 10 relevant keywords.\nThese keywords help with document indexing, search, and classification on the publication platform.\n\nThis process ensures consistent keyword formatting and reduces the work required from authors."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#what-you-should-do-1",
+    "href": "guidelines/guidelines_editor-manual_v1.html#what-you-should-do-1",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "12.2 What You Should Do",
+    "text": "12.2 What You Should Do\nNothing!\nSimply leave the keywords: field untouched or omit it entirely. The publishing system will take care of it for you.\nIf you do add custom keywords for internal purposes, they will be overwritten during the publishing step — so it’s best to let the system manage them."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#opening-your-project",
+    "href": "guidelines/guidelines_editor-manual_v1.html#opening-your-project",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "13.1 Opening Your Project",
+    "text": "13.1 Opening Your Project\n\nOpen RStudio.\nUse File &gt; Open Project… and select the root folder of the Technical Library.\nNavigate to the products/ folder.\nOpen the .qmd file you want to edit."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#editing-qmd-files",
+    "href": "guidelines/guidelines_editor-manual_v1.html#editing-qmd-files",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "13.2 Editing QMD Files",
+    "text": "13.2 Editing QMD Files\nYou can edit .qmd files just like regular text documents. RStudio provides:\n\nSyntax highlighting for Markdown and code blocks\nA live preview of rendered output\nAuto-saving and formatting support\nInstant feedback when rendering errors occur\n\nUse the Preview on Save option (checkbox in the toolbar) to automatically render your file every time you save it. This makes editing more efficient."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#managing-media-files",
+    "href": "guidelines/guidelines_editor-manual_v1.html#managing-media-files",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "13.3 Managing Media Files",
+    "text": "13.3 Managing Media Files\nIf your document uses images or diagrams:\n\nPlace them in a dedicated media folder (e.g. my-doc-media/)\nUse relative paths in your .qmd file, like:\n\n![Data Flow Diagram](my-doc-media/diagram.png)"
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#render-to-html",
+    "href": "guidelines/guidelines_editor-manual_v1.html#render-to-html",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "14.1 Render to HTML",
+    "text": "14.1 Render to HTML\n\nHTML is the default output format and is useful for previewing your document in a web browser while you work. Rendered HTML uses the custom Technical Library theme and includes a table of contents, clickable navigation, and consistent styles. It’s a great way to check formatting, layout, and images as you write.\nThere are two ways to preview your .qmd file:\n\nClick the Render button at the top of the RStudio window. \nOr enable Preview on Save (in the RStudio IDE toolbar). This option automatically re-renders your document every time you save it. \n\nAfter clicking the Render button (or saving the file with Preview on Save enabled), the HTML version of your document will appear in the Viewer tab, located in the Output pane (typically in the lower right corner of RStudio).\n\nIf the Viewer tab is not visible:\n\nGo to Tools &gt; Global Options in the top menu.\nNavigate to the R Markdown section.\nEnsure that Show output preview in: is set to Viewer Pane.\n\n\nThis setting ensures that rendered documents are displayed within RStudio, providing a seamless preview experience."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#render-to-pdf-via-docx-and-libreoffice",
+    "href": "guidelines/guidelines_editor-manual_v1.html#render-to-pdf-via-docx-and-libreoffice",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "14.2 Render to PDF via DOCX and LibreOffice",
+    "text": "14.2 Render to PDF via DOCX and LibreOffice\nPDFs are not generated directly by Quarto. Instead, the process involves a few automatic steps:\n\nQuarto first generates a .docx (Word) file using the styles and settings defined in the YAML header and shared config files.\nThen, a LibreOffice macro automatically converts the .docx to .pdf. \nThe resulting PDF file is saved in the output location.\n\nThis approach ensures consistent and well-formatted PDFs, even across different systems.\n\n\n\n\n\n\nImportant\n\n\n\n\nMake sure pdf: default is included in your YAML header — this triggers the PDF pipeline.\nDo not define custom pdf: options unless you know what you’re doing. \n\n\n\n\n14.2.1 Preview with DOCX Instead of PDF\nInstead of manually generating a PDF (which involves running scripts or waiting for the automated conversion), you can simply render a .docx file. It will look almost exactly like the final PDF because it uses the same styles and layout rules.\nThis is a great option when you want to quickly check how your document will look in PDF format — especially while you’re still editing the .qmd file.\nYou don’t need to change the order of output formats in the YAML header. Just click the black arrow next to the Render button in RStudio and select “Render MS Word” from the dropdown menu.\n\nAfter rendering, the .docx file will automatically open in your default DOCX editor (e.g., Microsoft Word or LibreOffice Writer). If it doesn’t open automatically, you can still find it saved in the same folder as your .qmd file, with the same base filename.\nThis approach is fast and avoids editing the YAML just to preview layout changes."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#output-location",
+    "href": "guidelines/guidelines_editor-manual_v1.html#output-location",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "14.3 Output Location",
+    "text": "14.3 Output Location\nWhen you render a single .qmd file locally (e.g. using RStudio or the command line), the output (HTML or DOCX/PDF) is saved next to your source file — usually inside the products/ folder.\nIf you run the full command:\n$ quarto render\nthen Quarto will build the entire Technical Library and save the results in a special _site folder. However, this is typically handled automatically by the rendering workflow in the GitHub repository during the publishing process.\n\n💡 You do not need to render the entire library yourself. Just focus on rendering the file you are currently working on. This keeps things faster and easier to manage during editing.\n\n\n\n14.3.1 About the _quarto.yaml File\nThe _quarto.yaml file is a special configuration file that defines project-wide settings, including the default output folder — which is _site.\nWhen this file is present in the root of your project, RStudio (and Quarto) assumes you’re working in project mode. That means it tries to render the entire site, not just the file you’re editing.\nThis can cause a few issues during local editing:\n\nSlower preview performance\nRStudio sometimes doesn’t pick up the latest changes right away (likely due to caching)\nViewer pane might not display fresh output\n\nUnfortunately, this behavior isn’t clearly documented — but it can be confusing and frustrating.\n\n\n14.3.2 Recommended Setup for Efficient Editing\nTo avoid these issues, the repository includes a renamed config file: _quarto-not-used.yaml. This allows users to edit and preview individual files efficiently without triggering full-site rendering.\nBy default, this means:\n\nRStudio operates in “single file mode”\nOutput files (HTML, DOCX) are written directly next to the .qmd file (e.g. in products/)\n\n\n\n14.3.3 Rendering the Full Project\nWhen you need to preview or build the entire Technical Library locally:\n\nRename _quarto-not-used.yaml to _quarto.yaml\nRun:\n\n$ quarto render\nThis builds the full site into the _site/ folder as defined in the YAML config.\n\n⚠️ Working with _quarto.yaml in place during regular editing can work, but it may lead to slower performance or outdated previews in the Viewer pane. For a smoother editing experience, keep it renamed by default."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#text-styling-in-docx",
+    "href": "guidelines/guidelines_editor-manual_v1.html#text-styling-in-docx",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "15.1 Text Styling in DOCX",
+    "text": "15.1 Text Styling in DOCX\nProblem\nYou want to style or color specific parts of text in the final document, such as bolding only part of a sentence or changing its color.\nSolution\nUse a custom character style from the template DOCX file. For example:\n[**AD**]{custom-style=\"BoldRowText\"}\nThis style (BoldRowText) is already defined in the template.docx file.\n\n\n\n\n\n\nNote\n\n\n\nIf you’re adding a new style to the .docx reference file, make sure it’s a character style so it works correctly when applied inline in .qmd files. Custom styles must always be defined as character styles — not paragraph styles. Using the wrong type can cause formatting issues across the entire document."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#figure-and-image-numbering",
+    "href": "guidelines/guidelines_editor-manual_v1.html#figure-and-image-numbering",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "15.2 Figure and Image Numbering",
+    "text": "15.2 Figure and Image Numbering\nProblem\nFigures and images inserted into .qmd files do not automatically include numbers in the rendered DOCX or PDF file. \nWorkaround\nYou can use figure referencing like this:\n![Short description](my-doc-media/image.jpg){{#fig-3 height=356px}}\nHowever, this approach wraps the image in a table structure, which might cause visible borders or layout issues — especially if your styling is strict or minimal.\nBest Practice\nFor clean results: \n\nAdd a manual figure number and title directly as text under the image.\nAvoid using automatic figure references unless necessary for cross-referencing.\n\nExample:\n![Diagram of processing flow](my-doc-media/flow-diagram.png)\n**Figure 3.** Data processing flow chart."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#table-styling-and-formatting",
+    "href": "guidelines/guidelines_editor-manual_v1.html#table-styling-and-formatting",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "15.3 Table Styling and Formatting",
+    "text": "15.3 Table Styling and Formatting\nProblem\nOnly one table style is applied to all tables via the DOCX template, and additional formatting — like emphasizing specific rows — isn’t applied automatically.\nSolution \nUse a custom character style (like BoldRowText) within cells that require special formatting.\n[**MRVPP**]{custom-style=\"BoldRowText\"}\nThis will bold specific text while keeping the rest of the table structure intact.\nBest Practice\n\nDo not change the table structure or layout in the DOCX file manually.\nAlways apply row or cell formatting by using inline styled text directly in the .qmd source.\n\n\n💡 If you need to format a row differently (e.g. a header row within the body of the table), apply the style inline using the method above.\n\n\nMore issues will be added here as the system and workflow evolve. If you encounter a formatting issue or rendering problem that isn’t listed, ask your team lead or check how other documents handled similar cases."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#pushing-changes-to-git",
+    "href": "guidelines/guidelines_editor-manual_v1.html#pushing-changes-to-git",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "16.1 Pushing Changes to Git",
+    "text": "16.1 Pushing Changes to Git\nEach project maintains documentation in its own DOCS/ directory. When published to the Technical Library, your project’s documents are available under a directory named after your project’s Git repository name (&lt;PROJECT_NAME&gt;). These directories are managed as git subtrees, meaning their version history is isolated from the main repository for clarity and independence.\nTo publish updates to the central Technical Library:\n\nCommit all your modified documentation files within your project repository:\ngit add DOCS/\ngit commit -m \"docs: update [brief description]\"\nRun the following command:\ngit docs-publish\nThis command merges your subtree changes into the develop branch of the central Technical Library repository.\nAfter rendering, the updated Technical Library (develop version) becomes accessible at https://eea.github.io/CLMS_documents/develop/index.html"
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#reviewing-documents",
+    "href": "guidelines/guidelines_editor-manual_v1.html#reviewing-documents",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "16.2 Reviewing Documents",
+    "text": "16.2 Reviewing Documents\nThe release of the complete Technical Library is controlled by the Technical Library owner.\n\nThe process begins with the creation of a pull request (PR) from the develop branch to the test branch.\nThis is a pre-release stage and is not automated.\nWhen the PR is created, the PR title is automatically generated by GitHub Actions to conform to semantic commit format rules.\nOnly a Technical Library owner can create this PR.\nRepository rules require that the PR must be reviewed and accepted by at least one other Technical Library owner.\nOnce the review is approved:\n\nThe PR is merged.\nThe preview (test) version is automatically rendered and published at https://eea.github.io/CLMS_documents/test/index.html"
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#releasing-official-documentation",
+    "href": "guidelines/guidelines_editor-manual_v1.html#releasing-official-documentation",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "16.3 Releasing Official Documentation",
+    "text": "16.3 Releasing Official Documentation\nTo publish the final release version:\n\nA Technical Library owner must create a PR from test to main.\nThis PR also must be reviewed and approved by another repository owner.\nUpon review approval:\n\nThe PR is merged.\nThe final, official version is automatically rendered and published at https://library.land.copernicus.eu\n\n\n\n16.3.1 Version Number Assignment\nVersion numbers are automatically generated during the release workflow using semantic versioning (major.minor.patch format).\nWhen documents are merged into the main branch:\n\nAn AI service analyzes the changes made to each modified document\nThe AI determines whether to increment the minor or patch version based on the scope of changes\nSmall fixes and corrections increment the patch version (e.g., 2.1.0 → 2.1.1)\nNew content, features, or improvements increment the minor version (e.g., 2.1.0 → 2.2.0)\n\nThe major version is controlled by the filename suffix (e.g., _v2 in document_v2.qmd). To create a new major version, you must create a new file with the updated suffix (see “Creating Major Version Updates” for details).\nExample: If you have CLMS_HRL-Forest_PUM_v2.qmd currently at version 2.3.5:\n\nMinor changes → AI assigns 2.3.6 (patch++)\nNew features → AI assigns 2.4.0 (minor++)\nMajor rewrite → You create CLMS_HRL-Forest_PUM_v3.qmd, which starts at 3.0.0"
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#quick-reference",
+    "href": "guidelines/guidelines_editor-manual_v1.html#quick-reference",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "17.1 Quick Reference",
+    "text": "17.1 Quick Reference\n# List all published files and their versions\ngit docs-restore --list-all\n\n# List all versions for a specific file\ngit docs-restore --list docs/CLMS_HRL-Forest_PUM_v2.qmd\n\n# Restore a specific version\ngit docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0\n\n# Restore the latest published version\ngit docs-restore --latest docs/CLMS_HRL-Forest_PUM_v2.qmd"
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#what-restore-means",
+    "href": "guidelines/guidelines_editor-manual_v1.html#what-restore-means",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "17.2 What “Restore” Means",
+    "text": "17.2 What “Restore” Means\nRestore fetches a file to your local project - it doesn’t roll back or change anything in the published Technical Library. You’re getting a copy of a previous version that you can work on, edit, and eventually publish as a new version.\nThink of it as “start editing from version X” rather than “undo to version X in the library.”"
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#common-scenarios",
+    "href": "guidelines/guidelines_editor-manual_v1.html#common-scenarios",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "17.3 Common Scenarios",
+    "text": "17.3 Common Scenarios\nRecovering deleted content: You accidentally removed an important section from your local file. Restore the latest published version to get it back, then continue editing.\nStarting from a previous version: Version 2.2.0 introduced problems. Restore version 2.0.0, make corrections, and publish. When the library is released, your changes will be assigned a new minor or patch version (like 2.3.0 or 2.2.1) based on their scope.\nBringing back a deleted file: A file was removed from your project but still exists in the Technical Library. Restore it to recreate the file locally, then you can update and republish it."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#the-workflow-1",
+    "href": "guidelines/guidelines_editor-manual_v1.html#the-workflow-1",
+    "title": "Guide for Writing Technical Documentation",
+    "section": "17.4 The Workflow",
+    "text": "17.4 The Workflow\nHere’s what happens when you restore and publish:\n\nRestore: Fetch version 2.0.0 of docs/CLMS_HRL-Forest_PUM_v2.qmd to your project\nEdit: Make changes locally (file is still named CLMS_HRL-Forest_PUM_v2.qmd with _v2 suffix)\nPublish to develop: Push changes with git docs-publish - your document appears in the develop environment for preview\nRelease process: When the Technical Library is released (develop → test → main), AI analyzes your changes and assigns the next minor or patch version\nResult: Your edited document appears in the Technical Library with a new version (e.g., 2.3.0 for new features, 2.2.1 for fixes)\n\nNote that version numbers are assigned only during the final release, not when you push to develop. The AI only controls minor and patch versions - if you need a major version change (v2 → v3), you must create a new file (see “Creating Major Version Updates”). See the “Releasing Official Documentation” section for details on how versioning works."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#checking-available-versions",
     "href": "guidelines/guidelines_editor-manual_v1.html#checking-available-versions",
     "title": "Guide for Writing Technical Documentation",
-    "section": "16.5 Checking Available Versions",
-    "text": "16.5 Checking Available Versions\n\n16.5.1 List All Published Files\nTo see every documentation file with published versions:\ngit docs-restore --list-all\nOutput shows the latest version, release date, and current status:\nPublished files for MyProject:\n\ndocs/CLMS_HRL-Forest_PUM_v2.qmd\n  latest: 2.2.0 (released: 2025-12-01)\n  status: active\n\ndocs/CLMS_Water-Bodies_ATBD_v1.qmd\n  latest: 1.5.0 (released: 2024-06-15)\n  status: deleted (deleted: 2025-01-10)\nFiles marked “deleted” were removed from your project but still exist in the Technical Library - you can restore any of their versions.\n\n\n16.5.2 List Versions for a Specific File\nTo see the complete version history of a file:\ngit docs-restore --list docs/CLMS_HRL-Forest_PUM_v2.qmd\nYou’ll get a timeline of all published releases:\nAvailable versions for docs/CLMS_HRL-Forest_PUM_v2.qmd:\n\n2.2.0 (released: 2025-12-01) [latest]\n2.1.0 (released: 2025-09-15)\n2.0.0 (released: 2025-06-10)"
+    "section": "17.5 Checking Available Versions",
+    "text": "17.5 Checking Available Versions\n\n17.5.1 List All Published Files\nTo see every documentation file with published versions:\ngit docs-restore --list-all\nOutput shows the latest version, release date, and current status:\nPublished files for MyProject:\n\ndocs/CLMS_HRL-Forest_PUM_v2.qmd\n  latest: 2.2.0 (released: 2025-12-01)\n  status: active\n\ndocs/CLMS_Water-Bodies_ATBD_v1.qmd\n  latest: 1.5.0 (released: 2024-06-15)\n  status: deleted (deleted: 2025-01-10)\nFiles marked “deleted” were removed from your project but still exist in the Technical Library - you can restore any of their versions.\n\n\n17.5.2 List Versions for a Specific File\nTo see the complete version history of a file:\ngit docs-restore --list docs/CLMS_HRL-Forest_PUM_v2.qmd\nYou’ll get a timeline of all published releases:\nAvailable versions for docs/CLMS_HRL-Forest_PUM_v2.qmd:\n\n2.2.0 (released: 2025-12-01) [latest]\n2.1.0 (released: 2025-09-15)\n2.0.0 (released: 2025-06-10)"
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#restoring-files",
     "href": "guidelines/guidelines_editor-manual_v1.html#restoring-files",
     "title": "Guide for Writing Technical Documentation",
-    "section": "16.6 Restoring Files",
-    "text": "16.6 Restoring Files\n\n16.6.1 Restore a Specific Version\nChoose any published version and fetch it to your project:\ngit docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0\nIf you have uncommitted changes to that file, you’ll need to commit or stash them first. The command won’t overwrite your work without warning.\nThe file is replaced with the requested version and ready for you to edit.\n\n\n16.6.2 Restore the Latest Published Version\nTo get the most recent released version:\ngit docs-restore --latest docs/CLMS_HRL-Forest_PUM_v2.qmd\nThis is useful after experimenting with changes you want to discard - just fetch the latest published version and start fresh.\n\n\n16.6.3 Restore a Deleted File\nIf a file shows status: deleted in the list, you can still restore it:\ngit docs-restore docs/CLMS_Water-Bodies_ATBD_v1.qmd 1.5.0\nThis recreates the file in your project at the specified version. From there, you can update it and publish as usual."
+    "section": "17.6 Restoring Files",
+    "text": "17.6 Restoring Files\n\n17.6.1 Restore a Specific Version\nChoose any published version and fetch it to your project:\ngit docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0\nIf you have uncommitted changes to that file, you’ll need to commit or stash them first. The command won’t overwrite your work without warning.\nThe file is replaced with the requested version and ready for you to edit.\n\n\n17.6.2 Restore the Latest Published Version\nTo get the most recent released version:\ngit docs-restore --latest docs/CLMS_HRL-Forest_PUM_v2.qmd\nThis is useful after experimenting with changes you want to discard - just fetch the latest published version and start fresh.\n\n\n17.6.3 Restore a Deleted File\nIf a file shows status: deleted in the list, you can still restore it:\ngit docs-restore docs/CLMS_Water-Bodies_ATBD_v1.qmd 1.5.0\nThis recreates the file in your project at the specified version. From there, you can update it and publish as usual."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#after-restoring",
     "href": "guidelines/guidelines_editor-manual_v1.html#after-restoring",
     "title": "Guide for Writing Technical Documentation",
-    "section": "16.7 After Restoring",
-    "text": "16.7 After Restoring\nOnce you’ve restored a file to your local project:\n\nReview the content - Open it in RStudio or your editor to see what you’re working with\nMake your edits - Treat it like any other working file\nTest rendering - Make sure it builds correctly\nCommit and publish - When ready, commit your changes and run git docs-publish\n\nYour changes will appear in the develop environment for preview. Version numbers are assigned later during the release process (see “Releasing Official Documentation” for details).\n\n\n\n\n\n\nImportant\n\n\n\nRestore only affects your local project. Nothing changes in the published Technical Library until you explicitly publish your work. You can restore, review, and discard without any consequences to the published documentation.\n\n\n\n\n\n\n\n\nTip\n\n\n\nYou can run restore commands from any directory in your project. The system handles paths automatically, so git docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd works whether you’re at the project root or in a subdirectory."
+    "section": "17.7 After Restoring",
+    "text": "17.7 After Restoring\nOnce you’ve restored a file to your local project:\n\nReview the content - Open it in RStudio or your editor to see what you’re working with\nMake your edits - Treat it like any other working file\nTest rendering - Make sure it builds correctly\nCommit and publish - When ready, commit your changes and run git docs-publish\n\nYour changes will appear in the develop environment for preview. Version numbers are assigned later during the release process (see “Releasing Official Documentation” for details).\n\n\n\n\n\n\nImportant\n\n\n\nRestore only affects your local project. Nothing changes in the published Technical Library until you explicitly publish your work. You can restore, review, and discard without any consequences to the published documentation.\n\n\n\n\n\n\n\n\nTip\n\n\n\nYou can run restore commands from any directory in your project. The system handles paths automatically, so git docs-restore docs/CLMS_HRL-Forest_PUM_v2.qmd works whether you’re at the project root or in a subdirectory."
   },
   {
     "objectID": "guidelines/it-principles_IT_Architecture_Principles_and_Implementation_Guidelines_v1.html",
@@ -2237,6 +2286,6 @@
     "href": "guidelines/index.html",
     "title": "Guidelines",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        version\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n\n\n\n\n\n\nTitle\n\n\n\nversion\n\n\n\nDate\n\n\n\n\n\n\n\n\nGuide for Writing Technical Documentation\n\n\n0.6\n\n\nJun 23, 2025\n\n\n\n\n\n\nIT Architecture Principles and Implementation Guidelines\n\n\n1.4c (not published)\n\n\nJun 19, 2025\n\n\n\n\n\n\nNo matching items\n Back to top"
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        version\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n\n\n\n\n\n\nTitle\n\n\n\nversion\n\n\n\nDate\n\n\n\n\n\n\n\n\nGuide for Writing Technical Documentation\n\n\n \n\n\nJan 27, 2026\n\n\n\n\n\n\nIT Architecture Principles and Implementation Guidelines\n\n\n1.4c (not published)\n\n\nJun 19, 2025\n\n\n\n\n\n\nNo matching items\n Back to top"
   }
 ]
