@@ -27,7 +27,7 @@ format:
 
 # Executive summary {#sec-executive-summary}
 
-The Copernicus Land Monitoring Service (CLMS) provides geospatial information on land cover  and its changes, land use, vegetation state, water cycle and Earth's surface energy variables to  a broad range of users in Europe and across the World in the field of environmental terrestrial  applications. It supports applications in a variety of domains such as spatial and urban planning,  forest management, water management, agriculture and food security, nature conservation and  restoration, rural development, ecosystem accounting and mitigation/adaptation to climate  change. CLMS is jointly implemented by the European Environment Agency (EEA) and the  European Commission DG Joint Research Centre (JRC) and has been operational since 2012.
+The Copernicus Land Monitoring Service (CLMS) provides geospatial information on land cover  and its changes, land use, vegetation state, water cycle and Earth's surface energy variables to  a broad range of users in Europe and across the World in the field of environmental terrestrial  applications. It supports applications in a variety of domains such as spatial and urban planning,  forest management, water management, agriculture and food security, nature conservation and  restoration, rural development, ecosystem accounting and mitigation/adaptation to climate  change. CLMS is jointly implemented by the European Environment Agency (EEA) and the European Commission DG Joint Research Centre (JRC) and has been operational since 2012.
 
 The ‘CLCplus Backbone’ constitutes the first component of the CLMS’s ‘CLCplus Product Suite’,  which represents a true paradigm change in European land cover/land use monitoring, building  on the rich legacy of the European CORINE Land Cover (CLC) flagship product. The CLCplus  Backbone is a large scale, seamless and high-resolution inventory of European land cover. It  covers the whole of EEA38 territory, the United Kingdom (UK) and the French Overseas  Departments (DOMs). The CLCplus Backbone products are freely available, enabling the use by  a broad audience, for a wide range of applications.
 
@@ -47,11 +47,11 @@ The CLCplus Backbone 2023 is the third product of its kind and extends the time 
 
 - The time window for the Sentinel-2 input data has been shortened from 2 years for the 2018 production (i.e. 2018 ±6 months) to 1.5 years for the 2021 and 2023 productions (i.e. reference year ±3 months) to enable a timelier production that is closer to the actual reference year.
 
-- A separate technical class has been introduced for the seawater areas in the buffer  around the production AOI since the 2021 production (see chapter 7 and AD-1).
+- A separate technical class has been introduced for the seawater areas in the buffer  around the production AOI since the 2021 production (see @sec-product-methodology-and-workflow and AD-1).
 
 - The United Kingdom (UK) has been excluded for the 2021 production, while it has been  re-introduced in the 2023 production. The 2021 gap for the UK remains and at this stage  there are no plans for post-production.
 
-- Since the 2023 reference year, the file naming has been adapted as described in chapter 6.1. 
+- Since the 2023 reference year, the file naming has been adapted as described in @sec-CLCplus-Backbone-2023-Raster 
 
 - The format of the product has been changed from a single pan-European mosaic to a  tiled format with 100 x 100km tile size. Nevertheless, the French DOMs are still available  as national mosaics. 
 
@@ -91,7 +91,7 @@ Land cover is the result of complex interactions and dynamics between and among 
 
 - Timely availability of status updates, 
 
-- Transparent and consistent data model (EAGLE) that enables combined use with other  land cover and thematic datasets, and
+- Transparent and consistent data model (EAGLE) that enables combined use with other land cover and thematic datasets, and
 
 - Open and documented production system and data quality.
 
@@ -115,7 +115,7 @@ Countries reporting to the United Nations Framework Convention on Climate Change
 
 **Environmental Monitoring**
 
-- **Habitat Assessment**: Conservationists and ecologists will find it useful to apply CLCplus Backbone to assess the distribution of certain habitatsthat can be related to land cover, helping to monitor their health and biodiversity. 
+- **Habitat Assessment**: Conservationists and ecologists will find it useful to apply CLCplus Backbone to assess the distribution of certain habitats that can be related to land cover, helping to monitor their health and biodiversity. 
 
 - **Water Quality Assessment**: CLCplus Backbone can be used to identify areas with a high risk of water pollution, such as areas of agricultural activity or urban development. 
 
@@ -139,7 +139,7 @@ Countries reporting to the United Nations Framework Convention on Climate Change
 
 **Infrastructure Development**
 
-- **Energy Planning**: CLCplus Backbone can help energy companies and communities to  identify suitable areas for renewable energy projects such as wind farms and solar  installations. 
+- **Energy Planning**: CLCplus Backbone can help energy companies and communities to  identify suitable areas for renewable energy projects such as wind farms and solar installations. 
 
 - **Industrial Site Selection**: Businesses and communities could use CLCplus Backbone to  assist assessments on the suitability of locations for industrial facilities based on land  cover and other data sources. 
 
@@ -157,20 +157,20 @@ Countries reporting to the United Nations Framework Convention on Climate Change
 
 # Product description {#sec-production-description}
 
-The CLCplus Backbone 2023 product comprises an updated layer of the main land cover raster  layer, as well as three auxiliary layers (see {@sec-figure-1}). 
+The CLCplus Backbone 2023 product comprises an updated layer of the main land cover raster layer, as well as three auxiliary layers (see {@sec-figure-1}). 
 
 ![Figure 1: Overview of CLCplus Backbone layers produced for the reference year 2023](2023_PUM_v1-media/img-3ae7a950b89b88ab5164a45a96c174e993f664d9.png){#sec-figure1}
 
 The following subchapters describe each of the layers, including detailed technical  specifications.
 
-## CLCplus Backbone 2023 Raster
+## CLCplus Backbone 2023 Raster {#sec-CLCplus-Backbone-2023-Raster}
 
-The following chapter describes the CLCplus Backbone 2023 raster layer (RAS), its technical  specifications (@sec-technical-specifications-of-CLCplus-Backbone-2023), as well as the nomenclature (@sec-nomenclature-concept-and-class-definitions), the decision tree for  the class assignment (@sec-decision-tree-for-area-thresholds) and provides some examples for the class assignment  (@sec-examples-for-class-assignment).
+The following chapter describes the CLCplus Backbone 2023 raster layer (RAS), its technical  specifications (@sec-technical-specifications-of-CLCplus-Backbone-2023), as well as the nomenclature (@sec-nomenclature-concept-and-class-definitions), the decision tree for the class assignment (@sec-decision-tree-for-area-thresholds) and provides some examples for the class assignment  (@sec-examples-for-class-assignment).
 
 The CLCplus Backbone 2023 is a 10m pixel-based land cover map (see @fig-figure2) based on  Sentinel-2 (S-2) data for the reference year 2023 ±3 months. The product has no defined MMU  but maps the dominant land cover among 11 thematic land cover classes (see Table 2) for  individual raster cells (i.e. 1 pixel = 10 x 10m = 100m²). The applied class nomenclature is based  on the EAGLE Land Cover Components (LCC), whereas there are slight deviations for some  classes, as described in detail in chapter @sec-nomenclature-concept-and-class-definitions. CLCplus Backbone 2023 is available for the  territory of the 38 EEA member and cooperating countries and the United Kingdom (i.e. EEA38 + UK), including the French DOMs, and maps an area of approximately 6 million km².
 
 Table 2: Thematic raster classes of CLCplus Backbone 2023, their class codes and colours
-![](2023_PUM_v1-media/Table2.png){#tbl-table2}
+![](2023_PUM_v1-media/Table2.png)
 
 ![Figure 2: CLCplus Backbone 2023 for the EEA38+UK (note: French DOMs are not shown)](2023_PUM_v1-media/img-9df408152771d42bb0f22ad96081a803854b9e76.png){#fig-figure2}
 
@@ -237,25 +237,25 @@ Most of the class definitions for the CLCplus Backbone 2023 comprise a 50% area 
 
 ![Figure 4: Exemplary 10x10m plot illustration of a situation where no single land cover class  covers 50% of the area](2023_PUM_v1-media/img-0f13569c926a8fcffb56ce87a86f6969e7efe854.png){#fig-figure4}
 
-To address this issue, a relative majority is used in most cases for the class assignment. This logic  is implemented in detail through a decision tree approach (see @fig-figure6) which does not only  define the area threshold but further clarifies and limits for each class the EAGLE Land Cover  Component (see @fig-figure5) and EAGLE Land Characteristics (LCH, where needed) considered with  the evaluation of the area threshold. The approach is detailed in section @sec-decision-tree-for-area-thresholds. In general, the  area fractions of different land cover classes are to be understood as what can be reasonably  evaluated in HR and VHR remote sensing imagery at nadir. 
+To address this issue, a relative majority is used in most cases for the class assignment. This logic is implemented in detail through a decision tree approach (see @fig-figure6) which does not only  define the area threshold but further clarifies and limits for each class the EAGLE Land Cover  Component (see @fig-figure5) and EAGLE Land Characteristics (LCH, where needed) considered with  the evaluation of the area threshold. The approach is detailed in section @sec-decision-tree-for-area-thresholds. In general, the  area fractions of different land cover classes are to be understood as what can be reasonably  evaluated in HR and VHR remote sensing imagery at nadir. 
 
 ![Figure 5: Levels 1-5 of the EAGLE Land Cover Components (LCC) v3.21. The hierarchical  levels allow for resolving the LCC assignment in the most suitable way. In case level 1 is too  general, the most suitable lower level is chosen](2023_PUM_v1-media/img-eeda59c50bb28bb4c441bd411b0a293d236bdfac.png){#fig-figure5}
 
-**Remark on the temporal dimensions of the land cover classes**: In cases of land cover changes  during the reference year and unless stated otherwise in the class definitions below (i.e.  Permanent herbaceous vs. Periodically herbaceous, Snow and Ice), the dominant land cover (i.e.  present >6 months per year) shall be mapped.
+**Remark on the temporal dimensions of the land cover classes**: In cases of land cover changes  during the reference year and unless stated otherwise in the class definitions below (i.e. Permanent herbaceous vs. Periodically herbaceous, Snow and Ice), the dominant land cover (i.e.  present >6 months per year) shall be mapped.
 
-Textual descriptions of the main land cover components and land characteristics included in  each of the 11 classes are provided in the following paragraphs and respective area thresholds  are explained in more detail in section 6.1.3. 
+Textual descriptions of the main land cover components and land characteristics included in  each of the 11 classes are provided in the following paragraphs and respective area thresholds are explained in more detail in section 6.1.3. 
 
 **1. Sealed (CLCplus BB class code 1; EAGLE LCC 1.1.1 Sealed Artificial Surfaces and  Constructions)**
 
 Sealed artificial surfaces include all impervious and sealed surfaces that are covered mainly by  features with a specific height above ground (buildings and artificial constructions) or features  without a specific height above ground (flat impervious surfaces). Flat surfaces covered by any  type of impervious material that is used for artificial surface pavements (e.g. asphalt, concrete,  tarmacadam).
 
-- Includes: All sealed artificial surfaces and constructions including Buildings, Specific  structures and facilities, and open sealed surfaces (in accordance with respective EAGLE  LCC). Also vegetated rooftops are to be mapped under this class. Deviating from the  EAGLE LCC 1.1.1.3, railway tracks are also considered as part of this class since they  typically comprise impervious structural elements (which makes them spectrally hardly  separable) and a highly compacted subsoil. Further elements to be included are  permanent and temporary (foil covered) greenhouses (if present for more than 50% of  the reference year) and solar parks (if applicable, considering the area threshold).
+- Includes: All sealed artificial surfaces and constructions including Buildings, Specific structures and facilities, and open sealed surfaces (in accordance with respective EAGLE LCC). Also vegetated rooftops are to be mapped under this class. Deviating from the  EAGLE LCC 1.1.1.3, railway tracks are also considered as part of this class since they  typically comprise impervious structural elements (which makes them spectrally hardly  separable) and a highly compacted subsoil. Further elements to be included are  permanent and temporary (foil covered) greenhouses (if present for more than 50% of  the reference year) and solar parks (if applicable, considering the area threshold).
 
-- Excludes: Waste materials (e.g. communal / industrial waste), non-sealed and semisealed artificial surfaces (e.g. natural materials displaced from original place, artificially  consolidated, e.g. logistic and storage areas, festive squares, non-vegetated sport fields,  grass pavers, permeable paving. Such areas are to be mapped as Non- and sparselyvegetated since biotic land cover components do typically not exceed 30%.
+- Excludes: Waste materials (e.g. communal / industrial waste), non-sealed and semisealed artificial surfaces (e.g. natural materials displaced from original place, artificially  consolidated, e.g. logistic and storage areas, festive squares, non-vegetated sport fields,  grass pavers, permeable paving. Such areas are to be mapped as Non- and sparsely vegetated since biotic land cover components do typically not exceed 30%.
 
 **2. Woody – trees**
 
-Perennial woody plants with single, self-supporting main stem or trunk, containing woody tissue  and branching into smaller branches and shoots.
+Perennial woody plants with single, self-supporting main stem or trunk, containing woody tissue and branching into smaller branches and shoots.
 
 |Excluded|Destination class|
 |--|--|
@@ -267,7 +267,7 @@ Perennial woody plants with single, self-supporting main stem or trunk, containi
 
 **2. 1. Woody needle leaved trees (CLCplus BB class code 2; EAGLE LCC 2.1.1, LCH 3.1.1)**
 
-Needle leaved trees: referring to trees of the botanical group Gymnospermae (Ford-Robertson,  1971) carrying typical needle-shaped leaves. An exception is Ginkgo biloba which belongs to the  Gymnospermae but is considered here as Broadleaved deciduous tree.
+Needle leaved trees: referring to trees of the botanical group Gymnospermae (Ford-Robertson, 1971) carrying typical needle-shaped leaves. An exception is Ginkgo biloba which belongs to the Gymnospermae but is considered here as Broadleaved deciduous tree.
 
 **2. 2. Broadleaved trees (see BB classes below)**: referring to trees of the botanical group  Angiospermae, with the exception of ginkgo (Ginkgo biloba), which belongs to the  Gymnospermae taxonomically:
 
@@ -277,13 +277,13 @@ Needle leaved trees: referring to trees of the botanical group Gymnospermae (For
 
 **5. Low-growing woody plants (CLCplus BB class code 5; EAGLE LCC 2.1.2 Bushes, Shrubs)**
 
-Perennial woody plants with shrub growth form, i.e. multiple stems arising at or near the base,  and height usually less than 5 metres. Leaf type can be needle leaf, broadleaf or palm leaf,  phenology is either evergreen or deciduous, and leaf surface type can be regular or sclerophyllous. 
+Perennial woody plants with shrub growth form, i.e. multiple stems arising at or near the base,  and height usually less than 5 metres. Leaf type can be needle leaf, broadleaf or palm leaf, phenology is either evergreen or deciduous, and leaf surface type can be regular or sclerophyllous. 
 
 - Includes: regular bushes and dwarf shrubs, species such as Pinus mugo, Alnus viridis, shrub forms from the genus Ephedra, Taxus, Juniperus and Betula, and subshrubs such as Thymus spec., Salvia, Rosmarinus, Calluna vulgaris, Erica spec. The class also includes Vitis spec. and Humulus spec., which are typically permanent crops, as well as Opuntia ficus-indica. Individual small trees in shrub-dominated areas are allowed in this class.
 
-- Excludes: Low-growing fruit trees (e.g. apple plantations), tree cover regrowth (e.g. after  clear cuts) with sufficient density and trees in nurseries, which should be classified  according to the definitions for Woody-trees (i.e. CLCplus codes 2, 3 and 4).
+- Excludes: Low-growing fruit trees (e.g. apple plantations), tree cover regrowth (e.g. after clear cuts) with sufficient density and trees in nurseries, which should be classified  according to the definitions for Woody-trees (i.e. CLCplus codes 2, 3 and 4).
 
-Remark: Due to the difficulty of differentiating class 5 Low-growing woody plants from woody  trees (class 2 Woody needle leaved trees, class 3 Woody broadleaved deciduous trees or class 4  Woody broadleaved evergreen trees) and herbaceous vegetation (class 6 Permanent herbaceous or class 7 Periodically herbaceous), the accuracies could be regionally below the defined target  accuracies.
+Remark: Due to the difficulty of differentiating class 5 Low-growing woody plants from woody  trees (class 2 Woody needle leaved trees, class 3 Woody broadleaved deciduous trees or class 4 Woody broadleaved evergreen trees) and herbaceous vegetation (class 6 Permanent herbaceous or class 7 Periodically herbaceous), the accuracies could be regionally below the defined target accuracies.
 
 **6. Permanent herbaceous (CLCplus BB class code 6; EAGLE LCC 2.2 Herbaceous Vegetation)**
 
@@ -303,7 +303,7 @@ Periodically herbaceous areas are characterized by at least one land cover chang
 
 - Typical vegetation class of northern European Tundra vegetation.
 
-Remark: The mapping of this class is focused on larger areas in northern Europe where sufficient  in situ data is available. Due to the difficulty to distinguish Lichens and Mosses from herbaceous  vegetation and dwarf shrubs lower accuracies for this class are to be expected.
+Remark: The mapping of this class is focused on larger areas in northern Europe where sufficient  in situ data is available. Due to the difficulty to distinguish Lichens and Mosses from herbaceous vegetation and dwarf shrubs lower accuracies for this class are to be expected.
 
 **9. Non and sparsely vegetated (CLCplus BB class code 9; EAGLE LCC 1.2 Natural Material  Surfaces; EAGLE LCC 1.1.2 Non-Sealed Artificial Surfaces)**
 
@@ -321,11 +321,11 @@ Contains consolidated and unconsolidated materials as well as permanent bare soi
 
   - Includes variable particle sizes: boulders, stones, pebble, gravel, sand and clay
 
-  - Examples of typical formations: mountain slope debris, gravel riverbanks, open pit  pebble mining of fossil riverbanks or fluvial sediments, volcanic lapilli fields, sand  dunes, sand beaches, river sand banks, volcanic ash. 
+  - Examples of typical formations: mountain slope debris, gravel riverbanks, open pit pebble mining of fossil riverbanks or fluvial sediments, volcanic lapilli fields, sand  dunes, sand beaches, river sand banks, volcanic ash. 
 
 - Permanent bare soil:
 
-  - Mixture of mineral and organic material that is fertile enough and capable of  sustaining plant life but continuously un-vegetated during the entire observation  period.
+  - Mixture of mineral and organic material that is fertile enough and capable of sustaining plant life but continuously un-vegetated during the entire observation  period.
 
 - Sparsely vegetated areas:
 
@@ -367,7 +367,7 @@ Example 1 – Hypothetical example, considering the mix which was already presen
 
 ![](2023_PUM_v1-media/Example1.png)
 
-Example 2 – Real world example extracted from Figure 7 (Row 2, Column 5):
+Example 2 – Real world example extracted from @fig-figure7 (Row 2, Column 5):
 
 ![](2023_PUM_v1-media/Example2.png)
 
@@ -401,9 +401,9 @@ Example 7 (@fig-figure13) illustrates the mapping of dry grasslands (widespread 
 
 Example 8 (@fig-figure14) illustrates uncertainties in the mapping of intensively managed grassland  (e.g. fodder crops) as either class Permanent herbaceous or class Periodically herbaceous. While  the exposure of bare soil within the reference years can be clearly detected in most ploughed  parcels (i.e. to be mapped as Periodically herbaceous), there can be border cases where drought  events and mowing events under rather dry conditions are not fully distinguishable from a bare  soil exposure.
 
-![Figure 14: Example of the mapping of intensively used grassland (e.g. fodder crops). The  distinction between the classes Permanent herbaceous and Periodically herbaceous depends  on whether the bare soil is exposed (e.g. ploughed parcel on the right, mapped as Periodically herbaceous) within the reference year (blue box) or not. Especially under extensive dry  conditions, the distinction of mowing events (i.e. no ploughing on the left parcel, mapped as  class Permanent herbaceous) and actual exposure of bare soil is challenging](2023_PUM_v1-media/img-76dd48cc30f1b40d1cb9671545ebffd6778fb65c.png){#fig-figure14}
+![Figure 14: Example of the mapping of intensively used grassland (e.g. fodder crops). The  distinction between the classes Permanent herbaceous and Periodically herbaceous depends on whether the bare soil is exposed (e.g. ploughed parcel on the right, mapped as Periodically herbaceous) within the reference year (blue box) or not. Especially under extensive dry  conditions, the distinction of mowing events (i.e. no ploughing on the left parcel, mapped as  class Permanent herbaceous) and actual exposure of bare soil is challenging](2023_PUM_v1-media/img-76dd48cc30f1b40d1cb9671545ebffd6778fb65c.png){#fig-figure14}
 
-Example 9 (@fig-figure15) illustrates the challenges associated with the mapping of the class Lowgrowing woody plants (bushes, shrubs) versus tree classes. The main defining characteristics for  the class Low-growing woody plants comprise the habitus (i.e. growth forms with multiple stems  emerging from the ground) and the typical height (i.e. below 5m), both of which are criteria  which are typically difficult to evaluate from Sentinel-2 time series alone. While the spectraltemporal signature of shrubs allows a distinction from other land cover types to some degree  (e.g. vineyards), there are many cases where this is less obvious. Typical regional examples  comprise sparse woody canopies in Nordic countries with mixtures of shrubs and trees even at  the species level, the Mediterranean Macchia where shrubs and trees can co-occur or  heathlands with mixtures of dwarf shrubs and herbaceous species.
+Example 9 (@fig-figure15) illustrates the challenges associated with the mapping of the class Lowgrowing woody plants (bushes, shrubs) versus tree classes. The main defining characteristics for  the class Low-growing woody plants comprise the habitus (i.e. growth forms with multiple stems  emerging from the ground) and the typical height (i.e. below 5m), both of which are criteria  which are typically difficult to evaluate from Sentinel-2 time series alone. While the spectraltemporal signature of shrubs allows a distinction from other land cover types to some degree  (e.g. vineyards), there are many cases where this is less obvious. Typical regional examples  comprise sparse woody canopies in Nordic countries with mixtures of shrubs and trees even at  the species level, the Mediterranean Macchia where shrubs and trees can co-occur or heathlands with mixtures of dwarf shrubs and herbaceous species.
 
 ![Figure 15: Example of the uncertainty in the mapping of Low-growing woody plants. This  example from Northern Sweden illustrates that a sharp distinction of shrubs and trees is often difficult and sometimes remains fuzzy even at the level of the same species (here different  specimens of Betula with sometimes more tree-like, sometimes more shrub-like habitus). In  addition, the canopy is rather sparse and the understorey comprises a mix of herbaceous  species, dwarf shrubs as well as mosses and lichens](2023_PUM_v1-media/img-98f8fc0c2616e39680f4446b5be599320c5a71ab.png){#fig-figure15}
 
@@ -413,7 +413,7 @@ Example 10 (@fig-figure16) illustrates the typical similarity between surfaces c
 
 ## Auxiliary layers
 
-The CLCplus Backbone raster classification layer (RAS) is accompanied by three auxiliary layers,  which are described in the following subsections. For more information on the methodologies  applied in creation of the auxiliary layers please refer to the Algorithm Theoretical Basis  Document [AD-1].
+The CLCplus Backbone raster classification layer (RAS) is accompanied by three auxiliary layers, which are described in the following subsections. For more information on the methodologies applied in creation of the auxiliary layers please refer to the Algorithm Theoretical Basis Document [AD-1].
 
 ### Raster Data Score Layer
 
@@ -421,7 +421,7 @@ The Data Score Layer (RASDL) quantifies the number of available observations in 
 
 ![Figure 17: CLCplus Backbone Data Score Layer (RASDL) of the reference year 2023 (±3 months)](2023_PUM_v1-media/img-957b567d0ef07f50f054c5cee41babd5cf0d641d.png){#fig-figure17}
 
-The clearly visible stripe patterns (see @fig-figure17) from SW to NE correctly represent the different  data quantities between the overlapping areas of the S-2 swaths. Besides this normal general  pattern of the RASDL, there are some patterns that are worth further explaining: S-2 GRANULE  overlaps are often visible as horizontal and vertical stripes with slightly higher observation  counts. This is because there is a higher chance in the overlap areas that one of the GRANULES  fulfils the cloud cover threshold used in scene selection.
+The clearly visible stripe patterns (see @fig-figure17) from SW to NE correctly represent the different  data quantities between the overlapping areas of the S-2 swaths. Besides this normal general  pattern of the RASDL, there are some patterns that are worth further explaining: S-2 GRANULE overlaps are often visible as horizontal and vertical stripes with slightly higher observation  counts. This is because there is a higher chance in the overlap areas that one of the GRANULES fulfils the cloud cover threshold used in scene selection.
 
 #### File naming convention
 
@@ -466,13 +466,13 @@ Table 4: Technical specifications of the Raster Data Score Layer
 
 The Raster Confidence Layer (RASCL) holds information on the confidence of the classifier in the class assignment of each 10m pixel. The higher the confidence value, the more reliable the class assignment for a pixel, the lower the confidence value the more uncertain it is. The value range of RASCL is 0-100.
 
-@fig-figure18 shows the RASCL for the reference year 2023 for EEA38 + UK. The partially visible edges  (see closeup in @fig-figure19) are the result of different regional classification model trainings for  adjacent Production Units (see chapter 7.2), where the distribution of the probabilities is  different according to actual regional differences in the present land cover. In general, areas  with lower confidence are typically concentrated in transition areas between different land  cover types or biogeographical transition areas, with a higher degree of mixed spectral-temporal  signatures from mixed land cover types.
+@fig-figure18 shows the RASCL for the reference year 2023 for EEA38 + UK. The partially visible edges  (see closeup in @fig-figure19) are the result of different regional classification model trainings for adjacent Production Units (see @sec-production-units), where the distribution of the probabilities is  different according to actual regional differences in the present land cover. In general, areas  with lower confidence are typically concentrated in transition areas between different land  cover types or biogeographical transition areas, with a higher degree of mixed spectral-temporal  signatures from mixed land cover types.
 
 ![Figure 18: CLCplus Backbone Raster Confidence Layer 2023](2023_PUM_v1-media/img-dce450dddbdcde7b15953ed341a6d06ccee0784e.png){#fig-figure18}
 
-![Figure 19: Closeup of the RASCL showing edges as a result of separate training models per production unit](2023_PUM_v1-media/img-30f84d5430161602116c020f37687fa15d9cb6f1.png)
+![Figure 19: Closeup of the RASCL showing edges as a result of separate training models per production unit](2023_PUM_v1-media/img-30f84d5430161602116c020f37687fa15d9cb6f1.png){#fig-figure19}
 
-![Figure 20: Distribution and fractions of values in the Raster Confidence Layer (RASCL) of  CLCplus Backbone 2023 across the EEA38+UK](2023_PUM_v1-media/img-59c1dd0915814ee2101e85c9ab825da1feea60d1.png)
+![Figure 20: Distribution and fractions of values in the Raster Confidence Layer (RASCL) of  CLCplus Backbone 2023 across the EEA38+UK](2023_PUM_v1-media/img-59c1dd0915814ee2101e85c9ab825da1feea60d1.png){fig-figure20}
 
 The distribution of the raster confidence values is displayed in Figure 20. It shows a significant  increase of confidence values from approximately 90% upwards. Overall, approximately 69% of  all classified pixels were assigned to the respective dominant class (out of max. 11 classes) with  a confidence of ≥50%. Considering the classifier’s general difficulty to distinguish between up to  11 classes (depending on the present land cover in the respective regions), this shows that the  classifier was able to draw on a sufficiently large data and sample basis, to resolve most  uncertainties in the class assignment. While this measure of uncertainty is not always a good  proxy for the distribution of errors (i.e. in case of spectral-temporal similarity, the classification  can still commit an error with high confidence), it is worth noting that areas with lower  confidence generally coincide with areas where land cover classification is generally more difficult, e.g. due to very dry conditions, short vegetation periods, or generally high cloud cover (i.e. Southern Europe, Norway and Iceland).
 
@@ -519,9 +519,9 @@ Table 5: Technical specifications of the CLCplus Backbone Raster Confidence Laye
 
 The Raster Post-Processing Layer (RASPL) provides the information, if a pixel’s class has been  changed during the post-processing (more detailed info provided in AD-1).
 
-The RASPL for the CLCplus Backbone 2023 is shown in Figure 21. The green areas represent these  re-coded and thus improved areas. The post-processing rulesets were intentionally tailored to  be rather conservative and introduce adaptations only where auxiliary layers provide very  reliable information. This is reflected in the very small fraction of pixels that underwent  automated corrections (0.03%) during the post-processing.
+The RASPL for the CLCplus Backbone 2023 is shown in @fig-figure21. The green areas represent these  re-coded and thus improved areas. The post-processing rulesets were intentionally tailored to  be rather conservative and introduce adaptations only where auxiliary layers provide very  reliable information. This is reflected in the very small fraction of pixels that underwent  automated corrections (0.03%) during the post-processing.
 
-![Figure 21: CLCplus Backbone Raster Post-Processing Layer (RASPL) 2023](2023_PUM_v1-media/img-873fc1d0b90c1e8fea175db5a26fb19ff0db0f39.png)
+![Figure 21: CLCplus Backbone Raster Post-Processing Layer (RASPL) 2023](2023_PUM_v1-media/img-873fc1d0b90c1e8fea175db5a26fb19ff0db0f39.png){#fig-figure21}
 
 File naming convention
 
@@ -568,11 +568,11 @@ This section provides a brief overview on the implemented methodology. For full 
 
 ## Input data
 
-The main input data source for the raster classification is Sentinel-2 time-series data covering  the reference year ±3 months. Initially, all Sentinel-2 scenes at L2A (i.e. at-surface reflectance)  and with a cloud coverage lower than 80% are fed into the production chain. More specifically  the Sentinel-2 bands B1, B3, B4, B5, B8, B9, B11, B12 and four derived spectral indices, i.e. the  NDVI, the Normalized Difference Water Index (NDWI), the Normalized Difference Moisture  Index (NDMI) and the Normalized Burnt Ratio (NBR) are used. 
+The main input data source for the raster classification is Sentinel-2 time-series data covering  the reference year ±3 months. Initially, all Sentinel-2 scenes at L2A (i.e. at-surface reflectance)  and with a cloud coverage lower than 80% are fed into the production chain. More specifically  the Sentinel-2 bands B1, B3, B4, B5, B8, B9, B11, B12 and four derived spectral indices, i.e. the  NDVI, the Normalized Difference Water Index (NDWI), the Normalized Difference Moisture  Index (NDMI) and the Normalized Burnt Ratio (NBR) are used.
 
 The training and test data, required for the model calibration, is based on the sample data base  (Sample DB) from the initial CLCplus Backbone 2018 production and updated with every  subsequent production to account for changes over time. In total, more than 1 million sample point are used for CLCplus Backbone production.
 
-## Production units
+## Production units {#sec-production-units}
 
 Considering the diversity of the European landscapes and to ensure high-accuracy mapping  within CLCplus Backbone, all main processing steps, such as algorithm training, testing or final  land cover classification, are performed along substrata. These substrata are based on  biogeographical regions (Metzger et al. 2013) and further consider roughly the national  boundaries (with regards to prioritized production of the EU27) as well as a maximum size for  processing efficiency. The entire production area (EEA38+UK and French DOMs) is stratified into  138 substrata, the Production Units (PU).
 
@@ -584,7 +584,7 @@ The classifier used is a Temporal Convolutional Neural Network (TempCNN) classif
 
 ## Post-processing
 
-The post-processing steps comprise 1) bilateral filtering of the class probabilities, 2) blending of  the probabilities along production unit borders and 3) a cross-calibration with the class  probabilities from the previous 2018 and 2021 productions to ensure best possible product  consistency. The cross-calibration still allows for changes in the land cover, where there has  indeed been a change, as well as for enhancements and correction of areas with lower accuracy  in previous productions. Further optional post-processing is applied to areas with remaining  issues. As a last post-processing step, the coastal water area is recoded to separate it from the  inland water (i.e. auxiliary class 253).
+The post-processing steps comprise 1) bilateral filtering of the class probabilities, 2) blending of  the probabilities along production unit borders and 3) a cross-calibration with the class  probabilities from the previous 2018 and 2021 productions to ensure best possible product  consistency. The cross-calibration still allows for changes in the land cover, where there has  indeed been a change, as well as for enhancements and correction of areas with lower accuracy  in previous productions. Further optional post-processing is applied to areas with remaining  issues. As a last post-processing step, the coastal water area is recoded to separate it from the inland water (i.e. auxiliary class 253).
 
 # Terms of use and product technical support {#sec-terms-of-use-and-product-technical-support}
 
