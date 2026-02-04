@@ -40,7 +40,7 @@ fi
 
 # Render all files together (changelog filter uses original-filename from YAML headers)
 echo "🔄 Rendering all documents to HTML..."
-QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to html --no-clean --quiet 
+QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to html --no-clean
 
 # Backup the correct sitemap as it may be overwritten by next operations
 sleep 5
@@ -48,7 +48,7 @@ mv _site/sitemap.xml _site/sitemap.xml.bkp
 
 # Generate DOCX files (always needed for PDF conversion)
 echo "📄 Generating DOCX files for PDF conversion..."
-QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to docx --no-clean --quiet
+QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to docx --no-clean
 find _site -type f -name 'index.docx' -delete
 
 echo "🛠 Generate index.qmd files for all DOCS/* folders"e
