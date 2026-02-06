@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2028-05-01">
+<meta name="dcterms.date" content="2026-05-02">
 
-<title>Urban Atlas 2021 and 2024 – Algorithm Theoretical Basis Document</title>
+<title>Urban Atlas 2021 – Algorithm Theoretical Basis Document</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,16 +58,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="CLMS_UA2021_LULC_ATBD_v1.1_files/libs/clipboard/clipboard.min.js"></script>
-<script src="CLMS_UA2021_LULC_ATBD_v1.1_files/libs/quarto-html/quarto.js"></script>
-<script src="CLMS_UA2021_LULC_ATBD_v1.1_files/libs/quarto-html/popper.min.js"></script>
-<script src="CLMS_UA2021_LULC_ATBD_v1.1_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="CLMS_UA2021_LULC_ATBD_v1.1_files/libs/quarto-html/anchor.min.js"></script>
-<link href="CLMS_UA2021_LULC_ATBD_v1.1_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="CLMS_UA2021_LULC_ATBD_v1.1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="CLMS_UA2021_LULC_ATBD_v1.1_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="CLMS_UA2021_LULC_ATBD_v1.1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="CLMS_UA2021_LULC_ATBD_v1.1_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="CLMS_UA2021_LULC_ATBD_v1.2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="CLMS_UA2021_LULC_ATBD_v1.2_files/libs/quarto-html/quarto.js"></script>
+<script src="CLMS_UA2021_LULC_ATBD_v1.2_files/libs/quarto-html/popper.min.js"></script>
+<script src="CLMS_UA2021_LULC_ATBD_v1.2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="CLMS_UA2021_LULC_ATBD_v1.2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="CLMS_UA2021_LULC_ATBD_v1.2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="CLMS_UA2021_LULC_ATBD_v1.2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="CLMS_UA2021_LULC_ATBD_v1.2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="CLMS_UA2021_LULC_ATBD_v1.2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="CLMS_UA2021_LULC_ATBD_v1.2_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -132,6 +132,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#annex-1---green-urban-areas-queries" id="toc-annex-1---green-urban-areas-queries" class="nav-link" data-scroll-target="#annex-1---green-urban-areas-queries">Annex 1 - Green Urban Areas queries</a></li>
   <li><a href="#annex-2---ua-lclu-nomenclature" id="toc-annex-2---ua-lclu-nomenclature" class="nav-link" data-scroll-target="#annex-2---ua-lclu-nomenclature">Annex 2 - UA LC/LU Nomenclature</a></li>
   <li><a href="#document-history" id="toc-document-history" class="nav-link" data-scroll-target="#document-history">Document history</a></li>
+  <li><a href="#applicable-documents" id="toc-applicable-documents" class="nav-link" data-scroll-target="#applicable-documents">Applicable documents</a></li>
   </ul>
 </nav>
 </div>
@@ -139,8 +140,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Urban Atlas 2021 and 2024 – Algorithm Theoretical Basis Document</h1>
-<p class="subtitle lead">Copernicus Land Monitoring Service – Priority Area Monitoring</p>
+<h1 class="title">Urban Atlas 2021 – Algorithm Theoretical Basis Document</h1>
+<p class="subtitle lead">Copernicus Land Monitoring Service – Priority Area Monitoring – Urban Atlas 2021 and 2024</p>
 </div>
 
 
@@ -151,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 1, 2028</p>
+      <p class="date">May 2, 2026</p>
     </div>
   </div>
   
@@ -241,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The figure below shows an overview of the workflow:</p>
 <div id="fig-figure1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="CLMS_UA2021_LULC_ATBD_v1.1-media/img-2cf3034b1d6467165bba95b2c0efb0bfb737e009.png" class="img-fluid figure-img"></p>
+<p><img src="CLMS_UA2021_LULC_ATBD_v1.2-media/img-2cf3034b1d6467165bba95b2c0efb0bfb737e009.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;1: UA2021 LC/LU workflow</figcaption>
 </figure>
 </div>
@@ -312,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>HRL IMD 2021</td>
-<td>IMD (imperviousnessdensity)</td>
+<td>IMD (imperviousness density)</td>
 <td><a href="https://land.copernicus.eu/en/products/high-resolution-layer-imperviousness">https://land.copernicus.eu/en/products/high-resolution-layer-imperviousness</a></td>
 </tr>
 </tbody>
@@ -349,8 +350,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>in this equation, p<sub>i</sub> are the coefficients of the polynomial term with order P, H is the order of the harmonic system and α<sub>k</sub> and β<sub>k</sub> are the coefficients of the harmonic functions with order k. <span class="math inline">\(\omega= 2π\)</span>/year is the base angular frequency of the harmonic system. The coefficients p<sub>i</sub>, α<sub>k</sub> and β<sub>k</sub> are estimated by performing ordinary least squares fit to the signal of each pixel of the time series. <br> Cloud and atmospheric artifacts (<a href="#fig-figure2">Figure&nbsp;2</a>) are mitigated through a weighting scheme based on the Sentinel-2 L2A Scene Classification Layer (SCL), in which observations with high cloud or shadow probability are down-weighted during the modelling process. This ensures that only high-quality observations contribute meaningfully to the fitted time series.</p>
 <div id="fig-figure2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="CLMS_UA2021_LULC_ATBD_v1.1-media/img-368bd0a7ba855372998b556a130d1a530b822bc1.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Number of observations for Sentinel-2 as extracted from the Sen2Cor scene classification map: a: Antwerpen 2018, b: Antwerpen 2021, c: Madrid 2018, d: Madrid 2021</figcaption>
+<p><img src="CLMS_UA2021_LULC_ATBD_v1.2-media/img-368bd0a7ba855372998b556a130d1a530b822bc1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Number of observations for Sentinel-2 as extracted from the Sen2Cor scene classification map: <br> a: Antwerpen 2018, b: Antwerpen 2021, c: Madrid 2018, d: Madrid 2021</figcaption>
 </figure>
 </div>
 <p>By focusing on NDVI time-series modelling, the approach leverages established evidence of its effectiveness for land surface monitoring while maintaining computational efficiency and interpretability across diverse landscape types.</p>
@@ -375,7 +376,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This normalized RMSD highlights pixels where the observed change is significantly greater than what is typical for that land cover type, allowing for a more context-aware detection of anomalies and potential change events. In the <a href="#fig-figure3">Figure&nbsp;3</a> below, an example for a detected change in Vienna, Austria is displayed.</p>
 <div id="fig-figure3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="CLMS_UA2021_LULC_ATBD_v1.1-media/img-9937c1b12fadb16ec003747b2921e1c9d1b5d766.png" class="img-fluid figure-img"></p>
+<p><img src="CLMS_UA2021_LULC_ATBD_v1.2-media/img-9937c1b12fadb16ec003747b2921e1c9d1b5d766.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;3: Example of the S2-change detection. The image shows a detected change in Vienna. <br> Upper left: Copernicus VHR Satellite image of 2018 with OSM building footprints overlay, upper right: Copernicus VHR Satellite image of 2021 with OSM building footprints overlay, lower left: The normalized RMSD calculation, lower right: The normalized RMSD calculation with OSM building footprints overlay.</figcaption>
 </figure>
 </div>
@@ -391,7 +392,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Finally, after several iterations and analysis of outputs, the methodology was adapted by giving priority to the <strong>PCA approach</strong>. The SFA results required a heavy and lengthy computing process, and results were not fully satisfactory, showing a high number of commission errors (<a href="#fig-figure4">Figure&nbsp;4</a>).</p>
 <div id="fig-figure4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="CLMS_UA2021_LULC_ATBD_v1.1-media/img-09eb2e9f24c74dfd56b196c98442d476880fe8f9.png" class="img-fluid figure-img"></p>
+<p><img src="CLMS_UA2021_LULC_ATBD_v1.2-media/img-09eb2e9f24c74dfd56b196c98442d476880fe8f9.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;4: Change detection heatmap derived from VHR data (left: VHR2018 and UA2018 product; centre: VHR2021; right: Change heatmap where changes are highlighted in yellow/red) (location: Madrid, Spain)</figcaption>
 </figure>
 </div>
@@ -402,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A CLC change layer is extracted and applied to the S2 change candidates, retaining only the changes identified by both the CLC and S2 layers, while small elements are removed based on the defined MMU. On the VHR side, changes are preserved only in urban areas and where they overlap with the CLC/S2 layer—meaning that, in the end, only VHR-detected changes within the S2 and CLC change areas are kept. The methodology is illustrated in <a href="#fig-figure5">Figure&nbsp;5</a> below:</p>
 <div id="fig-figure5" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="CLMS_UA2021_LULC_ATBD_v1.1-media/img-2af73a172321d5fb216bb889eb5ec30e77f5b4ae.png" class="img-fluid figure-img"></p>
+<p><img src="CLMS_UA2021_LULC_ATBD_v1.2-media/img-2af73a172321d5fb216bb889eb5ec30e77f5b4ae.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;5: Methodology of Change Detection for UA2021</figcaption>
 </figure>
 </div>
@@ -427,7 +428,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div id="fig-figure6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="CLMS_UA2021_LULC_ATBD_v1.1-media/img-834e715dc033114faa122e89cdc459db3bf039c3.png" class="img-fluid figure-img"></p>
+<p><img src="CLMS_UA2021_LULC_ATBD_v1.2-media/img-834e715dc033114faa122e89cdc459db3bf039c3.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;6: Exception rule for the minimum mapping width</figcaption>
 </figure>
 </div>
@@ -496,7 +497,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="#fig-figure7">Figure&nbsp;7</a> shows the result of the labelling process and the final classification of GUAs into public (blue), private (red) and unknown (purple) in the FUA of Iasi, Romania. Additionally, it also shows class 14200 - recreational and sport areas (green).</p>
 <div id="fig-figure7" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="CLMS_UA2021_LULC_ATBD_v1.1-media/img-04ba10b31f195e99675e225dd2792a5419e40b8c.png" class="img-fluid figure-img"></p>
+<p><img src="CLMS_UA2021_LULC_ATBD_v1.2-media/img-04ba10b31f195e99675e225dd2792a5419e40b8c.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Romania. For completeness, the figure also includes class 14200 - recreational and sport areas</figcaption>
 </figure>
 </div>
@@ -969,6 +970,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Urban Atlas 2018-2021 change layer</p></li>
 <li><p>Urban Atlas 2018 revised status layer</p></li>
 <li><p>Urban Atlas 2021 status layer</p></li>
+<li><p>Street Tree Layer 2021 status layer</p></li>
 <li><p>Building Block Height 2021 (see separate ATBD for Building Block Height)</p></li>
 </ul>
 </section>
@@ -1863,14 +1865,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>1.0</td>
-<td>22.08.2025</td>
-<td>Initial published issue</td>
+<td>1.2</td>
+<td>05.02.2026</td>
+<td>Initial published version</td>
 </tr>
-<tr class="even">
-<td>1.1</td>
-<td>29.01.2026</td>
-<td>Minor revisions</td>
+</tbody>
+</table>
+</section>
+<section id="applicable-documents" class="level1">
+<h1>Applicable documents</h1>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Applicable document</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AD-1</td>
+<td>Urban Atlas 2021 – Product User Manual (PUM)</td>
 </tr>
 </tbody>
 </table>
