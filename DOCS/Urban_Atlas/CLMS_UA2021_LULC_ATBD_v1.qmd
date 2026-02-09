@@ -72,7 +72,7 @@ Table 1: Overview table of methodology
 
 The figure below shows an overview of the workflow:
 
-![UA2021 LC/LU workflow](CLMS_UA2021_LULC_ATBD_v1.2-media/img-2cf3034b1d6467165bba95b2c0efb0bfb737e009.png){#fig-figure1}
+![UA2021 LC/LU workflow](CLMS_UA2021_LULC_ATBD_v1-media/img-2cf3034b1d6467165bba95b2c0efb0bfb737e009.png){#fig-figure1}
 
 ## Source data
 
@@ -171,7 +171,7 @@ $f(t)=\sum_{i=0}^{P}p_{i}t^{i}\;\;+\sum_{k=0}^{H}(\alpha_{k}\mathrm{sin}\left(k\
 
 in this equation, p~i~ are the coefficients of the polynomial term with order P, H is the order of the  harmonic system and α~k~ and β~k~ are the coefficients of the harmonic functions with order k. $\omega= 2π$/year is the base angular frequency of the harmonic system. The coefficients p~i~, α~k~ and β~k~ are  estimated by performing ordinary least squares fit to the signal of each pixel of the time series. <br> Cloud and atmospheric artifacts (@fig-figure2) are mitigated through a weighting scheme based on  the Sentinel-2 L2A Scene Classification Layer (SCL), in which observations with high cloud or  shadow probability are down-weighted during the modelling process. This ensures that only  high-quality observations contribute meaningfully to the fitted time series.
 
-![Number of observations for Sentinel-2 as extracted from the Sen2Cor scene classification map: <br> a: Antwerpen 2018, b: Antwerpen 2021, c: Madrid 2018, d: Madrid 2021](CLMS_UA2021_LULC_ATBD_v1.2-media/img-368bd0a7ba855372998b556a130d1a530b822bc1.png){#fig-figure2}
+![Number of observations for Sentinel-2 as extracted from the Sen2Cor scene classification map: <br> a: Antwerpen 2018, b: Antwerpen 2021, c: Madrid 2018, d: Madrid 2021](CLMS_UA2021_LULC_ATBD_v1-media/img-368bd0a7ba855372998b556a130d1a530b822bc1.png){#fig-figure2}
 
 By focusing on NDVI time-series modelling, the approach leverages established evidence of its  effectiveness for land surface monitoring while maintaining computational efficiency and  interpretability across diverse landscape types.
 
@@ -201,7 +201,7 @@ where μ~class~ and σ~class~ are the mean and standard deviation of the RMSD wi
 
 This normalized RMSD highlights pixels where the observed change is significantly greater than  what is typical for that land cover type, allowing for a more context-aware detection of  anomalies and potential change events. In the @fig-figure3 below, an example for a detected change  in Vienna, Austria is displayed.
 
-![Example of the S2-change detection. The image shows a detected change in Vienna. <br> Upper left: Copernicus VHR Satellite image of 2018 with OSM building footprints overlay, upper  right: Copernicus VHR Satellite image of 2021 with OSM building footprints overlay, lower left:  The normalized RMSD calculation, lower right: The normalized RMSD calculation with OSM  building footprints overlay.](CLMS_UA2021_LULC_ATBD_v1.2-media/img-9937c1b12fadb16ec003747b2921e1c9d1b5d766.png){#fig-figure3}
+![Example of the S2-change detection. The image shows a detected change in Vienna. <br> Upper left: Copernicus VHR Satellite image of 2018 with OSM building footprints overlay, upper  right: Copernicus VHR Satellite image of 2021 with OSM building footprints overlay, lower left:  The normalized RMSD calculation, lower right: The normalized RMSD calculation with OSM  building footprints overlay.](CLMS_UA2021_LULC_ATBD_v1-media/img-9937c1b12fadb16ec003747b2921e1c9d1b5d766.png){#fig-figure3}
 
 To further improve the accuracy and reliability of detected changes, the normalized RMSD layer is subsequently fused with information derived from very high resolution (VHR) imagery-based change detection, resulting in a more robust, multi-source assessment of land cover change.
 
@@ -219,7 +219,7 @@ By merging the two approaches, CLS hastested to combine the advantages of PCA th
 
 Finally, after several iterations and analysis of outputs, the methodology was adapted by giving priority to the **PCA approach**. The SFA results required a heavy and lengthy computing process, and results were not fully satisfactory, showing a high number of commission errors (@fig-figure4). 
 
-![Change detection heatmap derived from VHR data (left: VHR2018 and UA2018  product; centre: VHR2021; right: Change heatmap where changes are highlighted in yellow/red) (location: Madrid, Spain)](CLMS_UA2021_LULC_ATBD_v1.2-media/img-09eb2e9f24c74dfd56b196c98442d476880fe8f9.png){#fig-figure4}
+![Change detection heatmap derived from VHR data (left: VHR2018 and UA2018  product; centre: VHR2021; right: Change heatmap where changes are highlighted in yellow/red) (location: Madrid, Spain)](CLMS_UA2021_LULC_ATBD_v1-media/img-09eb2e9f24c74dfd56b196c98442d476880fe8f9.png){#fig-figure4}
 
 #### Production of change candidate layer
 
@@ -227,7 +227,7 @@ After obtaining the heatmaps derived from S2 data and those derived from VHR dat
 
 A CLC change layer is extracted and applied to the S2 change candidates, retaining only the  changes identified by both the CLC and S2 layers, while small elements are removed based on  the defined MMU. On the VHR side, changes are preserved only in urban areas and where they  overlap with the CLC/S2 layer—meaning that, in the end, only VHR-detected changes within the  S2 and CLC change areas are kept. The methodology is illustrated in @fig-figure5 below:
 
-![Methodology of Change Detection for UA2021](CLMS_UA2021_LULC_ATBD_v1.2-media/img-2af73a172321d5fb216bb889eb5ec30e77f5b4ae.png){#fig-figure5}
+![Methodology of Change Detection for UA2021](CLMS_UA2021_LULC_ATBD_v1-media/img-2af73a172321d5fb216bb889eb5ec30e77f5b4ae.png){#fig-figure5}
 
 Starting with the two change detection heat maps, the next steps consist of:
 
@@ -255,7 +255,7 @@ Exceptions can be considered in two cases:
 
 - To maintain continuity of linear structures, they can be mapped smaller than 10 m over  a distance up to 50 m (see figure below).
 
-![Exception rule for the minimum mapping width](CLMS_UA2021_LULC_ATBD_v1.2-media/img-834e715dc033114faa122e89cdc459db3bf039c3.png){#fig-figure6}
+![Exception rule for the minimum mapping width](CLMS_UA2021_LULC_ATBD_v1-media/img-834e715dc033114faa122e89cdc459db3bf039c3.png){#fig-figure6}
 
 Priority mapping rules for areas smaller than the MMU are used:
 
@@ -355,7 +355,7 @@ Each subsequent step may overwrite an existing classification. Polygons remain u
 
 @fig-figure7 shows the result of the labelling process and the final classification of GUAs into public (blue), private (red) and unknown (purple) in the FUA of Iasi, Romania. Additionally, it also shows class 14200 - recreational and sport areas (green).
 
-![Examples of the public, private and unknown classes in Iasi, Romania. For  completeness, the figure also includes class 14200 - recreational and sport areas](CLMS_UA2021_LULC_ATBD_v1.2-media/img-04ba10b31f195e99675e225dd2792a5419e40b8c.png){#fig-figure7}
+![Examples of the public, private and unknown classes in Iasi, Romania. For  completeness, the figure also includes class 14200 - recreational and sport areas](CLMS_UA2021_LULC_ATBD_v1-media/img-04ba10b31f195e99675e225dd2792a5419e40b8c.png){#fig-figure7}
 
 Table 3 shows the number of private/public and unknown occurrences of selected FUAs.
 
