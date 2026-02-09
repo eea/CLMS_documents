@@ -499,6 +499,8 @@ if __name__ == "__main__":
 
         # Process each batch with retry logic
         for batch_idx, batch_files in enumerate(batches, 1):
+            print(f"\n=== Processing batch {batch_idx}/{len(batches)} ===")
+
             # Process the batch with automatic retry/split on failure
             batch_results = process_batch_with_retry(batch_files)
 
@@ -518,12 +520,11 @@ if __name__ == "__main__":
                     "keywords": result["keywords"],
                 }
                 save_cached_result(cache_path, cache)
-            
-            print(f"Saved {len(batch_results)} results to cache")
+                print(f"  ✓ Saved result for {filepath.name}")
 
     # Apply all results (both newly processed and cached) to .qmd files
+    print("\n=== Updating .qmd files ===")
     all_files = set(files_to_process.keys()) | set(files_cached.keys())
-    updated_count = 0
 
     for doc_path in all_files:
         cache_path = get_cache_path(doc_path)
@@ -531,8 +532,6 @@ if __name__ == "__main__":
 
         if cache and "intro" in cache and "keywords" in cache:
             update_qmd_file(doc_path, cache["intro"], cache["keywords"])
-            updated_count += 1
-    
-    if updated_count > 0:
-        print(f"\nUpdated {updated_count} .qmd files successfully")
-    print(f"Total tokens sent: {total_tokens_sent:,}")
+            print(f"  ✓ Updated {doc_path}")
+
+    print(f"\nTotal tokens sent: {total_tokens_sent:,}")
