@@ -146,6 +146,11 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
     secret_mappings = load_secret_map()
     updated = False
 
+    # Counters for summary
+    categorized_count = 0
+    non_browsable_count = 0
+    new_non_browsable_assignments = 0
+
     # Find all .qmd files
     qmd_files = [
         f
@@ -179,15 +184,13 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
                     secret_mappings, rel_source, base, url
                 )
                 updated = True
+                new_non_browsable_assignments += 1
                 print(
                     f"\t[non-browsable] Assigned new random base '{base}' for {rel_source}"
                 )
             else:
                 base = mapping["base"]
                 url = mapping["url"]
-                print(
-                    f"\t[non-browsable] Using existing base '{base}' for {rel_source}"
-                )
 
             target_file = nb_dir / f"{base}.qmd"
             shutil.copy2(qmd_file, target_file)
@@ -202,9 +205,6 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
                 if target_media_dir.exists():
                     shutil.rmtree(target_media_dir)
                 shutil.copytree(orig_media_dir, target_media_dir)
-                print(
-                    f"\t\tCopied media directory: {base}-media (renamed for non-browsable)"
-                )
                 # Update references in the copied .qmd file
                 try:
                     with open(target_file, "r", encoding="utf-8") as f:
@@ -215,16 +215,11 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
                         content = content.replace(old_media, new_media)
                         with open(target_file, "w", encoding="utf-8") as f:
                             f.write(content)
-                        print(
-                            f"\t\tRewrote media references in {base}.qmd (non-browsable)"
-                        )
                 except Exception as e:
                     print(
                         f"\t\t[ERROR] Failed to rewrite media references in {base}.qmd: {e}"
                     )
-            print(
-                f"\t[non-browsable] Copied {qmd_file.name} → non-browsable/{base}.qmd (non-browsable)"
-            )
+            non_browsable_count += 1
         else:
             # Normal doc: group by category, prefix with project name to avoid collisions
             target_directory = get_directory_for_category(category)
@@ -245,7 +240,6 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
                 if target_media_dir.exists():
                     shutil.rmtree(target_media_dir)
                 shutil.copytree(orig_media_dir, target_media_dir)
-                print(f"\t\tCopied media directory: {prefix}{qmd_file.stem}-media")
             # Rewrite media references in the copied QMD file
             if prefix:
                 try:
@@ -258,33 +252,19 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
                         content = content.replace(old_media, new_media)
                         with open(target_file, "w", encoding="utf-8") as f:
                             f.write(content)
-                        print(
-                            f"\t\tRewrote media references in {prefix}{qmd_file.name}"
-                        )
                 except Exception as e:
                     print(
                         f"\t\t[ERROR] Failed to rewrite media references in {prefix}{qmd_file.name}: {e}"
                     )
-            if category:
-                if category in CATEGORY_TO_DIRECTORY_MAP:
-                    print(
-                        f"\tCopied {qmd_file.name} → {target_directory}/ as {prefix}{qmd_file.name} (category: {category})"
-                    )
-                else:
-                    print(
-                        f"\tCopied {qmd_file.name} → {target_directory}/ as {prefix}{qmd_file.name}"
-                    )
-            else:
-                print(
-                    f"\tCopied {qmd_file.name} → {target_directory}/ as {prefix}{qmd_file.name} (no category found)"
-                )
+            categorized_count += 1
 
     # Save updated secret mapping if changed
     if updated:
         save_secret_map(secret_mappings)
-        print(f"[non-browsable] Updated mapping file: {NON_BROWSABLE_MAP_PATH}")
-    else:
-        print(f"[non-browsable] No changes to mapping file: {NON_BROWSABLE_MAP_PATH}")
+        if new_non_browsable_assignments > 0:
+            print(
+                f"[non-browsable] Created {new_non_browsable_assignments} new URL mappings"
+            )
 
     # Save path mappings for changelog system
     mapping_file = target_path / "_meta" / ".temp_path_mapping.json"
@@ -292,7 +272,10 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
 
     with open(mapping_file, "w", encoding="utf-8") as f:
         json.dump(path_mappings, f, indent=2)
-    print(f"[path-mapping] Saved {len(path_mappings)} path mappings to {mapping_file}")
+
+    print(
+        f"Processed {len(qmd_files)} files: {categorized_count} categorized, {non_browsable_count} non-browsable."
+    )
 
 
 def copy_excluded_dirs(source_dir="origin_DOCS", target_dir="DOCS"):
@@ -317,6 +300,7 @@ def inject_original_filename_in_qmd_files(docs_dir="origin_DOCS"):
     print("Injecting original filename field into QMD files...")
 
     processed_files = 0
+    skipped_files = 0
 
     # Find all .qmd files in the docs directory
     for qmd_file in docs_path.rglob("*.qmd"):
@@ -337,6 +321,7 @@ def inject_original_filename_in_qmd_files(docs_dir="origin_DOCS"):
                 print(
                     f"    Warning: {qmd_file.name} doesn't have YAML header, skipping"
                 )
+                skipped_files += 1
                 continue
 
             parts = content.split("---", 2)
@@ -344,6 +329,7 @@ def inject_original_filename_in_qmd_files(docs_dir="origin_DOCS"):
                 print(
                     f"    Warning: {qmd_file.name} has malformed YAML header, skipping"
                 )
+                skipped_files += 1
                 continue
 
             yaml_header = parts[1]
@@ -370,15 +356,15 @@ def inject_original_filename_in_qmd_files(docs_dir="origin_DOCS"):
             with open(qmd_file, "w", encoding="utf-8") as file:
                 file.write(new_content)
 
-            print(
-                f"    Added original-filename: {original_filename_field} to {qmd_file.name}"
-            )
             processed_files += 1
 
         except Exception as e:
             print(f"    Error processing {qmd_file.name}: {e}")
+            skipped_files += 1
 
-    print(f"Processed {processed_files} QMD files with original filename injection.")
+    print(f"Processed {processed_files} QMD files successfully.")
+    if skipped_files > 0:
+        print(f"Skipped {skipped_files} files due to errors or missing headers.")
 
 
 def update_bibliography_paths_before_regroup(
@@ -394,6 +380,7 @@ def update_bibliography_paths_before_regroup(
 
     processed_projects = 0
     processed_qmd_files = 0
+    moved_bib_files = 0
 
     for project_dir in docs_path.iterdir():
         if not project_dir.is_dir() or project_dir.name in EXCLUDED_DOCS_DIRS:
@@ -430,13 +417,17 @@ def update_bibliography_paths_before_regroup(
         for qmd_file in qmd_files:
             if update_qmd_bibliography_reference(qmd_file, new_bib_reference):
                 processed_qmd_files += 1
-                print(f"  Updated {qmd_file.name}")
 
         # Move .bib file to new location
         shutil.copy2(original_bib, new_bib_path)
-        print(f"  Moved {original_bib.name} -> {new_bib_path}")
+        moved_bib_files += 1
 
         processed_projects += 1
+
+    if processed_projects > 0:
+        print(
+            f"Processed {processed_projects} projects: updated {processed_qmd_files} files, moved {moved_bib_files} bibliography files."
+        )
 
 
 def update_qmd_bibliography_reference(qmd_file_path, new_bib_reference):
@@ -480,10 +471,8 @@ def update_qmd_bibliography_reference(qmd_file_path, new_bib_reference):
             with open(qmd_file_path, "w", encoding="utf-8") as file:
                 file.write(new_content)
 
-            print(f"    {old_bib_ref} -> {new_bib_reference}")
             return True
         else:
-            print(f"    No bibliography field in YAML header, skipping")
             return False
 
     except Exception as e:

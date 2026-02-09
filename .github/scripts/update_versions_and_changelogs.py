@@ -437,6 +437,237 @@ def save_versions_metadata(metadata):
     print(f"[INFO] Saved version metadata to {VERSIONS_FILE}")
 
 
+# ═══════════════════════════════════════════════════════════════════════
+# PROJECT MANIFEST OPERATIONS (for restore feature)
+# ═══════════════════════════════════════════════════════════════════════
+
+
+def extract_project_id(filepath):
+    """
+    Extract project ID from file path.
+    Convention: DOCS/<project_id>/file.qmd
+    """
+    parts = Path(filepath).parts
+    if len(parts) >= 2 and parts[0] == "DOCS":
+        return parts[1]
+    return None
+
+
+def get_current_commit_hash():
+    """
+    Get the current commit hash (short form).
+    Used to track which commit a version was released in.
+    """
+    try:
+        commit = subprocess.check_output(
+            ["git", "rev-parse", "--short=12", "HEAD"]
+        ).decode().strip()
+        return commit
+    except subprocess.CalledProcessError:
+        return "unknown"
+
+
+def load_project_file_versions(project_id):
+    """Load version history for all files in a project, or create new structure"""
+    versions_path = Path(".version-history") / project_id / "versions.json"
+    
+    if versions_path.exists():
+        try:
+            with open(versions_path, "r") as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"[WARNING] Could not load version history for {project_id}: {e}")
+    
+    # Return empty structure (dict of filepath -> version info)
+    return {}
+
+
+def save_project_file_versions(project_id, versions):
+    """Save version history for all files in a project"""
+    versions_dir = Path(".version-history") / project_id
+    versions_dir.mkdir(parents=True, exist_ok=True)
+    
+    versions_path = versions_dir / "versions.json"
+    
+    with open(versions_path, "w") as f:
+        json.dump(versions, f, indent=2, sort_keys=True)
+    
+    print(f"[INFO] Updated versions: .version-history/{project_id}/versions.json")
+
+
+def get_all_current_files():
+    """Get set of all current .qmd files in DOCS/ directory"""
+    current_files = set()
+    for root, dirs, files in os.walk(DOCS_DIR):
+        for file in files:
+            if file.endswith(".qmd"):
+                filepath = os.path.join(root, file)
+                current_files.add(filepath)
+    return current_files
+
+
+def detect_deleted_files():
+    """
+    Detect files that have history in change_logs.json but no longer exist.
+    Returns dict of {filepath: last_known_version}
+    """
+    if not os.path.exists(CHANGELOGS_FILE):
+        return {}
+    
+    try:
+        with open(CHANGELOGS_FILE, "r") as f:
+            changelogs = json.load(f)
+    except Exception as e:
+        print(f"[WARNING] Could not load changelogs to detect deletions: {e}")
+        return {}
+    
+    current_files = get_all_current_files()
+    deleted_files = {}
+    
+    for filepath in changelogs.keys():
+        if filepath not in current_files:
+            # File has history but doesn't exist - it was deleted
+            # Get last known version
+            history = changelogs[filepath]
+            if history:
+                last_entry = history[-1]  # Most recent entry
+                deleted_files[filepath] = last_entry.get("version", "unknown")
+    
+    return deleted_files
+
+
+def update_project_versions():
+    """
+    Update project version history with new version information.
+    Called after versions have been updated in change_logs.json.
+    
+    Stores version number and release timestamp for each file version.
+    """
+    if DRY_RUN:
+        print("\n[DRY RUN] Would update project version history (skipped)")
+        return
+    
+    print("\n" + "=" * 70)
+    print("📦 Updating Project Version History")
+    print("=" * 70)
+    
+    # Load change logs to see what was updated
+    if not os.path.exists(CHANGELOGS_FILE):
+        print("[WARNING] No change_logs.json found - skipping version history update")
+        return
+    
+    try:
+        with open(CHANGELOGS_FILE, "r") as f:
+            changelogs = json.load(f)
+    except Exception as e:
+        print(f"[ERROR] Could not load change_logs.json: {e}")
+        return
+    
+    # Current timestamp in ISO 8601 format
+    timestamp = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    
+    # Current commit hash (optional - for tracking)
+    commit_hash = get_current_commit_hash()
+    
+    # Group files by project
+    projects_to_update = {}
+    
+    for filepath, history in changelogs.items():
+        project_id = extract_project_id(filepath)
+        if not project_id:
+            continue
+        
+        if project_id not in projects_to_update:
+            projects_to_update[project_id] = []
+        
+        projects_to_update[project_id].append({
+            "filepath": filepath,
+            "history": history
+        })
+    
+    # Detect deletions
+    deleted_files = detect_deleted_files()
+    if deleted_files:
+        print(f"\n📋 Detected {len(deleted_files)} deleted file(s)")
+        for filepath in deleted_files:
+            print(f"   • {filepath}")
+            project_id = extract_project_id(filepath)
+            if project_id:
+                if project_id not in projects_to_update:
+                    projects_to_update[project_id] = []
+                projects_to_update[project_id].append({
+                    "filepath": filepath,
+                    "history": changelogs.get(filepath, []),
+                    "deleted": True
+                })
+    
+    # Update each project's version history
+    updated_count = 0
+    for project_id, files in projects_to_update.items():
+        print(f"\n📁 Project: {project_id} ({len(files)} file(s))")
+        
+        versions = load_project_file_versions(project_id)
+        
+        for file_info in files:
+            filepath = file_info["filepath"]
+            history = file_info["history"]
+            is_deleted = file_info.get("deleted", False)
+            
+            if not history:
+                continue
+            
+            # Get latest version from history
+            latest_entry = history[-1]
+            latest_version = latest_entry.get("version")
+            
+            if not latest_version:
+                continue
+            
+            # Initialize file entry if doesn't exist
+            if filepath not in versions:
+                versions[filepath] = {
+                    "versions": [],
+                    "latest": latest_version,
+                    "status": "deleted" if is_deleted else "active"
+                }
+            
+            file_versions = versions[filepath]
+            
+            # Check if this version already exists
+            existing_versions = [v.get("version") for v in file_versions.get("versions", [])]
+            
+            if latest_version not in existing_versions:
+                # Add new version entry
+                version_entry = {
+                    "version": latest_version,
+                    "released": timestamp,
+                    "commit": commit_hash
+                }
+                
+                file_versions["versions"].append(version_entry)
+                file_versions["latest"] = latest_version
+                
+                print(f"   ✓ {filepath}: {latest_version} (released {timestamp})")
+            
+            # Update status for deleted files
+            if is_deleted:
+                file_versions["status"] = "deleted"
+                file_versions["deleted_at"] = timestamp
+                print(f"     [DELETED at {timestamp}]")
+            else:
+                file_versions["status"] = "active"
+                # Remove deleted_at if file was restored
+                file_versions.pop("deleted_at", None)
+        
+        # Save updated version history
+        save_project_file_versions(project_id, versions)
+        updated_count += 1
+    
+    print("\n" + "=" * 70)
+    print(f"✅ Updated {updated_count} project version history file(s)")
+    print("=" * 70)
+
+
 def save_changelogs_for_injection(changelog_entries):
     """
     Save new changelog entries to change_logs.json for inject_changelog.py.
@@ -1009,6 +1240,10 @@ def initialize_first_release(all_files):
 
     save_versions_metadata(versions_metadata)
     save_changelogs_for_injection(changelog_entries)
+    
+    # Update project version history for restore feature
+    update_project_versions()
+    
     print(f"✅ First release initialization complete: {len(all_files)} files")
 
 
@@ -1179,6 +1414,9 @@ def main():
     if not DRY_RUN:
         save_versions_metadata(versions_metadata)
         save_changelogs_for_injection(changelog_entries)
+        
+        # Update project version history for restore feature
+        update_project_versions()
 
     print("\n" + "=" * 70)
     print(f"✅ Version & changelog update complete: {len(file_diffs)} files processed")
