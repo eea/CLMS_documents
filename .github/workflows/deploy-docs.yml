@@ -49,24 +49,36 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
 
+      - name: Detect test mode for dry-run
+        id: test_mode
+        run: |
+          if [[ "${{ github.ref }}" == refs/heads/test-* ]]; then
+            echo "dry_run=true" >> $GITHUB_OUTPUT
+            echo "🔍 Test branch detected - enabling DRY_RUN mode"
+          else
+            echo "dry_run=false" >> $GITHUB_OUTPUT
+            echo "✅ Production branch - normal execution"
+          fi
+
       - name: Update versions and changelogs (test/main only)
-        if: github.ref_name == 'test' || github.ref_name == 'main'
+        if: github.ref_name == 'test' || github.ref_name == 'main' || startsWith(github.ref, 'refs/heads/test-')
         uses: addnab/docker-run-action@v3
         with:
           image: mckeea/llm-doc-annotator:latest
-          options: -e GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} -v ${{ github.workspace }}:/app
+          options: -e GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} -e DRY_RUN=${{ steps.test_mode.outputs.dry_run }} -v ${{ github.workspace }}:/app
           run: |
             git config --global --add safe.directory /app
             python .github/scripts/update_versions_and_changelogs.py
 
-      - name: Commit updated LLM cache
+      - name: Commit updated LLM cache and version history
+        if: steps.test_mode.outputs.dry_run == 'false'
         run: |
-          git add .llm_cache
+          git add .llm_cache .version-history
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Update LLM cache [skip ci]"
+            git commit -m "Update LLM cache and version history [skip ci]"
             git push origin HEAD
           fi
 

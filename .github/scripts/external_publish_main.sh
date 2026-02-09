@@ -14,7 +14,8 @@ get_changed_files() {
     git ls-tree -r --name-only "$PUBLISH_COMMIT" > changed-files.txt
     # Remove specific files we want to ignore
     sed -i '/^\.gitignore$/d; /^\.github\/workflows\/trigger\.yml$/d' changed-files.txt
-    cat changed-files.txt
+    file_count=$(wc -l < changed-files.txt)
+    echo "Found $file_count changed file(s)"
 }
 
 check_files_within_project() {
@@ -73,10 +74,7 @@ check_for_changes() {
         return 1 
     fi
     
-    echo "✅ Modified files:"
-    printf '%s\n' "${MODIFIED_FILES[@]}"
-    echo "🗑️ Deleted files:" 
-    printf '%s\n' "${DELETED_FILES[@]}"
+    echo "✅ Changes detected: ${#MODIFIED_FILES[@]} modified, ${#DELETED_FILES[@]} deleted"
     
     return 0
 }
@@ -95,10 +93,11 @@ apply_file_changes() {
         run_git "removing deleted files" rm "${DELETED_FILES[@]}"
     fi
     
-    # Stage modified files
-    for file in "${MODIFIED_FILES[@]}"; do
-        run_git "adding $file to staging" add "$file"
-    done
+    # Stage all modified files at once
+    if [ "${#MODIFIED_FILES[@]}" -gt 0 ]; then
+        git add "${MODIFIED_FILES[@]}" 2>&1 | head -1 || true
+        echo "Staged ${#MODIFIED_FILES[@]} modified file(s)"
+    fi
 }
 
 generate_commit_message() {    

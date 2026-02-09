@@ -40,7 +40,7 @@ fi
 
 # Render all files together (changelog filter uses original-filename from YAML headers)
 echo "🔄 Rendering all documents to HTML..."
-QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to html --no-clean 
+QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render --to html --no-clean
 
 # Backup the correct sitemap as it may be overwritten by next operations
 sleep 5
@@ -57,17 +57,38 @@ node ../.github/scripts/generate_index_all.mjs
 echo "📄 Render only index.qmd files using 'index' profile"
 mv _quarto.yml _quarto_not_used.yml
 mv _quarto-index.yml _quarto.yml
+index_count=$(find ./ -type f -name index.qmd | wc -l)
+echo "   Rendering $index_count index files..."
 find ./ -type f -name index.qmd -print0 | while IFS= read -r -d '' src; do
-  echo "🔧 Rendering $src using profile=index..."
-  QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render "$src" --profile index --to html --no-clean $QUARTO_FLAGS
+  QUARTO_CHROMIUM_HEADLESS_MODE=new quarto render "$src" --profile index --to html --no-clean --quiet $QUARTO_FLAGS
 done
 mv _quarto.yml _quarto-index.yml
 cp _quarto_not_used.yml _quarto.yml && rm _quarto_not_used.yml
 
 
 echo "📄 Converting .docx files to .pdf..."
-timeout 3s ../.github/scripts/convert_docx_to_pdf.sh || true
-timeout 10m ../.github/scripts/convert_docx_to_pdf.sh
+docx_count=$(find _site -name "*.docx" -type f | wc -l)
+echo "   Found $docx_count DOCX files to convert"
+
+# Quick 3-second test run
+echo "   Running quick test conversion..."
+timeout 3s ../.github/scripts/convert_docx_to_pdf.sh 2>&1 | head -20 || true
+
+# Full conversion with detailed error reporting
+echo "   Starting full PDF conversion (timeout: 20m)..."
+if ! timeout 20m ../.github/scripts/convert_docx_to_pdf.sh 2>&1 | tee conversion.log; then
+  exit_code=$?
+  echo "❌ PDF conversion failed with exit code: $exit_code"
+  echo "   Last 30 lines of output:"
+  tail -30 conversion.log
+  echo "   DOCX files present:"
+  find _site -name "*.docx" -type f | head -10
+  exit $exit_code
+fi
+
+echo "✅ PDF conversion completed successfully"
+pdf_count=$(find _site -name "*.pdf" -type f | wc -l)
+echo "   Generated $pdf_count PDF files"
 
 # Clean up DOCX files if requested (they're only needed for PDF conversion)
 if [[ -n "$SKIP_DOCX" ]]; then

@@ -101,17 +101,15 @@ class DocsURLMapper:
         ]
 
         current_mappings = {}
+        html_redirects_created = 0
+        pdf_redirects_created = 0
+        new_files = 0
 
         for qmd_file in qmd_files:
             metadata = self.extract_metadata_from_qmd(qmd_file)
             if metadata:
                 filename = str(qmd_file.relative_to(source_path))
                 new_urls = self.generate_url_paths(metadata["category"], qmd_file.name)
-
-                print(f"\nProcessing: {filename}")
-                print(f"  Current category: {metadata['category']}")
-                print(f"  New HTML URL: {new_urls['html']}")
-                print(f"  New PDF URL: {new_urls['pdf']}")
 
                 # Keys are just the filename for HTML, filename:pdf for PDF
                 html_key = filename
@@ -122,35 +120,27 @@ class DocsURLMapper:
 
                 if html_key in self.url_mappings:
                     old_html_url = self.url_mappings[html_key]
-                    print(f"  Old HTML URL: {old_html_url}")
-                    print(f"  URLs different: {old_html_url != new_urls['html']}")
 
                     if old_html_url != new_urls["html"]:
                         redirect_key = f"redirect:{old_html_url}"
                         self.url_mappings[redirect_key] = new_urls["html"]
                         print(
-                            f"  HTML redirect created: {old_html_url} → {new_urls['html']}"
+                            f"HTML redirect created: {old_html_url} → {new_urls['html']}"
                         )
-                    else:
-                        print(f"    HTML URL unchanged")
+                        html_redirects_created += 1
                 else:
-                    print(f"   New file - no previous HTML URL")
+                    new_files += 1
 
                 if pdf_key in self.url_mappings:
                     old_pdf_url = self.url_mappings[pdf_key]
-                    print(f"  Old PDF URL: {old_pdf_url}")
-                    print(f"  URLs different: {old_pdf_url != new_urls['pdf']}")
 
                     if old_pdf_url != new_urls["pdf"]:
                         redirect_key = f"redirect:{old_pdf_url}"
                         self.url_mappings[redirect_key] = new_urls["pdf"]
                         print(
-                            f"  ✅ PDF redirect created: {old_pdf_url} → {new_urls['pdf']}"
+                            f"PDF redirect created: {old_pdf_url} → {new_urls['pdf']}"
                         )
-                    else:
-                        print(f"  ➡️  PDF URL unchanged")
-                else:
-                    print(f"  🆕 New file - no previous PDF URL")
+                        pdf_redirects_created += 1
 
                 # Update current mappings
                 self.url_mappings[html_key] = new_urls["html"]
@@ -160,6 +150,12 @@ class DocsURLMapper:
         self.optimize_redirect_chains()
 
         self.save_mappings()
+        
+        if html_redirects_created > 0 or pdf_redirects_created > 0:
+            print(f"Created {html_redirects_created} HTML redirects, {pdf_redirects_created} PDF redirects from {len(qmd_files)} files.")
+        if new_files > 0:
+            print(f"Detected {new_files} new files.")
+        
         return current_mappings
 
     def optimize_redirect_chains(self):
@@ -282,8 +278,6 @@ class DocsURLMapper:
 
         redirect_count = 0
 
-        print(self.url_mappings.items())
-
         for key, target_url in self.url_mappings.items():
             if key.startswith("redirect:") and target_url.endswith(".html"):
                 old_url = key.replace("redirect:", "")
@@ -306,7 +300,6 @@ class DocsURLMapper:
                         )
                     )
 
-                print(f"Created redirect: {old_url} → {target_url}")
                 redirect_count += 1
 
         return redirect_count
@@ -328,7 +321,7 @@ class DocsURLMapper:
         return redirect_map
 
         """Generate a smart 404 page that can handle redirects"""
-        html_404 = """<!DOCTYPE html>
+        html_404 = r"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

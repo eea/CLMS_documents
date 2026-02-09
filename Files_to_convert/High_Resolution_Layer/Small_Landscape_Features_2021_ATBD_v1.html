@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>High Resolution Layer Small Landscape Features 2021 – Algorithm Theoretical Basis Document</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Small_Landscape_Features_2021_ATBD_v1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Small_Landscape_Features_2021_ATBD_v1_files/libs/quarto-html/quarto.js"></script>
+<script src="Small_Landscape_Features_2021_ATBD_v1_files/libs/quarto-html/popper.min.js"></script>
+<script src="Small_Landscape_Features_2021_ATBD_v1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Small_Landscape_Features_2021_ATBD_v1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Small_Landscape_Features_2021_ATBD_v1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Small_Landscape_Features_2021_ATBD_v1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Small_Landscape_Features_2021_ATBD_v1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Small_Landscape_Features_2021_ATBD_v1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Small_Landscape_Features_2021_ATBD_v1_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary">Executive summary</a></li>
+  <li><a href="#background-of-the-document" id="toc-background-of-the-document" class="nav-link" data-scroll-target="#background-of-the-document">Background of the document</a>
+  <ul class="collapse">
+  <li><a href="#scope-and-objectives" id="toc-scope-and-objectives" class="nav-link" data-scroll-target="#scope-and-objectives">Scope and objectives</a></li>
+  <li><a href="#content-and-structure" id="toc-content-and-structure" class="nav-link" data-scroll-target="#content-and-structure">Content and structure</a></li>
+  </ul></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a>
+  <ul class="collapse">
+  <li><a href="#methodology-and-workflow" id="toc-methodology-and-workflow" class="nav-link" data-scroll-target="#methodology-and-workflow">Methodology and workflow</a></li>
+  <li><a href="#source-data" id="toc-source-data" class="nav-link" data-scroll-target="#source-data">Source data</a>
+  <ul class="collapse">
+  <li><a href="#eo-data" id="toc-eo-data" class="nav-link" data-scroll-target="#eo-data">EO data</a></li>
+  <li><a href="#ancillary-data" id="toc-ancillary-data" class="nav-link" data-scroll-target="#ancillary-data">Ancillary data</a></li>
+  </ul></li>
+  <li><a href="#pre-processing" id="toc-pre-processing" class="nav-link" data-scroll-target="#pre-processing">Pre-processing</a>
+  <ul class="collapse">
+  <li><a href="#input-data-for-pre-processing" id="toc-input-data-for-pre-processing" class="nav-link" data-scroll-target="#input-data-for-pre-processing">Input data for pre-processing</a></li>
+  <li><a href="#pre-processing-methodology" id="toc-pre-processing-methodology" class="nav-link" data-scroll-target="#pre-processing-methodology">Pre-processing methodology</a></li>
+  <li><a href="#intermediate-outputs" id="toc-intermediate-outputs" class="nav-link" data-scroll-target="#intermediate-outputs">Intermediate outputs</a></li>
+  </ul></li>
+  <li><a href="#processing" id="toc-processing" class="nav-link" data-scroll-target="#processing">Processing</a>
+  <ul class="collapse">
+  <li><a href="#processing-methodology" id="toc-processing-methodology" class="nav-link" data-scroll-target="#processing-methodology">Processing methodology</a></li>
+  </ul></li>
+  <li><a href="#post-processing" id="toc-post-processing" class="nav-link" data-scroll-target="#post-processing">Post-processing</a>
+  <ul class="collapse">
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#raster-property-extraction" id="toc-raster-property-extraction" class="nav-link" data-scroll-target="#raster-property-extraction">Raster Property Extraction</a></li>
+  <li><a href="#raster-to-vector-conversion-and-vector-property-extraction" id="toc-raster-to-vector-conversion-and-vector-property-extraction" class="nav-link" data-scroll-target="#raster-to-vector-conversion-and-vector-property-extraction">Raster to Vector Conversion and Vector Property Extraction</a></li>
+  <li><a href="#filtering-and-feature-re-integration" id="toc-filtering-and-feature-re-integration" class="nav-link" data-scroll-target="#filtering-and-feature-re-integration">Filtering and Feature re-integration</a></li>
+  <li><a href="#final-output-creation" id="toc-final-output-creation" class="nav-link" data-scroll-target="#final-output-creation">Final output creation</a></li>
+  <li><a href="#aggregation" id="toc-aggregation" class="nav-link" data-scroll-target="#aggregation">Aggregation</a></li>
+  </ul></li>
+  <li><a href="#output-products" id="toc-output-products" class="nav-link" data-scroll-target="#output-products">Output products</a></li>
+  </ul></li>
+  <li><a href="#quality-control-and-production-verification" id="toc-quality-control-and-production-verification" class="nav-link" data-scroll-target="#quality-control-and-production-verification">Quality control and production verification</a>
+  <ul class="collapse">
+  <li><a href="#stratification-and-sampling-design" id="toc-stratification-and-sampling-design" class="nav-link" data-scroll-target="#stratification-and-sampling-design">Stratification and Sampling Design</a></li>
+  <li><a href="#response-design" id="toc-response-design" class="nav-link" data-scroll-target="#response-design">Response Design</a></li>
+  <li><a href="#analysis-procedure" id="toc-analysis-procedure" class="nav-link" data-scroll-target="#analysis-procedure">Analysis procedure</a></li>
+  </ul></li>
+  <li><a href="#recognized-technical-issues" id="toc-recognized-technical-issues" class="nav-link" data-scroll-target="#recognized-technical-issues">Recognized technical issues</a></li>
+  <li><a href="#terms-of-use-and-product-technical-support" id="toc-terms-of-use-and-product-technical-support" class="nav-link" data-scroll-target="#terms-of-use-and-product-technical-support">Terms of use and product technical support</a>
+  <ul class="collapse">
+  <li><a href="#terms-of-use" id="toc-terms-of-use" class="nav-link" data-scroll-target="#terms-of-use">Terms of use</a></li>
+  <li><a href="#product-technical-support" id="toc-product-technical-support" class="nav-link" data-scroll-target="#product-technical-support">Product technical support</a></li>
+  </ul></li>
+  <li><a href="#list-of-abbreviations-acronyms" id="toc-list-of-abbreviations-acronyms" class="nav-link" data-scroll-target="#list-of-abbreviations-acronyms">List of abbreviations &amp; acronyms</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#document-history" id="toc-document-history" class="nav-link" data-scroll-target="#document-history">Document history</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">High Resolution Layer Small Landscape Features 2021 – Algorithm Theoretical Basis Document</h1>
+<p class="subtitle lead">Copernicus Land Monitoring Service</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Invalid Date</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="executive-summary" class="level1">
+<h1>Executive summary</h1>
+<p>This document provides a comprehensive overview of the theoretical basis for the algorithms used to derive the High Resolution Layer Small Landscape Feature (HRL SLF). This product suite is designed to offer accurate and reliable measurements of woody vegetation and small landscape features (including urban trees) using data acquired from Very High Resolution (VHR) sensor as well as Sentinel-2 data.</p>
+<p>The algorithms detailed in this document are developed to process raw satellite data into meaningful thematic products. Key components include:</p>
+<ol type="1">
+<li><p><strong>Source data</strong>: Description of the satellite and sensor specifications, including spatial, temporal, and spectral resolutions. This section also covers ancillary datasets used for calibration and validation.</p></li>
+<li><p><strong>Preprocessing</strong>: Steps taken to correct and calibrate raw data, including radiometric and geometric corrections, time series parametrization, production of masks and reference database for calibration.</p></li>
+<li><p><strong>Processing</strong>: Steps taken to train classification models and identify woody vegetation from Earth Observation (EO) datasets, leading to the Woody Vegetation Layer (WVL) output. This section also covers the Change detection between 2018 and 2021 reference years.</p></li>
+<li><p><strong>Post-Processing</strong>: Steps taken to derive, from the WVL, the other layers of the SLF suite: Small Woody Features (SWF) and Street Tree Layer (STL).</p></li>
+<li><p><strong>Internal Verification</strong>: Methods used to verify the accuracy and reliability of the derived dataset.</p></li>
+<li><p><strong>Known technical issues</strong>: Issues encountered during production, or known limitations of the products.</p></li>
+</ol>
+</section>
+<section id="background-of-the-document" class="level1">
+<h1>Background of the document</h1>
+<section id="scope-and-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="scope-and-objectives">Scope and objectives</h2>
+<p>This Algorithm Theoretical Basis Document summarizes the product characteristics and describes production methodologies and workflows of the HRL SLF 2021.</p>
+</section>
+<section id="content-and-structure" class="level2">
+<h2 class="anchored" data-anchor-id="content-and-structure">Content and structure</h2>
+<p>The document is structured as follows:</p>
+<ul>
+<li><p>Chapter 1 provides the executive summary of the project along with a general information about European Union’s Earth Observation Programme and Copernicus Land Monitoring Service (CLMS).</p></li>
+<li><p>Chapter 2 outlines the scope, content and structure of this document.</p></li>
+<li><p>Chapter 3 details the general thematic content and product descriptions with the methodology, workflows and internal quality control processes.</p></li>
+<li><p>Chapter 4 details the quality control and thematic internal verification processes.</p></li>
+<li><p>Chapter 5 presents the known technical limitations and residual technical issues.</p></li>
+<li><p>Chapter 6 defines key terms used in the document.</p></li>
+<li><p>The Abbreviations &amp; Acronyms, References, Annex, and Appendices Chapters provide citations, supplementary information, and additional reference materials.</p></li>
+</ul>
+</section>
+</section>
+<section id="methodology" class="level1">
+<h1>Methodology</h1>
+<p>The present section describes in detail the methodology applied for the production of all the HRL SLF 2021 layers, including the change layer 2018-2021.</p>
+<p>Table 1 Overview table of methodology</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category Title</th>
+<th>Description/Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Retrieval Methodology</td>
+<td>Deep Learning Convolutional Neural Network</td>
+</tr>
+<tr class="even">
+<td>Input Data</td>
+<td>Sentinel-2 (S2A, S2B), Level-2ª (processing baseline 05.11), retrieved via ESA Copernicus Open Access Hub <br> VHR_IMAGE_2021 retrieved via ESA Data WareHouse (DWH)</td>
+</tr>
+<tr class="odd">
+<td>Ancillary Data</td>
+<td>CLMS SWF2018; CLMS HRL VLCC 2021; CLMS Urban Atlas 2021; Meta Global Canopy Height</td>
+</tr>
+<tr class="even">
+<td>Processing Workflow</td>
+<td>Cloud masking, atmospheric correction, time-series compositing, deep learning-based classification, mosaicking, vectorization, aggregation</td>
+</tr>
+<tr class="odd">
+<td>Spatial/Temporal Resolution</td>
+<td>5m / 100m spatial resolution; 3 years update</td>
+</tr>
+<tr class="even">
+<td>Validation and Accuracy</td>
+<td>Validation using independent visual interpretation of verification samples, accuracy assessment with producer’s and user’s accuracy calculations.</td>
+</tr>
+</tbody>
+</table>
+<section id="methodology-and-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="methodology-and-workflow">Methodology and workflow</h2>
+<p>Figure 1 below shows an overview of the workflow, which can be sub-divided in 3 main steps:</p>
+<ol type="1">
+<li><p>Preprocessing of input EO imagery and ancillary datasets: reprojection, compositing, time series parameters computation, clip to Area Of Interest (AOI), reclassification, encoding.</p></li>
+<li><p>Processing: training of classification models, inference, combination of individual outputs, change detection.</p></li>
+<li><p>Post-processing: application of geometric rules and integration to derive final layers.</p></li>
+</ol>
+<div id="fig-figure1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Small_Landscape_Features_2021_ATBD_v1-media/img-19af4590dd266c8c9cb96e9eebf8f88e30ed117f.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: HRL SLF 2021 workflow</figcaption>
+</figure>
+</div>
+</section>
+<section id="source-data" class="level2">
+<h2 class="anchored" data-anchor-id="source-data">Source data</h2>
+<p>HRL SLF 2021 production relies on analysis and combination of different inputs datasets considered as source data.</p>
+<section id="eo-data" class="level3">
+<h3 class="anchored" data-anchor-id="eo-data">EO data</h3>
+<p>Two different EO datasets are used for the production of HRL SLF 2021 products:</p>
+<ul>
+<li><p>VHR_IMAGE_2021: retrieved from ESA DWH through Copernicus Contributing Missions, this dataset provides a Very High Resolution (VHR) coverage of EEA38+UK for the reference year 2021. It contains VHR multispectral (RGB+NIR) products (2-4m spatial resolution) acquired between 2020 and 2022, in ETRS89-LAEA projection (EPSG:3035). The following missions contributed to this dataset:</p>
+<ul>
+<li><p>Pleiades (28.68%)</p></li>
+<li><p>SuperView (17.33%)</p></li>
+<li><p>WorldView-2 and 3 (13.5%)</p></li>
+<li><p>Kompsat-2-3 (7.12%)</p></li>
+<li><p>Geoeye-1 (3.81%)</p></li>
+<li><p>SPOT6-7 (26.66%)</p></li>
+<li><p>TripleSat (0.63%)</p></li>
+<li><p>Geosat-2 (0.98%)</p></li>
+<li><p>Vision-1 (0.94%)</p></li>
+</ul></li>
+<li><p>Sentinel-2 time-series: <br> For a said reference year, the full time series on Sentinel 2 data was utilized. (cf.&nbsp;Section 3.3)</p></li>
+</ul>
+</section>
+<section id="ancillary-data" class="level3">
+<h3 class="anchored" data-anchor-id="ancillary-data">Ancillary data</h3>
+<p>Several ancillary datasets were used to collect landcover information for the reference year 2021, which were then used for calibration and training of the classification models and/or for deriving additional layers used for masking purposes. The list of the datasets and their use is presented in the table below.</p>
+<p>Table 2: Ancillary datasets used for HRL SLF production</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>Use</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CLMS SWF 2018</td>
+<td>Training</td>
+<td><a href="https://land.copernicus.eu/en">https://land.copernicus.eu/</a></td>
+</tr>
+<tr class="even">
+<td>CLMS VLCC TCD 2021</td>
+<td>Training + masking</td>
+<td><a href="https://land.copernicus.eu/en">https://land.copernicus.eu/</a></td>
+</tr>
+<tr class="odd">
+<td>CLMS VLCC CTY 2021</td>
+<td>Masking</td>
+<td><a href="https://land.copernicus.eu/en">https://land.copernicus.eu/</a></td>
+</tr>
+<tr class="even">
+<td>CLMS Urban Atlas 2021</td>
+<td>Masking</td>
+<td><a href="https://land.copernicus.eu/en">https://land.copernicus.eu/</a></td>
+</tr>
+<tr class="odd">
+<td>Global Canopy Height 2009-2020</td>
+<td>Training</td>
+<td><a href="https://gee-community-catalog.org/projects/meta_trees/">https://gee-community-catalog.org/projects/meta_trees/</a></td>
+</tr>
+<tr class="even">
+<td>Environmental zones</td>
+<td>Stratification for reference database sampling</td>
+<td><a href="https://www.eea.europa.eu/en/datahub/datahubitem-view/c8c4144a-8c0e-4686-9422-80dbf86bc0cb">https://www.eea.europa.eu/en/datahub/datahubitem-view/c8c4144a-8c0e-4686-9422-80dbf86bc0cb</a></td>
+</tr>
+<tr class="odd">
+<td>CLMS CLCplus Backbone 2021</td>
+<td>Training</td>
+<td>https://land.copernicus.eu/](https://land.copernicus.eu/en)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pre-processing" class="level2">
+<h2 class="anchored" data-anchor-id="pre-processing">Pre-processing</h2>
+<section id="input-data-for-pre-processing" class="level3">
+<h3 class="anchored" data-anchor-id="input-data-for-pre-processing">Input data for pre-processing</h3>
+<p>VHR data</p>
+<p>The complete VHR_IMAGE_2021 dataset was utilized for processing.</p>
+<section id="sentinel-data" class="level4">
+<h4 class="anchored" data-anchor-id="sentinel-data">Sentinel Data</h4>
+<p>The complete Sentinel-2 archive for the specified year and tile was utilized for processing. A dedicated preprocessing routine was applied to Level-2A data across the entire time series to generate cloud-free percentile composites of the corresponding Sentinel-2 bands, along with a harmonic fitting of the time series. For further details, refer to Section 3.3.2.</p>
+</section>
+<section id="masks" class="level4">
+<h4 class="anchored" data-anchor-id="masks">Masks</h4>
+<p><strong>Forest mask</strong></p>
+<p>HRL VLCC TCD 2021 and HRL VLCC CTY 2021 were the two datasets utilized for deriving the Forest Mask 2021 layer.</p>
+<p><strong>Crop mask</strong></p>
+<p>HRL VLCC CTY 2021 was utilized for deriving the Crop Mask 2021 layer.</p>
+<p><strong>Urban mask</strong></p>
+<p>Urban Atlas LULC vector layer was utilized as input for deriving Urban Mask 2021 used in the Street Tree Layer production.</p>
+</section>
+<section id="reference-database" class="level4">
+<h4 class="anchored" data-anchor-id="reference-database">Reference Database</h4>
+<p>The reference database contains landcover information used for training and calibration of the classification algorithms. HRL VLCC TCD 2021, HRL SWF 2018 and Global Canopy height dataset were the input datasets for deriving the thematic information contained in this database.</p>
+<p>Environmental zones (Metzger, Marc J. 2018) were used as a source of stratification for establishing location of reference database samples.</p>
+</section>
+</section>
+<section id="pre-processing-methodology" class="level3">
+<h3 class="anchored" data-anchor-id="pre-processing-methodology">Pre-processing methodology</h3>
+<section id="vhr-data" class="level4">
+<h4 class="anchored" data-anchor-id="vhr-data">VHR data</h4>
+<p>The images from VHR_IMAGE_2021 dataset was downloaded from ESA DWH and stored on a secured and dedicated cloud infrastructure. They were then pre-processed for the training and inference phases of the classification.</p>
+<p><u>For training</u>:</p>
+<p>Each image overlapping a sample from the reference database (refer to next section) for calibration was:</p>
+<ol type="1">
+<li><p>Clipped to the extent of the sample.</p></li>
+<li><p>Converted from 16bits to 8bits (stretching each band between 0 and 255 from its min and max).</p></li>
+<li><p>Converted to COG format.</p></li>
+</ol>
+<p><u>For inference</u>:</p>
+<p>Each image to be predicted for the production phase (i.e.&nbsp;VHR_IMAGE_2021 full dataset) was:</p>
+<ol type="1">
+<li><p>Converted from 16bits to 8bits (stretching each band between 0 and 255 from its min and max).</p></li>
+<li><p>Converted to COG format.</p></li>
+</ol>
+</section>
+<section id="sentinel-data-1" class="level4">
+<h4 class="anchored" data-anchor-id="sentinel-data-1">Sentinel Data</h4>
+<p>The Sentinel-2 processing workflow began with time-series data of Sentinel-2 L2A products, organized per tile in the UTM projection, and made accessible through various cloud providers. The analysis included all 10m and 20m spectral bands, as well as the Scene Classification Layer (SCL) for cloud weighting. Within a standard year, all available scenes were composited into cloud-free images, one per band. This was achieved by calculating the 20th percentile for each tile and band, which provides spectral information for each pixel. Additionally, a 90th-percentile NDVI layer was generated and used as input for training and classification.</p>
+<p>The time-series observations also capture intra-annual land cover variations, which were leveraged for further analysis. These variations were extracted using ordinary least squares fit to the function:</p>
+<p><span class="math inline">\(f(t)=c_0+\sum_{k=0}^{H}(\alpha_{k}\mathrm{sin}\left(k\omega t\right)+\beta_{k}\mathrm{cos}\left(k\omega t\right))\)</span></p>
+<p>Here, the base frequency (ω) is set to 2π per year, enabling the model to describe the seasonal NDVI dynamics and provide temporal insights. This methodology, proven effective in other CLMS productions such as the Imperviousness products, was highly optimized for robustness and resource efficiency.</p>
+</section>
+<section id="masks-1" class="level4">
+<h4 class="anchored" data-anchor-id="masks-1">Masks</h4>
+<section id="forest-mask" class="level5">
+<h5 class="anchored" data-anchor-id="forest-mask">Forest Mask</h5>
+<p>The Forest Mask is designed to exclude specific densely tree covered areas.</p>
+<p>A 10% canopy cover threshold was applied to HRL TCD 2021, to meet the FAO forest definition. A morphological filter was then applied to remove linear elements that could represent valid SWF from the forest mask (ex: large hedgerow connected to a forest which would be included in the forest mask after the first step of thresholding). Thus, only dense and compact forested areas were kept in the Forest Mask.</p>
+<p>A minimal mapping unit (MMU) of 5 ha was applied, to remove small forest areas from the mask. The application of this MMU filter was necessary because of the different spatial resolution of the input imagery that were used to produce HRL TCD 2021 and the HRL SWF 2021 product, which makes the presence of features below 5 ha likely.</p>
+<p>A 10 m external buffer was applied to prevent wrongly detected SWF at forest boundaries due to the different spatial resolution between the HRL TCD 2021 and HRL SWF 2021 product (and respective input data).</p>
+<p>Areas covered by Crop Mask (see below) were excluded from Forest Mask.</p>
+<p>Crop Mask</p>
+<p>The Crop Mask is an essential component of the workflow and was designed to exclude specific land-use classes that are indicative of agricultural activity.</p>
+<p>The mask was derived from the VLCC CTY product, a comprehensive dataset that categorizes land use based on crop types and other vegetation classes.</p>
+<p>All classes within the VLCC CTY product that signify agricultural usage were included in the mask. This ensured a broad and accurate representation of areas used for farming activities. The output is a binary layer crop/non-crop.</p>
+</section>
+<section id="urban-mask" class="level5">
+<h5 class="anchored" data-anchor-id="urban-mask">Urban Mask</h5>
+<p>The Urban Mask is an essential component of the workflow as it defines the extent of the STL product. It was derived from the UA LULC 2021 product and consists of urban areas (class 1) with the exclusion of road and railway networks connecting cities and villages. To do so, urban areas were selected first. Subsequently, a negative buffer, set at 20m, was applied to eliminate isolated streets. Following this, the buffering process was reversed, and an additional 50m buffer was added to obtain the final version of the Urban Mask.</p>
+</section>
+</section>
+<section id="reference-database-1" class="level4">
+<h4 class="anchored" data-anchor-id="reference-database-1">Reference Database</h4>
+<p>The reference database contains landcover information about woody vegetation presence used for training and calibrating classification algorithms.</p>
+<p>To maximize the applicability of this reference dataset and foster economies of scale for its generation, the selection of samples was performed automatically, based on a stratified approach considering (see Figure 2):</p>
+<ul>
+<li><p>Environmental zones to reflect the spectrally heterogeneous coverage of woody vegetation throughout Europe (Figure 2 Top)</p></li>
+<li><p>Heterogeneity of input datasets (i.e.&nbsp;VHR_IMAGE_2021 dataset contains imagery from different sensors) (Figure 2 Centre)</p></li>
+<li><p>Urban and rural areas (Figure 2 Bottom)</p></li>
+</ul>
+<p>Therefore, a sufficiently high number of reference samples (10 000) were selected to extract representative reference statistics in order to successfully train the supervised learning algorithm (Chen &amp; Stow, 2002) with regards of the complexity and diversity of the area to be mapped. Each reference sample consists of a 2560x2560m cell containing woody vs non-woody information. The geographic distribution of the reference training samples is illustrated in Figure 3 below.</p>
+<p>This thematic information was first extracted from ancillary datasets (HRL SWF 2018, HRL TCD 2021, CLC+BB 2021, Global Canopy Height Map), and was then visually assessed and corrected using VHR_IMAGE_2021 as guiding reference imagery to ensure consistency between reference dataset and EO dataset.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Small_Landscape_Features_2021_ATBD_v1-media/img-2bfd9c162c9bfdfdd03bcc3e2f5adef2bf25d668.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">img</figcaption>
+</figure>
+</div>
+<p>Figure 2:External dataset used for Reference Database sampling stratification.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Small_Landscape_Features_2021_ATBD_v1-media/img-0aeffbc120bdc6740e4085604ad2c7f3d15b624c.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">img</figcaption>
+</figure>
+</div>
+<p>Figure 3: Reference Database samples distribution.</p>
+<p>Each sample in the vector reference database was:</p>
+<ol type="1">
+<li><p>Rasterized with values 0 and 1.</p></li>
+<li><p>Set to 255 (no data value) if the pixels in the corresponding image were no-data pixels or unclassifiable pixels (clouds or cloud shadows).</p></li>
+<li><p>Converted to COG format.</p></li>
+</ol>
+<p>An example of a reference database sample is illustrated in Figure 4 below. One the left, the initial vector result of visual and manual enhancement. On the right, the rasterized version ready to be ingested in the training process.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Small_Landscape_Features_2021_ATBD_v1-media/img-7f7921a5b76c664e0971072cce1e96907da340a1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">img</figcaption>
+</figure>
+</div>
+<p>Figure 4: Reference database patch example.</p>
+</section>
+</section>
+<section id="intermediate-outputs" class="level3">
+<h3 class="anchored" data-anchor-id="intermediate-outputs">Intermediate outputs</h3>
+<section id="vhr-data-1" class="level4">
+<h4 class="anchored" data-anchor-id="vhr-data-1">VHR data</h4>
+<p>Training VHR images dataset:</p>
+<p>Pre-processing generated a dataset of 8-bit VHR images in COG format, still in 4 bands (red, blue, green, and near infrared), with the same spatial coverage and size as the patches of the reference database. Here, the VHR scenes are clipped to the extent of the corresponding reference patches.</p>
+<p>Inference VHR images dataset:</p>
+<p>Pre-processing generated a dataset of 8-bit VHR images in COG format, without any clipping.</p>
+</section>
+<section id="sentinel-data-2" class="level4">
+<h4 class="anchored" data-anchor-id="sentinel-data-2">Sentinel Data</h4>
+<p>The key layers generated from the Sentinel-2 preprocessing that directly serve as input for the deep learning algorithm are the following:</p>
+<p>Table 3: Parameters for S2 time series analysis</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Parameter Name</th>
+<th>Bands</th>
+<th>Total number of layers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>20th percentile</td>
+<td>B02, B03, B04, B05, B06, B07, B08, B8A, B11, B12</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>90th percentile</td>
+<td>NDVI</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>3rd order Fourier Series coefficients</td>
+<td>NDVI</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reference-database-2" class="level4">
+<h4 class="anchored" data-anchor-id="reference-database-2">Reference Database</h4>
+<p>Pre-processing generated a dataset of 8-bit images in COG format, in 1 band, representing 3 different values: 0 – non-tree; 1 – tree; 255 – no-data, with the same spatial coverage and size as the patches of the training VHR images database.</p>
+</section>
+</section>
+</section>
+<section id="processing" class="level2">
+<h2 class="anchored" data-anchor-id="processing">Processing</h2>
+<section id="processing-methodology" class="level3">
+<h3 class="anchored" data-anchor-id="processing-methodology">Processing methodology</h3>
+<section id="vhr-classification" class="level4">
+<h4 class="anchored" data-anchor-id="vhr-classification">VHR classification</h4>
+<p>Classification using VHR data was based on the SatlasPretrain Foundation Model (Bastani et al, 2023). The model was pretrained on Satlaspretrain dataset, which is a large-scale pre-training dataset for remote sensing image understanding. The SatlasPretrain model consists of three main components: backbone, Feature Pyramid Network (FPN), and prediction head that allow to classify an image into a thematic information.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Small_Landscape_Features_2021_ATBD_v1-media/img-82089d4712b2d17f24b8dcc52008250e27187914.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">img</figcaption>
+</figure>
+</div>
+<p>Figure 5: Model architecture of SATLASNET. Separate heads can be used to predict outputs of different formats or different thematic nature (source: Bastani et al, 2023)</p>
+<p>Of the components shown in Figure 5Error! Reference source not found., the backbone + FPN o f the aerial pre-trained model (0.5-2m/px high-res imagery, Single-image, RGB) were used as a basis to take advantage of the pre-trained model, then the segmentation prediction head was attached and fine-tuned to woody vegetation detection using the refence database.</p>
+<p>The images used are 4-band images (Red, Green, Blue, and Near Infrared), so to manage compatibility with the 3-band (RGB) model, modifications were made as follows: the first three bands (RGB) were passed into the backbone, then the last band (Near Infrared) was concatenated with the extracted features in the latent space, before passing the whole into the prediction head.</p>
+<p>The prediction head is a U-Net (Ronneberger et al, 2015) architecture with a cross entropy loss.</p>
+<p>Once the model has been finetuned, inference (segmentation) was performed on each image, using the model checkpoint.</p>
+<p>The inference’s outputs are probability maps of woody vegetation for each image. After all the images have been classified individually, they were mosaicked into tiles corresponding to production units (EEA 100km grid cells). This was performed as follows:</p>
+<ol type="1">
+<li><p>For each pixel of the production unit, the number of observations (= number of VHR scenes) was collected.</p></li>
+<li><p>Individual probability maps for woody vegetation were summed into a mosaic which extent corresponds to the production unit’s extent.</p></li>
+<li><p>The “sum mosaic” was divided by the number of observations, for each pixel.</p></li>
+<li><p>The result was a harmonized probability map 0-255 over the extent of the production unit.</p></li>
+</ol>
+</section>
+<section id="sentinel-classification" class="level4">
+<h4 class="anchored" data-anchor-id="sentinel-classification">Sentinel classification</h4>
+<p>The classification using Sentinel-2 data leveraged a modified U-Net architecture. Although Sentinel-2 provides lower spatial resolution (10m and 20m native resolutions) compared to Very High Resolution (VHR) datasets, its higher acquisition frequency and richer spectral resolution serve as essential sources of information. These attributes enhance the classification process, improving both accuracy and the overall quality of the output.</p>
+<p>In a standard U-Net framework, the classification output matches the resolution of the highest input, yielding results at 10m resolution. However, the U-Net architecture has an advanced capability: it can be trained to produce outputs at finer resolutions, a process known as “super resolution.” This approach is similar to state-of-the-art upscaling methods and has been successfully used to generate high-resolution delineations of tree lines and even single trees (see Figure 6 below).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Small_Landscape_Features_2021_ATBD_v1-media/img-24f55f3276416bd383eab96407e802a565bed163.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">img</figcaption>
+</figure>
+</div>
+<p>Figure 6: U-NET super resolution prediction at 5m. Single trees visible on VHR data (left) are also visible in the prediction from Sentinel 2 imagery (right).</p>
+<p>For the SWF production, this technique was adapted to directly predict woody vegetation probabilities at resolutions of 5m. This refinement facilitated a seamless comparison of maps generated from both VHR and Sentinel-2 datasets during the merging process.</p>
+</section>
+<section id="classification-merge" class="level4">
+<h4 class="anchored" data-anchor-id="classification-merge">Classification merge</h4>
+<p>Outputs of both VHR and Sentinel 2 classifications steps consists of probability maps of woody vegetation presence at 5m resolution. Probability maps were combined based on a decision tree to optimize mapping of woody vegetation while limiting propagation of artefacts that could have existed on one dataset but not in the other. This decision tree took into account environmental zones to deal with regional diversity of European landscapes. For Mediterranean landscapes which contains many low-density forested areas or olive plantation with isolated trees, a higher weight is given to VHR classification compared to Sentinel-2 classification. On the opposite, VHR output in arctic regions is quite impacted by high acquisition angles and cloud coverage. Time series of Sentinel 2 allow to mitigate this effect, and thus Sentinel-2 classification outputs have a higher weight in the final product compared to VHR classification outputs. Weighting have been assessed visually to ensure consistent results across landscape and avoiding border effects between neighbouring environmental zones.</p>
+</section>
+<section id="change-identification-processing" class="level4">
+<h4 class="anchored" data-anchor-id="change-identification-processing">Change identification processing</h4>
+<p>In progress.</p>
+</section>
+</section>
+</section>
+<section id="post-processing" class="level2">
+<h2 class="anchored" data-anchor-id="post-processing">Post-processing</h2>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<p>The merged result from the previous step was then used as input for production of the final output. This final output consists of raster products in 5m and 10m, as well as a vector product. As a general overview, the following steps are applied:</p>
+<ol type="1">
+<li><p>Raster Property Extraction: Raster processing algorithms were used as a first step in distinguishing linear and patchy features. Features were extracted and stored in an intermediate database.</p></li>
+<li><p>Raster to Vector Conversion: The raster data was vectorized into a spatial database for further analysis and the previously extracted properties were merged into the dataset.</p></li>
+<li><p>Vector Property Extraction: Key properties such as area, and crop coverage were calculated for each feature.</p></li>
+<li><p>Feature Classification and Simplification: Features were classified and refined based on their properties according to the product specifications.</p></li>
+<li><p>Filtering: Features that do not meet the specifications were removed from the intermediate vector product. Exception: Every geometry that was connected to a valid feature was re-added if it is not covered by agriculture.</p></li>
+<li><p>Final Output Creation: The remaining geometries were simplified and rasterized into final 5m and 100m resolution outputs. The remaining features were stored in a final vector file in Geopackage format.</p></li>
+</ol>
+<p>The primary goal of these steps was to derive properties that are needed for the application of the specifications summarized in Table 4 below:</p>
+<p>Table 4: Geometric specifications of SWF</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Linear Structures</th>
+<th>Patchy Structures</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Width</td>
+<td>&lt;= 30m</td>
+<td>n/a</td>
+</tr>
+<tr class="even">
+<td>Length</td>
+<td>&gt;= 30m</td>
+<td>n/a</td>
+</tr>
+<tr class="odd">
+<td>Area</td>
+<td>n/a</td>
+<td>200m² &lt;= area &lt;= 5000m²</td>
+</tr>
+<tr class="even">
+<td>Compactness</td>
+<td>&lt;= 0.785</td>
+<td>&gt;= 0.785</td>
+</tr>
+</tbody>
+</table>
+<p>Note: The table contains also the thresholds based on the compactness value. This was used in previous productions and is kept here for completeness. The current workflow replaces the compactness threshold with an algorithm based on erode and dilate operations. This was done to increase the robustness of the workflow and to allow for a better definition of derived properties such as width and length of a geometry.</p>
+<p>The single steps necessary are described in more detail in the following sections.</p>
+</section>
+<section id="raster-property-extraction" class="level3">
+<h3 class="anchored" data-anchor-id="raster-property-extraction">Raster Property Extraction</h3>
+<p>Raster Property Extraction was the foundational step for identifying, analysing, and differentiating linear and patchy features in the dataset. This step involved calculating geometric and spatial properties that directly influence the final classification thresholds.</p>
+<p>Distance Transform Calculation: A distance transform was calculated and stored for the entire raster. This transform measured the distance from each pixel to the nearest edge or boundary, enabling the computation of feature width and facilitating further operations.</p>
+<section id="erosion-and-dilation" class="level4">
+<h4 class="anchored" data-anchor-id="erosion-and-dilation">Erosion and Dilation:</h4>
+<p>Using the distance threshold defined in the product specification (Table 4), an erosion operation was performed followed by dilation. This sequence removed parts from the raster which are too thin to “survive” the erosion operation and was key to distinguish linear features from patchy ones (refer to Figure 7 for visual representation).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Small_Landscape_Features_2021_ATBD_v1-media/img-8a6063e0e02e043ad13075d7513df038f9458b6e.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">img</figcaption>
+</figure>
+</div>
+<p>Figure 7: An erosion followed by a dilation operation allows to distinguish between linear and patchy features in the raster.</p>
+</section>
+<section id="connected-component-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="connected-component-analysis">Connected Component Analysis</h4>
+<p>OpenCV’s connected component algorithm was applied to the processed raster. The algorithm assigned a unique identifier (ID) to each distinct feature, creating an “index raster” for efficient management of individual components.</p>
+</section>
+<section id="property-calculation-for-each-component" class="level4">
+<h4 class="anchored" data-anchor-id="property-calculation-for-each-component">Property Calculation for Each Component</h4>
+<p>For each connected component (or patch) in the raster, the following properties were calculated:</p>
+<ul>
+<li><p>Width: Using the stored distance transformation, the width was determined as the maximum distance value inside the component. This ensures accurate measurement of feature dimensions.</p></li>
+<li><p>Area Calculation: The area of the feature was calculated by summing the number of pixels within the connected component.</p></li>
+<li><p>Crop Coverage Percentage: The percentage of crop area within each patch was computed by overlaying the crop mask. This value helped assess the interaction of the feature with crop zones.</p></li>
+</ul>
+</section>
+</section>
+<section id="raster-to-vector-conversion-and-vector-property-extraction" class="level3">
+<h3 class="anchored" data-anchor-id="raster-to-vector-conversion-and-vector-property-extraction">Raster to Vector Conversion and Vector Property Extraction</h3>
+<p>The previously identified patches were converted to a Spatialite database for further analysis. In this step, the following operations were performed:</p>
+<ol type="1">
+<li><p>Definition and calculation of the polygon length: For each geometry in the database, the length was approximated by calculating the ratio between area and width.</p></li>
+<li><p>Intermediate classes were defined for each geometry. These classes were:</p></li>
+</ol>
+<ul>
+<li><p>Class 1: Linear features according to the definition</p></li>
+<li><p>Class 2: Patchy features according to the definition</p></li>
+<li><p>Class 3: Patchy Features that were outside of the area threshold</p></li>
+<li><p>Class 4: Crop areas. These were patchy features that had more than 80% crop coverage</p></li>
+<li><p>Class 5: Features that were connected to valid Geometries (Classes 1 and 2) and were not covered by crops (according to the threshold of 80%)</p></li>
+<li><p>Class 6: Features that were connected to valid Geometries (Classes 1 and 2) and were covered by crops (according to the threshold of 80%)</p></li>
+</ul>
+<ol start="3" type="1">
+<li>For the final product, Classes 1, 2 and 5 were extracted from the intermediate product (see Figure 8 below).</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Small_Landscape_Features_2021_ATBD_v1-media/img-78c6559b733a15f780e85ecd2d385526664bf4a7.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">img</figcaption>
+</figure>
+</div>
+<p>Figure 8: Identified polygons in the intermediate product. The image shows an area close to Merano, Italy and demonstrates the identification of agricultural areas.</p>
+</section>
+<section id="filtering-and-feature-re-integration" class="level3">
+<h3 class="anchored" data-anchor-id="filtering-and-feature-re-integration">Filtering and Feature re-integration</h3>
+<p>Ideally, all linear and patchy features should be retained in the final product, as these represent the primary elements of interest. In the previous production, it became clear that the initial ruleset used to distinguish between linear, patchy, and other feature types did not fully capture what is typically understood as linear or patchy features. To address this, an approach was introduced to re-include features that were spatially connected to identified linear or patchy elements. This adjustment led to an output that more closely reflected common expectations and interpretations. In the most recent production, this re-inclusion approach was maintained, and an additional refinement was applied using the agricultural mask. This allowed for the exclusion of features located within crop or plantation areas – such as structured tree plantations – which, while technically tree-covered, are not intended to be part of the final product.</p>
+<p>The final product includes:</p>
+<ul>
+<li><p>All linear and patchy features as identified by the applied ruleset</p></li>
+<li><p>All features that are spatially connected to these, with exceptions for agricultural areas</p></li>
+<li><p>Agricultural areas are defined as features with more than 80% coverage by agriculture, according to the agricultural mask (see chapter 3.3)</p></li>
+</ul>
+</section>
+<section id="final-output-creation" class="level3">
+<h3 class="anchored" data-anchor-id="final-output-creation">Final output creation</h3>
+<p>All remaining features underwent simplification using the Douglas-Peucker algorithm to reduce geometric complexity while preserving essential shapes. These simplified features were then converted back into a raster format. The primary raster product was generated at a 5m resolution, from which a 100m resolution version was created using mean aggregation. Additionally, the final geometries are stored in a Geopackage format for further use.</p>
+<section id="street-tree-layer" class="level4">
+<h4 class="anchored" data-anchor-id="street-tree-layer">Street Tree Layer</h4>
+<p>In progress.</p>
+</section>
+</section>
+<section id="aggregation" class="level3">
+<h3 class="anchored" data-anchor-id="aggregation">Aggregation</h3>
+<p>The 100-meter aggregated product was derived from the 5-meter full-resolution dataset. Pixel values were computed using a mean aggregation method, considering only valid pixels—excluding those with no data or located outside the defined area. Following aggregation, the official 100-meter boundary file was applied to ensure uniform and consistent spatial coverage.</p>
+</section>
+</section>
+<section id="output-products" class="level2">
+<h2 class="anchored" data-anchor-id="output-products">Output products</h2>
+<p>The HRL Small Landscape Features production outputs comprise four main primary status layers, provided in pan-European LAEA projection (EPSG:3035):</p>
+<ul>
+<li><p>Woody Vegetation Layer at 5 m spatial resolution</p></li>
+<li><p>SWF vector</p></li>
+<li><p>SWF raster at 5 m spatial resolution</p></li>
+<li><p>Street Tree Layer vector</p></li>
+</ul>
+<p>Aggregated products (spatial resolution 100m) are also provided:</p>
+<ul>
+<li><p>SWF Density raster at 100 m spatial resolution (in pan-European LAEA)</p></li>
+<li><p>Mosaic of Small Woody Feature Change for the 2018-2021 period at 100 m spatial resolution</p></li>
+</ul>
+<p>Furthermore, other auxiliary layers and reference datasets are provided:</p>
+<ul>
+<li><p>Mosaic of Confidence Layer for WVL at 5 m spatial resolution</p></li>
+<li><p>Parent Scene Identification Layer (PSIL) in vector format</p></li>
+<li><p>Forest Mask 2021 and Crop Mask 2021 at 5m spatial resolution</p></li>
+<li><p>Reference data used for training</p></li>
+<li><p>Reference data used for internal quality control</p></li>
+</ul>
+<p>All layers are distributed in tiles corresponding to 100km LAEA grid cells, with the exception of the PSIL and Reference databases which cover EEA38+UK without being sub-divided.</p>
+</section>
+</section>
+<section id="quality-control-and-production-verification" class="level1">
+<h1>Quality control and production verification</h1>
+<p>The quantitative assessment of the thematic accuracy was based on stratified random samples compared to external datasets. The overall thematic accuracy, user’s accuracy, and producer’s accuracy of SWF product should be at least 80 % with a 95% confidence interval.</p>
+<p>The validity of the classification was evaluated and illustrated in confusion matrices.</p>
+<p>The Product Delivery and Quality Control Report is available to final users together with the data and gives a concise overview of relevant information about the product specifications and quality aspects.</p>
+<p>In addition, the EEA has performed an independent external validation of the final products and written a Validation Report which users also have access to.</p>
+<section id="stratification-and-sampling-design" class="level2">
+<h2 class="anchored" data-anchor-id="stratification-and-sampling-design">Stratification and Sampling Design</h2>
+<p>To ensure as much as possible consistency with previous production, and comparable accuracy figures between reference years, re-use of validation samples from HRL SWF 2018 and HRL SWF 2015 was implemented. The stratification and sampling design can be summarized as a combination of systematic and stratified approaches:</p>
+<ul>
+<li><p>An extended LUCAS grid of 2x2km covering EEA38+UK extent was used as basis, where LUCAS points were selected as Primary Sample Units (PSU)</p></li>
+<li><p>A stratification based on presence/absence of SWF was applied:</p></li>
+</ul>
+<p>o Commission stratum: SWF 100m raster product 1-100%</p>
+<p>o Omission stratum: SWF 100m raster product 0%</p>
+<p>The number of sample units per stratum was defined such as to ensure a sufficient level of precision at reporting level.</p>
+<p>In this approach, a PSU is a 100x100m square snapped to the EEA grid, representing one HRL 1ha product grid cell. Within each PSU, 20 Secondary Sample units (SSU) were randomly distributed. Each SSU correspond to a 5x5m HRL pixel. A weighting factor(p) was applied to each PSU and SSU to take into account the sampling bias introduced by the stratification:</p>
+<p>Where i and j are the columns and rows in the matrix, N is the total number of possible units (population) and π is the sampling intensity for a given stratum.</p>
+<p>The accuracy assessment in the HRL 2021 SWF was executed on two levels: a first assessment at Primary Sampling Unit level (PSU) and a second one at Secondary Sampling Unit level (SSU). The assessment at PSU level provided information about the presence or absence of SWF within the 100 x 100m squares and can directly compared to analysis made for previous production. Secondary Sample Units (SSU) within the PSU complement this information at PSU level documenting the spatial accuracy of the product. This approach was introduced during SWF 2018 production. SSUs are 20 randomly distributed points within each PSU considering a 5 x 5m area (pixel size) for the validation analysis.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Small_Landscape_Features_2021_ATBD_v1-media/img-a9079df225d0f0e930a75fb45cb4dd8fd3583733.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">img</figcaption>
+</figure>
+</div>
+<p>Figure 9: Example of the random distribution of SSUs within a PSU</p>
+<p>This approach of assessing Small Woody Features at PSU and at SSU level has also been used for the selection of PSU to be revisited during the 2021 validation. It can be assumed that a large proportion of woody vegetation remained unchanged in the 3 years’ period from 2018 to 2021, due to the highly stable nature of SWF vegetation cover. Hence the digitized SWF validation information (i.e.&nbsp;SWF that have been assessed, digitized and rasterized) for the year 2018 still remains valid to a large extent, meaning that SWF2018 validation result can agree with the SWF2021 product within a PSU. Where this is the case, no re-interpretation was needed for the reference year 2021. Unstable areas and their respective samples, however, were reinterpreted. The assessment of stability or instability of an area and the subsequent selection of the respective samples to be revisited were based on the rasterized 5m versions of both, the validation information of 2018 and the newly classified product for 2021. It comprised the following steps:</p>
+<ol type="1">
+<li><p>Using the initial sample base from 2018 and removing all PSU with 50% and more forest cover (using the SWF forest mask of 2021)</p></li>
+<li><p>Comparison at PSU level: Comparing the rasterized validation information from 2018 (SWF18_ref) with the SWF 5m product information from 2021 (SWF21_product) within the 100 x 100m square, using a Minimum Mapping Unit (MMU) of 6 pixels, corresponding to a linear element of 30m length and 5m width:</p></li>
+</ol>
+<ul>
+<li><p>if SWF18_ref was &lt; 6 pixels within a PSU = absence of SWF</p></li>
+<li><p>if SWF18_ref was ≥ 6 pixels within a PSU = presence of SWF</p></li>
+<li><p>if SWF21_product was &lt; 6 pixels within a PSU = absence of SWF</p></li>
+<li><p>if SWF21_product was ≥ 6 pixels within a PSU = presence of SWF</p></li>
+</ul>
+<p>If this comparison showed an agreement of SWF18_ref vs.&nbsp;SWF21_product concerning SWF presence/absence characteristic results, this PSU was being flagged as not to be revisited in validation. In case of a disagreement between SWF18_ref vs.&nbsp;SWF21_product concerning SWF presence/absence, this PSU was being flagged as to be revisited in validation.</p>
+<ol start="3" type="1">
+<li>The same information of SWF18_ref and SWF21_product was compared at SSU level referring to all PSUs remaining after step 1. The analysis was pixel-based, any selected pixel/SSU was assessed, and no threshold was used at SSU level:</li>
+</ol>
+<ul>
+<li><p>any pixel of discrepancy between SWF18_ref and SWF21_product at SSU level leads to whole PSU being flagged as to be revisited</p></li>
+<li><p>an agreement between SWF18_ref and SWF21_product at SSU level will lead to whole PSU being flagged as no need to be revisited</p></li>
+</ul>
+<ol start="4" type="1">
+<li>Using the outcomes of the comparison at PSU and at SSU level:</li>
+</ol>
+<ul>
+<li><p>An agreement between the result (=flagging) at PSU and at SSU level concerning “no need to be revisited” lead to whole PSU not to be revisited for validation in 2021since it was considered as a stable PSU and the validation information from 2018 was still valid in 2021.</p></li>
+<li><p>Any disagreement at PSU or at SSU-level or a flagging at both levels as “to be revisited” lead to a revision during the 2021 validation.</p></li>
+</ul>
+</section>
+<section id="response-design" class="level2">
+<h2 class="anchored" data-anchor-id="response-design">Response Design</h2>
+<p>The response design is the protocol used for the retrieval of the land cover/land use reference labels for all sample points and for the definition of agreement between the mapped land cover/use class(es) with the reference label. Given that in-situ data on SWF with spatially, thematically and temporally appropriate ground truth were not consistently available across the EEA38 area, the samples were assessed by trained operators, through visual photointerpretation of each PSU.</p>
+<p>Two types of datasets against which the interpretation will be performed can be distinguished: guiding data and reference data. The guiding data were those used as basis of the production of the Small Woody Features layer. Hence, the available guiding data were:</p>
+<ul>
+<li><p>VHR_IMAGE_2021</p></li>
+<li><p>VHR_IMAGE_2024</p></li>
+</ul>
+<p>The reference data were complementary independent data used to provide more spatial detail and strong landscape context to the assessment. The available reference data were:</p>
+<ul>
+<li><p>Bing maps image / cartography layer</p></li>
+<li><p>Open Street Map (OSM) data</p></li>
+<li><p>Google Earth image / cartography data</p></li>
+<li><p>Further in-situ data, e.g.&nbsp;national and regional VHR (airborne) orthophoto Web Map Services (RGB and/or CIR imagery, with varying spatial resolution) or ancillary data</p></li>
+</ul>
+<p>For the reference interpretation of the SWF product, the SWFs included in each PSU were manually digitized by experienced photointerpreters, using the guiding and reference imagery datasets listed above, fully considering the applicable SWF product specifications (e.g., MMU, MMW, class definitions).</p>
+<p>The result of this manual digitization was then converted to a 5x5 m pixel size raster layer, using the same interpolation/rasterization rules that were used when deriving the SWF 5m raster product from the SWF vector product. This 5m raster layer was used as a reference to validate the HRL SWF product.</p>
+<p>A plausibility approach was performed for which the interpreter, when manually digitizing the SWF inside a PSU, can check the SWF 5m raster value to assess whether it could be considered correct or not, within the frame of accepted product specifications.</p>
+</section>
+<section id="analysis-procedure" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-procedure">Analysis procedure</h2>
+<p>The thematic accuracy level of the HRL SWF product should be at least 80 % in terms of overall thematic accuracy, user’s accuracy, and producer’s accuracy. As last step of the internal validation approach, the analysis procedure consisted of analysing the assessed samples in terms of agreement between the HRL SWF map product and the reference interpretation, in order to provide final conclusions on whether the thematic accuracy of the product has been reached.</p>
+<p>After manual digitization of SWF within the PSUs and rasterization to 5m spatial resolution, a threshold is applied to each 100x100 m² sample unit, assigning it:</p>
+<ul>
+<li><p>to No-SWF, if the number of pixels is &lt;6;</p></li>
+<li><p>to SWF, if the number of pixels is ≥ 6,</p></li>
+</ul>
+<p>in compliance with the minimum mapping area of a linear element of 30m length and 5m width, i.e., 6 pixels of the 5m raster product. Thematic accuracies are presented in the form of an error matrix (or confusion matrix) presenting the samples interpretation versus the map class values for all PSU.</p>
+<p>The Secondary Sample Unit (SSU)-level builds on the PSU level, using the 100 x 100m PSU, in each of which 20 points = SSU per PSU were randomly distributed. The respective SWF layer product value and the SWF validation reference value was then extracted for each SSU, which allowed for creating a confusion matrix presenting the sample interpretation versus the map class values at SSU level. Whereas the PSU matrices illustrates that the presence/absence of SWF within the PSU has been correctly detected, the SSU matrices provides more information on the spatial accuracy of the SWF in order to prove that the woody features were correctly captured.</p>
+<p>Both matrices are presented in the Quality Control Report.</p>
+</section>
+</section>
+<section id="recognized-technical-issues" class="level1">
+<h1>Recognized technical issues</h1>
+<p>Mapping EEA38+UK that encompasses various landscapes presents significant challenges. The diversity in terrain, vegetation, and land use types requires robust algorithms capable of accurately and homogeneously identifying woody vegetation across all the area of interest. Combined with the fact that VHR input data presents its own degree of heterogeneity (multiples sources, spatial resolutions that can compromise the identification of smaller elements, single acquisition, acquisition time), obtaining a homogeneous mapping of woody vegetation and small woody features across EEA38+UK remains a challenge.</p>
+<p>While the applied methodology was tuned to overcome those challenges as much as possible (large dataset of reference data visually inspected, integration of homogeneous Sentinel 2 super-resolution, transfer learning across production units), it is expected that inaccuracies can still exists within the products, depending on the combination of parameters listed before. The expert products (PSIL, WVCL, masks) aim at providing sufficient information for users to accurately assess the reliability of the products over a given area.</p>
+<p>Woody Vegetation Layer is a new product that aims at mapping all woody vegetation (with the exception of vineyards), including isolated trees or permanent crops such as orchards. Depending on the size and coverage density, such trees may be heterogeneously mapped within the WVL and therefore from the HRL SLF 2021 product suite. Small, isolated trees can be missed if their respective crowns are below 5m width (spatial resolution of the WVL).</p>
+<p>Orchards constituted of small and densely planted trees (frequent in western Europe) can also be missing as their spectral and textural signatures on VHR imagery can confuse them with vineyards or other crops. Higher spatial resolution imagery or time-series of VHR may be required to accurately and consistently map those features. Figure 10 below illustrates how the ranks of an apple trees orchard in Belgium (Google Street View capture on the left) appears precisely on a 20cm VHR imagery (Google Earth, centre) and how those features appear smooth and homogeneous on a 2m VHR imagery (right).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Small_Landscape_Features_2021_ATBD_v1-media/img-bfccf0389b09ec6beeb61926de24862e28a43411.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">img</figcaption>
+</figure>
+</div>
+<p>Figure 10: Comparison of densely planted orchards between 20cm imagery and 2m imagery.</p>
+</section>
+<section id="terms-of-use-and-product-technical-support" class="level1">
+<h1>Terms of use and product technical support</h1>
+<section id="terms-of-use" class="level2">
+<h2 class="anchored" data-anchor-id="terms-of-use">Terms of use</h2>
+<p>The Terms of Use for the product(s) described in this document, acknowledge that:</p>
+<p>“Free, full and open access to the products and services of the Copernicus Land Monitoring Service is made on the conditions that:</p>
+<ol type="1">
+<li><p>When distributing or communicating Copernicus Land Monitoring Service products and services (data, software scripts, web services, user and methodological documentation and similar) to the public, users shall inform the public of the source of these products and services and shall acknowledge that the Copernicus Land Monitoring Service products and services were produced “with funding by the European Union”.</p></li>
+<li><p>Where the Copernicus Land Monitoring Service products and services have been adapted or modified by the user, the user shall clearly state this.</p></li>
+<li><p>Users shall make sure not to convey the impression to the public that the user’s activities are officially endorsed by the European Union.</p></li>
+</ol>
+<p>The user has all intellectual property rights to the products he/she has created based on the Copernicus Land Monitoring Service products and services.”1</p>
+<p>##Citation</p>
+<p>When planning to publish a publication (scientific, commercial, etc.), it should be explicitly mentioned:</p>
+<p>“This publication has been prepared using European Union’s Copernicus Land Monitoring Service information; &lt;insert all relevant DOI links here, if applicable&gt;”1</p>
+<p>When developing a product or service using the products or services of the Copernicus Land Monitoring Service, it should explicitly mentioned:</p>
+<p>“Generated using European Union’s Copernicus Land Monitoring Service information; &lt;insert all relevant DOI links here, if applicable&gt;”1</p>
+<p>When redistributing a part of the Copernicus Land Monitoring Service (product, dataset, documentation, picture, web service, etc.), it should explicitly mentioned:</p>
+<p>“European Union’s Copernicus Land Monitoring Service information; &lt;insert all relevant DOI links here, if applicable&gt;”1</p>
+</section>
+<section id="product-technical-support" class="level2">
+<h2 class="anchored" data-anchor-id="product-technical-support">Product technical support</h2>
+<p>Product technical support is provided by the product custodian through Copernicus Land Monitoring Service desk2. Product technical support does not include software specific user support or general GIS or remote sensing support.</p>
+<p>More information on the products can be found on the Copernicus Land Monitoring Service website (https://land.copernicus.eu/)</p>
+</section>
+</section>
+<section id="list-of-abbreviations-acronyms" class="level1">
+<h1>List of abbreviations &amp; acronyms</h1>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Abbreviation</th>
+<th>Name</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ATBD</td>
+<td>Algorithm Theoretical Basis Document</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>AOI</td>
+<td>Area of Interest</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>CAP</td>
+<td>Common Agricultural Policy</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>CLC</td>
+<td>Corine Land Cover</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>CLMS</td>
+<td>Copernicus Land Monitoring Services</td>
+<td>land.copernicus.eu</td>
+</tr>
+<tr class="even">
+<td>COG</td>
+<td>Cloud Optimized Geotiff</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>CTY</td>
+<td>Crop Type</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DOI</td>
+<td>Digital Object Identifier</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>DWH</td>
+<td>Data WareHouse</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>EEA</td>
+<td>European Environment Agency</td>
+<td>www.eea.europa.eu</td>
+</tr>
+<tr class="odd">
+<td>EO</td>
+<td>Earth Observation</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>EPSG</td>
+<td>European Petroleum Survey Group</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ESA</td>
+<td>European Space Agency</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>FAO</td>
+<td>Food and Agriculture Organization</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>FPN</td>
+<td>Feature Pyramid Network</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>FUA</td>
+<td>Functional Urban Areas</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>GIS</td>
+<td>Geographic information system</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>HR</td>
+<td>High Resolution</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>HRL</td>
+<td>High Resolution Layer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>IPCC</td>
+<td>Intergovernmental Panel on Climate Change</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>JRC</td>
+<td>Joint Research Center</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LAEA</td>
+<td>Lambert azimuthal equal-area</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>LC</td>
+<td>Land Cover</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LULC</td>
+<td>Land Use Land Cover</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>MMU</td>
+<td>Minimum Mapping Unit</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>MMW</td>
+<td>Minimum Mapping Width</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NDVI</td>
+<td>Normalized Difference Vegetation Index</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>NUTS</td>
+<td>Nomenclature of territorial units for statistics</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NVLCC</td>
+<td>Non Vegetated Land Cover Characteristics</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>PSIL</td>
+<td>Parent Scene Identification Layer</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>PSU</td>
+<td>Primary Sample Unit</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>PUM</td>
+<td>Product User Manual</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>SCL</td>
+<td>Scene Classification Layer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>SDG</td>
+<td>Sustainable Development Goal</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>SLF</td>
+<td>Small Landscape Features</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>SSU</td>
+<td>Secondary Sample Unit</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>STL</td>
+<td>Street Tree Layer</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>SWF</td>
+<td>Small Woody Feature</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>TCD</td>
+<td>Tree Cover Density</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>UA</td>
+<td>Urban Atlas</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>UK</td>
+<td>United Kingdom</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>UN</td>
+<td>United Nations</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>UTM</td>
+<td>Universal Transverse Mercator</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>VHR</td>
+<td>Very High Resolution</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>VLCC</td>
+<td>Vegetated Land Cover Characteristics</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>WVL</td>
+<td>Woody Vegetation Layer</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<p>Bastani, F., Wolters, P., Gupta, R., Ferdinando, J., &amp; Kembhavi, A. (2023). Satlaspretrain: A large-scale dataset for remote sensing image understanding. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp.&nbsp;16772-16782).</p>
+<p>Chen, D., &amp; Stow, D. (2002). The effect of training strategies on supervised classification at different spatial resolutions. Photogrammetric Engineering and Remote Sensing, 68(11), 1155-1162.</p>
+<p>Metzger, M. J. (2018). The Global Environmental Stratification: A high-resolution bioclimate map of the world. The University of Edinburgh: Edinburgh, UK. https://doi.org/10.7488/ds/2354.</p>
+<p>Ronneberger, O., Fischer, P., &amp; Brox, T. (2015, October). U-net: Convolutional networks for biomedical image segmentation. In International Conference on Medical image computing and computer-assisted intervention (pp.&nbsp;234-241). Cham: Springer international publishing.</p>
+</section>
+<section id="document-history" class="level1">
+<h1>Document history</h1>
+<p>Record of changes made to the document over time after the initial published version, including version numbers, dates of revisions, and a summary of modifications. This table must be only included in the initial ATBD published version and without the personal information.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Date</th>
+<th>Short description of changes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.0</td>
+<td>16.09.2025</td>
+<td>Initial published issue</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
