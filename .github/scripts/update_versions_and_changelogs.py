@@ -263,26 +263,27 @@ def get_last_release_tag():
 def get_changed_files_with_renames(last_tag):
     """
     Get changed files and detect renames.
-    Returns: (changed_files, renames)
+    Returns: (changed_files, renames, new_files)
     """
     if not last_tag:
-        # First release: get all .qmd files
+        # First release: get all .qmd files (treat all as new)
         all_files = []
         for root, dirs, files in os.walk(DOCS_DIR):
             for file in files:
                 if file.endswith(".qmd"):
                     all_files.append(os.path.join(root, file))
-        return all_files, []
+        return all_files, [], all_files
 
     # Use --name-status to detect renames
     cmd = ["git", "diff", "--name-status", last_tag, "HEAD"]
     try:
         output = subprocess.check_output(cmd).decode().strip().splitlines()
     except subprocess.CalledProcessError:
-        return [], []
+        return [], [], []
 
     changed_files = []
     renames = []
+    new_files = []  # Track newly added files
 
     for line in output:
         if not line.strip():
@@ -302,7 +303,14 @@ def get_changed_files_with_renames(last_tag):
                     )
                     changed_files.append(new_path)
 
-        elif status in ["M", "A"]:  # Modified or Added
+        elif status == "A":  # Added (new file)
+            if len(parts) >= 2:
+                filepath = parts[1]
+                if filepath.startswith("DOCS/") and filepath.endswith(".qmd"):
+                    changed_files.append(filepath)
+                    new_files.append(filepath)  # Mark as new
+
+        elif status == "M":  # Modified
             if len(parts) >= 2:
                 filepath = parts[1]
                 if filepath.startswith("DOCS/") and filepath.endswith(".qmd"):
@@ -310,12 +318,13 @@ def get_changed_files_with_renames(last_tag):
 
         # Ignore 'D' (deleted)
 
-    return changed_files, renames
+    return changed_files, renames, new_files
 
 
-def get_git_diff_for_file(filepath, since_tag):
+def get_git_diff_for_file(filepath, since_tag, old_path=None):
     """
     Get git diff for a specific file.
+    For renamed files, pass old_path to get only the actual content changes.
     Returns: diff string, None (no changes), or False (error)
     """
     if not since_tag:
@@ -337,11 +346,43 @@ def get_git_diff_for_file(filepath, since_tag):
 
             if commits:
                 oldest_commit = commits[-1]
-                diff_cmd = ["git", "diff", f"{oldest_commit}^", "HEAD", "--", filepath]
+                if old_path:
+                    diff_cmd = [
+                        "git",
+                        "diff",
+                        "-M",
+                        f"{oldest_commit}^",
+                        "HEAD",
+                        "--",
+                        old_path,
+                        filepath,
+                    ]
+                else:
+                    diff_cmd = [
+                        "git",
+                        "diff",
+                        f"{oldest_commit}^",
+                        "HEAD",
+                        "--",
+                        filepath,
+                    ]
             else:
                 return None
         else:
-            diff_cmd = ["git", "diff", since_tag, "HEAD", "--", filepath]
+            # For renamed files, use -M flag and both paths to detect renames properly
+            if old_path:
+                diff_cmd = [
+                    "git",
+                    "diff",
+                    "-M",
+                    since_tag,
+                    "HEAD",
+                    "--",
+                    old_path,
+                    filepath,
+                ]
+            else:
+                diff_cmd = ["git", "diff", since_tag, "HEAD", "--", filepath]
 
         diff = subprocess.check_output(diff_cmd, stderr=subprocess.PIPE).decode()
 
@@ -459,9 +500,11 @@ def get_current_commit_hash():
     Used to track which commit a version was released in.
     """
     try:
-        commit = subprocess.check_output(
-            ["git", "rev-parse", "--short=12", "HEAD"]
-        ).decode().strip()
+        commit = (
+            subprocess.check_output(["git", "rev-parse", "--short=12", "HEAD"])
+            .decode()
+            .strip()
+        )
         return commit
     except subprocess.CalledProcessError:
         return "unknown"
@@ -470,14 +513,14 @@ def get_current_commit_hash():
 def load_project_file_versions(project_id):
     """Load version history for all files in a project, or create new structure"""
     versions_path = Path(".version-history") / project_id / "versions.json"
-    
+
     if versions_path.exists():
         try:
             with open(versions_path, "r") as f:
                 return json.load(f)
         except Exception as e:
             print(f"[WARNING] Could not load version history for {project_id}: {e}")
-    
+
     # Return empty structure (dict of filepath -> version info)
     return {}
 
@@ -486,12 +529,12 @@ def save_project_file_versions(project_id, versions):
     """Save version history for all files in a project"""
     versions_dir = Path(".version-history") / project_id
     versions_dir.mkdir(parents=True, exist_ok=True)
-    
+
     versions_path = versions_dir / "versions.json"
-    
+
     with open(versions_path, "w") as f:
         json.dump(versions, f, indent=2, sort_keys=True)
-    
+
     print(f"[INFO] Updated versions: .version-history/{project_id}/versions.json")
 
 
@@ -513,17 +556,17 @@ def detect_deleted_files():
     """
     if not os.path.exists(CHANGELOGS_FILE):
         return {}
-    
+
     try:
         with open(CHANGELOGS_FILE, "r") as f:
             changelogs = json.load(f)
     except Exception as e:
         print(f"[WARNING] Could not load changelogs to detect deletions: {e}")
         return {}
-    
+
     current_files = get_all_current_files()
     deleted_files = {}
-    
+
     for filepath in changelogs.keys():
         if filepath not in current_files:
             # File has history but doesn't exist - it was deleted
@@ -532,7 +575,7 @@ def detect_deleted_files():
             if history:
                 last_entry = history[-1]  # Most recent entry
                 deleted_files[filepath] = last_entry.get("version", "unknown")
-    
+
     return deleted_files
 
 
@@ -540,51 +583,50 @@ def update_project_versions():
     """
     Update project version history with new version information.
     Called after versions have been updated in change_logs.json.
-    
+
     Stores version number and release timestamp for each file version.
     """
     if DRY_RUN:
         print("\n[DRY RUN] Would update project version history (skipped)")
         return
-    
+
     print("\n" + "=" * 70)
     print("📦 Updating Project Version History")
     print("=" * 70)
-    
+
     # Load change logs to see what was updated
     if not os.path.exists(CHANGELOGS_FILE):
         print("[WARNING] No change_logs.json found - skipping version history update")
         return
-    
+
     try:
         with open(CHANGELOGS_FILE, "r") as f:
             changelogs = json.load(f)
     except Exception as e:
         print(f"[ERROR] Could not load change_logs.json: {e}")
         return
-    
+
     # Current timestamp in ISO 8601 format
     timestamp = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
-    
+
     # Current commit hash (optional - for tracking)
     commit_hash = get_current_commit_hash()
-    
+
     # Group files by project
     projects_to_update = {}
-    
+
     for filepath, history in changelogs.items():
         project_id = extract_project_id(filepath)
         if not project_id:
             continue
-        
+
         if project_id not in projects_to_update:
             projects_to_update[project_id] = []
-        
-        projects_to_update[project_id].append({
-            "filepath": filepath,
-            "history": history
-        })
-    
+
+        projects_to_update[project_id].append(
+            {"filepath": filepath, "history": history}
+        )
+
     # Detect deletions
     deleted_files = detect_deleted_files()
     if deleted_files:
@@ -595,60 +637,64 @@ def update_project_versions():
             if project_id:
                 if project_id not in projects_to_update:
                     projects_to_update[project_id] = []
-                projects_to_update[project_id].append({
-                    "filepath": filepath,
-                    "history": changelogs.get(filepath, []),
-                    "deleted": True
-                })
-    
+                projects_to_update[project_id].append(
+                    {
+                        "filepath": filepath,
+                        "history": changelogs.get(filepath, []),
+                        "deleted": True,
+                    }
+                )
+
     # Update each project's version history
     updated_count = 0
     for project_id, files in projects_to_update.items():
         print(f"\n📁 Project: {project_id} ({len(files)} file(s))")
-        
+
         versions = load_project_file_versions(project_id)
-        
+
         for file_info in files:
             filepath = file_info["filepath"]
             history = file_info["history"]
             is_deleted = file_info.get("deleted", False)
-            
+
             if not history:
                 continue
-            
+
             # Get latest version from history
             latest_entry = history[-1]
             latest_version = latest_entry.get("version")
-            
+
             if not latest_version:
                 continue
-            
+
             # Initialize file entry if doesn't exist
             if filepath not in versions:
                 versions[filepath] = {
                     "versions": [],
                     "latest": latest_version,
-                    "status": "deleted" if is_deleted else "active"
+                    "status": "deleted" if is_deleted else "active",
                 }
-            
+
             file_versions = versions[filepath]
-            
+
             # Check if this version already exists
-            existing_versions = [v.get("version") for v in file_versions.get("versions", [])]
-            
+            existing_versions = [
+                v.get("version") for v in file_versions.get("versions", [])
+            ]
+
             if latest_version not in existing_versions:
                 # Add new version entry
                 version_entry = {
                     "version": latest_version,
                     "released": timestamp,
-                    "commit": commit_hash
+                    "commit": commit_hash,
                 }
-                
+
                 file_versions["versions"].append(version_entry)
                 file_versions["latest"] = latest_version
-                
+
                 print(f"   ✓ {filepath}: {latest_version} (released {timestamp})")
-            
+
             # Update status for deleted files
             if is_deleted:
                 file_versions["status"] = "deleted"
@@ -658,11 +704,11 @@ def update_project_versions():
                 file_versions["status"] = "active"
                 # Remove deleted_at if file was restored
                 file_versions.pop("deleted_at", None)
-        
+
         # Save updated version history
         save_project_file_versions(project_id, versions)
         updated_count += 1
-    
+
     print("\n" + "=" * 70)
     print(f"✅ Updated {updated_count} project version history file(s)")
     print("=" * 70)
@@ -817,7 +863,9 @@ def create_smart_batches(file_diffs):
 
 def get_combined_prompt(file_list):
     """Return the comprehensive combined prompt for version + changelog"""
-    template_path = os.path.join(os.path.dirname(__file__), "prompt_templates", "prompt_template.txt")
+    template_path = os.path.join(
+        os.path.dirname(__file__), "prompt_templates", "prompt_template.txt"
+    )
     with open(template_path, "r") as f:
         template = f.read()
 
@@ -875,6 +923,14 @@ def process_single_batch(batch_files, batch_num, total_batches):
     print(
         f"[AI] Batch {batch_num}/{total_batches}: Analyzing {len(batch_files)} files ({input_tokens:,} tokens, {batch_size_kb:.2f} KB)"
     )
+
+    # Warn if batch exceeds TPM limit (likely to hit quota errors)
+    if input_tokens > TPM_SAFE:
+        print(
+            f"    ⚠️  WARNING: Batch size ({input_tokens:,} tokens) exceeds safe TPM limit ({TPM_SAFE:,})"
+        )
+        print(f"    This may trigger quota errors")
+        print(f"    Consider setting TESTING_MODE=true for smaller batches")
 
     if TESTING_MODE:
         print(f"    Per-file breakdown:")
@@ -936,6 +992,15 @@ def process_single_batch(batch_files, batch_num, total_batches):
     file_list = list(batch_files.keys())
     prompt = get_combined_prompt(file_list)
 
+    # Log API call attempt
+    print(
+        f"\n📡 Making API request #{rate_limit_state['requests_today'] + 1} (batch {batch_num}/{total_batches})"
+    )
+    print(f"   Input: {input_tokens:,} tokens")
+    print(
+        f"   Current session: {len(rate_limit_state['requests_minute'])} requests in last minute"
+    )
+
     try:
         response = model.generate_content(
             contents=[
@@ -945,6 +1010,9 @@ def process_single_batch(batch_files, batch_num, total_batches):
 
         # Record API request
         record_api_request(input_tokens)
+        print(
+            f"   ✅ API request successful (total today: {rate_limit_state['requests_today']})"
+        )
         result_text = response.text.strip()
 
         if TESTING_MODE:
@@ -1042,30 +1110,94 @@ def analyze_version_bumps_and_changelogs_batch(file_diffs):
     batches = create_smart_batches(file_diffs)
     total_batches = len(batches)
 
+    print(f"\n📦 Split {len(file_diffs)} files into {total_batches} batches")
+    print(f"   Expected API calls: {total_batches} (1 per batch)")
     if total_batches > 1:
-        print(f"\n📦 Split {len(file_diffs)} files into {total_batches} batches")
+        for i, batch in enumerate(batches, 1):
+            batch_tokens = (
+                sum(len(encoding.encode(diff)) for diff in batch.values())
+                if encoding
+                else 0
+            )
+            print(f"   Batch {i}: {len(batch)} files, ~{batch_tokens:,} tokens")
 
     # Process each batch sequentially with retry on incomplete responses
     all_results = {}
+    total_api_calls = 0  # Track total API requests including retries
+
     for i, batch in enumerate(batches, 1):
         max_retries = 2
         retry_count = 0
+        quota_retry_count = 0
+        max_quota_retries = 3  # Limit quota retries to avoid infinite loops
 
         while retry_count <= max_retries:
             try:
                 batch_results = process_single_batch(batch, i, total_batches)
                 all_results.update(batch_results)
+                total_api_calls += 1
+                print(
+                    f"   📊 Batch {i}/{total_batches} complete (total API calls so far: {total_api_calls})"
+                )
                 break  # Success, move to next batch
 
             except Exception as e:
                 error_msg = str(e)
 
+                # Check for quota errors (429) - wait and retry
+                if "429" in error_msg or "quota" in error_msg.lower():
+                    total_api_calls += 1  # Count failed API call
+                    quota_retry_count += 1
+
+                    print(f"\n⚠️  API Call #{total_api_calls} FAILED with 429 error")
+
+                    if quota_retry_count > max_quota_retries:
+                        print(
+                            f"\n❌ Quota retry limit exceeded ({max_quota_retries} attempts)"
+                        )
+                        print(f"   Total API calls made: {total_api_calls}")
+                        print(
+                            f"   The API quota appears to be exhausted for an extended period"
+                        )
+                        print(f"   Please check your quota limits and try again later")
+                        raise
+
+                    print(
+                        f"\n⏸️  API Quota/Rate Limit Hit (attempt {quota_retry_count}/{max_quota_retries})"
+                    )
+                    print(f"   Error: {error_msg[:200]}")
+
+                    # Extract retry delay if available (e.g., "Please retry in 54.448s")
+                    retry_match = re.search(
+                        r"retry.*?(\d+(?:\.\d+)?)\s*s", error_msg, re.IGNORECASE
+                    )
+                    if retry_match:
+                        retry_delay = float(retry_match.group(1))
+                        print(
+                            f"[RATE LIMIT] API says to wait {retry_delay:.1f}s, waiting {retry_delay + 1:.1f}s..."
+                        )
+                        time.sleep(retry_delay + 1)  # Add 1s buffer
+                    else:
+                        # Default wait if no retry delay specified
+                        print(
+                            f"[RATE LIMIT] No retry time specified, waiting 60s to reset quota..."
+                        )
+                        time.sleep(60)
+
+                    # Retry the same batch (don't increment retry_count for quota errors)
+                    print(
+                        f"[RETRY] Retrying batch {i}/{total_batches} after quota reset..."
+                    )
+                    continue
+
                 if "incomplete" in error_msg.lower() and retry_count < max_retries:
+                    total_api_calls += 1  # Count the failed attempt
                     retry_count += 1
                     # Split this batch into smaller sub-batches
                     print(
                         f"\n🔄 Retry {retry_count}/{max_retries}: Splitting batch into smaller sub-batches..."
                     )
+                    print(f"   Total API calls so far: {total_api_calls}")
 
                     batch_items = list(batch.items())
                     mid = len(batch_items) // 2
@@ -1081,31 +1213,24 @@ def analyze_version_bumps_and_changelogs_batch(file_diffs):
                     print(f"   Sub-batch 1: {len(sub_batch1)} files")
                     print(f"   Sub-batch 2: {len(sub_batch2)} files")
 
-                    # Process sub-batches
-                    try:
-                        result1 = process_single_batch(
-                            sub_batch1, f"{i}a", total_batches
-                        )
-                        result2 = process_single_batch(
-                            sub_batch2, f"{i}b", total_batches
-                        )
-                        all_results.update(result1)
-                        all_results.update(result2)
-                        break  # Success
-                    except Exception as sub_e:
-                        if retry_count == max_retries:
-                            print(f"\n❌ All retries exhausted for batch {i}")
-                            raise
-                        else:
-                            print(
-                                f"\n⚠️  Sub-batch split failed, will retry with even smaller batches..."
-                            )
-                            continue
+                    # Process sub-batches (recursively if needed)
+                    result1 = process_single_batch(sub_batch1, f"{i}a", total_batches)
+                    result2 = process_single_batch(sub_batch2, f"{i}b", total_batches)
+                    total_api_calls += 2  # Count the two sub-batch calls
+                    all_results.update(result1)
+                    all_results.update(result2)
+                    break  # Success - don't retry the original batch
+
                 else:
                     # Different error or out of retries
                     raise
 
     print(f"\n✅ All batches completed: {len(all_results)} files analyzed")
+    print(f"📊 Total API calls made: {total_api_calls} (expected: {total_batches})")
+    if total_api_calls > total_batches:
+        print(
+            f"   ⚠️  Made {total_api_calls - total_batches} extra calls due to retries/errors"
+        )
     return all_results
 
 
@@ -1240,10 +1365,10 @@ def initialize_first_release(all_files):
 
     save_versions_metadata(versions_metadata)
     save_changelogs_for_injection(changelog_entries)
-    
+
     # Update project version history for restore feature
     update_project_versions()
-    
+
     print(f"✅ First release initialization complete: {len(all_files)} files")
 
 
@@ -1260,7 +1385,7 @@ def main():
 
     last_tag = get_last_release_tag()
 
-    changed_files, renames = get_changed_files_with_renames(last_tag)
+    changed_files, renames, new_files = get_changed_files_with_renames(last_tag)
 
     # Handle first release - only if no tags AND no existing version data
     versions_metadata = load_versions_metadata()
@@ -1269,6 +1394,9 @@ def main():
         return
 
     print(f"[INFO] Found {len(changed_files)} changed .qmd files since {last_tag}")
+
+    if new_files:
+        print(f"[INFO] Detected {len(new_files)} new file(s) - will skip LLM analysis")
 
     if renames:
         print(f"\n📝 Detected {len(renames)} file rename(s)")
@@ -1290,11 +1418,38 @@ def main():
     if renames:
         migrate_rename_metadata(renames, versions_metadata)
 
-    # Prepare batch analysis
+    # Handle new files first (no LLM analysis needed)
+    new_file_versions = {}
+    today = datetime.now().strftime("%Y-%m-%d")
+
+    for filepath in new_files:
+        filename = os.path.basename(filepath)
+        try:
+            major_version = extract_major_version(filename)
+            initial_version = f"{major_version}.0.0"
+
+            new_file_versions[filepath] = {
+                "version": initial_version,
+                "reason": "New file added to repository",
+                "changelog": "Initial release",
+            }
+
+            print(f"[NEW FILE] {filepath} → {initial_version}")
+        except ValueError as e:
+            print(f"[ERROR] {filepath}: {e}")
+            continue
+
+    # Prepare batch analysis for MODIFIED files only (exclude new files)
     file_diffs = {}
     file_info = {}
 
+    # Create a lookup dict for renamed files
+    rename_lookup = {r["new"]: r["old"] for r in renames}
+
     for filepath in changed_files:
+        # Skip new files - they're already handled
+        if filepath in new_files:
+            continue
         # Use full path with DOCS/ everywhere - no normalization
         filename = os.path.basename(filepath)
 
@@ -1304,7 +1459,9 @@ def main():
             print(f"[ERROR] {filepath}: {e}")
             continue
 
-        diff = get_git_diff_for_file(filepath, last_tag)
+        # For renamed files, pass the old path to get proper diff
+        old_path = rename_lookup.get(filepath)
+        diff = get_git_diff_for_file(filepath, last_tag, old_path=old_path)
 
         if diff is False:
             print(f"[SKIP] {filepath}: Git error, cannot analyze")
@@ -1326,15 +1483,22 @@ def main():
             ),
         }
 
-    if not file_diffs:
+    if not file_diffs and not new_file_versions:
         print("\n✅ No valid files to process")
         return
 
-    print(f"\n📊 Analyzing {len(file_diffs)} files for version bumps & changelogs...")
-    bump_decisions = analyze_version_bumps_and_changelogs_batch(file_diffs)
+    # Analyze modified files with LLM (skip if no modified files)
+    bump_decisions = {}
+    if file_diffs:
+        print(
+            f"\n📊 Analyzing {len(file_diffs)} modified files for version bumps & changelogs..."
+        )
+        bump_decisions = analyze_version_bumps_and_changelogs_batch(file_diffs)
+
+    # Merge new file decisions with LLM decisions
+    all_decisions = {**new_file_versions, **bump_decisions}
 
     # Process each file
-    today = datetime.now().strftime("%Y-%m-%d")  # YYYY-MM-DD format
     current_tag = last_tag or "initial"
     changelog_entries = {}  # Collect changelog entries for change_logs.json
 
@@ -1342,6 +1506,44 @@ def main():
     print("📝 Applying version and changelog updates:")
     print("=" * 70)
 
+    # Process new files first
+    for filepath, decision in new_file_versions.items():
+        filename = os.path.basename(filepath)
+        try:
+            major_version = extract_major_version(filename)
+        except ValueError:
+            continue
+
+        new_version = decision["version"]
+
+        # Prepare changelog entry
+        changelog_entry = {
+            "version": new_version,
+            "date": today,
+            "summary": decision["changelog"],
+        }
+        changelog_entries[filepath] = changelog_entry
+
+        versions_metadata[filepath] = {
+            "current_version": new_version,
+            "major_from_filename": major_version,
+            "last_updated": today,
+            "last_release_tag": current_tag,
+            "last_bump": "initial",
+            "last_bump_reason": decision["reason"],
+            "last_changelog": decision["changelog"],
+        }
+
+        # Update .qmd file
+        update_qmd_version_only(filepath, new_version)
+
+        # Log the change
+        print(f"\n  📄 {filepath}")
+        print(f"     Version: NEW → {new_version} (INITIAL)")
+        print(f"     Reason: {decision['reason']}")
+        print(f"     Changelog: {decision['changelog']}")
+
+    # Process modified files with LLM analysis
     for filepath in file_diffs.keys():
         info = file_info[filepath]
 
@@ -1414,12 +1616,17 @@ def main():
     if not DRY_RUN:
         save_versions_metadata(versions_metadata)
         save_changelogs_for_injection(changelog_entries)
-        
+
         # Update project version history for restore feature
         update_project_versions()
 
+    total_files = len(new_file_versions) + len(file_diffs)
     print("\n" + "=" * 70)
-    print(f"✅ Version & changelog update complete: {len(file_diffs)} files processed")
+    print(f"✅ Version & changelog update complete: {total_files} files processed")
+    if new_file_versions:
+        print(f"   • {len(new_file_versions)} new files initialized")
+    if file_diffs:
+        print(f"   • {len(file_diffs)} modified files analyzed with LLM")
     print("=" * 70)
 
     # Show rate limit summary

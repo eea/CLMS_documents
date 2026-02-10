@@ -188,7 +188,7 @@ def create_smart_batches(files_to_process):
     batches = []
     current_batch = {}
     current_tokens = 0
-    PROMPT_OVERHEAD = 2000  # Overhead for prompt template
+    PROMPT_OVERHEAD = 5000  # Increased overhead for prompt template + formatting
 
     for filepath, contents, tokens in file_tokens:
         batch_is_full = len(current_batch) >= MAX_FILES_PER_BATCH
@@ -256,26 +256,27 @@ def process_batch_with_llm(batch_files):
     # Build the prompt
     prompt = get_prompt_for_files(file_list)
 
-    # Build the content parts: prompt + all file contents
-    parts = [{"text": prompt}]
+    # Build the content as a single text string (more efficient than inline_data)
+    batch_input = prompt + "\n\n"
     for filepath, contents in batch_files.items():
-        parts.append({"text": f"\n\n### File: {filepath.name}\n\n"})
-        parts.append(
-            {
-                "inline_data": {
-                    "mime_type": "text/plain",
-                    "data": contents.encode("utf-8"),
-                }
-            }
-        )
+        batch_input += f"\n\n### File: {filepath.name}\n\n{contents}\n\n"
 
-    # Send to Gemini
+    # Log API call
+    print(f"   Making API request #{rate_limit_state['requests_today'] + 1}")
+    print(f"   Input: {total_input_tokens:,} tokens")
+
+    # Send to Gemini as single text part (more efficient)
     try:
-        response = model.generate_content(contents=[{"role": "user", "parts": parts}])
+        response = model.generate_content(
+            contents=[{"role": "user", "parts": [{"text": batch_input}]}]
+        )
 
         # Record successful API usage
         record_api_request(total_input_tokens)
         total_tokens_sent += total_input_tokens
+        print(
+            f" API request successful (total today: {rate_limit_state['requests_today']})"
+        )
 
         raw_text = response.text.strip()
 
@@ -496,13 +497,25 @@ if __name__ == "__main__":
     if files_to_process:
         batches = create_smart_batches(files_to_process)
         print(f"Created {len(batches)} batch(es)")
+        print(f"Expected API calls: {len(batches)} (1 per batch)")
+
+        total_api_calls = 0  # Track total API requests including retries
 
         # Process each batch with retry logic
         for batch_idx, batch_files in enumerate(batches, 1):
             print(f"\n=== Processing batch {batch_idx}/{len(batches)} ===")
+            initial_request_count = rate_limit_state["requests_today"]
 
             # Process the batch with automatic retry/split on failure
             batch_results = process_batch_with_retry(batch_files)
+
+            # Count how many API calls this batch actually made (including retries)
+            batch_api_calls = rate_limit_state["requests_today"] - initial_request_count
+            total_api_calls += batch_api_calls
+
+            print(
+                f"📊 Batch {batch_idx}/{len(batches)} complete ({batch_api_calls} API call(s), total so far: {total_api_calls})"
+            )
 
             if not batch_results:
                 print(
@@ -521,6 +534,13 @@ if __name__ == "__main__":
                 }
                 save_cached_result(cache_path, cache)
                 print(f"  ✓ Saved result for {filepath.name}")
+
+        # Summary of API usage
+        print(f"\n Total API calls made: {total_api_calls} (expected: {len(batches)})")
+        if total_api_calls > len(batches):
+            print(
+                f"   Made {total_api_calls - len(batches)} extra calls due to retries/splits"
+            )
 
     # Apply all results (both newly processed and cached) to .qmd files
     print("\n=== Updating .qmd files ===")
