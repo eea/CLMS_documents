@@ -1,0 +1,20 @@
+name: Emit Subtree Publish Event
+
+on:
+  push:
+    branches:
+      - "publish-*"
+
+jobs:
+  emit_subtree_publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Merge Workflow via Dispatch
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          event-type: subtree-published
+          client-payload: |
+            {
+              "branch": "${{ github.ref_name }}"
+            }
