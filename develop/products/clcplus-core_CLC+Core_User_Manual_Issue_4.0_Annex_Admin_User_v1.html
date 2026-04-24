@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="European Environment Agency (EEA)">
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="keywords" content="{keywords_str}">
+<meta name="description" content="Product DESCRIPTION">
+
+<title>CLC+ Core User Manual Annex – Technical Library</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a33dec4ef9448a4b0b223d24a302813a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "Search ...",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "CLC+ Core User Manual Annex",
+    "description": "Product DESCRIPTION",
+    "datePublished": "December 22, 2023",
+    "author": {
+      "@type": "Person",
+      "name": "European Environment Agency (EEA)"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Copernicus Land Monitoring Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
+      }
+    },
+    "keywords": "{keywords_str}",
+    "articleSection": "General",
+    "isAccessibleForFree": "true",
+    "license": "",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": "article p"
+    }
+  }
+</script>
+
+
+<link rel="stylesheet" href="../_meta/theme/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Technical Library</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Index</h2>
+   
+  <ul>
+  <li><a href="#admin-user-only" id="toc-admin-user-only" class="nav-link active" data-scroll-target="#admin-user-only"><span class="header-section-number">1</span> Admin User only</a>
+  <ul class="collapse">
+  <li><a href="#organisations" id="toc-organisations" class="nav-link" data-scroll-target="#organisations"><span class="header-section-number">1.1</span> Organisations</a></li>
+  <li><a href="#users" id="toc-users" class="nav-link" data-scroll-target="#users"><span class="header-section-number">1.2</span> Users</a>
+  <ul class="collapse">
+  <li><a href="#user-profile" id="toc-user-profile" class="nav-link" data-scroll-target="#user-profile"><span class="header-section-number">1.2.1</span> User Profile</a></li>
+  <li><a href="#user-profile-view" id="toc-user-profile-view" class="nav-link" data-scroll-target="#user-profile-view"><span class="header-section-number">1.2.2</span> User Profile View</a></li>
+  <li><a href="#edit-user-profile" id="toc-edit-user-profile" class="nav-link" data-scroll-target="#edit-user-profile"><span class="header-section-number">1.2.3</span> Edit User Profile</a></li>
+  </ul></li>
+  <li><a href="#add-upload-new-eagle-ontology" id="toc-add-upload-new-eagle-ontology" class="nav-link" data-scroll-target="#add-upload-new-eagle-ontology"><span class="header-section-number">1.3</span> Add / upload new EAGLE Ontology</a></li>
+  <li><a href="#approval-eagle-barcoding" id="toc-approval-eagle-barcoding" class="nav-link" data-scroll-target="#approval-eagle-barcoding"><span class="header-section-number">1.4</span> Approval EAGLE barcoding</a></li>
+  </ul></li>
+  <li><a href="#list-of-abbreviations" id="toc-list-of-abbreviations" class="nav-link" data-scroll-target="#list-of-abbreviations"><span class="header-section-number">2</span> List of abbreviations</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+<div class="logo-header">
+  <img src="../assets/copernicus-logo.svg" class="nav-logo">
+  <img src="../assets/lms_logo.svg" class="nav-logo">
+</div>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">CLC+ Core User Manual Annex</h1>
+<p class="subtitle lead">CLC+ Core production and provision of complementary consultancy</p>
+</div>
+
+<div>
+  <div class="description">
+    Product DESCRIPTION
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page-left">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>European Environment Agency (EEA) </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>{keywords_str}</p>
+  </div>
+</div>
+
+</header>
+
+
+<p><br>
+<strong>Contact:</strong></p>
+<div data-custom-style="LeftAlign">
+<p>European Environment Agency (EEA)<br>
+Kongens Nytorv 6<br>
+1050 Copenhagen K<br>
+Denmark<br>
+<a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
+</div>
+<p>Date: 2023-12-21</p>
+<p>Doc. Version&nbsp;: Issue 4.0</p>
+<p>Content ID: /</p>
+<p><strong>Document Control Information</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 79%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Document Title</th>
+<th style="text-align: left;">CLC+ Core User Guideline</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Project Title</td>
+<td style="text-align: left;">CLC+ Core production and provision of complementary consultancy services</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Document Author</td>
+<td style="text-align: left;">Thomas Mathis (Cloudflight), Tanja Gasber (GeoVille), Amelie Lindmayer (GAF)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Project Owner</td>
+<td style="text-align: left;">Tobias Langanke (EEA)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Project Manager</td>
+<td style="text-align: left;">Tobias Langanke (EEA)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Document Code</td>
+<td style="text-align: left;">/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Document Version</td>
+<td style="text-align: left;">Issue 4.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Distribution</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Date</td>
+<td style="text-align: left;">2023-12-20</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Document Approver(s) and Reviewer(s):</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 21%">
+<col style="width: 23%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Role</th>
+<th style="text-align: left;">Action</th>
+<th style="text-align: left;">Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tim Wiltzius (CLF)</td>
+<td style="text-align: left;">Reviewer</td>
+<td style="text-align: left;">Document review</td>
+<td style="text-align: left;">2023-12-20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Johannes Vass (CLF)</td>
+<td style="text-align: left;">Reviewer</td>
+<td style="text-align: left;">Document review</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Document history</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 21%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Revision</th>
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Created by</th>
+<th style="text-align: left;">Short description of changes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">2022-04-08</td>
+<td style="text-align: left;">CLC+ Core consortium (CLF, GV, GAF)</td>
+<td style="text-align: left;">Initial document creation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.0</td>
+<td style="text-align: left;">2022-06-10</td>
+<td style="text-align: left;">CLC+ Core consortium (CLF, GV, GAF)</td>
+<td style="text-align: left;">Restructure of entire document, extension of Extraction chapter and Admin User section</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.0</td>
+<td style="text-align: left;">2023-06-06</td>
+<td style="text-align: left;">CLC+ Core consortium (CLF, GV, GAF)</td>
+<td style="text-align: left;">Adaption of rule 3 in the current version of the CLC+ Core system</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.0</td>
+<td style="text-align: left;">2023-12-22</td>
+<td style="text-align: left;">CLC+ Core consortium (CLF, GV, GAF)</td>
+<td style="text-align: left;">Update of the entire document with all newly implemented features and improvements of the system (within SC8)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Applicable Documents (AD)</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 95%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>ID</strong></th>
+<th style="text-align: left;"><strong>Document Name / Content</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AD01</td>
+<td style="text-align: left;">Tender Specifications – EEA/DIS/R0/20/019 – Copernicus Land Monitoring Service – Production of the CLC+ Core and Provision of Complementary Consultancy Services</td>
+</tr>
+<tr class="even">
+<td>AD02</td>
+<td style="text-align: left;">Consortium’s Technical Proposal – in response to Call for tenders EEA/DIS/R0/20/019 – CLC+CORE Technical Proposal - v2.0</td>
+</tr>
+<tr class="odd">
+<td>AD03</td>
+<td style="text-align: left;">Specific Contract No 3436/R0-COPERNICUS/EEA.58286</td>
+</tr>
+<tr class="even">
+<td>AD04</td>
+<td style="text-align: left;">Minutes of the KOM (CLC+Core_KOM_Minutes.docx)</td>
+</tr>
+<tr class="odd">
+<td>AD05</td>
+<td style="text-align: left;">PM1 - Project Management and Governance Plan (CLC+Core_Deliverable_PM1_Project_Management_Plan_V1.0.pdf)</td>
+</tr>
+<tr class="even">
+<td>AD06</td>
+<td style="text-align: left;"><p>Implementation of CLC+ based on the EAGLE concept –Additional support for further development of CLC+</p>
+<p>databases (CLC+ and CLC+ instances, namely CLC+ LULUCF instance and CLC+ Legacy instance) - Task 4: From CLC+ Core to CLC+ Legacy - 3436/R0-Copernicus/EEA.57755</p></td>
+</tr>
+<tr class="odd">
+<td>AD07</td>
+<td style="text-align: left;">PM2 - 1st Project Management and Status Report (CLC+Core_Deliverable_PM2_1st-Project-Management-Status-Report_V1.0.pdf)</td>
+</tr>
+<tr class="even">
+<td>AD08</td>
+<td style="text-align: left;">CLC+ Core Decision Log_V1.4 (CLC+Core_Decision_log_V1.4.pdf)</td>
+</tr>
+<tr class="odd">
+<td>AD09</td>
+<td style="text-align: left;">D1 - Software Design (CLC+Core_D1_Software _Design_V1.0.pdf)</td>
+</tr>
+<tr class="even">
+<td>AD10</td>
+<td style="text-align: left;">D3.2.1 - Demonstration and documentation of ingested CLMS datasets, under this Service Contract (CLC+Core_Deliverable_D3.2.1_Demonstration-and-documentation-of-ingested-CLMS-datasets_V01.pdf)</td>
+</tr>
+<tr class="odd">
+<td>AD11</td>
+<td style="text-align: left;">D3.1 - Documentation of deployment of CLC+ Core products to DIAS – cloud service (CLC+Core_Deliverable_D3.1_Documentation of deployment of CLC+ Core products to DIAS_V1.0.pdf)</td>
+</tr>
+<tr class="even">
+<td>AD12</td>
+<td style="text-align: left;">LULUCF_classes_simplified_EAGLE_query_rules_20210325.xlsx (Provided by EAGLE Group)</td>
+</tr>
+<tr class="odd">
+<td>AD13</td>
+<td style="text-align: left;">Specific contract no 3506_R0-COPERNCA_EEA.59433</td>
+</tr>
+</tbody>
+</table>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"","height":"2.222916666666667in","url":"clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image6.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"2.7680555555555557in","url":"clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image7.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"1.1444444444444444in","url":"clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image8.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.827777777777778in","url":"clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image10.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"2.23125in","url":"clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image11.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"1.7979166666666666in","url":"clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image12.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"2.9841885389326333in","url":"clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image13.png","width":"6.0178619860017495in"},{"@type":"ImageObject","caption":"","height":"3.8361111111111112in","url":"clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image14.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.1902777777777778in","url":"clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image15.png","width":"6.925in"}]}
+</script>
+<section id="admin-user-only" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Admin User only</h1>
+<p>In this section information is given which is relevant for <strong>Admin Users only</strong>. This mainly concerns the categories Organisations and Users, where the Admin User has additional rights compared to a normal System User. An important task given to the admin user is the possibility to upload a new EAGLE ontology into the system.</p>
+<section id="organisations" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="organisations"><span class="header-section-number">1.1</span> Organisations</h2>
+<p>This navigation menu tab provides an overview of the registered <strong>Organisations</strong> of the CLC+ Core system.</p>
+<p>Organisations are taken over by default from EIONET on your first login to CLC+ Core. Organisations play an important role when you define the visibility of your Ingestion or Extraction for publishing it. The visibility can be limited to users from your organisations only or for the country of the selected Organisation. Further, the Admin User has rights to add or remove Organisations (see <a href="#_Ref153959302">Figure 6‑1</a>).</p>
+<p>As an <strong>Admin User</strong> your account has certain authorizations, i.e.&nbsp;you are able to add new Organisations.</p>
+<p>Search function, to <strong>search for an organisation</strong> within the system.</p>
+<p><img src="./clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image6.png" style="width:6.925in;height:2.22292in"></p>
+<p><span id="_Ref153959302" class="anchor"></span><strong>Figure 6‑1: Menu item – Organisations</strong></p>
+</section>
+<section id="users" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="users"><span class="header-section-number">1.2</span> Users</h2>
+<p>This navigation menu tab provides an overview of the registered User of the CLC+ Core system.</p>
+<p>Users are taken over by default from EIONET on your first login to CLC+ Core. Depending on your role assigned, you have more or less rights. The Admin User has rights to add or remove Users from the system or change their status. To open your Profile, click on your name (see <a href="#_Ref153959323">Figure 6‑2</a>). Now you will be forwarded to the Profile view (section 1.5.1 in User Manual).</p>
+<p>As an Admin User your account has certain authorizations, i.e.&nbsp;you are able to add new Users.</p>
+<p>Further, you have the possibility to <strong>search for a User.</strong></p>
+<p><img src="./clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image7.png" style="width:6.925in;height:2.76806in"></p>
+<p><span id="_Ref153959323" class="anchor"></span><strong>Figure 6‑2: Menu item – Users.</strong></p>
+<section id="user-profile" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="user-profile"><span class="header-section-number">1.2.1</span> User Profile</h3>
+<p>To open the <strong>User Profile</strong> you can either click on the User Profile Icon in the Header, which opens a context menu with the actions ‘My Profile’ and ‘Logout’ (<a href="#_Ref153959344">Figure 6‑3</a>) or in the Users tab by clicking on your name (<a href="#_Ref153959344">Figure 6‑3</a>). You will then be forwarded to the Profile view.</p>
+<p><img src="./clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image8.png" style="width:6.925in;height:1.14444in"></p>
+<p><span id="_Ref153959344" class="anchor"></span><strong>Figure 6‑3: User Profile – Actions.</strong></p>
+</section>
+<section id="user-profile-view" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="user-profile-view"><span class="header-section-number">1.2.2</span> User Profile View</h3>
+<p>When you click on the context menu action ‘My Profile’ of the User Profile Icon you will find yourself within the User Profile view. Thus, a profile can only be changed by a person with the role ‘User Administration / support’. Within your Profile you can see several information (see <a href="#_Ref153959381">Figure 6‑4</a>) such as:</p>
+<p><strong>General Information:</strong> In this area the most important information from your user profile is shown which is username, first and last name, which organisation you are part of and your current status. The EIONET button guides you to the <a href="https://www.eionet.europa.eu/login?came_from=/directory/user%3Fuid%3Dclccore">Eionet Portal</a>.</p>
+<p><strong>Roles:</strong> In this area it is displayed what roles are assigned to you. Roles define what you as a user are allowed to do within the CLC+ Core system from a functional point of view. Typically, roles are for only Users which administer the application.</p>
+<p>As an Admin User can deactivated by a person with the role ‘User Administration / support’. “Inactive” Users do not have access to the application.</p>
+<p><img src="./clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image10.png" style="width:6.925in;height:3.82778in"></p>
+<p><span id="_Ref153959381" class="anchor"></span><strong>Figure 6‑4: View User Profile (User Administrator).</strong></p>
+</section>
+<section id="edit-user-profile" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="edit-user-profile"><span class="header-section-number">1.2.3</span> Edit User Profile</h3>
+<p>Editing your profile will only affect / edit the user profile in the CLC+ Core system and not the EIONET account. <strong>General:</strong> Changing your first- and last name and the organisation can only be done by a person with the role ‘User Administration / support’.</p>
+<p><strong>Roles</strong> can only be changed by a person with the role ‘User Administration / support’.</p>
+<p>By clicking on ‘Save’ your entered information will be saved. If you do not want to save the changed information, then you have the possibility to click on ‘Cancel’ (see <a href="#_Ref153959405">Figure 6‑5</a>).</p>
+<p><img src="./clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image11.png" style="width:6.925in;height:2.23125in"></p>
+<p><span id="_Ref153959405" class="anchor"></span><strong>Figure 6‑5: Edit User Profile.</strong></p>
+</section>
+</section>
+<section id="add-upload-new-eagle-ontology" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="add-upload-new-eagle-ontology"><span class="header-section-number">1.3</span> Add / upload new EAGLE Ontology</h2>
+<p>In the “<strong>Add new version</strong>” dialog a call is made to the EIONET data dictionary. This feature is for expert user only. The dictionary is immediately compared to the previous version and differences will be updated. For example, as in the figure below, there are no differences, which is why you get this view (<a href="#_Ref99095063">Figure 6‑6</a>).</p>
+<p>By clicking on the <strong>EIONET Data Dictionary</strong> link you will be redirected to the EIONET data dictionary. Data Dictionary<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> holds definitions of datasets, tables and data elements (see <a href="#_Ref153959430">Figure 6‑7</a>). Each of these three levels is defined by a set of attributes, the core set of which corresponds to ISO 11179 standard for describing data elements. The whole attribute set is flexible, and attributes can be added / removed from/to the system.</p>
+<p><img src="./clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image12.png" style="width:6.925in;height:1.79792in"></p>
+<p><span id="_Ref99095063" class="anchor"></span><strong>Figure 6‑6: Add new EAGLE Ontology Version.</strong></p>
+<p><img src="./clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image13.png" style="width:6.01786in;height:2.98419in"></p>
+<p><span id="_Ref153959430" class="anchor"></span><strong>Figure 6‑7: EIONET data dictionary.</strong></p>
+<p>Once a new EAGLE ontology version is published all users get a notification (see section 1.7.3 in User Manual).</p>
+</section>
+<section id="approval-eagle-barcoding" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="approval-eagle-barcoding"><span class="header-section-number">1.4</span> Approval EAGLE barcoding</h2>
+<p>The EAGLE barcoding of an Ingestion can be approved for being <strong>EAGLE compliant</strong> by any user with the additional role of being an “EAGLE Maintainer/Approver”. When opening an Ingestion, the button “Approve EAGLE Compliance” can only by seen by users with that role (see <a href="#_Ref153959461">Figure 6‑8</a>). The User gets notified once the EAGLE barcoding for the Ingestion is approved by an EAGLE Maintainer.</p>
+<p><img src="./clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image14.png" style="width:6.925in;height:3.83611in"></p>
+<p><span id="_Ref153959461" class="anchor"></span><strong>Figure 6‑8:Approval of EAGLE compliance for an Ingestion.</strong></p>
+<p>The Ingestion gets than a quality stamp in the Data Catalogue (first column) and when opening the Ingestion next to the status. Please note that for now it is only planned to go through the approval process for the CLMS products.</p>
+<p>The <strong>EAGLE approval</strong> for an Ingestion can also be revoked again by the EAGLE Maintainer (see <a href="#_Ref153959479">Figure 6‑9</a>). Each approval change is saved and displayed in the history of an Ingestion.</p>
+<p><img src="./clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1-media/image15.png" style="width:6.925in;height:3.19028in"></p>
+<p><span id="_Ref153959479" class="anchor"></span><strong>Figure 6‑9:Approval and possibility to revoke the EAGLE approval again.</strong></p>
+</section>
+</section>
+<section id="list-of-abbreviations" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> List of abbreviations</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Abbreviation</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>ADs</strong></td>
+<td style="text-align: left;">Applicable Documents</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>AI</strong></td>
+<td style="text-align: left;">Action Item</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>API</strong></td>
+<td style="text-align: left;">Application Programming Interface</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>CLC</strong></td>
+<td style="text-align: left;">CORINE Land Cover</td>
+<td style="text-align: left;"><a href="https://land.copernicus.eu/en/products/corine-land-cover" class="uri">https://land.copernicus.eu/en/products/corine-land-cover</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>CLC+</strong></td>
+<td style="text-align: left;">CORINE Land Cover +</td>
+<td style="text-align: left;"><a href="https://land.copernicus.eu/en/products/clc-a-new-generation-land-information-system-for-europe" class="uri">https://land.copernicus.eu/en/products/clc-a-new-generation-land-information-system-for-europe</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>CLMS</strong></td>
+<td style="text-align: left;">Copernicus Land Monitoring Service</td>
+<td style="text-align: left;"><a href="https://land.copernicus.eu/en" class="uri">https://land.copernicus.eu/en</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>COG</strong></td>
+<td style="text-align: left;">Cloud-optimized GIF</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>CORINE</strong></td>
+<td style="text-align: left;">Coordination of information on the environment</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>CZ</strong></td>
+<td style="text-align: left;">Coastal Zones</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>DB</strong></td>
+<td style="text-align: left;">Database</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>DIAS</strong></td>
+<td style="text-align: left;">Copernicus Data and Information Access Services</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>EAGLE</strong></td>
+<td style="text-align: left;">Eionet Action Group on Land monitoring in Europe</td>
+<td style="text-align: left;"><a href="https://land.copernicus.eu/en/eagle" class="uri">https://land.copernicus.eu/en/eagle</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>EC</strong></td>
+<td style="text-align: left;">European Commission</td>
+<td style="text-align: left;"><a href="https://commission.europa.eu/" class="uri">https://commission.europa.eu/</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>EEA</strong></td>
+<td style="text-align: left;">European Environment Agency</td>
+<td style="text-align: left;"><a href="https://www.eea.europa.eu" class="uri">https://www.eea.europa.eu</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>EEA39</strong></td>
+<td style="text-align: left;">The 33 member and 6 cooperating countries of the EEA</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>EEA38+UK</strong></td>
+<td style="text-align: left;">The 32 member and 6 cooperating countries of the EEA + United Kingdom</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>EO</strong></td>
+<td style="text-align: left;">Earth Observation</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ESA</strong></td>
+<td style="text-align: left;">European Space Agency</td>
+<td style="text-align: left;"><a href="https://www.esa.int" class="uri">https://www.esa.int</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>ETC</strong></td>
+<td style="text-align: left;">European Topic Centre</td>
+<td style="text-align: left;"><a href="https://www.eionet.europa.eu/etcs" class="uri">https://www.eionet.europa.eu/etcs</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>EU</strong></td>
+<td style="text-align: left;">European Union</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>EU27</strong></td>
+<td style="text-align: left;">The 27 Member States of the European Union</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>FM</strong></td>
+<td style="text-align: left;">Final Meeting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>FWC</strong></td>
+<td style="text-align: left;">Framework Contract</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>GDAL</strong></td>
+<td style="text-align: left;">Geospatial Data Abstraction Library</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>GDB</strong></td>
+<td style="text-align: left;">Geodatabase</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>GIO</strong></td>
+<td style="text-align: left;">GMES Initial Operations</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>GPKG</strong></td>
+<td style="text-align: left;">GeoPackage</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>HDF5</strong></td>
+<td style="text-align: left;">Hierarchical Data Format</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>HRL / HRLs</strong></td>
+<td style="text-align: left;">High Resolution Layer / High Resolution Layers</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>IaaS</strong></td>
+<td style="text-align: left;">Infrastructure-as-a-Service</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>ID</strong></td>
+<td style="text-align: left;">Identification Number</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>INSPIRE</strong></td>
+<td style="text-align: left;">Infrastructure for Spatial Information in Europe</td>
+<td style="text-align: left;"><a href="https://knowledge-base.inspire.ec.europa.eu/index_en" class="uri">https://knowledge-base.inspire.ec.europa.eu/index_en</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>ISO</strong></td>
+<td style="text-align: left;">International Organisation for Standardization</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ITT</strong></td>
+<td style="text-align: left;">Invitation to Tender</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>JDBC</strong></td>
+<td style="text-align: left;">Java Database Connectivity</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>JWT</strong></td>
+<td style="text-align: left;">JSON Web Token</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>KOM</strong></td>
+<td style="text-align: left;">Kick-Off Meeting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>LC</strong></td>
+<td style="text-align: left;">Land Cover</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>LCC</strong></td>
+<td style="text-align: left;">Land Cover Component</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>LCH</strong></td>
+<td style="text-align: left;">Land Characteristics</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>LC/LU</strong></td>
+<td style="text-align: left;">Land Cover / Land Use</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>LCC</strong></td>
+<td style="text-align: left;">Land Cover Component</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>LU</strong></td>
+<td style="text-align: left;">Land Use</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>LUA</strong></td>
+<td style="text-align: left;">Land Use Attribute</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>LULUCF</strong></td>
+<td style="text-align: left;">Land Use, Land Use Change and Forestry</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>LYR</strong></td>
+<td style="text-align: left;">ArcGIS Layer File</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>MMU</strong></td>
+<td style="text-align: left;">Minimum Mapping Unit</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>MS</strong></td>
+<td style="text-align: left;">Member States</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>NFRs</strong></td>
+<td style="text-align: left;">Non-Functional-Requirements</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>NRC</strong></td>
+<td style="text-align: left;">National Reference Centre</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>NUTS</strong></td>
+<td style="text-align: left;">Nomenclature of Territorial Units for Statistics</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>N2K</strong></td>
+<td style="text-align: left;">Natura 2000</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>OBDC</strong></td>
+<td style="text-align: left;">Open Database Connectivity</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>PDF</strong></td>
+<td style="text-align: left;">Portable Document Format</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>PM</strong></td>
+<td style="text-align: left;">Progress Meeting</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>PMP</strong></td>
+<td style="text-align: left;">Project Management Plan</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>PoC</strong></td>
+<td style="text-align: left;">Proof of Concept</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>QA</strong></td>
+<td style="text-align: left;">Quality Assurance</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>QC</strong></td>
+<td style="text-align: left;">Quality Control</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>QM</strong></td>
+<td style="text-align: left;">Quality Management</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>QML</strong></td>
+<td style="text-align: left;">QGIS Style file</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>REST</strong></td>
+<td style="text-align: left;">Representational State Transfer</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>RZ</strong></td>
+<td style="text-align: left;">Riparian Zones</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>SC</strong></td>
+<td style="text-align: left;">Specific Contract</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>SHP</strong></td>
+<td style="text-align: left;">ESRI Shapefile</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>SLD</strong></td>
+<td style="text-align: left;">Styled Layer Descriptor</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>SQL</strong></td>
+<td style="text-align: left;">Structured Query Language</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>UA</strong></td>
+<td style="text-align: left;">Urban Atlas</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>UI</strong></td>
+<td style="text-align: left;">User Interface</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>URI</strong></td>
+<td style="text-align: left;">Uniform Resource Identifier</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>URL</strong></td>
+<td style="text-align: left;">Uniform Resource Locator</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>UUID</strong></td>
+<td style="text-align: left;">Universally Unique Identifier</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>VM</strong></td>
+<td style="text-align: left;">Virtual Machine</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>WBS</strong></td>
+<td style="text-align: left;">Work Breakdown Structure</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>WEkEO</strong></td>
+<td style="text-align: left;">Copernicus DIAS reference service for environmental data, virtual environments for data processing</td>
+<td style="text-align: left;"><a href="https://www.wekeo.eu/" class="uri">https://www.wekeo.eu/</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>WP</strong></td>
+<td style="text-align: left;">Work Package</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>ZIP</strong></td>
+<td style="text-align: left;">ZIP Format</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://dd.eionet.europa.eu/documentation/doc1" class="uri">https://dd.eionet.europa.eu/documentation/doc1</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/library\.land\.copernicus\.eu");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2025 EEA. All rights reserved.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
