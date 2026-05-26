@@ -1,21 +1,28 @@
-name: Release
+name: Semantic Release
 
+# Fires after deploy-docs finishes on main, so version-history and LLM-cache
+# commits are already on the branch when semantic-release looks at it.
+# (deploy-docs bot commits use [skip ci], so push triggers don't chain back
+# here on their own.)
 on:
-  push:
-    branches:
-      - test
-      - main
+  workflow_run:
+    workflows: ["Build and Deploy Documentation"]
+    types: [completed]
+    branches: [main]
 
 jobs:
   release:
+    # Skip if the deploy failed — don't tag a release from a broken build.
+    if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source (release target)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.event.workflow_run.head_branch }}
 
-      - name: Perform release [${{ github.ref_name }}]
+      - name: Perform release [${{ github.event.workflow_run.head_branch }}]
         uses: cycjimmy/semantic-release-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

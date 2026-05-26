@@ -1,4 +1,4 @@
-name: Deploy Documentation
+name: Build and Deploy Documentation
 
 on:
   push:
@@ -6,16 +6,23 @@ on:
       - develop
       - test
       - main
-  workflow_dispatch:  # Allow manual triggers from GitHub UI
+  workflow_dispatch:  # manual trigger from Actions UI
+
+# Two runs on the same branch would race on the cache + doc-map commit-back
+# and on the gh-pages deploy. Queue rather than cancel — killing a run
+# mid-write can leave the cache half-updated.
+concurrency:
+  group: deploy-docs-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   deploy_docs:
-    name: Build and Deploy Docs [${{ github.ref_name }}]
+    name: Build and Deploy Docs
     runs-on: ubuntu-latest
 
     container:
-      image: mckeea/quarto-doc-builder:latest
-
+      # Pinned (May 2026).
+        image: mckeea/quarto-doc-builder:1.0.2
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -35,15 +42,6 @@ jobs:
           echo "Modified .qmd files:"
           cat modified_docs_list.txt
 
-      - name: Generate intros and keywords
-        uses: addnab/docker-run-action@v3
-        with:
-          image: mckeea/llm-doc-annotator:latest
-          options: -e GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} -v ${{ github.workspace }}:/app
-          run: python .github/scripts/generate_intros_and_keywords.py modified_docs_list.txt
-
-
-
       - name: Set up git user for commits
         run: |
           git config user.name "GitHub Actions"
@@ -60,15 +58,35 @@ jobs:
             echo "✅ Production branch - normal execution"
           fi
 
-      - name: Update versions and changelogs (test/main only)
-        if: github.ref_name == 'test' || github.ref_name == 'main' || startsWith(github.ref, 'refs/heads/test-')
-        uses: addnab/docker-run-action@v3
-        with:
-          image: mckeea/llm-doc-annotator:latest
-          options: -e GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} -e DRY_RUN=${{ steps.test_mode.outputs.dry_run }} -v ${{ github.workspace }}:/app
-          run: |
-            git config --global --add safe.directory /app
-            python .github/scripts/update_versions_and_changelogs.py
+      # Runs directly in the job container (quarto-doc-builder now carries
+      # google-genai + tiktoken). safe.directory was already set above.
+      - name: Update intros, keywords, versions & changelogs
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          DRY_RUN: ${{ steps.test_mode.outputs.dry_run }}
+        run: |
+          DRY_RUN_FLAG=""
+          if [[ "$DRY_RUN" == "true" ]]; then DRY_RUN_FLAG="--dry-run"; fi
+          # --versions only on main (real release work) and test-* (dry-run pipeline tests).
+          # develop and test skip it: develop never bumps versions, and test has no
+          # release tags to compare against since we made releases main-only.
+          if [[ "${{ github.ref_name }}" == "main" || "${{ github.ref }}" == refs/heads/test-* ]]; then
+            python .github/scripts/ai/update_documentation.py --intros modified_docs_list.txt --versions $DRY_RUN_FLAG
+          else
+            python .github/scripts/ai/update_documentation.py --intros modified_docs_list.txt $DRY_RUN_FLAG
+          fi
+
+      - name: Describe images (develop only — cache propagates to test/main)
+        if: github.ref_name == 'develop'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          # Generates Gemini vision descriptions for all images under
+          # DOCS/*/*-media/. The script is content-addressable (cache key =
+          # md5 of image bytes), so existing entries are skipped — only new
+          # or changed images hit the API. Cache lands in .llm_cache/images/
+          # and is committed back in the next step alongside the intros cache.
+          python .github/scripts/ai/describe_images.py
 
       - name: Commit updated LLM cache and version history
         if: steps.test_mode.outputs.dry_run == 'false'
@@ -83,9 +101,7 @@ jobs:
           fi
 
       - name: Build Docs
-        run: .github/scripts/build-docs.sh
-        env:
-          SKIP_DOCX: ${{ github.ref_name != 'develop' && '1' || '' }}
+        run: .github/scripts/build/build-docs.sh
 
       - name: Commit updated non-browsable doc map
         run: |

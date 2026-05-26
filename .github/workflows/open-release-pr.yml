@@ -1,0 +1,167 @@
+name: Open Release PR
+
+# Opens a test -> main PR. Triggered manually from the Actions tab.
+# Run only after deploy-docs has finished on test.
+#
+# release_type drives the semver bump on main — it's the only place that does.
+# Maps to a conventional-commit prefix on the PR title (and the merge commit):
+#   patch     -> fix(docs):    -> patch bump
+#   minor     -> feat(docs):   -> minor bump
+#   major     -> feat(docs)!:  -> major bump (+ BREAKING CHANGE in body)
+#   republish -> chore(docs):  -> no bump, no new tag
+#
+# Default is republish so a stray Run-workflow click can't bump the version.
+# If you picked wrong, edit the title in the GitHub UI before approving —
+# auto-merge reads the title at merge time, not the input.
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: 'Release type — drives the semver bump on main'
+        required: true
+        default: 'republish'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - republish
+
+jobs:
+  open_pr:
+    name: Open test -> main PR
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Guard — ensure deploy-docs is not still running on test
+        run: |
+          echo "Checking whether deploy-docs is currently running on test..."
+          running=$(gh run list \
+            --workflow="deploy-docs.yml" \
+            --branch=test \
+            --status=in_progress \
+            --json databaseId \
+            --jq 'length')
+          if [[ "$running" -gt 0 ]]; then
+            echo "⚠️  'Build and Deploy Documentation' is still running on test."
+            echo "   Wait for it to finish before opening a release PR."
+            exit 1
+          fi
+          echo "✅ No active deploy-docs run on test."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check for existing PR
+        id: check
+        run: |
+          existing=$(gh pr list \
+            --base main \
+            --head test \
+            --state open \
+            --json number,url \
+            --jq '.[0]')
+
+          if [[ -n "$existing" ]]; then
+            url=$(echo "$existing" | jq -r '.url')
+            number=$(echo "$existing" | jq -r '.number')
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "url=$url" >> $GITHUB_OUTPUT
+            echo "number=$number" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Report existing PR
+        if: steps.check.outputs.exists == 'true'
+        run: |
+          echo "✅ A release PR already exists: ${{ steps.check.outputs.url }}"
+          echo "   Nothing to do — go approve PR #${{ steps.check.outputs.number }} when you're ready."
+
+      - name: Check test is ahead of main
+        if: steps.check.outputs.exists == 'false'
+        id: diff_check
+        run: |
+          git fetch origin test main
+          ahead=$(git rev-list --count origin/main..origin/test)
+          echo "ahead=$ahead" >> $GITHUB_OUTPUT
+          echo "test is $ahead commit(s) ahead of main"
+
+      - name: Abort if nothing to release
+        if: steps.check.outputs.exists == 'false' && steps.diff_check.outputs.ahead == '0'
+        run: |
+          echo "⚠️  test has no new commits ahead of main. Nothing to release."
+          exit 1
+
+      - name: Open PR
+        if: steps.check.outputs.exists == 'false' && steps.diff_check.outputs.ahead != '0'
+        run: |
+          today=$(date +%Y-%m-%d)
+          release_type="${{ inputs.release_type }}"
+
+          # Map release_type -> conventional-commit title. auto-merge passes
+          # this title to the merge commit via --subject, and semantic-release
+          # reads subject + body to pick the bump.
+          case "$release_type" in
+            patch)
+              title="fix(docs): release ${today}"
+              type_section="**Bump:** patch (\`fix\`) — bug fix or content correction only."
+              breaking_section=""
+              ;;
+            minor)
+              title="feat(docs): release ${today}"
+              type_section="**Bump:** minor (\`feat\`) — new content or features, no breaking changes."
+              breaking_section=""
+              ;;
+            major)
+              title="feat(docs)!: release ${today}"
+              type_section="**Bump:** major (\`feat!\` + \`BREAKING CHANGE\`) — contains breaking changes."
+              breaking_section=$(printf '%s\n' \
+                '' \
+                '### ⚠️ Breaking change' \
+                '' \
+                '<!-- Fill in below. The literal `BREAKING CHANGE:` marker must survive into the merged commit body — semantic-release looks for it to bump major. -->' \
+                '' \
+                'BREAKING CHANGE: (edit before approving — what changed, how to migrate)')
+              ;;
+            republish)
+              title="chore(docs): release ${today}"
+              type_section="**Bump:** none (\`chore\`) — re-deploy without bumping the version. No new tag will be created."
+              breaking_section=""
+              ;;
+            *)
+              echo "❌ Unknown release_type: $release_type"
+              exit 1
+              ;;
+          esac
+
+          body=$(printf '%s\n' \
+            "## Release: ${release_type} (${today})" \
+            '' \
+            'test -> main for production.' \
+            '' \
+            "$type_section" \
+            '' \
+            '- Review the diff below.' \
+            '- Approve to auto-merge.' \
+            '- After merge, semantic-release tags a new version on main (skipped for `republish`).' \
+            "$breaking_section")
+
+          url=$(gh pr create \
+            --base main \
+            --head test \
+            --title "$title" \
+            --body "$body")
+          echo "🚀 Release PR opened ($release_type): $url"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

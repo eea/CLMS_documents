@@ -1,0 +1,44 @@
+name: Validate QMD Frontmatter
+
+# Schema check on .qmd source files — catches missing required fields and
+# bad values pre-merge. Unknown fields are fine; the build pipeline strips
+# them (see build/strip_unknown_frontmatter.py). No auto-fix step on
+# purpose: silent mutations during merge are confusing. Authors fix locally
+# before push.
+
+on:
+  pull_request:
+    branches:
+      - test
+      - main
+    paths:
+      - 'DOCS/**/*.qmd'
+
+  push:
+    branches:
+      - develop
+    paths:
+      - 'DOCS/**/*.qmd'
+
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Validate .qmd frontmatter
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install pyyaml
+        run: pip install --quiet pyyaml
+
+      - name: Validate frontmatter
+        run: python .github/scripts/validate_qmd_files.py
