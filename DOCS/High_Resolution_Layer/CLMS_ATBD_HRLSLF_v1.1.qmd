@@ -1,14 +1,13 @@
 ---
-title: "High Resolution Layer Small Landscape Features 2021 – Algorithm Theoretical Basis Document (ATBD)"
-subtitle: "Copernicus Land Monitoring Service"
-date: "2025-11-20"
-version: 1.1
-
 category: products
-
+date: '2025-11-20'
+subtitle: Copernicus Land Monitoring Service
+title: High Resolution Layer Small Landscape Features 2021 – Algorithm Theoretical
+  Basis Document (ATBD)
 toc: true
-toc-title: "Content"
 toc-depth: 3
+toc-title: Content
+version: 1.1
 ---
 
 # Executive summary
@@ -60,7 +59,7 @@ The present section describes in detail the methodology applied for the producti
 Table 1: Overview table of methodology
 
 |Category Title|Description/Details|
-|--|--|
+|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 |Retrieval Methodology|Deep Learning Convolutional Neural Network|
 |Input Data|Sentinel-2 (S2A, S2B), Level-2ª (processing baseline 05.11), retrieved via ESA Copernicus Open Access HubVHR_IMAGE_2021 retrieved via ESA Data WareHouse (DWH)|
 |Ancillary Data|CLMS SWF2018; CLMS HRL VLCC 2021; CLMS Urban Atlas 2021; Meta Global Canopy Height|
@@ -78,7 +77,7 @@ Table 1: Overview table of methodology
 
   3. Post-processing: application of geometric rules and integration to derive final layers.
 
-![HRL SLF 2021 workflow](CLMS_ATBD_HRLSLF_v1.1-media/img-19af4590dd266c8c9cb96e9eebf8f88e30ed117f.png){#fig-figure1}
+![HRL SLF 2021 workflow](CLMS_ATBD_HRLSLF_v1.1-media/img-19af4590dd266c8c9cb96e9eebf8f88e30ed117f.png){width="6.27in" #fig-figure1}
 
 ## Source data
 
@@ -109,7 +108,7 @@ Several ancillary datasets were used to collect landcover information for the re
 Table 2: Ancillary datasets used for HRL SLF production
 
 |Source|Use|Reference|
-|--|--|--|
+|---------------------------------------------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------|
 |CLMS SWF 2018|Training|[https://land.copernicus.eu/](https://land.copernicus.eu/)|
 |CLMS VLCC TCD 2021|Training + masking|[https://land.copernicus.eu/](https://land.copernicus.eu/)|
 |CLMS VLCC CTY 2021|Masking|[https://land.copernicus.eu/](https://land.copernicus.eu/)|
@@ -210,7 +209,7 @@ All classes within the VLCC CTY product that signify agricultural usage were inc
 
 The Urban Mask is an essential component of the workflow as it defines the extent of the STL  product. It was derived from the UA LULC 2021 product and consists of urban areas (class 1)  with the exclusion of road and railway networks connecting cities and villages. To do so, urban  areas without including roads were selected first and converted to a raster format aligned with  EEA grid. Subsequently, a dilation followed by an erosion allowed to fill-in roads areas within  dense urban. Finaly, the urban mask is converted back to vector format. Illustrations below  present those different steps over a subset of Vienna FUA: on top, Urban Atlas 2021 LULC layer  (red: urban areas (code level 1 : “1”), grey: non-urban areas). On centre, selection of urban areas  without transportation network. On bottom, final urban mask used as area of interest for STL  production.
 
-![Urban Mask production steps](CLMS_ATBD_HRLSLF_v1.1-media/img-f1a2f36404cd309a9239b2a29b76a6fc4622a636.png){#fig-figure2}
+![Urban Mask production steps](CLMS_ATBD_HRLSLF_v1.1-media/img-f1a2f36404cd309a9239b2a29b76a6fc4622a636.png){width="4.73in" #fig-figure2}
 
 #### Reference Database
 
@@ -228,9 +227,9 @@ Therefore, a sufficiently high number of reference samples (10 000) were selecte
 
 This thematic information was first extracted from ancillary datasets (HRL SWF 2018, HRL TCD 2021, CLC+BB 2021, Global Canopy Height Map), and was then visually assessed and corrected using VHR_IMAGE_2021 as guiding reference imagery to ensure consistency between reference dataset and EO dataset.
 
-![External dataset used for Reference Database sampling stratification](CLMS_ATBD_HRLSLF_v1.1-media/img-cdea45cb195629a1bdac80dbd5adc2aab5f6a896.png){#fig-figure3}
+![External dataset used for Reference Database sampling stratification](CLMS_ATBD_HRLSLF_v1.1-media/img-cdea45cb195629a1bdac80dbd5adc2aab5f6a896.png){width="5.81in" #fig-figure3}
 
-![Reference Database samples distribution](CLMS_ATBD_HRLSLF_v1.1-media/img-0aeffbc120bdc6740e4085604ad2c7f3d15b624c.png){#fig-figure4}
+![Reference Database samples distribution](CLMS_ATBD_HRLSLF_v1.1-media/img-0aeffbc120bdc6740e4085604ad2c7f3d15b624c.png){width="6.27in" #fig-figure4}
 
 Each sample in the vector reference database was:
 
@@ -242,7 +241,7 @@ Each sample in the vector reference database was:
 
 An example of a reference database sample is illustrated in @fig-figure5 below. One the left, the  initial vector result of visual and manual enhancement. On the right, the rasterized version ready  to be ingested in the training process.
 
-![Reference database patch example](CLMS_ATBD_HRLSLF_v1.1-media/img-7f7921a5b76c664e0971072cce1e96907da340a1.png){#fig-figure5}
+![Reference database patch example](CLMS_ATBD_HRLSLF_v1.1-media/img-7f7921a5b76c664e0971072cce1e96907da340a1.png){width="5.34in" #fig-figure5}
 
 ### Intermediate outputs
 
@@ -263,7 +262,7 @@ The key layers generated from the Sentinel-2 preprocessing that directly serve a
 Table 3: Parameters for S2 time series analysis
 
 |Parameter Name|Bands|Total number of layers|
-|--|--|--|
+|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------|-----------------------------------------|
 |20th percentile|B02, B03, B04, B05, B06, B07, B08, B8A, B11, B12|10|
 |90th percentile|NDVI|1|
 |3rd order Fourier Series coefficients|NDVI|7|
@@ -280,7 +279,7 @@ Pre-processing generated a dataset of 8-bit images in COG format, in 1 band, rep
 
 Classification using VHR data was based on the SatlasPretrain Foundation Model (Bastani et al, 2023). The model was pretrained on Satlaspretrain dataset, which is a large-scale pre-training dataset for remote sensing image understanding. The SatlasPretrain model consists of three main components: backbone, Feature Pyramid Network (FPN), and prediction head that allow to classify an image into a thematic information.
 
-![Model architecture of SATLASNET. Separate heads can be used to predict outputs of different formats or different thematic nature (source: Bastani et al, 2023)](CLMS_ATBD_HRLSLF_v1.1-media/img-6359dfdbf09c541f640c3720b6a554f4f2bf2223.png){#fig-figure6}
+![Model architecture of SATLASNET. Separate heads can be used to predict outputs of different formats or different thematic nature (source: Bastani et al, 2023)](CLMS_ATBD_HRLSLF_v1.1-media/img-6359dfdbf09c541f640c3720b6a554f4f2bf2223.png){width="6.27in" #fig-figure6}
 
 Of the components shown in @fig-figure6, the backbone + FPN of the aerial pre-trained model (0.5-2m/px high-res imagery, Single-image, RGB) were used as a basis to take advantage of the pre-trained model, then the segmentation prediction head was attached and fine-tuned to woody vegetation detection using the reference database.
 
@@ -306,7 +305,7 @@ The classification using Sentinel-2 data leveraged a modified U-Net architecture
 
 In a standard U-Net framework, the classification output matches the resolution of the highest  input, yielding results at 10m resolution. However, the U-Net architecture has an advanced capability: it can be trained to produce outputs at finer resolutions, a process known as "super resolution." This approach is similar to state-of-the-art upscaling methods and has been successfully used to generate high-resolution delineations of tree lines and even single trees (see @fig-figure7 below).
 
-![U-NET super resolution prediction at 5m. Single trees visible on VHR data (left) are  also visible in the prediction from Sentinel 2 imagery (right)](CLMS_ATBD_HRLSLF_v1.1-media/img-01b50e5d324407691b81fab81cbccc1fefddbb48.png){#fig-figure7}
+![U-NET super resolution prediction at 5m. Single trees visible on VHR data (left) are  also visible in the prediction from Sentinel 2 imagery (right)](CLMS_ATBD_HRLSLF_v1.1-media/img-01b50e5d324407691b81fab81cbccc1fefddbb48.png){width="6.27in" #fig-figure7}
 
 For the SWF production, this technique was adapted to directly predict woody vegetation  probabilities at resolutions of 5m. This refinement facilitated a seamless comparison of maps  generated from both VHR and Sentinel-2 datasets during the merging process.
 
@@ -341,7 +340,7 @@ The primary goal of these steps was to derive properties that are needed for the
 Table 4: Geometric specifications of SWF
 
 ||Linear Structures|Patchy Structures|
-|--|--|--|
+|----------------------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------------------|
 |**Width**|<= 30m|n/a|
 |**Length**|>= 30m|n/a|
 |**Area**|n/a|200m² <= area <= 5000m²|
@@ -359,7 +358,7 @@ Raster Property Extraction was the foundational step for identifying, analysing,
 
 **Erosion and Dilation**: Table 4 @fig-figure8 Using the width threshold defined in the product specification (Table 4), an  erosion operation was performed (using half the with) followed by dilation. This sequence  removed parts from the raster which are too thin to “survive” the erosion operation and was key to distinguish linear features from patchy ones (refer to @fig-figure7 for visual representation).  This distinction is done by overlaying the processed raster with the original input which allowed for the classification of each pixel into linear and patchy feature candidates.
 
-![An erosion followed by a dilation operation allows to distinguish between linear and patchy features in the raster](CLMS_ATBD_HRLSLF_v1.1-media/img-aa134eba6cce3b395453b7fc397b281b18a661be.png){#fig-figure8}
+![An erosion followed by a dilation operation allows to distinguish between linear and patchy features in the raster](CLMS_ATBD_HRLSLF_v1.1-media/img-aa134eba6cce3b395453b7fc397b281b18a661be.png){width="6.21in" #fig-figure8}
 
 **Connected Component Analysis**
 
@@ -397,7 +396,7 @@ The previously identified patches were converted to a Spatialite database for fu
 
   3. For the final product, Classes 1, 2 and 5 were extracted from the intermediate product (see @fig-figure9 below).
 
-![Identified polygons in the intermediate product. The image shows an area close to Merano, Italy and demonstrates the identification of agricultural areas.](CLMS_ATBD_HRLSLF_v1.1-media/img-767c0ee584714b1b05aa33bef49f66b0a83d5175.png){#fig-figure9}
+![Identified polygons in the intermediate product. The image shows an area close to Merano, Italy and demonstrates the identification of agricultural areas.](CLMS_ATBD_HRLSLF_v1.1-media/img-767c0ee584714b1b05aa33bef49f66b0a83d5175.png){width="6.27in" #fig-figure9}
 
 ### Filtering and Feature re-integration
 
@@ -505,7 +504,7 @@ Where i and j are the columns and rows in the matrix, *N* is the total number of
 
 The accuracy assessment in the HRL 2021 SWF was executed on two levels: a first assessment  at Primary Sampling Unit level (PSU) and a second one at Secondary Sampling Unit level (SSU).  The assessment at PSU level provided information about the presence or absence of SWF within  the 100 x 100m squares and can directly compared to analysis made for previous production.  Secondary Sample Units (SSU) within the PSU complement this information at PSU level  documenting the spatial accuracy of the product. This approach was introduced during SWF  2018 production. SSUs are 20 randomly distributed points within each PSU considering a 5 x 5m  area (pixel size) for the validation analysis. 
 
-![Example of the random distribution of SSUs within a PSU](CLMS_ATBD_HRLSLF_v1.1-media/img-a9079df225d0f0e930a75fb45cb4dd8fd3583733.png){#fig-figure10}
+![Example of the random distribution of SSUs within a PSU](CLMS_ATBD_HRLSLF_v1.1-media/img-a9079df225d0f0e930a75fb45cb4dd8fd3583733.png){width="2.63in" #fig-figure10}
 
 This approach of assessing Small Woody Features at PSU and at SSU level has also been used for  the selection of PSU to be revisited during the 2021 validation. It can be assumed that a large  proportion of woody vegetation remained unchanged in the 3 years’ period from 2018 to 2021,  due to the highly stable nature of SWF vegetation cover. Hence the digitized SWF validation  information (i.e. SWF that have been assessed, digitized and rasterized) for the year 2018 still  remains valid to a large extent, meaning that SWF2018 validation result can agree with the  SWF2021 product within a PSU. Where this is the case, no re-interpretation was needed for the  reference year 2021. Unstable areas and their respective samples, however, were reinterpreted. The assessment of stability or instability of an area and the subsequent selection of  the respective samples to be revisited were based on the rasterized 5m versions of both, the  validation information of 2018 and the newly classified product for 2021. It comprised the  following steps: 
 
@@ -587,7 +586,7 @@ Woody Vegetation Layer is a new product that aims at mapping all woody vegetatio
 
 Orchards constituted of small and densely planted trees (frequent in western Europe) can also  be missing as their spectral and textural signatures on VHR imagery can confuse them with  vineyards or other crops. Higher spatial resolution imagery or time-series of VHR may be  required to accurately and consistently map those features. @fig-figure11 below illustrates how the  ranks of an apple trees orchard in Belgium (Google Street View capture on the left) appears  precisely on a 20cm VHR imagery (Google Earth, centre) and how those features appear smooth  and homogeneous on a 2m VHR imagery (right).
 
-![Comparison of densely planted orchards between 20cm imagery and 2m imagery](CLMS_ATBD_HRLSLF_v1.1-media/img-744ae8fbb0a096ed9cbb611f481a8d6d01051dc6.png){#fig-figure11}
+![Comparison of densely planted orchards between 20cm imagery and 2m imagery](CLMS_ATBD_HRLSLF_v1.1-media/img-744ae8fbb0a096ed9cbb611f481a8d6d01051dc6.png){width="6.27in" #fig-figure11}
 
 # Terms of use and product technical support
 
@@ -632,7 +631,7 @@ More information on the products can be found on the Copernicus Land Monitoring 
 # List of abbreviations & acronyms
 
 |Abbreviation|Name|Reference|
-|--|--|--|
+|-----------------------------------|---------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 |ATBD|Algorithm Theoretical Basis Document||
 |AOI|Area of Interest||
 |CAP|Common Agricultural Policy||
@@ -694,6 +693,6 @@ More information on the products can be found on the Copernicus Land Monitoring 
 # Document history
 
 |Version|Date|Short description of changes|
-|--|--|--|
+|-----------------------------------|-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 |1.0|16.09.2025|Initial published issue|
 |1.1|20.11.2025|Addition of STL related sections|

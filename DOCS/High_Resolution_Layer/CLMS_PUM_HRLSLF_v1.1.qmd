@@ -1,14 +1,12 @@
 ---
-title: "High Resolution Layer Small Landscape Features 2021 – Product User Manual (PUM)"
-subtitle: "Copernicus Land Monitoring Service"
-date: "2025-11-04"
-version: 1.1
-
 category: products
-
+date: '2025-11-04'
+subtitle: Copernicus Land Monitoring Service
+title: High Resolution Layer Small Landscape Features 2021 – Product User Manual (PUM)
 toc: true
-toc-title: "Content"
 toc-depth: 3
+toc-title: Content
+version: 1.1
 ---
 
 # Non-technical summary
@@ -100,7 +98,7 @@ The product suite ensure continuity with previous production by including existi
 Table 1:  SWF key features through the years
 
 | Product reference year | 2015 | 2018 | 2021 |
-|------------------|------------------|------------------|------------------|
+|-----------------------------------------------------------|---------------------------------|------------------------------------------------------|------------------------------------------------------|
 | New Key Features(unless stated otherwise, key features from previous reference years apply to current product) | \- Initial release <br> - Derived from VHR analysis <br> - Contains SWF and AWF | \- AWF and SWF are merged in one unique class of SWF <br> - Introduction of WVM <br> - Introduction of Change Layer 100m <br> - Forest Mask included in product suite | \- WVM is replaced by WVL <br> - STL is now part of SLF suite <br> - Introduction of Crop Mask <br> - Sentinel-2 introduced as input data together with VHR |
 
 # User requirements
@@ -167,7 +165,7 @@ The Common Agricultural Policy (CAP) comprises 9 key objectives for the period 2
 
 [^3]: [https://ec.europa.eu/info/sites/default/files/food-farming-fisheries/key_policies/documents/cap-specific-objectives-brief-6-biodiversity_en.pdf](https://ec.europa.eu/info/sites/default/files/food-farming-fisheries/key_policies/documents/cap-specific-objectives-brief-6-biodiversity_en.pdf)
 
-![Share of agricultural area (AA) covered with woody landscape features at different NUTS levels based on SWF 2015](CLMS_PUM_HRLSLF_v1.1-media/figure1.png){#fig-figure1}
+![Share of agricultural area (AA) covered with woody landscape features at different NUTS levels based on SWF 2015](CLMS_PUM_HRLSLF_v1.1-media/figure1.png){width="5.01in" #fig-figure1}
 
 # Product description
 
@@ -201,7 +199,7 @@ Furthermore, other ancillary data and reference data are provided:
 
 - Reference data used for internal quality control
 
-![HRL SLF 2021 product suite](CLMS_PUM_HRLSLF_v1.1-media/img-6fd63a70b5caffb030af91df1033a10314267458.png){#fig-figure2}
+![HRL SLF 2021 product suite](CLMS_PUM_HRLSLF_v1.1-media/img-6fd63a70b5caffb030af91df1033a10314267458.png){width="6.27in" #fig-figure2}
 
 All layers are distributed in tiles corresponding to 100km LAEA grid cells.
 
@@ -238,7 +236,7 @@ Elements to be included or excluded in Small Woody Features 2021 are summarised 
 Table 2: Thematic definition of SWF 2021
 
 | Elements included in small woody features | Elements excluded from small woody features |
-|------------------------------------|------------------------------------|
+|--------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | \- linear hedgerows and scrubs <br> - tree rows (along field boundaries) <br> - isolated/scattered patches of trees areas, storm damages, insect-infested damages, etc.) | \- stone walls <br> - drainage ditches <br> - grass margins <br> - field boundaries without hedgerows or trees <br> - any kind of “grey” infrastructure such as roads <br> - artificial tree rows like olive tree plantations, vineyards, and orchards |
 
 To ensure connectivity between mapped linear and patchy elements, features that are outside of the geometric specification can be included in the product if they are:
@@ -336,7 +334,7 @@ Vector classes: *1: Small structures of trees, hedges, bushes and scrub*
 Attribute information associated with vector features, including the following minimum fields:
 
 | Field | Description | Type | Value(s) | NoData value |
-|---------------|---------------|---------------|---------------|---------------|
+|---------------------------|-------------------------------------------------|------------------------------------|------------------------------------------------------------|---------------------------|
 | Shape | Polygon | Geometry | Polygon | NA |
 | Area | Area | Double | 0.001 to 1.8E308 | NA |
 | Class Name | Class Name | Text | Small structures of trees, hedges, bushes and scrub | NA |
@@ -379,7 +377,7 @@ Vector classes: *1: Street Tree Layer*
 Attribute information associated with vector features, including the following minimum fields:
 
 |Field|Description|Type|Value(s)|NoData value|
-|--|--|--|--|--|
+|--------------------------------------|-------------------------------------------------------|----------------------------------|----------------------------------------------|---------------------------|
 |Shape|Polygon|Geometry|Polygon|NA|
 |Area|Area|Double|0.001 to 1.8E308|NA|
 |Perimeter|Perimeter|Double|0.001 to 1.8E308|NA|
@@ -399,7 +397,7 @@ Quality – Production verification: Layer thematic accuracy reached/exceed the 
 Table 3: Woody Vegetation Layer 5m raster
 
 |Field|Content description|
-|--|--|
+|---------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 |Layer name|Woody Vegetation Layer 2021 5m|
 |Acronym|WVL|
 |Product (group/family)|High Resolution Layer|
@@ -413,7 +411,7 @@ Table 3: Woody Vegetation Layer 5m raster
 |Thematic accuracy|NA|
 |Minimum Mapping Unit (MMU)|NA|
 |Raster coding|*0: All non-tree covered areas <br> 1: Tree covered areas <br> 255: Outside area*|
-|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table|
+|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)\*.aux.xml including statistics and Raster Attribute Table|
 |Delivery format|GeoTiff|
 |Quality – Production Verification|NA|
 
@@ -422,7 +420,7 @@ Table 3: Woody Vegetation Layer 5m raster
 Table 4: Small Woody Features 5m raster
 
 |Field|Content description|
-|--|--|
+|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 |Layer name|Small Woody Feature 2021 5m raster|
 |Acronym|SWF 5m|
 |Product (group/family)|High Resolution Layer|
@@ -436,7 +434,7 @@ Table 4: Small Woody Features 5m raster
 |Thematic accuracy|80%|
 |Minimum Mapping Unit (MMU)|No MMU for the linear elements. MMU for Patchy structures of trees and scrub: 200m² (size limit of 5000m²)|
 |Raster coding|*0: All non SWF covered areas <br> 1: SWF covered areas <br> 255: Outside area*|
-|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table|
+|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)\*.aux.xml including statistics and Raster Attribute Table|
 |Delivery format|GeoTiff|
 |Quality – Production Verification|NA|
 
@@ -447,7 +445,7 @@ Table 4: Small Woody Features 5m raster
 Table 5: Small Woody Features 100m raster
 
 |Field|Content description|
-|--|--|
+|-------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
 |Layer name|Small Woody Feature 2021 100m raster|
 |Acronym|SWF 100m|
 |Product (group/family)|High Resolution Layer|
@@ -461,7 +459,7 @@ Table 5: Small Woody Features 100m raster
 |Thematic accuracy|NA|
 |Minimum Mapping Unit (MMU)|NA|
 |Raster coding|*0: All non-SWF covered areas <br> 1-100: SWF density % <br> 255: Outside area*|
-|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table|
+|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)\*.aux.xml including statistics and Raster Attribute Table|
 |Delivery format|GeoTiff|
 |Quality – Production Verification|NA|
 
@@ -470,7 +468,7 @@ Table 5: Small Woody Features 100m raster
 Table 6: Small Woody Features change raster
 
 |Field|Content description|
-|--|--|
+|-------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 |Layer name|Small Woody Feature Change 2018-2021 100m raster|
 |Acronym|SWFC|
 |Product (group/family)|High Resolution Layer|
@@ -484,7 +482,7 @@ Table 6: Small Woody Features change raster
 |Thematic accuracy|NA|
 |Minimum Mapping Unit (MMU)|NA|
 |Raster coding|*0: All stable areas <br> 1: Increase in SWF density <br> 2: Decrease in SWF density <br> 201: Area covered by Forest Mask in 2018 <br> 202: Area covered by Forest Mask in 2021 <br> 203: Area covered by Forest Mask in 2018 & 2021 <br> 255: Outside area*|
-|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table|
+|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)\*.aux.xml including statistics and Raster Attribute Table|
 |Delivery format|GeoTiff|
 |Quality – Production Verification|NA|
 
@@ -495,7 +493,7 @@ Table 6: Small Woody Features change raster
 Table 7: Parent scene identification layer
 
 |Field|Content description|
-|--|--|
+|--------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
 |Layer name|Parent Scene Identification Layer|
 |Acronym|PSIL|
 |Product (group/family)|High Resolution Layer|
@@ -520,7 +518,7 @@ Table 7: Parent scene identification layer
 Table 8: Woody Vegetation confidence layer
 
 |Field|Content description|
-|--|--|
+|---------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 |Layer name|Woody Vegetation Confidence Layer 2021 5m|
 |Acronym|WVCL|
 |Product (group/family)|High Resolution Layer|
@@ -534,7 +532,7 @@ Table 8: Woody Vegetation confidence layer
 |Thematic accuracy|NA|
 |Minimum Mapping Unit (MMU)|NA|
 |Raster coding|*0-100: Confidence in WVL classification <br> 255: Outside area*|
-|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table|
+|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)\*.aux.xml including statistics and Raster Attribute Table|
 |Delivery format|GeoTiff|
 |Quality – Production Verification|NA|
 
@@ -543,7 +541,7 @@ Table 8: Woody Vegetation confidence layer
 Table 9: Forest Mask
 
 |Field|Content description|
-|--|--|
+|---------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 |Layer name|Forest Mask 2021|
 |Acronym|FM|
 |Product (group/family)|High Resolution Layer|
@@ -557,7 +555,7 @@ Table 9: Forest Mask
 |Thematic accuracy|NA|
 |Minimum Mapping Unit (MMU)|5 ha|
 |Raster coding|*0: All non-forested covered areas <br> 1: Forest covered areas <br> 255: Outside area*|
-|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table|
+|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)\*.aux.xml including statistics and Raster Attribute Table|
 |Delivery format|GeoTiff|
 |Quality – Production Verification|NA|
 
@@ -566,7 +564,7 @@ Table 9: Forest Mask
 Table 10: Crop Mask
 
 |Field|Content description|
-|--|--|
+|---------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 |Layer name|Crop Mask 2021|
 |Acronym|CM|
 |Product (group/family)|High Resolution Layer|
@@ -580,7 +578,7 @@ Table 10: Crop Mask
 |Thematic accuracy|NA|
 |Minimum Mapping Unit (MMU)|NA|
 |Raster coding|*0: All non-crop covered areas <br> 1: Crop covered areas <br> 255: Outside area*|
-|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table|
+|Metadata|XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)\*.aux.xml including statistics and Raster Attribute Table|
 |Delivery format|GeoTiff|
 |Quality – Production Verification|NA|
 
@@ -589,7 +587,7 @@ Table 10: Crop Mask
 Table 11: Urban Mask
 
 |Field|Content description|
-|--|--|
+|------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 |Layer name|Urban Mask 2021|
 |Acronym|UM|
 |Product (group/family)|Priority Area Monitoring|
@@ -642,7 +640,7 @@ Vector classes: *<br> 0: Non-tree covered areas <br> 1: Tree covered areas*
 Attribute information associated with vector features, including the following minimum fields:
 
 |Field|Description|Type|Value(s)|NoData value|
-|--|--|--|--|--|
+|-----------------------------|-------------------------------------------------------|----------------------------------------|----------------------------------------------|-------------------------------|
 |Shape|Polygon|Geometry|Polygon|NA|
 |Area|Area|Double|0.001 to 1.8E308|NA|
 |Code|Numeric code|Integer|0-1|NA|
@@ -686,7 +684,7 @@ Vector classes: *<br> 0: Non-tree covered areas <br> 1: Tree covered areas*
 Attribute information associated with vector features, including the following minimum fields:
 
 |Field|Description|Type|Value(s)|NoData value|
-|--|--|--|--|--|
+|-----------------------------|-------------------------------------------------------|----------------------------------------|----------------------------------------------|-------------------------------|
 |Shape|Polygon|Geometry|Polygon|NA|
 |Area|Area|Double|0.001 to 1.8E308|NA|
 |Code|Numeric code|Integer|0-1|NA|
@@ -786,7 +784,7 @@ More information on the products can be found on the Copernicus Land Monitoring 
 List of abbreviations & acronyms
 
 |Abbreviation|Name|Reference|
-|--|--|--|
+|-----------------------------------|---------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 |ATBD|Algorithm Theoretical Basis Document||
 |CAP|Common Agricultural Policy||
 |CLC|Corine Land Cover||
@@ -840,7 +838,7 @@ List of abbreviations & acronyms
 Table 12: Attribute table of the PSIL
 
 |Field|Description|Sample|
-|--|--|--|
+|---------------------------------------|--------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
 |id|Row unique identifier|48715|
 |delunit|Delivery Unit|AL|
 |product_id|Product unique identifier (EOP Identifier)|urn:eop:PHR:MULTISPECTRAL_2m:DS_PHR1A_202207200941593_FR1_PX_E019 N42_0811_03280_dc33|
@@ -866,6 +864,6 @@ Table 12: Attribute table of the PSIL
 # Document history
 
 |Version|Date|Short description of changes|
-|--|--|--|
+|---------------------------------------|----------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 |1.0|16.09.2025|Initial published issue|
 |1.1|04.11.2025|First review|
