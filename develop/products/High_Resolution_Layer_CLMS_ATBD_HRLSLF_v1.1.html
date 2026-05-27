@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>High Resolution Layer Small Landscape Features 2021 – Algorithm Theoretical Basis Document (ATBD) – Technical Library</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -39,10 +42,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a33dec4ef9448a4b0b223d24a302813a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4e1ee83acf58f5d7481b0b41bb29c855.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -88,7 +91,26 @@ ul.task-list li input[type="checkbox"] {
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "?invalid meta type:keywords",
+    "keywords": "Small Landscape Features
+
+Woody Vegetation Layer
+
+Deep Learning
+
+Sentinel-2 data
+
+Very High Resolution imagery
+
+Convolutional Neural Network
+
+Time-series analysis
+
+Object-based image analysis
+
+Super-resolution mapping
+
+Change detection
+",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -100,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
 </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -113,7 +135,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -155,7 +177,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Content</h2>
+    <h2 id="toc-title">Index</h2>
    
   <ul>
   <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary"><span class="header-section-number">1</span> Executive summary</a></li>
@@ -211,14 +233,25 @@ window.Quarto = {
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8</span> References</a></li>
   <li><a href="#document-history" id="toc-document-history" class="nav-link" data-scroll-target="#document-history"><span class="header-section-number">9</span> Document history</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
-<div class="logo-header">
-  <img src="../assets/copernicus-logo.svg" class="nav-logo">
-  <img src="../assets/lms_logo.svg" class="nav-logo">
-</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Add Version to the title's metadata
+    //
+    const titleMetaEl = document.querySelector(".quarto-title-meta");
+    const wrapperDiv = document.createElement("div");
+    wrapperDiv.innerHTML = `
+        <div class="quarto-title-meta-heading">Version</div>
+        <div class="quarto-title-meta-contents">
+          <p>1.1</p>
+        </div>
+      `;
+    titleMetaEl.appendChild(wrapperDiv);
+  });
+</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -267,7 +300,7 @@ Denmark<br>
 <a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
 </div>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-19af4590dd266c8c9cb96e9eebf8f88e30ed117f.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-f1a2f36404cd309a9239b2a29b76a6fc4622a636.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-cdea45cb195629a1bdac80dbd5adc2aab5f6a896.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-0aeffbc120bdc6740e4085604ad2c7f3d15b624c.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-7f7921a5b76c664e0971072cce1e96907da340a1.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-6359dfdbf09c541f640c3720b6a554f4f2bf2223.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-01b50e5d324407691b81fab81cbccc1fefddbb48.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-aa134eba6cce3b395453b7fc397b281b18a661be.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-767c0ee584714b1b05aa33bef49f66b0a83d5175.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-a9079df225d0f0e930a75fb45cb4dd8fd3583733.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-744ae8fbb0a096ed9cbb611f481a8d6d01051dc6.png"}]}
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-19af4590dd266c8c9cb96e9eebf8f88e30ed117f.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-f1a2f36404cd309a9239b2a29b76a6fc4622a636.png","width":"4.73in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-cdea45cb195629a1bdac80dbd5adc2aab5f6a896.png","width":"5.81in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-0aeffbc120bdc6740e4085604ad2c7f3d15b624c.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-7f7921a5b76c664e0971072cce1e96907da340a1.png","width":"5.34in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-6359dfdbf09c541f640c3720b6a554f4f2bf2223.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-01b50e5d324407691b81fab81cbccc1fefddbb48.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-aa134eba6cce3b395453b7fc397b281b18a661be.png","width":"6.21in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-767c0ee584714b1b05aa33bef49f66b0a83d5175.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-a9079df225d0f0e930a75fb45cb4dd8fd3583733.png","width":"2.63in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-744ae8fbb0a096ed9cbb611f481a8d6d01051dc6.png","width":"6.27in"}]}
 </script>
 <section id="executive-summary" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Executive summary</h1>
@@ -308,8 +341,8 @@ Denmark<br>
 <p>Table 1: Overview table of methodology</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 27%">
+<col style="width: 72%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -352,10 +385,10 @@ Denmark<br>
 <li><p>Processing: training of classification models, inference, combination of individual outputs, change detection.</p></li>
 <li><p>Post-processing: application of geometric rules and integration to derive final layers.</p></li>
 </ol>
-<div id="fig-figure1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This workflow diagram illustrates the methodology for producing Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Small Woody Features (SWF) 2021 products, including a change layer from 2018–2021. The process is structured into five main phases: Input Data, Pre-Processing, Processing, Post-Processing, and Output Products. **1. Input Data:** The workflow begins with six distinct input data sources: * HRL SWF 2018 * HRL VLCC 2021 (High Resolution Layer VHR Large Cover Components 2021) * Urban Atlas 2021 * VHR IMAGE 2021 (Very High Resolution IMAGE 2021) * In Situ Data * Sentinel Time Series **2. Pre-Processing:** * HRL VLCC 2021 is processed to derive Forest Mask 2021 and Crop Mask 2021. * Urban Atlas 2021 is processed to derive Urban Mask 2021. * VHR IMAGE 2021 undergoes Encoding. * In Situ Data is used to establish a Reference Database. * Sentinel Time Series undergoes Reprojection, Compositing, and Time Series parameter extraction. **3. Processing:** The workflow proceeds along two parallel paths: * **Path A (Change detection):** HRL SWF 2018 is fed into the 'Change detection' step. * **Path B (Classification):** Forest Mask 2021, Crop Mask 2021, Urban Mask 2021, the Encoded VHR IMAGE 2021, the Reference Database, and the Reprojection/Compositing/Time Series parameters are all fed into the 'Classification, mosaicking and merge of results' step. **4. Post-Processing:** * Results from 'Change detection' and 'Classification, mosaicking and merge of results' feed into 'Aggregation'. * 'Classification, mosaicking and merge of results' also feeds into 'Quality control and internal validation'. * 'Aggregation' results are processed by 'Application of geometrics rules and re-integration'. * 'Quality control and internal validation' provides input to 'Application of geometrics rules and re-integration'. * A feedback loop exists where 'Application of geometrics rules and re-integration' feeds back into 'Aggregation', indicating iterative refinement. **5. Output Products:** The final products generated are: * SWFC 1821 100m (Small Woody Features Change 2018–2021 at 100m resolution) * SWF 2021 100m (Small Woody Features 2021 at 100m resolution) * SWF 2021 5m (Small Woody Features 2021 at 5m resolution) * SWF 2021 vector (Small Woody Features 2021 in vector format) * STL 2021 (Small Tree Layers 2021) * Woody Vegetation Layer 2021">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-19af4590dd266c8c9cb96e9eebf8f88e30ed117f.png" class="img-fluid figure-img">
+<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-19af4590dd266c8c9cb96e9eebf8f88e30ed117f.png" class="img-fluid figure-img" style="width:6.27in" alt="This workflow diagram illustrates the methodology for producing Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Small Woody Features (SWF) 2021 products, including a change layer from 2018–2021. The process is structured into five main phases: Input Data, Pre-Processing, Processing, Post-Processing, and Output Products. **1. Input Data:** The workflow begins with six distinct input data sources: * HRL SWF 2018 * HRL VLCC 2021 (High Resolution Layer VHR Large Cover Components 2021) * Urban Atlas 2021 * VHR IMAGE 2021 (Very High Resolution IMAGE 2021) * In Situ Data * Sentinel Time Series **2. Pre-Processing:** * HRL VLCC 2021 is processed to derive Forest Mask 2021 and Crop Mask 2021. * Urban Atlas 2021 is processed to derive Urban Mask 2021. * VHR IMAGE 2021 undergoes Encoding. * In Situ Data is used to establish a Reference Database. * Sentinel Time Series undergoes Reprojection, Compositing, and Time Series parameter extraction. **3. Processing:** The workflow proceeds along two parallel paths: * **Path A (Change detection):** HRL SWF 2018 is fed into the 'Change detection' step. * **Path B (Classification):** Forest Mask 2021, Crop Mask 2021, Urban Mask 2021, the Encoded VHR IMAGE 2021, the Reference Database, and the Reprojection/Compositing/Time Series parameters are all fed into the 'Classification, mosaicking and merge of results' step. **4. Post-Processing:** * Results from 'Change detection' and 'Classification, mosaicking and merge of results' feed into 'Aggregation'. * 'Classification, mosaicking and merge of results' also feeds into 'Quality control and internal validation'. * 'Aggregation' results are processed by 'Application of geometrics rules and re-integration'. * 'Quality control and internal validation' provides input to 'Application of geometrics rules and re-integration'. * A feedback loop exists where 'Application of geometrics rules and re-integration' feeds back into 'Aggregation', indicating iterative refinement. **5. Output Products:** The final products generated are: * SWFC 1821 100m (Small Woody Features Change 2018–2021 at 100m resolution) * SWF 2021 100m (Small Woody Features 2021 at 100m resolution) * SWF 2021 5m (Small Woody Features 2021 at 5m resolution) * SWF 2021 vector (Small Woody Features 2021 in vector format) * STL 2021 (Small Tree Layers 2021) * Woody Vegetation Layer 2021">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: HRL SLF 2021 workflow
@@ -504,10 +537,10 @@ Figure&nbsp;1: HRL SLF 2021 workflow
 <p>All classes within the VLCC CTY product that signify agricultural usage were included in the mask. This ensured a broad and accurate representation of areas used for farming activities. The output is a binary layer crop/non-crop.</p>
 <p><strong>Urban Mask</strong></p>
 <p>The Urban Mask is an essential component of the workflow as it defines the extent of the STL product. It was derived from the UA LULC 2021 product and consists of urban areas (class 1) with the exclusion of road and railway networks connecting cities and villages. To do so, urban areas without including roads were selected first and converted to a raster format aligned with EEA grid. Subsequently, a dilation followed by an erosion allowed to fill-in roads areas within dense urban. Finaly, the urban mask is converted back to vector format. Illustrations below present those different steps over a subset of Vienna FUA: on top, Urban Atlas 2021 LULC layer (red: urban areas (code level 1 : “1”), grey: non-urban areas). On centre, selection of urban areas without transportation network. On bottom, final urban mask used as area of interest for STL production.</p>
-<div id="fig-figure2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This series of three maps illustrates the progressive filtering steps applied to generate the Copernicus Land Monitoring Service (CLMS) Forest Mask, likely for the High Resolution Layer (HRL) Small Woody Features (SWF) 2021 product. The maps depict an unspecified geographic area with features classified as 'forest' or 'tree cover' shown in orange/red, and 'non-forest' areas in light grey. 1. **Top Map (Initial Thresholding)**: Represents the initial mask derived from applying a 10% canopy cover threshold to the HRL Tree Cover Density (TCD) 2021 product. This stage shows both dense forested areas and numerous small, linear elements in orange/red, which might include features like large hedgerows connected to forests. Fine red lines, possibly representing roads or other linear features, are visible in the grey non-forest areas. 2. **Middle Map (After Morphological Filter)**: Shows the mask after a morphological filter has been applied. This filter removes linear elements from the forest mask that could represent valid Small Woody Features (SWF), ensuring that only dense and compact forested areas remain. Compared to the top map, many fine linear orange features are removed, and the overall orange patches appear more consolidated. The fine red lines previously visible in the grey areas are no longer present. 3. **Bottom Map (After Minimum Mapping Unit Filter)**: Displays the final Forest Mask after a Minimum Mapping Unit (MMU) of 5 hectares (ha) has been applied. This filter removes small forest areas below 5 ha, resulting in only dense and compact forested areas in orange/red. Numerous small, isolated orange patches visible in the middle map are no longer present, demonstrating their removal by the 5 ha MMU criterion. A 10-metre external buffer, also part of the process, would prevent wrongly detected SWF at forest boundaries.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-f1a2f36404cd309a9239b2a29b76a6fc4622a636.png" class="img-fluid figure-img">
+<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-f1a2f36404cd309a9239b2a29b76a6fc4622a636.png" class="img-fluid figure-img" style="width:4.73in" alt="This series of three maps illustrates the progressive filtering steps applied to generate the Copernicus Land Monitoring Service (CLMS) Forest Mask, likely for the High Resolution Layer (HRL) Small Woody Features (SWF) 2021 product. The maps depict an unspecified geographic area with features classified as 'forest' or 'tree cover' shown in orange/red, and 'non-forest' areas in light grey. 1. **Top Map (Initial Thresholding)**: Represents the initial mask derived from applying a 10% canopy cover threshold to the HRL Tree Cover Density (TCD) 2021 product. This stage shows both dense forested areas and numerous small, linear elements in orange/red, which might include features like large hedgerows connected to forests. Fine red lines, possibly representing roads or other linear features, are visible in the grey non-forest areas. 2. **Middle Map (After Morphological Filter)**: Shows the mask after a morphological filter has been applied. This filter removes linear elements from the forest mask that could represent valid Small Woody Features (SWF), ensuring that only dense and compact forested areas remain. Compared to the top map, many fine linear orange features are removed, and the overall orange patches appear more consolidated. The fine red lines previously visible in the grey areas are no longer present. 3. **Bottom Map (After Minimum Mapping Unit Filter)**: Displays the final Forest Mask after a Minimum Mapping Unit (MMU) of 5 hectares (ha) has been applied. This filter removes small forest areas below 5 ha, resulting in only dense and compact forested areas in orange/red. Numerous small, isolated orange patches visible in the middle map are no longer present, demonstrating their removal by the 5 ha MMU criterion. A 10-metre external buffer, also part of the process, would prevent wrongly detected SWF at forest boundaries.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Urban Mask production steps
@@ -526,20 +559,20 @@ Figure&nbsp;2: Urban Mask production steps
 </ul>
 <p>Therefore, a sufficiently high number of reference samples (10 000) were selected to extract representative reference statistics in order to successfully train the supervised learning algorithm (Chen &amp; Stow, 2002) with regards of the complexity and diversity of the area to be mapped. Each reference sample consists of a 2560x2560m cell containing woody vs non-woody information. The geographic distribution of the reference training samples is illustrated in <a href="#fig-figure4" class="quarto-xref">Figure&nbsp;4</a> below.</p>
 <p>This thematic information was first extracted from ancillary datasets (HRL SWF 2018, HRL TCD 2021, CLC+BB 2021, Global Canopy Height Map), and was then visually assessed and corrected using VHR_IMAGE_2021 as guiding reference imagery to ensure consistency between reference dataset and EO dataset.</p>
-<div id="fig-figure3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This composite image presents three distinct choropleth maps of Europe, illustrating different aspects of land cover and land use. The top map displays broad biogeographical regions or ecological zones across Europe, using a variety of colours. Dark blue represents northernmost regions (e.g., Iceland, northern Scandinavia). Shades of light blue cover the British Isles, parts of the Baltic Sea region, and western France. Various greens dominate Central Europe, Sweden, and Finland. Purple areas are visible in the Alpine region. Light brown, dark brown, and pinkish-brown colours depict regions in the Mediterranean and Eastern Europe. Small yellow features are visible in the Atlantic Ocean, likely representing islands. The middle map illustrates a highly detailed and fragmented distribution of diverse land cover or land use types across Europe. The map is coloured with a dominant mix of pink/red, multiple shades of green, yellow/orange, and some grey/purple, reflecting a granular and varied landscape, consistent with a detailed land cover classification or a 'Crop Mask' derived from products like VLCC CTY. The bottom map visualizes the distribution of urban areas across Europe, functioning as an 'Urban Mask'. The map shows a grey background with numerous distinct yellow/orange patches, which represent urban areas. These urban areas are particularly concentrated in Western and Central Europe, along major river valleys, and coastal regions, extending into parts of Eastern Europe. This spatial pattern is indicative of urban land use, likely derived from an Urban Atlas (UA) product. No legends, scale bars, or specific reference years are visible on any of the maps.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-cdea45cb195629a1bdac80dbd5adc2aab5f6a896.png" class="img-fluid figure-img">
+<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-cdea45cb195629a1bdac80dbd5adc2aab5f6a896.png" class="img-fluid figure-img" style="width:5.81in" alt="This composite image presents three distinct choropleth maps of Europe, illustrating different aspects of land cover and land use. The top map displays broad biogeographical regions or ecological zones across Europe, using a variety of colours. Dark blue represents northernmost regions (e.g., Iceland, northern Scandinavia). Shades of light blue cover the British Isles, parts of the Baltic Sea region, and western France. Various greens dominate Central Europe, Sweden, and Finland. Purple areas are visible in the Alpine region. Light brown, dark brown, and pinkish-brown colours depict regions in the Mediterranean and Eastern Europe. Small yellow features are visible in the Atlantic Ocean, likely representing islands. The middle map illustrates a highly detailed and fragmented distribution of diverse land cover or land use types across Europe. The map is coloured with a dominant mix of pink/red, multiple shades of green, yellow/orange, and some grey/purple, reflecting a granular and varied landscape, consistent with a detailed land cover classification or a 'Crop Mask' derived from products like VLCC CTY. The bottom map visualizes the distribution of urban areas across Europe, functioning as an 'Urban Mask'. The map shows a grey background with numerous distinct yellow/orange patches, which represent urban areas. These urban areas are particularly concentrated in Western and Central Europe, along major river valleys, and coastal regions, extending into parts of Eastern Europe. This spatial pattern is indicative of urban land use, likely derived from an Urban Atlas (UA) product. No legends, scale bars, or specific reference years are visible on any of the maps.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: External dataset used for Reference Database sampling stratification
 </figcaption>
 </figure>
 </div>
-<div id="fig-figure4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure4" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A monochrome point map of Europe, depicting the spatial distribution of an Urban Mask. The map shows dense clusters of black dots representing urban areas, spread across continental Europe, the British Isles, Fennoscandia, and parts of Eastern Europe. The points exclude major linear transportation networks, reflecting the derivation of the mask from the Urban Atlas (UA) Land Use / Land Cover (LULC) 2021 product, specifically targeting urban areas (class 1) while excluding roads and railways. This final urban mask serves as the area of interest for subsequent Copernicus Land Monitoring Service (CLMS) Small Linear Features (STL) product production. No legend, scale bar, or coordinate reference system information is visible.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-0aeffbc120bdc6740e4085604ad2c7f3d15b624c.png" class="img-fluid figure-img">
+<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-0aeffbc120bdc6740e4085604ad2c7f3d15b624c.png" class="img-fluid figure-img" style="width:6.27in" alt="A monochrome point map of Europe, depicting the spatial distribution of an Urban Mask. The map shows dense clusters of black dots representing urban areas, spread across continental Europe, the British Isles, Fennoscandia, and parts of Eastern Europe. The points exclude major linear transportation networks, reflecting the derivation of the mask from the Urban Atlas (UA) Land Use / Land Cover (LULC) 2021 product, specifically targeting urban areas (class 1) while excluding roads and railways. This final urban mask serves as the area of interest for subsequent Copernicus Land Monitoring Service (CLMS) Small Linear Features (STL) product production. No legend, scale bar, or coordinate reference system information is visible.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: Reference Database samples distribution
@@ -553,10 +586,10 @@ Figure&nbsp;4: Reference Database samples distribution
 <li><p>Converted to COG format.</p></li>
 </ol>
 <p>An example of a reference database sample is illustrated in <a href="#fig-figure5" class="quarto-xref">Figure&nbsp;5</a> below. One the left, the initial vector result of visual and manual enhancement. On the right, the rasterized version ready to be ingested in the training process.</p>
-<div id="fig-figure5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure5" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The image presents two adjacent spatial representations, likely illustrating land cover information for a 2560x2560m reference sample cell, showing woody versus non-woody vegetation. The left panel displays a thematic land cover map where green areas represent woody vegetation and grey areas represent non-woody vegetation. The boundaries between these classes are outlined with a darker contour. This panel depicts the final content of the reference database for land cover information. The right panel displays a corresponding binary mask in black and white, representing the same or a very similar area. In this mask, black pixels indicate the presence of woody vegetation, and white pixels indicate non-woody areas. This panel likely illustrates an intermediate product or the Very High Resolution (VHR) imagery data (as a binary mask) used as a guiding reference for visual assessment and correction during the generation of the reference dataset. Both panels show complex, irregular patterns characteristic of natural landscapes.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-7f7921a5b76c664e0971072cce1e96907da340a1.png" class="img-fluid figure-img">
+<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-7f7921a5b76c664e0971072cce1e96907da340a1.png" class="img-fluid figure-img" style="width:5.34in" alt="The image presents two adjacent spatial representations, likely illustrating land cover information for a 2560x2560m reference sample cell, showing woody versus non-woody vegetation. The left panel displays a thematic land cover map where green areas represent woody vegetation and grey areas represent non-woody vegetation. The boundaries between these classes are outlined with a darker contour. This panel depicts the final content of the reference database for land cover information. The right panel displays a corresponding binary mask in black and white, representing the same or a very similar area. In this mask, black pixels indicate the presence of woody vegetation, and white pixels indicate non-woody areas. This panel likely illustrates an intermediate product or the Very High Resolution (VHR) imagery data (as a binary mask) used as a guiding reference for visual assessment and correction during the generation of the reference dataset. Both panels show complex, irregular patterns characteristic of natural landscapes.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5: Reference database patch example
@@ -579,6 +612,11 @@ Figure&nbsp;5: Reference database patch example
 <p>The key layers generated from the Sentinel-2 preprocessing that directly serve as input for the deep learning algorithm are the following:</p>
 <p>Table 3: Parameters for S2 time series analysis</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 48%">
+<col style="width: 31%">
+<col style="width: 20%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter Name</th>
@@ -618,10 +656,10 @@ Figure&nbsp;5: Reference database patch example
 <section id="vhr-classification" class="level4" data-number="3.4.1.1">
 <h4 data-number="3.4.1.1" class="anchored" data-anchor-id="vhr-classification"><span class="header-section-number">3.4.1.1</span> VHR classification</h4>
 <p>Classification using VHR data was based on the SatlasPretrain Foundation Model (Bastani et al, 2023). The model was pretrained on Satlaspretrain dataset, which is a large-scale pre-training dataset for remote sensing image understanding. The SatlasPretrain model consists of three main components: backbone, Feature Pyramid Network (FPN), and prediction head that allow to classify an image into a thematic information.</p>
-<div id="fig-figure6" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure6" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This diagram illustrates a deep learning processing workflow for multi-temporal Very High Resolution (VHR) images, likely for land cover classification or change detection. The workflow begins with three distinct VHR images from different years: 2016, 2018, and 2020, each depicting an industrial area with storage tanks and infrastructure. The process follows these steps: 1. Each of the three VHR images (2016, 2018, 2020) is independently processed by a 'Backbone' module. 2. The outputs from the three 'Backbone' modules are then aggregated by a 'Temporal Max Pooling' module. 3. The 'Temporal Max Pooling' module generates initial 'Multi-Scale Features' at four different resolutions/dimensions: * H/4 × W/4 × 128 * H/8 × W/8 × 256 * H/16 × W/16 × 512 * H/32 × W/32 × 1024 (where H and W represent height and width of the input, and the third number is the feature channel dimension). 4. These 'Multi-Scale Features' are then fed into a 'Feature Pyramid Network'. 5. The 'Feature Pyramid Network' outputs a refined set of 'Multi-Scale Features', also at four different resolutions/dimensions: * H/4 × W/4 × 128 * H/8 × W/8 × 128 * H/16 × W/16 × 128 * H/32 × W/32 × 128 6. Finally, these refined 'Multi-Scale Features' are input into a 'Prediction Head' module, which produces the ultimate output or classification result.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-6359dfdbf09c541f640c3720b6a554f4f2bf2223.png" class="img-fluid figure-img">
+<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-6359dfdbf09c541f640c3720b6a554f4f2bf2223.png" class="img-fluid figure-img" style="width:6.27in" alt="This diagram illustrates a deep learning processing workflow for multi-temporal Very High Resolution (VHR) images, likely for land cover classification or change detection. The workflow begins with three distinct VHR images from different years: 2016, 2018, and 2020, each depicting an industrial area with storage tanks and infrastructure. The process follows these steps: 1. Each of the three VHR images (2016, 2018, 2020) is independently processed by a 'Backbone' module. 2. The outputs from the three 'Backbone' modules are then aggregated by a 'Temporal Max Pooling' module. 3. The 'Temporal Max Pooling' module generates initial 'Multi-Scale Features' at four different resolutions/dimensions: * H/4 × W/4 × 128 * H/8 × W/8 × 256 * H/16 × W/16 × 512 * H/32 × W/32 × 1024 (where H and W represent height and width of the input, and the third number is the feature channel dimension). 4. These 'Multi-Scale Features' are then fed into a 'Feature Pyramid Network'. 5. The 'Feature Pyramid Network' outputs a refined set of 'Multi-Scale Features', also at four different resolutions/dimensions: * H/4 × W/4 × 128 * H/8 × W/8 × 128 * H/16 × W/16 × 128 * H/32 × W/32 × 128 6. Finally, these refined 'Multi-Scale Features' are input into a 'Prediction Head' module, which produces the ultimate output or classification result.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6: Model architecture of SATLASNET. Separate heads can be used to predict outputs of different formats or different thematic nature (source: Bastani et al, 2023)
@@ -644,10 +682,10 @@ Figure&nbsp;6: Model architecture of SATLASNET. Separate heads can be used to pr
 <h4 data-number="3.4.1.2" class="anchored" data-anchor-id="sentinel-classification"><span class="header-section-number">3.4.1.2</span> Sentinel classification</h4>
 <p>The classification using Sentinel-2 data leveraged a modified U-Net architecture. Although Sentinel-2 provides lower spatial resolution (10m and 20m native resolutions) compared to Very High Resolution (VHR) datasets, its higher acquisition frequency and richer spectral resolution serve as essential sources of information. These attributes enhance the classification process, improving both accuracy and the overall quality of the output.</p>
 <p>In a standard U-Net framework, the classification output matches the resolution of the highest input, yielding results at 10m resolution. However, the U-Net architecture has an advanced capability: it can be trained to produce outputs at finer resolutions, a process known as “super resolution.” This approach is similar to state-of-the-art upscaling methods and has been successfully used to generate high-resolution delineations of tree lines and even single trees (see <a href="#fig-figure7" class="quarto-xref">Figure&nbsp;7</a> below).</p>
-<div id="fig-figure7" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure7" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This image displays a side-by-side comparison of Very High Resolution (VHR) satellite imagery, illustrating the input and output of a woody vegetation detection process. The left panel shows a natural-color satellite image of an agricultural and natural landscape. Visible features include cultivated fields (light brown, brownish-yellow), a main watercourse (river or large stream) in green, and numerous dark green linear features, which are likely riparian vegetation or field boundary hedges. Patches of scattered darker vegetation are also visible, particularly in the upper right quadrant. A road or track with a bridge crosses the watercourse. The right panel shows a grayscale segmentation map derived from the input image. In this panel, white areas precisely correspond to the dark green linear features and the scattered vegetation patches observed in the left panel, representing detected woody vegetation. The rest of the landscape, including cultivated fields and the water body, is rendered in black, indicating the absence of detected woody vegetation. This output highlights Small Linear Features (SLF) and Small Woody Features (SWF) of vegetation, consistent with a trained model for woody vegetation detection from 0.5-2m/px high-resolution imagery.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-01b50e5d324407691b81fab81cbccc1fefddbb48.png" class="img-fluid figure-img">
+<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-01b50e5d324407691b81fab81cbccc1fefddbb48.png" class="img-fluid figure-img" style="width:6.27in" alt="This image displays a side-by-side comparison of Very High Resolution (VHR) satellite imagery, illustrating the input and output of a woody vegetation detection process. The left panel shows a natural-color satellite image of an agricultural and natural landscape. Visible features include cultivated fields (light brown, brownish-yellow), a main watercourse (river or large stream) in green, and numerous dark green linear features, which are likely riparian vegetation or field boundary hedges. Patches of scattered darker vegetation are also visible, particularly in the upper right quadrant. A road or track with a bridge crosses the watercourse. The right panel shows a grayscale segmentation map derived from the input image. In this panel, white areas precisely correspond to the dark green linear features and the scattered vegetation patches observed in the left panel, representing detected woody vegetation. The rest of the landscape, including cultivated fields and the water body, is rendered in black, indicating the absence of detected woody vegetation. This output highlights Small Linear Features (SLF) and Small Woody Features (SWF) of vegetation, consistent with a trained model for woody vegetation detection from 0.5-2m/px high-resolution imagery.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7: U-NET super resolution prediction at 5m. Single trees visible on VHR data (left) are also visible in the prediction from Sentinel 2 imagery (right)
@@ -682,6 +720,11 @@ Figure&nbsp;7: U-NET super resolution prediction at 5m. Single trees visible on 
 <p>The primary goal of these steps was to derive properties that are needed for the application of the specifications summarized in Table 4 below:</p>
 <p>Table 4: Geometric specifications of SWF</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 31%">
+<col style="width: 37%">
+</colgroup>
 <thead>
 <tr class="header">
 <th></th>
@@ -720,10 +763,10 @@ Figure&nbsp;7: U-NET super resolution prediction at 5m. Single trees visible on 
 <p>Raster Property Extraction was the foundational step for identifying, analysing, and differentiating linear and patchy features in the dataset. This step involved calculating geometric and spatial properties that directly influence the final classification thresholds.</p>
 <p><strong>Distance Transform Calculation</strong>: A distance transform was calculated and stored for the entire raster. This transform measured the distance from each pixel to the nearest edge or boundary (i.e.&nbsp;to the nearest “forest-pixel”), enabling the computation of feature width and facilitating further operations.</p>
 <p><strong>Erosion and Dilation</strong>: Table 4 <a href="#fig-figure8" class="quarto-xref">Figure&nbsp;8</a> Using the width threshold defined in the product specification (Table 4), an erosion operation was performed (using half the with) followed by dilation. This sequence removed parts from the raster which are too thin to “survive” the erosion operation and was key to distinguish linear features from patchy ones (refer to <a href="#fig-figure7" class="quarto-xref">Figure&nbsp;7</a> for visual representation). This distinction is done by overlaying the processed raster with the original input which allowed for the classification of each pixel into linear and patchy feature candidates.</p>
-<div id="fig-figure8" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure8" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This diagram illustrates the effect of 'ERODE' and 'DILATE' morphological operations on a polygon, used for shape refinement in spatial data processing like for Copernicus Land Monitoring Service (CLMS) products. The top row shows the 'ERODE' operation applied iteratively to an initial green polygon: 1. An initial light green polygon is shown. 2. The polygon is eroded, resulting in a smaller light green inner polygon. The original polygon's boundary becomes a darker green outer layer, and the boundary of the eroded shape is indicated by a dotted line. 3. A second erosion step further shrinks the inner light green polygon, expanding the darker green outer layer. 4. A third erosion step continues to reduce the inner light green polygon. 5. A final erosion step shows the inner light green polygon significantly reduced in size. The bottom row shows the 'DILATE' operation applied iteratively to a shape: 1. The starting shape is composed of a smaller light green inner polygon surrounded by a darker green outer boundary, with the inner boundary marked by a dotted line (similar to an eroded state). 2. The polygon is dilated, causing the inner light green area to expand outwards, reducing the darker green outer boundary and moving the dotted line outwards. 3. A second dilation step further expands the inner light green polygon, continuing to reduce the darker green outer boundary. 4. A third dilation step continues to expand the inner light green polygon. 5. A final dilation step shows the light green area nearly encompassing the entire original dark green shape, effectively restoring it to a larger size. These operations are used to adjust feature geometries, for example, to replace compactness thresholds in processing Small Woody Features (SWF).">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-aa134eba6cce3b395453b7fc397b281b18a661be.png" class="img-fluid figure-img">
+<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-aa134eba6cce3b395453b7fc397b281b18a661be.png" class="img-fluid figure-img" style="width:6.21in" alt="This diagram illustrates the effect of 'ERODE' and 'DILATE' morphological operations on a polygon, used for shape refinement in spatial data processing like for Copernicus Land Monitoring Service (CLMS) products. The top row shows the 'ERODE' operation applied iteratively to an initial green polygon: 1. An initial light green polygon is shown. 2. The polygon is eroded, resulting in a smaller light green inner polygon. The original polygon's boundary becomes a darker green outer layer, and the boundary of the eroded shape is indicated by a dotted line. 3. A second erosion step further shrinks the inner light green polygon, expanding the darker green outer layer. 4. A third erosion step continues to reduce the inner light green polygon. 5. A final erosion step shows the inner light green polygon significantly reduced in size. The bottom row shows the 'DILATE' operation applied iteratively to a shape: 1. The starting shape is composed of a smaller light green inner polygon surrounded by a darker green outer boundary, with the inner boundary marked by a dotted line (similar to an eroded state). 2. The polygon is dilated, causing the inner light green area to expand outwards, reducing the darker green outer boundary and moving the dotted line outwards. 3. A second dilation step further expands the inner light green polygon, continuing to reduce the darker green outer boundary. 4. A third dilation step continues to expand the inner light green polygon. 5. A final dilation step shows the light green area nearly encompassing the entire original dark green shape, effectively restoring it to a larger size. These operations are used to adjust feature geometries, for example, to replace compactness thresholds in processing Small Woody Features (SWF).">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8: An erosion followed by a dilation operation allows to distinguish between linear and patchy features in the raster
@@ -758,10 +801,10 @@ Figure&nbsp;8: An erosion followed by a dilation operation allows to distinguish
 <li>For the final product, Classes 1, 2 and 5 were extracted from the intermediate product (see <a href="#fig-figure9" class="quarto-xref">Figure&nbsp;9</a> below).</li>
 </ol></li>
 </ul>
-<div id="fig-figure9" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure9" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A spatial classification map overlaid on high-resolution aerial imagery, illustrating different land cover feature types and re-inclusion statuses resulting from a raster-to-vector conversion process. The map shows a mixed landscape including urbanised areas, agricultural fields, and natural/forested patches. The legend defines six feature classifications: * **Linear** (light green solid fill): Represents linear features such as field boundaries or small linear landscape elements. * **Patchy** (dark green solid fill): Represents non-linear, compact features. * **Area: Out of specs** (red hatched outline): Denotes patchy features that were outside of the defined area threshold. * **Agriculture: High coverage** (orange hatched outline): Identifies crop areas with more than 80% crop coverage. * **Re-inclusion, connected to linear or patchy** (teal/cyan solid fill): Represents features connected to valid geometries (linear or patchy features) and not covered by crops (less than 80% crop coverage). * **No re-inclusion: Agriculture** (yellow hatched outline): Indicates agricultural areas that were not re-included in the analysis. The map displays large areas of 'No re-inclusion: Agriculture' (yellow hatched) covering extensive agricultural fields, with smaller 'Agriculture: High coverage' (orange hatched) patches within them. Scattered throughout the landscape are numerous 'Linear' (light green) and 'Patchy' (dark green) features. Larger, often irregular, clusters of 'Re-inclusion, connected to linear or patchy' (teal/cyan) are visible, particularly on the left and lower central parts of the map. A single small 'Area: Out of specs' (red hatched) feature is visible near the center-left. No scale bar, compass, or specific geographic location or date are provided on the map.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-767c0ee584714b1b05aa33bef49f66b0a83d5175.png" class="img-fluid figure-img">
+<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-767c0ee584714b1b05aa33bef49f66b0a83d5175.png" class="img-fluid figure-img" style="width:6.27in" alt="A spatial classification map overlaid on high-resolution aerial imagery, illustrating different land cover feature types and re-inclusion statuses resulting from a raster-to-vector conversion process. The map shows a mixed landscape including urbanised areas, agricultural fields, and natural/forested patches. The legend defines six feature classifications: * **Linear** (light green solid fill): Represents linear features such as field boundaries or small linear landscape elements. * **Patchy** (dark green solid fill): Represents non-linear, compact features. * **Area: Out of specs** (red hatched outline): Denotes patchy features that were outside of the defined area threshold. * **Agriculture: High coverage** (orange hatched outline): Identifies crop areas with more than 80% crop coverage. * **Re-inclusion, connected to linear or patchy** (teal/cyan solid fill): Represents features connected to valid geometries (linear or patchy features) and not covered by crops (less than 80% crop coverage). * **No re-inclusion: Agriculture** (yellow hatched outline): Indicates agricultural areas that were not re-included in the analysis. The map displays large areas of 'No re-inclusion: Agriculture' (yellow hatched) covering extensive agricultural fields, with smaller 'Agriculture: High coverage' (orange hatched) patches within them. Scattered throughout the landscape are numerous 'Linear' (light green) and 'Patchy' (dark green) features. Larger, often irregular, clusters of 'Re-inclusion, connected to linear or patchy' (teal/cyan) are visible, particularly on the left and lower central parts of the map. A single small 'Area: Out of specs' (red hatched) feature is visible near the center-left. No scale bar, compass, or specific geographic location or date are provided on the map.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9: Identified polygons in the intermediate product. The image shows an area close to Merano, Italy and demonstrates the identification of agricultural areas.
@@ -851,10 +894,10 @@ Figure&nbsp;9: Identified polygons in the intermediate product. The image shows 
 \]</span></p>
 <p>Where i and j are the columns and rows in the matrix, <em>N</em> is the total number of possible units (population) and <em>π</em> is the sampling intensity for a given stratum.</p>
 <p>The accuracy assessment in the HRL 2021 SWF was executed on two levels: a first assessment at Primary Sampling Unit level (PSU) and a second one at Secondary Sampling Unit level (SSU). The assessment at PSU level provided information about the presence or absence of SWF within the 100 x 100m squares and can directly compared to analysis made for previous production. Secondary Sample Units (SSU) within the PSU complement this information at PSU level documenting the spatial accuracy of the product. This approach was introduced during SWF 2018 production. SSUs are 20 randomly distributed points within each PSU considering a 5 x 5m area (pixel size) for the validation analysis.</p>
-<div id="fig-figure10" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure10" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This map illustrates a 100m x 100m Primary Sample Unit (PSU), outlined in orange, overlaid on satellite imagery depicting a mixed landscape with green vegetated areas, white features (possibly buildings or bare ground), and some darker patches. Within this PSU, 20 red diamond markers are randomly distributed, each representing a Secondary Sample Unit (SSU) corresponding to a 5m x 5m High Resolution Layer (HRL) pixel. This visual demonstrates the sampling design used for validation purposes, specifically in the context of Copernicus Land Monitoring Service (CLMS) products such as the HRL Small Woody Features (SWF).">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-a9079df225d0f0e930a75fb45cb4dd8fd3583733.png" class="img-fluid figure-img">
+<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-a9079df225d0f0e930a75fb45cb4dd8fd3583733.png" class="img-fluid figure-img" style="width:2.63in" alt="This map illustrates a 100m x 100m Primary Sample Unit (PSU), outlined in orange, overlaid on satellite imagery depicting a mixed landscape with green vegetated areas, white features (possibly buildings or bare ground), and some darker patches. Within this PSU, 20 red diamond markers are randomly distributed, each representing a Secondary Sample Unit (SSU) corresponding to a 5m x 5m High Resolution Layer (HRL) pixel. This visual demonstrates the sampling design used for validation purposes, specifically in the context of Copernicus Land Monitoring Service (CLMS) products such as the HRL Small Woody Features (SWF).">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;10: Example of the random distribution of SSUs within a PSU
@@ -924,10 +967,10 @@ Figure&nbsp;10: Example of the random distribution of SSUs within a PSU
 <p>While the applied methodology was tuned to overcome those challenges as much as possible (large dataset of reference data visually inspected, integration of homogeneous Sentinel 2 super-resolution, transfer learning across production units), it is expected that inaccuracies can still exists within the products, depending on the combination of parameters listed before. The expert products (PSIL, WVCL, masks) aim at providing sufficient information for users to accurately assess the reliability of the products over a given area.</p>
 <p>Woody Vegetation Layer is a new product that aims at mapping all woody vegetation (with the exception of vineyards), including isolated trees or permanent crops such as orchards. Depending on the size and coverage density, such trees may be heterogeneously mapped within the WVL and therefore from the HRL SLF 2021 product suite. Small, isolated trees can be missed if their respective crowns are below 5m width (spatial resolution of the WVL).</p>
 <p>Orchards constituted of small and densely planted trees (frequent in western Europe) can also be missing as their spectral and textural signatures on VHR imagery can confuse them with vineyards or other crops. Higher spatial resolution imagery or time-series of VHR may be required to accurately and consistently map those features. <a href="#fig-figure11" class="quarto-xref">Figure&nbsp;11</a> below illustrates how the ranks of an apple trees orchard in Belgium (Google Street View capture on the left) appears precisely on a 20cm VHR imagery (Google Earth, centre) and how those features appear smooth and homogeneous on a 2m VHR imagery (right).</p>
-<div id="fig-figure11" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure11" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The image displays three panels illustrating Small Woody Features (SWF) in an agricultural setting, likely used for the validation of the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) SWF product. The **left panel** is a ground-level photograph showing a dense green hedge in the foreground, with an orchard (trees laden with red fruit) visible behind it under a clear blue sky. Two white chevron arrows point inwards towards the hedge from the lower-left and lower-right, and 'Google' is partially visible at the bottom. The **middle panel** is an aerial orthophoto, presenting a high-resolution top-down view of a rural area. It features a straight, grey road running vertically on the left, several buildings (including one with a blue swimming pool), and large rectangular agricultural fields. Some fields are light brown, while others are dark green with visible crop rows. Linear features, representing hedges and tree lines (SWF), delineate the fields and properties. The **right panel** is a cropped and pixelated section of the middle panel's agricultural area. This lower-resolution view shows distinct rectangular dark green fields bordered by lighter brown fields, with prominent linear dark green features representing SWF. The pixelated appearance illustrates a raster product, likely the 5x5 m pixel size raster layer used as a reference to validate the HRL SWF product, as described in the surrounding text.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-744ae8fbb0a096ed9cbb611f481a8d6d01051dc6.png" class="img-fluid figure-img">
+<img src="High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.1-media/img-744ae8fbb0a096ed9cbb611f481a8d6d01051dc6.png" class="img-fluid figure-img" style="width:6.27in" alt="The image displays three panels illustrating Small Woody Features (SWF) in an agricultural setting, likely used for the validation of the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) SWF product. The **left panel** is a ground-level photograph showing a dense green hedge in the foreground, with an orchard (trees laden with red fruit) visible behind it under a clear blue sky. Two white chevron arrows point inwards towards the hedge from the lower-left and lower-right, and 'Google' is partially visible at the bottom. The **middle panel** is an aerial orthophoto, presenting a high-resolution top-down view of a rural area. It features a straight, grey road running vertically on the left, several buildings (including one with a blue swimming pool), and large rectangular agricultural fields. Some fields are light brown, while others are dark green with visible crop rows. Linear features, representing hedges and tree lines (SWF), delineate the fields and properties. The **right panel** is a cropped and pixelated section of the middle panel's agricultural area. This lower-resolution view shows distinct rectangular dark green fields bordered by lighter brown fields, with prominent linear dark green features representing SWF. The pixelated appearance illustrates a raster product, likely the 5x5 m pixel size raster layer used as a reference to validate the HRL SWF product, as described in the surrounding text.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;11: Comparison of densely planted orchards between 20cm imagery and 2m imagery
@@ -1219,6 +1262,11 @@ Figure&nbsp;11: Comparison of densely planted orchards between 20cm imagery and 
 <section id="document-history" class="level1" data-number="9">
 <h1 data-number="9"><span class="header-section-number">9</span> Document history</h1>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 27%">
+<col style="width: 55%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Version</th>
@@ -1305,13 +1353,14 @@ Figure&nbsp;11: Comparison of densely planted orchards between 20cm imagery and 
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1657,7 +1706,7 @@ Figure&nbsp;11: Comparison of densely planted orchards between 20cm imagery and 
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>2025 EEA. All rights reserved.</p>
+<p>2026 EEA. All rights reserved.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

@@ -2,16 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2020-01-01">
+<meta name="dcterms.date" content="2025-12-03">
 <meta name="keywords" content="Functional Urban Area (FUA), Land Use / Land Cover (LU/LC), Street Tree Layer (STL), Digital Height Model (DHM), Imperviousness Degree (IMD), Minimum Mapping Unit (MMU), Change detection, ETRS89 Lambert Azimuthal Equal Area (LAEA), Geometric adaptation of navigation data, Overall classification accuracy">
 <meta name="description" content="This document serves as a comprehensive mapping guide for service providers involved in the Copernicus Urban Atlas project, specifically for the 2012 and 2018 reference years. It details the methodology for generating standardised land use and land cover (LU/LC) maps, including additional information layers such as the Street Tree Layer (STL) and Digital Height Model (DHM). The guide aims to ensure congruent product attributes, common nomenclature, consistent product appearance, and comparable product quality across Functional Urban Areas (FUAs) within the EU, EFTA, Western Balkans, the UK, and Turkey.">
 
 <title>Urban Atlas Land Cover/Land Use and Street Tree Layer 2012 and 2018 - Product User Manual – Technical Library</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -39,10 +42,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a33dec4ef9448a4b0b223d24a302813a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4e1ee83acf58f5d7481b0b41bb29c855.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
     "@type": "ScholarlyArticle",
     "headline": "Urban Atlas Land Cover/Land Use and Street Tree Layer 2012 and 2018 - Product User Manual",
     "description": "This document serves as a comprehensive mapping guide for service providers involved in the Copernicus Urban Atlas project, specifically for the 2012 and 2018 reference years. It details the methodology for generating standardised land use and land cover (LU/LC) maps, including additional information layers such as the Street Tree Layer (STL) and Digital Height Model (DHM). The guide aims to ensure congruent product attributes, common nomenclature, consistent product appearance, and comparable product quality across Functional Urban Areas (FUAs) within the EU, EFTA, Western Balkans, the UK, and Turkey.",
-    "datePublished": "January 1, 2020",
+    "datePublished": "December 3, 2025",
     "author": {
       "@type": "Person",
       "name": "?meta:author"
@@ -88,7 +91,26 @@ ul.task-list li input[type="checkbox"] {
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "?invalid meta type:keywords",
+    "keywords": "Functional Urban Area (FUA)
+
+Land Use / Land Cover (LU/LC)
+
+Street Tree Layer (STL)
+
+Digital Height Model (DHM)
+
+Imperviousness Degree (IMD)
+
+Minimum Mapping Unit (MMU)
+
+Change detection
+
+ETRS89 Lambert Azimuthal Equal Area (LAEA)
+
+Geometric adaptation of navigation data
+
+Overall classification accuracy
+",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -126,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Content</h2>
+    <h2 id="toc-title">Index</h2>
    
   <ul>
   <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary"><span class="header-section-number">1</span> Executive summary</a></li>
@@ -139,24 +161,24 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#land-use-land-cover-mapping" id="toc-land-use-land-cover-mapping" class="nav-link" data-scroll-target="#land-use-land-cover-mapping"><span class="header-section-number">4.1.1</span> Land Use / Land Cover mapping</a></li>
   <li><a href="#additional-information-layers" id="toc-additional-information-layers" class="nav-link" data-scroll-target="#additional-information-layers"><span class="header-section-number">4.1.2</span> Additional information layers</a></li>
   </ul></li>
-  <li><a href="#general-guidelines" id="toc-general-guidelines" class="nav-link" data-scroll-target="#general-guidelines"><span class="header-section-number">4.2</span> General guidelines</a>
+  <li><a href="#general-guidelines" id="toc-general-guidelines" class="nav-link" data-scroll-target="#general-guidelines"><span class="header-section-number">6.1</span> General guidelines</a>
   <ul class="collapse">
-  <li><a href="#pre-processing-and-geo-coding-of-eo-data" id="toc-pre-processing-and-geo-coding-of-eo-data" class="nav-link" data-scroll-target="#pre-processing-and-geo-coding-of-eo-data"><span class="header-section-number">4.2.1</span> Pre-processing and geo-coding of EO data</a></li>
-  <li><a href="#pre-processing-and-geometric-adaptation-of-navigation-data" id="toc-pre-processing-and-geometric-adaptation-of-navigation-data" class="nav-link" data-scroll-target="#pre-processing-and-geometric-adaptation-of-navigation-data"><span class="header-section-number">4.2.2</span> Pre-processing and geometric adaptation of navigation data</a></li>
-  <li><a href="#pre-processing-of-topographic-maps" id="toc-pre-processing-of-topographic-maps" class="nav-link" data-scroll-target="#pre-processing-of-topographic-maps"><span class="header-section-number">4.2.3</span> Pre-processing of topographic maps</a></li>
-  <li><a href="#classification-and-interpretation" id="toc-classification-and-interpretation" class="nav-link" data-scroll-target="#classification-and-interpretation"><span class="header-section-number">4.2.4</span> Classification and interpretation</a></li>
-  <li><a href="#use-of-copernicus-hrl-imperviousness" id="toc-use-of-copernicus-hrl-imperviousness" class="nav-link" data-scroll-target="#use-of-copernicus-hrl-imperviousness"><span class="header-section-number">4.2.5</span> Use of Copernicus HRL imperviousness</a></li>
-  <li><a href="#data-format-of-the-final-product" id="toc-data-format-of-the-final-product" class="nav-link" data-scroll-target="#data-format-of-the-final-product"><span class="header-section-number">4.2.6</span> Data format of the final product</a></li>
-  <li><a href="#interpretation-rules" id="toc-interpretation-rules" class="nav-link" data-scroll-target="#interpretation-rules"><span class="header-section-number">4.2.7</span> Interpretation rules</a></li>
-  <li><a href="#lulc-change-detection-and-layer-generation" id="toc-lulc-change-detection-and-layer-generation" class="nav-link" data-scroll-target="#lulc-change-detection-and-layer-generation"><span class="header-section-number">4.2.8</span> LU/LC change detection and layer generation</a></li>
-  <li><a href="#street-tree-layer" id="toc-street-tree-layer" class="nav-link" data-scroll-target="#street-tree-layer"><span class="header-section-number">4.2.9</span> Street tree layer</a></li>
-  <li><a href="#digital-height-model-layer-dhm" id="toc-digital-height-model-layer-dhm" class="nav-link" data-scroll-target="#digital-height-model-layer-dhm"><span class="header-section-number">4.2.10</span> Digital Height Model layer (DHM)</a></li>
-  <li><a href="#minimum-mapping-units-and-exceptions" id="toc-minimum-mapping-units-and-exceptions" class="nav-link" data-scroll-target="#minimum-mapping-units-and-exceptions"><span class="header-section-number">4.2.11</span> Minimum mapping units and exceptions</a></li>
-  <li><a href="#accuracy-assessment-and-validation" id="toc-accuracy-assessment-and-validation" class="nav-link" data-scroll-target="#accuracy-assessment-and-validation"><span class="header-section-number">4.2.12</span> Accuracy assessment and validation</a></li>
+  <li><a href="#pre-processing-and-geo-coding-of-eo-data" id="toc-pre-processing-and-geo-coding-of-eo-data" class="nav-link" data-scroll-target="#pre-processing-and-geo-coding-of-eo-data"><span class="header-section-number">6.1.1</span> Pre-processing and geo-coding of EO data</a></li>
+  <li><a href="#pre-processing-and-geometric-adaptation-of-navigation-data" id="toc-pre-processing-and-geometric-adaptation-of-navigation-data" class="nav-link" data-scroll-target="#pre-processing-and-geometric-adaptation-of-navigation-data"><span class="header-section-number">6.1.2</span> Pre-processing and geometric adaptation of navigation data</a></li>
+  <li><a href="#pre-processing-of-topographic-maps" id="toc-pre-processing-of-topographic-maps" class="nav-link" data-scroll-target="#pre-processing-of-topographic-maps"><span class="header-section-number">6.1.3</span> Pre-processing of topographic maps</a></li>
+  <li><a href="#classification-and-interpretation" id="toc-classification-and-interpretation" class="nav-link" data-scroll-target="#classification-and-interpretation"><span class="header-section-number">6.1.4</span> Classification and interpretation</a></li>
+  <li><a href="#use-of-copernicus-hrl-imperviousness" id="toc-use-of-copernicus-hrl-imperviousness" class="nav-link" data-scroll-target="#use-of-copernicus-hrl-imperviousness"><span class="header-section-number">6.1.5</span> Use of Copernicus HRL imperviousness</a></li>
+  <li><a href="#data-format-of-the-final-product" id="toc-data-format-of-the-final-product" class="nav-link" data-scroll-target="#data-format-of-the-final-product"><span class="header-section-number">6.1.6</span> Data format of the final product</a></li>
+  <li><a href="#interpretation-rules" id="toc-interpretation-rules" class="nav-link" data-scroll-target="#interpretation-rules"><span class="header-section-number">6.1.7</span> Interpretation rules</a></li>
+  <li><a href="#lulc-change-detection-and-layer-generation" id="toc-lulc-change-detection-and-layer-generation" class="nav-link" data-scroll-target="#lulc-change-detection-and-layer-generation"><span class="header-section-number">6.1.8</span> LU/LC change detection and layer generation</a></li>
+  <li><a href="#street-tree-layer-1" id="toc-street-tree-layer-1" class="nav-link" data-scroll-target="#street-tree-layer-1"><span class="header-section-number">6.1.9</span> Street tree layer</a></li>
+  <li><a href="#digital-height-model-layer-dhm" id="toc-digital-height-model-layer-dhm" class="nav-link" data-scroll-target="#digital-height-model-layer-dhm"><span class="header-section-number">6.1.10</span> Digital Height Model layer (DHM)</a></li>
+  <li><a href="#minimum-mapping-units-and-exceptions" id="toc-minimum-mapping-units-and-exceptions" class="nav-link" data-scroll-target="#minimum-mapping-units-and-exceptions"><span class="header-section-number">6.1.11</span> Minimum mapping units and exceptions</a></li>
+  <li><a href="#accuracy-assessment-and-validation" id="toc-accuracy-assessment-and-validation" class="nav-link" data-scroll-target="#accuracy-assessment-and-validation"><span class="header-section-number">6.1.12</span> Accuracy assessment and validation</a></li>
   </ul></li>
-  <li><a href="#lulc-nomenclature" id="toc-lulc-nomenclature" class="nav-link" data-scroll-target="#lulc-nomenclature"><span class="header-section-number">4.3</span> LU/LC nomenclature</a></li>
-  <li><a href="#decision-rules" id="toc-decision-rules" class="nav-link" data-scroll-target="#decision-rules"><span class="header-section-number">4.4</span> Decision rules</a></li>
-  <li><a href="#description-of-lulc-thematic-classes" id="toc-description-of-lulc-thematic-classes" class="nav-link" data-scroll-target="#description-of-lulc-thematic-classes"><span class="header-section-number">4.5</span> Description of LU/LC thematic classes</a>
+  <li><a href="#lulc-nomenclature" id="toc-lulc-nomenclature" class="nav-link" data-scroll-target="#lulc-nomenclature"><span class="header-section-number">6.2</span> LU/LC nomenclature</a></li>
+  <li><a href="#decision-rules" id="toc-decision-rules" class="nav-link" data-scroll-target="#decision-rules"><span class="header-section-number">7.2</span> Decision rules</a></li>
+  <li><a href="#description-of-lulc-thematic-classes" id="toc-description-of-lulc-thematic-classes" class="nav-link" data-scroll-target="#description-of-lulc-thematic-classes"><span class="header-section-number">7.3</span> Description of LU/LC thematic classes</a>
   <ul class="collapse">
   <li><a href="#artificial-surfaces" id="toc-artificial-surfaces" class="nav-link" data-scroll-target="#artificial-surfaces">1. Artificial surfaces</a></li>
   <li><a href="#agricultural" id="toc-agricultural" class="nav-link" data-scroll-target="#agricultural">2. Agricultural</a></li>
@@ -166,33 +188,44 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#miscellaneous" id="toc-miscellaneous" class="nav-link" data-scroll-target="#miscellaneous">6. Miscellaneous</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#list-of-abbreviations" id="toc-list-of-abbreviations" class="nav-link" data-scroll-target="#list-of-abbreviations"><span class="header-section-number">5</span> List of abbreviations</a></li>
-  <li><a href="#annex" id="toc-annex" class="nav-link" data-scroll-target="#annex"><span class="header-section-number">6</span> Annex</a>
+  <li><a href="#list-of-abbreviations" id="toc-list-of-abbreviations" class="nav-link" data-scroll-target="#list-of-abbreviations"><span class="header-section-number">8</span> List of abbreviations</a></li>
+  <li><a href="#annex" id="toc-annex" class="nav-link" data-scroll-target="#annex"><span class="header-section-number">9</span> Annex</a>
   <ul class="collapse">
-  <li><a href="#pre-processing-and-geometric-adaptation-of-navigation-data-1" id="toc-pre-processing-and-geometric-adaptation-of-navigation-data-1" class="nav-link" data-scroll-target="#pre-processing-and-geometric-adaptation-of-navigation-data-1"><span class="header-section-number">6.1</span> Pre-processing and geometric adaptation of navigation data</a></li>
-  <li><a href="#detailed-product-specification-table" id="toc-detailed-product-specification-table" class="nav-link" data-scroll-target="#detailed-product-specification-table"><span class="header-section-number">6.2</span> Detailed product specification table</a></li>
-  <li><a href="#product-types-and-attricute-field-descriptions" id="toc-product-types-and-attricute-field-descriptions" class="nav-link" data-scroll-target="#product-types-and-attricute-field-descriptions"><span class="header-section-number">6.3</span> Product types and attricute field descriptions</a>
+  <li><a href="#pre-processing-and-geometric-adaptation-of-navigation-data-1" id="toc-pre-processing-and-geometric-adaptation-of-navigation-data-1" class="nav-link" data-scroll-target="#pre-processing-and-geometric-adaptation-of-navigation-data-1"><span class="header-section-number">9.1</span> Pre-processing and geometric adaptation of navigation data</a></li>
+  <li><a href="#detailed-product-specification-table" id="toc-detailed-product-specification-table" class="nav-link" data-scroll-target="#detailed-product-specification-table"><span class="header-section-number">9.2</span> Detailed product specification table</a></li>
+  <li><a href="#product-types-and-attricute-field-descriptions" id="toc-product-types-and-attricute-field-descriptions" class="nav-link" data-scroll-target="#product-types-and-attricute-field-descriptions"><span class="header-section-number">9.3</span> Product types and attricute field descriptions</a>
   <ul class="collapse">
-  <li><a href="#ua-2006-lulc" id="toc-ua-2006-lulc" class="nav-link" data-scroll-target="#ua-2006-lulc"><span class="header-section-number">6.3.1</span> UA 2006 LULC</a></li>
-  <li><a href="#ua-2012-lulc" id="toc-ua-2012-lulc" class="nav-link" data-scroll-target="#ua-2012-lulc"><span class="header-section-number">6.3.2</span> UA 2012 LULC</a></li>
-  <li><a href="#ua-2006-2012-lulc-change-map" id="toc-ua-2006-2012-lulc-change-map" class="nav-link" data-scroll-target="#ua-2006-2012-lulc-change-map"><span class="header-section-number">6.3.3</span> UA 2006-2012 LULC change map</a></li>
-  <li><a href="#ua-2018-lulc" id="toc-ua-2018-lulc" class="nav-link" data-scroll-target="#ua-2018-lulc"><span class="header-section-number">6.3.4</span> UA 2018 LULC</a></li>
-  <li><a href="#ua-2012-2018-lulc-change-map" id="toc-ua-2012-2018-lulc-change-map" class="nav-link" data-scroll-target="#ua-2012-2018-lulc-change-map"><span class="header-section-number">6.3.5</span> UA 2012-2018 LULC change map</a></li>
-  <li><a href="#ua-2012-stl-street-tree-layer" id="toc-ua-2012-stl-street-tree-layer" class="nav-link" data-scroll-target="#ua-2012-stl-street-tree-layer"><span class="header-section-number">6.3.6</span> UA 2012 STL (street tree layer)</a></li>
-  <li><a href="#ua-2018-stl-street-tree-layer" id="toc-ua-2018-stl-street-tree-layer" class="nav-link" data-scroll-target="#ua-2018-stl-street-tree-layer"><span class="header-section-number">6.3.7</span> UA 2018 STL (street tree layer)</a></li>
+  <li><a href="#ua-2006-lulc" id="toc-ua-2006-lulc" class="nav-link" data-scroll-target="#ua-2006-lulc"><span class="header-section-number">9.3.1</span> UA 2006 LULC</a></li>
+  <li><a href="#ua-2012-lulc" id="toc-ua-2012-lulc" class="nav-link" data-scroll-target="#ua-2012-lulc"><span class="header-section-number">9.3.2</span> UA 2012 LULC</a></li>
+  <li><a href="#ua-2006-2012-lulc-change-map" id="toc-ua-2006-2012-lulc-change-map" class="nav-link" data-scroll-target="#ua-2006-2012-lulc-change-map"><span class="header-section-number">9.3.3</span> UA 2006-2012 LULC change map</a></li>
+  <li><a href="#ua-2018-lulc" id="toc-ua-2018-lulc" class="nav-link" data-scroll-target="#ua-2018-lulc"><span class="header-section-number">9.3.4</span> UA 2018 LULC</a></li>
+  <li><a href="#ua-2012-2018-lulc-change-map" id="toc-ua-2012-2018-lulc-change-map" class="nav-link" data-scroll-target="#ua-2012-2018-lulc-change-map"><span class="header-section-number">9.3.5</span> UA 2012-2018 LULC change map</a></li>
+  <li><a href="#ua-2012-stl-street-tree-layer" id="toc-ua-2012-stl-street-tree-layer" class="nav-link" data-scroll-target="#ua-2012-stl-street-tree-layer"><span class="header-section-number">9.3.6</span> UA 2012 STL (street tree layer)</a></li>
+  <li><a href="#ua-2018-stl-street-tree-layer" id="toc-ua-2018-stl-street-tree-layer" class="nav-link" data-scroll-target="#ua-2018-stl-street-tree-layer"><span class="header-section-number">9.3.7</span> UA 2018 STL (street tree layer)</a></li>
   </ul></li>
-  <li><a href="#urban-atlas-mapping-guide---change-records" id="toc-urban-atlas-mapping-guide---change-records" class="nav-link" data-scroll-target="#urban-atlas-mapping-guide---change-records"><span class="header-section-number">6.4</span> Urban Atlas mapping guide - change records</a></li>
+  <li><a href="#urban-atlas-mapping-guide---change-records" id="toc-urban-atlas-mapping-guide---change-records" class="nav-link" data-scroll-target="#urban-atlas-mapping-guide---change-records"><span class="header-section-number">9.4</span> Urban Atlas mapping guide - change records</a></li>
   </ul></li>
-  <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">7</span> Change Log</a></li>
+  <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">11</span> Change Log</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
-<div class="logo-header">
-  <img src="../assets/copernicus-logo.svg" class="nav-logo">
-  <img src="../assets/lms_logo.svg" class="nav-logo">
-</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Add Version to the title's metadata
+    //
+    const titleMetaEl = document.querySelector(".quarto-title-meta");
+    const wrapperDiv = document.createElement("div");
+    wrapperDiv.innerHTML = `
+        <div class="quarto-title-meta-heading">Version</div>
+        <div class="quarto-title-meta-contents">
+          <p>6.3.0</p>
+        </div>
+      `;
+    titleMetaEl.appendChild(wrapperDiv);
+  });
+</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -213,7 +246,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 1, 2020</p>
+      <p class="date">December 3, 2025</p>
     </div>
   </div>
   
@@ -241,7 +274,7 @@ Denmark<br>
 <a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
 </div>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Example  of  the  “look  &  feel“  of  the  final  Urban  Atlas  2012  product  for  Brussels","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image20.jpeg"},{"@type":"ImageObject","caption":"Example  provided  of  the  number  for  UA  class  1.1.2.1","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image1.jpg"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image2.jpg"},{"@type":"ImageObject","caption":"Change  Dynamics  over  FR010L2  Montpellier  (2012-2018)","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image21.png"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image22.jpg"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image24.png"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image25.jpg"},{"@type":"ImageObject","caption":"Comparison  between  VHR2018  scene  (left)  and  STL2018  product  (right)","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image27.jpg"},{"@type":"ImageObject","caption":"DSM  computation  principle  (http://www.stadtentwicklung.berlin.de/umwelt/umweltatlas/ed610_03.htm)","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image29.png"},{"@type":"ImageObject","caption":"Coverage  of  Vienna  core  area  with  relevant  UA  2012  built-up  classes","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image30.jpg"},{"@type":"ImageObject","caption":"Final  Digital  Height  Model  (height  values  in  m)","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image31.jpg"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image36.png"},{"@type":"ImageObject","caption":"Urban  Atlas  LULC  decision  matrix","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image37.png"},{"@type":"ImageObject","caption":"Urban  Atlas  Decision  Matrix  for  Artificial  Surfaces","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image38.png"}]}
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Example  of  the  “look  &  feel“  of  the  final  Urban  Atlas  2012  product  for  Brussels","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image20.jpeg","width":"5.16in"},{"@type":"ImageObject","caption":"Example  provided  of  the  number  for  UA  class  1.1.2.1","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image1.jpg","width":"5.39in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image2.jpg","width":"5.35in"},{"@type":"ImageObject","caption":"Change  Dynamics  over  FR010L2  Montpellier  (2012-2018)","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image21.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image22.jpg","width":"5.75in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image24.png","width":"3.57in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image25.jpg","width":"5.97in"},{"@type":"ImageObject","caption":"Comparison  between  VHR2018  scene  (left)  and  STL2018  product  (right)","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image27.jpg","width":"5.33in"},{"@type":"ImageObject","caption":"DSM  computation  principle  (http://www.stadtentwicklung.berlin.de/umwelt/umweltatlas/ed610_03.htm)","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image29.png","width":"6.27in"},{"@type":"ImageObject","caption":"Coverage  of  Vienna  core  area  with  relevant  UA  2012  built-up  classes","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image30.jpg","width":"3.81in"},{"@type":"ImageObject","caption":"Final  Digital  Height  Model  (height  values  in  m)","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image31.jpg","width":"5.91in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image36.png","width":"6.27in"},{"@type":"ImageObject","caption":"Urban  Atlas  LULC  decision  matrix","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image37.png","width":"6.01in"},{"@type":"ImageObject","caption":"Urban  Atlas  Decision  Matrix  for  Artificial  Surfaces","url":"Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image38.png","width":"6.27in"}]}
 </script>
 <section id="executive-summary" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Executive summary</h1>
@@ -336,7 +369,6 @@ Denmark<br>
 </tr>
 </tbody>
 </table>
-<div style="page-break-after: always;"></div>
 </section>
 <section id="mapping-guide" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Mapping guide</h1>
@@ -364,13 +396,45 @@ Denmark<br>
 <td>Very high-resolution land use and land cover dataset of Functional Urban Areas</td>
 </tr>
 <tr class="even">
-<td>INSPIRE themes</td>
-<td><p>Land cover</p>
-<p>Land use</p></td>
+<td colspan="2"><table class="caption-top table">
+<colgroup>
+<col style="width: 47%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>INSPIRE themes</th>
+<th>Land cover</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Land use</td>
+<td></td>
+</tr>
+</tbody>
+</table></td>
 </tr>
 <tr class="odd">
-<td>Geographic description</td>
-<td>EU, EFTA and West Balkan countries plus United Kingdom and Turkey</td>
+<td colspan="2"><pre><code>                                                                       | EU, EFTA and West Balkan countries plus United Kingdom and Turkey</code></pre>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 93%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Geographic description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></td>
 </tr>
 <tr class="even">
 <td>Temporal description</td>
@@ -381,9 +445,24 @@ Denmark<br>
 <td>Provide the baseline of land use/land cover data on Functional Urban Areas extracted from VHR and other available imagery (and combined with in-situ data) to allow the study of the characteristics of these areas in comparison with major urban areas in the EU and EFTA countries.</td>
 </tr>
 <tr class="even">
-<td>Minimum Mapping Unit</td>
-<td><p>0.25 ha in urban areas (level 1)</p>
-<p>1 ha in rural areas (level 2-5)</p></td>
+<td colspan="2"><table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Minimum Mapping Unit</th>
+<th>0.25 ha in urban areas (level 1)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 ha in rural areas (level 2-5)</td>
+<td></td>
+</tr>
+</tbody>
+</table></td>
 </tr>
 <tr class="odd">
 <td>Minimum mapping width</td>
@@ -410,17 +489,39 @@ Denmark<br>
 <td>According to geo-location accuracy of satellite imagery delivered by ESA</td>
 </tr>
 <tr class="odd">
-<td>Overall classification accuracy</td>
-<td><p>≥ 85 % in urban classes (class 1)</p>
-<p>≥ 80 % in rural classes (classes 2 to 5)</p>
-<p>≥ 80 % overall accuracy</p></td>
+<td colspan="2"><table class="caption-top table">
+<colgroup>
+<col style="width: 41%">
+<col style="width: 58%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Overall classification accuracy</th>
+<th>≥ 85 % in urban classes (class 1)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>≥ 80 % in rural classes (classes 2 to 5)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>≥ 80 % overall accuracy</td>
+<td></td>
+</tr>
+</tbody>
+</table></td>
 </tr>
 </tbody>
 </table>
 <p>The table provided in Annex 5.3 gives a more detailed description of the product specifications.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image20.jpeg" class="img-fluid figure-img"></p>
+<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image20.jpeg" class="img-fluid figure-img" style="width:5.16in" alt="This is a detailed land use/land cover map of an urban area, likely a Functional Urban Area in Europe, displaying a comprehensive classification using 26 distinct categories. The map legend provides specific numeric codes, descriptive names, and associated colours for each land cover type. The Ground Level coverage (G.L.) percentages are included for urban fabric categories. The legend categories are: * **Urban Fabric:** * 11100: Continuous Urban Fabric (G.L. > 80%) - Dark Red * 11210: Discontinuous Dense Urban Fabric (G.L.: 50% - 80%) - Red * 11220: Discontinuous Medium Density Urban Fabric (G.L.: 30% - 50%) - Light Red * 11230: Discontinuous Low Density Urban Fabric (G.L.: 10% - 30%) - Purple * 11240: Discontinuous Very Low Density Urban Fabric (G.L.: < 10%) - Light Purple * 11300: Isolated Structures - Grey * **Industrial, Commercial, Transport, and Extractive:** * 12100: Industrial, commercial, public, military and private units - Dark Grey * 12210: Fast transit roads and associated land - Medium Grey * 12220: Other roads and associated land - Lighter Grey * 12230: Railways and associated land - Brown * 12300: Port areas - Dark Brown * 12400: Airports - Beige * 13100: Mineral extraction and dump sites - Light Brown * 13300: Construction sites - Yellowish Brown * 13400: Land without current use - Pale Yellow * **Green Urban and Natural Areas:** * 14100: Green urban areas - Bright Green * 14200: Sports and leisure facilities - Lighter Green * 26000: Orchards - Olive Green * 31000: Forests - Dark Green * 32000: Herbaceous vegetation associations - Medium Green * 33000: Open spaces with little or no vegetations - Light Greenish Yellow * **Agricultural Areas:** * 21000: Arable land (annual crops) - Pale Orange * 22000: Permanent crops - Darker Orange * 23000: Pastures - Light Yellow-Green * 24000: Complex and mixed cultivation patterns - Yellow * **Water Bodies and Wetlands:** * 40000: Wetlands - Pale Blue * 50000: Water - Bright Blue The map displays a dense urban core characterized by Continuous Urban Fabric (Dark Red) and Discontinuous Dense Urban Fabric (Red), transitioning to lower density urban fabrics (Purple, Light Purple) towards the outskirts. Extensive Green urban areas (Bright Green) and Forests (Dark Green) are interspersed within and around the urbanized zones, particularly evident in the south-east. Transport infrastructure, including fast transit roads, other roads, and railways (various shades of grey and brown), forms a prominent network. Small bodies of water (Bright Blue) and wetlands (Pale Blue) are also visible. A scale bar indicates distances up to 2 kms, with intervals at 0, 0.5, and 1 kms. A north arrow is labelled 'N'. This type of high-resolution land use/land cover data for Functional Urban Areas is a Copernicus Land Monitoring Service (CLMS) product, typically available for reference years such as 2006, 2012, and 2018."></p>
 <figcaption>Example of the “look &amp; feel“ of the final Urban Atlas 2012 product for Brussels</figcaption>
 </figure>
 </div>
@@ -432,67 +533,96 @@ Denmark<br>
 <table class="caption-top table">
 <caption>Detailed specifications of Urban Atlas STL product</caption>
 <colgroup>
-<col style="width: 42%">
-<col style="width: 57%">
+<col style="width: 37%">
+<col style="width: 49%">
+<col style="width: 12%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td rowspan="2"><h1 id="title" data-number="5"><span class="header-section-number">5</span> <strong>Title</strong></h1>
+<p>Abstract</p></td>
+<td rowspan="2"><h1 id="street-tree-layer" data-number="6"><span class="header-section-number">6</span> <strong>Street Tree Layer</strong></h1>
+<p>Very high-resolution tree cover dataset of inside nomenclature level 1 areas.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>INSPIRE themes</td>
+<td>Land cover</td>
+<td></td>
+</tr>
+<tr class="even">
+<td colspan="3"><pre><code>                                                                       |   EU, EFTA and West Balkan countries plus United Kingdom and Turkey                                |</code></pre>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 93%">
+<col style="width: 6%">
 </colgroup>
 <thead>
 <tr class="header">
-<th><strong>Title</strong></th>
-<th><strong>Street Tree Layer</strong></th>
+<th>Geographic description</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Abstract</td>
-<td>Very high-resolution tree cover dataset of inside nomenclature level 1 areas.</td>
+<td></td>
+<td></td>
 </tr>
-<tr class="even">
-<td>INSPIRE themes</td>
-<td>Land cover</td>
+</tbody>
+</table></td>
 </tr>
 <tr class="odd">
-<td>Geographic description</td>
-<td>EU, EFTA and West Balkan countries plus United Kingdom and Turkey</td>
-</tr>
-<tr class="even">
 <td>Temporal description</td>
 <td>2012 (partial coverage) / 2018</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Purpose</td>
 <td>Mapping of contiguous rows or patches of trees covering inside the nomenclature level 1 areas.</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Minimum Mapping Unit</td>
 <td>500 m²</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Minimum mapping width</td>
 <td>10 m</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Nomenclature</td>
 <td>Tree (STL=1) or Nodata (99)</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Projection</td>
 <td>ETRS89 Lambert Azimuthal Equal Area (LAEA) (EPSG 3035)</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Delivery formats</td>
 <td>Shapefile (2012), GeoPackage (2018)</td>
-</tr>
-<tr class="odd">
-<td>Metadata</td>
-<td>INSPIRE Metadata Implementing Rules: Technical Guidelines based on EN ISO 19115 and EN ISO 19119</td>
+<td></td>
 </tr>
 <tr class="even">
-<td>Positional accuracy</td>
-<td>According to geo-location accuracy of satellite imagery delivered by ESA</td>
+<td>Metadata</td>
+<td>INSPIRE Metadata Implementing Rules: Technical Guidelines based on EN ISO 19115 and EN ISO 19119</td>
+<td></td>
 </tr>
 <tr class="odd">
+<td>Positional accuracy</td>
+<td>According to geo-location accuracy of satellite imagery delivered by ESA</td>
+<td></td>
+</tr>
+<tr class="even">
 <td>Overall classification accuracy</td>
 <td>≥ 80 % in urban classes</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -520,8 +650,25 @@ Denmark<br>
 <td>Buildings</td>
 </tr>
 <tr class="odd">
-<td>Geographic description</td>
-<td>EU, EFTA and West Balkan countries plus United Kingdom and Turkey - core urban areas of capital cities only</td>
+<td colspan="2"><pre><code>                                                                       |   EU, EFTA and West Balkan countries plus United Kingdom and Turkey - core urban areas of capital cities only</code></pre>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 93%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Geographic description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></td>
 </tr>
 <tr class="even">
 <td>Temporal description</td>
@@ -571,35 +718,35 @@ Denmark<br>
 </table>
 </section>
 </section>
-<section id="general-guidelines" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="general-guidelines"><span class="header-section-number">4.2</span> General guidelines</h2>
-<section id="pre-processing-and-geo-coding-of-eo-data" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="pre-processing-and-geo-coding-of-eo-data"><span class="header-section-number">4.2.1</span> Pre-processing and geo-coding of EO data</h3>
+<section id="general-guidelines" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="general-guidelines"><span class="header-section-number">6.1</span> General guidelines</h2>
+<section id="pre-processing-and-geo-coding-of-eo-data" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="pre-processing-and-geo-coding-of-eo-data"><span class="header-section-number">6.1.1</span> Pre-processing and geo-coding of EO data</h3>
 <p>The EO data provided to the Service Provider should already be pre-processed. In order to reach the 1/10,000 expected scale, EO data should be provided with spatial resolution less than 5&nbsp;meters. Service Provider should check the geometric quality of the delivered EO data, but no further pre-processing step is expected. The EO data for the European Urban Atlas 2012 is the optical VHR2 coverage over EU 2011-2013 (DWH_MG2b_CORE_03) available on Data Warehouse (DWH) of the European Space Agency (ESA). The EO data for the Urban Atlas 2018 is an optical VHR coverage over EU 2017-2019 also available on ESA DWH. Change detection task can be supported by Copernicus Sentinel-2 data (10 m resolution).</p>
 </section>
-<section id="pre-processing-and-geometric-adaptation-of-navigation-data" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="pre-processing-and-geometric-adaptation-of-navigation-data"><span class="header-section-number">4.2.2</span> Pre-processing and geometric adaptation of navigation data</h3>
+<section id="pre-processing-and-geometric-adaptation-of-navigation-data" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="pre-processing-and-geometric-adaptation-of-navigation-data"><span class="header-section-number">6.1.2</span> Pre-processing and geometric adaptation of navigation data</h3>
 <p>The EO data are the basis for interpretation and classification. In case of geometrical differences between EO data and navigation data (COTS or OSM), the navigation data has to be corrected in line with the EO data.</p>
 <p>The pre-processing and application of the navigation data (COTS or OSM) shall be done according to the methodology defined in Annex 5.2.</p>
 </section>
-<section id="pre-processing-of-topographic-maps" class="level3" data-number="4.2.3">
-<h3 data-number="4.2.3" class="anchored" data-anchor-id="pre-processing-of-topographic-maps"><span class="header-section-number">4.2.3</span> Pre-processing of topographic maps</h3>
+<section id="pre-processing-of-topographic-maps" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="pre-processing-of-topographic-maps"><span class="header-section-number">6.1.3</span> Pre-processing of topographic maps</h3>
 <p>Topographic maps can be used for interpretation of objects. Topographic maps should be used in digital form with precise geo-coding. The usage of printed (analogue) maps is not recommended. In case of geometrical differences between EO data and topographic maps, the erroneous data (either EO-data or topo-maps) needs to be identified using reliable datasets providing spatial reference information. The geometry of the mapping product shall then be congruent with the correct dataset.</p>
 </section>
-<section id="classification-and-interpretation" class="level3" data-number="4.2.4">
-<h3 data-number="4.2.4" class="anchored" data-anchor-id="classification-and-interpretation"><span class="header-section-number">4.2.4</span> Classification and interpretation</h3>
+<section id="classification-and-interpretation" class="level3" data-number="6.1.4">
+<h3 data-number="6.1.4" class="anchored" data-anchor-id="classification-and-interpretation"><span class="header-section-number">6.1.4</span> Classification and interpretation</h3>
 <p>Application of automatic classification routines, such as segmentation and clustering, may be applied whenever appropriate:</p>
 <p>Automated segmentation and classification to achieve an initial differentiation between basic land cover classes (urban vs.&nbsp;forest vs.&nbsp;water vs.&nbsp;other land cover) is possible following a decision of the service providers.</p>
 <p>As the backbone for the object geometry, the navigation data network (COTS or OSM) is recommended but only with the method defined in the Annex.</p>
 <p>Manual refinement and classification at the finest level of the LU/LC classification especially within urban areas by means of visual interpretation of EO data remain necessary to be compliant with the product specifications. For this purpose, the following sections provide the rules and principles to be applied.</p>
 </section>
-<section id="use-of-copernicus-hrl-imperviousness" class="level3" data-number="4.2.5">
-<h3 data-number="4.2.5" class="anchored" data-anchor-id="use-of-copernicus-hrl-imperviousness"><span class="header-section-number">4.2.5</span> Use of Copernicus HRL imperviousness</h3>
+<section id="use-of-copernicus-hrl-imperviousness" class="level3" data-number="6.1.5">
+<h3 data-number="6.1.5" class="anchored" data-anchor-id="use-of-copernicus-hrl-imperviousness"><span class="header-section-number">6.1.5</span> Use of Copernicus HRL imperviousness</h3>
 <p>Among the reference products from Copernicus Land Monitoring Services (CLMS), the pan-European High-Resolution Layer (HRL) Imperviousness (formerly named Fast Track Sealing layer, FTS) is used for the classification at level 4 of the residential or mixed use urban fabric units classified 1.1.2 from EO data</p>
 <p>The assignment of the imperviousness/soil sealing levels or density (i.e.&nbsp;classes 1.1.2.1 - 1.1.2.4) shall be carried out using the HRL Imperviousness layer or similar one. The Quality Assurance (QA) process will check only if the technical approach agreed with DG REGIO is respected but will not assess the absolute accuracy of these classes.</p>
 </section>
-<section id="data-format-of-the-final-product" class="level3" data-number="4.2.6">
-<h3 data-number="4.2.6" class="anchored" data-anchor-id="data-format-of-the-final-product"><span class="header-section-number">4.2.6</span> Data format of the final product</h3>
+<section id="data-format-of-the-final-product" class="level3" data-number="6.1.6">
+<h3 data-number="6.1.6" class="anchored" data-anchor-id="data-format-of-the-final-product"><span class="header-section-number">6.1.6</span> Data format of the final product</h3>
 <p>ESRI ArcGIS compatible or open source OGC-standard vector format with polygon topology:</p>
 <ul>
 <li><p>Complete coverage in a single area feature layer.</p></li>
@@ -608,17 +755,17 @@ Denmark<br>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image1.jpg" class="img-fluid figure-img"></p>
+<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image1.jpg" class="img-fluid figure-img" style="width:5.39in" alt="A simple two-row table defining a land cover classification code. The header row is labelled 'CODE_yyyyy'. The data row contains the value '11210*'. This code likely represents a specific land use/land cover class, such as 'Industrial or commercial units' based on the CORINE Land Cover (CLC) nomenclature for urban areas, as hinted by the document's surrounding context."></p>
 <figcaption>Example provided of the number for UA class 1.1.2.1</figcaption>
 </figure>
 </div>
-<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image2.jpg" class="img-fluid"></p>
+<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image2.jpg" class="img-fluid" style="width:5.35in" alt="| CODE | Legend code | |---|---| | yyyy | Reference year (e.g. 2006, 2012 or 2018) | This table defines the code `yyyy` as a representation for a 'Reference year' within technical documentation, providing examples such as 2006, 2012, and 2018."></p>
 <p>Column data format:</p>
 <p>CODE_yyyyy: 5 digits in Long Integer format without decimal places (values allowed: 11100 to 92000 (all class codes))</p>
 <p>The complete description of the data format is provided in section 5.4.</p>
 </section>
-<section id="interpretation-rules" class="level3" data-number="4.2.7">
-<h3 data-number="4.2.7" class="anchored" data-anchor-id="interpretation-rules"><span class="header-section-number">4.2.7</span> Interpretation rules</h3>
+<section id="interpretation-rules" class="level3" data-number="6.1.7">
+<h3 data-number="6.1.7" class="anchored" data-anchor-id="interpretation-rules"><span class="header-section-number">6.1.7</span> Interpretation rules</h3>
 <ul>
 <li><p>The delineation is to be done on the EO data. EO data should be considered as the primary (guiding) data source.</p></li>
 <li><p>The interpretation of the object is done using:</p>
@@ -637,8 +784,8 @@ Denmark<br>
 <li><p>Analysis scale : 1:5 000</p></li>
 </ul>
 </section>
-<section id="lulc-change-detection-and-layer-generation" class="level3" data-number="4.2.8">
-<h3 data-number="4.2.8" class="anchored" data-anchor-id="lulc-change-detection-and-layer-generation"><span class="header-section-number">4.2.8</span> LU/LC change detection and layer generation</h3>
+<section id="lulc-change-detection-and-layer-generation" class="level3" data-number="6.1.8">
+<h3 data-number="6.1.8" class="anchored" data-anchor-id="lulc-change-detection-and-layer-generation"><span class="header-section-number">6.1.8</span> LU/LC change detection and layer generation</h3>
 <p>In case of the required production of an update of the Urban Atlas LU/LC database for a historic or new reference year, change detection task shall be performed and an additional layer shall be produced by the service provider, the Land Use / Land Cover (LU/LC) change layer. For the European Urban Atlas, following the LU/LC product generation for the 2006 reference year, change detection were performed successively for generating the 2012 and 2018 products.</p>
 <p>Change detection and characterization shall be performed considering the VHR ortho-rectified optical satellite imagery as the reference. Adopting a manual methodological approach based on the visual comparison between the images from two different reference years is always required, but it can also be combined with automatic change detection approaches (image-to-image or map-to-image) which should improve the performances. Otherwise, as the change layer shall <u>only contain real changes</u> between two reference years, any inconsistencies of LU/LC codes will not be considered as a change if due to thematic misclassification inherited from the LU/LC information related to the first reference year already available. In such a case, it is worth to correct LU/LC misclassifications related to this year and generate a revised status layer accordingly.</p>
 <p>In the specific case of the change detection between 2012 and 2018 for the European Urban Atlas, LU/LC misclassifications from 2012 are corrected but only in the immediate surroundings of the actual LU/LC change area, which led to produce a revised LU/LC 2012 status layer. Otherwise, LU/LC changes from, to, or within urban areas are detected, extracted and characterized at the finest level of the nomenclature, in accordance with the MMUs listed below. However, LU/LC changes occurring within rural/natural areas are mapped only if the change occurs at level 1 of the nomenclature, then well characterized at the finest level (ex: change from 31000 to 23000). In other words, changes that occur within the same rural/natural areas are not mapped (for instance, changes from 21000 to 22000 are not identified and therefore not included in the change layer).</p>
@@ -651,27 +798,27 @@ Denmark<br>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image21.png" class="img-fluid figure-img"></p>
+<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image21.png" class="img-fluid figure-img" style="width:6.27in" alt="This map illustrates Land Use / Land Cover (LULC) changes in the FR010L2 Montpellier area of France between 2012 and 2018, using Copernicus Urban Atlas data. The image is divided into three main sections: 'Urban Atlas 2012', 'Urban Atlas 2018', and 'Changes between 2012 and 2018'. A scale bar is present indicating 0, 0.5, and 1 km, along with a north arrow. The 'Urban Atlas 2012' section displays a false-colour infrared satellite image (Image source: Spot5 - 13/08/2011) and its corresponding LULC map. On the 2012 LULC map, classes include: urban fabric (dark red), industrial/commercial/transport units (purple), agricultural areas (light yellow), forests/semi-natural areas (dark green), water bodies (light blue), roads/railways (grey), green urban areas (brownish), and sport/leisure facilities (pinkish). The 'Urban Atlas 2018' section displays a false-colour infrared satellite image (Image source: Pléiades 1B - 06/08/2018) and its corresponding LULC map. Compared to 2012, the 2018 imagery and LULC map show a prominent new linear feature, likely a major transport corridor, extending through what was previously agricultural land, appearing as a dark grey area. The 'Changes between 2012 and 2018' section specifically highlights the transformations using the following legend: * Dark red: 'Urban expansion from agricultural areas' * Red: 'Urban expansion from natural areas' * Purple: 'Internal urban changes' * Orange: 'Urban conversion to agriculture' The map of changes indicates significant urban expansion, predominantly from agricultural areas (dark red), concentrated along the newly developed linear transport infrastructure. Smaller, dispersed patches of urban expansion from natural areas (red) and internal urban changes (purple) are also visible. 'Urban conversion to agriculture' (orange) appears to be a very minor change in this specific geographical view."></p>
 <figcaption>Change Dynamics over FR010L2 Montpellier (2012-2018)</figcaption>
 </figure>
 </div>
 </section>
-<section id="street-tree-layer" class="level3" data-number="4.2.9">
-<h3 data-number="4.2.9" class="anchored" data-anchor-id="street-tree-layer"><span class="header-section-number">4.2.9</span> Street tree layer</h3>
+<section id="street-tree-layer-1" class="level3" data-number="6.1.9">
+<h3 data-number="6.1.9" class="anchored" data-anchor-id="street-tree-layer-1"><span class="header-section-number">6.1.9</span> Street tree layer</h3>
 <p>The Street Tree Layer 2012 (STL2012) and Street Tree Layer 2018 (STL2018) are separate layers from respectively the UA2012 and UA2018 LU/LC Layers, which are produced within the level&nbsp;1 urban mask for each FUA. They include contiguous rows or patches of trees covering 500m² or more and with a minimum width (MinMW) of 10 m over “Artificial surfaces” (nomenclature class&nbsp;1) inside FUA (i.e.&nbsp;rows of trees along the road network outside urban areas or forest adjacent to urban areas should not be included).</p>
 <p>The following specific rules have to be applied:</p>
 <ul>
 <li><span data-custom-style="NormalLine">Exception to the 10 m MinMW rule: in order to maintain continuity, units smaller than 10 m over a distance up to 10 m can still be included in STL (see figures below).</span><br>
 </li>
 </ul>
-<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image22.jpg" class="img-fluid"></p>
+<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image22.jpg" class="img-fluid" style="width:5.75in" alt="This conceptual diagram illustrates geometric criteria, specifically a 10-meter (10 m) threshold, for delineating and representing Land Use / Land Cover (LULC) features in spatial data products, likely related to the Copernicus Land Monitoring Service (CLMS) Urban Atlas. The left panel depicts a linear feature, initially 10 m wide, which narrows to less than 10 m over a segment before expanding back to 10 m. This illustrates a condition where a linear feature's width drops below a 10 m threshold, which may necessitate specific mapping rules, such as generalization or merging, in LULC product generation. The right panel shows an area feature (green polygon) surrounded by another land cover class (red polygon). A narrow connection or intrusion of the green class into the red area, or vice-versa, is highlighted by a yellow square. Blue arrows extending from the square towards the surrounding features are each labelled '< 10 m', indicating that the dimension of this narrow neck or small feature is less than 10 m. This illustrates a common scenario where a feature's size falls below the Minimum Mapping Unit (MMU) for area features, influencing its representation in a LULC database."></p>
 <ul>
 <li><span data-custom-style="NormalLine">Border effect correction: road network crossing wooded area and connecting cities and villages is fully classified as STL due to tree crown cover by default. Therefore, post-processing step needs to be implemented for correcting this misclassification.</span><br>
 </li>
 </ul>
-<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image24.png" class="img-fluid"></p>
+<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image24.png" class="img-fluid" style="width:3.57in" alt="A spatial map illustrating the distribution of features labelled 'S T L before post processing' and an area marked as 'Border effect'. The map shows a white background with irregular patches and linear elements rendered in dark green, representing the 'S T L before post processing' features. These features are denser on the left side of the map. An irregularly shaped polygon outlined in red, located in the upper-central part of the map, highlights an area designated as a 'Border effect'. This red-outlined area also contains green 'S T L' features, which appear to be less dense or more fragmented compared to the dense concentration on the far left. The legend on the right indicates: a solid dark green square for 'S T L before post processing' and a red outlined square for 'Border effect'. The map does not include a scale bar, compass, or explicit reference year, but the surrounding context refers to the European Urban Atlas."></p>
 <p>An urban mask analysis to exclude road and railway networks connecting cities and villages shall be applied to solve this border effect. Urban Mask analysis needs to define a tolerance fixed to 50 m that well differentiate urban and interurban networks. Large railway infrastructures may be excluded from the mask, but this is not an issue knowing that trees are very rare in such areas.</p>
-<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image25.jpg" class="img-fluid"></p>
+<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image25.jpg" class="img-fluid" style="width:5.97in" alt="This image displays two conceptual map segments illustrating Land Use / Land Cover (LULC) masking rules for delineating artificial areas around linear transport infrastructure, relevant to the Copernicus Urban Atlas program. The left map segment shows a narrow linear feature (grey) labelled as '< 50m width'. Surrounding polygons are hatched red and hatched light green, likely representing different LULC classes. An annotation states: 'The mask outline go straight and cut the road.' This indicates that if a road or similar linear feature is less than 50 metres wide, the LULC mask boundary for adjacent areas should extend straight across it, effectively including the narrow feature within the surrounding LULC polygon (e.g., an artificial area). The right map segment shows a wider linear feature (dark grey) labelled 'RAILWAYS' with a width indicated as '> 50m width'. Surrounding polygons are hatched red, hatched purple, and hatched light green. A small hatched dark red polygon is also visible. An annotation states: 'The mask outline exclude the railways from the artificial area.' This implies that if a railway or similar linear feature is greater than 50 metres wide, the LULC mask boundary should delineate around it, excluding the wider feature from the adjacent artificial LULC polygons. The maps demonstrate different Minimum Mapping Unit (MMU) or delineation rules based on the width of transport infrastructure when creating or updating Urban Atlas LULC layers."></p>
 <p>STL patches do not cover roads (codes 12210 and 12220) or railways (code 12230) connecting cities, that are outside the urban mask.</p>
 <ul>
 <li><p>MMU rule (&gt;500 m²) is applied to STL polygons (STL = 1)</p></li>
@@ -679,13 +826,13 @@ Denmark<br>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image27.jpg" class="img-fluid figure-img"></p>
+<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image27.jpg" class="img-fluid figure-img" style="width:5.33in" alt="This image illustrates the extraction of a Street Tree Layer (STL) from very high resolution (VHR) satellite imagery, specifically demonstrating an exception to the Minimum Mapping Width (MinMW) rule. The left panel shows a false-colour composite of an urban area, featuring roads, buildings (turquoise/greenish-blue), and vegetation highlighted in bright red. A large body of water appears dark blue on the left. The right panel displays the corresponding extracted Street Tree Layer as irregular green polygons on a white background, delineating the tree patches and linear tree features. This visual comparison highlights how smaller or narrower patches of trees, which might typically be excluded by a 10-metre Minimum Mapping Width rule, are retained in the Street Tree Layer product to ensure the continuity of tree lines and patches within urban areas."></p>
 <figcaption>Comparison between VHR2018 scene (left) and STL2018 product (right)</figcaption>
 </figure>
 </div>
 </section>
-<section id="digital-height-model-layer-dhm" class="level3" data-number="4.2.10">
-<h3 data-number="4.2.10" class="anchored" data-anchor-id="digital-height-model-layer-dhm"><span class="header-section-number">4.2.10</span> Digital Height Model layer (DHM)</h3>
+<section id="digital-height-model-layer-dhm" class="level3" data-number="6.1.10">
+<h3 data-number="6.1.10" class="anchored" data-anchor-id="digital-height-model-layer-dhm"><span class="header-section-number">6.1.10</span> Digital Height Model layer (DHM)</h3>
 <p>A 10 m raster layer containing height information is generated for core urban areas of capital cities of the EEA38 and the United Kingdom as part of the Urban Atlas project (see table 2), based on the methodology described hereafter.</p>
 <ol type="1">
 <li><span data-custom-style="NormalLine">Base data</span><br>
@@ -724,7 +871,7 @@ Denmark<br>
 <p><strong><em>nDSM = DSM – DTM</em></strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image29.png" class="img-fluid figure-img"></p>
+<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image29.png" class="img-fluid figure-img" style="width:6.27in" alt="This conceptual diagram illustrates the definitions and relationship between three types of digital elevation models: Digital Surface Model (DSM), Digital Terrain Model (DTM), and normalized Digital Surface Model (nDSM). The top panel displays a terrain profile, represented by a black line, with three grey objects: a building, a tree, and another building. The DSM, marked by a blue dashed line, represents the elevation of the terrain including all features on its surface, such as buildings and trees. The DTM, marked by a red dashed line, represents the bare earth's surface, excluding the height of non-ground features. The bottom panel demonstrates the derivation of the nDSM. The nDSM, indicated by an orange dashed line, is calculated by subtracting the DTM from the DSM (nDSM = DSM - DTM), thereby representing the height of features (buildings, trees) above the ground."></p>
 <figcaption>DSM computation principle (http://www.stadtentwicklung.berlin.de/umwelt/umweltatlas/ed610_03.htm)</figcaption>
 </figure>
 </div>
@@ -734,7 +881,7 @@ Denmark<br>
 <p>In a last refinement step the accuracy specifications are checked and if necessary, heights are adapted.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image30.jpg" class="img-fluid figure-img"></p>
+<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image30.jpg" class="img-fluid figure-img" style="width:3.81in" alt="Choropleth map depicting the distribution of non-ground features within an unlabelled urban area. The boundary of the urban area is delineated by a thin red line. Areas shaded in purple represent 'non-ground features', which, based on the surrounding text, include buildings, trees, bushes, and vehicles. White areas indicate ground features or absence of non-ground features. The scale bar at the bottom indicates distances from 0 km to 10 km, with intermediate markings at 2 km, 4 km, 6 km, and 8 km. The map shows a dense concentration of non-ground features in the central and western parts of the urban area. A prominent diagonal band running from the northwest to the southeast shows a significant absence of these features, likely representing a river or major transport corridor. The eastern and northern regions show a sparser, more fragmented distribution of non-ground features."></p>
 <figcaption>Coverage of Vienna core area with relevant UA 2012 built-up classes</figcaption>
 </figure>
 </div>
@@ -752,47 +899,39 @@ Denmark<br>
 <p>Each Building Block Height model (DHM) is clipped exactly to the AOI and assigned a folder with a corresponding name. As a further automated step, an INSPIRE compliant metadata file is generated for every product and a template for the delivery report is created for each DU and stored in the respective folder.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image31.jpg" class="img-fluid figure-img"></p>
+<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image31.jpg" class="img-fluid figure-img" style="width:5.91in" alt="A coloured choropleth map illustrating a Normalized Digital Surface Model (nDSM) of an urban area, identified as the Vienna core area, with object heights derived using Urban Atlas 2012 built-up classes. The map displays height values in metres (m) using a multi-colour gradient, with a final horizontal resolution of 10 m. The legend defines the height categories: * Dark blue: ]-∞; 0] m (likely water bodies and terrain at or below the Digital Terrain Model) * Green: ]0; 10] m * Light yellow: ]10; 20] m * Orange: ]20; 30] m * Red: ]30; ∞[ m (tallest structures) The map shows a river (dark blue) winding through a densely built-up urban landscape. Buildings appear in various shades of green, light yellow, orange, and red, indicating their relative heights. Taller structures (orange and red) are concentrated in several distinct blocks along the river and throughout the urban fabric. Peripheral areas show lower heights (green and light yellow), representing vegetation or smaller buildings. A distinctive circular/oval structure is visible on the far right, predominantly in orange."></p>
 <figcaption>Final Digital Height Model (height values in m)</figcaption>
 </figure>
 </div>
 </section>
-<section id="minimum-mapping-units-and-exceptions" class="level3" data-number="4.2.11">
-<h3 data-number="4.2.11" class="anchored" data-anchor-id="minimum-mapping-units-and-exceptions"><span class="header-section-number">4.2.11</span> Minimum mapping units and exceptions</h3>
+<section id="minimum-mapping-units-and-exceptions" class="level3" data-number="6.1.11">
+<h3 data-number="6.1.11" class="anchored" data-anchor-id="minimum-mapping-units-and-exceptions"><span class="header-section-number">6.1.11</span> Minimum mapping units and exceptions</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 32%">
-<col style="width: 24%">
-<col style="width: 18%">
+<col style="width: 10%">
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 52%">
 </colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th style="text-align: center;"><p><strong>CORINE</strong></p>
-<p><strong>Classes [Lev. I, No.]</strong></p></th>
-<th style="text-align: center;"><strong>Levels provided</strong></th>
-<th style="text-align: center;"><strong>MMU</strong></th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">Urban</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">I - IV</td>
-<td style="text-align: center;">0.25 ha</td>
+<td colspan="5"><pre><code>                 |   **CORINE**                  |   **Levels provided** |   **MMU**       |</code></pre>
+<p>————|—————————————————————————————-|—————————————————————|————————————- | <strong>Classes [Lev. I, No.]</strong> | | | :===================:+:=============================:+:=====================:+:===============:+ Urban | 1 | I - IV | 0.25 ha |</p></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">Rural</td>
-<td style="text-align: center;">2 - 5</td>
-<td style="text-align: center;">I-II</td>
-<td style="text-align: center;">1 ha</td>
+<td>Rural</td>
+<td>2 - 5</td>
+<td>I-II</td>
+<td>1 ha</td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">Street Tree Layer</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">500 m²</td>
+<td>Street Tree Layer</td>
+<td>-</td>
+<td>-</td>
+<td>500 m²</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -800,7 +939,7 @@ Denmark<br>
 <p>The minimum mapping width (MinMW) between 2 objects for distinct mapping is 10 m.</p>
 <p>Exception of minimum width 10m of a mapping unit: class 12220 (MMW = 6m).</p>
 <p>Exception of minimum width 10m of a mapping unit: to maintain continuity of linear structures, they can be mapped smaller than 10 m over a distance up to 50 m (see figure below).</p>
-<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image36.png" class="img-fluid"></p>
+<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image36.png" class="img-fluid" style="width:6.27in" alt="This diagram illustrates a mapping rule for a linear feature with varying width and a maximum length. The feature is bounded by two black lines on a light yellow background. At its widest points, indicated by vertical double-headed arrows on the left and right, the feature has a width of 10 m. The central portion of the feature narrows significantly. A horizontal double-headed arrow below the feature indicates a length of '≤ 50 m', encompassing the section from where the feature begins to narrow to where it regains its 10 m width. This geometric configuration is labelled as 'Mapped as 1.2.2.3', suggesting a classification code within a land cover mapping system like CORINE Land Cover (CLC)."></p>
 <p>Priority mapping rules for areas smaller than the MMU:</p>
 <ol type="1">
 <li><p>Smaller areas are visually added to the adjacent unit with the thematically closest class. Rule used for the artificial codes (1xxxx).</p></li>
@@ -816,48 +955,37 @@ Denmark<br>
 </ul>
 <p>Considering this MMUs, exceptions are made in case of areas where changes involve road and railway networks (classes 12210, 12220, 12230); polygon features classified as road or railway for one date or directly connected to such element are extracted even if area is lower than MMU in order to keep consistency of the transportation network.</p>
 </section>
-<section id="accuracy-assessment-and-validation" class="level3" data-number="4.2.12">
-<h3 data-number="4.2.12" class="anchored" data-anchor-id="accuracy-assessment-and-validation"><span class="header-section-number">4.2.12</span> Accuracy assessment and validation</h3>
+<section id="accuracy-assessment-and-validation" class="level3" data-number="6.1.12">
+<h3 data-number="6.1.12" class="anchored" data-anchor-id="accuracy-assessment-and-validation"><span class="header-section-number">6.1.12</span> Accuracy assessment and validation</h3>
 <p>In addition to the usual QA/QC procedure implementation, which implies visual checks for ensuring thematic and geometric positional accuracies and automatic checks for ensuring completeness and logical consistency during the post-processing phase of the production, accuracy assessment and validation must be performed independently from the production for providing the evidence that the results are fully compliant with the product specifications.</p>
 <p>Thus, accuracy assessment follows a “double-blind” approach which means that production team and reference data team work completely independently. Reference database is obtained through the interpretation of samples which are selected based on a stratified random sampling of EEA 1km grid cell. The number of samples for each FUAs varies depending on the FUA size. The results of the reference interpretation provide the material to derive confusion matrixes, which are used to assess the accuracies.</p>
 <table class="caption-top table">
 <colgroup>
+<col style="width: 10%">
 <col style="width: 15%">
-<col style="width: 22%">
-<col style="width: 17%">
-<col style="width: 18%">
-<col style="width: 24%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 16%">
+<col style="width: 32%">
 </colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th><p><strong>CORINE</strong></p>
-<p><strong>Classes [Lev. I, No.]</strong></p></th>
-<th><strong>Levels provided</strong></th>
-<th><strong>Thematic Accuracy</strong></th>
-<th><strong>Positional Pixel Accuracy</strong></th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>Urban</td>
-<td>1</td>
-<td>I - IV</td>
-<td>&gt;= 85%</td>
-<td>&lt;+/- 5 m</td>
+<td colspan="6"><pre><code>                |   **CORINE**                  |   **Levels provided** |   **Thematic Accuracy** |   **Positional Pixel Accuracy** |</code></pre>
+<p>————|————————————————-|——————————————|——————————————–|—————————————————– | <strong>Classes [Lev. I, No.]</strong> | | | | ====================+===============================+=======================+=========================+=================================+ Urban | 1 | I - IV | &gt;= 85% | &lt;± 5 m |</p></td>
 </tr>
 <tr class="even">
 <td>Rural</td>
 <td>2 - 5</td>
 <td>I-II</td>
 <td>&gt;= 80%</td>
-<td>&lt;+/- 5 m</td>
+<td colspan="2">&lt;± 5 m |</td>
 </tr>
 <tr class="odd">
 <td>Overall Accuracy</td>
 <td></td>
 <td></td>
 <td>&gt;= 80%</td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -866,8 +994,8 @@ Denmark<br>
 <p>Every product is accompanied by a DHM QC Report, which shows the results of the external Quality Check and an INSPIRE compliant xml file: <a href="https://land.copernicus.eu/local/urban-atlas/building-height-2012?tab=download">Building Height 2012 — Copernicus Land Monitoring Service</a>.</p>
 </section>
 </section>
-<section id="lulc-nomenclature" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="lulc-nomenclature"><span class="header-section-number">4.3</span> LU/LC nomenclature</h2>
+<section id="lulc-nomenclature" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="lulc-nomenclature"><span class="header-section-number">6.2</span> LU/LC nomenclature</h2>
 <p>The Urban Atlas Land Use / Land Cover classification is derived from CORINE Land Cover and is composed of 27 classes distributing among 5 thematic groups, namely:</p>
 <ol type="1">
 <li><p>Artificial surfaces</p></li>
@@ -881,272 +1009,358 @@ Denmark<br>
 <table class="caption-top table">
 <caption>UA LULC nomenclature (in bold, classes without any further subdivision)</caption>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 8%">
-<col style="width: 43%">
-<col style="width: 23%">
+<col style="width: 19%">
+<col style="width: 6%">
+<col style="width: 35%">
+<col style="width: 19%">
+<col style="width: 17%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td rowspan="2"><h1 id="urban-atlas-land-useland-cover" data-number="7"><span class="header-section-number">7</span> <strong>Urban Atlas Land Use/Land Cover</strong></h1>
+<p><strong>UA No.</strong></p></td>
+<td rowspan="2">============= <strong>Code</strong></td>
+<td rowspan="2">========================================================================= <strong>Nomenclature</strong></td>
+<td rowspan="2">======================================= <strong>Additional Information</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td></td>
+<td>Artificial surfaces</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1.1</td>
+<td></td>
+<td>Urban Fabric</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>1.1.1</strong></td>
+<td><strong>11100</strong></td>
+<td><strong>Continuous urban fabric (S.L. &nbsp; 80%)</strong></td>
+<td>HRL IMD required</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1.1.2</td>
+<td></td>
+<td>Discontinuous Urban Fabric (S.L. 10% - 80%)</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>1.1.2.1</strong></td>
+<td><strong>11210</strong></td>
+<td><strong>Discontinuous dense urban fabric (S.L. 50% - 80%)</strong></td>
+<td>HRL IMD required</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>1.1.2.2</strong></td>
+<td><strong>11220</strong></td>
+<td><strong>Discontinuous medium density urban fabric (S.L. 30% - 50%)</strong></td>
+<td>HRL IMD required</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>1.1.2.3</strong></td>
+<td><strong>11230</strong></td>
+<td><strong>Discontinuous low density urban fabric (S.L. 10% - 30%)</strong></td>
+<td>HRL IMD required</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>1.1.2.4</strong></td>
+<td><strong>11240</strong></td>
+<td><strong>Discontinuous very low density urban fabric (S.L. &lt; 10%)</strong></td>
+<td>HRL IMD required</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>1.1.3</strong></td>
+<td><strong>11300</strong></td>
+<td><strong>Isolated structures</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1.2</td>
+<td></td>
+<td>Industrial, commercial, public, military, private and transport units</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>1.2.1</strong></td>
+<td><strong>12100</strong></td>
+<td><strong>Industrial, commercial, public, military and private units</strong></td>
+<td colspan="2">zoning data or field check recommended |</td>
+</tr>
+<tr class="even">
+<td>1.2.2</td>
+<td></td>
+<td>Road and rail network and associated land</td>
+<td>COTS or OSM data required</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>1.2.2.1</strong></td>
+<td><strong>12210</strong></td>
+<td><strong>Fast transit roads and associated land</strong></td>
+<td>COTS or OSM data required</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>1.2.2.2</strong></td>
+<td><strong>12220</strong></td>
+<td><strong>Other roads and associated land</strong></td>
+<td>COTS or OSM data required</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>1.2.2.3</strong></td>
+<td><strong>12230</strong></td>
+<td><strong>Railways and associated land</strong></td>
+<td>COTS or OSM data required</td>
+<td></td>
+</tr>
+<tr class="even">
+<td colspan="5"><table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 38%">
 </colgroup>
 <thead>
 <tr class="header">
-<th><strong>Urban Atlas Land Use/Land Cover</strong></th>
-<th></th>
-<th></th>
+<th><strong>1.2.3</strong></th>
+<th><strong>12300</strong></th>
+<th><strong>Port areas</strong></th>
+<th>zoning data</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>or field check recommended</td>
+<td></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td><h2 id="section" data-number="7.1" class="anchored"><span class="header-section-number">7.1</span> <strong>1.2.4</strong></h2></td>
+<td colspan="4"><table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 30%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>12400</strong></th>
+<th><strong>Airports</strong></th>
+<th>zoning data</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>or field check recommended</td>
+<td></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td>1.3</td>
+<td></td>
+<td>Mine, dump and construction sites</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>1.3.1</strong></td>
+<td><strong>13100</strong></td>
+<td><strong>Mineral extraction and dump sites</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>1.3.3</strong></td>
+<td><strong>13300</strong></td>
+<td><strong>Construction sites</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>1.3.4</strong></td>
+<td><strong>13400</strong></td>
+<td><strong>Land without current use</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td colspan="5"><table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 30%">
+<col style="width: 53%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>1.4</th>
+<th><strong>14100</strong></th>
+<th>Artificial non-agricultural vegetated areas</th>
 <th></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>UA No.</strong></td>
-<td><strong>Code</strong></td>
-<td><strong>Nomenclature</strong></td>
-<td><strong>Additional Information</strong></td>
+<td><strong>14100</strong></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
-<tr class="even">
-<td>1</td>
-<td></td>
-<td>Artificial surfaces</td>
-<td></td>
+</tbody>
+</table></td>
 </tr>
 <tr class="odd">
-<td>1.1</td>
-<td></td>
-<td>Urban Fabric</td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>1.1.1</strong></td>
-<td><strong>11100</strong></td>
-<td><strong>Continuous urban fabric (S.L. &nbsp; 80%)</strong></td>
-<td>HRL IMD required</td>
-</tr>
-<tr class="odd">
-<td>1.1.2</td>
-<td></td>
-<td>Discontinuous Urban Fabric (S.L. 10% - 80%)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>1.1.2.1</strong></td>
-<td><strong>11210</strong></td>
-<td><strong>Discontinuous dense urban fabric (S.L. 50% - 80%)</strong></td>
-<td>HRL IMD required</td>
-</tr>
-<tr class="odd">
-<td><strong>1.1.2.2</strong></td>
-<td><strong>11220</strong></td>
-<td><strong>Discontinuous medium density urban fabric (S.L. 30% - 50%)</strong></td>
-<td>HRL IMD required</td>
-</tr>
-<tr class="even">
-<td><strong>1.1.2.3</strong></td>
-<td><strong>11230</strong></td>
-<td><strong>Discontinuous low density urban fabric (S.L. 10% - 30%)</strong></td>
-<td>HRL IMD required</td>
-</tr>
-<tr class="odd">
-<td><strong>1.1.2.4</strong></td>
-<td><strong>11240</strong></td>
-<td><strong>Discontinuous very low density urban fabric (S.L. &lt; 10%)</strong></td>
-<td>HRL IMD required</td>
-</tr>
-<tr class="even">
-<td><strong>1.1.3</strong></td>
-<td><strong>11300</strong></td>
-<td><strong>Isolated structures</strong></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>1.2</td>
-<td></td>
-<td>Industrial, commercial, public, military, private and transport units</td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>1.2.1</strong></td>
-<td><strong>12100</strong></td>
-<td><strong>Industrial, commercial, public, military and private units</strong></td>
-<td>zoning data / field check recommended</td>
-</tr>
-<tr class="odd">
-<td>1.2.2</td>
-<td></td>
-<td>Road and rail network and associated land</td>
-<td>COTS or OSM data required</td>
-</tr>
-<tr class="even">
-<td><strong>1.2.2.1</strong></td>
-<td><strong>12210</strong></td>
-<td><strong>Fast transit roads and associated land</strong></td>
-<td>COTS or OSM data required</td>
-</tr>
-<tr class="odd">
-<td><strong>1.2.2.2</strong></td>
-<td><strong>12220</strong></td>
-<td><strong>Other roads and associated land</strong></td>
-<td>COTS or OSM data required</td>
-</tr>
-<tr class="even">
-<td><strong>1.2.2.3</strong></td>
-<td><strong>12230</strong></td>
-<td><strong>Railways and associated land</strong></td>
-<td>COTS or OSM data required</td>
-</tr>
-<tr class="odd">
-<td><strong>1.2.3</strong></td>
-<td><strong>12300</strong></td>
-<td><strong>Port areas</strong></td>
-<td><p>zoning data</p>
-<p>/ field check recommended</p></td>
-</tr>
-<tr class="even">
-<td><strong>1.2.4</strong></td>
-<td><strong>12400</strong></td>
-<td><strong>Airports</strong></td>
-<td><p>zoning data</p>
-<p>/ field check recommended</p></td>
-</tr>
-<tr class="odd">
-<td>1.3</td>
-<td></td>
-<td>Mine, dump and construction sites</td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>1.3.1</strong></td>
-<td><strong>13100</strong></td>
-<td><strong>Mineral extraction and dump sites</strong></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><strong>1.3.3</strong></td>
-<td><strong>13300</strong></td>
-<td><strong>Construction sites</strong></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>1.3.4</strong></td>
-<td><strong>13400</strong></td>
-<td><strong>Land without current use</strong></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>1.4</td>
-<td><p><strong>14100</strong></p>
-<p><strong>14100</strong></p></td>
-<td>Artificial non-agricultural vegetated areas</td>
-<td></td>
-</tr>
-<tr class="even">
 <td><strong>1.4.1</strong></td>
 <td></td>
 <td><strong>Green urban areas</strong></td>
 <td></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>1.4.2</strong></td>
 <td><strong>14200</strong></td>
 <td><strong>Sports and leisure facilities</strong></td>
 <td></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2</td>
 <td></td>
 <td>Agricultural areas</td>
 <td>1 ha MMU</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>2.1</strong></td>
 <td><strong>21000</strong></td>
 <td><strong>Arable land (annual crops)</strong></td>
 <td></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>2.2</strong></td>
 <td><strong>22000</strong></td>
 <td><strong>Permanent crops</strong></td>
 <td></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>2.3</strong></td>
 <td><strong>23000</strong></td>
 <td><strong>Pastures</strong></td>
 <td></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>2.4</strong></td>
 <td><strong>24000</strong></td>
 <td><strong>Complex and mixed cultivation patterns</strong></td>
 <td></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>3</td>
 <td></td>
 <td>Natural and (semi-)natural areas</td>
 <td>1 ha MMU</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>3.1</strong></td>
 <td><strong>31000</strong></td>
 <td><strong>Forests</strong></td>
 <td></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>3.2</strong></td>
 <td><strong>32000</strong></td>
 <td><strong>Herbaceous vegetation associations</strong></td>
 <td></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>3.3</strong></td>
 <td><strong>33000</strong></td>
 <td><strong>Open spaces with little or no vegetation</strong></td>
 <td></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>4</strong></td>
 <td><strong>40000</strong></td>
 <td><strong>Wetlands</strong></td>
 <td><strong>1 ha MMU</strong></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>5</strong></td>
 <td><strong>50000</strong></td>
 <td><strong>Water</strong></td>
 <td><strong>1 ha MMU</strong></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>9.1</strong></td>
 <td><strong>91000</strong></td>
 <td><strong>No data (Clouds and shadows)</strong></td>
 <td></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>9.2</strong></td>
 <td><strong>92000</strong></td>
 <td><strong>No data (Missing imagery)</strong></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="decision-rules" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="decision-rules"><span class="header-section-number">4.4</span> Decision rules</h2>
+<section id="decision-rules" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="decision-rules"><span class="header-section-number">7.2</span> Decision rules</h2>
 <p>Affectation of LULC classes follow the below decision matrix. A detailed matrix concerning artificial areas is illustrated next page.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image37.png" class="img-fluid figure-img"></p>
+<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image37.png" class="img-fluid figure-img" style="width:6.01in" alt="This diagram, titled 'Decision Matrix', illustrates a hierarchical classification process for land cover and land use (LULC) categories. The initial step branches into 'Land' or 'Water'. 1. **IF** an area is classified as 'Land': * **IF** it exhibits 'Human activity non-agricultural', **THEN** it is categorised as '1. Artificial Surfaces'. * **IF** it shows 'Little / non human influence, agriculture, forestry', **THEN** it branches into two distinct categories: '2. Agricultural + semi-natural areas + wetlands' and '3. Forests'. 2. **IF** an area is classified as 'Water': * **IF** it consists of 'Flooded areas', **THEN** it is categorised as '4. Wetland'. * **IF** it consists of 'Water bodies / courses', **THEN** it is categorised as '5. Water'. The decision matrix results in five final land cover categories: 1. Artificial Surfaces, 2. Agricultural + semi-natural areas + wetlands, 3. Forests, 4. Wetland, and 5. Water."></p>
 <figcaption>Urban Atlas LULC decision matrix</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image38.png" class="img-fluid figure-img"></p>
+<p><img src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image38.png" class="img-fluid figure-img" style="width:6.27in" alt="This diagram presents a hierarchical land cover classification scheme, detailing the '1. Artificial Surfaces' category and its sub-classes within the Copernicus Land Monitoring Service (CLMS). The scheme begins with input data sources on the left, including 'Ref. Data', 'Additional data req.', 'Sat. Image TK COTS navigation data', and 'HRL IMD sealing' (High Resolution Layer Imperviousness Density). The top-level class is '1. Artificial Surfaces', which is broadly defined by four main types of areas: 1. Urban areas with dominant residential use or inner-city areas with central business district and residential use, which lead to '1.1 Urban Fabric'. 2. Industrial, commercial, public, military and private units or transport units are predominant, which lead to '1.2 Industrial, commercial, public, military and private units'. 3. Strong human influence on soil surface, but buildings not dominant, which lead to '1.3 Mine, dump and construction site'. 4. Leisure and recreation use dominates, which lead to '1.4 Artificial non agricultural vegetated areas'. The classification further breaks down these categories: * '1.1 Urban Fabric' is divided into: * '1.1.1 Continuous Urban Fabric' * '1.1.2 Discontinuous Urban Fabric' * '1.1.3 Isolated Structures' * '1.1.2 Discontinuous Urban Fabric' is further specified by Surface Sealing (S.L.) percentages, using 'HRL IMD sealing' data: '1.1.2.1 (S.L. 50% - 80%)', '1.1.2.2 (S.L. 30% - 50%)', '1.1.2.3 (S.L. 10% - 30%)', and '1.1.2.4 (S.L. 0% - 10%)'. * '1.2 Industrial, commercial, public, military and private units' is divided into: * '1.2.1 Industrial, commercial, public, military and private units' * '1.2.2 Road and rail network and associated land' * '1.2.3 Port areas' * '1.2.4 Airports' * '1.2.2 Road and rail network and associated land' is further detailed, also using 'HRL IMD sealing' data: '1.2.2.1 Fast transit roads and associated land', '1.2.2.2 Other roads and associated land', and '1.2.2.3 Railways and associated land'. * '1.3 Mine, dump and construction site' is divided into: * '1.3.1 Mineral extraction and dump sites' * '1.3.3 Construction sites' * '1.3.4 Land without current use' * '1.4 Artificial non agricultural vegetated areas' is divided into: * '1.4.1 Green urban areas' * '1.4.2 Sports and leisure facilities'"></p>
 <figcaption>Urban Atlas Decision Matrix for Artificial Surfaces</figcaption>
 </figure>
 </div>
 </section>
-<section id="description-of-lulc-thematic-classes" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="description-of-lulc-thematic-classes"><span class="header-section-number">4.5</span> Description of LU/LC thematic classes</h2>
+<section id="description-of-lulc-thematic-classes" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="description-of-lulc-thematic-classes"><span class="header-section-number">7.3</span> Description of LU/LC thematic classes</h2>
 <section id="artificial-surfaces" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="artificial-surfaces">1. Artificial surfaces</h3>
 <p>Surfaces with dominant human influence and without agricultural land use.</p>
@@ -1621,17 +1835,16 @@ Denmark<br>
 <li><span data-custom-style="NormalLine">No data (Missing imagery)</span><br>
 </li>
 </ol>
-<p>This class 9.2 (code 92000) includes areas without available satellite image or inadequate imagery (e.g.&nbsp;no STL data can be produced as the image acquisition is outside the vegetation period). </p><div style="page-break-after: always;"></div><p></p>
-<div style="page-break-after: always;"></div>
+<p>This class 9.2 (code 92000) includes areas without available satellite image or inadequate imagery (e.g.&nbsp;no STL data can be produced as the image acquisition is outside the vegetation period).</p>
 </section>
 </section>
 </section>
-<section id="list-of-abbreviations" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> List of abbreviations</h1>
+<section id="list-of-abbreviations" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> List of abbreviations</h1>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 79%">
+<col style="width: 32%">
+<col style="width: 67%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1770,13 +1983,11 @@ Denmark<br>
 </tr>
 </tbody>
 </table>
-<div style="page-break-after: always;"></div>
-<div style="page-break-after: always;"></div>
 </section>
-<section id="annex" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Annex</h1>
-<section id="pre-processing-and-geometric-adaptation-of-navigation-data-1" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="pre-processing-and-geometric-adaptation-of-navigation-data-1"><span class="header-section-number">6.1</span> Pre-processing and geometric adaptation of navigation data</h2>
+<section id="annex" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Annex</h1>
+<section id="pre-processing-and-geometric-adaptation-of-navigation-data-1" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="pre-processing-and-geometric-adaptation-of-navigation-data-1"><span class="header-section-number">9.1</span> Pre-processing and geometric adaptation of navigation data</h2>
 <p>The navigation datasets (COTS or OSM) by default include a specific and hierarchical classification of the road network. Two basic categories are important within the context of the Urban Atlas. The first category gives information about the Functional Road Class (FRC), i.e.&nbsp;the road type, the second one gives information about the importance of each road within the city traffic network (Net2Class).</p>
 <p>The navigation data currently used shows the following categories for FRC/type and Net2Class:</p>
 <table class="caption-top table">
@@ -1841,39 +2052,43 @@ Denmark<br>
 </tbody>
 </table>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: right;"><strong>Net2Class</strong></th>
+<th><strong>Net2Class</strong></th>
 <th><strong>Importance Level</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;"><strong>0</strong></td>
+<td><strong>0</strong></td>
 <td>First class (Highest)</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;"><strong>1</strong></td>
+<td><strong>1</strong></td>
 <td>Second class</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;"><strong>2</strong></td>
+<td><strong>2</strong></td>
 <td>Third class</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;"><strong>3</strong></td>
+<td><strong>3</strong></td>
 <td>Fourth class</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;"><strong>4</strong></td>
+<td><strong>4</strong></td>
 <td>Fifth class</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;"><strong>5</strong></td>
+<td><strong>5</strong></td>
 <td>Sixth class</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;"><strong>6</strong></td>
+<td><strong>6</strong></td>
 <td>Seventh class (Lowest)</td>
 </tr>
 </tbody>
@@ -1894,7 +2109,7 @@ Denmark<br>
 <p>The following table gives an overview of the road network processing approach:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 15%">
+<col style="width: 12%">
 <col style="width: 21%">
 <col style="width: 21%">
 <col style="width: 21%">
@@ -1982,8 +2197,8 @@ Denmark<br>
 </ul>
 <p>Post-processing will be implemented according to service provider’s production chain.</p>
 </section>
-<section id="detailed-product-specification-table" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="detailed-product-specification-table"><span class="header-section-number">6.2</span> Detailed product specification table</h2>
+<section id="detailed-product-specification-table" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="detailed-product-specification-table"><span class="header-section-number">9.2</span> Detailed product specification table</h2>
 <p><strong>Product features</strong></p>
 <ul>
 <li><p>Digital thematic map.</p></li>
@@ -2018,7 +2233,7 @@ Denmark<br>
 </ul>
 <p><strong>Positional accuracy</strong></p>
 <ul>
-<li><span data-custom-style="NormalLine">+ / - 5 m</span><br>
+<li><span data-custom-style="NormalLine">± 5 m</span><br>
 </li>
 </ul>
 <p><strong>Thematic accuracy (in %)</strong></p>
@@ -2049,11 +2264,11 @@ Denmark<br>
 </li>
 </ul>
 </section>
-<section id="product-types-and-attricute-field-descriptions" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="product-types-and-attricute-field-descriptions"><span class="header-section-number">6.3</span> Product types and attricute field descriptions</h2>
+<section id="product-types-and-attricute-field-descriptions" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="product-types-and-attricute-field-descriptions"><span class="header-section-number">9.3</span> Product types and attricute field descriptions</h2>
 <p>The different types of cartographic products available in the Urban Atlas are described below.</p>
-<section id="ua-2006-lulc" class="level3" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="ua-2006-lulc"><span class="header-section-number">6.3.1</span> UA 2006 LULC</h3>
+<section id="ua-2006-lulc" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="ua-2006-lulc"><span class="header-section-number">9.3.1</span> UA 2006 LULC</h3>
 <p>This data corresponds to the reviewed version of 305 FUAs produced for the Urban Atlas Land Use/Land Cover for the 2006 reference year.</p>
 <table class="caption-top table">
 <caption>UA 2006 LULC FIELD DESCRIPTION</caption>
@@ -2143,8 +2358,8 @@ Denmark<br>
 </tbody>
 </table>
 </section>
-<section id="ua-2012-lulc" class="level3" data-number="6.3.2">
-<h3 data-number="6.3.2" class="anchored" data-anchor-id="ua-2012-lulc"><span class="header-section-number">6.3.2</span> UA 2012 LULC</h3>
+<section id="ua-2012-lulc" class="level3" data-number="9.3.2">
+<h3 data-number="9.3.2" class="anchored" data-anchor-id="ua-2012-lulc"><span class="header-section-number">9.3.2</span> UA 2012 LULC</h3>
 <p>This data corresponds to the reviewed version of the FUAs produced for the Urban Atlas Land Use/Land Cover for the 2012 reference year.</p>
 <table class="caption-top table">
 <caption>UA 2012 LULC FIELD DESCRIPTION</caption>
@@ -2250,8 +2465,8 @@ Denmark<br>
 </tbody>
 </table>
 </section>
-<section id="ua-2006-2012-lulc-change-map" class="level3" data-number="6.3.3">
-<h3 data-number="6.3.3" class="anchored" data-anchor-id="ua-2006-2012-lulc-change-map"><span class="header-section-number">6.3.3</span> UA 2006-2012 LULC change map</h3>
+<section id="ua-2006-2012-lulc-change-map" class="level3" data-number="9.3.3">
+<h3 data-number="9.3.3" class="anchored" data-anchor-id="ua-2006-2012-lulc-change-map"><span class="header-section-number">9.3.3</span> UA 2006-2012 LULC change map</h3>
 <p>The change 2006-2012 layer is derived from the combined 2006 and 2012 UA data products and corresponds <u>only to the changes of Land use/Land cover</u> between those two dates. It concerns 305 FUAs produced for both the 2006 and 2012 reference years. The MMU is reduced up to 0.1&nbsp;ha with some exceptions (see Section 4.7 LULC change layer).</p>
 <table class="caption-top table">
 <caption>UA 2006-2012 LULC CHANGE FIELD DESCRIPTION</caption>
@@ -2365,8 +2580,8 @@ Denmark<br>
 </tbody>
 </table>
 </section>
-<section id="ua-2018-lulc" class="level3" data-number="6.3.4">
-<h3 data-number="6.3.4" class="anchored" data-anchor-id="ua-2018-lulc"><span class="header-section-number">6.3.4</span> UA 2018 LULC</h3>
+<section id="ua-2018-lulc" class="level3" data-number="9.3.4">
+<h3 data-number="9.3.4" class="anchored" data-anchor-id="ua-2018-lulc"><span class="header-section-number">9.3.4</span> UA 2018 LULC</h3>
 <p>This data corresponds to the Urban Atlas Land use/Land cover over 788 FUAs for the 2018 reference year.</p>
 <table class="caption-top table">
 <caption>UA 2018 LULC FIELD DESCRIPTION</caption>
@@ -2472,8 +2687,8 @@ Denmark<br>
 </tbody>
 </table>
 </section>
-<section id="ua-2012-2018-lulc-change-map" class="level3" data-number="6.3.5">
-<h3 data-number="6.3.5" class="anchored" data-anchor-id="ua-2012-2018-lulc-change-map"><span class="header-section-number">6.3.5</span> UA 2012-2018 LULC change map</h3>
+<section id="ua-2012-2018-lulc-change-map" class="level3" data-number="9.3.5">
+<h3 data-number="9.3.5" class="anchored" data-anchor-id="ua-2012-2018-lulc-change-map"><span class="header-section-number">9.3.5</span> UA 2012-2018 LULC change map</h3>
 <p>The 2012-2018 LU/LC change layer is derived from the combined UA2012 and UA2018 data products with exceptions in order to correspond <u>only to the actual changes of Land Use / Land Cover</u> between those two dates. The MMU is reduced up to 0.1&nbsp;ha with some exceptions (see further information provided in Section 4.7 LULC change layer).</p>
 <table class="caption-top table">
 <caption>UA 2012-2018 LULC CHANGE FIELD DESCRIPTION</caption>
@@ -2595,8 +2810,8 @@ Denmark<br>
 </tbody>
 </table>
 </section>
-<section id="ua-2012-stl-street-tree-layer" class="level3" data-number="6.3.6">
-<h3 data-number="6.3.6" class="anchored" data-anchor-id="ua-2012-stl-street-tree-layer"><span class="header-section-number">6.3.6</span> UA 2012 STL (street tree layer)</h3>
+<section id="ua-2012-stl-street-tree-layer" class="level3" data-number="9.3.6">
+<h3 data-number="9.3.6" class="anchored" data-anchor-id="ua-2012-stl-street-tree-layer"><span class="header-section-number">9.3.6</span> UA 2012 STL (street tree layer)</h3>
 <p>This data corresponds to the Urban Atlas - Street Tree Layer (STL) for the 2012 reference year.</p>
 <table class="caption-top table">
 <caption>UA 2012 STL FIELD DESCRIPTION</caption>
@@ -2670,8 +2885,8 @@ Denmark<br>
 </tbody>
 </table>
 </section>
-<section id="ua-2018-stl-street-tree-layer" class="level3" data-number="6.3.7">
-<h3 data-number="6.3.7" class="anchored" data-anchor-id="ua-2018-stl-street-tree-layer"><span class="header-section-number">6.3.7</span> UA 2018 STL (street tree layer)</h3>
+<section id="ua-2018-stl-street-tree-layer" class="level3" data-number="9.3.7">
+<h3 data-number="9.3.7" class="anchored" data-anchor-id="ua-2018-stl-street-tree-layer"><span class="header-section-number">9.3.7</span> UA 2018 STL (street tree layer)</h3>
 <p>This data corresponds to the Urban Atlas - Street Tree Layer (STL) for the 2018 reference year.</p>
 <table class="caption-top table">
 <caption>UA 2018 STL FIELD DESCRIPTION</caption>
@@ -2746,124 +2961,300 @@ Denmark<br>
 </table>
 </section>
 </section>
-<section id="urban-atlas-mapping-guide---change-records" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="urban-atlas-mapping-guide---change-records"><span class="header-section-number">6.4</span> Urban Atlas mapping guide - change records</h2>
+<section id="urban-atlas-mapping-guide---change-records" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="urban-atlas-mapping-guide---change-records"><span class="header-section-number">9.4</span> Urban Atlas mapping guide - change records</h2>
 <table class="caption-top table">
 <colgroup>
+<col style="width: 6%">
 <col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 84%">
+<col style="width: 80%">
+<col style="width: 4%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td rowspan="2"><strong>Version</strong> :===========: <strong>V1</strong></td>
+<td rowspan="2"><strong>Date</strong> :============: 08/05/2008</td>
+<td rowspan="2"><h1 id="comments-and-main-updates" data-number="10"><span class="header-section-number">10</span> <strong>Comments and main updates</strong></h1>
+<p>Document TD-0421-GSELand-TN-01 from the ESRIN/Contract No.&nbsp;19407/05/I-LG (GSE Land Information Services)</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>V2</strong></td>
+<td>2011</td>
+<td>Urban Atlas 2006 Mapping Guide with European Commission Template</td>
+<td></td>
+</tr>
+<tr class="even">
+<td colspan="4"><table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 10%">
+<col style="width: 78%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: center;"><strong>Version</strong></th>
-<th style="text-align: center;"><strong>Date</strong></th>
-<th><strong>Comments and main updates</strong></th>
+<th><strong>V3</strong></th>
+<th>03/04/2016</th>
+<th>- Update for the Urban Atlas 2012 component into the former template</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><strong>V1</strong></td>
-<td style="text-align: center;">08/05/2008</td>
-<td>Document TD-0421-GSELand-TN-01 from the ESRIN/Contract No.&nbsp;19407/05/I-LG (GSE Land Information Services)</td>
+<td></td>
+<td>- Insertion of attribute tables description for Urban Atlas 2006 revised, Urban Atlas 2012, Changes 2006-2012, Urban Atlas 2006-2012</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><strong>V2</strong></td>
-<td style="text-align: center;">2011</td>
-<td>Urban Atlas 2006 Mapping Guide with European Commission Template</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><strong>V3</strong></td>
-<td style="text-align: center;">03/04/2016</td>
-<td><p>- Update for the Urban Atlas 2012 component into the former template</p>
-<p>- Insertion of attribute tables description for Urban Atlas 2006 revised, Urban Atlas 2012, Changes 2006-2012, Urban Atlas 2006-2012</p>
-<p>- New unique projection: ETRS_1989_LAEA</p>
-<p>- Exception of MinMW for the Roads: 6 m</p></td>
+<td></td>
+<td>- New unique projection: ETRS_1989_LAEA</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><strong>V4.1</strong></td>
-<td style="text-align: center;">03/05/2016</td>
-<td><p>- Urban Atlas 2012 Mapping Guide with European Commission Template</p>
-<p>- Insertion of Section 4.6: Description of mapping units for the Urban Atlas Street Tree Layer</p></td>
+<td>————-</td>
+<td>————-</td>
+<td>——————————————————————————————————————————————————————————-</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><strong>V4.2</strong></td>
-<td style="text-align: center;">04/05/2016</td>
+<td></td>
+<td>- Exception of MinMW for the Roads: 6 m</td>
+<td></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td colspan="4"><table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>V4.1</strong></th>
+<th>03/05/2016</th>
+<th>- Urban Atlas 2012 Mapping Guide with European Commission Template</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>- Insertion of Section 4.6: Description of mapping units for the Urban Atlas Street Tree Layer</td>
+<td></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td><strong>V4.2</strong></td>
+<td>04/05/2016</td>
 <td>- Minor corrections</td>
+<td></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;"><strong>V4.3</strong></td>
-<td style="text-align: center;">24/06/2016</td>
+<tr class="odd">
+<td><strong>V4.3</strong></td>
+<td>24/06/2016</td>
 <td>- Insertion of new “no data” classes: 91000 No data (Clouds and shadows) / 92000 No data (Missing imagery)</td>
+<td></td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>V4.4</strong></td>
-<td style="text-align: center;">05/07/2016</td>
+<tr class="even">
+<td><strong>V4.4</strong></td>
+<td>05/07/2016</td>
 <td>- Minor corrections</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>V4.5</strong></td>
-<td style="text-align: center;">27/07/2016</td>
-<td><p>- Insertion of Section 4.7 dedicated on the change layer including the specific MMU for this layer</p>
-<p>- Insertion of the Table of Content at the beginning of the document</p></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><strong>V4.6</strong></td>
-<td style="text-align: center;">03/08/2016</td>
-<td><p>- Removal of the confusing sentence in section 4.2.9. about Minimum mapping units: "Maximum mapping width (MaxMW) between 2 objects for mapping together 10 m"</p>
-<p>- MaxMW was also removed from the list of abbreviations</p></td>
+<td colspan="4"><table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>V4.5</strong></th>
+<th>27/07/2016</th>
+<th>- Insertion of Section 4.7 dedicated on the change layer including the specific MMU for this layer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>- Insertion of the Table of Content at the beginning of the document</td>
+<td></td>
+</tr>
+</tbody>
+</table></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><strong>V4.7</strong></td>
-<td style="text-align: center;">28/10/2016</td>
+<td colspan="4"><table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>V4.6</strong></th>
+<th>03/08/2016</th>
+<th>- Removal of the confusing sentence in section 4.2.9. about Minimum mapping units: "Maximum mapping width (MaxMW) between 2 objects for mapping together 10 m"</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>- MaxMW was also removed from the list of abbreviations</td>
+<td></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td><strong>V4.7</strong></td>
+<td>28/10/2016</td>
 <td>- Insertion of report information and Change records</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>V4.8</strong></td>
-<td style="text-align: center;">02/12/2016</td>
-<td><p>- Insertion of a versioning on the cover page and on the footer</p>
-<p>- New formulation for the sentences of the priority rules, section 4.2.10</p>
-<p>- Insertion of a figure for the Street Tree Layer minimum mapping unit, section 4.8</p>
-<p>- Modification of the STL no data code from 91000/92000 to 99, section 5.4.5.</p></td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><strong>V5.0</strong></td>
-<td style="text-align: center;">24/02/2017</td>
+<td colspan="4"><table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 12%">
+<col style="width: 71%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>V4.8</strong></th>
+<th>02/12/2016</th>
+<th>- Insertion of a versioning on the cover page and on the footer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>- New formulation for the sentences of the priority rules, section 4.2.10</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>- Insertion of a figure for the Street Tree Layer minimum mapping unit, section 4.8</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>————-</td>
+<td>————-</td>
+<td>——————————————————————————————————————————————————————————-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>- Modification of the STL no data code from 91000/92000 to 99, section 5.4.5.</td>
+<td></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td><strong>V5.0</strong></td>
+<td>24/02/2017</td>
 <td><ul>
 <li>Paging corrections</li>
 </ul></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>V6.0</strong></td>
-<td style="text-align: center;">06/06/2019</td>
-<td><ul>
-<li><p>Some minor precisions in classes description.</p></li>
-<li><p>Updates to include the 2018 exercise.</p></li>
-</ul></td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><strong>V6.1</strong></td>
-<td style="text-align: center;">28/02/2020</td>
-<td><ul>
-<li><p>Update of Reference Documents</p></li>
-<li><p>Update on section 4.1 Product description (addition of DHM product)</p></li>
-<li><p>Update on section 4.2 General Guidelines (redesign of section to include latest changes on change layer, STL product)</p></li>
-<li><p>Update on section 5.4 product types and field descriptions</p></li>
-</ul></td>
+<td colspan="4"><table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 14%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>V6.0</strong></th>
+<th>06/06/2019</th>
+<th>- Some minor precisions in classes description.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>- Updates to include the 2018 exercise.</td>
+<td></td>
+</tr>
+</tbody>
+</table></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><strong>V6.2</strong></td>
-<td style="text-align: center;">21/09/2021</td>
+<td colspan="4"><table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 13%">
+<col style="width: 69%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>V6.1</strong></th>
+<th>28/02/2020</th>
+<th>- Update of Reference Documents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>- Update on section 4.1 Product description (addition of DHM product)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>- Update on section 4.2 General Guidelines (redesign of section to include latest changes on change layer, STL product)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>————-</td>
+<td>————-</td>
+<td>——————————————————————————————————————————————————————————-</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>- Update on section 5.4 product types and field descriptions</td>
+<td></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td><strong>V6.2</strong></td>
+<td>21/09/2021</td>
 <td><ul>
 <li>Add of a section about the digital height model layer (DHM)</li>
 </ul></td>
+<td></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;"><strong>V6.3</strong></td>
-<td style="text-align: center;">06/01/2023</td>
+<tr class="odd">
+<td><strong>V6.3</strong></td>
+<td>06/01/2023</td>
 <td><ul>
 <li>Clarifications on descriptions for classes 1.1.3. and 1.4.1.</li>
 </ul></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -2871,9 +3262,14 @@ Denmark<br>
 
 </section>
 </section>
-<section id="change-log" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Change Log</h1>
+<section id="change-log" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Change Log</h1>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 75%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Date</th>
@@ -2950,13 +3346,14 @@ Denmark<br>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -3302,7 +3699,7 @@ Denmark<br>
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>2025 EEA. All rights reserved.</p>
+<p>2026 EEA. All rights reserved.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
