@@ -28,12 +28,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v6
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
@@ -41,7 +39,7 @@ jobs:
         run: |
           echo "🔍 Validating workflow files..."
           docker run --rm -v "$PWD:/repo" -w /repo \
-            rhysd/actionlint:latest \
+            rhysd/actionlint:1.7.12 \
             -color \
             .github/workflows/*.yml
           echo "✅ All workflow files have valid syntax"
@@ -61,17 +59,10 @@ jobs:
         run: |
           echo "🔍 Running ruff..."
           pip install --quiet ruff
-          # Lint every .py file under .github/scripts/ — failing the job on
-          # any reported issue. Style-only (no auto-fix); ruff defaults
-          # cover the standard pyflakes + pycodestyle error subset.
+          # Lint every .py under .github/scripts/ - fails the job on any issue.
+          # Style-only (no auto-fix). ruff defaults cover pyflakes + pycodestyle.
           ruff check .github/scripts/
           echo "✅ ruff passed"
-
-      # pytest tests/ is disabled. The tests pre-date the AI scripts
-      # refactor — they import the old google.generativeai SDK and the
-      # old script paths. Re-enable once tests/ catches up to the new
-      # google.genai SDK and the moves under
-      # .github/scripts/{ai,build,helpers,ai/tasks}/.
 
       - name: Validation summary
         if: success()
@@ -84,8 +75,6 @@ jobs:
           echo "Validated:"
           echo "  • Workflow YAML syntax (actionlint)"
           echo "  • Python script syntax (py_compile)"
-          echo ""
-          echo "⚠️  pytest tests/ disabled (see comment in this file)"
           echo ""
 
       - name: Validation failed

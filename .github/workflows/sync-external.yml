@@ -14,7 +14,7 @@ jobs:
       PUBLISH_BRANCH: ${{ github.event.client_payload.branch }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: ${{ github.event.client_payload.branch }}
           fetch-depth: 0
@@ -24,7 +24,7 @@ jobs:
           git fetch origin develop
           git checkout origin/develop -- .github/scripts
 
-      - name: Setup (before script)
+      - name: Configure Git and SSH deploy key
         run: bash .github/scripts/merge-external/before.sh | tee -a job.log
         env:
           CI_DEPLOY_KEY: ${{ secrets.CI_DEPLOY_KEY }}
@@ -38,10 +38,6 @@ jobs:
         run: bash .github/scripts/merge-external/report_failure.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_ACTOR: ${{ github.actor }}
-          GITHUB_SHA: ${{ github.sha }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_REF_NAME: ${{ github.ref_name }}
 
-      - name: Cleanup (after script)
+      - name: Delete the published branch and tag
         run: bash .github/scripts/merge-external/after.sh

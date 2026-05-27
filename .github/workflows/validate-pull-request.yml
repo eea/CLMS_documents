@@ -1,7 +1,7 @@
 name: Validate Pull Request
 
-# Direction check. Re-runs on events that can change base/head; skip
-# `synchronize` (head-only pushes can't change direction, just spam).
+# Direction check. Re-runs on events that can change base/head. Skips
+# synchronize - head-only pushes can't change direction, just add noise.
 
 on:
   pull_request:
@@ -16,12 +16,12 @@ jobs:
     steps:
       - name: Validate PR base and head
         run: |
-          echo "🔍 Validating PR from '${{ github.head_ref }}' to '${{ github.base_ref }}'..."
+          echo "🔍 Validating PR from '$GITHUB_HEAD_REF' to '$GITHUB_BASE_REF'..."
           ALLOWED=false
 
-          if [[ "${{ github.base_ref }}" == "test" && "${{ github.head_ref }}" == "develop" ]]; then
+          if [[ "$GITHUB_BASE_REF" == "test" && "$GITHUB_HEAD_REF" == "develop" ]]; then
             ALLOWED=true
-          elif [[ "${{ github.base_ref }}" == "main" && "${{ github.head_ref }}" == "test" ]]; then
+          elif [[ "$GITHUB_BASE_REF" == "main" && "$GITHUB_HEAD_REF" == "test" ]]; then
             ALLOWED=true
           fi
 

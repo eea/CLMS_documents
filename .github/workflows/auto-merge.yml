@@ -15,9 +15,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v6
 
       - name: Wait for all required status checks to pass
         run: |
@@ -25,19 +23,16 @@ jobs:
           HEAD_SHA=${{ github.event.pull_request.head.sha }}
           echo "Waiting for required status checks on PR #$PR_NUMBER (SHA: $HEAD_SHA)..."
 
-          # Anchor against the empty-checks race: if a reviewer approves before
-          # any check has registered, PENDING=0 && FAILED=0 is vacuously true
-          # and we'd merge with no validation. validate_merge_origin (job in
-          # validate-pull-request.yml) always fires for these PRs, so require
-          # it to be green before continuing.
+          # Guard the empty-checks race: if approval lands before any check
+          # registers, pending=0/failed=0 reads as vacuously green. This check
+          # always runs on these PRs, so require it green before merging.
           ANCHOR_CHECK="validate_merge_origin"
 
-          MAX_WAIT=1800  # 30 min — covers deploy-docs (Quarto + DOCX→PDF) finishing mid-review
+          MAX_WAIT=1800  # 30 min - covers a deploy-docs build finishing mid-review
           INTERVAL=15
           ELAPSED=0
 
           while true; do
-            # Fetch all check runs for this commit
             CHECKS=$(gh api \
               "repos/${{ github.repository }}/commits/$HEAD_SHA/check-runs" \
               --jq '[.check_runs[] | {name: .name, status: .status, conclusion: .conclusion}]')
@@ -79,15 +74,14 @@ jobs:
         id: pr_info
         run: |
           title=$(gh pr view ${{ github.event.pull_request.number }} --json title -q .title)
-          # For test→main, the PR description carries the BREAKING CHANGE
-          # marker (when release_type=major) set by open-release-pr.yml.
+          # test->main: the body may carry the BREAKING CHANGE marker (major release).
           pr_body=$(gh pr view ${{ github.event.pull_request.number }} --json body -q .body)
-          echo "title=$title" >> $GITHUB_OUTPUT
+          echo "title=$title" >> "$GITHUB_OUTPUT"
           {
             echo 'pr_body<<PR_BODY_EOF'
             echo "$pr_body"
             echo 'PR_BODY_EOF'
-          } >> $GITHUB_OUTPUT
+          } >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -99,17 +93,15 @@ jobs:
             echo 'body<<EOF'
             echo "$file_list"
             echo 'EOF'
-          } >> $GITHUB_OUTPUT
+          } >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Auto-merge the PR
         run: |
-          # develop→test: squash (PR title becomes subject; body is the file list).
-          # test→main:   merge commit, with --subject so it isn't "Merge pull
-          #              request #N". Body = PR description (carries BREAKING
-          #              CHANGE for major) + file list. semantic-release reads
-          #              subject + body to pick the bump.
+          # develop->test: squash (title = subject, body = file list).
+          # test->main:    merge commit, --subject avoids "Merge pull request #N".
+          #                body = PR description + file list, so semantic-release sees the bump.
           if [[ "${{ github.event.pull_request.base.ref }}" == "main" ]]; then
             cat > /tmp/commit_msg.txt << 'EOF'
           ${{ steps.pr_info.outputs.pr_body }}

@@ -1,18 +1,17 @@
 name: Open Release PR
 
-# Opens a test -> main PR. Triggered manually from the Actions tab.
-# Run only after deploy-docs has finished on test.
+# Opens a test -> main PR (manual, from the Actions tab). Run after
+# deploy-docs has finished on test.
 #
-# release_type drives the semver bump on main — it's the only place that does.
-# Maps to a conventional-commit prefix on the PR title (and the merge commit):
+# release_type sets the semver bump on main (the only place that does), via the
+# conventional-commit prefix on the PR title:
 #   patch     -> fix(docs):    -> patch bump
 #   minor     -> feat(docs):   -> minor bump
 #   major     -> feat(docs)!:  -> major bump (+ BREAKING CHANGE in body)
 #   republish -> chore(docs):  -> no bump, no new tag
 #
-# Default is republish so a stray Run-workflow click can't bump the version.
-# If you picked wrong, edit the title in the GitHub UI before approving —
-# auto-merge reads the title at merge time, not the input.
+# Default is republish so a stray run can't bump the version. Picked wrong?
+# Edit the PR title before approving - auto-merge reads it at merge time.
 
 on:
   workflow_dispatch:
@@ -38,7 +37,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -73,11 +72,13 @@ jobs:
           if [[ -n "$existing" ]]; then
             url=$(echo "$existing" | jq -r '.url')
             number=$(echo "$existing" | jq -r '.number')
-            echo "exists=true" >> $GITHUB_OUTPUT
-            echo "url=$url" >> $GITHUB_OUTPUT
-            echo "number=$number" >> $GITHUB_OUTPUT
+            {
+              echo "exists=true"
+              echo "url=$url"
+              echo "number=$number"
+            } >> "$GITHUB_OUTPUT"
           else
-            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "exists=false" >> "$GITHUB_OUTPUT"
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -94,7 +95,7 @@ jobs:
         run: |
           git fetch origin test main
           ahead=$(git rev-list --count origin/main..origin/test)
-          echo "ahead=$ahead" >> $GITHUB_OUTPUT
+          echo "ahead=$ahead" >> "$GITHUB_OUTPUT"
           echo "test is $ahead commit(s) ahead of main"
 
       - name: Abort if nothing to release
@@ -109,9 +110,8 @@ jobs:
           today=$(date +%Y-%m-%d)
           release_type="${{ inputs.release_type }}"
 
-          # Map release_type -> conventional-commit title. auto-merge passes
-          # this title to the merge commit via --subject, and semantic-release
-          # reads subject + body to pick the bump.
+          # Map release_type to a conventional-commit title. auto-merge uses it as
+          # the merge subject, and semantic-release reads subject + body for the bump.
           case "$release_type" in
             patch)
               title="fix(docs): release ${today}"
@@ -126,6 +126,7 @@ jobs:
             major)
               title="feat(docs)!: release ${today}"
               type_section="**Bump:** major (\`feat!\` + \`BREAKING CHANGE\`) — contains breaking changes."
+              # shellcheck disable=SC2016  # literal backticks in the markdown body, not command substitution
               breaking_section=$(printf '%s\n' \
                 '' \
                 '### ⚠️ Breaking change' \
@@ -145,6 +146,7 @@ jobs:
               ;;
           esac
 
+          # shellcheck disable=SC2016  # literal backticks in the markdown body, not command substitution
           body=$(printf '%s\n' \
             "## Release: ${release_type} (${today})" \
             '' \

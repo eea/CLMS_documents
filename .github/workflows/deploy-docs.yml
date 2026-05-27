@@ -8,9 +8,8 @@ on:
       - main
   workflow_dispatch:  # manual trigger from Actions UI
 
-# Two runs on the same branch would race on the cache + doc-map commit-back
-# and on the gh-pages deploy. Queue rather than cancel — killing a run
-# mid-write can leave the cache half-updated.
+# One run per branch - concurrent runs race on the cache commit-back and the
+# gh-pages deploy. Queue, don't cancel (a half-written cache is worse).
 concurrency:
   group: deploy-docs-${{ github.ref }}
   cancel-in-progress: false
@@ -20,14 +19,20 @@ jobs:
     name: Build and Deploy Docs
     runs-on: ubuntu-latest
 
+    # Force bash for every run step. Inside a container the default is sh.
+    defaults:
+      run:
+        shell: bash
+
     container:
       # Pinned (May 2026).
-        image: mckeea/quarto-doc-builder:1.0.2
+      image: mckeea/quarto-doc-builder:1.0.2
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
-          fetch-depth: 0
+          # develop/test only diff HEAD^..HEAD, so a shallow clone is enough
+          fetch-depth: ${{ (github.ref_name == 'main' || startsWith(github.ref, 'refs/heads/test-')) && '0' || '50' }}
           fetch-tags: true
 
       - name: Mark repo as safe for Git
@@ -50,30 +55,28 @@ jobs:
       - name: Detect test mode for dry-run
         id: test_mode
         run: |
-          if [[ "${{ github.ref }}" == refs/heads/test-* ]]; then
-            echo "dry_run=true" >> $GITHUB_OUTPUT
+          if [[ "$GITHUB_REF" == refs/heads/test-* ]]; then
+            echo "dry_run=true" >> "$GITHUB_OUTPUT"
             echo "🔍 Test branch detected - enabling DRY_RUN mode"
           else
-            echo "dry_run=false" >> $GITHUB_OUTPUT
+            echo "dry_run=false" >> "$GITHUB_OUTPUT"
             echo "✅ Production branch - normal execution"
           fi
 
-      # Runs directly in the job container (quarto-doc-builder now carries
-      # google-genai + tiktoken). safe.directory was already set above.
+      # Runs in the container - it carries google-genai + tiktoken.
       - name: Update intros, keywords, versions & changelogs
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           DRY_RUN: ${{ steps.test_mode.outputs.dry_run }}
         run: |
-          DRY_RUN_FLAG=""
-          if [[ "$DRY_RUN" == "true" ]]; then DRY_RUN_FLAG="--dry-run"; fi
-          # --versions only on main (real release work) and test-* (dry-run pipeline tests).
-          # develop and test skip it: develop never bumps versions, and test has no
-          # release tags to compare against since we made releases main-only.
-          if [[ "${{ github.ref_name }}" == "main" || "${{ github.ref }}" == refs/heads/test-* ]]; then
-            python .github/scripts/ai/update_documentation.py --intros modified_docs_list.txt --versions $DRY_RUN_FLAG
+          DRY_RUN_FLAG=()
+          if [[ "$DRY_RUN" == "true" ]]; then DRY_RUN_FLAG=(--dry-run); fi
+          # --versions runs only on main (real releases) and test-* (dry-run tests).
+          # develop/test skip it: no version bumps there, and no tags to diff against.
+          if [[ "$GITHUB_REF_NAME" == "main" || "$GITHUB_REF" == refs/heads/test-* ]]; then
+            python .github/scripts/ai/update_documentation.py --intros modified_docs_list.txt --versions "${DRY_RUN_FLAG[@]}"
           else
-            python .github/scripts/ai/update_documentation.py --intros modified_docs_list.txt $DRY_RUN_FLAG
+            python .github/scripts/ai/update_documentation.py --intros modified_docs_list.txt "${DRY_RUN_FLAG[@]}"
           fi
 
       - name: Describe images (develop only — cache propagates to test/main)
@@ -81,11 +84,8 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          # Generates Gemini vision descriptions for all images under
-          # DOCS/*/*-media/. The script is content-addressable (cache key =
-          # md5 of image bytes), so existing entries are skipped — only new
-          # or changed images hit the API. Cache lands in .llm_cache/images/
-          # and is committed back in the next step alongside the intros cache.
+          # Describe images under DOCS/*-media/. Keyed by image md5, so only
+          # new or changed ones hit the API. Cache is committed back next step.
           python .github/scripts/ai/describe_images.py
 
       - name: Commit updated LLM cache and version history

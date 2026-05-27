@@ -1,15 +1,12 @@
 name: Open Pre-Release Review PR
 
-# Opens a develop -> test PR. Triggered manually from the Actions tab.
-# Run only after deploy-docs has finished on develop, otherwise the PR is
-# missing the latest LLM cache / version-history commits.
+# Opens a develop -> test PR (manual, from the Actions tab). Run after
+# deploy-docs has finished on develop, or the PR misses the latest cache commits.
 #
-# The default title uses chore(docs): on purpose — chore is a no-bump
-# conventional-commit type, so this PR (and the squash it produces on test)
-# can't drive semantic-release to bump anything. Bumps are decided at the
-# test->main step via the release_type input on open-release-pr.yml.
-# If you edit the title, keep a non-bump prefix (chore / docs / style /
-# refactor). Don't use feat: or fix:.
+# Title uses chore(docs): on purpose - chore is a no-bump type, so this PR
+# can't drive a semantic-release bump (bumps happen at the test->main step).
+# If you edit the title, keep a non-bump prefix (chore/docs/style/refactor),
+# not feat: or fix:.
 
 on:
   workflow_dispatch:
@@ -24,7 +21,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -59,11 +56,13 @@ jobs:
           if [[ -n "$existing" ]]; then
             url=$(echo "$existing" | jq -r '.url')
             number=$(echo "$existing" | jq -r '.number')
-            echo "exists=true" >> $GITHUB_OUTPUT
-            echo "url=$url" >> $GITHUB_OUTPUT
-            echo "number=$number" >> $GITHUB_OUTPUT
+            {
+              echo "exists=true"
+              echo "url=$url"
+              echo "number=$number"
+            } >> "$GITHUB_OUTPUT"
           else
-            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "exists=false" >> "$GITHUB_OUTPUT"
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -80,7 +79,7 @@ jobs:
         run: |
           git fetch origin develop test
           ahead=$(git rev-list --count origin/test..origin/develop)
-          echo "ahead=$ahead" >> $GITHUB_OUTPUT
+          echo "ahead=$ahead" >> "$GITHUB_OUTPUT"
           echo "develop is $ahead commit(s) ahead of test"
 
       - name: Abort if nothing to review
