@@ -16,7 +16,6 @@ format:
     self-contained: false # Don't embed resources like CSS and images
     filters:
       - ../../.github/scripts/filters/extract-images.lua
-      - ../../.github/scripts/filters/inject-image-descriptions.lua
       - ../../.github/scripts/filters/inject_contact_info.lua
       - ../../.github/scripts/build/inject_changelog.py
 
@@ -36,18 +35,15 @@ format:
       top: 2.54cm
       bottom: 3.35cm
     fontsize: 10pt
-    # Note: contact info is NOT injected here for Typst — the typst-template.typ
-    # renders it as front matter (after the TOC) so page numbering stays clean.
+    # Contact info isn't injected here for Typst - typst-template.typ renders it
+    # after the TOC so paging stays clean. No image-description filter either:
+    # PDFs are untagged so fig-alt does nothing (it goes in html alt + .llms.md).
     filters:
-      - ../../.github/scripts/filters/inject-image-descriptions.lua
       - ../../.github/scripts/build/inject_changelog.py
 
-  # gfm writer is used by Quarto when emitting the .llms.md sidecars
-  # (llms-txt: true at project level). The filter inserts a visible
-  # description paragraph after each image so LLM consumers see it.
-  gfm:
-    filters:
-      - ../../.github/scripts/filters/inject-image-descriptions.lua
+  # gfm writer makes the .llms.md sidecars. Descriptions are baked into the
+  # source by inject_image_descriptions.py, so no filter is needed here.
+  gfm: default
 
 format-links:
   - html

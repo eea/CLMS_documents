@@ -100,12 +100,11 @@ jobs:
             git push origin HEAD
           fi
 
-      # Hotfix: install chrome-headless-shell into the job's HOME so the Typst
-      # diagram render finds it. Container jobs set HOME=/github/home, which the
-      # image's baked-in copy doesn't cover. Drop this once the image ships with
-      # XDG_DATA_HOME baked in.
+      # Hotfix: install chrome into the job's HOME so the Typst diagram render
+      # finds it (container jobs set HOME=/github/home). Drop once the rebuilt
+      # image bakes XDG_DATA_HOME in.
       - name: Ensure headless Chrome for diagram rendering
-        run: quarto install chrome-headless-shell    
+        run: quarto install chrome-headless-shell
 
       - name: Build Docs
         run: .github/scripts/build/build-docs.sh

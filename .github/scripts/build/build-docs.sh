@@ -8,10 +8,9 @@ QUARTO_NOISE=(
 )
 
 quarto_render() {
-  # Filter noise from quarto's output, but fail on quarto's OWN exit status —
-  # PIPESTATUS[0], not the pipeline's. grep exits 1 when it filters out every
-  # line, which is not a render failure; the trailing `|| true` only stops
-  # `set -e` tripping on that case, while PIPESTATUS still carries quarto's code.
+  # Drop noise lines from the output, but key failure on quarto's exit
+  # (PIPESTATUS[0]), not grep's. grep returns 1 when it filters everything out,
+  # which isn't a render failure - the `|| true` keeps set -e off our back.
   quarto render "$@" 2>&1 | grep --line-buffered -v "${QUARTO_NOISE[@]}" || true
   local status=${PIPESTATUS[0]}
   if [ "$status" -ne 0 ]; then
@@ -20,10 +19,22 @@ quarto_render() {
   fi
 }
 
-echo "[1/7] Copying DOCS to origin_DOCS..."
+# Step timing: each step() prints how long the previous one took, so the slow
+# phase stands out in the CI log.
+_BUILD_START=$(date +%s); _STEP_PREV=$_BUILD_START; _STEP_NAME=""
+step() {
+  local now; now=$(date +%s)
+  if [ -n "$_STEP_NAME" ]; then
+    printf '    -> %s took %ds\n' "$_STEP_NAME" "$((now - _STEP_PREV))"
+  fi
+  echo "$*"
+  _STEP_PREV=$now; _STEP_NAME="$*"
+}
+
+step "[1/6] Copying DOCS to origin_DOCS..."
 mv DOCS origin_DOCS
 
-echo "[2/7] Updating URL mappings and grouping documents by category..."
+step "[2/6] Updating URL mappings and grouping documents by category..."
 python3 .github/scripts/build/update_url_mappings.py &
 python3 .github/scripts/build/group_docs_by_category.py &
 wait
@@ -48,28 +59,30 @@ ln -s ../assets assets
 echo "Stripping unknown frontmatter fields..."
 python3 ../.github/scripts/build/strip_unknown_frontmatter.py .
 
+# Bake image descriptions into the qmd source now, so the render doesn't re-hash
+# every image once per format (see the script). This was a Lua filter.
+echo "Baking image descriptions into qmd source..."
+python3 ../.github/scripts/build/inject_image_descriptions.py .
+
 # Render with the no-headers config. The with-headers variant is still on
 # disk but nothing activates it anymore.
 cp _quarto-no-headers.yml _quarto.yml
 
-echo "[3/7] Rendering all documents to HTML..."
-quarto_render --to html --no-clean
+step "[3/6] Rendering all documents (HTML + Typst PDF + gfm) in one pass..."
+# Render every format in the config - html (site), typst (PDFs), gfm
+# (the .llms.md sidecars). One pass over the files instead of one per format.
+quarto_render --no-clean
 
-# Backup sitemap.xml and llms.txt — they're regenerated when index.qmd files
-# are rendered later, and we want to preserve the values from the first render.
+# Back up sitemap.xml and llms.txt - the index.qmd renders below regenerate
+# them, and we want to keep the values from this first render.
 sleep 5
 mv _site/sitemap.xml _site/sitemap.xml.bkp
 mv _site/llms.txt _site/llms.txt.bkp
 
-echo "[4/7] Rendering all documents to PDF (Typst)..."
-# Typst format is defined in _meta/includes/default-no-headers.yml (pulled in
-# via metadata-files). Template + show partials in _meta/theme/typst/.
-quarto_render --to typst --no-clean
-
-echo "[5/7] Generating index.qmd files for all DOCS/* folders..."
+step "[4/6] Generating index.qmd files for all DOCS/* folders..."
 python3 ../.github/scripts/build/generate_index_all.py
 
-echo "[6/7] Rendering index.qmd files..."
+step "[5/6] Rendering index.qmd files..."
 mv _quarto.yml _quarto_not_used.yml
 mv _quarto-index.yml _quarto.yml
 find ./ -type f -name index.qmd -print0 | \
@@ -93,7 +106,7 @@ python3 ../.github/scripts/build/generate_llm_sitemap.py _site/sitemap.xml _site
 # Advertise the LLM sitemap in robots.txt (Quarto-generated file only lists sitemap.xml)
 echo "Sitemap: https://library.land.copernicus.eu/sitemap-llm.xml" >> _site/robots.txt
 
-echo "[7/7] Cleaning up intermediate files..."
+step "[6/6] Cleaning up intermediate files..."
 find _site -type f -name '*.qmd' -delete
 # Strip intermediate Typst sources left next to the PDFs (no keep-typ in prod).
 find _site -type f -name '*.typ' -delete
@@ -102,4 +115,4 @@ cp ../404.html _site/404.html
 cp ../redirect_map.json _site/redirect_map.json
 cp ../url_mapping.json _site/url_mapping.json
 
-echo "✅ Docs built successfully"
+step "✅ Docs built successfully"
