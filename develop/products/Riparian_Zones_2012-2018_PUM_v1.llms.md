@@ -211,15 +211,7 @@ The table below summarises the technical specification of the Riparian Zones pro
 
 *Table 1: LC/LU 2012/2018 specifications*
 
-|  |  |  |
-|----|----|----|
-| **Coordinate Reference System** \| \| ==========================================+=============================================+ ETRS_1989_LAEA \| Geographic Coordinate System: GCS_ETRS_1989 \| ——————————————————————-\|————————————————————————————————————————————- WKID: 3035 Authority: EPSG \| Angular Unit: Degree (0,0174532925199433) \| \| \| Projection: Lambert_Azimuthal_Equal_Area \| Prime Meridian: Greenwich (0,0) \| ——————————————————————————————————————\|————————————————————————————– false_easting: 4.321.000,0 \| Datum: D_ETRS_1989 \| \| \| false_northing: 3.210.000,0 \| Spheroid: GRS_1980 \| ——————————————————————————————————\|————————————————————————————————– central_meridian: 10,0 \| Semimajor Axis: 6.378.137,0 \| \| \| latitude_of_origin: 52,0 \| Semiminor Axis: 6.356.752,314140356 \| —————————————————————————\|—————————————————————————————————————————– Linear Unit: Meter (1,0) \| Inverse Flattening: 298,257222101 \| |  |  |
-| **Accuracy Assessment Approach** |  |  |
-| Stratified Random Point Sampling |  |  |
-| **Data Type** |  |  |
-| Vector |  |  |
-| **Delivery Format** |  |  |
-| Esri Shapefile Format (\*.SHP) |  |  |
+[TABLE]
 
 | **Class Coding / Attribution** |  |  |  | **Applicable Products** |
 |----|----|----|----|----|
@@ -355,7 +347,7 @@ The PSIL contains the following specifications shown in Table 4.
   
 
 |  | **Class Coding / Attribution** |  |  |  |
-|----|:---|----|----|----|
+|----|----|----|----|----|
 | **Field** | **Description** | **Definition ArcGIS** | **Definition QGIS** | **Value(s)** |
 | \[FID\] | Dynamic Feature Identifier | Object ID | Object ID | 0 to 2.147.483.647 |
 | \[Shape\] | Polygon (default by ESRI) | Geometry | Geometry | Polygon |
@@ -376,7 +368,7 @@ The PSIL contains the following specifications shown in Table 4.
   
 
 |  | **Class Coding / Attribution** |  |  |  |
-|----|:---|----|----|----|
+|----|----|----|----|----|
 | **Field** | **Description** | **Definition ArcGIS** | **Definition QGIS** | **Value(s)** |
 | \[FID\] | Dynamic Feature Identifier | Object ID | Object ID | 0 to 2.147.483.647 |
 | \[Shape\] | Polygon (default by ESRI) | Geometry | Geometry | Polygon |
@@ -394,26 +386,26 @@ The PSIL contains the following specifications shown in Table 4.
 
   
 
-| **Entry for \[Sensor\]** |        **Description**         |
-|:------------------------:|:------------------------------:|
-|           SP4            |             SPOT-4             |
-|           SP5            |             SPOT-5             |
-|           SP6            |             SPOT-6             |
-|           SP7            |             SPOT-7             |
-|         IRS-LI3          |        IRS-P6-LISS III         |
-|           PHR            |        Pleiades (1A/B)         |
-|           WV1            |          WorldView 1           |
-|           WV2            |          WorldView 2           |
-|            L5            |           Landsat-5            |
-|            L8            |           Landsat-8            |
-|           GE01           |            GeoEye1             |
-|           EQ02           |          Quickbird 02          |
-|         KS03/04          |         Kompsat 03/04          |
-|           SW00           |           SuperView            |
-|           DOVE           |          Planet DOVE           |
-|           DM02           |           Deimos-02            |
-|           TR00           |           TripleSat            |
-|          S2A/B           | Nominal Sentinel 2 Acquisition |
+| **Entry for \[Sensor\]** | **Description**                |
+|--------------------------|--------------------------------|
+| SP4                      | SPOT-4                         |
+| SP5                      | SPOT-5                         |
+| SP6                      | SPOT-6                         |
+| SP7                      | SPOT-7                         |
+| IRS-LI3                  | IRS-P6-LISS III                |
+| PHR                      | Pleiades (1A/B)                |
+| WV1                      | WorldView 1                    |
+| WV2                      | WorldView 2                    |
+| L5                       | Landsat-5                      |
+| L8                       | Landsat-8                      |
+| GE01                     | GeoEye1                        |
+| EQ02                     | Quickbird 02                   |
+| KS03/04                  | Kompsat 03/04                  |
+| SW00                     | SuperView                      |
+| DOVE                     | Planet DOVE                    |
+| DM02                     | Deimos-02                      |
+| TR00                     | TripleSat                      |
+| S2A/B                    | Nominal Sentinel 2 Acquisition |
 
 *Table 6: List of allowed \[Sensor\] entries*
 
@@ -920,7 +912,7 @@ Product technical support is provided by the product custodian through Copernicu
 # 9 Abbreviations & Acronyms
 
 | AoI         | Area of Interest                                         |
-|:------------|:---------------------------------------------------------|
+|-------------|----------------------------------------------------------|
 | CBD         | Convention on Biological Diversity                       |
 | CCM         | Copernicus Contribution Mission                          |
 | CLC         | CORINE Land Cover                                        |
@@ -1069,7 +1061,7 @@ Product technical support is provided by the product custodian through Copernicu
 # 11 Annexes
 
 | **Riparian Zones Delivery Units** |  |  |  |
-|:---|----|----|----|
+|----|----|----|----|
 | **No.** | **DU ID** | **Catchment Name(s) per Unit** | **RZ AoI Str. 2-9 \[km²\]** |
 | 1 | DU001A | Aegean Islands, Black Sea Basin District, Turkey West | 17.003,02 |
 | 2 | DU002A | Attica, Crete, Eastern Peloponnese, Eastern Sterea Ellada, Seman, Thessalia, Western Macedonia, Western Sterea Ellada | 14.627,61 |

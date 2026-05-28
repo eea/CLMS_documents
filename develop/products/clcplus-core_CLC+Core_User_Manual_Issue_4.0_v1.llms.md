@@ -34,7 +34,7 @@ Content ID: /
 **Document Control Information**
 
 | Document Title | CLC+ Core User Guideline |
-|:---|:---|
+|----|----|
 | Project Title | CLC+ Core production and provision of complementary consultancy services |
 | Document Author | Thomas Mathis (Cloudflight), Tanja Gasber (GeoVille), Amelie Lindmayer (GAF) |
 | Project Owner | Tobias Langanke (EEA) |
@@ -47,14 +47,14 @@ Content ID: /
 **Document Approver(s) and Reviewer(s):**
 
 | Name                | Role     | Action          | Date       |
-|:--------------------|:---------|:----------------|:-----------|
+|---------------------|----------|-----------------|------------|
 | Tim Wiltzius (CLF)  | Reviewer | Document review | 2023-12-20 |
 | Johannes Vass (CLF) | Reviewer | Document review |            |
 
 **Document history**
 
 | Revision | Date | Created by | Short description of changes |
-|:---|:---|:---|:---|
+|----|----|----|----|
 | 1.0 | 2022-04-08 | CLC+ Core consortium (CLF, GV, GAF) | Initial document creation |
 | 2.0 | 2022-06-10 | CLC+ Core consortium (CLF, GV, GAF) | Restructure of entire document, extension of Extraction chapter and Admin User section |
 | 3.0 | 2023-06-06 | CLC+ Core consortium (CLF, GV, GAF) | Adaption of rule 3 in the current version of the CLC+ Core system |
@@ -179,7 +179,7 @@ When you click on the context menu action ‘My Profile’ of the User Profile I
 In the table below (Table 1‑1) the roles possible in the CLC+ Core system are listed:
 
 | Role | Description |
-|:---|:---|
+|----|----|
 | User Administrator / Support | As an User Administrator / Support you are allowed to manage (Add, Edit, Activate/Inactivate) users and organisations within CLC+ Core. Additionally, you can view and edit any Ingestion and Extraction within the CLC+ Core in order to support users if they are in need of help. |
 | EAGLE maintainer / Approver | As an EAGLE maintainer you are allowed to add a new EAGLE ontology version to the CLC+ Core and approve EAGLE compliance of Ingestions. |
 | System Administrator | For now, this role is only available within CLC+ Core so that it can be seen who is the system administrator. For later this role could be used for additional views like e.g., scheduling view. |
@@ -1223,7 +1223,7 @@ This choice of **Coverage Function** can make sense if you need to sum up covera
 Consider the following ranked **Input Classes** that have a matching EAGLE barcoding of LCC-Water with barcode 5.
 
 | **Extraction Input Class** | **Ingestion** | **Mapping**       | **Value**   |
-|:---------------------------|:--------------|:------------------|:------------|
+|----------------------------|---------------|-------------------|-------------|
 | **A1**                     | **A**         | **LCC-Water / 5** | **NO-DATA** |
 | B1                         | B             | LCC-Trees / 5     | 80 %        |
 | **B2**                     | **B**         | **LCC-Water / 5** | **15 %**    |
@@ -1441,7 +1441,7 @@ A function that computes the **Coverage** of a barcoded EAGLE element for the se
 # 8 List of abbreviations
 
 | Abbreviation | Name | Reference |
-|:---|:---|:---|
+|----|----|----|
 | **ADs** | Applicable Documents |  |
 | **AI** | Action Item |  |
 | **API** | Application Programming Interface |  |
@@ -1531,7 +1531,7 @@ The EAGLE matrix elements initially have no specific bar code value (BCV) and ar
 This bar-coding approach streamlines the process of representing complex information about different classes, making it easier to handle and to compare among them and with other classification systems. When working with the barcoding exercise, different classes require the EAGLE elements to take different roles, according to the targeted definitions. Similar class definitions should reflect in also similar barcoding results.[^11].
 
 | **Barcode Value** | **Definition** |
-|:--:|:---|
+|----|----|
 | X | Element is excluded by definition |
 | 1 | An optional element, it can occur as typical but not necessarily as mandatory |
 | 2 | Selective mandatory element, EITHER-AND/OR logic, at least two or more of all elements with assigned BCV 2 must be present |
@@ -1604,7 +1604,7 @@ Source: <https://land.copernicus.eu/> and national authorities
 Table 0‑3: Excerpt of the LC/LU classes (here Grassland) with sub stratification and corresponding EAGLE elements relevant for Extraction. Proposal EAGLE Group \[AD11\] supplemented by consortium. The procedure must be done for all the remaining classes as well. {.caption-top .table}
 
 | 2056 | 5015  |
-|:-----|:------|
+|------|-------|
 | 2059 | 5016  |
 | 2100 | 5325  |
 | 2154 | 5514  |

@@ -21,13 +21,13 @@
     vegetation](#6-open-spaces-with-little-or-no-vegetation)
   - [7 Wetland](#7-wetland)
   - [8 Water](#8-water)
-- [<span class="toc-section-number">8</span> Abbreviations &
+- [<span class="toc-section-number">6</span> Abbreviations &
   Acronyms](#abbreviations--acronyms)
-- [<span class="toc-section-number">9</span> Annex 1: Change
+- [<span class="toc-section-number">7</span> Annex 1: Change
   Matrixes](#annex-1-change-matrixes)
-- [<span class="toc-section-number">10</span> Annex 2: Re-coding Table
+- [<span class="toc-section-number">8</span> Annex 2: Re-coding Table
   for UA Core Areas](#annex-2-re-coding-table-for-ua-core-areas)
-- [<span class="toc-section-number">11</span> Document controll
+- [<span class="toc-section-number">9</span> Document controll
   information](#document-controll-information)
 
 # Introduction
@@ -397,245 +397,29 @@ expertise is used.
 In order to clarify certain mapping delineations, there are some
 comments defined as product attributes.
 
-<table>
-<caption>List of Standard Comments</caption>
-<colgroup>
-<col style="width: 66%" />
-<col style="width: 33%" />
-</colgroup>
-<tbody>
-<tr>
-<td style="text-align: center;"><strong>Description; Note</strong></td>
-<td style="text-align: center;"><strong>Comment</strong></td>
-</tr>
-<tr>
-<td colspan="2" style="text-align: center;"><table>
-<colgroup>
-<col style="width: 69%" />
-<col style="width: 30%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong><u>External Border:</u></strong></th>
-<th>"Area size exception (at RZ_AoI / UA Core Region boundary)"</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Polygons &lt; 0.5ha at AOI boundary or Urban Atlas Core Region
-(polygons have shared line segment(s) with RZ_AOI boundary or UA Core
-Region).</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Only polygons outside UA Core Regions are considered.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2" style="text-align: center;"><table>
-<colgroup>
-<col style="width: 70%" />
-<col style="width: 29%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong><u>Internal Border:</u></strong></th>
-<th>"Area size exception (at shared line between RZ_AoIs of Str. 3-8 and
-Str. 2)"</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Objects between existing AOI (Str. 3-8) and the new AoI (Str. 2)
-&lt; 0.5 ha and if the whole object (in the existing AOI and in the new
-AOI) amounts ≥ 0.5 ha.</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Preservation of the geometry is necessary to keep for a seamless
-product.</td>
-<td></td>
-</tr>
-<tr>
-<td>——————————————————————————————————————————————————————————————-</td>
-<td>————-</td>
-</tr>
-<tr>
-<td>Applies only for Strahler level 2 product, not for combined and
-seamless product.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2" style="text-align: center;"><table>
-<colgroup>
-<col style="width: 62%" />
-<col style="width: 37%" />
-</colgroup>
-<thead>
-<tr>
-<th>Polygons &lt; 0.5 ha inside RZ_AOI (for communicated exceptions
-only).</th>
-<th>"Area size exception (inside RZ_AoI / outside UA Core Region)"</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Only polygons outside UA Core Regions are considered.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2" style="text-align: center;"><table>
-<colgroup>
-<col style="width: 63%" />
-<col style="width: 36%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong><u>Urban Atlas:</u></strong></th>
-<th>"UA2012_core_regions_update (name of update source)"</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>UA2012/2018 data inside UA2012/2018 Core Region.</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Exception for UA2012 data captured in updated UA2012 Core Region
-limits (not identical to URAU_2012_RG.shp).</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2" style="text-align: center;"><table>
-<colgroup>
-<col style="width: 77%" />
-<col style="width: 23%" />
-</colgroup>
-<thead>
-<tr>
-<th>For areas completely or partially flooded by water (flooded
-land).</th>
-<th>"Flooded area"</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Only polygons outside UA Core Regions are considered.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2" style="text-align: center;"><table>
-<colgroup>
-<col style="width: 74%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr>
-<th>Different water levels when comparing image data taken during
-flooding situations and “normal” water level.</th>
-<th>"Different water levels"</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>The water level of the “normal” situation should be used for
-delineation.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2" style="text-align: center;"><table>
-<colgroup>
-<col style="width: 78%" />
-<col style="width: 22%" />
-</colgroup>
-<thead>
-<tr>
-<th>For rivers or parts of rivers where the watercourse channel type is
-“braided river”.</th>
-<th>"Braided river"</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Only polygons outside UA Core Regions are considered.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2" style="text-align: center;"><table>
-<colgroup>
-<col style="width: 76%" />
-<col style="width: 24%" />
-</colgroup>
-<thead>
-<tr>
-<th>For river banks that are crossed by side arms of a river.</th>
-<th>"Braided river"</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Only polygons outside UA Core Regions are considered.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2" style="text-align: center;"><table>
-<colgroup>
-<col style="width: 72%" />
-<col style="width: 27%" />
-</colgroup>
-<thead>
-<tr>
-<th>Gaps between Urban Atlas data and the layer defining Core Regions
-(URAU_2012_RG_C/UA core region).</th>
-<th>“Adjusted data of UA core region”</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>The gap is not in contact with the regular RZ mapping.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-</tbody>
-</table>
+| **Description; Note** | **Comment** |
+|----|----|
+| **<u>External Border:</u>** | "Area size exception (at RZ_AoI / UA Core Region boundary)" |
+| Polygons \< 0.5ha at AOI boundary or Urban Atlas Core Region (polygons have shared line segment(s) with RZ_AOI boundary or UA Core Region).<br><br>Only polygons outside UA Core Regions are considered. |  |
+| **<u>Internal Border:</u>** | "Area size exception (at shared line between RZ_AoIs of Str. 3-8 and Str. 2)" |
+| Objects between existing AOI (Str. 3-8) and the new AoI (Str. 2) \< 0.5 ha and if the whole object (in the existing AOI and in the new AOI) amounts ≥ 0.5 ha.<br><br>Preservation of the geometry is necessary to keep for a seamless product. |  |
+| Applies only for Strahler level 2 product, not for combined and seamless product. |  |
+| Polygons \< 0.5 ha inside RZ_AOI (for communicated exceptions only). | "Area size exception (inside RZ_AoI / outside UA Core Region)" |
+| Only polygons outside UA Core Regions are considered. |  |
+| **<u>Urban Atlas:</u>** | "UA2012_core_regions_update (name of update source)" |
+| UA2012/2018 data inside UA2012/2018 Core Region.<br><br>Exception for UA2012 data captured in updated UA2012 Core Region limits (not identical to URAU_2012_RG.shp). |  |
+| For areas completely or partially flooded by water (flooded land). | "Flooded area" |
+| Only polygons outside UA Core Regions are considered. |  |
+| Different water levels when comparing image data taken during flooding situations and “normal” water level. | "Different water levels" |
+| The water level of the “normal” situation should be used for delineation. |  |
+| For rivers or parts of rivers where the watercourse channel type is “braided river”. | "Braided river" |
+| Only polygons outside UA Core Regions are considered. |  |
+| For river banks that are crossed by side arms of a river. | "Braided river" |
+| Only polygons outside UA Core Regions are considered. |  |
+| Gaps between Urban Atlas data and the layer defining Core Regions (URAU_2012_RG_C/UA core region). | “Adjusted data of UA core region” |
+| The gap is not in contact with the regular RZ mapping. |  |
+
+List of Standard Comments
 
 # Description of Mapping Features
 
@@ -7808,90 +7592,66 @@ source is CNES 2011©, from SPOT-5 (2.5 m) (1/2/3 Band Combination).
 
 <table style="width:99%;">
 <colgroup>
-<col style="width: 11%" />
-<col style="width: 47%" />
-<col style="width: 26%" />
 <col style="width: 13%" />
-</colgroup>
-<tbody>
-<tr>
-<td rowspan="2">======================= <strong>Parcel
-Shape</strong></td>
-<td rowspan="2"><h1 id="arable-land-211" data-number="6"><span
-class="header-section-number">6</span> <strong>Arable Land
-(2.1.1)</strong></h1>
-<p>Parcel generally more angular</p></td>
-<td rowspan="2"><h1 id="managed-grassland-41" data-number="7"><span
-class="header-section-number">7</span> <strong>Managed Grassland
-(4.1)</strong></h1>
-<p>Often angular, but also more irregular shapes</p></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td colspan="4"><table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 49%" />
-<col style="width: 25%" />
+<col style="width: 55%" />
+<col style="width: 30%" />
 </colgroup>
 <thead>
 <tr>
-<th><strong>Appearance</strong></th>
-<th>- Smooth texture</th>
-<th>- Smooth texture</th>
+<th></th>
+<th><strong>Arable Land (2.1.1)</strong></th>
+<th><strong>Managed Grassland (4.1)</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>- Different colours → different crops, different growth stages;
-after harvest soil appears blue</td>
-<td>- due to summer-time mowing</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
+<td><strong>Parcel Shape</strong></td>
+<td>Parcel generally more angular</td>
+<td>Often angular, but also more irregular shapes</td>
 </tr>
 <tr>
-<td colspan="4"><table>
-<colgroup>
-<col style="width: 28%" />
-<col style="width: 42%" />
-<col style="width: 29%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>Cultivation Marks</strong></th>
-<th>- Cultivation tracks (plough marks, rows, …)</th>
-<th>- Rows of mowed grass possible</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>- Bales of straw</td>
-<td>- Hay bales</td>
-<td></td>
+<td><strong>Appearance</strong></td>
+<td><ul>
+<li>Smooth texture</li>
+</ul></td>
+<td><ul>
+<li>Smooth texture</li>
+</ul></td>
 </tr>
 <tr>
 <td></td>
-<td></td>
-<td></td>
+<td><ul>
+<li>Different colours → different crops, different growth stages; after
+harvest soil appears blue</li>
+</ul></td>
+<td><ul>
+<li>due to summer-time mowing</li>
+</ul></td>
 </tr>
 <tr>
-<td>- Access road</td>
-<td>- Access road</td>
-<td></td>
+<td><strong>Cultivation Marks</strong></td>
+<td><ul>
+<li>Cultivation tracks (plough marks, rows, …)</li>
+</ul></td>
+<td><ul>
+<li>Rows of mowed grass possible</li>
+</ul></td>
 </tr>
-</tbody>
-</table></td>
+<tr>
+<td></td>
+<td><ul>
+<li><p>Bales of straw</p></li>
+<li><p>Access road</p></li>
+</ul></td>
+<td><ul>
+<li><p>Hay bales</p></li>
+<li><p>Access road</p></li>
+</ul></td>
 </tr>
 <tr>
 <td><strong>Landscape</strong></td>
 <td>Very large connected areas lying in lowlands</td>
 <td>Appears also in more hilly areas, near forests, …</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -14350,9 +14110,8 @@ by the context of a nomenclature guideline for classification.
 
 # Abbreviations & Acronyms
 
-|  |  |
-|----|----|
 | AOI | Area of Interest |
+|----|----|
 | CLC | CORINE Land Cover |
 | C.C.D. | Crown Cover Density |
 | CNES | Centre National d'Études Spatiales (National Center for Space Studies) |

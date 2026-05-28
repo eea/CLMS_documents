@@ -15,39 +15,39 @@
       Cover mapping](#land-use--land-cover-mapping)
     - [<span class="toc-section-number">4.1.2</span> Additional
       information layers](#additional-information-layers)
-  - [<span class="toc-section-number">6.1</span> General
+  - [<span class="toc-section-number">4.2</span> General
     guidelines](#general-guidelines)
-    - [<span class="toc-section-number">6.1.1</span> Pre-processing and
+    - [<span class="toc-section-number">4.2.1</span> Pre-processing and
       geo-coding of EO data](#pre-processing-and-geo-coding-of-eo-data)
-    - [<span class="toc-section-number">6.1.2</span> Pre-processing and
+    - [<span class="toc-section-number">4.2.2</span> Pre-processing and
       geometric adaptation of navigation
       data](#pre-processing-and-geometric-adaptation-of-navigation-data)
-    - [<span class="toc-section-number">6.1.3</span> Pre-processing of
+    - [<span class="toc-section-number">4.2.3</span> Pre-processing of
       topographic maps](#pre-processing-of-topographic-maps)
-    - [<span class="toc-section-number">6.1.4</span> Classification and
+    - [<span class="toc-section-number">4.2.4</span> Classification and
       interpretation](#classification-and-interpretation)
-    - [<span class="toc-section-number">6.1.5</span> Use of Copernicus
+    - [<span class="toc-section-number">4.2.5</span> Use of Copernicus
       HRL imperviousness](#use-of-copernicus-hrl-imperviousness)
-    - [<span class="toc-section-number">6.1.6</span> Data format of the
+    - [<span class="toc-section-number">4.2.6</span> Data format of the
       final product](#data-format-of-the-final-product)
-    - [<span class="toc-section-number">6.1.7</span> Interpretation
+    - [<span class="toc-section-number">4.2.7</span> Interpretation
       rules](#interpretation-rules)
-    - [<span class="toc-section-number">6.1.8</span> LU/LC change
+    - [<span class="toc-section-number">4.2.8</span> LU/LC change
       detection and layer
       generation](#lulc-change-detection-and-layer-generation)
-    - [<span class="toc-section-number">6.1.9</span> Street tree
-      layer](#street-tree-layer-1)
-    - [<span class="toc-section-number">6.1.10</span> Digital Height
+    - [<span class="toc-section-number">4.2.9</span> Street tree
+      layer](#street-tree-layer)
+    - [<span class="toc-section-number">4.2.10</span> Digital Height
       Model layer (DHM)](#digital-height-model-layer-dhm)
-    - [<span class="toc-section-number">6.1.11</span> Minimum mapping
+    - [<span class="toc-section-number">4.2.11</span> Minimum mapping
       units and exceptions](#minimum-mapping-units-and-exceptions)
-    - [<span class="toc-section-number">6.1.12</span> Accuracy
+    - [<span class="toc-section-number">4.2.12</span> Accuracy
       assessment and validation](#accuracy-assessment-and-validation)
-  - [<span class="toc-section-number">6.2</span> LU/LC
+  - [<span class="toc-section-number">4.3</span> LU/LC
     nomenclature](#lulc-nomenclature)
-  - [<span class="toc-section-number">7.2</span> Decision
+  - [<span class="toc-section-number">4.4</span> Decision
     rules](#decision-rules)
-  - [<span class="toc-section-number">7.3</span> Description of LU/LC
+  - [<span class="toc-section-number">4.5</span> Description of LU/LC
     thematic classes](#description-of-lulc-thematic-classes)
     - [1. Artificial surfaces](#1-artificial-surfaces)
     - [2. Agricultural](#2-agricultural)
@@ -56,32 +56,32 @@
     - [4. Wetlands](#4-wetlands)
     - [5. Water](#5-water)
     - [6. Miscellaneous](#6-miscellaneous)
-- [<span class="toc-section-number">8</span> List of
+- [<span class="toc-section-number">5</span> List of
   abbreviations](#list-of-abbreviations)
-- [<span class="toc-section-number">9</span> Annex](#annex)
-  - [<span class="toc-section-number">9.1</span> Pre-processing and
+- [<span class="toc-section-number">6</span> Annex](#annex)
+  - [<span class="toc-section-number">6.1</span> Pre-processing and
     geometric adaptation of navigation
     data](#pre-processing-and-geometric-adaptation-of-navigation-data-1)
-  - [<span class="toc-section-number">9.2</span> Detailed product
+  - [<span class="toc-section-number">6.2</span> Detailed product
     specification table](#detailed-product-specification-table)
-  - [<span class="toc-section-number">9.3</span> Product types and
+  - [<span class="toc-section-number">6.3</span> Product types and
     attricute field
     descriptions](#product-types-and-attricute-field-descriptions)
-    - [<span class="toc-section-number">9.3.1</span> UA 2006
+    - [<span class="toc-section-number">6.3.1</span> UA 2006
       LULC](#ua-2006-lulc)
-    - [<span class="toc-section-number">9.3.2</span> UA 2012
+    - [<span class="toc-section-number">6.3.2</span> UA 2012
       LULC](#ua-2012-lulc)
-    - [<span class="toc-section-number">9.3.3</span> UA 2006-2012 LULC
+    - [<span class="toc-section-number">6.3.3</span> UA 2006-2012 LULC
       change map](#ua-2006-2012-lulc-change-map)
-    - [<span class="toc-section-number">9.3.4</span> UA 2018
+    - [<span class="toc-section-number">6.3.4</span> UA 2018
       LULC](#ua-2018-lulc)
-    - [<span class="toc-section-number">9.3.5</span> UA 2012-2018 LULC
+    - [<span class="toc-section-number">6.3.5</span> UA 2012-2018 LULC
       change map](#ua-2012-2018-lulc-change-map)
-    - [<span class="toc-section-number">9.3.6</span> UA 2012 STL (street
+    - [<span class="toc-section-number">6.3.6</span> UA 2012 STL (street
       tree layer)](#ua-2012-stl-street-tree-layer)
-    - [<span class="toc-section-number">9.3.7</span> UA 2018 STL (street
+    - [<span class="toc-section-number">6.3.7</span> UA 2018 STL (street
       tree layer)](#ua-2018-stl-street-tree-layer)
-  - [<span class="toc-section-number">9.4</span> Urban Atlas mapping
+  - [<span class="toc-section-number">6.4</span> Urban Atlas mapping
     guide - change records](#urban-atlas-mapping-guide---change-records)
 
 # Executive summary
@@ -111,7 +111,7 @@ to the Urban Atlas project. A list of abbreviations is provided in Annex
 1.
 
 |  | **Name** | **Issue** | **Date** | **Reference** |
-|:--:|----|----|----|----|
+|----|----|----|----|----|
 | RD\[1\] | C5-Service Validation Protocol | 1.00 | 14/05/2008 | ITD-0421-RP-0003-C5 |
 | RD\[2\] | Call for Tenders No ENTR/08/029 - Specifications | 2.00 | 07/05/2008 | Call for Tenders No ENTR/08/029 - Specs |
 | RD\[3\] | Mapping Guide for a European Urban Atlas | 1.02 | 08/05/2008 | ITD-0421-GSELand-TN-01 |
@@ -146,151 +146,25 @@ Map (OSM) navigation data and topographic maps.
 
 Detailed specifications of Urban Atlas LU/LC product.
 
-<table>
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 78%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>Title</strong></th>
-<th><strong>Urban Atlas LU/LC</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Abstract</td>
-<td>Very high-resolution land use and land cover dataset of Functional
-Urban Areas</td>
-</tr>
-<tr>
-<td colspan="2"><table>
-<colgroup>
-<col style="width: 47%" />
-<col style="width: 53%" />
-</colgroup>
-<thead>
-<tr>
-<th>INSPIRE themes</th>
-<th>Land cover</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Land use</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2"><pre><code>                                                                       | EU, EFTA and West Balkan countries plus United Kingdom and Turkey</code></pre>
-<table>
-<colgroup>
-<col style="width: 93%" />
-<col style="width: 6%" />
-</colgroup>
-<thead>
-<tr>
-<th>Geographic description</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td>Temporal description</td>
-<td>2006 / 2012 / 2018</td>
-</tr>
-<tr>
-<td>Purpose</td>
-<td>Provide the baseline of land use/land cover data on Functional Urban
-Areas extracted from VHR and other available imagery (and combined with
-in-situ data) to allow the study of the characteristics of these areas
-in comparison with major urban areas in the EU and EFTA countries.</td>
-</tr>
-<tr>
-<td colspan="2"><table>
-<colgroup>
-<col style="width: 31%" />
-<col style="width: 68%" />
-</colgroup>
-<thead>
-<tr>
-<th>Minimum Mapping Unit</th>
-<th>0.25 ha in urban areas (level 1)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1 ha in rural areas (level 2-5)</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td>Minimum mapping width</td>
-<td>10 m between two objects for distinct mapping</td>
-</tr>
-<tr>
-<td>Nomenclature</td>
-<td>As provided in the Chapter 4.4. table 3 (containing 27 classes)</td>
-</tr>
-<tr>
-<td>Projection</td>
-<td>ETRS89 Lambert Azimuthal Equal Area (LAEA) (EPSG 3035)</td>
-</tr>
-<tr>
-<td>Delivery formats</td>
-<td>Shapefile (2006), EsriFileGDB (2012), GeoPackage (2018)</td>
-</tr>
-<tr>
-<td>Metadata</td>
-<td>INSPIRE Metadata Implementing Rules: Technical Guidelines based on
-EN ISO 19115 and EN ISO 19119</td>
-</tr>
-<tr>
-<td>Positional accuracy</td>
-<td>According to geo-location accuracy of satellite imagery delivered by
-ESA</td>
-</tr>
-<tr>
-<td colspan="2"><table>
-<colgroup>
-<col style="width: 41%" />
-<col style="width: 58%" />
-</colgroup>
-<thead>
-<tr>
-<th>Overall classification accuracy</th>
-<th>≥ 85 % in urban classes (class 1)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>≥ 80 % in rural classes (classes 2 to 5)</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>≥ 80 % overall accuracy</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-</tbody>
-</table>
+| **Title** | **Urban Atlas LU/LC** |
+|----|----|
+| Abstract | Very high-resolution land use and land cover dataset of Functional Urban Areas |
+| INSPIRE themes | Land cover |
+|  | Land use |
+| Geographic description | EU, EFTA and West Balkan countries plus United Kingdom and Turkey |
+|  |  |
+| Temporal description | 2006 / 2012 / 2018 |
+| Purpose | Provide the baseline of land use/land cover data on Functional Urban Areas extracted from VHR and other available imagery (and combined with in-situ data) to allow the study of the characteristics of these areas in comparison with major urban areas in the EU and EFTA countries. |
+| Minimum Mapping Unit | 0.25 ha in urban areas (level 1) |
+|  | 1 ha in rural areas (level 2-5) |
+| Minimum mapping width | 10 m between two objects for distinct mapping |
+| Nomenclature | As provided in the Chapter 4.4. table 3 (containing 27 classes) |
+| Projection | ETRS89 Lambert Azimuthal Equal Area (LAEA) (EPSG 3035) |
+| Delivery formats | Shapefile (2006), EsriFileGDB (2012), GeoPackage (2018) |
+| Metadata | INSPIRE Metadata Implementing Rules: Technical Guidelines based on EN ISO 19115 and EN ISO 19119 |
+| Positional accuracy | According to geo-location accuracy of satellite imagery delivered by ESA |
+| Overall classification accuracy | ≥ 85 % in urban classes (class 1) |
+|  | ≥ 80 % in rural classes (classes 2 to 5)<br><br>≥ 80 % overall accuracy |
 
 The table provided in Annex 5.3 gives a more detailed description of the
 product specifications.
@@ -361,109 +235,24 @@ the Urban Atlas LU/LC map produced within the level 1 urban mask for
 each FUA (partial coverage for 2012 reference year). It includes
 contiguous rows or patches of trees along the streets.
 
-<table style="width:100%;">
-<caption>Detailed specifications of Urban Atlas STL product</caption>
-<colgroup>
-<col style="width: 37%" />
-<col style="width: 49%" />
-<col style="width: 12%" />
-</colgroup>
-<tbody>
-<tr>
-<td rowspan="2"><h1 id="title" data-number="5"><span
-class="header-section-number">5</span> <strong>Title</strong></h1>
-<p>Abstract</p></td>
-<td rowspan="2"><h1 id="street-tree-layer" data-number="6"><span
-class="header-section-number">6</span> <strong>Street Tree
-Layer</strong></h1>
-<p>Very high-resolution tree cover dataset of inside nomenclature level
-1 areas.</p></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td>INSPIRE themes</td>
-<td>Land cover</td>
-<td></td>
-</tr>
-<tr>
-<td colspan="3"><pre><code>                                                                       |   EU, EFTA and West Balkan countries plus United Kingdom and Turkey                                |</code></pre>
-<table>
-<colgroup>
-<col style="width: 93%" />
-<col style="width: 6%" />
-</colgroup>
-<thead>
-<tr>
-<th>Geographic description</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td>Temporal description</td>
-<td>2012 (partial coverage) / 2018</td>
-<td></td>
-</tr>
-<tr>
-<td>Purpose</td>
-<td>Mapping of contiguous rows or patches of trees covering inside the
-nomenclature level 1 areas.</td>
-<td></td>
-</tr>
-<tr>
-<td>Minimum Mapping Unit</td>
-<td>500 m²</td>
-<td></td>
-</tr>
-<tr>
-<td>Minimum mapping width</td>
-<td>10 m</td>
-<td></td>
-</tr>
-<tr>
-<td>Nomenclature</td>
-<td>Tree (STL=1) or Nodata (99)</td>
-<td></td>
-</tr>
-<tr>
-<td>Projection</td>
-<td>ETRS89 Lambert Azimuthal Equal Area (LAEA) (EPSG 3035)</td>
-<td></td>
-</tr>
-<tr>
-<td>Delivery formats</td>
-<td>Shapefile (2012), GeoPackage (2018)</td>
-<td></td>
-</tr>
-<tr>
-<td>Metadata</td>
-<td>INSPIRE Metadata Implementing Rules: Technical Guidelines based on
-EN ISO 19115 and EN ISO 19119</td>
-<td></td>
-</tr>
-<tr>
-<td>Positional accuracy</td>
-<td>According to geo-location accuracy of satellite imagery delivered by
-ESA</td>
-<td></td>
-</tr>
-<tr>
-<td>Overall classification accuracy</td>
-<td>≥ 80 % in urban classes</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+| **Title** | **Street Tree Layer** |
+|----|----|
+| Abstract | Very high-resolution tree cover dataset of inside nomenclature level 1 areas. |
+| INSPIRE themes | Land cover |
+| Geographic description | EU, EFTA and West Balkan countries plus United Kingdom and Turkey |
+|  |  |
+| Temporal description | 2012 (partial coverage) / 2018 |
+| Purpose | Mapping of contiguous rows or patches of trees covering inside the nomenclature level 1 areas. |
+| Minimum Mapping Unit | 500 m² |
+| Minimum mapping width | 10 m |
+| Nomenclature | Tree (STL=1) or Nodata (99) |
+| Projection | ETRS89 Lambert Azimuthal Equal Area (LAEA) (EPSG 3035) |
+| Delivery formats | Shapefile (2012), GeoPackage (2018) |
+| Metadata | INSPIRE Metadata Implementing Rules: Technical Guidelines based on EN ISO 19115 and EN ISO 19119 |
+| Positional accuracy | According to geo-location accuracy of satellite imagery delivered by ESA |
+| Overall classification accuracy | ≥ 80 % in urban classes |
+
+Detailed specifications of Urban Atlas STL product
 
 The second one is a Digital Height Model (DHM) providing building bloc
 height information. This consists of a 10 m x 10 m resolution raster
@@ -478,99 +267,25 @@ reference, the mean absolute error of the height must be below 3m. This
 is verified by comparing the measured values with reference values and
 described in a validation report.
 
-<table>
-<caption>Detailed specifications of Urban Atlas DHM product</caption>
-<colgroup>
-<col style="width: 26%" />
-<col style="width: 73%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>Title</strong></th>
-<th><strong>Digital Height Model</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Abstract</td>
-<td>Very High-Resolution layer (grid, building or block footprint)
-containing building height in the core urban area</td>
-</tr>
-<tr>
-<td>INSPIRE themes</td>
-<td>Buildings</td>
-</tr>
-<tr>
-<td colspan="2"><pre><code>                                                                       |   EU, EFTA and West Balkan countries plus United Kingdom and Turkey - core urban areas of capital cities only</code></pre>
-<table>
-<colgroup>
-<col style="width: 93%" />
-<col style="width: 6%" />
-</colgroup>
-<thead>
-<tr>
-<th>Geographic description</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td>Temporal description</td>
-<td>2012</td>
-</tr>
-<tr>
-<td>Purpose</td>
-<td>Provide very high-resolution information (grid, building or block
-footprint) containing building height in the core urban area of capital
-cities in order to obtain a better insight into measuring urban
-density</td>
-</tr>
-<tr>
-<td>Minimum Mapping Unit</td>
-<td>10 m x 10 m or better</td>
-</tr>
-<tr>
-<td>Minimum mapping width</td>
-<td>N.A.</td>
-</tr>
-<tr>
-<td>Nomenclature</td>
-<td>N.A.</td>
-</tr>
-<tr>
-<td>Projection</td>
-<td>ETRS89 Lambert Azimuthal Equal Area (LAEA) (EPSG 3035)</td>
-</tr>
-<tr>
-<td>Delivery formats</td>
-<td>Raster GeoTIFF 16-bit</td>
-</tr>
-<tr>
-<td>Metadata</td>
-<td>INSPIRE Metadata Implementing Rules: Technical Guidelines based on
-EN ISO 19115 and EN ISO 19119</td>
-</tr>
-<tr>
-<td>Horizontal accuracy</td>
-<td>Half a pixel</td>
-</tr>
-<tr>
-<td>Vertical accuracy</td>
-<td>3 m</td>
-</tr>
-<tr>
-<td>Overall classification accuracy</td>
-<td>N.A.</td>
-</tr>
-</tbody>
-</table>
+| **Title** | **Digital Height Model** |
+|----|----|
+| Abstract | Very High-Resolution layer (grid, building or block footprint) containing building height in the core urban area |
+| INSPIRE themes | Buildings |
+| Geographic description | EU, EFTA and West Balkan countries plus United Kingdom and Turkey - core urban areas of capital cities only |
+|  |  |
+| Temporal description | 2012 |
+| Purpose | Provide very high-resolution information (grid, building or block footprint) containing building height in the core urban area of capital cities in order to obtain a better insight into measuring urban density |
+| Minimum Mapping Unit | 10 m x 10 m or better |
+| Minimum mapping width | N.A. |
+| Nomenclature | N.A. |
+| Projection | ETRS89 Lambert Azimuthal Equal Area (LAEA) (EPSG 3035) |
+| Delivery formats | Raster GeoTIFF 16-bit |
+| Metadata | INSPIRE Metadata Implementing Rules: Technical Guidelines based on EN ISO 19115 and EN ISO 19119 |
+| Horizontal accuracy | Half a pixel |
+| Vertical accuracy | 3 m |
+| Overall classification accuracy | N.A. |
+
+Detailed specifications of Urban Atlas DHM product
 
 ## General guidelines
 
@@ -1168,38 +883,11 @@ the far right, predominantly in orange.
 
 ### Minimum mapping units and exceptions
 
-<table style="width:99%;">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 15%" />
-<col style="width: 11%" />
-<col style="width: 8%" />
-<col style="width: 52%" />
-</colgroup>
-<tbody>
-<tr>
-<td colspan="5"><pre><code>                 |   **CORINE**                  |   **Levels provided** |   **MMU**       |</code></pre>
-<p>————|—————————————————————————————-|—————————————————————|————————————-
-| <strong>Classes [Lev. I, No.]</strong> | | |
-:===================:+:=============================:+:=====================:+:===============:+
-Urban | 1 | I - IV | 0.25 ha |</p></td>
-</tr>
-<tr>
-<td>Rural</td>
-<td>2 - 5</td>
-<td>I-II</td>
-<td>1 ha</td>
-<td></td>
-</tr>
-<tr>
-<td>Street Tree Layer</td>
-<td>-</td>
-<td>-</td>
-<td>500 m²</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+|                   | **CORINE** | **Levels provided** | **MMU** |
+|-------------------|------------|---------------------|---------|
+| Urban             | 1          | I - IV              | 0.25 ha |
+| Rural             | 2 - 5      | I-II                | 1 ha    |
+| Street Tree Layer | \-         | \-                  | 500 m²  |
 
 Exception of MMU 0.25 / 1 ha: in case of a homogeneous area \> MMU but
 divided in 2 or more polygons by the road or railway network, each part
@@ -1286,40 +974,11 @@ on the FUA size. The results of the reference interpretation provide the
 material to derive confusion matrixes, which are used to assess the
 accuracies.
 
-<table style="width:98%;">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 15%" />
-<col style="width: 11%" />
-<col style="width: 12%" />
-<col style="width: 16%" />
-<col style="width: 32%" />
-</colgroup>
-<tbody>
-<tr>
-<td colspan="6"><pre><code>                |   **CORINE**                  |   **Levels provided** |   **Thematic Accuracy** |   **Positional Pixel Accuracy** |</code></pre>
-<p>————|————————————————-|——————————————|——————————————–|—————————————————–
-| <strong>Classes [Lev. I, No.]</strong> | | | |
-====================+===============================+=======================+=========================+=================================+
-Urban | 1 | I - IV | &gt;= 85% | &lt;± 5 m |</p></td>
-</tr>
-<tr>
-<td>Rural</td>
-<td>2 - 5</td>
-<td>I-II</td>
-<td>&gt;= 80%</td>
-<td colspan="2">&lt;± 5 m |</td>
-</tr>
-<tr>
-<td>Overall Accuracy</td>
-<td></td>
-<td></td>
-<td>&gt;= 80%</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+|  | **CORINE** | **Levels provided** | **Thematic Accuracy** | **Positional Pixel Accuracy** |
+|----|----|----|----|----|
+| Urban | 1 | I - IV | \>= 85% | \<± 5 m \| |
+| Rural | 2 - 5 | I-II | \>= 80% | \<± 5 m \| |
+| Overall Accuracy |  |  | \>= 80% |  |
 
 For the DHM layer, Quality controls are conducted for each stage of the
 production: the DSM and DTM generation, the nDSM production, the masking
@@ -1356,356 +1015,51 @@ data source useful for the product generation in addition to EO data.
 A decision matric below illustrate the rules followed to apply LULC
 nomenclature to each identified feature.
 
-<table style="width:99%;">
-<caption>UA LULC nomenclature (in bold, classes without any further
-subdivision)</caption>
-<colgroup>
-<col style="width: 19%" />
-<col style="width: 6%" />
-<col style="width: 35%" />
-<col style="width: 19%" />
-<col style="width: 17%" />
-</colgroup>
-<tbody>
-<tr>
-<td rowspan="2"><h1 id="urban-atlas-land-useland-cover"
-data-number="7"><span class="header-section-number">7</span>
-<strong>Urban Atlas Land Use/Land Cover</strong></h1>
-<p><strong>UA No.</strong></p></td>
-<td rowspan="2">============= <strong>Code</strong></td>
-<td
-rowspan="2">=========================================================================
-<strong>Nomenclature</strong></td>
-<td rowspan="2">=======================================
-<strong>Additional Information</strong></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td>1</td>
-<td></td>
-<td>Artificial surfaces</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>1.1</td>
-<td></td>
-<td>Urban Fabric</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>1.1.1</strong></td>
-<td><strong>11100</strong></td>
-<td><strong>Continuous urban fabric (S.L.   80%)</strong></td>
-<td>HRL IMD required</td>
-<td></td>
-</tr>
-<tr>
-<td>1.1.2</td>
-<td></td>
-<td>Discontinuous Urban Fabric (S.L. 10% - 80%)</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>1.1.2.1</strong></td>
-<td><strong>11210</strong></td>
-<td><strong>Discontinuous dense urban fabric (S.L. 50% -
-80%)</strong></td>
-<td>HRL IMD required</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>1.1.2.2</strong></td>
-<td><strong>11220</strong></td>
-<td><strong>Discontinuous medium density urban fabric (S.L. 30% -
-50%)</strong></td>
-<td>HRL IMD required</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>1.1.2.3</strong></td>
-<td><strong>11230</strong></td>
-<td><strong>Discontinuous low density urban fabric (S.L. 10% -
-30%)</strong></td>
-<td>HRL IMD required</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>1.1.2.4</strong></td>
-<td><strong>11240</strong></td>
-<td><strong>Discontinuous very low density urban fabric (S.L. &lt;
-10%)</strong></td>
-<td>HRL IMD required</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>1.1.3</strong></td>
-<td><strong>11300</strong></td>
-<td><strong>Isolated structures</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>1.2</td>
-<td></td>
-<td>Industrial, commercial, public, military, private and transport
-units</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>1.2.1</strong></td>
-<td><strong>12100</strong></td>
-<td><strong>Industrial, commercial, public, military and private
-units</strong></td>
-<td colspan="2">zoning data or field check recommended |</td>
-</tr>
-<tr>
-<td>1.2.2</td>
-<td></td>
-<td>Road and rail network and associated land</td>
-<td>COTS or OSM data required</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>1.2.2.1</strong></td>
-<td><strong>12210</strong></td>
-<td><strong>Fast transit roads and associated land</strong></td>
-<td>COTS or OSM data required</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>1.2.2.2</strong></td>
-<td><strong>12220</strong></td>
-<td><strong>Other roads and associated land</strong></td>
-<td>COTS or OSM data required</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>1.2.2.3</strong></td>
-<td><strong>12230</strong></td>
-<td><strong>Railways and associated land</strong></td>
-<td>COTS or OSM data required</td>
-<td></td>
-</tr>
-<tr>
-<td colspan="5"><table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 38%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>1.2.3</strong></th>
-<th><strong>12300</strong></th>
-<th><strong>Port areas</strong></th>
-<th>zoning data</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td>or field check recommended</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td><h2 id="124" data-number="7.1"><span
-class="header-section-number">7.1</span>
-<strong>1.2.4</strong></h2></td>
-<td colspan="4"><table>
-<colgroup>
-<col style="width: 24%" />
-<col style="width: 30%" />
-<col style="width: 45%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>12400</strong></th>
-<th><strong>Airports</strong></th>
-<th>zoning data</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td>or field check recommended</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td>1.3</td>
-<td></td>
-<td>Mine, dump and construction sites</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>1.3.1</strong></td>
-<td><strong>13100</strong></td>
-<td><strong>Mineral extraction and dump sites</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>1.3.3</strong></td>
-<td><strong>13300</strong></td>
-<td><strong>Construction sites</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>1.3.4</strong></td>
-<td><strong>13400</strong></td>
-<td><strong>Land without current use</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td colspan="5"><table>
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 30%" />
-<col style="width: 53%" />
-<col style="width: 6%" />
-</colgroup>
-<thead>
-<tr>
-<th>1.4</th>
-<th><strong>14100</strong></th>
-<th>Artificial non-agricultural vegetated areas</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>14100</strong></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td><strong>1.4.1</strong></td>
-<td></td>
-<td><strong>Green urban areas</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>1.4.2</strong></td>
-<td><strong>14200</strong></td>
-<td><strong>Sports and leisure facilities</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td></td>
-<td>Agricultural areas</td>
-<td>1 ha MMU</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>2.1</strong></td>
-<td><strong>21000</strong></td>
-<td><strong>Arable land (annual crops)</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>2.2</strong></td>
-<td><strong>22000</strong></td>
-<td><strong>Permanent crops</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>2.3</strong></td>
-<td><strong>23000</strong></td>
-<td><strong>Pastures</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>2.4</strong></td>
-<td><strong>24000</strong></td>
-<td><strong>Complex and mixed cultivation patterns</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>3</td>
-<td></td>
-<td>Natural and (semi-)natural areas</td>
-<td>1 ha MMU</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>3.1</strong></td>
-<td><strong>31000</strong></td>
-<td><strong>Forests</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>3.2</strong></td>
-<td><strong>32000</strong></td>
-<td><strong>Herbaceous vegetation associations</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>3.3</strong></td>
-<td><strong>33000</strong></td>
-<td><strong>Open spaces with little or no vegetation</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>4</strong></td>
-<td><strong>40000</strong></td>
-<td><strong>Wetlands</strong></td>
-<td><strong>1 ha MMU</strong></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>5</strong></td>
-<td><strong>50000</strong></td>
-<td><strong>Water</strong></td>
-<td><strong>1 ha MMU</strong></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>9.1</strong></td>
-<td><strong>91000</strong></td>
-<td><strong>No data (Clouds and shadows)</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>9.2</strong></td>
-<td><strong>92000</strong></td>
-<td><strong>No data (Missing imagery)</strong></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+| **Urban Atlas Land Use/Land Cover** |  |  |  |
+|----|----|----|----|
+| **UA No.** | **Code** | **Nomenclature** | **Additional Information** |
+| 1 |  | Artificial surfaces |  |
+| 1.1 |  | Urban Fabric |  |
+| **1.1.1** | **11100** | **Continuous urban fabric (S.L.   80%)** | HRL IMD required |
+| 1.1.2 |  | Discontinuous Urban Fabric (S.L. 10% - 80%) |  |
+| **1.1.2.1** | **11210** | **Discontinuous dense urban fabric (S.L. 50% - 80%)** | HRL IMD required |
+| **1.1.2.2** | **11220** | **Discontinuous medium density urban fabric (S.L. 30% - 50%)** | HRL IMD required |
+| **1.1.2.3** | **11230** | **Discontinuous low density urban fabric (S.L. 10% - 30%)** | HRL IMD required |
+| **1.1.2.4** | **11240** | **Discontinuous very low density urban fabric (S.L. \< 10%)** | HRL IMD required |
+| **1.1.3** | **11300** | **Isolated structures** |  |
+| 1.2 |  | Industrial, commercial, public, military, private and transport units |  |
+| **1.2.1** | **12100** | **Industrial, commercial, public, military and private units** | zoning data or field check recommended |
+| 1.2.2 |  | Road and rail network and associated land | COTS or OSM data required |
+| **1.2.2.1** | **12210** | **Fast transit roads and associated land** | COTS or OSM data required |
+| **1.2.2.2** | **12220** | **Other roads and associated land** | COTS or OSM data required |
+| **1.2.2.3** | **12230** | **Railways and associated land** | COTS or OSM data required |
+| **1.2.3** | **12300** | **Port areas** | zoning data |
+|  |  |  | or field check recommended |
+| **1.2.4** | **12400** | **Airports** | zoning data |
+|  |  |  | or field check recommended |
+| 1.3 |  | Mine, dump and construction sites |  |
+| **1.3.1** | **13100** | **Mineral extraction and dump sites** |  |
+| **1.3.3** | **13300** | **Construction sites** |  |
+| **1.3.4** | **13400** | **Land without current use** |  |
+| 1.4 | **14100** | Artificial non-agricultural vegetated areas |  |
+|  | **14100** |  |  |
+| **1.4.1** |  | **Green urban areas** |  |
+| **1.4.2** | **14200** | **Sports and leisure facilities** |  |
+| 2 |  | Agricultural areas | 1 ha MMU |
+| **2.1** | **21000** | **Arable land (annual crops)** |  |
+| **2.2** | **22000** | **Permanent crops** |  |
+| **2.3** | **23000** | **Pastures** |  |
+| **2.4** | **24000** | **Complex and mixed cultivation patterns** |  |
+| 3 |  | Natural and (semi-)natural areas | 1 ha MMU |
+| **3.1** | **31000** | **Forests** |  |
+| **3.2** | **32000** | **Herbaceous vegetation associations** |  |
+| **3.3** | **33000** | **Open spaces with little or no vegetation** |  |
+| **4** | **40000** | **Wetlands** | **1 ha MMU** |
+| **5** | **50000** | **Water** | **1 ha MMU** |
+| **9.1** | **91000** | **No data (Clouds and shadows)** |  |
+| **9.2** | **92000** | **No data (Missing imagery)** |  |
+
+UA LULC nomenclature (in bold, classes without any further subdivision)
 
 ## Decision rules
 
@@ -2740,7 +2094,7 @@ The navigation data currently used shows the following categories for
 FRC/type and Net2Class:
 
 | **FRC (COTS)** | **Type (OSM)** | **Full name** |
-|:--:|:--:|----|
+|----|----|----|
 | **0** | motorway | Motorway, Freeway or another Major Road |
 | **1** | trunk | Major Road less important than a Motorway |
 | **2** | trunk_link | Other Major Road |
@@ -2953,7 +2307,7 @@ This data corresponds to the reviewed version of 305 FUAs produced for
 the Urban Atlas Land Use/Land Cover for the 2006 reference year.
 
 | **Field Name** | **Description** | **Type** | **Length** | **Precision** | **Scale** |
-|----|----|:--:|:--:|:--:|:--:|
+|----|----|----|----|----|----|
 | **COUNTRY** | country 2-letter code (e.g. DK) | String | 50 | 0 | 0 |
 | **CITIES** | FUA Name (e.g. København) | String | 254 | 0 | 0 |
 | **FUA_OR_CIT** | FUA ID (e.g. DK001L2) | String | 254 | 0 | 0 |
@@ -2971,7 +2325,7 @@ This data corresponds to the reviewed version of the FUAs produced for
 the Urban Atlas Land Use/Land Cover for the 2012 reference year.
 
 | **Field Name** | **Description** | **Type** | **Length** | **Precision** | **Scale** |
-|----|----|:--:|:--:|:--:|:--:|
+|----|----|----|----|----|----|
 | **country** | country 2-letter code (e.g. DK) | String | 2 | 0 | 0 |
 | **fua_name** | FUA Name (e.g. København) | String | 150 | 0 | 0 |
 | **fua_code** | FUA ID (e.g. DK001L2) | String | 7 | 0 | 0 |
@@ -2994,7 +2348,7 @@ both the 2006 and 2012 reference years. The MMU is reduced up to 0.1 ha
 with some exceptions (see Section 4.7 LULC change layer).
 
 | **Field Name** | **Description** | **Type** | **Length** | **Precision** | **Scale** |
-|----|----|:--:|:--:|:--:|:--:|
+|----|----|----|----|----|----|
 | **COUNTRY** | country 2-letter code (e.g. DK) | String | 50 | 0 | 0 |
 | **CITIES** | FUA Name (e.g. København) | String | 254 | 0 | 0 |
 | **FUA_OR_CIT** | FUA ID (e.g. DK001L2) | String | 254 | 0 | 0 |
@@ -3015,7 +2369,7 @@ This data corresponds to the Urban Atlas Land use/Land cover over 788
 FUAs for the 2018 reference year.
 
 | **Field Name** | **Description** | **Type** | **Length** | **Precision** | **Scale** |
-|----|----|:--:|:--:|:--:|:--:|
+|----|----|----|----|----|----|
 | **country** | country 2-letter code (e.g. DK) | String | 2 | 0 | 0 |
 | **fua_name** | FUA Name (e.g. København) | String | 150 | 0 | 0 |
 | **fua_code** | FUA ID (e.g. DK001L2) | String | 7 | 0 | 0 |
@@ -3038,7 +2392,7 @@ The MMU is reduced up to 0.1 ha with some exceptions (see further
 information provided in Section 4.7 LULC change layer).
 
 | **Field Name** | **Description** | **Type** | **Length** | **Precision** | **Scale** |
-|----|----|:--:|:--:|:--:|:--:|
+|----|----|----|----|----|----|
 | **country** | country 2-letter code (e.g. DK) | String | 2 | 0 | 0 |
 | **fua_name** | FUA Name (e.g. København) | String | 150 | 0 | 0 |
 | **fua_code** | FUA ID (e.g. DK001L2) | String | 7 | 0 | 0 |
@@ -3060,7 +2414,7 @@ This data corresponds to the Urban Atlas - Street Tree Layer (STL) for
 the 2012 reference year.
 
 | **Field Name** | **Description** | **Type** | **Length** | **Precision** | **Scale** |
-|----|----|:--:|:--:|:--:|:--:|
+|----|----|----|----|----|----|
 | **COUNTRY** | country 2-letter code (e.g. DK) | String | 50 | 0 | 0 |
 | **CITIES** | FUA Name (e.g. København) | String | 254 | 0 | 0 |
 | **FUA_OR_CIT** | FUA ID (e.g. DK001L2) | String | 254 | 0 | 0 |
@@ -3076,7 +2430,7 @@ This data corresponds to the Urban Atlas - Street Tree Layer (STL) for
 the 2018 reference year.
 
 | **Field Name** | **Description** | **Type** | **Length** | **Precision** | **Scale** |
-|----|----|:--:|:--:|:--:|:--:|
+|----|----|----|----|----|----|
 | **country** | country 2-letter code (e.g. DK) | String | 2 | 0 | 0 |
 | **Fua_name** | FUA Name (e.g. København) | String | 150 | 0 | 0 |
 | **fua_code** | FUA ID (e.g. DK001L2) | String | 7 | 0 | 0 |
@@ -3090,315 +2444,182 @@ UA 2018 STL FIELD DESCRIPTION
 
 <table style="width:99%;">
 <colgroup>
-<col style="width: 6%" />
 <col style="width: 7%" />
-<col style="width: 80%" />
-<col style="width: 4%" />
+<col style="width: 7%" />
+<col style="width: 84%" />
 </colgroup>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Version</strong></th>
+<th style="text-align: center;"><strong>Date</strong></th>
+<th><strong>Comments and main updates</strong></th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td rowspan="2"><strong>Version</strong> :===========:
-<strong>V1</strong></td>
-<td rowspan="2"><strong>Date</strong> :============: 08/05/2008</td>
-<td rowspan="2"><h1 id="comments-and-main-updates"
-data-number="10"><span class="header-section-number">10</span>
-<strong>Comments and main updates</strong></h1>
-<p>Document TD-0421-GSELand-TN-01 from the ESRIN/Contract
-No. 19407/05/I-LG (GSE Land Information Services)</p></td>
-<td></td>
+<td style="text-align: center;"><strong>V1</strong></td>
+<td style="text-align: center;">08/05/2008</td>
+<td>Document TD-0421-GSELand-TN-01 from the ESRIN/Contract
+No. 19407/05/I-LG (GSE Land Information Services)</td>
 </tr>
 <tr>
-<td></td>
-</tr>
-<tr>
-<td><strong>V2</strong></td>
-<td>2011</td>
+<td style="text-align: center;"><strong>V2</strong></td>
+<td style="text-align: center;">2011</td>
 <td>Urban Atlas 2006 Mapping Guide with European Commission
 Template</td>
-<td></td>
 </tr>
 <tr>
-<td colspan="4"><table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 10%" />
-<col style="width: 78%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>V3</strong></th>
-<th>03/04/2016</th>
-<th>- Update for the Urban Atlas 2012 component into the former
-template</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td>- Insertion of attribute tables description for Urban Atlas 2006
-revised, Urban Atlas 2012, Changes 2006-2012, Urban Atlas 2006-2012</td>
-<td></td>
+<td style="text-align: center;"><strong>V3</strong></td>
+<td style="text-align: center;">03/04/2016</td>
+<td>- Update for the Urban Atlas 2012 component into the former
+template</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td><p>- Insertion of attribute tables description for Urban Atlas 2006
+revised, Urban Atlas 2012, Changes 2006-2012, Urban Atlas 2006-2012</p>
+<p>- New unique projection: ETRS_1989_LAEA</p></td>
 </tr>
 <tr>
-<td></td>
-<td>- New unique projection: ETRS_1989_LAEA</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 <td>- Exception of MinMW for the Roads: 6 m</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
 </tr>
 <tr>
-<td colspan="4"><table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 11%" />
-<col style="width: 73%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>V4.1</strong></th>
-<th>03/05/2016</th>
-<th>- Urban Atlas 2012 Mapping Guide with European Commission
-Template</th>
+<td style="text-align: center;"><strong>V4.1</strong></td>
+<td style="text-align: center;">03/05/2016</td>
+<td>- Urban Atlas 2012 Mapping Guide with European Commission
+Template</td>
 </tr>
-</thead>
-<tbody>
 <tr>
-<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 <td>- Insertion of Section 4.6: Description of mapping units for the
 Urban Atlas Street Tree Layer</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
 </tr>
 <tr>
-<td><strong>V4.2</strong></td>
-<td>04/05/2016</td>
+<td style="text-align: center;"><strong>V4.2</strong></td>
+<td style="text-align: center;">04/05/2016</td>
 <td>- Minor corrections</td>
-<td></td>
 </tr>
 <tr>
-<td><strong>V4.3</strong></td>
-<td>24/06/2016</td>
+<td style="text-align: center;"><strong>V4.3</strong></td>
+<td style="text-align: center;">24/06/2016</td>
 <td>- Insertion of new “no data” classes: 91000 No data (Clouds and
 shadows) / 92000 No data (Missing imagery)</td>
-<td></td>
 </tr>
 <tr>
-<td><strong>V4.4</strong></td>
-<td>05/07/2016</td>
+<td style="text-align: center;"><strong>V4.4</strong></td>
+<td style="text-align: center;">05/07/2016</td>
 <td>- Minor corrections</td>
-<td></td>
 </tr>
 <tr>
-<td colspan="4"><table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 11%" />
-<col style="width: 73%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>V4.5</strong></th>
-<th>27/07/2016</th>
-<th>- Insertion of Section 4.7 dedicated on the change layer including
-the specific MMU for this layer</th>
+<td style="text-align: center;"><strong>V4.5</strong></td>
+<td style="text-align: center;">27/07/2016</td>
+<td>- Insertion of Section 4.7 dedicated on the change layer including
+the specific MMU for this layer</td>
 </tr>
-</thead>
-<tbody>
 <tr>
-<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 <td>- Insertion of the Table of Content at the beginning of the
 document</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
 </tr>
 <tr>
-<td colspan="4"><table>
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 10%" />
-<col style="width: 75%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>V4.6</strong></th>
-<th>03/08/2016</th>
-<th>- Removal of the confusing sentence in section 4.2.9. about Minimum
+<td style="text-align: center;"><strong>V4.6</strong></td>
+<td style="text-align: center;">03/08/2016</td>
+<td>- Removal of the confusing sentence in section 4.2.9. about Minimum
 mapping units: "Maximum mapping width (MaxMW) between 2 objects for
-mapping together 10 m"</th>
+mapping together 10 m"</td>
 </tr>
-</thead>
-<tbody>
 <tr>
-<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 <td>- MaxMW was also removed from the list of abbreviations</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
 </tr>
 <tr>
-<td><strong>V4.7</strong></td>
-<td>28/10/2016</td>
+<td style="text-align: center;"><strong>V4.7</strong></td>
+<td style="text-align: center;">28/10/2016</td>
 <td>- Insertion of report information and Change records</td>
-<td></td>
 </tr>
 <tr>
-<td colspan="4"><table>
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 12%" />
-<col style="width: 71%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>V4.8</strong></th>
-<th>02/12/2016</th>
-<th>- Insertion of a versioning on the cover page and on the footer</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td>- New formulation for the sentences of the priority rules, section
-4.2.10</td>
-<td></td>
+<td style="text-align: center;"><strong>V4.8</strong></td>
+<td style="text-align: center;">02/12/2016</td>
+<td>- Insertion of a versioning on the cover page and on the footer</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td><p>- New formulation for the sentences of the priority rules,
+section 4.2.10</p>
+<p>- Insertion of a figure for the Street Tree Layer minimum mapping
+unit, section 4.8</p></td>
 </tr>
 <tr>
-<td></td>
-<td>- Insertion of a figure for the Street Tree Layer minimum mapping
-unit, section 4.8</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 <td>- Modification of the STL no data code from 91000/92000 to 99,
 section 5.4.5.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
 </tr>
 <tr>
-<td><strong>V5.0</strong></td>
-<td>24/02/2017</td>
+<td style="text-align: center;"><strong>V5.0</strong></td>
+<td style="text-align: center;">24/02/2017</td>
 <td><ul>
 <li>Paging corrections</li>
 </ul></td>
-<td></td>
 </tr>
 <tr>
-<td colspan="4"><table>
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 14%" />
-<col style="width: 68%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>V6.0</strong></th>
-<th>06/06/2019</th>
-<th>- Some minor precisions in classes description.</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td>- Updates to include the 2018 exercise.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
+<td style="text-align: center;"><strong>V6.0</strong></td>
+<td style="text-align: center;">06/06/2019</td>
+<td><ul>
+<li>Some minor precisions in classes description.</li>
+</ul></td>
 </tr>
 <tr>
-<td colspan="4"><table>
-<colgroup>
-<col style="width: 17%" />
-<col style="width: 13%" />
-<col style="width: 69%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>V6.1</strong></th>
-<th>28/02/2020</th>
-<th>- Update of Reference Documents</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td>- Update on section 4.1 Product description (addition of DHM
-product)</td>
-<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td><ul>
+<li>Updates to include the 2018 exercise.</li>
+</ul></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
+<td style="text-align: center;"><strong>V6.1</strong></td>
+<td style="text-align: center;">28/02/2020</td>
+<td><ul>
+<li>Update of Reference Documents</li>
+</ul></td>
 </tr>
 <tr>
-<td></td>
-<td>- Update on section 4.2 General Guidelines (redesign of section to
-include latest changes on change layer, STL product)</td>
-<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td><ul>
+<li><p>Update on section 4.1 Product description (addition of DHM
+product)</p></li>
+<li><p>Update on section 4.2 General Guidelines (redesign of section to
+include latest changes on change layer, STL product)</p></li>
+</ul></td>
 </tr>
 <tr>
-<td>————-</td>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td><ul>
+<li>Update on section 5.4 product types and field descriptions</li>
+</ul></td>
 </tr>
 <tr>
-<td></td>
-<td>- Update on section 5.4 product types and field descriptions</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td><strong>V6.2</strong></td>
-<td>21/09/2021</td>
+<td style="text-align: center;"><strong>V6.2</strong></td>
+<td style="text-align: center;">21/09/2021</td>
 <td><ul>
 <li>Add of a section about the digital height model layer (DHM)</li>
 </ul></td>
-<td></td>
 </tr>
 <tr>
-<td><strong>V6.3</strong></td>
-<td>06/01/2023</td>
+<td style="text-align: center;"><strong>V6.3</strong></td>
+<td style="text-align: center;">06/01/2023</td>
 <td><ul>
 <li>Clarifications on descriptions for classes 1.1.3. and 1.4.1.</li>
 </ul></td>
-<td></td>
 </tr>
 </tbody>
 </table>

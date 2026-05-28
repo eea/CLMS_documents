@@ -464,97 +464,54 @@ reference image.</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="3" style="text-align: left;"><table>
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 79%" />
-</colgroup>
-<thead>
-<tr>
-<th>File name convention</th>
-<th>Data from each burst are contained in single CSV format file the
-name of which is in the format
+<td style="text-align: left;">File name convention</td>
+<td colspan="2" style="text-align: left;">Data from each burst are
+contained in single CSV format file the name of which is in the format
 EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_*c*.csv
-(e.g., EGMS_L2a_088_0282_IW2_VV_2018_2022_1.zip), where</th>
+(e.g., EGMS_L2a_088_0282_IW2_VV_2018_2022_1.zip), where</td>
 </tr>
-</thead>
-<tbody>
 <tr>
-<td>- <em>xxx</em> - Track number</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><p><em>xxx</em> - Track number</p></li>
+<li><p><em>yyyy</em> - Progressive index for the burst inside the
+track</p></li>
+</ul></td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- <em>yyyy</em> - Progressive index for the burst inside the
-track</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>- <em>z</em> - The swath the burst belongs to</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><p><em>z</em> - The swath the burst belongs to</p></li>
+<li><p><em>ww</em> - Polarization</p></li>
+</ul></td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- <em>ww</em> - Polarization</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>- <em>aaaa</em> - First nominal year of the years’ time range in
-which data are included</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><p><em>aaaa</em> - First nominal year of the years’ time range in
+which data are included</p></li>
+<li><p><em>bbbb</em> - Last nominal year of the years’ time range in
+which data are included</p></li>
+</ul></td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- <em>bbbb</em> - Last nominal year of the years’ time range in
-which data are included</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>- <em>c</em> Version of the delivered data</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><em>c</em> Version of the delivered data</li>
+</ul>
+<p>Further details on the file naming convention can be found in section
+11.2.</p></td>
 <td></td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Deliverables belonging to the Baseline or
+to the First update follow the same naming convention with the exception
+of the suffix _xxxx_yyyy_z, which is not applied.</td>
 <td></td>
-<td></td>
-</tr>
-<tr>
-<td>Further details on the file naming convention can be found in
-section 11.2.</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>Deliverables belonging to the Baseline or to the First update follow
-the same naming convention with the exception of the suffix
-_xxxx_yyyy_z, which is not applied.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
 </tr>
 <tr>
 <td style="text-align: left;">Format</td>
@@ -572,40 +529,28 @@ product and to allow reproducibility. The structure of the header file
 can be found in section 11.1.</td>
 </tr>
 <tr>
-<td colspan="3" style="text-align: left;"><table>
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 79%" />
-</colgroup>
-<thead>
-<tr>
-<th>Epoch spanned</th>
-<th>- Baseline - From February 2015 to December 2020</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>- 1<sup>st</sup> Update - From February 2015 to December 2021</td>
+<td style="text-align: left;">Epoch spanned</td>
+<td style="text-align: left;"><ul>
+<li>Baseline - From February 2015 to December 2020</li>
+</ul></td>
 <td></td>
 </tr>
 <tr>
-<td></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><p>1<sup>st</sup> Update - From February 2015 to December
+2021</p></li>
+<li><p>2<sup>nd</sup> Update - From January 2018 to December
+2022</p></li>
+</ul></td>
 <td></td>
 </tr>
 <tr>
-<td>- 2<sup>nd</sup> Update - From January 2018 to December 2022</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li>3<sup>rd</sup> Update - From January 2019 to December 2023</li>
+</ul></td>
 <td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>- 3<sup>rd</sup> Update - From January 2019 to December 2023</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
 </tr>
 <tr>
 <td style="text-align: left;">Spatial resolution</td>
@@ -642,35 +587,19 @@ greater than 0.7.</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="3" style="text-align: left;"><table>
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 84%" />
-</colgroup>
-<thead>
-<tr>
-<th>MP density</th>
-<th>CLC18-1.1.1 ‘Continuous Urban Fabric’: &gt;= 5,000
-MP/km<sup>2</sup>.</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CLC18-1.1.2 ‘Discontinuous Urban Fabric’ and 1.2 ‘Industrial,
-Commercial, and Transport Units’: &gt;=1,000 MP/km<sup>2</sup>.</td>
+<td style="text-align: left;">MP density</td>
+<td style="text-align: left;">CLC18-1.1.1 ‘Continuous Urban Fabric’:
+&gt;= 5,000 MP/km<sup>2</sup>.</td>
 <td></td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><p>CLC18-1.1.2 ‘Discontinuous Urban
+Fabric’ and 1.2 ‘Industrial, Commercial, and Transport Units’:
+&gt;=1,000 MP/km<sup>2</sup>.</p>
+<p>CLC18-3.3 ‘Open Spaces with Little or no Vegetation’: &gt;=100
+MP/km<sup>2</sup>.</p></td>
 <td></td>
-<td></td>
-</tr>
-<tr>
-<td>CLC18-3.3 ‘Open Spaces with Little or no Vegetation’: &gt;=100
-MP/km<sup>2</sup>.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
 </tr>
 </tbody>
 </table>
@@ -704,97 +633,54 @@ reference image.</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="3" style="text-align: left;"><table>
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 79%" />
-</colgroup>
-<thead>
-<tr>
-<th>File name convention</th>
-<th>Data from each burst are contained in single CSV format file the
-name of which is in the format
+<td style="text-align: left;">File name convention</td>
+<td colspan="2" style="text-align: left;">Data from each burst are
+contained in single CSV format file the name of which is in the format
 EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_*c*.csv
-(e.g., EGMS_L2a_088_0282_IW2_VV_2018_2022_1.zip), where</th>
+(e.g., EGMS_L2a_088_0282_IW2_VV_2018_2022_1.zip), where</td>
 </tr>
-</thead>
-<tbody>
 <tr>
-<td>- <em>xxx</em> - Track number</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><p><em>xxx</em> - Track number</p></li>
+<li><p><em>yyyy</em> - Progressive index for the burst inside the
+track</p></li>
+</ul></td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- <em>yyyy</em> - Progressive index for the burst inside the
-track</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>- <em>z</em> - The swath the burst belongs to</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><p><em>z</em> - The swath the burst belongs to</p></li>
+<li><p><em>ww</em> - Polarization</p></li>
+</ul></td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- <em>ww</em> - Polarization</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>- <em>aaaa</em> - First nominal year of the years’ time range in
-which data are included</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><p><em>aaaa</em> - First nominal year of the years’ time range in
+which data are included</p></li>
+<li><p><em>bbbb</em> - Last nominal year of the years’ time range in
+which data are included</p></li>
+</ul></td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- <em>bbbb</em> - Last nominal year of the years’ time range in
-which data are included</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>- <em>c</em> Version of the delivered data</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><em>c</em> Version of the delivered data</li>
+</ul>
+<p>Further details on the file naming convention can be found in section
+11.2.</p></td>
 <td></td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Deliverables belonging to the Baseline or
+to the First update follow the same naming convention with the exception
+of the suffix _xxxx_yyyy_z, which is not applied.</td>
 <td></td>
-<td></td>
-</tr>
-<tr>
-<td>Further details on the file naming convention can be found in
-section 11.2.</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>Deliverables belonging to the Baseline or to the First update follow
-the same naming convention with the exception of the suffix
-_xxxx_yyyy_z, which is not applied.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
 </tr>
 <tr>
 <td style="text-align: left;">Format</td>
@@ -812,40 +698,28 @@ product and to allow reproducibility. The structure of the header file
 can be found in section 11.1.</td>
 </tr>
 <tr>
-<td colspan="3" style="text-align: left;"><table>
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 79%" />
-</colgroup>
-<thead>
-<tr>
-<th>Epoch spanned</th>
-<th>- Baseline - From February 2015 to December 2020</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>- 1<sup>st</sup> Update - From February 2015 to December 2021</td>
+<td style="text-align: left;">Epoch spanned</td>
+<td style="text-align: left;"><ul>
+<li>Baseline - From February 2015 to December 2020</li>
+</ul></td>
 <td></td>
 </tr>
 <tr>
-<td></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><p>1<sup>st</sup> Update - From February 2015 to December
+2021</p></li>
+<li><p>2<sup>nd</sup> Update - From January 2018 to December
+2022</p></li>
+</ul></td>
 <td></td>
 </tr>
 <tr>
-<td>- 2<sup>nd</sup> Update - From January 2018 to December 2022</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li>3<sup>rd</sup> Update - From January 2019 to December 2023</li>
+</ul></td>
 <td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>- 3<sup>rd</sup> Update - From January 2019 to December 2023</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
 </tr>
 <tr>
 <td style="text-align: left;">Spatial resolution</td>
@@ -882,35 +756,19 @@ greater than 0.7.</td>
 <td></td>
 </tr>
 <tr>
-<td colspan="3" style="text-align: left;"><table>
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 85%" />
-</colgroup>
-<thead>
-<tr>
-<th>MP density</th>
-<th>CLC18-1.1.1 ‘Continuous Urban Fabric’: &gt;= 5,000
-MP/km<sup>2</sup>.</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CLC18-1.1.2. ‘Discontinuous Urban Fabric’ and 1.2 ‘Industrial,
-Commercial, and Transport Units’: &gt;=1,000 MP/km<sup>2</sup>.</td>
+<td style="text-align: left;">MP density</td>
+<td style="text-align: left;">CLC18-1.1.1 ‘Continuous Urban Fabric’:
+&gt;= 5,000 MP/km<sup>2</sup>.</td>
 <td></td>
 </tr>
 <tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><p>CLC18-1.1.2. ‘Discontinuous Urban
+Fabric’ and 1.2 ‘Industrial, Commercial, and Transport Units’:
+&gt;=1,000 MP/km<sup>2</sup>.</p>
+<p>CLC18-3.3- ‘Open Spaces with Little or no Vegetation’: &gt;=100
+MP/km<sup>2</sup>.</p></td>
 <td></td>
-<td></td>
-</tr>
-<tr>
-<td>CLC18-3.3- ‘Open Spaces with Little or no Vegetation’: &gt;=100
-MP/km<sup>2</sup>.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
 </tr>
 </tbody>
 </table>
@@ -946,106 +804,57 @@ northing of 3,210,000 m).</td>
 <td style="text-align: left;">ETRS89-LAEA.</td>
 </tr>
 <tr>
-<td colspan="2" style="text-align: left;"><table>
-<colgroup>
-<col style="width: 19%" />
-<col style="width: 81%" />
-</colgroup>
-<thead>
-<tr>
-<th>File name convention</th>
-<th>Two Geo TIFF files for each tile, one for vertical velocity
-component, and one for east-west. File names are in the format
+<td style="text-align: left;">File name convention</td>
+<td style="text-align: left;">Two Geo TIFF files for each tile, one for
+vertical velocity component, and one for east-west. File names are in
+the format
 EGMS_L3_E<em>XX</em>N<em>YY</em>_100km_<em>C</em>_aaaa_bbbb_c.tif (e.g.,
 EGMS_L3_E40N28_100km_U_2018_2022_1.tif and
-EGMS_L3_E40N28_100km_E_2018_2022_1.tif), where</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>- <em>XX</em> - Easting coordinate of the South-West corner of the
-lower left pixel of the tile</td>
-<td></td>
+EGMS_L3_E40N28_100km_E_2018_2022_1.tif), where</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><p><em>XX</em> - Easting coordinate of the South-West corner of the
+lower left pixel of the tile</p></li>
+<li><p><em>YY</em> - Northing coordinate of the South-West corner of the
+lower left pixel of the tile</p></li>
+</ul></td>
 </tr>
 <tr>
-<td>- <em>YY</em> - Northing coordinate of the South-West corner of the
-lower left pixel of the tile</td>
-<td></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><p><em>C</em> - Mean velocity component (U for vertical displacement
+and E for horizontal displacement in the East-West direction)</p></li>
+<li><p><em>aaaa</em> - First nominal year of the years’ time range in
+which data are included</p></li>
+</ul></td>
 </tr>
 <tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><p><em>bbbb</em> - Last nominal year of the years’ time range in
+which data are included</p></li>
+<li><p><em>c</em> Version of the delivered data</p></li>
+</ul></td>
 </tr>
 <tr>
-<td>- <em>C</em> - Mean velocity component (U for vertical displacement
-and E for horizontal displacement in the East-West direction)</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- <em>aaaa</em> - First nominal year of the years’ time range in
-which data are included</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>- <em>bbbb</em> - Last nominal year of the years’ time range in
-which data are included</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- <em>c</em> Version of the delivered data</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>Associated with each tile are also two CSV files, containing the
-time-series and other parameters for the two mean velocity components.
-The file names follow the same convention as mean velocity Geo TIFF,
-except for the file extension (e.g.,
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><p>Associated with each tile are also two
+CSV files, containing the time-series and other parameters for the two
+mean velocity components. The file names follow the same convention as
+mean velocity Geo TIFF, except for the file extension (e.g.,
 EGMS_L3_E40N28_100km_U_2018_2022_1.csv and
 EGMS_L3_E40N28_100km_E_2018_2022_1.csv). The coordinates contained in
-the vector csv format refer to the centre of the resolution cell.</td>
-<td></td>
+the vector csv format refer to the centre of the resolution cell.</p>
+<p>Further details on the file naming convention can be found in section
+11.2.</p></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Further details on the file naming convention can be found in
-section 11.2.</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>Deliverables belonging to the Baseline or to the First update follow
-the same naming convention with the exception of the suffix
-_xxxx_yyyy_z, which is not applied.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Deliverables belonging to the Baseline or
+to the First update follow the same naming convention with the exception
+of the suffix _xxxx_yyyy_z, which is not applied.</td>
 </tr>
 <tr>
 <td style="text-align: left;">Format</td>
@@ -1061,40 +870,25 @@ product and to allow reproducibility. The structure of the header file
 can be found in section 11.1.</td>
 </tr>
 <tr>
-<td colspan="2" style="text-align: left;"><table>
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 79%" />
-</colgroup>
-<thead>
-<tr>
-<th>Epoch spanned</th>
-<th>- Baseline - From February 2015 to December 2020</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>- 1<sup>st</sup> Update - From February 2015 to December 2021</td>
-<td></td>
+<td style="text-align: left;">Epoch spanned</td>
+<td style="text-align: left;"><ul>
+<li>Baseline - From February 2015 to December 2020</li>
+</ul></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><p>1<sup>st</sup> Update - From February 2015 to December
+2021</p></li>
+<li><p>2<sup>nd</sup> Update - From January 2018 to December
+2022</p></li>
+</ul></td>
 </tr>
 <tr>
-<td>- 2<sup>nd</sup> Update - From January 2018 to December 2022</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>- 3<sup>rd</sup> Update - From January 2019 to December 2023</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li>3<sup>rd</sup> Update - From January 2019 to December 2023</li>
+</ul></td>
 </tr>
 <tr>
 <td style="text-align: left;">Spatial resolution</td>
@@ -1150,130 +944,26 @@ The model is available for download via the CLMS page dedicated to EGMS
 (https://land.copernicus.eu/pan-european/european-ground-motion-service)
 .
 
-<table>
-<caption>Table 4 GNSS model product specifications</caption>
-<colgroup>
-<col style="width: 8%" />
-<col style="width: 91%" />
-</colgroup>
-<thead>
-<tr>
-<th style="text-align: left;">ITEM</th>
-<th style="text-align: left;">Specification</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Tiling</td>
-<td style="text-align: left;">One single CSV file.</td>
-</tr>
-<tr>
-<td colspan="2" style="text-align: left;"><table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 75%" />
-</colgroup>
-<thead>
-<tr>
-<th>Reference system</th>
-<th>Grid coordinates: ETRS89-LAEA</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Values: Local East-North-Up, aligned with WGS84 geodetic
-coordinates</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2" style="text-align: left;"><table>
-<colgroup>
-<col style="width: 38%" />
-<col style="width: 61%" />
-</colgroup>
-<thead>
-<tr>
-<th>File name convention</th>
-<th>EGMS_AEPND_Vyyyy.i.csv</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>yyyy = year of issue</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>i = revision within year (0 = pre-release, 1 = first full
-release)</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>e.g., EGMS_AEPND_V2020.0.csv for the ORR reduced grid.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td style="text-align: left;">Format</td>
-<td style="text-align: left;">Vector point of velocities (East, North,
-Up)</td>
-</tr>
-<tr>
-<td style="text-align: left;">Header information</td>
-<td style="text-align: left;">TBD</td>
-</tr>
-<tr>
-<td style="text-align: left;">Epoch spanned</td>
-<td style="text-align: left;">Baseline: February 2015 – December 2020,
-plus three annual updates till 2023. The update policy will be released
-in Q1 2021. Note that some stations used in the production of the model
-do not cover the temporal baseline completely. The threshold for
-inclusion is set to 3 years, see [D19.1].</td>
-</tr>
-<tr>
-<td style="text-align: left;">Spatial resolution</td>
-<td style="text-align: left;">50 km in LAEA easting/northing</td>
-</tr>
-<tr>
-<td style="text-align: left;">Temporal resolution</td>
-<td style="text-align: left;">Linear rates only</td>
-</tr>
-<tr>
-<td style="text-align: left;">3D geolocation accuracy</td>
-<td style="text-align: left;">N/A</td>
-</tr>
-<tr>
-<td style="text-align: left;">Mean velocity resolution</td>
-<td style="text-align: left;">N/A</td>
-</tr>
-<tr>
-<td style="text-align: left;">Mean velocity STD</td>
-<td style="text-align: left;">Annotated for each velocity component in
-each grid point. Typical values are 0.1-0.2 mm/yr for East and North,
-and 0.5 mm/yr for Up.</td>
-</tr>
-<tr>
-<td style="text-align: left;">Displacement STD</td>
-<td style="text-align: left;">N/A</td>
-</tr>
-<tr>
-<td style="text-align: left;">MP density</td>
-<td style="text-align: left;">N/A</td>
-</tr>
-</tbody>
-</table>
+| ITEM | Specification |
+|----|----|
+| Tiling | One single CSV file. |
+| Reference system | Grid coordinates: ETRS89-LAEA |
+|  | Values: Local East-North-Up, aligned with WGS84 geodetic coordinates |
+| File name convention | EGMS_AEPND_Vyyyy.i.csv |
+|  | yyyy = year of issue<br><br>i = revision within year (0 = pre-release, 1 = first full release) |
+|  | e.g., EGMS_AEPND_V2020.0.csv for the ORR reduced grid. |
+| Format | Vector point of velocities (East, North, Up) |
+| Header information | TBD |
+| Epoch spanned | Baseline: February 2015 – December 2020, plus three annual updates till 2023. The update policy will be released in Q1 2021. Note that some stations used in the production of the model do not cover the temporal baseline completely. The threshold for inclusion is set to 3 years, see \[D19.1\]. |
+| Spatial resolution | 50 km in LAEA easting/northing |
+| Temporal resolution | Linear rates only |
+| 3D geolocation accuracy | N/A |
+| Mean velocity resolution | N/A |
+| Mean velocity STD | Annotated for each velocity component in each grid point. Typical values are 0.1-0.2 mm/yr for East and North, and 0.5 mm/yr for Up. |
+| Displacement STD | N/A |
+| MP density | N/A |
+
+Table 4 GNSS model product specifications
 
 # EGMS Product Attributes
 
@@ -1320,7 +1010,7 @@ precision
 ## Ortho product attributes
 
 | Parameter | Unit of Measure | Meaning | Example | Data format |
-|:---|:--:|:---|:--:|:--:|
+|----|----|----|----|----|
 | pid | \- | MP unique identifier – 10 characters. | 3ODTn5TNYv | Alphanumeric Base 62 |
 | easting | m | ETRS89-LAEA. | 4662050 | integer |
 | northing | m | ETRS89-LAEA. | 115350 | integer |
@@ -1341,7 +1031,7 @@ Table 6 EGMS Ortho product attributes
 For more details please refer to document \[RD8\].
 
 | Parameter | Unit of measure | Meaning | Example | Data format |
-|:---|:--:|:---|:--:|:--:|
+|----|----|----|----|----|
 | Latitude | deg | Latitude in ETRF2000/GRS80 | 6.382696567 | 9 DP |
 | Longitude | deg | Longitude in ETRF2000/GRS80 | 47.80394392 | 9 DP |
 | N | mm/year | North-South component velocity | -0.12 | 2 DP |
@@ -1448,117 +1138,19 @@ A number of non-InSAR datasets are used in the production and validation
 of EGMS products. Table 11 below lists these along with a brief comment
 as to their purpose.
 
-<table>
-<caption>Table 8 Ancillary datasets used in EGMS production</caption>
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 86%" />
-</colgroup>
-<thead>
-<tr>
-<th>ITEM</th>
-<th style="text-align: left;">COMMENT</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="2"><table>
-<thead>
-<tr>
-<th>Sentinel-1 precise orbit data</th>
-<th>Precise orbit information is essential for high-quality InSAR
-analysis. Precise orbit data are distributed by ESA, with a current
-latency of about three weeks. See:</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://scihub.copernicus.eu/gnss/#/home"
-class="uri">https://scihub.copernicus.eu/gnss/#/home</a></td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2"><table>
-<thead>
-<tr>
-<th>Digital Elevation Model</th>
-<th>A DEM is needed to compensate for phase changes caused by
-topographic relief. For EGMS production, the Copernicus DEM GLO-30 (30 m
-resolution) is used, see:</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a
-href="https://spacedata.copernicus.eu/web/cscda/dataset-details?articleId=394198"
-class="uri">https://spacedata.copernicus.eu/web/cscda/dataset-details?articleId=394198</a></td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2"><table>
-<thead>
-<tr>
-<th>Land cover data</th>
-<th>Landcover influences MP density, and so a common landcover database
-is used to verify appropriate MP density and ensure consistency. For
-EGMS, the CLC 2018 CORINE land cover maps are used, see:</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a
-href="https://land.copernicus.eu/pan-european/corine-land-cover/clc2018"
-class="uri">https://land.copernicus.eu/pan-european/corine-land-cover/clc2018</a></td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td>Snow cover data</td>
-<td style="text-align: left;">The Copernicus Snow Cover Extent product
-may be used to identify SAR data that is unreliable for InSAR analysis
-due to snow cover. See: <a
-href="https://land.copernicus.eu/global/products/sce"
-class="uri">https://land.copernicus.eu/global/products/sce</a></td>
-</tr>
-<tr>
-<td colspan="2"><table>
-<thead>
-<tr>
-<th>External datum reference</th>
-<th>To anchor and make ‘absolute’ <em>Calibrated</em> and <em>Ortho</em>
-product measurements, a harmonised GNSS framework is needed. The EUREF
-and EPN-D networks, along with various derived models are used for this
-action. See:</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="http://www.epncb.oma.be/"
-class="uri">http://www.epncb.oma.be/</a></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://epnd.sgo-penc.hu/"
-class="uri">https://epnd.sgo-penc.hu/</a></td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-</tbody>
-</table>
+| ITEM | COMMENT |
+|----|----|
+| Sentinel-1 precise orbit data | Precise orbit information is essential for high-quality InSAR analysis. Precise orbit data are distributed by ESA, with a current latency of about three weeks. See: |
+|  | <https://scihub.copernicus.eu/gnss/#/home> |
+| Digital Elevation Model | A DEM is needed to compensate for phase changes caused by topographic relief. For EGMS production, the Copernicus DEM GLO-30 (30 m resolution) is used, see: |
+|  | <https://spacedata.copernicus.eu/web/cscda/dataset-details?articleId=394198> |
+| Land cover data | Landcover influences MP density, and so a common landcover database is used to verify appropriate MP density and ensure consistency. For EGMS, the CLC 2018 CORINE land cover maps are used, see: |
+|  | <https://land.copernicus.eu/pan-european/corine-land-cover/clc2018> |
+| Snow cover data | The Copernicus Snow Cover Extent product may be used to identify SAR data that is unreliable for InSAR analysis due to snow cover. See: <https://land.copernicus.eu/global/products/sce> |
+| External datum reference | To anchor and make ‘absolute’ *Calibrated* and *Ortho* product measurements, a harmonised GNSS framework is needed. The EUREF and EPN-D networks, along with various derived models are used for this action. See: |
+|  | <http://www.epncb.oma.be/><br><br><https://epnd.sgo-penc.hu/> |
+
+Table 8 Ancillary datasets used in EGMS production
 
 # References
 
@@ -1575,113 +1167,31 @@ Note in these sections, EGMS products names are abbreviated to their
 code-references as follows:
 
 | EGMS product name | Code reference |
-|:------------------|:---------------|
+|-------------------|----------------|
 | *Basic*           | L2a            |
 | *Calibrated*      | L2b            |
 | *Ortho*           | L3             |
 
 ## XML Header File
 
-<table style="width:99%;">
-<caption>Table 9 XML header file</caption>
-<colgroup>
-<col style="width: 9%" />
-<col style="width: 13%" />
-<col style="width: 76%" />
-</colgroup>
-<thead>
-<tr>
-<th style="text-align: left;">Product</th>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Spec and notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">L2a + L2b + L3</td>
-<td style="text-align: left;">product_level</td>
-<td style="text-align: left;">L2a, L2b, L3</td>
-</tr>
-<tr>
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">burst_id</td>
-<td style="text-align: left;">See section 11.2</td>
-</tr>
-<tr>
-<td style="text-align: left;">L2a + L2b + L3</td>
-<td style="text-align: left;">production_facility</td>
-<td style="text-align: left;">1 = EGEOS, 2 = GAF, 3 = NORCE, 4 =
-TREA.</td>
-</tr>
-<tr>
-<td style="text-align: left;">L2a + L2b + L3</td>
-<td style="text-align: left;">production_date</td>
-<td style="text-align: left;">Format dd/mm/yyyy.</td>
-</tr>
-<tr>
-<td style="text-align: left;">L2a + L2b + L3</td>
-<td style="text-align: left;">dem</td>
-<td style="text-align: left;">The version of the Copernicus 30m
-DEM.</td>
-</tr>
-<tr>
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">corine</td>
-<td style="text-align: left;">Present if used. Version.</td>
-</tr>
-<tr>
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">sce</td>
-<td style="text-align: left;">Present if used. Version.</td>
-</tr>
-<tr>
-<td style="text-align: left;">L2b + L3</td>
-<td style="text-align: left;">GNSS version</td>
-<td style="text-align: left;">Version of the model.</td>
-</tr>
-<tr>
-<td style="text-align: left;">L2a</td>
-<td style="text-align: left;">clusters</td>
-<td style="text-align: left;">0 if there is just one cluster in the CSV
-file.<br />
-N if there are more than one clusters in the CSV file (where N is the
-number of identified clusters).</td>
-</tr>
-<tr>
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">image</td>
-<td style="text-align: left;">Identifies the properties of each image
-used to generate the deliverable. It contains the tags
-<em>product_id</em>, and <em>orbit_type</em>.</td>
-</tr>
-<tr>
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">product_id</td>
-<td style="text-align: left;">The actual product name used, stripped of
-the checksum and of the file type “.SAFE”</td>
-</tr>
-<tr>
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">orbit_type</td>
-<td style="text-align: left;">Relative orbit type used for each image in
-the processing. It may assume values in the set (AUX_PROQUA, AUX_RESORB,
-AUX_GNSSRD, AUX_POEORB).</td>
-</tr>
-<tr>
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">reference</td>
-<td style="text-align: left;">Reference image used to generate the
-deliverable. It contains tag images and the relative sub-tags.</td>
-</tr>
-<tr>
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">dataset</td>
-<td style="text-align: left;">All images used to generate the
-deliverables (included the reference image). It contains a set of tags
-image and the relative sub-tags</td>
-</tr>
-</tbody>
-</table>
+| Product | Field | Spec and notes |
+|----|----|----|
+| L2a + L2b + L3 | product_level | L2a, L2b, L3 |
+| L2a + L2b | burst_id | See section 11.2 |
+| L2a + L2b + L3 | production_facility | 1 = EGEOS, 2 = GAF, 3 = NORCE, 4 = TREA. |
+| L2a + L2b + L3 | production_date | Format dd/mm/yyyy. |
+| L2a + L2b + L3 | dem | The version of the Copernicus 30m DEM. |
+| L2a + L2b | corine | Present if used. Version. |
+| L2a + L2b | sce | Present if used. Version. |
+| L2b + L3 | GNSS version | Version of the model. |
+| L2a | clusters | 0 if there is just one cluster in the CSV file. N if there are more than one clusters in the CSV file (where N is the number of identified clusters). |
+| L2a + L2b | image | Identifies the properties of each image used to generate the deliverable. It contains the tags *product_id*, and *orbit_type*. |
+| L2a + L2b | product_id | The actual product name used, stripped of the checksum and of the file type “.SAFE” |
+| L2a + L2b | orbit_type | Relative orbit type used for each image in the processing. It may assume values in the set (AUX_PROQUA, AUX_RESORB, AUX_GNSSRD, AUX_POEORB). |
+| L2a + L2b | reference | Reference image used to generate the deliverable. It contains tag images and the relative sub-tags. |
+| L2a + L2b | dataset | All images used to generate the deliverables (included the reference image). It contains a set of tags image and the relative sub-tags |
+
+Table 9 XML header file
 
   
 
@@ -2195,9 +1705,8 @@ Estimated_Acc_And_Std = [EstimatedAcceleration EstimatedSTD_Acc]
 
 # Document Control Information
 
-|                       |                                              |     |
-|-----------------------|----------------------------------------------|-----|
 | **Settings**          | **Value**                                    |     |
+|-----------------------|----------------------------------------------|-----|
 | **Document Title:**   | Product Description and Format Specification |     |
 | **Project Title:**    | EGMS-SC1                                     |     |
 | **Project Owner:**    | Henrik Steen Andersen (EEA)                  |     |

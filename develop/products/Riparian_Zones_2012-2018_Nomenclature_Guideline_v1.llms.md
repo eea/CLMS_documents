@@ -5870,11 +5870,10 @@ Schematic representation of 8.4 Sea and Ocean class (red dot line)
 
 - Computer assisted visual interpretation of SPOT-5 data.
 
-# 8 Abbreviations & Acronyms
+# 6 Abbreviations & Acronyms
 
-|  |  |
-|----|----|
 | AOI | Area of Interest |
+|----|----|
 | CLC | CORINE Land Cover |
 | C.C.D. | Crown Cover Density |
 | CNES | Centre National d'Études Spatiales (National Center for Space Studies) |
@@ -5911,7 +5910,7 @@ Schematic representation of 8.4 Sea and Ocean class (red dot line)
 | VHR | Very High Resolution |
 | WMS | Web Map Service |
 
-# 9 Annex 1: Change Matrixes
+# 7 Annex 1: Change Matrixes
 
 After the 2012 Riparian Zones mapping some Level 4 classes were merged. This was the applicable change matrix (currently outdated):
 
@@ -5929,13 +5928,13 @@ During the 2018 Riparian Zones mapping some Level 4 classes have been merged to 
 
 ![The table presents a mapping of land cover classification codes and descriptions, indicating how they have changed between an older and a newer classification system for various water and wetland categories. \| Old Code \| Old Description \| New Code \| New Description \| Change Type \| \|---\|---\|---\|---\|---\| \| 7100 \| Inland marshes \| 7110 \| Inland marshes \| code change \| \| 7210 \| Exploited peat bog \| 7121 \| Exploited peat bogs \| code&name change \| \| 7220 \| Unexploited peat bog \| 7122 \| Unexploited peat bogs \| code&name change \| \| 8110 \| Coastal salt marshes \| 7210 \| Salt marshes \| code&name change \| \| 8120 \| Salines \| 7220 \| Salines \| code change \| \| 8130 \| Intertidal flats \| 7230 \| Intertidal flats \| code change \| \| 9110 \| Interconnected water courses \| 8110 \| Natural & semi-natural water courses \| code&name change \| \| 9120 \| Highly modified water courses and canals \| 8120 \| Highly modified water courses and canals \| code change \| \| 9130 \| Separated water bodies belonging to the river system \| 8130 \| Seasonally connected water courses (oxbows) \| code&name change \| \| 9210 \| Natural water bodies \| 8210 \| Natural lakes \| code&name change \| \| 9220 \| Artificial standing water bodies \| 8220 \| Reservoirs \| code&name change \| \| 9230 \| Intensively managed fish ponds \| 8230 \| Aquaculture ponds \| code&name change \| \| 9240 \| Standing water bodies of extractive industrial sites \| 8240 \| Standing water bodies of extractive industrial sites \| code change \| \| 8210 \| Coastal lagoons \| 8310 \| Lagoons \| code&name change \| \| 8220 \| Estuaries \| 8320 \| Estuaries \| code change \| \| 10000 \| Sea and ocean \| 8400 \| Sea and ocean \| code change \| The table details specific transitions in land cover/land use (LULC) classification, highlighting that while some categories (e.g., 'Inland marshes', 'Salines', 'Estuaries') only experienced a change in their numerical code, others (e.g., 'Exploited peat bog' to 'Exploited peat bogs', 'Coastal salt marshes' to 'Salt marshes', 'Natural water bodies' to 'Natural lakes') underwent both a code and a name modification.](Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Annex1.6.png)
 
-# 10 Annex 2: Re-coding Table for UA Core Areas
+# 8 Annex 2: Re-coding Table for UA Core Areas
 
 ![\| UA2012 & 2018 (Code) \| UA2012 & 2018 (Nomenclature) \| Riparian Zone (Nomenclature) \| CODE for UA Urban Centre \| Updated CODE for UA Urban Centre (according to N2K v1.4) \| \|---\|---\|---\|---\|---\| \| 11100 \| Continuous Urban Fabric (Sealing Degree \> 80%) \| Continuous urban fabric (in-situ based or Imperviousness Density (IM.D.) \>80-100%) \| 1.](Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Annex1.7.png)
 
 ![\| Level 4 Code (2012 Nomenclature) \| Original Land Cover Class (2012 Nomenclature) \| New Land Cover Class (2018 Nomenclature) \| Original Numeric Code (2012) \| New Numeric Code (2018) \| \|---\|---\|---\|---\|---\| \| 24000 \| Complex and mixed cultivation patterns \| Complex cultivation patterns \| 2.3.2.0 \| 2.3.2.0 \| \| 30000 \| Forests (Urban Atlas 2006) \| Forest \| 3.0.0.0 \| 3.0.0.0 \| \| 31000 \| Forests (Urban Atlas 2012) \| Forest \| 3.0.0.0 \| 3.0.0.0 \| \| 23000 \| Pastures \| Grassland \| 4.0.0.0 \| 4.0.0.0 \| \| 32000 \| Herbaceous vegetation associations \| Heathlands and Moorlands \| 5.0.0.0 \| 5.0.0.0 \| \| 33000 \| Open spaces with little or no vegetation \| Sparsely vegetated areas \| 6.0.0.0 \| 6.0.0.0 \| \| 40000 \| Wetlands \| Wetlands \| 7.0.0.0 \| 7.0.0.0 \| \| 50000 \| Water bodies \| Water bodies \| 9.0.0.0 \| 8.0.0.0 \| This table presents a nomenclature change matrix, showing how specific Level 4 land cover classes from a 2012 classification were mapped to new land cover classes in a 2018 nomenclature. Most classes, such as 'Complex and mixed cultivation patterns' (code 24000) to 'Complex cultivation patterns', 'Pastures' (code 23000) to 'Grassland', and 'Wetlands' (code 40000) remain descriptive equivalents with corresponding numeric codes. Notably, both 'Forests (Urban Atlas 2006)' (code 30000) and 'Forests (Urban Atlas 2012)' (code 31000) map to the single 'Forest' class with a numeric code of 3.0.0.0. The class 'Water bodies' (code 50000) maintains its name but changes its numeric code from 9.0.0.0 to 8.0.0.0 in the 2018 nomenclature.](Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Annex1.8.png)
 
-# 11 Document controll information
+# 9 Document controll information
 
 | **Settings**      | **Value**                             |
 |-------------------|---------------------------------------|

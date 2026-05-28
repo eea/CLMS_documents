@@ -29,7 +29,7 @@ Content ID: /
 **Document Control Information**
 
 | Document Title | CLC+ Core User Guideline |
-|:---|:---|
+|----|----|
 | Project Title | CLC+ Core production and provision of complementary consultancy services |
 | Document Author | Thomas Mathis (Cloudflight), Tanja Gasber (GeoVille), Amelie Lindmayer (GAF) |
 | Project Owner | Tobias Langanke (EEA) |
@@ -42,14 +42,14 @@ Content ID: /
 **Document Approver(s) and Reviewer(s):**
 
 | Name                | Role     | Action          | Date       |
-|:--------------------|:---------|:----------------|:-----------|
+|---------------------|----------|-----------------|------------|
 | Tim Wiltzius (CLF)  | Reviewer | Document review | 2023-12-20 |
 | Johannes Vass (CLF) | Reviewer | Document review |            |
 
 **Document history**
 
 | Revision | Date | Created by | Short description of changes |
-|:---|:---|:---|:---|
+|----|----|----|----|
 | 1.0 | 2022-04-08 | CLC+ Core consortium (CLF, GV, GAF) | Initial document creation |
 | 2.0 | 2022-06-10 | CLC+ Core consortium (CLF, GV, GAF) | Restructure of entire document, extension of Extraction chapter and Admin User section |
 | 3.0 | 2023-06-06 | CLC+ Core consortium (CLF, GV, GAF) | Adaption of rule 3 in the current version of the CLC+ Core system |
@@ -57,96 +57,21 @@ Content ID: /
 
 **Applicable Documents (AD)**
 
-<table>
-<colgroup>
-<col style="width: 4%" />
-<col style="width: 95%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>ID</strong></th>
-<th style="text-align: left;"><strong>Document Name /
-Content</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AD01</td>
-<td style="text-align: left;">Tender Specifications – EEA/DIS/R0/20/019
-– Copernicus Land Monitoring Service – Production of the CLC+ Core and
-Provision of Complementary Consultancy Services</td>
-</tr>
-<tr>
-<td>AD02</td>
-<td style="text-align: left;">Consortium’s Technical Proposal – in
-response to Call for tenders EEA/DIS/R0/20/019 – CLC+CORE Technical
-Proposal - v2.0</td>
-</tr>
-<tr>
-<td>AD03</td>
-<td style="text-align: left;">Specific Contract No
-3436/R0-COPERNICUS/EEA.58286</td>
-</tr>
-<tr>
-<td>AD04</td>
-<td style="text-align: left;">Minutes of the KOM
-(CLC+Core_KOM_Minutes.docx)</td>
-</tr>
-<tr>
-<td>AD05</td>
-<td style="text-align: left;">PM1 - Project Management and Governance
-Plan (CLC+Core_Deliverable_PM1_Project_Management_Plan_V1.0.pdf)</td>
-</tr>
-<tr>
-<td>AD06</td>
-<td style="text-align: left;"><p>Implementation of CLC+ based on the
-EAGLE concept –Additional support for further development of CLC+</p>
-<p>databases (CLC+ and CLC+ instances, namely CLC+ LULUCF instance and
-CLC+ Legacy instance) - Task 4: From CLC+ Core to CLC+ Legacy -
-3436/R0-Copernicus/EEA.57755</p></td>
-</tr>
-<tr>
-<td>AD07</td>
-<td style="text-align: left;">PM2 - 1st Project Management and Status
-Report
-(CLC+Core_Deliverable_PM2_1st-Project-Management-Status-Report_V1.0.pdf)</td>
-</tr>
-<tr>
-<td>AD08</td>
-<td style="text-align: left;">CLC+ Core Decision Log_V1.4
-(CLC+Core_Decision_log_V1.4.pdf)</td>
-</tr>
-<tr>
-<td>AD09</td>
-<td style="text-align: left;">D1 - Software Design (CLC+Core_D1_Software
-_Design_V1.0.pdf)</td>
-</tr>
-<tr>
-<td>AD10</td>
-<td style="text-align: left;">D3.2.1 - Demonstration and documentation
-of ingested CLMS datasets, under this Service Contract
-(CLC+Core_Deliverable_D3.2.1_Demonstration-and-documentation-of-ingested-CLMS-datasets_V01.pdf)</td>
-</tr>
-<tr>
-<td>AD11</td>
-<td style="text-align: left;">D3.1 - Documentation of deployment of CLC+
-Core products to DIAS – cloud service
-(CLC+Core_Deliverable_D3.1_Documentation of deployment of CLC+ Core
-products to DIAS_V1.0.pdf)</td>
-</tr>
-<tr>
-<td>AD12</td>
-<td
-style="text-align: left;">LULUCF_classes_simplified_EAGLE_query_rules_20210325.xlsx
-(Provided by EAGLE Group)</td>
-</tr>
-<tr>
-<td>AD13</td>
-<td style="text-align: left;">Specific contract no
-3506_R0-COPERNCA_EEA.59433</td>
-</tr>
-</tbody>
-</table>
+| **ID** | **Document Name / Content** |
+|----|----|
+| AD01 | Tender Specifications – EEA/DIS/R0/20/019 – Copernicus Land Monitoring Service – Production of the CLC+ Core and Provision of Complementary Consultancy Services |
+| AD02 | Consortium’s Technical Proposal – in response to Call for tenders EEA/DIS/R0/20/019 – CLC+CORE Technical Proposal - v2.0 |
+| AD03 | Specific Contract No 3436/R0-COPERNICUS/EEA.58286 |
+| AD04 | Minutes of the KOM (CLC+Core_KOM_Minutes.docx) |
+| AD05 | PM1 - Project Management and Governance Plan (CLC+Core_Deliverable_PM1_Project_Management_Plan_V1.0.pdf) |
+| AD06 | Implementation of CLC+ based on the EAGLE concept –Additional support for further development of CLC+<br><br>databases (CLC+ and CLC+ instances, namely CLC+ LULUCF instance and CLC+ Legacy instance) - Task 4: From CLC+ Core to CLC+ Legacy - 3436/R0-Copernicus/EEA.57755 |
+| AD07 | PM2 - 1st Project Management and Status Report (CLC+Core_Deliverable_PM2_1st-Project-Management-Status-Report_V1.0.pdf) |
+| AD08 | CLC+ Core Decision Log_V1.4 (CLC+Core_Decision_log_V1.4.pdf) |
+| AD09 | D1 - Software Design (CLC+Core_D1_Software \_Design_V1.0.pdf) |
+| AD10 | D3.2.1 - Demonstration and documentation of ingested CLMS datasets, under this Service Contract (CLC+Core_Deliverable_D3.2.1_Demonstration-and-documentation-of-ingested-CLMS-datasets_V01.pdf) |
+| AD11 | D3.1 - Documentation of deployment of CLC+ Core products to DIAS – cloud service (CLC+Core_Deliverable_D3.1_Documentation of deployment of CLC+ Core products to DIAS_V1.0.pdf) |
+| AD12 | LULUCF_classes_simplified_EAGLE_query_rules_20210325.xlsx (Provided by EAGLE Group) |
+| AD13 | Specific contract no 3506_R0-COPERNCA_EEA.59433 |
 
 # Admin User only
 
@@ -591,7 +516,7 @@ possibility to revoke the EAGLE approval again.**
 # List of abbreviations
 
 | Abbreviation | Name | Reference |
-|:---|:---|:---|
+|----|----|----|
 | **ADs** | Applicable Documents |  |
 | **AI** | Action Item |  |
 | **API** | Application Programming Interface |  |

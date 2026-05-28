@@ -461,7 +461,7 @@ In order to clarify certain mapping delineations, there are some
 comments defined as product attributes.
 
 | **Order No** | **Description; Note** | **Comment** |
-|:---|:---|:---|
+|----|----|----|
 | 1 | Polygons \< 0.5 ha at outer AoI site boundary, that have an apparent continuation outside the AoI boundary visible on the image data. | "Area size exception (at Coastal Zones AoI boundary)" |
 | 2 | Polygons \< 0.5 ha inside AoI site boundary; e.g. to ensure continuity of road/rail/river network at intersections of these classes. Urban objects confined by roads or railways ≥ 0.25 ha up to \< 0.5 ha. | "Area size exception (inside Coastal Zones AoI boundary)" |
 | 3 | Changes over several classes. Each change is \< 0.5 ha but overall change (=sum of individual change areas) is \> 0.5 ha. | "Splitted change" |
@@ -733,105 +733,63 @@ nomenclature</caption>
 </thead>
 <tbody>
 <tr>
-<td colspan="2"><table>
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 85%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>1 Urban</strong></th>
-<th>The definition of urban areas in general is under the Urban Atlas
-guidelines.</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>The level 2 separates the urban fabric from transportation network,
-construction &amp; dump sites and green urban areas (including sports
-facilities).</td>
-<td></td>
+<td><strong>1 Urban</strong></td>
+<td style="text-align: left;">The definition of urban areas in general
+is under the Urban Atlas guidelines.</td>
 </tr>
 <tr>
 <td></td>
-<td></td>
-</tr>
-<tr>
-<td>On level 3, the urban fabric class distinguishes between residential
+<td style="text-align: left;"><p>The level 2 separates the urban fabric
+from transportation network, construction &amp; dump sites and green
+urban areas (including sports facilities).</p>
+<p>On level 3, the urban fabric class distinguishes between residential
 and industrial purposes. Transport infrastructure is divided into road,
 railway, port and airport. Finally, land without current use is split
-from its class siblings to form a class on its own on this level.</td>
+from its class siblings to form a class on its own on this
+level.</p></td>
+</tr>
+<tr>
 <td></td>
+<td style="text-align: left;">The level 4 further differentiates the
+density of urban fabric (continuous, urban dense, low dense) and the
+specific purpose of industrial sites (separating nuclear energy plants
+from all other industrial sites). As the main focus lies on the
+coastline, harbours are further divided into seven kinds according to
+its purpose (cargo, passenger, fishing or naval port, marinas, local
+multi-functional harbours and shipyards). On this level, construction
+sites, mineral extraction, dump sites are split into individual
+classes.</td>
 </tr>
 <tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
+<td><strong>2 Cropland</strong></td>
+<td style="text-align: left;">On level 2, classes are defined according
+to the CORINE nomenclature (CORINE Technical Addendum 2000). Three main
+classes are separated:</td>
 </tr>
 <tr>
-<td>The level 4 further differentiates the density of urban fabric
-(continuous, urban dense, low dense) and the specific purpose of
-industrial sites (separating nuclear energy plants from all other
-industrial sites). As the main focus lies on the coastline, harbours are
-further divided into seven kinds according to its purpose (cargo,
-passenger, fishing or naval port, marinas, local multi-functional
-harbours and shipyards). On this level, construction sites, mineral
-extraction, dump sites are split into individual classes.</td>
 <td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2"><table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 82%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>2 Cropland</strong></th>
-<th>On level 2, classes are defined according to the CORINE nomenclature
-(CORINE Technical Addendum 2000). Three main classes are separated:</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>- Arable Land: Land under a rotation system used for annually
+<td style="text-align: left;"><ul>
+<li><p>Arable Land: Land under a rotation system used for annually
 harvested plants and fallow lands, which are permanently or not
 irrigated. It includes flooded crops, such as rice fields and other
-inundated croplands.</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- Permanent crops: All surfaces occupied by permanent crops, not
+inundated croplands.</p></li>
+<li><p>Permanent crops: All surfaces occupied by permanent crops, not
 under a rotation system. It includes ligneous crops of standard cultures
 for fruit production, such as extensive fruit orchards, olive groves,
 chestnut groves, walnut groves, shrub orchards, vineyards and some other
-specific low-system orchard plantation, espaliers and climbers.</td>
+specific low-system orchard plantation, espaliers and climbers.</p></li>
+</ul></td>
+</tr>
+<tr>
 <td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>- Heterogeneous agricultural areas: Areas of annual crops associated
+<td style="text-align: left;"><ul>
+<li>Heterogeneous agricultural areas: Areas of annual crops associated
 with permanent crops on the same parcel, annual crops cultivated under
 forest trees, areas of annual crops, meadows and/or permanent crops
 which are juxtaposed, landscapes in which crops and pastures are
-intimately mixed with natural vegetation or natural areas.</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>On level 3 arable land is divided between “arable irrigated and
+intimately mixed with natural vegetation or natural areas.</li>
+</ul>
+<p>On level 3 arable land is divided between “arable irrigated and
 non-irrigated land” and greenhouses. Permanent crops are differentiated
 between low stem plantations of fruit trees and berries including
 vineyards on one side and olive groves on the other. The mixed class of
@@ -839,126 +797,67 @@ vineyards on one side and olive groves on the other. The mixed class of
 agricultural practices (“Annual crops associated with permanent crops”,
 “Agro-forestry”) and the amount of natural vegetation on those areas
 (“Complex cultivation patterns”, “Land principally occupied by
-agriculture with significant areas of natural vegetation”).</td>
+agriculture with significant areas of natural vegetation”).</p></td>
+</tr>
+<tr>
+<td><strong>3 Woodland and forest</strong></td>
+<td style="text-align: left;">Level 2 differentiates main types of
+forests:</td>
+</tr>
+<tr>
 <td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2"><table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>3 Woodland and forest</strong></th>
-<th>Level 2 differentiates main types of forests:</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>- Broadleaved forest: Vegetation composed mainly of trees, including
+<td style="text-align: left;"><ul>
+<li>Broadleaved forest: Vegetation composed mainly of trees, including
 shrub and understory, where broadleaved species predominate and
-represent more than 75% of the pattern.</td>
-<td></td>
+represent more than 75% of the pattern.</li>
+</ul>
+<!-- --></td>
 </tr>
 <tr>
 <td></td>
-<td></td>
-</tr>
-<tr>
-<td><!-- --></td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>- Coniferous forest: Vegetation composed mainly of trees, including
+<td style="text-align: left;"><ul>
+<li><p>Coniferous forest: Vegetation composed mainly of trees, including
 shrub and understory, where coniferous species predominate and represent
-more than 75% of the pattern.</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- Mixed forest: Vegetation composed mainly of trees, including shrub
-and understory, where neither broadleaved nor coniferous species
+more than 75% of the pattern.</p></li>
+<li><p>Mixed forest: Vegetation composed mainly of trees, including
+shrub and understory, where neither broadleaved nor coniferous species
 predominate. The share of coniferous or broadleaved species does not
-exceed 25% in the canopy closure.</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>Transitional woodland and scrub, lines of trees and scrub as well as
-damaged forest are also included in level 2.</td>
-<td></td>
+exceed 25% in the canopy closure.</p></li>
+</ul></td>
 </tr>
 <tr>
 <td></td>
-<td></td>
-</tr>
-<tr>
-<td>The differentiation of Woodland and Forest on Level 3 is mainly
+<td style="text-align: left;"><p>Transitional woodland and scrub, lines
+of trees and scrub as well as damaged forest are also included in level
+2.</p>
+<p>The differentiation of Woodland and Forest on Level 3 is mainly
 oriented along aggregated EUNIS habitat classes. Main classes are
 riparian and fluvial forest, swamp forest, other natural and
 semi-natural forest and highly artificial forest (e.g. plantations),
-following the EUNIS classification scheme.</td>
+following the EUNIS classification scheme.</p></td>
+</tr>
+<tr>
+<td><strong>4 Grassland</strong></td>
+<td style="text-align: left;">Level 2 differentiates managed grasslands
+and natural grasslands.</td>
+</tr>
+<tr>
 <td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2"><table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>4 Grassland</strong></th>
-<th>Level 2 differentiates managed grasslands and natural
-grasslands.</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>- Managed or agricultural grasslands are intensively managed areas
+<td style="text-align: left;"><ul>
+<li><p>Managed or agricultural grasslands are intensively managed areas
 (selection of grasses, intensive cutting and grazing, fertilization,
 etc.) for the production of grass. From a land use point of view, in
-this case, grass is a crop in the same way as cereals or others.</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>- Natural grasslands include alpine meadows and other semi-natural
+this case, grass is a crop in the same way as cereals or
+others.</p></li>
+<li><p>Natural grasslands include alpine meadows and other semi-natural
 grasslands included in the Habitat Directive (except mountain and
-lowland hay meadows).</td>
-<td></td>
+lowland hay meadows).</p></li>
+</ul></td>
 </tr>
 <tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>A distinction between dry and mesic grasslands and alpine grasslands
-are included in level 3.</td>
 <td></td>
-</tr>
-</tbody>
-</table></td>
+<td style="text-align: left;">A distinction between dry and mesic
+grasslands and alpine grasslands are included in level 3.</td>
 </tr>
 <tr>
 <td><strong>5 Heathland and Scrub</strong></td>
@@ -967,110 +866,61 @@ moorland from areas with sclerophyllous scrubs and alpine scrub land
 following the CORINE Land Cover guidelines.</td>
 </tr>
 <tr>
-<td colspan="2"><table>
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 78%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>6 Open spaces with little or no vegetation</strong></th>
-<th>Differentiation of level 2 into three categories: “Sparsely
-vegetated areas”, “Beaches, dunes, river banks” and “Bare rocks, burnt
-areas, glaciers and perpetual snow” in order to separate vegetation
-classes from non-vegetated surfaces on different substrates.</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>On level 3, a further split of sparsely vegetated areas depending on
-the substrate (sparse vegetation on sands vs. sparse vegetation on
-rocks) and their water related location (beaches and dunes as well as
-river banks). On non-vegetated surfaces the parent class 6.3
-differentiates between “Bare rocks outcrops, cliffs”, “Burnt areas
-(except burnt forest)” and “Glaciers &amp; perpetual snow”.</td>
-<td></td>
+<td><strong>6 Open spaces with little or no vegetation</strong></td>
+<td style="text-align: left;">Differentiation of level 2 into three
+categories: “Sparsely vegetated areas”, “Beaches, dunes, river banks”
+and “Bare rocks, burnt areas, glaciers and perpetual snow” in order to
+separate vegetation classes from non-vegetated surfaces on different
+substrates.</td>
 </tr>
 <tr>
 <td></td>
-<td></td>
-</tr>
-<tr>
-<td>On level 4 “Beaches and dunes” are now split into individual classes
+<td style="text-align: left;"><p>On level 3, a further split of sparsely
+vegetated areas depending on the substrate (sparse vegetation on sands
+vs. sparse vegetation on rocks) and their water related location
+(beaches and dunes as well as river banks). On non-vegetated surfaces
+the parent class 6.3 differentiates between “Bare rocks outcrops,
+cliffs”, “Burnt areas (except burnt forest)” and “Glaciers &amp;
+perpetual snow”.</p>
+<p>On level 4 “Beaches and dunes” are now split into individual classes
 as well as “Bare rocks, outcrops and cliffs” are divided in “Bare rocks
-and outcrops” and “Coastal cliffs”.</td>
-<td></td>
-</tr>
-<tr>
-<td>————-</td>
-<td>——————————————————————————————————————————————————————————————-</td>
-</tr>
-<tr>
-<td>Beaches differentiate on level 5 between “Sandy beaches” and
-“Shingle beaches”.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2"><table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 82%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>7 Wetland</strong></th>
-<th>On level 2 the class distinguishes between inland wetlands and
-coastal wetlands.</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Level 3 splits the inland wetlands into inland marshes and peat
-bogs. Coastal wetlands are comprised of salt marshes, salines and
-intertidal flats.</td>
-<td></td>
+and outcrops” and “Coastal cliffs”.</p></td>
 </tr>
 <tr>
 <td></td>
+<td style="text-align: left;">Beaches differentiate on level 5 between
+“Sandy beaches” and “Shingle beaches”.</td>
+</tr>
+<tr>
+<td><strong>7 Wetland</strong></td>
+<td style="text-align: left;">On level 2 the class distinguishes between
+inland wetlands and coastal wetlands.</td>
+</tr>
+<tr>
 <td></td>
+<td style="text-align: left;"><p>Level 3 splits the inland wetlands into
+inland marshes and peat bogs. Coastal wetlands are comprised of salt
+marshes, salines and intertidal flats.</p>
+<p>On level 4 peat bogs are divided in exploited and
+unexploited.</p></td>
 </tr>
 <tr>
-<td>On level 4 peat bogs are divided in exploited and unexploited.</td>
+<td><strong>8 Water</strong></td>
+<td style="text-align: left;">On level 2 Water is distinguished into
+water courses, lakes &amp; reservoirs, transitional waters and sea and
+ocean.</td>
+</tr>
+<tr>
 <td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="2"><table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 88%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>8 Water</strong></th>
-<th>On level 2 Water is distinguished into water courses, lakes &amp;
-reservoirs, transitional waters and sea and ocean.</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>On level 3 water courses are differentiated because of their type
-(natural/semi-natural, highly artificial, separated from main water
-course). The lakes and reservoir distinguish between the nature of a
-water body (natural/semi-natural vs. highly artificial) and its purpose
-(aquaculture ponds, standing water bodies of extractive industrial
-sites). Transitional waters at the coast discriminate between lagoons,
-marine inlets and fjords as well as estuaries. Sea and ocean or divided
-into open sea and coastal waters.</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
+<td style="text-align: left;">On level 3 water courses are
+differentiated because of their type (natural/semi-natural, highly
+artificial, separated from main water course). The lakes and reservoir
+distinguish between the nature of a water body (natural/semi-natural
+vs. highly artificial) and its purpose (aquaculture ponds, standing
+water bodies of extractive industrial sites). Transitional waters at the
+coast discriminate between lagoons, marine inlets and fjords as well as
+estuaries. Sea and ocean or divided into open sea and coastal
+waters.</td>
 </tr>
 </tbody>
 </table>
@@ -9295,90 +9145,66 @@ early autumn.
 
 <table style="width:99%;">
 <colgroup>
-<col style="width: 11%" />
-<col style="width: 47%" />
-<col style="width: 26%" />
 <col style="width: 13%" />
-</colgroup>
-<tbody>
-<tr>
-<td rowspan="2">======================= <strong>Parcel
-shape</strong></td>
-<td rowspan="2"><h1 id="arable-land-211" data-number="7"><span
-class="header-section-number">7</span> <strong>Arable land
-(2.1.1)</strong></h1>
-<p>Parcel generally more angular</p></td>
-<td rowspan="2"><h1 id="managed-grassland-41" data-number="8"><span
-class="header-section-number">8</span> <strong>Managed grassland
-(4.1)</strong></h1>
-<p>Often angular, but also more irregular shapes</p></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td colspan="4"><table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 49%" />
-<col style="width: 25%" />
+<col style="width: 55%" />
+<col style="width: 30%" />
 </colgroup>
 <thead>
 <tr>
-<th><strong>Appearance</strong></th>
-<th>- Smooth texture</th>
-<th>- Smooth texture</th>
+<th></th>
+<th><strong>Arable land (2.1.1)</strong></th>
+<th><strong>Managed grassland (4.1)</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>- Different colours  different crops, different growth stages;
-after harvest soil appears blue</td>
-<td>- due to summer-time mowing</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
+<td><strong>Parcel shape</strong></td>
+<td>Parcel generally more angular</td>
+<td>Often angular, but also more irregular shapes</td>
 </tr>
 <tr>
-<td colspan="4"><table>
-<colgroup>
-<col style="width: 28%" />
-<col style="width: 42%" />
-<col style="width: 29%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>Cultivation marks</strong></th>
-<th>- Cultivation tracks (plough marks, rows, …)</th>
-<th>- Rows of mowed grass possible</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>- Bales of straw</td>
-<td>- Hay bales</td>
-<td></td>
+<td><strong>Appearance</strong></td>
+<td><ul>
+<li>Smooth texture</li>
+</ul></td>
+<td><ul>
+<li>Smooth texture</li>
+</ul></td>
 </tr>
 <tr>
 <td></td>
-<td></td>
-<td></td>
+<td><ul>
+<li>Different colours  different crops, different growth stages; after
+harvest soil appears blue</li>
+</ul></td>
+<td><ul>
+<li>due to summer-time mowing</li>
+</ul></td>
 </tr>
 <tr>
-<td>- Access road</td>
-<td>- Access road</td>
-<td></td>
+<td><strong>Cultivation marks</strong></td>
+<td><ul>
+<li>Cultivation tracks (plough marks, rows, …)</li>
+</ul></td>
+<td><ul>
+<li>Rows of mowed grass possible</li>
+</ul></td>
 </tr>
-</tbody>
-</table></td>
+<tr>
+<td></td>
+<td><ul>
+<li><p>Bales of straw</p></li>
+<li><p>Access road</p></li>
+</ul></td>
+<td><ul>
+<li><p>Hay bales</p></li>
+<li><p>Access road</p></li>
+</ul></td>
 </tr>
 <tr>
 <td><strong>Landscape</strong></td>
 <td>Very large connected areas lying in lowlands</td>
 <td>Appears also in more hilly areas, near forests, …</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -16284,7 +16110,7 @@ as per CLMS classification guidelines.
 \#List of Abbreviations
 
 | AOI | Area of Interest |
-|:---|:---|
+|----|----|
 | CLC | CORINE Land Cover |
 | C.C.D. | Crown Cover Density |
 | CNES | Centre National d'Études Spatiales (National Centre for Space Studies) |
@@ -16325,88 +16151,27 @@ as per CLMS classification guidelines.
 
 \#Document Control Information
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 46%" />
-<col style="width: 38%" />
-</colgroup>
-<tbody>
-<tr>
-<td rowspan="2"><h1 id="settings" data-number="9"><span
-class="header-section-number">9</span> <strong>Settings</strong></h1>
-<p><strong>Document Title:</strong></p></td>
-<td rowspan="2"><h1 id="value" data-number="10"><span
-class="header-section-number">10</span> <strong>Value</strong></h1>
-<p>Coastal Zones Nomenclature Guideline</p></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td><strong>Project Title:</strong></td>
-<td>Production of Very High Resolution Land cover/Land use datasets of
-coastal zones</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Project Officer:</strong></td>
-<td>Hans Dufourmont (EEA)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Doc. Version:</strong></td>
-<td>1.2</td>
-<td></td>
-</tr>
-<tr>
-<td colspan="3"><table>
-<colgroup>
-<col style="width: 35%" />
-<col style="width: 64%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>Distribution:</strong></th>
-<th>Coastal Zones project consortium</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Project officer and European Environment Agency Services</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>European Commission Services</td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td><strong>Confidentiality:</strong></td>
-<td>Public</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+| **Settings** | **Value** |
+|----|----|
+| **Document Title:** | Coastal Zones Nomenclature Guideline |
+| **Project Title:** | Production of Very High Resolution Land cover/Land use datasets of coastal zones |
+| **Project Officer:** | Hans Dufourmont (EEA) |
+| **Doc. Version:** | 1.2 |
+| **Distribution:** | Coastal Zones project consortium |
+|  | Project officer and European Environment Agency Services<br><br>European Commission Services |
+| **Confidentiality:** | Public |
 
 Document Approver(s) and Reviewer(s)
 
 | **Name**        | **Role**        | **Action** | **Date** |
-|:----------------|:----------------|:-----------|:---------|
+|-----------------|-----------------|------------|----------|
 | Hans Dufourmont | Project Officer |            |          |
 
 **Document History**
 
 | **Revision** | **Date** | **Short description of changes** |
-|:---|:---|:---|
-| 1.2 | 15/02/2021 | Classes 832 Estuaries and 833 Marine inlets and fjords have been swapped. Reservoirs are defined under 821 Natural lakes and not 822 Reservoirs |
+|----|----|----|
+| 1.2 | 15/02/2021 | Classes 832 Estuaries and 833 Marine inlets and fjords have been swapped. Reservoirs are defined under |
 | 1.1 | 01/10/2020 | Update of codes according to change in Nomenclature |
 | 1.0 | 24/01/2020 | Final Nomenclature Guideline |
 | 0.3 | 19/12/2019 | Preliminary Nomenclature Guideline (incl. adaptions after training, comments to be clarified by EEA) |
@@ -16416,7 +16181,7 @@ Document Approver(s) and Reviewer(s)
 Applicable Documents
 
 | **ID** | **Document Name / Content**                       |
-|:-------|:--------------------------------------------------|
+|--------|---------------------------------------------------|
 | 1      | EEA/DIS/R0/18/008 Framework Service Contract      |
 | 2      | EEA/DIS/R0/18/008 ANNEX I – TENDER SPECIFICATIONS |
 | 3      | EEA/DIS/R0/18/008 Specific Contract               |

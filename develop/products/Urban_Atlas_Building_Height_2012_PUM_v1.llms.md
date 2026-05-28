@@ -150,7 +150,16 @@ The UA BBHM product has a MMU of 10 x 10 m and is projected to the European refe
 
 The table below summarises the technical specification of the UA BBHM product.
 
-[TABLE]
+| \> **Specification** | \> **UA BBHM** |
+|----|----|
+| \> Geographic Coverage | \> About 75 000 km² across 870 cities and urban centers in EEA38 |
+| \> Temporal description \> \> (VHR coverage reference dates) | \> 2012 (primarily, depending on data availability), see chapter 6.2.1 for details |
+| \> Minimum Mapping Unit (MMU) | \> 10 x 10 m |
+| \> Projection | \> ETRS89 Lambert Azimuthal Equal Area (LAEA) (EPSG 3035) |
+| \> Format | \> Raster GeoTIFF 16-bit |
+| \> Metadata | \> INSPIRE Metadata Implementing Rules: Technical Guidelines based on EN ISO 19115 and EN ISO 19119 |
+| \> Ancillary information layer | \> Pixel Based Information |
+| \> Positional accuracy | \> Horizontal: half a pixel (5 meters) \> \> Vertical: 3 meters |
 
 The content of a downloaded package is explained below.
 
@@ -176,7 +185,17 @@ Figure 5‑1 shows how the product is structured, as well as additional nomencla
 
 Figure 5‑1 Structure of the product folders
 
-[TABLE]
+|                                                 | Type    |
+|-------------------------------------------------|---------|
+| \> CITY                                         | Zipfile |
+| \> Dataset                                      | FOLDER  |
+| *Example:* ES009_VALLADOLID_UA2012_DHM_v010.tif | File    |
+| \> Metadata                                     | FOLDER  |
+| *Example:* ES009_VALLADOLID_UA2012_DHM_v010.xml | File    |
+| \> Pixel Based Info                             | FOLDER  |
+| *Example:* ES009_VALLADOLID_UA2012_DHM_v010.shp | File    |
+| \> QC                                           | FOLDER  |
+| *Example:* ES009_VALLADOLID_UA2012_DHM_v010.pdf | File    |
 
 Table 5‑1 Structure of the BBHM product {.caption-top .table}
 
@@ -230,7 +249,7 @@ The previous example is true for any of the 845 new cities added or capital citi
 Table 5‑2 shows the name and description of the different sensors used.
 
 | **Sensor** | **Description** | **Resolution** | **Spectral Bands** |
-|:-----------|:----------------|:---------------|:-------------------|
+|------------|-----------------|----------------|--------------------|
 | WV-01      | Worldview 1     | 0.5            | PAN                |
 | WV-02      | Worldview 2     | 0.5            | PAN + RGB NIR      |
 | WV-03      | Worldview 3     | 0.5            | PAN + RGB NIR      |
@@ -780,9 +799,8 @@ Product technical support is provided by the product custodian through Copernicu
 
 # 9 Abbreviations & acronyms
 
-|  |  |
-|----|----|
 | AoI | Area of Interest |
+|----|----|
 | BBHM | Building Block height Model |
 | BIE | Bisector Elevation Angle |
 | CLMS | Copernicus Land Monitoring Service |
@@ -859,7 +877,7 @@ Zhong Zheng, W. Z. (2019). The higher, the cooler? Effects of building height on
 ## 11.1 Annex 1 – List of cities mapped
 
 | Country code | City name                                  |
-|:-------------|:-------------------------------------------|
+|--------------|--------------------------------------------|
 | AL           | ELBASAN                                    |
 | AL           | SHKODER                                    |
 | AL           | VLORE                                      |

@@ -446,92 +446,16 @@ value in the data matrix of 65535.
 The table below summarises the technical specification of the UA BBHM
 product.
 
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 74%" />
-</colgroup>
-<thead>
-<tr>
-<th><blockquote>
-<p><strong>Specification</strong></p>
-</blockquote></th>
-<th><blockquote>
-<p><strong>UA BBHM</strong></p>
-</blockquote></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><blockquote>
-<p>Geographic Coverage</p>
-</blockquote></td>
-<td><blockquote>
-<p>About 75 000 km² across 870 cities and urban centers in EEA38</p>
-</blockquote></td>
-</tr>
-<tr>
-<td><blockquote>
-<p>Temporal description</p>
-<p>(VHR coverage reference dates)</p>
-</blockquote></td>
-<td><blockquote>
-<p>2012 (primarily, depending on data availability), see chapter 6.2.1
-for details</p>
-</blockquote></td>
-</tr>
-<tr>
-<td><blockquote>
-<p>Minimum Mapping Unit (MMU)</p>
-</blockquote></td>
-<td><blockquote>
-<p>10 x 10 m</p>
-</blockquote></td>
-</tr>
-<tr>
-<td><blockquote>
-<p>Projection</p>
-</blockquote></td>
-<td><blockquote>
-<p>ETRS89 Lambert Azimuthal Equal Area (LAEA) (EPSG 3035)</p>
-</blockquote></td>
-</tr>
-<tr>
-<td><blockquote>
-<p>Format</p>
-</blockquote></td>
-<td><blockquote>
-<p>Raster GeoTIFF 16-bit</p>
-</blockquote></td>
-</tr>
-<tr>
-<td><blockquote>
-<p>Metadata</p>
-</blockquote></td>
-<td><blockquote>
-<p>INSPIRE Metadata Implementing Rules: Technical Guidelines based on EN
-ISO 19115 and EN ISO 19119</p>
-</blockquote></td>
-</tr>
-<tr>
-<td><blockquote>
-<p>Ancillary information layer</p>
-</blockquote></td>
-<td><blockquote>
-<p>Pixel Based Information</p>
-</blockquote></td>
-</tr>
-<tr>
-<td><blockquote>
-<p>Positional accuracy</p>
-</blockquote></td>
-<td><blockquote>
-<p>Horizontal: half a pixel (5 meters)</p>
-<p>Vertical: 3 meters</p>
-</blockquote></td>
-</tr>
-</tbody>
-</table>
+| \> **Specification** | \> **UA BBHM** |
+|----|----|
+| \> Geographic Coverage | \> About 75 000 km² across 870 cities and urban centers in EEA38 |
+| \> Temporal description \> \> (VHR coverage reference dates) | \> 2012 (primarily, depending on data availability), see chapter 6.2.1 for details |
+| \> Minimum Mapping Unit (MMU) | \> 10 x 10 m |
+| \> Projection | \> ETRS89 Lambert Azimuthal Equal Area (LAEA) (EPSG 3035) |
+| \> Format | \> Raster GeoTIFF 16-bit |
+| \> Metadata | \> INSPIRE Metadata Implementing Rules: Technical Guidelines based on EN ISO 19115 and EN ISO 19119 |
+| \> Ancillary information layer | \> Pixel Based Information |
+| \> Positional accuracy | \> Horizontal: half a pixel (5 meters) \> \> Vertical: 3 meters |
 
 The content of a downloaded package is explained below.
 
@@ -582,67 +506,19 @@ Info’ folder, containing ancillary pixel-based information in .shp (ESRI
 Shapefile) format. 4. The ‘QC’ (Quality Control) folder, containing
 quality control documentation in .pdf (Portable Document Format) format.
 
-<table style="width:92%;">
-<caption>Table 5‑1 Structure of the BBHM product</caption>
-<colgroup>
-<col style="width: 69%" />
-<col style="width: 22%" />
-</colgroup>
-<thead>
-<tr>
-<th></th>
-<th>Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><blockquote>
-<p>CITY</p>
-</blockquote></td>
-<td>Zipfile</td>
-</tr>
-<tr>
-<td><blockquote>
-<p>Dataset</p>
-</blockquote></td>
-<td>FOLDER</td>
-</tr>
-<tr>
-<td><em>Example:</em> ES009_VALLADOLID_UA2012_DHM_v010.tif</td>
-<td>File</td>
-</tr>
-<tr>
-<td><blockquote>
-<p>Metadata</p>
-</blockquote></td>
-<td>FOLDER</td>
-</tr>
-<tr>
-<td><em>Example:</em> ES009_VALLADOLID_UA2012_DHM_v010.xml</td>
-<td>File</td>
-</tr>
-<tr>
-<td><blockquote>
-<p>Pixel Based Info</p>
-</blockquote></td>
-<td>FOLDER</td>
-</tr>
-<tr>
-<td><em>Example:</em> ES009_VALLADOLID_UA2012_DHM_v010.shp</td>
-<td>File</td>
-</tr>
-<tr>
-<td><blockquote>
-<p>QC</p>
-</blockquote></td>
-<td>FOLDER</td>
-</tr>
-<tr>
-<td><em>Example:</em> ES009_VALLADOLID_UA2012_DHM_v010.pdf</td>
-<td>File</td>
-</tr>
-</tbody>
-</table>
+|                                                 | Type    |
+|-------------------------------------------------|---------|
+| \> CITY                                         | Zipfile |
+| \> Dataset                                      | FOLDER  |
+| *Example:* ES009_VALLADOLID_UA2012_DHM_v010.tif | File    |
+| \> Metadata                                     | FOLDER  |
+| *Example:* ES009_VALLADOLID_UA2012_DHM_v010.xml | File    |
+| \> Pixel Based Info                             | FOLDER  |
+| *Example:* ES009_VALLADOLID_UA2012_DHM_v010.shp | File    |
+| \> QC                                           | FOLDER  |
+| *Example:* ES009_VALLADOLID_UA2012_DHM_v010.pdf | File    |
+
+Table 5‑1 Structure of the BBHM product
 
 The following subchapters give a description of the content of each of
 the zipped folders.
@@ -825,7 +701,7 @@ however they have undergone a reprocessing as described in chapter 6.6.
 Table 5‑2 shows the name and description of the different sensors used.
 
 | **Sensor** | **Description** | **Resolution** | **Spectral Bands** |
-|:-----------|:----------------|:---------------|:-------------------|
+|------------|-----------------|----------------|--------------------|
 | WV-01      | Worldview 1     | 0.5            | PAN                |
 | WV-02      | Worldview 2     | 0.5            | PAN + RGB NIR      |
 | WV-03      | Worldview 3     | 0.5            | PAN + RGB NIR      |
@@ -2426,9 +2302,8 @@ software specific user support or general GIS or remote sensing support.
 
 # Abbreviations & acronyms
 
-|  |  |
-|----|----|
 | AoI | Area of Interest |
+|----|----|
 | BBHM | Building Block height Model |
 | BIE | Bisector Elevation Angle |
 | CLMS | Copernicus Land Monitoring Service |
@@ -2556,7 +2431,7 @@ doi:https://doi.org/10.1016/j.pce.2019.01.008
 ## Annex 1 – List of cities mapped
 
 | Country code | City name                                  |
-|:-------------|:-------------------------------------------|
+|--------------|--------------------------------------------|
 | AL           | ELBASAN                                    |
 | AL           | SHKODER                                    |
 | AL           | VLORE                                      |

@@ -34,7 +34,7 @@ Content ID: /
 **Document Control Information**
 
 | Document Title | CLC+ Core User Guideline |
-|:---|:---|
+|----|----|
 | Project Title | CLC+ Core production and provision of complementary consultancy services |
 | Document Author | Thomas Mathis (Cloudflight), Tanja Gasber (GeoVille), Amelie Lindmayer (GAF) |
 | Project Owner | Tobias Langanke (EEA) |
@@ -47,14 +47,14 @@ Content ID: /
 **Document Approver(s) and Reviewer(s):**
 
 | Name                | Role     | Action          | Date       |
-|:--------------------|:---------|:----------------|:-----------|
+|---------------------|----------|-----------------|------------|
 | Tim Wiltzius (CLF)  | Reviewer | Document review | 2023-12-20 |
 | Johannes Vass (CLF) | Reviewer | Document review |            |
 
 **Document history**
 
 | Revision | Date | Created by | Short description of changes |
-|:---|:---|:---|:---|
+|----|----|----|----|
 | 1.0 | 2022-04-08 | CLC+ Core consortium (CLF, GV, GAF) | Initial document creation |
 | 2.0 | 2022-06-10 | CLC+ Core consortium (CLF, GV, GAF) | Restructure of entire document, extension of Extraction chapter and Admin User section |
 | 3.0 | 2023-06-06 | CLC+ Core consortium (CLF, GV, GAF) | Adaption of rule 3 in the current version of the CLC+ Core system |
@@ -165,7 +165,7 @@ The **EAGLE approval** for an Ingestion can also be revoked again by the EAGLE M
 # 2 List of abbreviations
 
 | Abbreviation | Name | Reference |
-|:---|:---|:---|
+|----|----|----|
 | **ADs** | Applicable Documents |  |
 | **AI** | Action Item |  |
 | **API** | Application Programming Interface |  |

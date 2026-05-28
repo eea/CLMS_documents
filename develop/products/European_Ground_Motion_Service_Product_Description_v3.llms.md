@@ -173,7 +173,7 @@ Table 5 EGMS Basic and Calibrated product attributes. DP, digits precision {.cap
 ## 5.2 Ortho product attributes
 
 | Parameter | Unit of Measure | Meaning | Example | Data format |
-|:---|:--:|:---|:--:|:--:|
+|----|----|----|----|----|
 | pid | \- | MP unique identifier – 10 characters. | 3ODTn5TNYv | Alphanumeric Base 62 |
 | easting | m | ETRS89-LAEA. | 4662050 | integer |
 | northing | m | ETRS89-LAEA. | 115350 | integer |
@@ -194,7 +194,7 @@ Table 6 EGMS Ortho product attributes {.caption-top .table}
 For more details please refer to document \[RD8\].
 
 | Parameter | Unit of measure | Meaning | Example | Data format |
-|:---|:--:|:---|:--:|:--:|
+|----|----|----|----|----|
 | Latitude | deg | Latitude in ETRF2000/GRS80 | 6.382696567 | 9 DP |
 | Longitude | deg | Longitude in ETRF2000/GRS80 | 47.80394392 | 9 DP |
 | N | mm/year | North-South component velocity | -0.12 | 2 DP |
@@ -261,14 +261,29 @@ Davis, B (2020) Precision and accuracy in glacial geology. AntarcticGlaciers.org
 Note in these sections, EGMS products names are abbreviated to their code-references as follows:
 
 | EGMS product name | Code reference |
-|:------------------|:---------------|
+|-------------------|----------------|
 | *Basic*           | L2a            |
 | *Calibrated*      | L2b            |
 | *Ortho*           | L3             |
 
 ## 11.1 XML Header File
 
-[TABLE]
+| Product | Field | Spec and notes |
+|----|----|----|
+| L2a + L2b + L3 | product_level | L2a, L2b, L3 |
+| L2a + L2b | burst_id | See section 11.2 |
+| L2a + L2b + L3 | production_facility | 1 = EGEOS, 2 = GAF, 3 = NORCE, 4 = TREA. |
+| L2a + L2b + L3 | production_date | Format dd/mm/yyyy. |
+| L2a + L2b + L3 | dem | The version of the Copernicus 30m DEM. |
+| L2a + L2b | corine | Present if used. Version. |
+| L2a + L2b | sce | Present if used. Version. |
+| L2b + L3 | GNSS version | Version of the model. |
+| L2a | clusters | 0 if there is just one cluster in the CSV file. N if there are more than one clusters in the CSV file (where N is the number of identified clusters). |
+| L2a + L2b | image | Identifies the properties of each image used to generate the deliverable. It contains the tags *product_id*, and *orbit_type*. |
+| L2a + L2b | product_id | The actual product name used, stripped of the checksum and of the file type “.SAFE” |
+| L2a + L2b | orbit_type | Relative orbit type used for each image in the processing. It may assume values in the set (AUX_PROQUA, AUX_RESORB, AUX_GNSSRD, AUX_POEORB). |
+| L2a + L2b | reference | Reference image used to generate the deliverable. It contains tag images and the relative sub-tags. |
+| L2a + L2b | dataset | All images used to generate the deliverables (included the reference image). It contains a set of tags image and the relative sub-tags |
 
 Table 9 XML header file {.caption-top .table}
 
@@ -748,9 +763,8 @@ Estimated_Acc_And_Std = [EstimatedAcceleration EstimatedSTD_Acc]
 
 # 12 Document Control Information
 
-|                       |                                              |     |
-|-----------------------|----------------------------------------------|-----|
 | **Settings**          | **Value**                                    |     |
+|-----------------------|----------------------------------------------|-----|
 | **Document Title:**   | Product Description and Format Specification |     |
 | **Project Title:**    | EGMS-SC1                                     |     |
 | **Project Owner:**    | Henrik Steen Andersen (EEA)                  |     |

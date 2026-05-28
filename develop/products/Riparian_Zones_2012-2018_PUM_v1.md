@@ -665,9 +665,8 @@ Zones product.
 
 **Product Specifications of the Land Cover and Land Use Product**
 
-|  |  |
-|----|----|
 | **Product Title / Content** | Riparian Zones: Land Cover and Land Use Classification within buffer zone of selected rivers for reference years 2012 and 2018 including change mapping. |
+|----|----|
 | **Product Short Name** | RZ LC/LU |
 | **Product Definition** | The Riparian LC/LU product provides a detailed LC/LU dataset for areas along a buffer zone of selected rivers of Strahler levels 2 – 9 covering EEA-38 and the UK. |
 | **Input Data Sources** | **1) Riparian Zones (Str. 2-9)** <br><br> **2) Image Data** <br><br> **Image data (2012)** <br> *Products:* <br> - D2_MG2b_LOLA_011b <br> - D2_MG2b_NARA_011b <br> - DAP_MG2b_01 <br> - DWH_MG2b_CORE_03 <br> - DWH_MG2b_GEMS_ADD_003b <br> - VHR_IMAGE_2015 <br><br> *Missions:* <br> - GeoEye1 (2m) <br> - Pléiades (2m) <br> - SPOT-5 HRG (2.5 m) <br> - SPOT-6 (1.5m) <br> - WorldView-2 (1.8 m) <br><br> **Image Data (2018)** <br> **VHR_IMAGE_2018** <br> *Missions:* <br> - Pléiades 1A/B (2 m) <br> - SPOT-6 (4 m) <br> - SPOT-7 (4 m) <br> - Kompsat-03/04 (2 m) <br> - SuperView (2 m) <br> - Planet DOVE (4 m) <br> - TripleSat (4 m) <br> - Deimos-02 (4 m) <br><br> **VHR_IMAGE_2018_ENHANCED** <br> *Missions:* <br> - Pléiades 1A/B (2 m) <br> - SuperView (2 m) <br> - Kompsat-03/04 (2 m) <br><br> **3) Additional Data:** <br> - CLC 2006/2012/2018 <br> - Urban Atlas 2006/2012/2018 <br> - HRLs Imperviousness Degree and Tree Cover Density <br> - DWH_MG2_CORE_01 Coverage 1 (IRS 20m) & 2 (RapidEye, 5m) <br> - Landsat-8 <br> - Sentinel 2 <br> - National orthophoto WMS <br> - Google Earth Pro <br> - Bing Maps <br> - Numerous reference data sources |
@@ -684,62 +683,19 @@ Zones product.
 
 *Table 1: LC/LU 2012/2018 specifications*
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 22%" />
-<col style="width: 55%" />
-</colgroup>
-<tbody>
-<tr>
-<td colspan="3"><strong>Coordinate Reference System</strong> | |
-==========================================+=============================================+
-ETRS_1989_LAEA | Geographic Coordinate System: GCS_ETRS_1989 |
-——————————————————————-|————————————————————————————————————————————-
-WKID: 3035 Authority: EPSG | Angular Unit: Degree (0,0174532925199433) |
-| | Projection: Lambert_Azimuthal_Equal_Area | Prime Meridian: Greenwich
-(0,0) |
-——————————————————————————————————————|————————————————————————————–
-false_easting: 4.321.000,0 | Datum: D_ETRS_1989 | | | false_northing:
-3.210.000,0 | Spheroid: GRS_1980 |
-——————————————————————————————————|————————————————————————————————–
-central_meridian: 10,0 | Semimajor Axis: 6.378.137,0 | | |
-latitude_of_origin: 52,0 | Semiminor Axis: 6.356.752,314140356 |
-—————————————————————————|—————————————————————————————————————————–
-Linear Unit: Meter (1,0) | Inverse Flattening: 298,257222101 |</td>
-</tr>
-<tr>
-<td><strong>Accuracy Assessment Approach</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Stratified Random Point Sampling</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Data Type</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Vector</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Delivery Format</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Esri Shapefile Format (*.SHP)</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+| **Coordinate Reference System** |  |
+|----|----|
+| ETRS_1989_LAEA | Geographic Coordinate System: GCS_ETRS_1989 |
+| WKID: 3035 Authority: EPSG<br><br>Projection: Lambert_Azimuthal_Equal_Area | Angular Unit: Degree (0,0174532925199433)<br><br>Prime Meridian: Greenwich (0,0) |
+| false_easting: 4.321.000,0<br><br>false_northing: 3.210.000,0 | Datum: D_ETRS_1989<br><br>Spheroid: GRS_1980 |
+| central_meridian: 10,0<br><br>latitude_of_origin: 52,0 | Semimajor Axis: 6.378.137,0<br><br>Semiminor Axis: 6.356.752,314140356 |
+| Linear Unit: Meter (1,0) | Inverse Flattening: 298,257222101 |
+| **Accuracy Assessment Approach** |  |
+| Stratified Random Point Sampling |  |
+| **Data Type** |  |
+| Vector |  |
+| **Delivery Format** |  |
+| Esri Shapefile Format (\*.SHP) |  |
 
 <table data-quarto-postprocess="true">
 <thead>
@@ -1158,7 +1114,7 @@ The PSIL contains the following specifications shown in Table 4.
   
 
 |  | **Class Coding / Attribution** |  |  |  |
-|----|:---|----|----|----|
+|----|----|----|----|----|
 | **Field** | **Description** | **Definition ArcGIS** | **Definition QGIS** | **Value(s)** |
 | \[FID\] | Dynamic Feature Identifier | Object ID | Object ID | 0 to 2.147.483.647 |
 | \[Shape\] | Polygon (default by ESRI) | Geometry | Geometry | Polygon |
@@ -1179,7 +1135,7 @@ The PSIL contains the following specifications shown in Table 4.
   
 
 |  | **Class Coding / Attribution** |  |  |  |
-|----|:---|----|----|----|
+|----|----|----|----|----|
 | **Field** | **Description** | **Definition ArcGIS** | **Definition QGIS** | **Value(s)** |
 | \[FID\] | Dynamic Feature Identifier | Object ID | Object ID | 0 to 2.147.483.647 |
 | \[Shape\] | Polygon (default by ESRI) | Geometry | Geometry | Polygon |
@@ -1197,26 +1153,26 @@ The PSIL contains the following specifications shown in Table 4.
 
   
 
-| **Entry for \[Sensor\]** |        **Description**         |
-|:------------------------:|:------------------------------:|
-|           SP4            |             SPOT-4             |
-|           SP5            |             SPOT-5             |
-|           SP6            |             SPOT-6             |
-|           SP7            |             SPOT-7             |
-|         IRS-LI3          |        IRS-P6-LISS III         |
-|           PHR            |        Pleiades (1A/B)         |
-|           WV1            |          WorldView 1           |
-|           WV2            |          WorldView 2           |
-|            L5            |           Landsat-5            |
-|            L8            |           Landsat-8            |
-|           GE01           |            GeoEye1             |
-|           EQ02           |          Quickbird 02          |
-|         KS03/04          |         Kompsat 03/04          |
-|           SW00           |           SuperView            |
-|           DOVE           |          Planet DOVE           |
-|           DM02           |           Deimos-02            |
-|           TR00           |           TripleSat            |
-|          S2A/B           | Nominal Sentinel 2 Acquisition |
+| **Entry for \[Sensor\]** | **Description**                |
+|--------------------------|--------------------------------|
+| SP4                      | SPOT-4                         |
+| SP5                      | SPOT-5                         |
+| SP6                      | SPOT-6                         |
+| SP7                      | SPOT-7                         |
+| IRS-LI3                  | IRS-P6-LISS III                |
+| PHR                      | Pleiades (1A/B)                |
+| WV1                      | WorldView 1                    |
+| WV2                      | WorldView 2                    |
+| L5                       | Landsat-5                      |
+| L8                       | Landsat-8                      |
+| GE01                     | GeoEye1                        |
+| EQ02                     | Quickbird 02                   |
+| KS03/04                  | Kompsat 03/04                  |
+| SW00                     | SuperView                      |
+| DOVE                     | Planet DOVE                    |
+| DM02                     | Deimos-02                      |
+| TR00                     | TripleSat                      |
+| S2A/B                    | Nominal Sentinel 2 Acquisition |
 
 *Table 6: List of allowed \[Sensor\] entries*
 
@@ -1848,256 +1804,26 @@ a semicolon followed by space character (“…; …”).
 
   
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 69%" />
-<col style="width: 25%" />
-<col style="width: 4%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>List of standard comments</strong></th>
-<th></th>
-<th style="text-align: center;"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Description; Note</strong></td>
-<td><strong>Comment</strong></td>
-<td style="text-align: center;"><strong>UA</strong></td>
-</tr>
-<tr>
-<td colspan="3"><table>
-<colgroup>
-<col style="width: 65%" />
-<col style="width: 28%" />
-<col style="width: 6%" />
-</colgroup>
-<thead>
-<tr>
-<th><u><strong>External Border:</strong></u></th>
-<th>“Area size exception (at RZ_AoI / UA Urban centre boundary)”</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Polygons &lt;0,5 ha at AoI boundary or Urban Atlas Urban centre
-(polygons have shared line segment(s) with RZ_AoI boundary or UA Urban
-centre).</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Only polygons outside UA Urban centres are considered.</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="3"><table>
-<colgroup>
-<col style="width: 59%" />
-<col style="width: 33%" />
-<col style="width: 6%" />
-</colgroup>
-<thead>
-<tr>
-<th><u><strong>Internal Border:</strong></u></th>
-<th>“Area size exception (inside RZ_AoI / outside UA Urban centre)”</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Polygons &lt;0,5 ha inside RZ_AoI (for communicated exceptions
-only).</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Only polygons outside UA Urban centres are considered.</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="3"><table style="width:100%;">
-<colgroup>
-<col style="width: 71%" />
-<col style="width: 6%" />
-<col style="width: 22%" />
-</colgroup>
-<thead>
-<tr>
-<th><u><strong>Urban Atlas:</strong></u></th>
-<th></th>
-<th>“UA2012”</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>UA2012 or UA2018 data inside UA Urban centre</td>
-<td></td>
-<td>“UA2018”</td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="3"><table>
-<colgroup>
-<col style="width: 54%" />
-<col style="width: 30%" />
-<col style="width: 16%" />
-</colgroup>
-<thead>
-<tr>
-<th><u><strong>Urban Atlas:</strong></u></th>
-<th>“UA2012_core_regions_update (name of update source)”</th>
-<th>“UA2012”</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>UA2012 data inside UA2012 Urban centre.</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Exception for UA2012 data captured in updated UA2012 Urban centre
-limits (not identical to URAU_2012_RG.shp).</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="3"><table>
-<colgroup>
-<col style="width: 63%" />
-<col style="width: 21%" />
-<col style="width: 15%" />
-</colgroup>
-<thead>
-<tr>
-<th><u><strong>Urban Atlas:</strong></u></th>
-<th>“Adjusted data of UA Urban centre”</th>
-<th>“NoData”</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Gap within the UA region. The gap IS NOT in contact with the regular
-RZ mapping and is to be filled with mapped data in UA code range.</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="3"><table>
-<colgroup>
-<col style="width: 74%" />
-<col style="width: 19%" />
-<col style="width: 6%" />
-</colgroup>
-<thead>
-<tr>
-<th><u><strong>Change Mapping:</strong></u></th>
-<th>“Splitted change”*</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Changes over several classes. Each change is &lt;0,5 ha but overall
-change (=sum of individual change areas) is ≥0,5 ha.</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="3"><table>
-<colgroup>
-<col style="width: 75%" />
-<col style="width: 18%" />
-<col style="width: 6%" />
-</colgroup>
-<thead>
-<tr>
-<th><u><strong>Change Mapping:</strong></u></th>
-<th>“Areas related to change”</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Polygons &lt;0,5 ha with no change but connected to change polygons
-(same code at a neighbouring polygon in one of the two years)</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td colspan="3"><table>
-<colgroup>
-<col style="width: 72%" />
-<col style="width: 21%" />
-<col style="width: 6%" />
-</colgroup>
-<thead>
-<tr>
-<th>Different water levels in comparison of image data taken during
-dry/wet season and “normal” water level. The water level of the “normal”
-situation should be used for delineation.</th>
-<th>“Different water levels”</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>only Polygons outside UA Urban centres are considered</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td>For areas completely or partially flooded by water (flooded land),
-only Polygons outside UA Urban centres are considered.</td>
-<td>“Flooded area”</td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
+| **List of standard comments** |  |  |
+|----|----|----|
+| **Description; Note** | **Comment** | **UA** |
+| <u>**External Border:**</u> | “Area size exception (at RZ_AoI / UA Urban centre boundary)” |  |
+| Polygons \<0,5 ha at AoI boundary or Urban Atlas Urban centre (polygons have shared line segment(s) with RZ_AoI boundary or UA Urban centre).<br><br>Only polygons outside UA Urban centres are considered. |  |  |
+| <u>**Internal Border:**</u> | “Area size exception (inside RZ_AoI / outside UA Urban centre)” |  |
+| Polygons \<0,5 ha inside RZ_AoI (for communicated exceptions only).<br><br>Only polygons outside UA Urban centres are considered. |  |  |
+| <u>**Urban Atlas:**</u> |  | “UA2012” |
+| UA2012 or UA2018 data inside UA Urban centre |  | “UA2018” |
+| <u>**Urban Atlas:**</u> | “UA2012_core_regions_update (name of update source)” | “UA2012” |
+| UA2012 data inside UA2012 Urban centre.<br><br>Exception for UA2012 data captured in updated UA2012 Urban centre limits (not identical to URAU_2012_RG.shp). |  |  |
+| <u>**Urban Atlas:**</u> | “Adjusted data of UA Urban centre” | “NoData” |
+| Gap within the UA region. The gap IS NOT in contact with the regular RZ mapping and is to be filled with mapped data in UA code range. |  |  |
+| <u>**Change Mapping:**</u> | “Splitted change”\* |  |
+| Changes over several classes. Each change is \<0,5 ha but overall change (=sum of individual change areas) is ≥0,5 ha. |  |  |
+| <u>**Change Mapping:**</u> | “Areas related to change” |  |
+| Polygons \<0,5 ha with no change but connected to change polygons (same code at a neighbouring polygon in one of the two years) |  |  |
+| Different water levels in comparison of image data taken during dry/wet season and “normal” water level. The water level of the “normal” situation should be used for delineation. | “Different water levels” |  |
+| only Polygons outside UA Urban centres are considered |  |  |
+| For areas completely or partially flooded by water (flooded land), only Polygons outside UA Urban centres are considered. | “Flooded area” |  |
 
 \* See section below for in-depth explanation
 
@@ -2832,7 +2558,7 @@ software specific user support or general GIS or remote sensing support.
 # Abbreviations & Acronyms
 
 | AoI         | Area of Interest                                         |
-|:------------|:---------------------------------------------------------|
+|-------------|----------------------------------------------------------|
 | CBD         | Convention on Biological Diversity                       |
 | CCM         | Copernicus Contribution Mission                          |
 | CLC         | CORINE Land Cover                                        |
@@ -3126,7 +2852,7 @@ landscapes,” *Journal of Environmental Management,* vol. 249, November
 # Annexes
 
 | **Riparian Zones Delivery Units** |  |  |  |
-|:---|----|----|----|
+|----|----|----|----|
 | **No.** | **DU ID** | **Catchment Name(s) per Unit** | **RZ AoI Str. 2-9 \[km²\]** |
 | 1 | DU001A | Aegean Islands, Black Sea Basin District, Turkey West | 17.003,02 |
 | 2 | DU002A | Attica, Crete, Eastern Peloponnese, Eastern Sterea Ellada, Seman, Thessalia, Western Macedonia, Western Sterea Ellada | 14.627,61 |

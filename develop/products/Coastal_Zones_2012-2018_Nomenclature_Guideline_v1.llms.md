@@ -180,7 +180,7 @@ For data interpretation, additional data sources like CORINE Land Cover (CLC) 20
 In order to clarify certain mapping delineations, there are some comments defined as product attributes.
 
 | **Order No** | **Description; Note** | **Comment** |
-|:---|:---|:---|
+|----|----|----|
 | 1 | Polygons \< 0.5 ha at outer AoI site boundary, that have an apparent continuation outside the AoI boundary visible on the image data. | "Area size exception (at Coastal Zones AoI boundary)" |
 | 2 | Polygons \< 0.5 ha inside AoI site boundary; e.g. to ensure continuity of road/rail/river network at intersections of these classes. Urban objects confined by roads or railways ≥ 0.25 ha up to \< 0.5 ha. | "Area size exception (inside Coastal Zones AoI boundary)" |
 | 3 | Changes over several classes. Each change is \< 0.5 ha but overall change (=sum of individual change areas) is \> 0.5 ha. | "Splitted change" |
@@ -6655,7 +6655,7 @@ Schematic representation of classes 8.4 Sea and ocean (red dot line)
 \#List of Abbreviations
 
 | AOI | Area of Interest |
-|:---|:---|
+|----|----|
 | CLC | CORINE Land Cover |
 | C.C.D. | Crown Cover Density |
 | CNES | Centre National d'Études Spatiales (National Centre for Space Studies) |
@@ -6701,14 +6701,14 @@ Schematic representation of classes 8.4 Sea and ocean (red dot line)
 Document Approver(s) and Reviewer(s)
 
 | **Name**        | **Role**        | **Action** | **Date** |
-|:----------------|:----------------|:-----------|:---------|
+|-----------------|-----------------|------------|----------|
 | Hans Dufourmont | Project Officer |            |          |
 
 **Document History**
 
 | **Revision** | **Date** | **Short description of changes** |
-|:---|:---|:---|
-| 1.2 | 15/02/2021 | Classes 832 Estuaries and 833 Marine inlets and fjords have been swapped. Reservoirs are defined under 821 Natural lakes and not 822 Reservoirs |
+|----|----|----|
+| 1.2 | 15/02/2021 | Classes 832 Estuaries and 833 Marine inlets and fjords have been swapped. Reservoirs are defined under |
 | 1.1 | 01/10/2020 | Update of codes according to change in Nomenclature |
 | 1.0 | 24/01/2020 | Final Nomenclature Guideline |
 | 0.3 | 19/12/2019 | Preliminary Nomenclature Guideline (incl. adaptions after training, comments to be clarified by EEA) |
@@ -6718,13 +6718,13 @@ Document Approver(s) and Reviewer(s)
 Applicable Documents
 
 | **ID** | **Document Name / Content**                       |
-|:-------|:--------------------------------------------------|
+|--------|---------------------------------------------------|
 | 1      | EEA/DIS/R0/18/008 Framework Service Contract      |
 | 2      | EEA/DIS/R0/18/008 ANNEX I – TENDER SPECIFICATIONS |
 | 3      | EEA/DIS/R0/18/008 Specific Contract               |
 | 4      | Minutes of Meeting for Kick-Off (22 May 2019)     |
 
-# 11 Change Log
+# 7 Change Log
 
 | Date       | Version | Summary         |
 |------------|---------|-----------------|
