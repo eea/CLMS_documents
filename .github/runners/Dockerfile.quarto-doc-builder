@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 #   Mono, Carlito for Calibri, Liberation Sans for Arial, DejaVu mono).
 # python-is-python3: the workflows invoke bare `python`.
 # unzip: required by `quarto install chrome-headless-shell` (below) to extract.
+# rsync: github-pages-deploy-action shells out to it to sync the build.
 # lib* : runtime deps for chrome-headless-shell, which Quarto uses to
 #   rasterize mermaid/dot diagrams during the Typst PDF render.
 RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
@@ -18,6 +19,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-reco
     python3-pip \
     python-is-python3 \
     unzip \
+    rsync \
     fonts-dejavu-core \
     fonts-lato \
     fonts-jetbrains-mono \

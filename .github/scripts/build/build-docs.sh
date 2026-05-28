@@ -59,6 +59,16 @@ ln -s ../assets assets
 echo "Stripping unknown frontmatter fields..."
 python3 ../.github/scripts/build/strip_unknown_frontmatter.py .
 
+# Fill the version field on every doc. Bumps only happen on main/test - here we
+# just write the current tracked version, or {major}.0.0 from the _vN.qmd name.
+echo "Filling version fields..."
+python3 ../.github/scripts/build/fill_version.py .
+
+# Balance table column widths from cell content. Converts simple grid/multiline
+# tables to pipe form. Merges, lists and images are left alone.
+echo "Balancing table column widths..."
+python3 ../.github/scripts/qmd-tools/fix_table_colwidths.py .
+
 # Bake image descriptions into the qmd source now, so the render doesn't re-hash
 # every image once per format (see the script). This was a Lua filter.
 echo "Baking image descriptions into qmd source..."
