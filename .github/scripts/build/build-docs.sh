@@ -31,6 +31,10 @@ step() {
   _STEP_PREV=$now; _STEP_NAME="$*"
 }
 
+# Apply cached intros/keywords before the rename - the cache is keyed by original path.
+echo "Injecting cached intros & keywords (no API)..."
+python3 .github/scripts/build/apply_cached_intros.py DOCS
+
 step "[1/6] Copying DOCS to origin_DOCS..."
 mv DOCS origin_DOCS
 

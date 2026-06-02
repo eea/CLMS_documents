@@ -38,13 +38,17 @@ def apply_all_updates(
     cache_dir: Path,
     dry_run: bool = False,
     root_dir: Path | None = None,
+    apply_versions: bool = True,
 ) -> dict:
     """Merge all cached updates into each .qmd's frontmatter, writing each file once.
     Returns a stats dict (files_updated, intros_applied, versions_applied, errors).
 
     root_dir matters: cache keys are repo-relative, so absolute paths in
     files_to_update are rewritten to that form before lookup — without it every
-    lookup silently misses. dry_run shows the changes without writing."""
+    lookup silently misses. dry_run shows the changes without writing.
+
+    apply_versions=False does intros/keywords only, leaving version/date alone -
+    the build step uses this since fill_version.py handles versions there."""
     print("\n" + "=" * 70)
     print("📝 Applying All Cached Updates to .qmd Files")
     print("=" * 70)
@@ -52,7 +56,7 @@ def apply_all_updates(
     if dry_run:
         print("[DRY RUN] Showing updates but NOT modifying files\n")
 
-    versions_metadata = load_versions_metadata(cache_dir)
+    versions_metadata = load_versions_metadata(cache_dir) if apply_versions else {}
 
     stats = {
         "files_updated": 0,
@@ -100,7 +104,7 @@ def apply_all_updates(
 
             # 2. Apply version updates if available
             filepath_str = str(lookup_path)
-            if filepath_str in versions_metadata:
+            if apply_versions and filepath_str in versions_metadata:
                 version_data = versions_metadata[filepath_str]
                 new_version = version_data.get("current_version")
                 if new_version:
