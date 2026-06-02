@@ -2,15 +2,15 @@
 
 Copernicus Land Monitoring Service
 
-The Urban Atlas 2012–2018 Product User Manual is a comprehensive technical manual developed to guide service providers in producing standardised land use and land cover (LU/LC) maps under the Copernicus Urban Atlas program. The guide specifically addresses updates for the 2012 and 2018 reference years, covering over 800 Functional Urban Areas (FUAs) across the EU, EFTA, Western Balkans, the UK, and Turkey.
+This document serves as a comprehensive mapping guide for service providers involved in the Copernicus Urban Atlas project, specifically for the 2012 and 2018 reference years. It details the methodology for generating standardised land use and land cover (LU/LC) maps, including additional information layers such as the Street Tree Layer (STL) and Digital Height Model (DHM). The guide aims to ensure congruent product attributes, common nomenclature, consistent product appearance, and comparable product quality across Functional Urban Areas (FUAs) within the EU, EFTA, Western Balkans, the UK, and Turkey.
 
 Published
 
-January 1, 2020
+December 3, 2025
 
 Keywords
 
-{keywords_str}
+Functional Urban Area (FUA), Land Use / Land Cover (LU/LC), Street Tree Layer (STL), Digital Height Model (DHM), Imperviousness Degree (IMD), Minimum Mapping Unit (MMU), Change detection, ETRS89 Lambert Azimuthal Equal Area (LAEA), Geometric adaptation of navigation data, Overall classification accuracy
 
   
 **Contact:**

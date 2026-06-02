@@ -2,13 +2,15 @@
 
 Copernicus Land Monitoring Service
 
+This Algorithm Theoretical Basis Document (ATBD) outlines the methodologies and algorithms employed in creating the CLCplus Backbone 2023 product. It provides detailed insights into the technical specifications, input data (including Sentinel-2 imagery), and processing steps involved in producing both the main land cover raster layer (RAS) and its auxiliary layers. Key aspects such as time series analysis, the application of the Temporal Convolutional Neural Network (TempCNN), and post-processing techniques are thoroughly described, focusing on a seamless integration of land cover characteristics.
+
 Published
 
-April 1, 2025
+December 3, 2025
 
 Keywords
 
-{keywords_str}
+Algorithm Theoretical Basis, Land cover classification, Sentinel-2 data, Time series analysis, Temporal Convolutional Neural Network, Deep learning, Bilateral filtering, Interannual calibration, Remote sensing, Geospatial analysis
 
   
 **Contact:**

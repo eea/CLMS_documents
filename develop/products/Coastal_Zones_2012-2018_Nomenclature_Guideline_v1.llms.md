@@ -2,13 +2,15 @@
 
 Copernicus Land Monitoring Service
 
+This document functions as a land cover and land use nomenclature guideline specifically tailored for the Copernicus local land monitoring product focusing on Coastal Zones. It provides detailed descriptions of all Level 5 land cover and land use classes, encompassing their geographic characteristics, available input datasets, and the interpretation methods employed. It offers a structured framework for accurate and consistent classification of land features within the coastal environment. The document aims to standardise the classification process.
+
 Published
 
-February 15, 2021
+December 3, 2025
 
 Keywords
 
-{keywords_str}
+Coastal Zones, Land Cover, Land Use, nomenclature guideline, thematic classes, satellite image classification, change detection layer, visual interpretation, object delineation, minimum mapping unit
 
   
 **Contact:**

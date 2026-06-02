@@ -2,13 +2,15 @@
 
 Copernicus Land Monitoring Service
 
+This document provides a comprehensive description of the European Ground Motion Service (EGMS) products, which are essential for understanding and utilising the service effectively. It details the specifications, formats, attribute tables, and metadata associated with the EGMS products, including the Basic, Calibrated, and Ortho datasets. The document also clarifies InSAR-specific definitions, product map projections, user downloading procedures, and ancillary datasets used in EGMS production, ensuring users can fully leverage the service’s capabilities for ground motion analysis and monitoring.
+
 Published
 
-August 7, 2025
+December 3, 2025
 
 Keywords
 
-{keywords_str}
+InSAR displacement data, Satellite line-of-sight, GNSS time-series data, Absolute displacement measurements, Vertical displacement component, East-West displacement component, ETRS89-LAEA projection, Sentinel-1 burst segmentation, Temporal coherence, Amplitude Dispersion Index
 
   
 **Contact:**

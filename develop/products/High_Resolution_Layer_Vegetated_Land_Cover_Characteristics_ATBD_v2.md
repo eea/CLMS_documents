@@ -1,6 +1,6 @@
 # High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical Basis Document
 
-2025-06-27
+2025-12-03
 
 - [<span class="toc-section-number">1</span> Executive
   summary](#executive-summary)

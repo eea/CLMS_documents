@@ -2,7 +2,7 @@
 
 Copernicus Land Monitoring Service - Technical Library
 
-A practical guide for editors creating and publishing technical documentation in the CLMS Technical Library using Quarto. Covers file naming, YAML headers, writing, local preview, and the publishing workflow.
+This manual serves as a comprehensive guide for editors contributing technical documentation to the Copernicus Land Monitoring Service (CLMS) Technical Library. It outlines the end-to-end workflow for creating, editing, and publishing documents using Quarto and Markdown, integrating with a central repository via Git subtrees and custom aliases. The guide details best practices for document structuring, YAML header configuration, content writing, local previewing within RStudio, and the multi-stage publication process, ensuring consistency and adherence to CLMS documentation standards. It is designed to empower authors to effectively manage scientific and technical content.
 
 Author
 
@@ -10,11 +10,11 @@ European Environment Agency (EEA)
 
 Published
 
-May 26, 2026
+December 3, 2025
 
 Keywords
 
-{keywords_str}
+Quarto documentation, Markdown authoring, CLMS Technical Library, Git subtree integration, Document publishing workflow, Version control strategy, RStudio editing environment, Algorithm Theoretical Basis Document, Product User Manual, YAML header configuration, Document rendering, Technical documentation guidelines
 
   
 **Contact:**

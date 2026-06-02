@@ -2,7 +2,7 @@
 
 Copernicus Land Monitoring Service
 
-This document presents the IT Architecture Principles and Implementation Guidelines for the Copernicus Land Monitoring Service (CLMS) by the European Environment Agency (EEA). It provides a framework for consistent, scalable, and secure IT solutions, emphasizing modularity, reproducibility, transparency, and maintainability. The guidelines support the CLMS program’s IT vision, ensuring solutions are coherent, adaptable, and efficiently operated.
+This document presents the IT Architecture Principles and Implementation Guidelines for the Copernicus Land Monitoring Service (CLMS). It defines the framework for scalable, secure, and consistent IT solutions. Covering architectural themes such as reproducibility, reusability, transparency, maintainability, security, and resilience, the document supports the CLMS program’s vision. It promotes interoperability, cloud-agnostic solutions, and adherence to industry standards, while ensuring solutions are adaptable, transparent, and efficiently maintained.
 
 Author
 
@@ -10,11 +10,11 @@ European Environment Agency (EEA)
 
 Published
 
-June 19, 2025
+December 3, 2025
 
 Keywords
 
-{keywords_str}
+IT architecture principles, Implementation guidelines, Copernicus Land Monitoring Service, Modularity, Reproducibility, Reusability, Transparency, Maintainability, IT security, Resilience
 
   
 **Contact:**

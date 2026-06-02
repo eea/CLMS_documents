@@ -1,6 +1,6 @@
 # Urban Atlas Building Block Height Model 2012 - Product User Manual
 
-2022-08-01
+2025-12-03
 
 - [<span class="toc-section-number">1</span> Executive
   summary](#executive-summary)

@@ -2,7 +2,7 @@
 
 CLC+ Core production and provision of complementary consultancy
 
-Product DESCRIPTION
+This annex to the CLC+ Core User Guideline provides critical information and functionalities exclusively for Admin Users of the Copernicus Land Monitoring Service’s CLC+ Core system. It outlines administrative capabilities regarding the management of organisations and user accounts, including role assignment and profile editing. Furthermore, the document details the process for adding new versions of the EAGLE Ontology and approving the EAGLE barcoding compliance of ingested datasets, ensuring the system’s data integrity and adherence to harmonised land monitoring standards.
 
 Author
 
@@ -14,7 +14,7 @@ December 22, 2023
 
 Keywords
 
-{keywords_str}
+Admin User functionalities, organisation management, user account management, user role assignment, EAGLE Ontology management, EAGLE barcoding approval, data dictionary integration, CLC+ Core system administration, Copernicus Land Monitoring Service
 
   
 **Contact:**
