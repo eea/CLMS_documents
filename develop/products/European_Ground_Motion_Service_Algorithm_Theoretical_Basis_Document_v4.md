@@ -1,6 +1,6 @@
 # European Ground Motion Service (EGMS) - Algorithm Theoretical Basis Document
 
-2025-12-03
+2025-08-07
 
 - [<span class="toc-section-number">1</span>
   Introduction](#introduction)

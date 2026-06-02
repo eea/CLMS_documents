@@ -2,15 +2,13 @@
 
 Copernicus Land Monitoring Service
 
-This report summarises the findings of a public consultation survey regarding the Copernicus Land Data Store (CLDS), launched in October 2023. The survey aimed to understand the geospatial application landscape, focusing on factors that either hinder or motivate users to adopt cloud-based solutions. By assessing the balance between user needs (such as handling large data volumes) and concerns (such as migration difficulties and costs), the study provides valuable insights into the challenges and opportunities associated with transitioning to cloud environments for geospatial data processing and analysis.
-
 Published
 
-December 3, 2025
+March 18, 2024
 
 Keywords
 
-Cloud migration barriers, Geospatial data accessibility, Cloud processing environment familiarity, Data storage solutions, Scalable processing resources, Copernicus data heterogeneity, Data product understanding, Cloud-based storage services, User onboarding mechanisms, FAIR data principles
+{keywords_str}
 
   
 **Contact:**

@@ -2,19 +2,17 @@
 
 Copernicus Land Monitoring Service
 
-This document serves as the Product User Manual (PUM) for the Copernicus Land Monitoring Service (CLMS) CLC+ Backbone raster product, specifically focusing on the 2021 update. It provides comprehensive information for users to effectively utilise the CLC+ Backbone product suite, which represents a significant advancement in European land cover and land use monitoring. The manual details the product’s specifications, including its raster format, spatial resolution, nomenclature, and accompanying quality layers. Furthermore, it outlines the production methodologies, discusses the strengths and limitations, and presents internal validation results, providing a thorough understanding of the product’s capabilities and constraints.
-
 Author
 
 Copernicus Land Monitoring Service
 
 Published
 
-December 3, 2025
+June 12, 2025
 
 Keywords
 
-CLC+ Backbone, Land cover classification, Sentinel-2 time series, Raster data, 10m spatial resolution, EEA-38 coverage, Temporal Convolutional Neural Network, Product accuracy assessment, Coastal seawater buffer, EAGLE Land Cover Components
+{keywords_str}
 
   
 **Contact:**

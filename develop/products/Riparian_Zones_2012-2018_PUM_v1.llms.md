@@ -2,15 +2,13 @@
 
 Copernicus Land Monitoring Service
 
-This Product User Manual (PUM) serves as a primary guide for users of the Copernicus Land Monitoring Service’s Riparian Zones product. It provides an overview of the product, encompassing its characteristics, methodology, and workflows. This guide also details potential applications and use cases, providing insights into the product’s utility. A summary of the quality assessment procedures and their corresponding results are also included to aid in informed data usage. Users can also find information about product access, terms of use and technical support.
-
 Published
 
 August 1, 2023
 
 Keywords
 
-Riparian Zones, Land Cover, Land Use, Copernicus, Priority Area Monitoring, Very High-Resolution imagery, accuracy assessment, change mapping, data sources, geometric resolution
+{keywords_str}
 
   
 **Contact:**

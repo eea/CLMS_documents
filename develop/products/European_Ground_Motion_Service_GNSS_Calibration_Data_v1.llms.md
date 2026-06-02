@@ -2,15 +2,13 @@
 
 Copernicus Land Monitoring Service
 
-This document presents Global Navigation Satellite System (GNSS) calibration data intended for use with the European Ground Motion Service (EGMS) provided by the Copernicus Land Monitoring Service (CLMS). It contains precise geodetic measurements at specific geographic locations, enabling validation and improvement of ground motion estimates derived from satellite-based radar interferometry. This dataset allows for assessment of the accuracy and reliability of ground deformation products.
-
 Published
 
-December 3, 2025
+April 15, 2023
 
 Keywords
 
-GNSS measurements, Ground deformation, Radar interferometry, Geodetic control points, Vertical land motion, Horizontal land motion, Coordinate precision, Datum transformation, Error assessment, Calibration datasets
+{keywords_str}
 
   
 **Contact:**

@@ -2,15 +2,13 @@
 
 Copernicus Land Monitoring Service
 
-This Product User Manual (PUM) serves as a comprehensive guide for users of the Copernicus High-Resolution Layer Small Landscape Features (HRL SLF) product for the 2021 reference year. It details the product specifications, lineage, and provides guidance on effective utilisation. The document is aimed at a broad audience, including operational users and decision-makers, focusing on the product’s features, quality indicators, and usage guidelines. It covers aspects such as product characteristics, data processing methodology, and terms of use. The PUM emphasises the use of very high-resolution Earth Observation imagery and high-resolution optical satellite image time series for deriving the SLF layers, providing insights into woody vegetation mapping and change detection between 2018 and 2021.
-
 Published
 
 November 4, 2025
 
 Keywords
 
-High Resolution Layer, Small Landscape Features, Woody Vegetation Layer, Change Detection, Street Tree Layer, Sentinel-2 imagery, Very High Resolution imagery, Forest Mask, Crop Mask, LAEA projection
+{keywords_str}
 
   
 **Contact:**

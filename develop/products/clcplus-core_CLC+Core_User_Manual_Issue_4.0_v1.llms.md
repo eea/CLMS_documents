@@ -2,7 +2,7 @@
 
 CLC+ Core production and provision of complementary consultancy
 
-This comprehensive User Guideline provides essential documentation for users of the Copernicus Land Monitoring Service’s CLC+ Core system. It meticulously describes all user interfaces and functionalities, focusing on data Ingestion and Extraction processes. The document details how the CLC+ Core serves as a flexible, multi-use land cover/land use data repository, facilitating the standardised integration of various CLMS products and national datasets through the EAGLE language. It explains grid-based data handling, rule-based Extractions, and outlines practical steps for data management, aiming to equip users with a thorough understanding for effective system utilisation.
+Product DESCRIPTION
 
 Author
 
@@ -14,7 +14,7 @@ December 22, 2023
 
 Keywords
 
-CLC+ Core system, land cover/land use data, EAGLE barcoding, data Ingestion, data Extraction, Input Classes, Output Classes, extraction rulesets, Coverage Functions, spatial data aggregation, Copernicus Land Monitoring Service, INSPIRE themes
+{keywords_str}
 
   
 **Contact:**

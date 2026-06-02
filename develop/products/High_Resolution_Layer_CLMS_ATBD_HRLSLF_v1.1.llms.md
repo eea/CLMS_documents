@@ -2,15 +2,13 @@
 
 Copernicus Land Monitoring Service
 
-This Algorithm Theoretical Basis Document (ATBD) details the methodologies employed to generate the 2021 High Resolution Layer Small Landscape Features (HRL SLF) product suite within the Copernicus Land Monitoring Service (CLMS). The document outlines the entire processing chain, from the acquisition and preprocessing of Very High Resolution (VHR) imagery and Sentinel-2 data, to the classification algorithms used for woody vegetation detection, and the post-processing steps involved in deriving the final SLF layers. The technical focus encompasses deep learning techniques, image analysis, and change detection methodologies crucial for accurate land cover mapping.
-
 Published
 
 November 20, 2025
 
 Keywords
 
-Small Landscape Features, Woody Vegetation Layer, Deep Learning, Sentinel-2 data, Very High Resolution imagery, Convolutional Neural Network, Time-series analysis, Object-based image analysis, Super-resolution mapping, Change detection
+{keywords_str}
 
   
 **Contact:**

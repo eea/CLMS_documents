@@ -2,15 +2,15 @@
 
 Copernicus Land Monitoring Service
 
-This document serves as the Product User Manual (PUM) for the Copernicus Land Monitoring Service (CLMS) Urban Atlas Building Block Height Model (UA BBHM) 2012. It provides comprehensive information regarding the UA BBHM product suite, including its purpose, scope, and intended use. The manual details the product’s methodology, specifications, quality assessment procedures, and potential applications for urban analysis, policy support, and environmental monitoring across 870 cities and urban centres within the EEA38 region. It is designed to guide users in effectively understanding and utilising the harmonised building height data provided by the UA BBHM.
+This document is the Product User Manual for the Urban Atlas Building Block Height Model (UA BBHM) for the Copernicus Land Monitoring Service (CLMS) by the European Environment Agency (EEA). It outlines the product’s scope, methodology, and use cases, supporting the delivery of harmonised building height data for 870 cities and urban centres across the EEA38 region. The manual guides users in understanding the dataset’s characteristics, quality assessments, and potential applications for urban analysis and policy support.
 
 Published
 
-December 3, 2025
+August 1, 2022
 
 Keywords
 
-Building Block Height Model, Digital Surface Model (DSM), Digital Terrain Model (DTM), Functional Urban Area (FUA), False stereo pair images, Urban heat island effect, Land Surface Temperature (LST), Population density modelling, Semi-Global Matching (SGM), Building footprint extraction
+{keywords_str}
 
   
 **Contact:**

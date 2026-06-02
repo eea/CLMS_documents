@@ -2,15 +2,13 @@
 
 Copernicus Land Monitoring Service
 
-This Product User Manual (PUM) serves as a comprehensive guide for the CLCplus Backbone 2023, a component of the Copernicus Land Monitoring Service. Aimed at users of all levels, the document details the product’s characteristics, functionalities, and practical applications. It outlines the product’s lineage, specifications, user requirements, and offers practical use cases. The manual thoroughly examines the main land cover raster layer, its auxiliary layers and the nomenclature. Furthermore, it offers guidance on product usage, data quality, and outlines the terms of use.
-
 Published
 
-December 3, 2025
+April 1, 2025
 
 Keywords
 
-CLCplus Backbone 2023, Land cover classification, Remote sensing, Sentinel-2 data, EAGLE Land Cover Components, Raster data, Data quality, Accuracy assessment, LULUCF, auxiliary layers
+{keywords_str}
 
   
 **Contact:**
