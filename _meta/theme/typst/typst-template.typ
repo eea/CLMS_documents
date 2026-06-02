@@ -131,9 +131,14 @@
   }
 
   // ---- figure captions ------------------------------------------------------
+  // `it.body` renders just the caption text from the qmd; `it` (the default)
+  // would add Typst's auto "Figure N:" supplement on top, which the docx-imported
+  // captions already carry. Without this, "Figure 12: foo" would become
+  // "Figure 12: Figure 12: foo" in the PDF. HTML never auto-prefixes, so this
+  // keeps both outputs consistent.
   show figure.caption: it => {
     set text(size: 9pt, fill: caption-blue)
-    it
+    it.body
   }
   // Extra breathing room after each figure (caption-to-next-paragraph gap).
   show figure: set block(below: 1.6em)
