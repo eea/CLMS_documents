@@ -2,16 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-07-08">
+<meta name="dcterms.date" content="2025-12-03">
 <meta name="keywords" content="InSAR displacement data, Satellite line-of-sight, GNSS time-series data, Absolute displacement measurements, Vertical displacement component, East-West displacement component, ETRS89-LAEA projection, Sentinel-1 burst segmentation, Temporal coherence, Amplitude Dispersion Index">
 <meta name="description" content="This document provides a comprehensive description of the European Ground Motion Service (EGMS) products, which are essential for understanding and utilising the service effectively. It details the specifications, formats, attribute tables, and metadata associated with the EGMS products, including the Basic, Calibrated, and Ortho datasets. The document also clarifies InSAR-specific definitions, product map projections, user downloading procedures, and ancillary datasets used in EGMS production, ensuring users can fully leverage the service’s capabilities for ground motion analysis and monitoring.">
 
 <title>European Ground Motion Service (EGMS) - Product Description and Format Specification – Technical Library</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -74,10 +77,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-24cc52c546c003a7d891213737239288.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ccd9cb9b1c9bdf1eabc4708995bd1808.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -110,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "@type": "ScholarlyArticle",
     "headline": "European Ground Motion Service (EGMS) - Product Description and Format Specification",
     "description": "This document provides a comprehensive description of the European Ground Motion Service (EGMS) products, which are essential for understanding and utilising the service effectively. It details the specifications, formats, attribute tables, and metadata associated with the EGMS products, including the Basic, Calibrated, and Ortho datasets. The document also clarifies InSAR-specific definitions, product map projections, user downloading procedures, and ancillary datasets used in EGMS production, ensuring users can fully leverage the service’s capabilities for ground motion analysis and monitoring.",
-    "datePublished": "July 8, 2025",
+    "datePublished": "December 3, 2025",
     "author": {
       "@type": "Person",
       "name": "?meta:author"
@@ -123,7 +126,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "?invalid meta type:keywords",
+    "keywords": "InSAR displacement data
+
+Satellite line-of-sight
+
+GNSS time-series data
+
+Absolute displacement measurements
+
+Vertical displacement component
+
+East-West displacement component
+
+ETRS89-LAEA projection
+
+Sentinel-1 burst segmentation
+
+Temporal coherence
+
+Amplitude Dispersion Index
+",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -135,7 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -148,7 +170,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -190,7 +212,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Content</h2>
+    <h2 id="toc-title">Index</h2>
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
@@ -240,16 +262,12 @@ window.Quarto = {
   <li><a href="#document-control-information" id="toc-document-control-information" class="nav-link" data-scroll-target="#document-control-information"><span class="header-section-number">12</span> Document Control Information</a></li>
   <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">13</span> Change Log</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="European_Ground_Motion_Service_Product_Description_v3.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="European_Ground_Motion_Service_Product_Description_v3.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="European_Ground_Motion_Service_Product_Description_v3.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Remove link to .docx file
-    //
-    document.querySelectorAll("a[href$='.docx']").forEach((link) => (link.style.display = "none"));
-
     // Add Version to the title's metadata
     //
     const titleMetaEl = document.querySelector(".quarto-title-meta");
@@ -257,7 +275,7 @@ window.Quarto = {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>3</p>
+          <p>3.0.0</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -283,7 +301,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 8, 2025</p>
+      <p class="date">December 3, 2025</p>
     </div>
   </div>
   
@@ -311,7 +329,7 @@ Denmark<br>
 <a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
 </div>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Figure  1  EGMS  Basic  (L2a)  product.  Provided  as  a  2D,  colour-coded  by  average  velocity,  map.  Displacement  data  provided  in  the  satellite  line-of-sight,  and  in  radar  geometry,  with  annotated  geolocalisation  and  quality  measures  per  measurement  point.  A  time  series  plot  is  associated  with  each  point.","url":"European_Ground_Motion_Service_Product_Description_v3-media/image3.png"},{"@type":"ImageObject","caption":"Figure  2  EGMS  Ortho  product.  Absolute,  vertical  displacement.  The  gridded  nature  of  the  data  is  clearly  visible.","url":"European_Ground_Motion_Service_Product_Description_v3-media/image4.png"},{"@type":"ImageObject","caption":"Figure  3  Ortho  products  grid.","url":"European_Ground_Motion_Service_Product_Description_v3-media/image5.png"}]}
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Figure  1  EGMS  Basic  (L2a)  product.  Provided  as  a  2D,  colour-coded  by  average  velocity,  map.  Displacement  data  provided  in  the  satellite  line-of-sight,  and  in  radar  geometry,  with  annotated  geolocalisation  and  quality  measures  per  measurement  point.  A  time  series  plot  is  associated  with  each  point.","url":"European_Ground_Motion_Service_Product_Description_v3-media/image3.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  2  EGMS  Ortho  product.  Absolute,  vertical  displacement.  The  gridded  nature  of  the  data  is  clearly  visible.","url":"European_Ground_Motion_Service_Product_Description_v3-media/image4.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  3  Ortho  products  grid.","url":"European_Ground_Motion_Service_Product_Description_v3-media/image5.png","width":"4.59in"}]}
 </script>
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
@@ -427,7 +445,7 @@ Denmark<br>
 <h2 data-number="2.1" class="anchored" data-anchor-id="the-egms-basic-product"><span class="header-section-number">2.1</span> The EGMS Basic product</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="European_Ground_Motion_Service_Product_Description_v3-media/image3.png" class="img-fluid figure-img"></p>
+<p><img src="European_Ground_Motion_Service_Product_Description_v3-media/image3.png" class="img-fluid figure-img" style="width:6.27in" alt="A geographic information system (GIS) view of Persistent Scatterer Interferometry (PSI) measurement points overlaid on a satellite imagery background, depicting a forested, hilly landscape with lakes, likely in northeastern France based on the coordinates (48.34° N, 6.22° E). The main map displays numerous coloured points, predominantly green with some yellow, representing ground motion measurements. A 'Legend' window shows that 'Limits are in mm/year', with a colour gradient from light blue (-20 mm/year) through green to dark red (20 mm/year), indicating mean velocity. A slider for transparency is set to 100%, and point size is 2.5 pixels. The displayed data uses a 'Medium (-20 to 20)' range. A 'Data' pop-up table details attributes for a specific PSI point (Point ID: 0x2b84474898024, Dataset: TREA-ORR2-L2A-088A-v1): | Name | Value | |:----------------|:---------------| | LATITUDE | 48.34320700 | | LONGITUDE | 6.22853301 | | HEIGHT | 340.19935617 | | Dataset | TREA-ORR2-L2A-088A-v1 | | Point ID | 0x2b84474898024 | | Track | 88 | | Mode | 1 | | Burst | 286 | | Line | 275 | | Pixel | 36 | | latitude | 48.34320831 | | longitude | 6.22853279 | | easting | 4041441.25000000 | | northing | 2810445.25000000 | | height | 340.20001221 | | height_wgs84 | 388.29998779 | | pixel | 36 | | line | 275 | | mean_velocity | -7.40000010 | | mean_velocity_std | 0.10000000 | A 'Plot of 1 point' chart displays the cumulative displacement for the selected point (Point ID: 0x2b84474898024, Position: 48.343208 N 6.228533 E 340.20 m). The chart shows: * Y-axis: Displacement (mm), ranging from -80 to 20 mm. * X-axis: Measurement date, from 20150208 (February 8, 2015) to 20200816 (August 16, 2020). * Data points (red circles) indicate a continuous downward trend in displacement, starting near 0 mm in mid-2015 and reaching approximately -40 mm by mid-2020, suggesting subsidence. A thin red line represents a linear fit to these points. * The mean velocity is -7.40 mm/year, with a coherence of 0.69. * Incidence angle is 36.56°, Track angle is -8.28°, and Azimuth angle is 81.72°. * Two compass diagrams show the Up/Down (U/D) and North/South/East/West (N/S/E/W) observation geometries."></p>
 <figcaption>Figure 1 EGMS Basic (L2a) product. Provided as a 2D, colour-coded by average velocity, map. Displacement data provided in the satellite line-of-sight, and in radar geometry, with annotated geolocalisation and quality measures per measurement point. A time series plot is associated with each point.</figcaption>
 </figure>
 </div>
@@ -446,7 +464,7 @@ Denmark<br>
 <h2 data-number="2.3" class="anchored" data-anchor-id="the-egms-ortho-product"><span class="header-section-number">2.3</span> The EGMS Ortho product</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="European_Ground_Motion_Service_Product_Description_v3-media/image4.png" class="img-fluid figure-img"></p>
+<p><img src="European_Ground_Motion_Service_Product_Description_v3-media/image4.png" class="img-fluid figure-img" style="width:6.27in" alt="This map displays Interferometric Synthetic Aperture Radar (InSAR) displacement data from the Copernicus Land Monitoring Service (CLMS) EGMS Basic (L2a) product, specifically 'TREA-ORR2-L3-UP-v1'. The background is a satellite image showing a forested, mountainous area. Numerous green, yellow, and orange points represent InSAR measurement points, colour-coded by average velocity. A white circle highlights a selected measurement point. An embedded 'Data' table on the top left provides specific attributes for the selected point: | Name | Value | |---|---| | LATITUDE | 47.89235200 | | LONGITUDE | 6.76182800 | | HEIGHT | 544.40005493 | | Dataset | TREA-ORR2-L3-UP-v1 | | Point ID | 0x2b8444d5b045f | | Track | 88 | | Mode | 1 | | Burst | 276 | | Line | 694 | | Pixel | 1119 | | latitude | 47.89235306 | | longitude | 6.76182795 | | height | 544.40002441 | | mean_velocity | -0.6999999 | | rmse | 1.1000002 | | temporal_coherence | 0.9499999 | | pixel | 1119 | | line | 694 | | incidence_angle | 0 | | track_angle | 0 | | los_east | 0 | An embedded chart titled 'Plot of 1 point' on the top right shows the time series of displacement for the selected point (ID: 0x2b8444d5b045f). The Y-axis represents 'Displacement mm' ranging from -10 to 10 mm, and the X-axis represents 'Measurement date' from 20151124 to 20200922. The chart displays green data points that fluctuate around 0 mm displacement, generally staying between -2.5 mm and 2.5 mm. Key annotations include: Dataset TREA-ORR2-L3-UP-v1, Position 47.892353 N 6.761828 E 544.40 m, Mean velocity -0.70 mm, Coherence 0.95, Incidence angle 0.00°, Track angle 0.00°, and Azimuth angle 90.00°. Two compass rose diagrams illustrate incidence and azimuth angles. A 'Legend' window on the bottom left defines the colour coding for average velocity across all datasets. The colour bar ranges from red (-20 mm/year) to blue (20 mm/year). Controls are provided for opacity (100%), point size (2.5 pixels), and range selection ('Medium (-20 to 20)'). The 'InSAR default' rainbow colour palette (red, orange, yellow, green, blue, purple) is also visible. The map points are predominantly green, indicating velocities close to 0 mm/year."></p>
 <figcaption>Figure 2 EGMS Ortho product. Absolute, vertical displacement. The gridded nature of the data is clearly visible.</figcaption>
 </figure>
 </div>
@@ -462,13 +480,13 @@ Denmark<br>
 </section>
 <section id="the-egms-a-epnd-gnss-based-reference-model" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="the-egms-a-epnd-gnss-based-reference-model"><span class="header-section-number">2.4</span> The EGMS A-EPND GNSS-based reference model</h2>
-<p>The process of generating the Calibrated (see section 2.2) and the Ortho (see Section 2.3) products requires the availability of a reference model derived from GNSS data. The augmented EPND (A-EPND) model is produced based on GNSS data from various sources, with the EUREF Densification product (EPND) as the main source. In order to exploit the strengths of both InSAR and GNSS data, the reference model contains average velocities in 3D (east, north, up) on a 50-km grid. Deviations from the constant velocity model, as well as motion on shorter spatial scales than the reference model, will be estimated from InSAR data with high spatial density. Further details about the A-EPND model can be found in RD8. </p><div style="page-break-after: always;"></div><p></p>
+<p>The process of generating the Calibrated (see section 2.2) and the Ortho (see Section 2.3) products requires the availability of a reference model derived from GNSS data. The augmented EPND (A-EPND) model is produced based on GNSS data from various sources, with the EUREF Densification product (EPND) as the main source. In order to exploit the strengths of both InSAR and GNSS data, the reference model contains average velocities in 3D (east, north, up) on a 50-km grid. Deviations from the constant velocity model, as well as motion on shorter spatial scales than the reference model, will be estimated from InSAR data with high spatial density. Further details about the A-EPND model can be found in RD8.</p>
 </section>
 </section>
 <section id="projection-and-datum" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Projection and Datum</h1>
 <p><em>Basic</em> and <em>Calibrated</em> products are <strong>point</strong> databases (i.e., ‘vector data’ in GIS jargon). As such, the choice of projection and datum does not affect the product quality - they can be reprojected on-the-fly without any geometric distortion. Modern GIS platforms can make such reprojections rapidly, so the choice of projection for storage and delivery of these products is not critical. However, a uniform projection is used for EGMS products using the European Grid (ETRS89-LAEA), a standard based upon the ETRS89 Lambert Azimuthal Equal-Area projection coordinate reference system, with the centre of the projection at the point 52° N, 10° E. In addition, non-projected (geographic) coordinates using the WGS84 datum are annotated for each measurement point in <em>Basic</em> and <em>Calibrated</em> products.</p>
-<p>EGMS <em>Ortho</em> products (which are in raster format) are based upon a 100 m grid, where each cell is dependent on the chosen projection and datum. When such data are reprojected, they must be resampled, and thus are susceptible to geometric distortions.</p><div style="page-break-after: always;"></div><p></p>
+<p>EGMS <em>Ortho</em> products (which are in raster format) are based upon a 100 m grid, where each cell is dependent on the chosen projection and datum. When such data are reprojected, they must be resampled, and thus are susceptible to geometric distortions.</p>
 </section>
 <section id="egms-product-specifications" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> EGMS Product Specifications</h1>
@@ -479,84 +497,139 @@ Denmark<br>
 <caption>Table 1 EGMS Basic product specifications</caption>
 <colgroup>
 <col style="width: 6%">
-<col style="width: 93%">
+<col style="width: 92%">
+<col style="width: 0%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">ITEM</th>
 <th style="text-align: left;">Specification</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Tiling</td>
 <td style="text-align: left;">Original burst segmentation of the reference image.</td>
+<td></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Reference system</td>
 <td style="text-align: left;">ETRS89-LAEA.</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">File name convention</td>
-<td style="text-align: left;"><p>Data from each burst are contained in single CSV format file the name of which is in the format EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_<em>c</em>.csv (e.g., EGMS_L2a_088_0282_IW2_VV_2018_2022_1.zip), where</p>
-<ul>
+<td colspan="2" style="text-align: left;">Data from each burst are contained in single CSV format file the name of which is in the format EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_*c*.csv (e.g., EGMS_L2a_088_0282_IW2_VV_2018_2022_1.zip), where</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
 <li><p><em>xxx</em> - Track number</p></li>
 <li><p><em>yyyy</em> - Progressive index for the burst inside the track</p></li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
 <li><p><em>z</em> - The swath the burst belongs to</p></li>
 <li><p><em>ww</em> - Polarization</p></li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
 <li><p><em>aaaa</em> - First nominal year of the years’ time range in which data are included</p></li>
 <li><p><em>bbbb</em> - Last nominal year of the years’ time range in which data are included</p></li>
-<li><p><em>c</em> Version of the delivered data</p></li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><em>c</em> Version of the delivered data</li>
 </ul>
-<p>Further details on the file naming convention can be found in section 11.2.</p>
-<p>Deliverables belonging to the Baseline or to the First update follow the same naming convention with the exception of the suffix _xxxx_yyyy_z, which is not applied.</p></td>
+<p>Further details on the file naming convention can be found in section 11.2.</p></td>
+<td></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Deliverables belonging to the Baseline or to the First update follow the same naming convention with the exception of the suffix _xxxx_yyyy_z, which is not applied.</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">Format</td>
 <td style="text-align: left;">Vector point.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Header information</td>
-<td style="text-align: left;">For each CSV data file there is a header file in XML format, the name of which is a copy of the name of the relative data file (e.g., EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_<em>c</em>.xml). The header file contains metadata useful to identify the origins of each product and to allow reproducibility. The structure of the header file can be found in section 11.1.</td>
+<td></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">Header information</td>
+<td colspan="2" style="text-align: left;">For each CSV data file there is a header file in XML format, the name of which is a copy of the name of the relative data file (e.g., EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_*c*.xml). The header file contains metadata useful to identify the origins of each product and to allow reproducibility. The structure of the header file can be found in section 11.1.</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">Epoch spanned</td>
 <td style="text-align: left;"><ul>
-<li><p>Baseline - From February 2015 to December 2020</p></li>
+<li>Baseline - From February 2015 to December 2020</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
 <li><p>1<sup>st</sup> Update - From February 2015 to December 2021</p></li>
 <li><p>2<sup>nd</sup> Update - From January 2018 to December 2022</p></li>
-<li><p>3<sup>rd</sup> Update - From January 2019 to December 2023</p></li>
 </ul></td>
+<td></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li>3<sup>rd</sup> Update - From January 2019 to December 2023</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Spatial resolution</td>
 <td style="text-align: left;">PS full resolution (single pixel of Sentinel-1 constellation products in Interferometric Wide Swath. Namely, 5 x 20 m), DS better than 100 m.</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Temporal resolution</td>
 <td style="text-align: left;">12 days till October 2016 and 6 days from October 2016 onward.</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">3D geolocation accuracy</td>
 <td style="text-align: left;">Better than 10m.</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Mean velocity resolution</td>
 <td style="text-align: left;">Better than 1 mm/year.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mean velocity STD</td>
-<td style="text-align: left;">0.7 mm/year (1 σ) for MP with coherence greater than 0.7.</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Displacement STD</td>
-<td style="text-align: left;">4 mm (1 σ).</td>
+<td style="text-align: left;">Mean velocity STD</td>
+<td style="text-align: left;">0.7 mm/year (1 σ) for MP with coherence greater than 0.7.</td>
+<td></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">Displacement STD</td>
+<td style="text-align: left;">4 mm (1 σ).</td>
+<td></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">MP density</td>
-<td style="text-align: left;"><p>CLC18-1.1.1 ‘Continuous Urban Fabric’: &gt;= 5,000 MP/km<sup>2</sup>.</p>
-<p>CLC18-1.1.2 ‘Discontinuous Urban Fabric’ and 1.2 ‘Industrial, Commercial, and Transport Units’: &gt;=1,000 MP/km<sup>2</sup>.</p>
+<td style="text-align: left;">CLC18-1.1.1 ‘Continuous Urban Fabric’: &gt;= 5,000 MP/km<sup>2</sup>.</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><p>CLC18-1.1.2 ‘Discontinuous Urban Fabric’ and 1.2 ‘Industrial, Commercial, and Transport Units’: &gt;=1,000 MP/km<sup>2</sup>.</p>
 <p>CLC18-3.3 ‘Open Spaces with Little or no Vegetation’: &gt;=100 MP/km<sup>2</sup>.</p></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -567,84 +640,139 @@ Denmark<br>
 <caption>Table 2 EGMS Calibrated product specifications</caption>
 <colgroup>
 <col style="width: 6%">
-<col style="width: 93%">
+<col style="width: 92%">
+<col style="width: 0%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">ITEM</th>
 <th style="text-align: left;">Specification</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Tiling</td>
 <td style="text-align: left;">Original burst segmentation of the reference image.</td>
+<td></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Reference system</td>
 <td style="text-align: left;">ETRS89-LAEA.</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">File name convention</td>
-<td style="text-align: left;"><p>Data from each burst are contained in single CSV format file the name of which is in the format EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_<em>c</em>.csv (e.g., EGMS_L2a_088_0282_IW2_VV_2018_2022_1.zip), where</p>
-<ul>
+<td colspan="2" style="text-align: left;">Data from each burst are contained in single CSV format file the name of which is in the format EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_*c*.csv (e.g., EGMS_L2a_088_0282_IW2_VV_2018_2022_1.zip), where</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
 <li><p><em>xxx</em> - Track number</p></li>
 <li><p><em>yyyy</em> - Progressive index for the burst inside the track</p></li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
 <li><p><em>z</em> - The swath the burst belongs to</p></li>
 <li><p><em>ww</em> - Polarization</p></li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
 <li><p><em>aaaa</em> - First nominal year of the years’ time range in which data are included</p></li>
 <li><p><em>bbbb</em> - Last nominal year of the years’ time range in which data are included</p></li>
-<li><p><em>c</em> Version of the delivered data</p></li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><em>c</em> Version of the delivered data</li>
 </ul>
-<p>Further details on the file naming convention can be found in section 11.2.</p>
-<p>Deliverables belonging to the Baseline or to the First update follow the same naming convention with the exception of the suffix _xxxx_yyyy_z, which is not applied.</p></td>
+<p>Further details on the file naming convention can be found in section 11.2.</p></td>
+<td></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Deliverables belonging to the Baseline or to the First update follow the same naming convention with the exception of the suffix _xxxx_yyyy_z, which is not applied.</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">Format</td>
 <td style="text-align: left;">Vector point.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Header information</td>
-<td style="text-align: left;">For each CSV data file there is a header file in XML format, the name of which is a copy of the name of the relative data file (e.g., EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_<em>c</em>.xml). The header file contains metadata useful to identify the origins of each product and to allow reproducibility. The structure of the header file can be found in section 11.1.</td>
+<td></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">Header information</td>
+<td colspan="2" style="text-align: left;">For each CSV data file there is a header file in XML format, the name of which is a copy of the name of the relative data file (e.g., EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_*c*.xml). The header file contains metadata useful to identify the origins of each product and to allow reproducibility. The structure of the header file can be found in section 11.1.</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">Epoch spanned</td>
 <td style="text-align: left;"><ul>
-<li><p>Baseline - From February 2015 to December 2020</p></li>
+<li>Baseline - From February 2015 to December 2020</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
 <li><p>1<sup>st</sup> Update - From February 2015 to December 2021</p></li>
 <li><p>2<sup>nd</sup> Update - From January 2018 to December 2022</p></li>
-<li><p>3<sup>rd</sup> Update - From January 2019 to December 2023</p></li>
 </ul></td>
+<td></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li>3<sup>rd</sup> Update - From January 2019 to December 2023</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Spatial resolution</td>
 <td style="text-align: left;">PS full resolution (single pixel of Sentinel-1 constellation products in Interferometric Wide Swath. Namely, 5 x 20 m), DS better than 100 m.</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Temporal resolution</td>
 <td style="text-align: left;">12 days till October 2016 and 6 days from October 2016 onward.</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">3D geolocation accuracy</td>
 <td style="text-align: left;">Better than 10 m.</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Mean velocity resolution</td>
 <td style="text-align: left;">Better than 1 mm/year.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mean velocity STD</td>
-<td style="text-align: left;">0.7 mm/year (1 σ) for MP with coherence greater than 0.7.</td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Displacement STD</td>
-<td style="text-align: left;">8 mm (1 σ).</td>
+<td style="text-align: left;">Mean velocity STD</td>
+<td style="text-align: left;">0.7 mm/year (1 σ) for MP with coherence greater than 0.7.</td>
+<td></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">Displacement STD</td>
+<td style="text-align: left;">8 mm (1 σ).</td>
+<td></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">MP density</td>
-<td style="text-align: left;"><p>CLC18-1.1.1 ‘Continuous Urban Fabric’: &gt;= 5,000 MP/km<sup>2</sup>.</p>
-<p>CLC18-1.1.2. ‘Discontinuous Urban Fabric’ and 1.2 ‘Industrial, Commercial, and Transport Units’: &gt;=1,000 MP/km<sup>2</sup>.</p>
+<td style="text-align: left;">CLC18-1.1.1 ‘Continuous Urban Fabric’: &gt;= 5,000 MP/km<sup>2</sup>.</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><p>CLC18-1.1.2. ‘Discontinuous Urban Fabric’ and 1.2 ‘Industrial, Commercial, and Transport Units’: &gt;=1,000 MP/km<sup>2</sup>.</p>
 <p>CLC18-3.3- ‘Open Spaces with Little or no Vegetation’: &gt;=100 MP/km<sup>2</sup>.</p></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -674,61 +802,90 @@ Denmark<br>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">File name convention</td>
-<td style="text-align: left;"><p>Two Geo TIFF files for each tile, one for vertical velocity component, and one for east-west. File names are in the format EGMS_L3_E<em>XX</em>N<em>YY</em>_100km_<em>C</em>_aaaa_bbbb_c.tif (e.g., EGMS_L3_E40N28_100km_U_2018_2022_1.tif and EGMS_L3_E40N28_100km_E_2018_2022_1.tif), where</p>
-<ul>
+<td style="text-align: left;">Two Geo TIFF files for each tile, one for vertical velocity component, and one for east-west. File names are in the format EGMS_L3_E<em>XX</em>N<em>YY</em>_100km_<em>C</em>_aaaa_bbbb_c.tif (e.g., EGMS_L3_E40N28_100km_U_2018_2022_1.tif and EGMS_L3_E40N28_100km_E_2018_2022_1.tif), where</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
 <li><p><em>XX</em> - Easting coordinate of the South-West corner of the lower left pixel of the tile</p></li>
 <li><p><em>YY</em> - Northing coordinate of the South-West corner of the lower left pixel of the tile</p></li>
-<li><p><em>C</em> - Mean velocity component (U for vertical displacement and E for horizontal displacement in the East-West direction)</p></li>
-<li><p><em>aaaa</em> - First nominal year of the years’ time range in which data are included</p></li>
-<li><p><em>bbbb</em> - Last nominal year of the years’ time range in which data are included</p></li>
-<li><p><em>c</em> Version of the delivered data</p></li>
-</ul>
-<p>Associated with each tile are also two CSV files, containing the time-series and other parameters for the two mean velocity components. The file names follow the same convention as mean velocity Geo TIFF, except for the file extension (e.g., EGMS_L3_E40N28_100km_U_2018_2022_1.csv and EGMS_L3_E40N28_100km_E_2018_2022_1.csv). The coordinates contained in the vector csv format refer to the centre of the resolution cell.</p>
-<p>Further details on the file naming convention can be found in section 11.2.</p>
-<p>Deliverables belonging to the Baseline or to the First update follow the same naming convention with the exception of the suffix _xxxx_yyyy_z, which is not applied.</p></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Format</td>
-<td style="text-align: left;">Raster + vector point.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Header information</td>
-<td style="text-align: left;">For each CSV data file there is a header file in XML format, the name of which is a copy of the name of the relative data file (e.g., EGMS_L3_E40N28_100km_U_2018_2022_1.xml). The header file contains metadata useful to identify the origins of each product and to allow reproducibility. The structure of the header file can be found in section 11.1.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Epoch spanned</td>
-<td style="text-align: left;"><ul>
-<li><p>Baseline - From February 2015 to December 2020</p></li>
-<li><p>1<sup>st</sup> Update - From February 2015 to December 2021</p></li>
-<li><p>2<sup>nd</sup> Update - From January 2018 to December 2022</p></li>
-<li><p>3<sup>rd</sup> Update - From January 2019 to December 2023</p></li>
 </ul></td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><p><em>C</em> - Mean velocity component (U for vertical displacement and E for horizontal displacement in the East-West direction)</p></li>
+<li><p><em>aaaa</em> - First nominal year of the years’ time range in which data are included</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><p><em>bbbb</em> - Last nominal year of the years’ time range in which data are included</p></li>
+<li><p><em>c</em> Version of the delivered data</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><p>Associated with each tile are also two CSV files, containing the time-series and other parameters for the two mean velocity components. The file names follow the same convention as mean velocity Geo TIFF, except for the file extension (e.g., EGMS_L3_E40N28_100km_U_2018_2022_1.csv and EGMS_L3_E40N28_100km_E_2018_2022_1.csv). The coordinates contained in the vector csv format refer to the centre of the resolution cell.</p>
+<p>Further details on the file naming convention can be found in section 11.2.</p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Deliverables belonging to the Baseline or to the First update follow the same naming convention with the exception of the suffix _xxxx_yyyy_z, which is not applied.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Format</td>
+<td style="text-align: left;">Raster + vector point.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Header information</td>
+<td style="text-align: left;">For each CSV data file there is a header file in XML format, the name of which is a copy of the name of the relative data file (e.g., EGMS_L3_E40N28_100km_U_2018_2022_1.xml). The header file contains metadata useful to identify the origins of each product and to allow reproducibility. The structure of the header file can be found in section 11.1.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Epoch spanned</td>
+<td style="text-align: left;"><ul>
+<li>Baseline - From February 2015 to December 2020</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li><p>1<sup>st</sup> Update - From February 2015 to December 2021</p></li>
+<li><p>2<sup>nd</sup> Update - From January 2018 to December 2022</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><ul>
+<li>3<sup>rd</sup> Update - From January 2019 to December 2023</li>
+</ul></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Spatial resolution</td>
 <td style="text-align: left;">100m x 100m.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Temporal resolution</td>
 <td style="text-align: left;">All the time series start on the first days of January and end on the last days of December of the first and last nominal years of the time range in which data are included, with regular six-day temporal sampling with origin on 3-April-2014 (launch date of S1A)**. A regular sampling will be maintained whenever possible, even if, in correspondence of huge gaps in the originating L2b products time series, customized solutions may be adopted.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">3D geolocation accuracy</td>
 <td style="text-align: left;">Better than 10 m.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Mean velocity resolution</td>
 <td style="text-align: left;">Better than 1 mm/year.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Mean velocity STD</td>
 <td style="text-align: left;">0.7 mm/year (1 σ).</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Displacement STD</td>
 <td style="text-align: left;">8 mm (1 σ).</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">MP density</td>
 <td style="text-align: left;">Dependent on the point density in L2b, downgraded to a 100 x 100 m resolution.</td>
 </tr>
@@ -742,73 +899,81 @@ Denmark<br>
 <p>For more details please refer to document [RD8].</p>
 <p>The model is available for download via the CLMS page dedicated to EGMS (https://land.copernicus.eu/pan-european/european-ground-motion-service) .</p>
 <table class="caption-top table">
-<caption>Table 4 GNSS model product specifications<div style="page-break-after: always;"></div></caption>
+<caption>Table 4 GNSS model product specifications</caption>
 <colgroup>
-<col style="width: 8%">
-<col style="width: 91%">
+<col style="width: 30%">
+<col style="width: 69%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">ITEM</th>
-<th style="text-align: left;">Specification</th>
+<th>ITEM</th>
+<th>Specification</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Tiling</td>
-<td style="text-align: left;">One single CSV file.</td>
+<td>Tiling</td>
+<td>One single CSV file.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Reference system</td>
-<td style="text-align: left;"><p>Grid coordinates: ETRS89-LAEA</p>
-<p>Values: Local East-North-Up, aligned with WGS84 geodetic coordinates</p></td>
+<td>Reference system</td>
+<td>Grid coordinates: ETRS89-LAEA</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">File name convention</td>
-<td style="text-align: left;"><p>EGMS_AEPND_Vyyyy.i.csv</p>
-<p>yyyy = year of issue</p>
-<p>i = revision within year (0 = pre-release, 1 = first full release)</p>
-<p>e.g., EGMS_AEPND_V2020.0.csv for the ORR reduced grid.</p></td>
+<td></td>
+<td>Values: Local East-North-Up, aligned with WGS84 geodetic coordinates</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Format</td>
-<td style="text-align: left;">Vector point of velocities (East, North, Up)</td>
+<td>File name convention</td>
+<td>EGMS_AEPND_Vyyyy.i.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Header information</td>
-<td style="text-align: left;">TBD</td>
+<td></td>
+<td>yyyy = year of issue<br><br>i = revision within year (0 = pre-release, 1 = first full release)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Epoch spanned</td>
-<td style="text-align: left;">Baseline: February 2015 – December 2020, plus three annual updates till 2023. The update policy will be released in Q1 2021. Note that some stations used in the production of the model do not cover the temporal baseline completely. The threshold for inclusion is set to 3 years, see [D19.1].</td>
+<td></td>
+<td>e.g., EGMS_AEPND_V2020.0.csv for the ORR reduced grid.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Spatial resolution</td>
-<td style="text-align: left;">50 km in LAEA easting/northing</td>
+<td>Format</td>
+<td>Vector point of velocities (East, North, Up)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Temporal resolution</td>
-<td style="text-align: left;">Linear rates only</td>
+<td>Header information</td>
+<td>TBD</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">3D geolocation accuracy</td>
-<td style="text-align: left;">N/A</td>
+<td>Epoch spanned</td>
+<td>Baseline: February 2015 – December 2020, plus three annual updates till 2023. The update policy will be released in Q1 2021. Note that some stations used in the production of the model do not cover the temporal baseline completely. The threshold for inclusion is set to 3 years, see [D19.1].</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Mean velocity resolution</td>
-<td style="text-align: left;">N/A</td>
+<td>Spatial resolution</td>
+<td>50 km in LAEA easting/northing</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mean velocity STD</td>
-<td style="text-align: left;">Annotated for each velocity component in each grid point. Typical values are 0.1-0.2 mm/yr for East and North, and 0.5 mm/yr for Up.</td>
+<td>Temporal resolution</td>
+<td>Linear rates only</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Displacement STD</td>
-<td style="text-align: left;">N/A</td>
+<td>3D geolocation accuracy</td>
+<td>N/A</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">MP density</td>
-<td style="text-align: left;">N/A</td>
+<td>Mean velocity resolution</td>
+<td>N/A</td>
+</tr>
+<tr class="even">
+<td>Mean velocity STD</td>
+<td>Annotated for each velocity component in each grid point. Typical values are 0.1-0.2 mm/yr for East and North, and 0.5 mm/yr for Up.</td>
+</tr>
+<tr class="odd">
+<td>Displacement STD</td>
+<td>N/A</td>
+</tr>
+<tr class="even">
+<td>MP density</td>
+<td>N/A</td>
 </tr>
 </tbody>
 </table>
@@ -822,11 +987,11 @@ Denmark<br>
 <table class="caption-top table">
 <caption>Table 5 EGMS Basic and Calibrated product attributes. DP, digits precision</caption>
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 19%">
+<col style="width: 11%">
+<col style="width: 37%">
+<col style="width: 15%">
+<col style="width: 18%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1028,105 +1193,105 @@ Denmark<br>
 <table class="caption-top table">
 <caption>Table 6 EGMS Ortho product attributes</caption>
 <colgroup>
-<col style="width: 5%">
-<col style="width: 4%">
-<col style="width: 79%">
-<col style="width: 3%">
-<col style="width: 6%">
+<col style="width: 19%">
+<col style="width: 11%">
+<col style="width: 35%">
+<col style="width: 15%">
+<col style="width: 18%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Parameter</th>
-<th style="text-align: center;">Unit of Measure</th>
-<th style="text-align: left;">Meaning</th>
-<th style="text-align: center;">Example</th>
-<th style="text-align: center;">Data format</th>
+<th>Parameter</th>
+<th>Unit of Measure</th>
+<th>Meaning</th>
+<th>Example</th>
+<th>Data format</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">pid</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: left;">MP unique identifier – 10 characters.</td>
-<td style="text-align: center;">3ODTn5TNYv</td>
-<td style="text-align: center;">Alphanumeric Base 62</td>
+<td>pid</td>
+<td>-</td>
+<td>MP unique identifier – 10 characters.</td>
+<td>3ODTn5TNYv</td>
+<td>Alphanumeric Base 62</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">easting</td>
-<td style="text-align: center;">m</td>
-<td style="text-align: left;">ETRS89-LAEA.</td>
-<td style="text-align: center;">4662050</td>
-<td style="text-align: center;">integer</td>
+<td>easting</td>
+<td>m</td>
+<td>ETRS89-LAEA.</td>
+<td>4662050</td>
+<td>integer</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">northing</td>
-<td style="text-align: center;">m</td>
-<td style="text-align: left;">ETRS89-LAEA.</td>
-<td style="text-align: center;">115350</td>
-<td style="text-align: center;">integer</td>
+<td>northing</td>
+<td>m</td>
+<td>ETRS89-LAEA.</td>
+<td>115350</td>
+<td>integer</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">height</td>
-<td style="text-align: center;">m</td>
-<td style="text-align: left;">MP orthometric (geoid) height.</td>
-<td style="text-align: center;">67.4</td>
-<td style="text-align: center;">1 DP</td>
+<td>height</td>
+<td>m</td>
+<td>MP orthometric (geoid) height.</td>
+<td>67.4</td>
+<td>1 DP</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">rmse</td>
-<td style="text-align: center;">mm</td>
-<td style="text-align: left;">Evaluated on the time series residuals after applying a regression model of a third order polynomial plus a seasonal (sinusoidal) component.</td>
-<td style="text-align: center;">4.5</td>
-<td style="text-align: center;">1 DP</td>
+<td>rmse</td>
+<td>mm</td>
+<td>Evaluated on the time series residuals after applying a regression model of a third order polynomial plus a seasonal (sinusoidal) component.</td>
+<td>4.5</td>
+<td>1 DP</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">mean_velocity</td>
-<td style="text-align: center;">mm/year</td>
-<td style="text-align: left;">Evaluated on the time series residuals after applying a regression model of a first order polynomial plus a seasonal (sinusoidal) component. The value of the field is the first order coefficient of the polynomial.</td>
-<td style="text-align: center;">4.5</td>
-<td style="text-align: center;">1 DP</td>
+<td>mean_velocity</td>
+<td>mm/year</td>
+<td>Evaluated on the time series residuals after applying a regression model of a first order polynomial plus a seasonal (sinusoidal) component. The value of the field is the first order coefficient of the polynomial.</td>
+<td>4.5</td>
+<td>1 DP</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">mean_velocity_std</td>
-<td style="text-align: center;">mm/year</td>
-<td style="text-align: left;">Estimated standard deviation of the mean velocity using variance propagation on the regression model, without considering the atmospheric phase screen.</td>
-<td style="text-align: center;">2.1</td>
-<td style="text-align: center;">1 DP</td>
+<td>mean_velocity_std</td>
+<td>mm/year</td>
+<td>Estimated standard deviation of the mean velocity using variance propagation on the regression model, without considering the atmospheric phase screen.</td>
+<td>2.1</td>
+<td>1 DP</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">acceleration</td>
-<td style="text-align: center;">mm/year<sup>2</sup></td>
-<td style="text-align: left;">Evaluated on the time series residuals after applying a regression model of a second order polynomial plus a seasonal (sinusoidal) component. The value of the field is double of the second order coefficient of the polynomial (considering a model of the kind <span class="math inline">\(a_{0} + a_{1}x + a_{2}^{2}x^{2}\)</span>).</td>
-<td style="text-align: center;">0.51</td>
-<td style="text-align: center;">2 DP</td>
+<td>acceleration</td>
+<td>mm/year<sup>2</sup></td>
+<td>Evaluated on the time series residuals after applying a regression model of a second order polynomial plus a seasonal (sinusoidal) component. The value of the field is double of the second order coefficient of the polynomial (considering a model of the kind <span class="math inline">\(a_{0} + a_{1}x + a_{2}^{2}x^{2}\)</span>).</td>
+<td>0.51</td>
+<td>2 DP</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">acceleration_std</td>
-<td style="text-align: center;">mm/year<sup>2</sup></td>
-<td style="text-align: left;">Estimated standard deviation of the acceleration using variance propagation on the regression model.</td>
-<td style="text-align: center;">0.42</td>
-<td style="text-align: center;">2 DP</td>
+<td>acceleration_std</td>
+<td>mm/year<sup>2</sup></td>
+<td>Estimated standard deviation of the acceleration using variance propagation on the regression model.</td>
+<td>0.42</td>
+<td>2 DP</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">seasonality</td>
-<td style="text-align: center;">mm</td>
-<td style="text-align: left;">Evaluated on the time series residuals after applying a regression model of a third order polynomial plus a seasonal (sinusoidal) component. The value of the field is the amplitude of the seasonal oscillation.</td>
-<td style="text-align: center;">2.3</td>
-<td style="text-align: center;">1 DP</td>
+<td>seasonality</td>
+<td>mm</td>
+<td>Evaluated on the time series residuals after applying a regression model of a third order polynomial plus a seasonal (sinusoidal) component. The value of the field is the amplitude of the seasonal oscillation.</td>
+<td>2.3</td>
+<td>1 DP</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">seasonality_std</td>
-<td style="text-align: center;">mm</td>
-<td style="text-align: left;">Estimated standard deviation of the seasonal amplitude.</td>
-<td style="text-align: center;">3.4</td>
-<td style="text-align: center;">1 DP</td>
+<td>seasonality_std</td>
+<td>mm</td>
+<td>Estimated standard deviation of the seasonal amplitude.</td>
+<td>3.4</td>
+<td>1 DP</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Time-series</td>
-<td style="text-align: center;">mm</td>
-<td style="text-align: left;">Displacement values at each image acquisition. The header of each date will be in the format yyyymmdd without any prefix or suffix.</td>
-<td style="text-align: center;">3.6</td>
-<td style="text-align: center;">1 DP</td>
+<td>Time-series</td>
+<td>mm</td>
+<td>Displacement values at each image acquisition. The header of each date will be in the format yyyymmdd without any prefix or suffix.</td>
+<td>3.6</td>
+<td>1 DP</td>
 </tr>
 </tbody>
 </table>
@@ -1137,95 +1302,94 @@ Denmark<br>
 <table class="caption-top table">
 <caption>Table 7 GNSS model product Attributes</caption>
 <colgroup>
-<col style="width: 13%">
+<col style="width: 17%">
 <col style="width: 14%">
-<col style="width: 46%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 35%">
+<col style="width: 20%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Parameter</th>
-<th style="text-align: center;">Unit of measure</th>
-<th style="text-align: left;">Meaning</th>
-<th style="text-align: center;">Example</th>
-<th style="text-align: center;">Data format</th>
+<th>Parameter</th>
+<th>Unit of measure</th>
+<th>Meaning</th>
+<th>Example</th>
+<th>Data format</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Latitude</td>
-<td style="text-align: center;">deg</td>
-<td style="text-align: left;">Latitude in ETRF2000/GRS80</td>
-<td style="text-align: center;">6.382696567</td>
-<td style="text-align: center;">9 DP</td>
+<td>Latitude</td>
+<td>deg</td>
+<td>Latitude in ETRF2000/GRS80</td>
+<td>6.382696567</td>
+<td>9 DP</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Longitude</td>
-<td style="text-align: center;">deg</td>
-<td style="text-align: left;">Longitude in ETRF2000/GRS80</td>
-<td style="text-align: center;">47.80394392</td>
-<td style="text-align: center;">9 DP</td>
+<td>Longitude</td>
+<td>deg</td>
+<td>Longitude in ETRF2000/GRS80</td>
+<td>47.80394392</td>
+<td>9 DP</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">N</td>
-<td style="text-align: center;">mm/year</td>
-<td style="text-align: left;">North-South component velocity</td>
-<td style="text-align: center;">-0.12</td>
-<td style="text-align: center;">2 DP</td>
+<td>N</td>
+<td>mm/year</td>
+<td>North-South component velocity</td>
+<td>-0.12</td>
+<td>2 DP</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">E</td>
-<td style="text-align: center;">mm/year</td>
-<td style="text-align: left;">East-West component velocity</td>
-<td style="text-align: center;">0.17</td>
-<td style="text-align: center;">2 DP</td>
+<td>E</td>
+<td>mm/year</td>
+<td>East-West component velocity</td>
+<td>0.17</td>
+<td>2 DP</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Up</td>
-<td style="text-align: center;">mm/year</td>
-<td style="text-align: left;">Up/down component velocity</td>
-<td style="text-align: center;">0.34</td>
-<td style="text-align: center;">2 DP</td>
+<td>Up</td>
+<td>mm/year</td>
+<td>Up/down component velocity</td>
+<td>0.34</td>
+<td>2 DP</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">SigmaN</td>
-<td style="text-align: center;">mm/year</td>
-<td style="text-align: left;">North-South component velocity standard deviation.</td>
-<td style="text-align: center;">0.17</td>
-<td style="text-align: center;">2 DP</td>
+<td>SigmaN</td>
+<td>mm/year</td>
+<td>North-South component velocity standard deviation.</td>
+<td>0.17</td>
+<td>2 DP</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">SigmaE</td>
-<td style="text-align: center;">mm/year</td>
-<td style="text-align: left;">East-West component velocity standard deviation.</td>
-<td style="text-align: center;">0.34</td>
-<td style="text-align: center;">2 DP</td>
+<td>SigmaE</td>
+<td>mm/year</td>
+<td>East-West component velocity standard deviation.</td>
+<td>0.34</td>
+<td>2 DP</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">SigmaUP</td>
-<td style="text-align: center;">mm/year</td>
-<td style="text-align: left;">Up/down component velocity standard deviation.</td>
-<td style="text-align: center;">0.23</td>
-<td style="text-align: center;">2 DP</td>
+<td>SigmaUP</td>
+<td>mm/year</td>
+<td>Up/down component velocity standard deviation.</td>
+<td>0.23</td>
+<td>2 DP</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">easting</td>
-<td style="text-align: center;">m</td>
-<td style="text-align: left;">Easting position in ETRS89-LAEA, multiple of 50000 m.</td>
-<td style="text-align: center;">4050000</td>
-<td style="text-align: center;">Integer</td>
+<td>easting</td>
+<td>m</td>
+<td>Easting position in ETRS89-LAEA, multiple of 50000 m.</td>
+<td>4050000</td>
+<td>Integer</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">northing</td>
-<td style="text-align: center;">m</td>
-<td style="text-align: left;">Northing position in ETRS89-LAEA, multiple of 50000 m.</td>
-<td style="text-align: center;">2750000</td>
-<td style="text-align: center;">Integer</td>
+<td>northing</td>
+<td>m</td>
+<td>Northing position in ETRS89-LAEA, multiple of 50000 m.</td>
+<td>2750000</td>
+<td>Integer</td>
 </tr>
 </tbody>
 </table>
-<div style="page-break-after: always;"></div>
 </section>
 </section>
 <section id="egms-product-format" class="level1" data-number="6">
@@ -1244,7 +1408,7 @@ Denmark<br>
 <p><em>Ortho</em> products, differently from products L2a and L2b which are packed on a single burst logic, are split into 100 km x 100 km tiles, as reported in Figure 3.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="European_Ground_Motion_Service_Product_Description_v3-media/image5.png" class="img-fluid figure-img"></p>
+<p><img src="European_Ground_Motion_Service_Product_Description_v3-media/image5.png" class="img-fluid figure-img" style="width:4.59in" alt="Choropleth map displaying the spatial coverage of European Ground Motion Service (EGMS) products across Europe. The base map is satellite imagery showing landmasses and oceans. Country borders are outlined in yellow, encompassing a wide range of nations including EU Member States, Iceland, Ireland, United Kingdom, Portugal, Spain, France, Belgium, Netherlands, Germany, Denmark, Norway, Sweden, Finland, Poland, Czech Republic, Austria, Switzerland, Italy, Croatia, Bosnia and Herzegovina, Serbia, Romania, Bulgaria, Greece, and parts of Turkey. A regular grid pattern, depicted by thin green lines, is superimposed over the terrestrial areas and extends into coastal waters, particularly around the British Isles, Scandinavian coastlines, and the Mediterranean Sea. These green grid cells represent the product delivery units, consistent with the 50000 m easting and northing multiples in ETRS89-LAEA as described in the accompanying text for EGMS products."></p>
 <figcaption>Figure 3 Ortho products grid.</figcaption>
 </figure>
 </div>
@@ -1252,7 +1416,7 @@ Denmark<br>
 </section>
 <section id="gnss-model-product-format" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="gnss-model-product-format"><span class="header-section-number">6.4</span> GNSS model product format</h2>
-<p>The GNSS model is delivered as a single CSV file, with an accompanying XML header file with metadata from the production.</p><div style="page-break-after: always;"></div><p></p>
+<p>The GNSS model is delivered as a single CSV file, with an accompanying XML header file with metadata from the production.</p>
 </section>
 </section>
 <section id="downloading-egms-products" class="level1" data-number="7">
@@ -1267,38 +1431,49 @@ Denmark<br>
 <h1 data-number="9"><span class="header-section-number">9</span> Ancillary Datasets</h1>
 <p>A number of non-InSAR datasets are used in the production and validation of EGMS products. Table 11 below lists these along with a brief comment as to their purpose.</p>
 <table class="caption-top table">
-<caption>Table 8 Ancillary datasets used in EGMS production<div style="page-break-after: always;"></div></caption>
+<caption>Table 8 Ancillary datasets used in EGMS production</caption>
 <thead>
 <tr class="header">
 <th>ITEM</th>
-<th style="text-align: left;">COMMENT</th>
+<th>COMMENT</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Sentinel-1 precise orbit data</td>
-<td style="text-align: left;"><p>Precise orbit information is essential for high-quality InSAR analysis. Precise orbit data are distributed by ESA, with a current latency of about three weeks. See:</p>
-<p><a href="https://scihub.copernicus.eu/gnss/#/home" class="uri">https://scihub.copernicus.eu/gnss/#/home</a></p></td>
+<td>Precise orbit information is essential for high-quality InSAR analysis. Precise orbit data are distributed by ESA, with a current latency of about three weeks. See:</td>
 </tr>
 <tr class="even">
+<td></td>
+<td><a href="https://scihub.copernicus.eu/gnss/#/home" class="uri">https://scihub.copernicus.eu/gnss/#/home</a></td>
+</tr>
+<tr class="odd">
 <td>Digital Elevation Model</td>
-<td style="text-align: left;"><p>A DEM is needed to compensate for phase changes caused by topographic relief. For EGMS production, the Copernicus DEM GLO-30 (30 m resolution) is used, see:</p>
-<p><a href="https://spacedata.copernicus.eu/web/cscda/dataset-details?articleId=394198" class="uri">https://spacedata.copernicus.eu/web/cscda/dataset-details?articleId=394198</a></p></td>
+<td>A DEM is needed to compensate for phase changes caused by topographic relief. For EGMS production, the Copernicus DEM GLO-30 (30 m resolution) is used, see:</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><a href="https://spacedata.copernicus.eu/web/cscda/dataset-details?articleId=394198" class="uri">https://spacedata.copernicus.eu/web/cscda/dataset-details?articleId=394198</a></td>
 </tr>
 <tr class="odd">
 <td>Land cover data</td>
-<td style="text-align: left;"><p>Landcover influences MP density, and so a common landcover database is used to verify appropriate MP density and ensure consistency. For EGMS, the CLC 2018 CORINE land cover maps are used, see:</p>
-<p><a href="https://land.copernicus.eu/pan-european/corine-land-cover/clc2018" class="uri">https://land.copernicus.eu/pan-european/corine-land-cover/clc2018</a></p></td>
+<td>Landcover influences MP density, and so a common landcover database is used to verify appropriate MP density and ensure consistency. For EGMS, the CLC 2018 CORINE land cover maps are used, see:</td>
 </tr>
 <tr class="even">
-<td>Snow cover data</td>
-<td style="text-align: left;">The Copernicus Snow Cover Extent product may be used to identify SAR data that is unreliable for InSAR analysis due to snow cover. See: <a href="https://land.copernicus.eu/global/products/sce" class="uri">https://land.copernicus.eu/global/products/sce</a></td>
+<td></td>
+<td><a href="https://land.copernicus.eu/pan-european/corine-land-cover/clc2018" class="uri">https://land.copernicus.eu/pan-european/corine-land-cover/clc2018</a></td>
 </tr>
 <tr class="odd">
+<td>Snow cover data</td>
+<td>The Copernicus Snow Cover Extent product may be used to identify SAR data that is unreliable for InSAR analysis due to snow cover. See: <a href="https://land.copernicus.eu/global/products/sce" class="uri">https://land.copernicus.eu/global/products/sce</a></td>
+</tr>
+<tr class="even">
 <td>External datum reference</td>
-<td style="text-align: left;"><p>To anchor and make ‘absolute’ <em>Calibrated</em> and <em>Ortho</em> product measurements, a harmonised GNSS framework is needed. The EUREF and EPN-D networks, along with various derived models are used for this action. See:</p>
-<p><a href="http://www.epncb.oma.be/" class="uri">http://www.epncb.oma.be/</a></p>
-<p><a href="https://epnd.sgo-penc.hu/" class="uri">https://epnd.sgo-penc.hu/</a></p></td>
+<td>To anchor and make ‘absolute’ <em>Calibrated</em> and <em>Ortho</em> product measurements, a harmonised GNSS framework is needed. The EUREF and EPN-D networks, along with various derived models are used for this action. See:</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><a href="http://www.epncb.oma.be/" class="uri">http://www.epncb.oma.be/</a><br><br><a href="https://epnd.sgo-penc.hu/" class="uri">https://epnd.sgo-penc.hu/</a></td>
 </tr>
 </tbody>
 </table>
@@ -1306,34 +1481,34 @@ Denmark<br>
 <section id="references" class="level1" data-number="10">
 <h1 data-number="10"><span class="header-section-number">10</span> References</h1>
 <p>Cooksley, G et al (2004) S5: Service Portfolio Specifications. ESA-Terrafirma project dossier.</p>
-<p>Davis, B (2020) Precision and accuracy in glacial geology. AntarcticGlaciers.org. Retrieved 29 March 2021 from: http://www.antarcticglaciers.org/glacial-geology/dating-glacial-sediments-2/precision-and-accuracy-glacial-geology/</p><div style="page-break-after: always;"></div><p></p>
+<p>Davis, B (2020) Precision and accuracy in glacial geology. AntarcticGlaciers.org. Retrieved 29 March 2021 from: http://www.antarcticglaciers.org/glacial-geology/dating-glacial-sediments-2/precision-and-accuracy-glacial-geology/</p>
 </section>
 <section id="appendix-a" class="level1" data-number="11">
 <h1 data-number="11"><span class="header-section-number">11</span> Appendix A</h1>
 <p>Note in these sections, EGMS products names are abbreviated to their code-references as follows:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 55%">
-<col style="width: 41%">
+<col style="width: 61%">
+<col style="width: 38%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">EGMS product name</th>
-<th style="text-align: left;">Code reference</th>
+<th>EGMS product name</th>
+<th>Code reference</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><em>Basic</em></td>
-<td style="text-align: left;">L2a</td>
+<td><em>Basic</em></td>
+<td>L2a</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><em>Calibrated</em></td>
-<td style="text-align: left;">L2b</td>
+<td><em>Calibrated</em></td>
+<td>L2b</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><em>Ortho</em></td>
-<td style="text-align: left;">L3</td>
+<td><em>Ortho</em></td>
+<td>L3</td>
 </tr>
 </tbody>
 </table>
@@ -1342,94 +1517,93 @@ Denmark<br>
 <table class="caption-top table">
 <caption>Table 9 XML header file</caption>
 <colgroup>
-<col style="width: 9%">
-<col style="width: 13%">
-<col style="width: 76%">
+<col style="width: 17%">
+<col style="width: 21%">
+<col style="width: 60%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Product</th>
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Spec and notes</th>
+<th>Product</th>
+<th>Field</th>
+<th>Spec and notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">L2a + L2b + L3</td>
-<td style="text-align: left;">product_level</td>
-<td style="text-align: left;">L2a, L2b, L3</td>
+<td>L2a + L2b + L3</td>
+<td>product_level</td>
+<td>L2a, L2b, L3</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">burst_id</td>
-<td style="text-align: left;">See section 11.2</td>
+<td>L2a + L2b</td>
+<td>burst_id</td>
+<td>See section 11.2</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">L2a + L2b + L3</td>
-<td style="text-align: left;">production_facility</td>
-<td style="text-align: left;">1 = EGEOS, 2 = GAF, 3 = NORCE, 4 = TREA.</td>
+<td>L2a + L2b + L3</td>
+<td>production_facility</td>
+<td>1 = EGEOS, 2 = GAF, 3 = NORCE, 4 = TREA.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">L2a + L2b + L3</td>
-<td style="text-align: left;">production_date</td>
-<td style="text-align: left;">Format dd/mm/yyyy.</td>
+<td>L2a + L2b + L3</td>
+<td>production_date</td>
+<td>Format dd/mm/yyyy.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">L2a + L2b + L3</td>
-<td style="text-align: left;">dem</td>
-<td style="text-align: left;">The version of the Copernicus 30m DEM.</td>
+<td>L2a + L2b + L3</td>
+<td>dem</td>
+<td>The version of the Copernicus 30m DEM.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">corine</td>
-<td style="text-align: left;">Present if used. Version.</td>
+<td>L2a + L2b</td>
+<td>corine</td>
+<td>Present if used. Version.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">sce</td>
-<td style="text-align: left;">Present if used. Version.</td>
+<td>L2a + L2b</td>
+<td>sce</td>
+<td>Present if used. Version.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">L2b + L3</td>
-<td style="text-align: left;">GNSS version</td>
-<td style="text-align: left;">Version of the model.</td>
+<td>L2b + L3</td>
+<td>GNSS version</td>
+<td>Version of the model.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">L2a</td>
-<td style="text-align: left;">clusters</td>
-<td style="text-align: left;">0 if there is just one cluster in the CSV file.<br>
-N if there are more than one clusters in the CSV file (where N is the number of identified clusters).</td>
+<td>L2a</td>
+<td>clusters</td>
+<td>0 if there is just one cluster in the CSV file.&nbsp;N if there are more than one clusters in the CSV file (where N is the number of identified clusters).</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">image</td>
-<td style="text-align: left;">Identifies the properties of each image used to generate the deliverable. It contains the tags <em>product_id</em>, and <em>orbit_type</em>.</td>
+<td>L2a + L2b</td>
+<td>image</td>
+<td>Identifies the properties of each image used to generate the deliverable. It contains the tags <em>product_id</em>, and <em>orbit_type</em>.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">product_id</td>
-<td style="text-align: left;">The actual product name used, stripped of the checksum and of the file type “.SAFE”</td>
+<td>L2a + L2b</td>
+<td>product_id</td>
+<td>The actual product name used, stripped of the checksum and of the file type “.SAFE”</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">orbit_type</td>
-<td style="text-align: left;">Relative orbit type used for each image in the processing. It may assume values in the set (AUX_PROQUA, AUX_RESORB, AUX_GNSSRD, AUX_POEORB).</td>
+<td>L2a + L2b</td>
+<td>orbit_type</td>
+<td>Relative orbit type used for each image in the processing. It may assume values in the set (AUX_PROQUA, AUX_RESORB, AUX_GNSSRD, AUX_POEORB).</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">reference</td>
-<td style="text-align: left;">Reference image used to generate the deliverable. It contains tag images and the relative sub-tags.</td>
+<td>L2a + L2b</td>
+<td>reference</td>
+<td>Reference image used to generate the deliverable. It contains tag images and the relative sub-tags.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">L2a + L2b</td>
-<td style="text-align: left;">dataset</td>
-<td style="text-align: left;">All images used to generate the deliverables (included the reference image). It contains a set of tags image and the relative sub-tags</td>
+<td>L2a + L2b</td>
+<td>dataset</td>
+<td>All images used to generate the deliverables (included the reference image). It contains a set of tags image and the relative sub-tags</td>
 </tr>
 </tbody>
 </table>
 <p><br>
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;?xml version="1.0"?&gt; </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;?xml version="1.0"?&gt; </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">BURST</span><span class="dt">&gt;</span> </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">product_level</span><span class="dt">&gt;</span>L2b<span class="dt">&lt;/</span><span class="kw">product_level</span><span class="dt">&gt;</span> </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">burst_id</span><span class="dt">&gt;</span>0282<span class="dt">&lt;/</span><span class="kw">burst_id</span><span class="dt">&gt;</span> </span>
@@ -1467,7 +1641,7 @@ N if there are more than one clusters in the CSV file (where N is the number of 
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">orbit_type</span><span class="dt">&gt;</span> AUX_POEORB<span class="dt">&lt;/</span><span class="kw">orbit_type</span><span class="dt">&gt;</span> </span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">image</span><span class="dt">&gt;</span> </span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">dataset</span><span class="dt">&gt;</span> </span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">BURST</span><span class="dt">&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">BURST</span><span class="dt">&gt;</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><em>Table 10 Example of XML header file</em></p>
 </section>
 <section id="convention-for-burst-data-files-names" class="level2" data-number="11.2">
@@ -1475,7 +1649,7 @@ N if there are more than one clusters in the CSV file (where N is the number of 
 <p>Each burst file name follows a precise convention, which is specified and implemented in the following python code.</p>
 <p><br>
 </p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>​​### This code demonstrates how to calculate​​​ unique burst cycle ID for Sentinel-1 </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>​​### This code demonstrates how to calculate​​​ unique burst cycle ID for Sentinel-1 </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>import math </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -1548,7 +1722,7 @@ N if there are more than one clusters in the CSV file (where N is the number of 
 <span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="in">    # EGMS unique burst ID </span></span>
 <span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="in">    uid_egms = get_egms_burst_id(*bc_id_egms, "IW2", "VV") </span></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_egms == "088-0282-IW2-VV" </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_egms == "088-0282-IW2-VV" </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><em>Table 11 Unique burst cycle ID for Sentinel-1</em></p>
 <p>EGMS is a one-delivery-per-year project, and, for each delivery, data is contained in a pre-defined temporal range.</p>
 <p>The rule to be applied from the second update inward is a 5 full years nominal time range (e.g., images from 01/01/2018 to 31/12/2022 for the second update, images from 01/01/2019 to 31/12/2023 for the third update, and so on).</p>
@@ -1582,7 +1756,7 @@ N if there are more than one clusters in the CSV file (where N is the number of 
 <p>Each Basic and Calibrated products measurement point’s code follows a precise convention, which is specified and implemented in the following snipper of code. The MP’s codes are univocal over the entire Europe.</p>
 <p><br>
 </p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># DP representation of Sentinel-1 IW swath mnemonics </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># DP representation of Sentinel-1 IW swath mnemonics </span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>SWATH = {"IW1": 1, "IW2": 2, "IW3": 3} </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>LUT_SWATH = {} </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>for key in SWATH: </span>
@@ -1756,12 +1930,12 @@ N if there are more than one clusters in the CSV file (where N is the number of 
 <span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_decoded["BURSTNO"] == burstno </span></span>
 <span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_decoded["TRACK"] == track </span></span>
 <span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_decoded["LINE"] == line </span></span>
-<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_decoded["PIXEL"] == pixel </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a><span class="in">    assert uid_decoded["PIXEL"] == pixel </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><em>Table 12 Unique MP's code over the entire Europe for Basic and Calibrated products.</em></p>
 <p>Each Ortho product measurement point’s code follows a precise convention, outlined by the formula in Table 13.</p>
 <p><br>
 </p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>CODE = base62(IPE) + base62(y/100 * 2^32 + x/100)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>CODE = base62(IPE) + base62(y/100 * 2^32 + x/100)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><em>Table 13 Unique MP's code over the entire Europe for Ortho products.</em></p>
 </section>
 <section id="data-field-evaluation" class="level2" data-number="11.4">
@@ -1769,7 +1943,7 @@ N if there are more than one clusters in the CSV file (where N is the number of 
 <p>The evaluation of the fields in Table 5 and Table 6 follows a specific convention which is described and implemented by the following snippet of code.</p>
 <p><br>
 </p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>% File to be used as a "pseudo-code" just to define how the different </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>% File to be used as a "pseudo-code" just to define how the different </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>% parameters of EGMS deliverables (L2a) should be computed </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1860,55 +2034,57 @@ N if there are more than one clusters in the CSV file (where N is the number of 
 <span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>EstimatedAcceleration = COEFF(1); %%% <span class="co">[</span><span class="ot">mm/yr</span><span class="co">]</span> </span>
 <span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>EstimatedSTD_Noise = std(TimeSeries-Model); </span>
 <span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>EstimatedSTD_Acc = sqrt(invG(1,1))*EstimatedSTD_Noise; %%% in <span class="co">[</span><span class="ot">mm/yr</span><span class="co">]</span> </span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>Estimated_Acc_And_Std = <span class="co">[</span><span class="ot">EstimatedAcceleration EstimatedSTD_Acc</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>Table 14 Data delivery field evaluation</em></p><div style="page-break-after: always;"></div><p></p>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>Estimated_Acc_And_Std = <span class="co">[</span><span class="ot">EstimatedAcceleration EstimatedSTD_Acc</span><span class="co">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Table 14 Data delivery field evaluation</em></p>
 </section>
 </section>
 <section id="document-control-information" class="level1" data-number="12">
 <h1 data-number="12"><span class="header-section-number">12</span> Document Control Information</h1>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 46%">
-<col style="width: 29%">
+<col style="width: 44%">
+<col style="width: 49%">
+<col style="width: 6%">
 </colgroup>
+<thead>
+<tr class="header">
+<th><strong>Settings</strong></th>
+<th><strong>Value</strong></th>
+<th></th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><strong>Settings</strong></td>
-<td><strong>Value</strong></td>
-<td></td>
-</tr>
-<tr class="even">
 <td><strong>Document Title:</strong></td>
 <td>Product Description and Format Specification</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Project Title:</strong></td>
 <td>EGMS-SC1</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Project Owner:</strong></td>
 <td>Henrik Steen Andersen (EEA)</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Document Code:</strong></td>
 <td>EGMS-D6-PDD-SC1-2.0-009</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Document Version:</strong></td>
 <td>2.0</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Distribution:</strong></td>
 <td>Public</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Date:</strong></td>
 <td>25/10/2023</td>
 <td></td>
@@ -1940,12 +2116,16 @@ N if there are more than one clusters in the CSV file (where N is the number of 
 </table>
 <p><strong>Document history:</strong></p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 19%">
+<col style="width: 59%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Revision</th>
 <th>Date</th>
 <th>Short Description of Changes</th>
-<th></th>
 </tr>
 </thead>
 <tbody>
@@ -1953,37 +2133,31 @@ N if there are more than one clusters in the CSV file (where N is the number of 
 <td>draft 1.0</td>
 <td>18/06/2021</td>
 <td>Initial version</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>draft 1.1</td>
 <td>15/10/2021</td>
 <td>Updated according to review by EEA</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>draft 1.2</td>
 <td>20/12/2021</td>
 <td>Updated according to review by EEA</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>1.0</td>
 <td>24/02/2022</td>
 <td>Changes to EGMS Basic data format</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>2.0</td>
 <td>25/10/2023</td>
 <td>Changes to EGMS Basic data naming convention</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>3.0</td>
 <td>06/08/2025</td>
 <td>Additional details in the track angle on Table 5</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -1993,6 +2167,11 @@ N if there are more than one clusters in the CSV file (where N is the number of 
 <section id="change-log" class="level1" data-number="13">
 <h1 data-number="13"><span class="header-section-number">13</span> Change Log</h1>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 75%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Date</th>
@@ -2062,13 +2241,14 @@ N if there are more than one clusters in the CSV file (where N is the number of 
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -2414,7 +2594,7 @@ N if there are more than one clusters in the CSV file (where N is the number of 
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>2025 EEA. All rights reserved.</p>
+<p>2026 EEA. All rights reserved.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

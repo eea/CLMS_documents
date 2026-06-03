@@ -2,15 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-05-02">
-<meta name="keywords" content="{keywords_str}">
+<meta name="dcterms.date" content="2026-02-05">
+<meta name="keywords" content="Algorithm Theoretical Basis, Land cover classification, Land use classification, Change detection algorithms, Very High Resolution data, Sentinel-2 data, Principal Component Analysis, Root Mean Square Deviation, Data preprocessing, Thematic accuracy">
+<meta name="description" content="The Copernicus Urban Atlas Algorithm Theoretical Basis Document (UA ATBD) presents a detailed description of the algorithms employed to generate the Urban Atlas 2021 (UA2021). The document outlines the process of transforming raw satellite data into thematic land cover and land use products. It covers data acquisition, preprocessing techniques like radiometric and geometric corrections, change detection methodologies using Very High Resolution (VHR) and Sentinel-2 data, and post-processing steps. Internal verification methods ensuring the accuracy and reliability are also described.">
 
 <title>Urban Atlas 2021 – Algorithm Theoretical Basis Document – Technical Library</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -73,10 +77,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-24cc52c546c003a7d891213737239288.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ccd9cb9b1c9bdf1eabc4708995bd1808.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,8 +112,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "Urban Atlas 2021 – Algorithm Theoretical Basis Document",
-    "description": "?meta:description",
-    "datePublished": "May 2, 2026",
+    "description": "The Copernicus Urban Atlas Algorithm Theoretical Basis Document (UA ATBD) presents a detailed description of the algorithms employed to generate the Urban Atlas 2021 (UA2021). The document outlines the process of transforming raw satellite data into thematic land cover and land use products. It covers data acquisition, preprocessing techniques like radiometric and geometric corrections, change detection methodologies using Very High Resolution (VHR) and Sentinel-2 data, and post-processing steps. Internal verification methods ensuring the accuracy and reliability are also described.",
+    "datePublished": "February 5, 2026",
     "author": {
       "@type": "Person",
       "name": "?meta:author"
@@ -122,7 +126,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "{keywords_str}",
+    "keywords": "Algorithm Theoretical Basis
+
+Land cover classification
+
+Land use classification
+
+Change detection algorithms
+
+Very High Resolution data
+
+Sentinel-2 data
+
+Principal Component Analysis
+
+Root Mean Square Deviation
+
+Data preprocessing
+
+Thematic accuracy
+",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -134,7 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -147,7 +170,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -189,7 +212,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Content</h2>
+    <h2 id="toc-title">Index</h2>
    
   <ul>
   <li><a href="#sec-executive-summary" id="toc-sec-executive-summary" class="nav-link active" data-scroll-target="#sec-executive-summary"><span class="header-section-number">1</span> Executive summary</a></li>
@@ -244,16 +267,12 @@ window.Quarto = {
   <li><a href="#document-history" id="toc-document-history" class="nav-link" data-scroll-target="#document-history"><span class="header-section-number">10</span> Document history</a></li>
   <li><a href="#applicable-documents" id="toc-applicable-documents" class="nav-link" data-scroll-target="#applicable-documents"><span class="header-section-number">11</span> Applicable documents</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Remove link to .docx file
-    //
-    document.querySelectorAll("a[href$='.docx']").forEach((link) => (link.style.display = "none"));
-
     // Add Version to the title's metadata
     //
     const titleMetaEl = document.querySelector(".quarto-title-meta");
@@ -261,7 +280,7 @@ window.Quarto = {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.2</p>
+          <p>1.0.0</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -274,6 +293,11 @@ window.Quarto = {
 <p class="subtitle lead">Copernicus Land Monitoring Service – Priority Area Monitoring – Urban Atlas 2021 and 2024</p>
 </div>
 
+<div>
+  <div class="description">
+    The Copernicus Urban Atlas Algorithm Theoretical Basis Document (UA ATBD) presents a detailed description of the algorithms employed to generate the Urban Atlas 2021 (UA2021). The document outlines the process of transforming raw satellite data into thematic land cover and land use products. It covers data acquisition, preprocessing techniques like radiometric and geometric corrections, change detection methodologies using Very High Resolution (VHR) and Sentinel-2 data, and post-processing steps. Internal verification methods ensuring the accuracy and reliability are also described.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta column-page-left">
@@ -282,7 +306,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 2, 2026</p>
+      <p class="date">February 5, 2026</p>
     </div>
   </div>
   
@@ -293,7 +317,7 @@ window.Quarto = {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>{keywords_str}</p>
+    <p>Algorithm Theoretical Basis, Land cover classification, Land use classification, Change detection algorithms, Very High Resolution data, Sentinel-2 data, Principal Component Analysis, Root Mean Square Deviation, Data preprocessing, Thematic accuracy</p>
   </div>
 </div>
 
@@ -310,7 +334,7 @@ Denmark<br>
 <a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
 </div>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-2cf3034b1d6467165bba95b2c0efb0bfb737e009.png"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-368bd0a7ba855372998b556a130d1a530b822bc1.png"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-9937c1b12fadb16ec003747b2921e1c9d1b5d766.png"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-09eb2e9f24c74dfd56b196c98442d476880fe8f9.png"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-2af73a172321d5fb216bb889eb5ec30e77f5b4ae.png"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-834e715dc033114faa122e89cdc459db3bf039c3.png"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-04ba10b31f195e99675e225dd2792a5419e40b8c.png"}]}
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-2cf3034b1d6467165bba95b2c0efb0bfb737e009.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-368bd0a7ba855372998b556a130d1a530b822bc1.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-9937c1b12fadb16ec003747b2921e1c9d1b5d766.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-09eb2e9f24c74dfd56b196c98442d476880fe8f9.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-2af73a172321d5fb216bb889eb5ec30e77f5b4ae.png","width":"4.89in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-834e715dc033114faa122e89cdc459db3bf039c3.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-04ba10b31f195e99675e225dd2792a5419e40b8c.png","width":"6.27in"}]}
 </script>
 <section id="sec-executive-summary" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Executive summary</h1>
@@ -351,8 +375,8 @@ Denmark<br>
 <p>Table 1: Overview table of methodology</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 26%">
+<col style="width: 73%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -390,10 +414,10 @@ Denmark<br>
 <section id="methodology-and-workflow" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="methodology-and-workflow"><span class="header-section-number">3.1</span> Methodology and workflow</h2>
 <p>The figure below shows an overview of the workflow:</p>
-<div id="fig-figure1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This diagram illustrates the Urban Atlas Land Cover/Land Use (UA LC/LU) production methodology workflow, detailing the stages from input data acquisition to quality control and product verification. **Input data:** 1. **Sentinel-2 Time Series** 2. **VHR IMAGE 2018-2021** (Very High Resolution Imagery) 3. **Ancillary data** (OSM - Open Street Map, Google Earth, etc.) 4. **HRL IMD CLCplus2021** (High Resolution Layer Imperviousness Density, CORINE Land Cover plus) 5. **Tom-Tom Strava OSM** **Pre-processing:** * **Sentinel-2 Time Series** and **VHR IMAGE 2018-2021** proceed through 'Scene selection, check and correction', 'Extraction, QC and calibration' (Quality Control), and then 'Encoding'. * **Ancillary data** is used for 'Network Production (rail/road)'. * **Tom-Tom Strava OSM** is used for 'Production of GUA' (Global Urban Area). **Processing:** * The output from 'Encoding' and **VHR IMAGE 2018-2021** feed into 'Change Detection', which involves an internal iterative process. * Output from 'Change Detection' leads to 'Classification and merge'. * The combined output from 'Classification and merge' and 'Production of the new areas (CAPI)' is integrated into the 'LC/LU layer (CAPI)'. **Post-processing:** * The 'Integration into the LC/LU layer (CAPI)' feeds into 'historical and extension merge'. * 'Production of the new areas (CAPI)' and **HRL IMD CLCplus2021** feed into 'Integration of urban density + Rural classes', which then also feeds into 'historical and extension merge'. * 'Production of GUA' feeds into 'GUA integration', which subsequently connects to 'Semantic and topological checks + compliance with product specifications'. * The 'historical and extension merge' also feeds into 'Semantic and topological checks + compliance with product specifications'. **Output products:** The 'Semantic and topological checks + compliance with product specifications' step generates three final products: 1. **Change Layer UA LC/LU 2018-2021** 2. **Status layer UA LC/LU 2021** 3. **Status layer UA LC/LU 2018 revised** **Quality control and product verification:** All three output products undergo a final stage of 'External quality assessment + ETC online QC tool' (European Topic Centre).">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-2cf3034b1d6467165bba95b2c0efb0bfb737e009.png" class="img-fluid figure-img">
+<img src="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-2cf3034b1d6467165bba95b2c0efb0bfb737e009.png" class="img-fluid figure-img" style="width:6.27in" alt="This diagram illustrates the Urban Atlas Land Cover/Land Use (UA LC/LU) production methodology workflow, detailing the stages from input data acquisition to quality control and product verification. **Input data:** 1. **Sentinel-2 Time Series** 2. **VHR IMAGE 2018-2021** (Very High Resolution Imagery) 3. **Ancillary data** (OSM - Open Street Map, Google Earth, etc.) 4. **HRL IMD CLCplus2021** (High Resolution Layer Imperviousness Density, CORINE Land Cover plus) 5. **Tom-Tom Strava OSM** **Pre-processing:** * **Sentinel-2 Time Series** and **VHR IMAGE 2018-2021** proceed through 'Scene selection, check and correction', 'Extraction, QC and calibration' (Quality Control), and then 'Encoding'. * **Ancillary data** is used for 'Network Production (rail/road)'. * **Tom-Tom Strava OSM** is used for 'Production of GUA' (Global Urban Area). **Processing:** * The output from 'Encoding' and **VHR IMAGE 2018-2021** feed into 'Change Detection', which involves an internal iterative process. * Output from 'Change Detection' leads to 'Classification and merge'. * The combined output from 'Classification and merge' and 'Production of the new areas (CAPI)' is integrated into the 'LC/LU layer (CAPI)'. **Post-processing:** * The 'Integration into the LC/LU layer (CAPI)' feeds into 'historical and extension merge'. * 'Production of the new areas (CAPI)' and **HRL IMD CLCplus2021** feed into 'Integration of urban density + Rural classes', which then also feeds into 'historical and extension merge'. * 'Production of GUA' feeds into 'GUA integration', which subsequently connects to 'Semantic and topological checks + compliance with product specifications'. * The 'historical and extension merge' also feeds into 'Semantic and topological checks + compliance with product specifications'. **Output products:** The 'Semantic and topological checks + compliance with product specifications' step generates three final products: 1. **Change Layer UA LC/LU 2018-2021** 2. **Status layer UA LC/LU 2021** 3. **Status layer UA LC/LU 2018 revised** **Quality control and product verification:** All three output products undergo a final stage of 'External quality assessment + ETC online QC tool' (European Topic Centre).">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: UA2021 LC/LU workflow
@@ -502,10 +526,10 @@ Figure&nbsp;1: UA2021 LC/LU workflow
 <p>The NDVI time series is parametrized using a combination of harmonic and polynomial functions. This allows for a flexible yet consistent representation of seasonal and interannual dynamics. The resulting model coefficients are used to characterize baseline conditions and to detect deviations that may indicate land cover or land use changes.</p>
 <p><span class="math inline">\(f(t)=\sum_{i=0}^{P}p_{i}t^{i}\;\;+\sum_{k=0}^{H}(\alpha_{k}\mathrm{sin}\left(k\omega t\right)+\beta_{k}\mathrm{cos}\left(k\omega t\right))\)</span></p>
 <p>in this equation, p<sub>i</sub> are the coefficients of the polynomial term with order P, H is the order of the harmonic system and α<sub>k</sub> and β<sub>k</sub> are the coefficients of the harmonic functions with order k. <span class="math inline">\(\omega= 2π\)</span>/year is the base angular frequency of the harmonic system. The coefficients p<sub>i</sub>, α<sub>k</sub> and β<sub>k</sub> are estimated by performing ordinary least squares fit to the signal of each pixel of the time series. <br> Cloud and atmospheric artifacts (<a href="#fig-figure2" class="quarto-xref">Figure&nbsp;2</a>) are mitigated through a weighting scheme based on the Sentinel-2 L2A Scene Classification Layer (SCL), in which observations with high cloud or shadow probability are down-weighted during the modelling process. This ensures that only high-quality observations contribute meaningfully to the fitted time series.</p>
-<div id="fig-figure2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The image comprises four sub-panels (a, b, c, d), each presenting a thematic map of a specific geographic area, likely an Urban Atlas tile. All panels share a common colour legend located to the right of panel (d), indicating five classes: red (value 20), orange (value 53), light yellow (value 85), light green (value 118), and dark green (value 150). The values are unitless. Each panel shows a roughly rectangular region with an irregular, jagged boundary on its right and bottom edges, consistent with a geographic tile boundary. A prominent straight diagonal line divides the internal area of interest within each panel into two distinct sections, visually comparing two different geospatial datasets or processing results for the same location. * **Panel (a):** The left section shows a highly textured pattern in orange and light yellow. The right section, beyond the diagonal line, is predominantly solid red, adjacent to the jagged boundary, with a lighter red background. * **Panel (b):** The left section displays a smoother, less textured pattern compared to panel (a), still primarily in orange and light yellow. The right section remains predominantly red. * **Panel (c):** The left section continues to show patterns in orange and light yellow, but the right section has transitioned to a blend of light yellow and light green. * **Panel (d):** The left section retains orange and light yellow hues. The right section now appears predominantly in dark green and light green, indicating a significant shift towards higher values according to the legend, suggesting an increase in the measured parameter. The progression from panel (a) to (d) likely illustrates different outputs or processing stages related to urban change detection, possibly integrating Very High-Resolution (VHR) imagery and Sentinel-2 time series data, as mentioned in the surrounding context. The diagonal split serves to highlight differences or comparisons between data sources or methodologies within the specified tile.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-368bd0a7ba855372998b556a130d1a530b822bc1.png" class="img-fluid figure-img">
+<img src="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-368bd0a7ba855372998b556a130d1a530b822bc1.png" class="img-fluid figure-img" style="width:6.27in" alt="The image comprises four sub-panels (a, b, c, d), each presenting a thematic map of a specific geographic area, likely an Urban Atlas tile. All panels share a common colour legend located to the right of panel (d), indicating five classes: red (value 20), orange (value 53), light yellow (value 85), light green (value 118), and dark green (value 150). The values are unitless. Each panel shows a roughly rectangular region with an irregular, jagged boundary on its right and bottom edges, consistent with a geographic tile boundary. A prominent straight diagonal line divides the internal area of interest within each panel into two distinct sections, visually comparing two different geospatial datasets or processing results for the same location. * **Panel (a):** The left section shows a highly textured pattern in orange and light yellow. The right section, beyond the diagonal line, is predominantly solid red, adjacent to the jagged boundary, with a lighter red background. * **Panel (b):** The left section displays a smoother, less textured pattern compared to panel (a), still primarily in orange and light yellow. The right section remains predominantly red. * **Panel (c):** The left section continues to show patterns in orange and light yellow, but the right section has transitioned to a blend of light yellow and light green. * **Panel (d):** The left section retains orange and light yellow hues. The right section now appears predominantly in dark green and light green, indicating a significant shift towards higher values according to the legend, suggesting an increase in the measured parameter. The progression from panel (a) to (d) likely illustrates different outputs or processing stages related to urban change detection, possibly integrating Very High-Resolution (VHR) imagery and Sentinel-2 time series data, as mentioned in the surrounding context. The diagonal split serves to highlight differences or comparisons between data sources or methodologies within the specified tile.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Number of observations for Sentinel-2 as extracted from the Sen2Cor scene classification map: <br> a: Antwerpen 2018, b: Antwerpen 2021, c: Madrid 2018, d: Madrid 2021
@@ -532,10 +556,10 @@ Figure&nbsp;2: Number of observations for Sentinel-2 as extracted from the Sen2C
 <p><span class="math inline">\(\begin{array}{r}{\mathrm{RMSD}_{\mathrm{norm}}=\frac{\mathrm{RMSD}-\mu_{\mathrm{class}}}{\sigma_{\mathrm{class}}}}\end{array}\)</span></p>
 <p>where μ<sub>class</sub> and σ<sub>class</sub> are the mean and standard deviation of the RMSD within the corresponding land cover class.</p>
 <p>This normalized RMSD highlights pixels where the observed change is significantly greater than what is typical for that land cover type, allowing for a more context-aware detection of anomalies and potential change events. In the <a href="#fig-figure3" class="quarto-xref">Figure&nbsp;3</a> below, an example for a detected change in Vienna, Austria is displayed.</p>
-<div id="fig-figure3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This four-panel image displays Sentinel-2 satellite imagery and derived data for urban areas. The top-left panel (a) shows a true-colour Sentinel-2 image of an urban area in Antwerpen, reference year 2018. White outlines, likely representing building footprints or urban blocks, are overlaid on the imagery. The top-right panel (b) presents a true-colour Sentinel-2 image of the same urban area in Antwerpen, reference year 2021, also with white outlines. Visible changes include new construction and development in the upper right quadrant of the image between 2018 and 2021. The bottom-left panel (c) is a heatmap illustrating the number of Sentinel-2 observations, as extracted from the Sen2Cor scene classification map, for an urban area in Madrid, reference year 2018. The colour gradient indicates the observation count, with dark blue representing low values and yellow/orange representing high values. The bottom-right panel (d) shows the number of Sentinel-2 observations (from Sen2Cor scene classification map) for the same urban area in Madrid, reference year 2021, with white outlines of urban features superimposed. The heatmap pattern is similar to panel (c), indicating areas with concentrated high observation counts. No scale bar, compass, or explicit legend for the heatmap's quantitative values are included within the image.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-9937c1b12fadb16ec003747b2921e1c9d1b5d766.png" class="img-fluid figure-img">
+<img src="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-9937c1b12fadb16ec003747b2921e1c9d1b5d766.png" class="img-fluid figure-img" style="width:6.27in" alt="This four-panel image displays Sentinel-2 satellite imagery and derived data for urban areas. The top-left panel (a) shows a true-colour Sentinel-2 image of an urban area in Antwerpen, reference year 2018. White outlines, likely representing building footprints or urban blocks, are overlaid on the imagery. The top-right panel (b) presents a true-colour Sentinel-2 image of the same urban area in Antwerpen, reference year 2021, also with white outlines. Visible changes include new construction and development in the upper right quadrant of the image between 2018 and 2021. The bottom-left panel (c) is a heatmap illustrating the number of Sentinel-2 observations, as extracted from the Sen2Cor scene classification map, for an urban area in Madrid, reference year 2018. The colour gradient indicates the observation count, with dark blue representing low values and yellow/orange representing high values. The bottom-right panel (d) shows the number of Sentinel-2 observations (from Sen2Cor scene classification map) for the same urban area in Madrid, reference year 2021, with white outlines of urban features superimposed. The heatmap pattern is similar to panel (c), indicating areas with concentrated high observation counts. No scale bar, compass, or explicit legend for the heatmap's quantitative values are included within the image.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: Example of the S2-change detection. The image shows a detected change in Vienna. <br> Upper left: Copernicus VHR Satellite image of 2018 with OSM building footprints overlay, upper right: Copernicus VHR Satellite image of 2021 with OSM building footprints overlay, lower left: The normalized RMSD calculation, lower right: The normalized RMSD calculation with OSM building footprints overlay.
@@ -552,10 +576,10 @@ Figure&nbsp;3: Example of the S2-change detection. The image shows a detected ch
 <p><strong>SFA</strong> is a scientific method employed for image analysis, focusing on slow or large-scale features present in visual data. This approach capitalizes on the notion that important and meaningful information can be extracted by emphasizing low-frequency structures in an image, which typically represent large-scale variations. SFA can identify slow-changing features, which are more likely to represent meaningful changes over time.</p>
 <p>By merging the two approaches, CLS hastested to combine the advantages of PCA that lies in its computational efficiency and its ability to filter out noise without significantly affecting the geometric properties of entities present in the image, and the advantage of SFA that excels at filtering the difference image by preserving large-scale change structures. By combining these methods, a consistent approach could be achieved by applying a threshold to the SFA output image. This thresholding operation extracts major change structures and incorporates them into the output of PCA. Consequently, this provides a heat map representing the studied area, effectively highlighting potential change areas.</p>
 <p>Finally, after several iterations and analysis of outputs, the methodology was adapted by giving priority to the <strong>PCA approach</strong>. The SFA results required a heavy and lengthy computing process, and results were not fully satisfactory, showing a high number of commission errors (<a href="#fig-figure4" class="quarto-xref">Figure&nbsp;4</a>).</p>
-<div id="fig-figure4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure4" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This image sequence illustrates the detection of land cover change in Vienna, Austria, using Root Mean Square Deviation (RMSD) normalized by land cover class. It features three false-colour composite satellite imagery panels showing the same geographic area, with white lines outlining individual parcels. The **left panel** displays the initial state of the area, where vegetation appears in red. Key land cover types are indicated by yellow CLC+ Backbone codes: '11100' (Continuous urban fabric) in the top-middle, '11210' (Discontinuous urban fabric) below it, '23000' (Pastures) in the large central parcel, and two '11230' (Construction sites) in the lower section. The **middle panel** shows a later state of the same area. A significant change is visible in the central parcel previously classified as '23000' (Pastures), where the red vegetation has been replaced by bright white/cyan tones, indicating new construction or bare ground. The **right panel** is a heatmap of the normalized RMSD (RMSD_norm), which highlights pixels where observed change is significantly greater than what is typical for that land cover type. The colour gradient ranges from dark blue (lowest change) through light blue, green, and yellow, to dark red (highest change). The central parcel, where substantial land cover conversion occurred, shows a high concentration of yellow, orange, and dark red pixels, indicating a strong signal of significant change. Minor change signals (yellow pixels) are also visible in other parcels.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-09eb2e9f24c74dfd56b196c98442d476880fe8f9.png" class="img-fluid figure-img">
+<img src="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-09eb2e9f24c74dfd56b196c98442d476880fe8f9.png" class="img-fluid figure-img" style="width:6.27in" alt="This image sequence illustrates the detection of land cover change in Vienna, Austria, using Root Mean Square Deviation (RMSD) normalized by land cover class. It features three false-colour composite satellite imagery panels showing the same geographic area, with white lines outlining individual parcels. The **left panel** displays the initial state of the area, where vegetation appears in red. Key land cover types are indicated by yellow CLC+ Backbone codes: '11100' (Continuous urban fabric) in the top-middle, '11210' (Discontinuous urban fabric) below it, '23000' (Pastures) in the large central parcel, and two '11230' (Construction sites) in the lower section. The **middle panel** shows a later state of the same area. A significant change is visible in the central parcel previously classified as '23000' (Pastures), where the red vegetation has been replaced by bright white/cyan tones, indicating new construction or bare ground. The **right panel** is a heatmap of the normalized RMSD (RMSD_norm), which highlights pixels where observed change is significantly greater than what is typical for that land cover type. The colour gradient ranges from dark blue (lowest change) through light blue, green, and yellow, to dark red (highest change). The central parcel, where substantial land cover conversion occurred, shows a high concentration of yellow, orange, and dark red pixels, indicating a strong signal of significant change. Minor change signals (yellow pixels) are also visible in other parcels.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: Change detection heatmap derived from VHR data (left: VHR2018 and UA2018 product; centre: VHR2021; right: Change heatmap where changes are highlighted in yellow/red) (location: Madrid, Spain)
@@ -567,10 +591,10 @@ Figure&nbsp;4: Change detection heatmap derived from VHR data (left: VHR2018 and
 <h4 data-number="3.4.1.3" class="anchored" data-anchor-id="production-of-change-candidate-layer"><span class="header-section-number">3.4.1.3</span> Production of change candidate layer</h4>
 <p>After obtaining the heatmaps derived from S2 data and those derived from VHR data, it is necessary to combine both into a single layer that will constitute the change candidates.</p>
 <p>A CLC change layer is extracted and applied to the S2 change candidates, retaining only the changes identified by both the CLC and S2 layers, while small elements are removed based on the defined MMU. On the VHR side, changes are preserved only in urban areas and where they overlap with the CLC/S2 layer—meaning that, in the end, only VHR-detected changes within the S2 and CLC change areas are kept. The methodology is illustrated in <a href="#fig-figure5" class="quarto-xref">Figure&nbsp;5</a> below:</p>
-<div id="fig-figure5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure5" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This diagram illustrates a multi-source land use/land cover (LULC) change detection workflow, specifically showing an example of a detected change in Vienna, Austria. 1. **Input Data**: The workflow begins with two parallel inputs for the years 2018 and 2021: * **Sentinel-2 Time series**: A stack of Sentinel-2 satellite images for 2018 and 2021. * **VHR Image**: Very High Resolution satellite imagery for 2018 and 2021. Both input imagery types for both years are overlaid with white OpenStreetMap (OSM) building footprints or land parcel boundaries. 2. **Change Detection Heat Maps**: * The Sentinel-2 Time series from 2018 and 2021 are compared to generate a 'Change Detection Heat map'. This map uses a colour scale from blue (low change) to red/yellow (high change) to indicate areas of significant change. A prominent red/yellow area indicates significant change where a new building appears. * Concurrently, the VHR Images from 2018 and 2021 are compared to generate a separate 'Change Detection Heat map'. This map also uses a colour scale from blue (low change) to red (high change), indicating a distinct area of change. 3. **Change Candidate Polygon**: The information from both the Sentinel-2 and VHR Change Detection Heat maps is fused. This combined information is used to delineate a 'Change candidate (polygon)', which is shown as a hatched polygon with a yellow outline, overlaid on an image that highlights the newly constructed building. This polygon precisely delineates the area of detected land cover change. 4. **Updated Layers and Manual Checking**: The identified 'Change candidate (polygon)' is used to create 'Updated Layers 2018 &amp; 2021'. This final step involves 'manual checking' of the updated layers. The output shows updated satellite images for both 2018 and 2021, visually depicting the land cover change (the building appearing in the 2021 imagery compared to its absence in 2018).">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-2af73a172321d5fb216bb889eb5ec30e77f5b4ae.png" class="img-fluid figure-img">
+<img src="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-2af73a172321d5fb216bb889eb5ec30e77f5b4ae.png" class="img-fluid figure-img" style="width:4.89in" alt="This diagram illustrates a multi-source land use/land cover (LULC) change detection workflow, specifically showing an example of a detected change in Vienna, Austria. 1. **Input Data**: The workflow begins with two parallel inputs for the years 2018 and 2021: * **Sentinel-2 Time series**: A stack of Sentinel-2 satellite images for 2018 and 2021. * **VHR Image**: Very High Resolution satellite imagery for 2018 and 2021. Both input imagery types for both years are overlaid with white OpenStreetMap (OSM) building footprints or land parcel boundaries. 2. **Change Detection Heat Maps**: * The Sentinel-2 Time series from 2018 and 2021 are compared to generate a 'Change Detection Heat map'. This map uses a colour scale from blue (low change) to red/yellow (high change) to indicate areas of significant change. A prominent red/yellow area indicates significant change where a new building appears. * Concurrently, the VHR Images from 2018 and 2021 are compared to generate a separate 'Change Detection Heat map'. This map also uses a colour scale from blue (low change) to red (high change), indicating a distinct area of change. 3. **Change Candidate Polygon**: The information from both the Sentinel-2 and VHR Change Detection Heat maps is fused. This combined information is used to delineate a 'Change candidate (polygon)', which is shown as a hatched polygon with a yellow outline, overlaid on an image that highlights the newly constructed building. This polygon precisely delineates the area of detected land cover change. 4. **Updated Layers and Manual Checking**: The identified 'Change candidate (polygon)' is used to create 'Updated Layers 2018 &amp; 2021'. This final step involves 'manual checking' of the updated layers. The output shows updated satellite images for both 2018 and 2021, visually depicting the land cover change (the building appearing in the 2021 imagery compared to its absence in 2018).">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5: Methodology of Change Detection for UA2021
@@ -596,10 +620,10 @@ Figure&nbsp;5: Methodology of Change Detection for UA2021
 <li><p>For class 12220 (MMW = 6 m).</p></li>
 <li><p>To maintain continuity of linear structures, they can be mapped smaller than 10 m over a distance up to 50 m (see figure below).</p></li>
 </ul>
-<div id="fig-figure6" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure6" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This schematic diagram illustrates the mapping criteria for a linear feature with a local constriction, which is classified as '1.2.2.3'. The feature has a consistent width of 10 m at its wider sections. Within the diagram, a segment of the feature narrows temporarily, and the length of this constricted segment is indicated as '≤ 50 m'. The label 'Mapped as 1.2.2.3' indicates that despite this temporary narrowing, the feature is considered a continuous entity and retains its classification, likely due to meeting minimum mapping unit (MMU) requirements for linear features within the Copernicus Land Monitoring Service (CLMS) Urban Atlas product.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-834e715dc033114faa122e89cdc459db3bf039c3.png" class="img-fluid figure-img">
+<img src="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-834e715dc033114faa122e89cdc459db3bf039c3.png" class="img-fluid figure-img" style="width:6.27in" alt="This schematic diagram illustrates the mapping criteria for a linear feature with a local constriction, which is classified as '1.2.2.3'. The feature has a consistent width of 10 m at its wider sections. Within the diagram, a segment of the feature narrows temporarily, and the length of this constricted segment is indicated as '≤ 50 m'. The label 'Mapped as 1.2.2.3' indicates that despite this temporary narrowing, the feature is considered a continuous entity and retains its classification, likely due to meeting minimum mapping unit (MMU) requirements for linear features within the Copernicus Land Monitoring Service (CLMS) Urban Atlas product.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6: Exception rule for the minimum mapping width
@@ -669,10 +693,10 @@ Figure&nbsp;6: Exception rule for the minimum mapping width
 <li><p><strong>Unknown access</strong>: Finally, all GUA polygons that did not intersect with any of the above-described data are classified as unknown access (class 14130).</p></li>
 </ul>
 <p><a href="#fig-figure7" class="quarto-xref">Figure&nbsp;7</a> shows the result of the labelling process and the final classification of GUAs into public (blue), private (red) and unknown (purple) in the FUA of Iasi, Romania. Additionally, it also shows class 14200 - recreational and sport areas (green).</p>
-<div id="fig-figure7" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure7" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two comparative maps display Urban Atlas Green Urban Areas (GUA) in Iasi, Romania, showing classification by access type and recreational use, based on data from 2018 to 2021. Both maps share the same legend and overlaid polygon features. The top map uses a street map as the base layer, while the bottom map uses high-resolution satellite imagery. The legend defines the polygon outlines: * Blue outline: `14110 - public` * Red outline: `14120 - private` * Purple outline: `14130 - unknown` * Green outline: `14200 - Recreational Areas` Both maps include a scale bar indicating 0.1 km and 0.2 km, and a north arrow. The maps highlight various urban green spaces, classifying them by their access status. Multiple large areas are delineated as `14110 - public` (blue outline), some of which contain or are adjacent to `14200 - Recreational Areas` (green outline), such as sports fields and parks. Smaller, often more fragmented areas, are classified as `14120 - private` (red outline) or `14130 - unknown` (purple outline), particularly within more densely built-up urban sections. The `ro502l1_iasi_ua2018_2021` label likely refers to the product identifier for the Urban Atlas Green Urban Areas in Iasi.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-04ba10b31f195e99675e225dd2792a5419e40b8c.png" class="img-fluid figure-img">
+<img src="Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1-media/img-04ba10b31f195e99675e225dd2792a5419e40b8c.png" class="img-fluid figure-img" style="width:6.27in" alt="Two comparative maps display Urban Atlas Green Urban Areas (GUA) in Iasi, Romania, showing classification by access type and recreational use, based on data from 2018 to 2021. Both maps share the same legend and overlaid polygon features. The top map uses a street map as the base layer, while the bottom map uses high-resolution satellite imagery. The legend defines the polygon outlines: * Blue outline: `14110 - public` * Red outline: `14120 - private` * Purple outline: `14130 - unknown` * Green outline: `14200 - Recreational Areas` Both maps include a scale bar indicating 0.1 km and 0.2 km, and a north arrow. The maps highlight various urban green spaces, classifying them by their access status. Multiple large areas are delineated as `14110 - public` (blue outline), some of which contain or are adjacent to `14200 - Recreational Areas` (green outline), such as sports fields and parks. Smaller, often more fragmented areas, are classified as `14120 - private` (red outline) or `14130 - unknown` (purple outline), particularly within more densely built-up urban sections. The `ro502l1_iasi_ua2018_2021` label likely refers to the product identifier for the Urban Atlas Green Urban Areas in Iasi.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Romania. For completeness, the figure also includes class 14200 - recreational and sport areas
@@ -682,6 +706,14 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 <p>Table 3 shows the number of private/public and unknown occurrences of selected FUAs.</p>
 <p>Table 3: Number of private/public and unknown occurrences of selected FUAs of one delivery batch</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 27%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Site</th>
@@ -1186,9 +1218,9 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 <p>Table 4: Quality Assurance: topological rules</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 15%">
+<col style="width: 18%">
+<col style="width: 66%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1277,8 +1309,8 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 <p>Table 5: Share of samples to be interpreted</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 74%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1681,9 +1713,9 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 <section id="annex-1---green-urban-areas-queries" class="level1" data-number="8">
 <h1 data-number="8"><span class="header-section-number">8</span> Annex 1 - Green Urban Areas queries</h1>
 <p>OSM public streets query (overpass)</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>way({bbox_str})<span class="co">[</span><span class="ot">highway</span><span class="co">][!"access"]</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>way({bbox_str})<span class="co">[</span><span class="ot">highway</span><span class="co">][!"access"]</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>OSM public polygons query (overpass)</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nwr<span class="co">[</span><span class="ot">"amenity"="grave_yard"</span><span class="co">]({bbox_str})</span>;</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nwr<span class="co">[</span><span class="ot">"amenity"="grave_yard"</span><span class="co">]({bbox_str})</span>;</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>nwr<span class="co">[</span><span class="ot">"landuse"="cemetery"</span><span class="co">]({bbox_str})</span>;</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1721,9 +1753,9 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>nwr<span class="co">[</span><span class="ot">"access"!="private"</span><span class="co">]["landuse"="meadow"]</span>({bbox_str});</span>
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>nwr<span class="co">[</span><span class="ot">"access"!="private"</span><span class="co">]["landuse"="village_green"]</span>({bbox_str});</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>nwr<span class="co">[</span><span class="ot">"access"!="private"</span><span class="co">]["landuse"="village_green"]</span>({bbox_str});</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>OSM private polygons query (overpass)</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nwr<span class="co">[</span><span class="ot">"access"="private"</span><span class="co">]["leisure"="park"]</span>({bbox_str});</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nwr<span class="co">[</span><span class="ot">"access"="private"</span><span class="co">]["leisure"="park"]</span>({bbox_str});</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>nwr<span class="co">[</span><span class="ot">"access"="private"</span><span class="co">]["leisure"="garden"]</span>({bbox_str});</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1751,7 +1783,7 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>nwr<span class="co">[</span><span class="ot">"access"="private"</span><span class="co">]["aeroway"="aerodrome"]</span>({bbox_str});</span>
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>nwr<span class="co">[</span><span class="ot">"access"="private"</span><span class="co">]["leisure"="golf_course"]</span>({bbox_str});nwr<span class="co">[</span><span class="ot">"barrier"="fence"</span><span class="co">]["aeroway"="aerodrome"]</span>({bbox_str});nwr<span class="co">[</span><span class="ot">"barrier"="fence"</span><span class="co">]["landuse"="military"]</span>({bbox_str});nwr<span class="co">[</span><span class="ot">"aeroway"="aerodrome"</span><span class="co">]({bbox_str})</span>;nwr<span class="co">[</span><span class="ot">"landuse"="military"</span><span class="co">]({bbox_str})</span>;nwr<span class="co">[</span><span class="ot">"leisure"="golf_course"</span><span class="co">]({bbox_str})</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>nwr<span class="co">[</span><span class="ot">"access"="private"</span><span class="co">]["leisure"="golf_course"]</span>({bbox_str});nwr<span class="co">[</span><span class="ot">"barrier"="fence"</span><span class="co">]["aeroway"="aerodrome"]</span>({bbox_str});nwr<span class="co">[</span><span class="ot">"barrier"="fence"</span><span class="co">]["landuse"="military"]</span>({bbox_str});nwr<span class="co">[</span><span class="ot">"aeroway"="aerodrome"</span><span class="co">]({bbox_str})</span>;nwr<span class="co">[</span><span class="ot">"landuse"="military"</span><span class="co">]({bbox_str})</span>;nwr<span class="co">[</span><span class="ot">"leisure"="golf_course"</span><span class="co">]({bbox_str})</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="annex-2---ua-lclu-nomenclature" class="level1" data-number="9">
 <h1 data-number="9"><span class="header-section-number">9</span> Annex 2 - UA LC/LU Nomenclature</h1>
@@ -1768,10 +1800,10 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 <p>Table 6: UA LC/LU nomenclature (in bold, classes used in the products, without any further subdivision)</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 19%">
+<col style="width: 16%">
+<col style="width: 40%">
+<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2034,6 +2066,11 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 <section id="document-history" class="level1" data-number="10">
 <h1 data-number="10"><span class="header-section-number">10</span> Document history</h1>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 26%">
+<col style="width: 54%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Version</th>
@@ -2053,6 +2090,10 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 <section id="applicable-documents" class="level1" data-number="11">
 <h1 data-number="11"><span class="header-section-number">11</span> Applicable documents</h1>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 76%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Version</th>
@@ -2130,13 +2171,14 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -2482,7 +2524,7 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>2025 EEA. All rights reserved.</p>
+<p>2026 EEA. All rights reserved.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

@@ -2,17 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Copernicus Land Monitoring Service">
-<meta name="dcterms.date" content="2025-11-03">
-<meta name="keywords" content="Crop Types layer, Cropping Patterns, Base Vegetation Layer, Sentinel-2 imagery, Bare Soil duration, Main Crop Emergence, Fallow Land Presence, Accuracy Assessment, LUCAS Survey, Cloud-Optimized GeoTIFFs">
-<meta name="description" content="This Product User Manual provides comprehensive details on the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands product, a crucial component of the vegetated land cover characteristics portfolio. It outlines the product’s scope, production methodologies, and quality assessment procedures. The manual describes the various layers, including crop types, cropping patterns, and associated confidence layers, providing users with the necessary information to effectively utilise the data for environmental monitoring, agricultural policy support, and various land management applications across Europe.">
+<meta name="dcterms.date" content="2025-12-03">
+<meta name="keywords" content="High Resolution Layer Croplands, Copernicus Land Monitoring Service, Crop Types layer, Cropping Patterns layers, Sentinel-2 imagery, agricultural practices mapping, Base Vegetation Layer, fAPAR timeseries, Accuracy assessment, Cloud-Optimized GeoTIFF">
+<meta name="description" content="This Product User Manual (PUM) serves as a comprehensive guide for users of the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands products, covering the period from 2017 to the present. It details the characteristics, production methodologies, and quality assessment of the annual HRL Croplands provision. The manual provides essential information on product usage, including nomenclature, spatial resolution, file formats, and terms of use, enabling effective application of these geospatial datasets. The technical focus includes the crop type classification, cropping patterns and accuracy assessment.">
 
 <title>High Resolution Layer Croplands 2017-present - Product User Manual – Technical Library</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -40,10 +43,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-24cc52c546c003a7d891213737239288.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ccd9cb9b1c9bdf1eabc4708995bd1808.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,11 +78,12 @@ ul.task-list li input[type="checkbox"] {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "High Resolution Layer Croplands 2017-present - Product User Manual",
-    "description": "This Product User Manual provides comprehensive details on the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands product, a crucial component of the vegetated land cover characteristics portfolio. It outlines the product’s scope, production methodologies, and quality assessment procedures. The manual describes the various layers, including crop types, cropping patterns, and associated confidence layers, providing users with the necessary information to effectively utilise the data for environmental monitoring, agricultural policy support, and various land management applications across Europe.",
-    "datePublished": "November 3, 2025",
+    "description": "This Product User Manual (PUM) serves as a comprehensive guide for users of the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands products, covering the period from 2017 to the present. It details the characteristics, production methodologies, and quality assessment of the annual HRL Croplands provision. The manual provides essential information on product usage, including nomenclature, spatial resolution, file formats, and terms of use, enabling effective application of these geospatial datasets. The technical focus includes the crop type classification, cropping patterns and accuracy assessment.",
+    "datePublished": "December 3, 2025",
     "author": {
       "@type": "Person",
-      "name": "Copernicus Land Monitoring Service"
+      "name": "Copernicus Land Monitoring Service
+"
     },
     "publisher": {
       "@type": "Organization",
@@ -89,7 +93,26 @@ ul.task-list li input[type="checkbox"] {
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "?invalid meta type:keywords",
+    "keywords": "High Resolution Layer Croplands
+
+Copernicus Land Monitoring Service
+
+Crop Types layer
+
+Cropping Patterns layers
+
+Sentinel-2 imagery
+
+agricultural practices mapping
+
+Base Vegetation Layer
+
+fAPAR timeseries
+
+Accuracy assessment
+
+Cloud-Optimized GeoTIFF
+",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -101,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
 </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -114,7 +137,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -156,7 +179,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Content</h2>
+    <h2 id="toc-title">Index</h2>
    
   <ul>
   <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary"><span class="header-section-number">1</span> Executive summary</a></li>
@@ -206,16 +229,12 @@ window.Quarto = {
   <li><a href="#document-control-information" id="toc-document-control-information" class="nav-link" data-scroll-target="#document-control-information"><span class="header-section-number">13</span> Document Control Information:</a></li>
   <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">14</span> Change Log</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="High_Resolution_Layer_Croplands_2017-present_PUM_v2.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="High_Resolution_Layer_Croplands_2017-present_PUM_v2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="High_Resolution_Layer_Croplands_2017-present_PUM_v2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Remove link to .docx file
-    //
-    document.querySelectorAll("a[href$='.docx']").forEach((link) => (link.style.display = "none"));
-
     // Add Version to the title's metadata
     //
     const titleMetaEl = document.querySelector(".quarto-title-meta");
@@ -223,7 +242,7 @@ window.Quarto = {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>2.3</p>
+          <p>2.3.0</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -238,7 +257,7 @@ window.Quarto = {
 
 <div>
   <div class="description">
-    This Product User Manual provides comprehensive details on the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands product, a crucial component of the vegetated land cover characteristics portfolio. It outlines the product’s scope, production methodologies, and quality assessment procedures. The manual describes the various layers, including crop types, cropping patterns, and associated confidence layers, providing users with the necessary information to effectively utilise the data for environmental monitoring, agricultural policy support, and various land management applications across Europe.
+    This Product User Manual (PUM) serves as a comprehensive guide for users of the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands products, covering the period from 2017 to the present. It details the characteristics, production methodologies, and quality assessment of the annual HRL Croplands provision. The manual provides essential information on product usage, including nomenclature, spatial resolution, file formats, and terms of use, enabling effective application of these geospatial datasets. The technical focus includes the crop type classification, cropping patterns and accuracy assessment.
   </div>
 </div>
 
@@ -255,7 +274,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 3, 2025</p>
+      <p class="date">December 3, 2025</p>
     </div>
   </div>
   
@@ -266,7 +285,7 @@ window.Quarto = {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>Crop Types layer, Cropping Patterns, Base Vegetation Layer, Sentinel-2 imagery, Bare Soil duration, Main Crop Emergence, Fallow Land Presence, Accuracy Assessment, LUCAS Survey, Cloud-Optimized GeoTIFFs</p>
+    <p>High Resolution Layer Croplands, Copernicus Land Monitoring Service, Crop Types layer, Cropping Patterns layers, Sentinel-2 imagery, agricultural practices mapping, Base Vegetation Layer, fAPAR timeseries, Accuracy assessment, Cloud-Optimized GeoTIFF</p>
   </div>
 </div>
 
@@ -283,7 +302,7 @@ Denmark<br>
 <a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
 </div>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Figure  3-1  Evolution  of  HRL  Forest  and  Grassland  towards  the  three product  groups  HRL  Tree  Cover  &  Forests,  HRL  Grasslands,  HRL Croplands.","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image1.png"},{"@type":"ImageObject","caption":"Figure  5-1:  Products  within  the  HRL  vegetated  land  cover characteristics.","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-e8467516151840ea4a22d7d91f3cf2c6ceebe367.png"},{"@type":"ImageObject","caption":"Figure  5-2:  High-level  overview  of  the  relationship  between  the  Base Vegetation  Layer  and  the  subsequent  production  of  Grasslands,  Croplands and  Tree  Cover  &  Forests products","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-6bc33732696023251e282e419d868126e4611b92.png"},{"@type":"ImageObject","caption":"Figure  7-1:  LAEA  tile  layout  incl. distinction  between  tiles  to  cover EU27  and EEA38.","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-ca1eb55e3cba78bf3f78fb81c831ae27ef69af7e.png"},{"@type":"ImageObject","caption":"Figure  7-2  HRL  Croplands  product overview","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-f66692b52cdab6bf7c00868d035160c85d2d44d8.png"},{"@type":"ImageObject","caption":"Table  7-1:  HRL  Crop  Types  nomenclature  and  aggregation levels","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/Table7-1.png"},{"@type":"ImageObject","caption":"Figure  7-3:  Example  how  the  different  cropping  patterns  layers  for  a barley  field  located  in  Belgium  are  generated  for  the  reference  year 2019.  The  season  delineation  is  based  on  the  predicted  emergence  (black line)  and  harvest  dates  (red  line).  The  green  timeseries  curve  is  the daily  fAPAR  value  (with  uncertainty).  BS  after  stands  for  the  length  of the  bare  soil  period  after  the  main season.","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-80e6a4a68bfe83b945921f20705162656feeb945.png"},{"@type":"ImageObject","caption":"Figure  8-1:  Approach  I  sample  distribution  for  verification  at  Crop Group Level","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-c861206239383485c44d6e1af9b25dabed4cf2e7.png"},{"@type":"ImageObject","caption":"Figure  8-2:  Approach  II  sample  distribution  depending  on  LUCAS  points containing  crop  type  information  for  the  year 2018","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-9e704a7c3da9f900c7030e35f7e20b360d0ffd69.png"},{"@type":"ImageObject","caption":"Figure  8-3:  Approach  II  sample  distribution  depending  on  LUCAS  points containing  crop  type  information  for  the  year 2022","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-e2575e0f399b4b95661426ae2f21c6c5c7a0b9bd.png"},{"@type":"ImageObject","caption":"Figure  8-4:  GSAA  data  availability,  per  country  per year","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-d2276222fad84e13af99fab131c83599787f58a8.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image2.png"},{"@type":"ImageObject","caption":"Table  0-1:  Colour  palette  and  attributes  of  HRL  Crop  Types  (CTY) layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image3.png"},{"@type":"ImageObject","caption":"Table  0-2:  Colour  palette  and  attributes  of  CTYCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image4.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image5.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image6.png"},{"@type":"ImageObject","caption":"Table  0-3:  Colour  palette  and  attributes  of  CPMCH layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image7.png"},{"@type":"ImageObject","caption":"Table  0-4:  Colour  palette  and  attributes  of  CPMCHCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image8.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image9.png"},{"@type":"ImageObject","caption":"Table  0-5:  Colour  palette  and  attributes  of  CPMCE layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image10.png"},{"@type":"ImageObject","caption":"Table  0-6:  Colour  palette  and  attributes  of  CPMCECL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image11.png"},{"@type":"ImageObject","caption":"Table  0-7:  Colour  palette  and  attributes  of  CPMCD layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image12.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image13.png"},{"@type":"ImageObject","caption":"Table  0-8:  Colour  palette  and  attributes  of  CPMCDCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image14.png"},{"@type":"ImageObject","caption":"Table  0-9:  Colour  palette  and  attributes  of  CPBSB layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image15.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image16.png"},{"@type":"ImageObject","caption":"Table  0-10:  Colour  palette  and  attributes  of  CPBSBCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image17.png"},{"@type":"ImageObject","caption":"Table  0-11:  Colour  palette  and  attributes  of  CPBSA layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image18.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image19.png"},{"@type":"ImageObject","caption":"Table  0-12:  Colour  palette  and  attributes  of  CPBSBCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image20.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image21.png"},{"@type":"ImageObject","caption":"Table  0-13:  Colour  palette  and  attributes  of  CPSCT layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image22.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image23.png"},{"@type":"ImageObject","caption":"Table  0-14:  Colour  palette  and  attributes  of  CPSCE layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image24.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image25.png"},{"@type":"ImageObject","caption":"Table  0-15:  Colour  palette  and  attributes  of  CPSCD layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image26.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image27.png"},{"@type":"ImageObject","caption":"Table  0-16:  Colour  palette  and  attributes  of  CPSCDCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image28.png"},{"@type":"ImageObject","caption":"Table  0-17:  Colour  palette  and  attributes  of  CPFLP layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image29.png"},{"@type":"ImageObject","caption":"Table  0-18:  Colour  palette  and  attributes  of  CPFLPCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image30.png"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image31.png"},{"@type":"ImageObject","caption":"Table  0-19:  Colour  palette  and  attributes  of  CPFLD layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image32.png"},{"@type":"ImageObject","caption":"Table  0-20:  Colour  palette  and  attributes  of  CPFLDCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image33.png"},{"@type":"ImageObject","caption":"Table  0-21:  Colour  palette  and  attributes  of  CPCSY layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image34.png"},{"@type":"ImageObject","caption":"Table  0-22:  Colour  palette  and  attributes  of  CPCST layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image35.png"}]}
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Figure  3-1  Evolution  of  HRL  Forest  and  Grassland  towards  the  three product  groups  HRL  Tree  Cover  &  Forests,  HRL  Grasslands,  HRL Croplands.","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image1.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  5-1:  Products  within  the  HRL  vegetated  land  cover characteristics.","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-e8467516151840ea4a22d7d91f3cf2c6ceebe367.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  5-2:  High-level  overview  of  the  relationship  between  the  Base Vegetation  Layer  and  the  subsequent  production  of  Grasslands,  Croplands and  Tree  Cover  &  Forests products","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-6bc33732696023251e282e419d868126e4611b92.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  7-1:  LAEA  tile  layout  incl. distinction  between  tiles  to  cover EU27  and EEA38.","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-ca1eb55e3cba78bf3f78fb81c831ae27ef69af7e.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  7-2  HRL  Croplands  product overview","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-f66692b52cdab6bf7c00868d035160c85d2d44d8.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  7-1:  HRL  Crop  Types  nomenclature  and  aggregation levels","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/Table7-1.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  7-3:  Example  how  the  different  cropping  patterns  layers  for  a barley  field  located  in  Belgium  are  generated  for  the  reference  year 2019.  The  season  delineation  is  based  on  the  predicted  emergence  (black line)  and  harvest  dates  (red  line).  The  green  timeseries  curve  is  the daily  fAPAR  value  (with  uncertainty).  BS  after  stands  for  the  length  of the  bare  soil  period  after  the  main season.","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-80e6a4a68bfe83b945921f20705162656feeb945.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  8-1:  Approach  I  sample  distribution  for  verification  at  Crop Group Level","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-c861206239383485c44d6e1af9b25dabed4cf2e7.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  8-2:  Approach  II  sample  distribution  depending  on  LUCAS  points containing  crop  type  information  for  the  year 2018","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-9e704a7c3da9f900c7030e35f7e20b360d0ffd69.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  8-3:  Approach  II  sample  distribution  depending  on  LUCAS  points containing  crop  type  information  for  the  year 2022","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-e2575e0f399b4b95661426ae2f21c6c5c7a0b9bd.png","width":"5.91in"},{"@type":"ImageObject","caption":"Figure  8-4:  GSAA  data  availability,  per  country  per year","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-d2276222fad84e13af99fab131c83599787f58a8.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image2.png","width":"6.17in"},{"@type":"ImageObject","caption":"Table  0-1:  Colour  palette  and  attributes  of  HRL  Crop  Types  (CTY) layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image3.png","width":"6.17in"},{"@type":"ImageObject","caption":"Table  0-2:  Colour  palette  and  attributes  of  CTYCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image4.png","width":"6.2in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image5.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image6.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-3:  Colour  palette  and  attributes  of  CPMCH layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image7.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-4:  Colour  palette  and  attributes  of  CPMCHCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image8.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image9.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-5:  Colour  palette  and  attributes  of  CPMCE layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image10.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-6:  Colour  palette  and  attributes  of  CPMCECL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image11.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-7:  Colour  palette  and  attributes  of  CPMCD layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image12.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image13.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-8:  Colour  palette  and  attributes  of  CPMCDCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image14.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-9:  Colour  palette  and  attributes  of  CPBSB layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image15.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image16.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-10:  Colour  palette  and  attributes  of  CPBSBCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image17.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-11:  Colour  palette  and  attributes  of  CPBSA layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image18.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image19.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-12:  Colour  palette  and  attributes  of  CPBSBCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image20.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image21.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-13:  Colour  palette  and  attributes  of  CPSCT layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image22.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image23.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-14:  Colour  palette  and  attributes  of  CPSCE layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image24.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image25.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-15:  Colour  palette  and  attributes  of  CPSCD layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image26.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image27.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-16:  Colour  palette  and  attributes  of  CPSCDCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image28.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-17:  Colour  palette  and  attributes  of  CPFLP layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image29.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-18:  Colour  palette  and  attributes  of  CPFLPCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image30.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image31.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-19:  Colour  palette  and  attributes  of  CPFLD layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image32.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-20:  Colour  palette  and  attributes  of  CPFLDCL layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image33.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-21:  Colour  palette  and  attributes  of  CPCSY layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image34.png","width":"6.27in"},{"@type":"ImageObject","caption":"Table  0-22:  Colour  palette  and  attributes  of  CPCST layer","url":"High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image35.png","width":"6.27in"}]}
 </script>
 <section id="executive-summary" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Executive summary</h1>
@@ -319,7 +338,7 @@ Denmark<br>
 <p>The HRL Croplands is a new set of layers dedicated to agriculture and comprises several yearly layers mapping crop types (10-metre spatial resolution) and agricultural practices such as harvest, fallow land and secondary crops (10-metre spatial resolution, Minimum Mapping Unit of 0.25 ha).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image1.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image1.png" class="img-fluid figure-img" style="width:6.27in" alt="This diagram illustrates the historical production and transition to yearly updates for Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) products, specifically HRL Forest, HRL Grassland, and HRL Croplands. The HRL Forest section details product evolution across three production years: * **Production 2012 (Reference year: 2012 +/- 1 year, 90% overall accuracy for status layers):** Includes Status layers (Tree Cover Density (TCD) 20m, Dominant Leaf Type (DLT) 20m, Forest Type (FTY) 20m) and Aggregated layers (TCD 100m, FTY 100m). * **Production 2015 (Reference year: 2015 +/- 1 year, Minimum 90% user's/producer's accuracy for TCD and DLT):** Includes Status layers (TCD 20m, DLT 20m, FTY 20m, TCD RDB), Aggregated layers (TCD 100m, FTY 100m), and Change layers (Tree Cover Density Change (TCDC) 20m* and Dominant Leaf Type Change (DLTC) 20m). Note: TCDC 20m* is discontinued. * **Production 2018 (Reference year: 2018 +/- 1 year, Minimum 90% user's/producer's accuracy for TCD, DLT and TCPC):** Includes Status layers (TCD 10m, DLT 10m, FTY 10m, TCD RDB, Coniferous Cover Density (CCD) 100m), Aggregated layers (TCD 100m, FTY 100m, Broadleaved Cover Density (BCD) 100m), and Change layers (Tree Cover Change Mask (TCCM) 20m**, DLTC 20m, TCCM RDB). Note: TCCM 20m** is continued as Tree Cover Presence Change (TCPC). * **Future Updates:** From 2018 onward, HRL Forest products were replaced by yearly updates of HRL Tree Cover &amp; Forests. The HRL Grassland section details product evolution across two production years: * **Production 2015 (Reference year: 2015 +/- 1 year, Minimum 85% Overall Accuracy (OA) of GRA status layer per biogeographical regions):** Includes Status layers (Grassland (GRA) 20m) and Aggregated layers (GRA 100m). * **Production 2018 (Reference year: 2018 +/- 1 year, Minimum 85% OA for GRA status layer &amp; minimum 80% OA for change layer per biogeographical regions):** Includes Status layers (GRA 10m), Aggregated layers (GRA 100m), and Change layers (Grassland Change (GRAC) 20m). * **Future Updates:** From 2017 onward, HRL Grassland products were replaced by yearly updates of HRL Grasslands. Separately, the diagram indicates that from 2017 onward, HRL Croplands products are also replaced by yearly updates."></p>
 <figcaption>Figure 3-1 Evolution of HRL Forest and Grassland towards the three product groups HRL Tree Cover &amp; Forests, HRL Grasslands, HRL Croplands.</figcaption>
 </figure>
 </div>
@@ -363,7 +382,7 @@ Denmark<br>
 <p>Some overlaps between the three product groups are allowed by definition, for example areas with tree crops (i.e.&nbsp;olive, fruit and nut trees) which are included in both the Tree Cover &amp; Forests and the Croplands products. Furthermore, specific vegetations types are not included in the HRLVLCC portfolio; this concerns areas dominated by natural shrubs (i.e.&nbsp;shrubs that are not under agricultural use) and associations of lichens and mosses.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-e8467516151840ea4a22d7d91f3cf2c6ceebe367.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-e8467516151840ea4a22d7d91f3cf2c6ceebe367.png" class="img-fluid figure-img" style="width:6.27in" alt="This hierarchical overview diagram presents the Copernicus Land Monitoring Service (CLMS) High Resolution Layers (HRL) vegetated land cover characteristics product portfolio. The top-level category, labelled 'High Resoluton Layers vegetated land cover characteristics' (note: 'Resolution' is misspelled as 'Resoluton' in the image), branches into three distinct product groups: 1. **Tree Cover &amp; Forest Products:** These products have been available yearly since 2018. 2. **Grasslands Products:** These products have been available yearly since 2017. 3. **Cropland Products:** These products have been available yearly since 2017. The diagram indicates the start year for the yearly availability of each product category within the HRL vegetated land cover characteristics."></p>
 <figcaption>Figure 5-1: Products within the HRL vegetated land cover characteristics.</figcaption>
 </figure>
 </div>
@@ -393,7 +412,7 @@ Denmark<br>
 <p>Within the areas identified as overlap herbaceous – cropland, a further harmonization step is carried out downstream. To this end the CTY classification initially includes a class for fodder crops which are transferred to the HER layer if occurring in the designated overlap class.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-6bc33732696023251e282e419d868126e4611b92.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-6bc33732696023251e282e419d868126e4611b92.png" class="img-fluid figure-img" style="width:6.27in" alt="This is a high-level overview diagram illustrating the relationship between the Base Vegetation Layer Service and the subsequent production of Grasslands, Croplands, and Tree Cover &amp; Forests products within the Copernicus Land Monitoring Service (CLMS). The process begins with the 'Base Vegetation Layer Service' which classifies areas into three primary categories: 'Herbaceous', 'Cropland', and 'Tree Cover'. This service also identifies specific overlap areas: * 'Overlap Herbaceous – Tree Cover (TCD 1-10%)' * 'Overlap Herbaceous-Cropland (e.g. Fodder crops)' * 'Overlap Tree Cover-Cropland (Tree crops)' The 'Herbaceous' classification, including its maximum extent and probabilities, is fed into 'Grassland Product Services'. The 'Cropland' classification, including its maximum extent, is fed into 'Cropland Product Services'. The 'Tree Cover' classification, including its maximum extent and probabilities, is fed into 'Forest Product Services'. The 'Grassland Product Services' generate several products: * 'Herbaceous Cover (10m)' * 'Grassland (10m, 100m)' * 'Grassland Change (20m, Minimum Mapping Unit 1ha)' * 'Grassland Mowing Events (10m, Minimum Mapping Unit 0.25ha)' The 'Cropland Product Services' generate products such as: * 'Crop Types (10m, Minimum Mapping Unit 0.25 ha)' * 'Cropping patterns (10m, Minimum Mapping Unit 0.25 ha)' * 'Main Crops, Bare Soil, Secondary Crops' * 'Fallow Land, Annual Crop Characteristics' Notably, 'Fodder crops' identified by the 'Cropland Product Services' are fed back as an input to the 'Grassland Product Services' for harmonization. The 'Forest Product Services' generate products including: * 'Dominant Leaf Type (10m)' * 'Tree Cover Density (10m, 100m)' * 'Forest Type (10m, 100m)' * 'Forest Change (20m, Minimum Mapping Unit 1ha)'"></p>
 <figcaption>Figure 5-2: High-level overview of the relationship between the Base Vegetation Layer and the subsequent production of Grasslands, Croplands and Tree Cover &amp; Forests products</figcaption>
 </figure>
 </div>
@@ -416,14 +435,14 @@ Denmark<br>
 <p>The HRL Croplands layers are generally provided in 100km Lambert Azimuthal Equal Area (LAEA) projection tiles as shown in Figure 7-1. The five French Oversea Territories are provided in UTM with the layout of the respective territory. The layers are available as Cloud-Optimized GeoTIFFs (COG) per reference year and 100km LAEA tile aligned with the EEA reference grid. Each raster file is accompanied by a Persistent Auxiliary Metadata (PAM) XML and an INSPIRE XML.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-ca1eb55e3cba78bf3f78fb81c831ae27ef69af7e.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-ca1eb55e3cba78bf3f78fb81c831ae27ef69af7e.png" class="img-fluid figure-img" style="width:6.27in" alt="This map illustrates the 100km Lambert Azimuthal Equal Area (LAEA) projection tile layout for Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands products, distinguishing between EU27 and European Environment Agency (EEA) 38 coverage. The geographic area covers Europe and associated overseas territories. The legend defines two categories of grid cells: - Green square outline: 'Included in EU27 coverage.' These tiles cover the continental EU27 Member States, the United Kingdom, and several Atlantic islands (e.g., Azores, Madeira, Canary Islands, French overseas territories). - Light blue square outline: 'Included only in EEA38 coverage.' These tiles extend the coverage to include countries like Iceland, Norway, Switzerland, Turkey, and the Western Balkan states (Albania, Bosnia and Herzegovina, Kosovo under UN Security Council Resolution 1244/99, Montenegro, North Macedonia, Serbia), forming the wider EEA38 area. The map displays a regular grid of 100km x 100km tiles over the landmasses and surrounding waters. The scale bar at the bottom indicates distances from 0 km to 1600 km, with increments of 400 km."></p>
 <figcaption>Figure 7-1: LAEA tile layout incl.&nbsp;distinction between tiles to cover EU27 and EEA38.</figcaption>
 </figure>
 </div>
 <p>The HRL Croplands information aims at filling the data gap needed for detailed agricultural monitoring and enables repeatable and harmonised continental scale assessments within the CLMS portfolio. The HRL Croplands layers entail the mapping the extent of croplands and crop types, delineation of parcel-complexes, mapping agricultural practices on large scale and with wall-to-wall coverage and high spatial details.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-f66692b52cdab6bf7c00868d035160c85d2d44d8.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-f66692b52cdab6bf7c00868d035160c85d2d44d8.png" class="img-fluid figure-img" style="width:6.27in" alt="This diagram illustrates the hierarchical structure of the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands data, available yearly since 2017. The main Croplands data is categorised into two primary branches: 'Status' and 'Ancillary' layers. The 'Status' branch includes: 1. **Crop Type (CTY)**. 2. **Cropping Patterns (CP) 10m**, which further detail: * **Main Crop (CPMC) 10m** with sub-components: Emergence (CPMCE), Harvest (CPMCH), and Duration (CPMCD). * **Bare Soil (CPBS) 10m** with sub-components: Before (CPBSB) and After (CPBSA). * **Secondary Crops (CPSC) 10m** with sub-components: Type (CPSCT), Emergence (CPSCE), and Duration (CPSCD). * **Fallow Land (CPFL) 10m** with sub-components: Presence (CPFLP) and Duration (CPFLD). * **Cropping Seasons (CPCS) 10m** with sub-components: Yearly (CPCSY) and Types (CPCST). The 'Ancillary' branch includes: 1. **Crop Type Confidence Layer (CTYCL) 10m**. 2. **Cropping Patterns Confidence Layers (CP ... CL) 10m**, which provide confidence metrics for specific cropping pattern attributes: * Emergence (CPMCECL) * Harvest (CPMCHCL) * Duration (CPCDCL) * Before (CPBSBCL) * After (CPBSACL) * Duration (CPSCDCL) * Presence (CPFLPCL) * Duration (CPFLDCL)"></p>
 <figcaption>Figure 7-2 HRL Croplands product overview</figcaption>
 </figure>
 </div>
@@ -447,7 +466,7 @@ Denmark<br>
 <p>The HRL Croplands layers are only provided for those locations where the BVL designates arable or permanent cropland (i.e., BVL classes cropland, tree crops and overlap herbaceous and crops). For those locations the pixel-based crop type algorithm classifies according to the crop type grown in the main growing season. A main crop season is defined as the most crucial period for cultivating crops of economic value. Initially, the algorithm also classifies the grassland and fodders crops that are present in the applied BVL mask (overlap herbaceous and crops), but those locations are transferred to the Herbaceous Cover (HER) layer (see 5.2). In Table 7-1, the final mapped crop types and the aggregation levels of the hierarchical nomenclature are given. The crop type aggregation level is used within the Crop Types (CTY) layer. For those cases where the classification algorithm remains undecided due to low confidence values, a separate category is added, subdivided in unclassified arable and permanent crop. This output is further spatially cleaned and harmonised over the years to enhance temporal and spatial consistency of the product. As a result of these post-processing steps, it might happen that there is some minimal overlap between the HRL Croplands and Grassland layers that are both located within the arable or permanent crops classes defined by BVL [7]. This potential overlap can be present in the published layers and solely occurs at borders between cropland and temporary grassland.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/Table7-1.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/Table7-1.png" class="img-fluid figure-img" style="width:6.27in" alt="| Code | Land Cover | Crop Group | Crop type | Colour | |---|---|---|---|---| | 1110 | Arable Crops | Cereals | Wheat | Orange | | 1120 | Arable Crops | Cereals | Barley | Light Orange | | 1130 | Arable Crops | Cereals | Maize | Yellow | | 1140 | Arable Crops | Cereals | Rice | Red-Orange | | 1150 | Arable Crops | Cereals | Other cereals | Light Brown/Pink | | 1210 | Arable Crops | Dry pulses &amp; Vegetables | Fresh Vegetables | Light Blue | | 1220 | Arable Crops | Dry pulses &amp; Vegetables | Dry pulses | Dark Blue | | 1310 | Arable Crops | Root/tuber crops | Potatoes | Brown | | 1320 | Arable Crops | Root/tuber crops | Sugar Beet | Dark Brown | | 1410 | Arable Crops | Non-permanent industrial crops | Sunflower | Pink | | 1420 | Arable Crops | Non-permanent industrial crops | Soybeans | Purple | | 1430 | Arable Crops | Non-permanent industrial crops | Rapeseed | Magenta | | 1440 | Arable Crops | Non-permanent industrial crops | Flax, cotton and hemp | Light Pink | | 2100 | Permanent Crops | Permanent Crops | Grapes | Light Green | | 2200 | Permanent Crops | Permanent Crops | Olives | Yellow-Green | | 2310 | Permanent Crops | Permanent Crops | Fruits | Dark Green | | 2320 | Permanent Crops | Permanent Crops | Nuts | Darkest Green | | 3100 | Arable Crops | Unclassified arable crop | Unclassified arable crop | Light Grey | | 3200 | Permanent Crops | Unclassified permanent crop | Unclassified permanent crop | Dark Grey | This table presents the hierarchical nomenclature and classification codes for crop types within the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands product, including associated colours for mapping. It categorises crops first by 'Land Cover' (Arable Crops or Permanent Crops), then by 'Crop Group', and finally by specific 'Crop type'. Arable Crops include Cereals (Wheat, Barley, Maize, Rice, Other cereals), Dry pulses &amp; Vegetables (Fresh Vegetables, Dry pulses), Root/tuber crops (Potatoes, Sugar Beet), and Non-permanent industrial crops (Sunflower, Soybeans, Rapeseed, Flax, cotton and hemp). Permanent Crops are grouped as Grapes, Olives, Fruits, and Nuts. Additionally, the table defines 'Unclassified arable crop' and 'Unclassified permanent crop' categories for instances where the classification algorithm cannot make a confident determination."></p>
 <figcaption>Table 7-1: HRL Crop Types nomenclature and aggregation levels</figcaption>
 </figure>
 </div>
@@ -464,7 +483,7 @@ Denmark<br>
 <p>An overview of how cropping pattern layers (excluding Fallow Land and Cropping Seasonslayers) can be generated at the field level based on the identified emergence and harvest events within a six-month period before and after the calendar year is given in Figure 7-3. The emergence and harvest events are used to classify the season as either main or secondary based on predefined seasonal boundaries. In the example shown in Figure 7-3, the main season corresponds to a winter cereal, resulting in no bare soil period before the main season for the reference year. Instead, a bare soil period is indicated between the main and secondary seasons, defined by the harvest of the main season and the emergence of the secondary season. The secondary season is classified as a long winter variant. The uncertainty surrounding fAPAR values around the emergence and harvest events is utilized to generate the respective Confidence Layers.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-80e6a4a68bfe83b945921f20705162656feeb945.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-80e6a4a68bfe83b945921f20705162656feeb945.png" class="img-fluid figure-img" style="width:6.27in" alt="Line chart illustrating the Fraction of Absorbed Photosynthetically Active Radiation (fAPAR) time series for a barley field from July 2018 to July 2020, indicating crop seasons and bare soil periods. The Y-axis represents fAPAR values ranging from 0.0 to 1.0. The X-axis represents time, with tick marks every three months from 2018-07 to 2020-07. The chart includes three green data series representing fAPAR quantiles: 'CropSAR_q50' (solid line), 'CropSAR_q10' (dashed line), and 'CropSAR_q90' (dash-dot line), which collectively show the fAPAR value and its uncertainty range. Two types of vertical lines indicate key events: 'modelled_emergen' (solid black lines) and 'modelled_harvest' (solid red lines). The fAPAR curve shows three distinct cycles, each representing a growing season characterized by high fAPAR values (typically 0.6–0.9) followed by sharp drops to low values (around 0.1–0.2) during harvest and bare soil periods. Specific events and periods annotated below the chart are: - A 'modelled_harvest' (red line) occurs around mid-October 2018, followed by a 'modelled_emergen' (black line) in late October 2018. - A green double-headed arrow labeled 'Main season' spans from approximately late October 2018 to early July 2019, indicating a period of active growth. The 'modelled_harvest' for this main season occurs in early July 2019. - A red double-headed arrow labeled 'BS after' (Bare Soil after) spans from early July 2019 to late October 2019, representing the bare soil period following the main season's harvest. A 'modelled_emergen' occurs in late October 2019, marking the start of the next season. - A blue double-headed arrow labeled 'Secondary crop season' spans from late October 2019 to late April 2020, representing a second period of active growth. The 'modelled_harvest' for this secondary season occurs in late April 2020. - Another 'modelled_emergen' is indicated in early May 2020, followed by another fAPAR growth cycle."></p>
 <figcaption>Figure 7-3: Example how the different cropping patterns layers for a barley field located in Belgium are generated for the reference year 2019. The season delineation is based on the predicted emergence (black line) and harvest dates (red line). The green timeseries curve is the daily fAPAR value (with uncertainty). BS after stands for the length of the bare soil period after the main season.</figcaption>
 </figure>
 </div>
@@ -474,9 +493,9 @@ Denmark<br>
 <p>Table 7-2: Download content, file naming convention and file format(s) for the HRL Croplands layers</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 31%">
+<col style="width: 14%">
+<col style="width: 55%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -599,8 +618,8 @@ Denmark<br>
 </tbody>
 </table>
 <p><strong>Delivery format (for Crop types &amp; Crop types confidence):</strong><br>
-Tiles of Cloud-Optimized GeoTIFF aligned with the 100km LAEA grid with embedded colormaps, as well as separate colour legends in the formats <em>.qml,</em> .sld and *.lyr</p>
-<p><strong>Delivery format (for all rows except Crop types &amp; Crop types confidence):</strong> Tiles of Cloud-Optimized GeoTIFF aligned with the 100km LAEA grid. Separate colour legends in the formats <em>.qml,</em> .sld and *.lyr</p>
+Tiles of Cloud-Optimized GeoTIFF aligned with the 100km LAEA grid with embedded colormaps, as well as separate colour legends in the formats *.qml,* .sld and *.lyr</p>
+<p><strong>Delivery format (for all rows except Crop types &amp; Crop types confidence):</strong> Tiles of Cloud-Optimized GeoTIFF aligned with the 100km LAEA grid. Separate colour legends in the formats *.qml,* .sld and *.lyr</p>
 <p><strong>Metadata (applies to all rows):</strong><br>
 XML metadata files according to INSPIRE metadata standards and GDAL-style Permanent Auxiliary Metadata (PAM)*.aux.xml including statistics and Raster Attribute Table.</p>
 </section>
@@ -608,6 +627,10 @@ XML metadata files according to INSPIRE metadata standards and GDAL-style Perman
 <h2 data-number="7.3" class="anchored" data-anchor-id="projection-and-spatial-coverage"><span class="header-section-number">7.3</span> Projection and spatial coverage</h2>
 <p>Table 7-3: Projection and spatial coverage for the HRL Croplands layers</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 74%">
+<col style="width: 25%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Name of layer</th>
@@ -723,6 +746,10 @@ XML metadata files according to INSPIRE metadata standards and GDAL-style Perman
 <p>While it is difficult to quantify the cumulative effect and variability of these factors, limited detectability and spatial uncertainty of elements at a scale from 10-20 metres should probably be considered for the usage and validation of the maps.</p>
 <p>Table 7-4: Spatial resolution for the HRL Croplands layers</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 74%">
+<col style="width: 25%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Name of layer</th>
@@ -831,9 +858,9 @@ XML metadata files according to INSPIRE metadata standards and GDAL-style Perman
 <p>Table 7-5: Temporal information for the HRL Croplands layers</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 73%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -961,8 +988,8 @@ XML metadata files according to INSPIRE metadata standards and GDAL-style Perman
 <p>Table 7-6: Overview of the used quality flags within the HRL Croplands layers</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 12%">
+<col style="width: 88%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1028,11 +1055,11 @@ XML metadata files according to INSPIRE metadata standards and GDAL-style Perman
 <p>Table 7-7: Summary of the applicable quality flags of the HRL Croplands layers</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 16%">
+<col style="width: 10%">
+<col style="width: 23%">
+<col style="width: 30%">
+<col style="width: 19%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1218,9 +1245,9 @@ XML metadata files according to INSPIRE metadata standards and GDAL-style Perman
 <p>Table 8-1: Layers to be verified and target accuracies</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 15%">
+<col style="width: 23%">
+<col style="width: 61%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1244,7 +1271,7 @@ XML metadata files according to INSPIRE metadata standards and GDAL-style Perman
 <p>The first sampling approach is dedicated to assess the accuracies of the Crop Typeslayer at crop group level. At pan-European level, this corresponds to a non-stratified, systematic and random sampling approach based on the 2 km by 2 km LUCAS grid. For the assessment of status layers, 10 000 samples (Primary Sampling Units) were randomly selected over the extended LUCAS grid (Figure 8-1). An additional 4000 samples have been allocated for the assessment of the HRL change layers Tree Cover Presence Change 2018-2021 [11] and Grassland Change 2018-2021[12] and are used here as well to exploit synergies.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-c861206239383485c44d6e1af9b25dabed4cf2e7.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-c861206239383485c44d6e1af9b25dabed4cf2e7.png" class="img-fluid figure-img" style="width:6.27in" alt="This map displays the pan-European distribution of sampling points (red dots) used for the accuracy assessment of Copernicus Land Monitoring Service (CLMS) Crop Types layers. The grey-shaded landmasses represent European countries. Red dots indicate the Primary Sampling Units selected from an extended 2 km by 2 km Land Use/Land Cover Area Frame Survey (LUCAS) grid. Approximately 14,000 such samples are distributed across continental Europe, the Nordic countries (including Iceland, excluding the United Kingdom), the Iberian Peninsula, Italy, the Balkan states, Ireland, Turkey, and the Portuguese Atlantic islands (Azores, Madeira). The United Kingdom is shown in grey but does not contain any red sampling points. The sampling approach is described as non-stratified, systematic, and random."></p>
 <figcaption>Figure 8-1: Approach I sample distribution for verification at Crop Group Level</figcaption>
 </figure>
 </div>
@@ -1261,19 +1288,19 @@ XML metadata files according to INSPIRE metadata standards and GDAL-style Perman
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-9e704a7c3da9f900c7030e35f7e20b360d0ffd69.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-9e704a7c3da9f900c7030e35f7e20b360d0ffd69.png" class="img-fluid figure-img" style="width:6.27in" alt="Choropleth map illustrating the geographic distribution of LUCAS (Land Use/Cover Area frame Survey) crop sampling points across Europe for the year 2018. The map displays the European continent, including EU Member States and surrounding countries, with land areas shown in grey and national borders outlined in white. Individual sampling locations are represented by small yellow-orange circular markers. The distribution shows a high density of LUCAS crop points across Central and Western European Member States, including France, Germany, Poland, Italy, and Spain. Significant concentrations are also visible in the Nordic countries (Sweden, Finland), Eastern Europe (Romania, Hungary), and the British Isles. The points represent LUCAS survey information with crop type data."></p>
 <figcaption>Figure 8-2: Approach II sample distribution depending on LUCAS points containing crop type information for the year 2018</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-e2575e0f399b4b95661426ae2f21c6c5c7a0b9bd.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-e2575e0f399b4b95661426ae2f21c6c5c7a0b9bd.png" class="img-fluid figure-img" style="width:5.91in" alt="Choropleth map illustrating the spatial distribution of Land Use/Cover Area frame Survey (LUCAS) points with crop type information for accuracy assessment in Europe, specifically for Approach II, in 2018. The map shows the landmass of Europe, including EU Member States (e.g., France, Germany, Italy, Spain, Poland, Sweden, Finland) and neighbouring countries, shaded in grey with white national borders. White areas represent oceans and seas. Small orange circular points are densely distributed across the continental landmass, representing LUCAS sample locations. These points are concentrated throughout Western, Central, and Southern Europe, including the British Isles (United Kingdom, Ireland). A sparser distribution is visible in Northern Europe (e.g., parts of Sweden, Finland) and southeastern Europe. Iceland, the far north of Norway, and parts of the Balkan peninsula and Turkey appear mostly devoid of points. These LUCAS points were not used as calibration/training data for the year 2018 and represent approximately 3,226 LUCAS points (excluding the UK) used for validation purposes, according to the accompanying text. No legend, scale bar, or coordinate reference system is explicitly displayed."></p>
 <figcaption>Figure 8-3: Approach II sample distribution depending on LUCAS points containing crop type information for the year 2022</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-d2276222fad84e13af99fab131c83599787f58a8.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/img-d2276222fad84e13af99fab131c83599787f58a8.png" class="img-fluid figure-img" style="width:6.27in" alt="Choropleth map of Europe illustrating the distribution of GSAA (Geospatial Aid Application) data availability for cropland sample selection for the years 2019, 2020, and 2021, used in the Copernicus Land Monitoring Service (CLMS) Croplands product's Approach II. The map uses a colour-coded legend to indicate the year of GSAA data used for sampling: * Green: 2019 * Orange: 2020 * Black: 2021 Countries are coloured based on the year of GSAA data used for sampling within their territory, or left grey if no GSAA data from these years was used for this purpose. * Denmark is entirely coloured green, indicating GSAA data from 2019 was used for sampling across the country. * France and Croatia are entirely coloured orange, indicating GSAA data from 2020 was used for sampling across these countries. * Extensive areas in black are distributed across numerous EU Member States and other European countries, including Sweden, Finland, Estonia, Latvia, Lithuania, Poland, Czechia, Slovakia, Hungary, Romania, Bulgaria, Austria, Slovenia, Italy, Spain, Portugal, Germany, Belgium, and the Netherlands. These black areas indicate where GSAA data from 2021 was used for cropland sampling. * Countries such as Ireland, the United Kingdom, Norway, Switzerland, Greece, Albania, North Macedonia, Serbia, Bosnia and Herzegovina, and Montenegro, along with uncoloured parts of countries that are partially black, are shown in grey, signifying no GSAA data from 2019, 2020, or 2021 was used for sampling in those regions for this specific application."></p>
 <figcaption>Figure 8-4: GSAA data availability, per country per year</figcaption>
 </figure>
 </div>
@@ -1300,11 +1327,11 @@ XML metadata files according to INSPIRE metadata standards and GDAL-style Perman
 <p>Table 8-2: Crop Types layer nomenclature and aggregation levels</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 18%">
+<col style="width: 25%">
+<col style="width: 24%">
+<col style="width: 22%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1476,6 +1503,10 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 <p>Since the unclassified crop class’ purpose is to express uncertainty of the classification rather than presenting an actual class no accuracies are given, sample counts are still provided for the sake of completeness.</p>
 <p>Table 8-3 Crop group level class codes</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 78%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Class code</th>
@@ -1513,15 +1544,15 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 <p><strong>CTY2018 - EU27 (Weighted)</strong></p>
 <table class="caption-top table">
 <colgroup>
+<col style="width: 14%">
 <col style="width: 11%">
 <col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 9%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1629,14 +1660,14 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 </table>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 20%">
 <col style="width: 12%">
 <col style="width: 12%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 7%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 6%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1686,15 +1717,15 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 <p><strong>CTY2021 - EU27 (Weighted)</strong></p>
 <table class="caption-top table">
 <colgroup>
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 10%">
 <col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1802,14 +1833,14 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 </table>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 20%">
 <col style="width: 12%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 7%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 14%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 6%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1859,15 +1890,15 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 <p><strong>CTY2022 - EU27 (Weighted)</strong></p>
 <table class="caption-top table">
 <colgroup>
+<col style="width: 15%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 9%">
 <col style="width: 11%">
 <col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 7%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1975,14 +2006,14 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 </table>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 20%">
 <col style="width: 12%">
-<col style="width: 11%">
-<col style="width: 7%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 14%">
+<col style="width: 12%">
+<col style="width: 6%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2033,15 +2064,15 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 <p><strong>CTY2018 - EEA38 (Weighted)</strong></p>
 <table class="caption-top table">
 <colgroup>
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 9%">
 <col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 10%">
+<col style="width: 9%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2149,14 +2180,14 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 </table>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 7%">
+<col style="width: 21%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 6%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2206,15 +2237,15 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 <p><strong>CTY2021 - EEA38 (Weighted)</strong></p>
 <table class="caption-top table">
 <colgroup>
+<col style="width: 15%">
 <col style="width: 11%">
 <col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2322,14 +2353,14 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 </table>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 7%">
+<col style="width: 21%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 6%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2379,15 +2410,15 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 <p><strong>CTY2022 - EEA38 (Weighted)</strong></p>
 <table class="caption-top table">
 <colgroup>
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 10%">
+<col style="width: 9%">
+<col style="width: 10%">
 <col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2495,14 +2526,14 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 </table>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 20%">
 <col style="width: 12%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 7%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 14%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 6%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2558,14 +2589,14 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 <p>Table 8-6: Accuracies for CTY 2018-2021 at aggregation level-1</p>
 <table class="caption-top table">
 <colgroup>
+<col style="width: 18%">
+<col style="width: 7%">
+<col style="width: 12%">
+<col style="width: 13%">
 <col style="width: 12%">
 <col style="width: 12%">
 <col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2725,8 +2756,8 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 <h1 data-number="10"><span class="header-section-number">10</span> List of Abbreviations &amp; Acronyms</h1>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 18%">
-<col style="width: 81%">
+<col style="width: 26%">
+<col style="width: 73%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3055,147 +3086,147 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 </section>
 <section id="annex-i-colour-tables-for-hrl-croplands" class="level1" data-number="12">
 <h1 data-number="12"><span class="header-section-number">12</span> Annex I – Colour tables for HRL Croplands</h1>
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image2.png" class="img-fluid"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image2.png" class="img-fluid" style="width:6.17in" alt="This table provides the class codes, names, and corresponding Red, Green, Blue (RGB) colour values for the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Crop Types (CTY) layer. | Class Code | Class Name | Red | Green | Blue | |:-----------|:-------------------|:----|:------|:-----| | 0 | No Cropland | 240 | 240 | 240 | | 1110 | Wheat | 238 | 110 | 50 | | 1120 | Barley | 251 | 162 | 74 | | 1130 | Maize | 250 | 220 | 20 | | 1140 | Rice | 233 | 67 | 1 | | 1150 | Other Cereals | 232 | 169 | 149 | | 1210 | Fresh Vegetables | 174 | 199 | 232 | | 1220 | Dry Pulses | 72 | 151 | 191 | | 1310 | Potatoes | 201 | 140 | 67 | | 1320 | Sugar Beet | 156 | 91 | 12 | | 1410 | Sunflower | 255 | 121 | 121 | The table defines a colour scheme for visualising different crop types, with 'No Cropland' assigned a light grey (RGB 240, 240, 240), cereals in shades of orange to yellow, vegetables and pulses in blues, and root crops and oilseeds in browns and reds."></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image3.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image3.png" class="img-fluid figure-img" style="width:6.17in" alt="This table presents the colour palette and attributes for various High Resolution Layer (HRL) Crop Types (CTY) as used in the Copernicus Land Monitoring Service (CLMS). It lists a unique Class Value, the corresponding Crop Type, and its RGB colour components, along with a visual colour sample. | Class Value | Crop Type | R | G | B | |:------------|:--------------------------|:----|:----|:----| | 1420 | Soybeans | 168 | 106 | 150 | | 1430 | Rapeseed | 227 | 119 | 194 | | 1440 | Flax, cotton and hemp | 247 | 182 | 210 | | 2100 | Grapes | 219 | 219 | 141 | | 2200 | Olives | 193 | 206 | 18 | | 2310 | Fruits | 121 | 160 | 58 | | 2320 | Nuts | 90 | 124 | 48 | | 3100 | Unclassified arable crop | 215 | 215 | 215 | | 3200 | Unclassified permanent crop | 171 | 171 | 171 | | 65535 | Outside area | 255 | 255 | 255 | The table provides a standard set of colours for visualising different HRL Crop Types. Specific crop categories like Soybeans and Rapeseed are assigned distinct colours, while generic classes such as 'Unclassified arable crop', 'Unclassified permanent crop', and 'Outside area' are represented by shades of grey and black, respectively."></p>
 <figcaption>Table 0-1: Colour palette and attributes of HRL Crop Types (CTY) layer</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image4.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image4.png" class="img-fluid figure-img" style="width:6.2in" alt="| Class Code | Class Name | Red | Green | Blue | |---|---|---|---|---| | 0 | 0% classification confidence | 255 | 0 | 0 | | 1-49 | 1-49% classification confidence | colour shades in between | colour shades in between | colour shades in between | | 50 | 50% classification confidence | 255 | 255 | 0 | | 51-99 | 51-99% classification confidence | colour shades in between | colour shades in between | colour shades in between | | 100 | 100% classification confidence | 8 | 99 | 0 | | 254 | No cropland | 240 | 240 | 240 | | 255 | Outside area | 0 | 0 | 0 | This table defines the colour palette and RGB attributes for different classification confidence levels within the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Crop Types (CTY) product. Pixels with 0% classification confidence are assigned red (RGB 255, 0, 0), 50% confidence yellow (RGB 255, 255, 0), and 100% confidence dark green (RGB 8, 99, 0). Intermediate confidence ranges (1-49% and 51-99%) are represented by colour shades transitioning between these primary values. Additionally, 'No cropland' areas are light grey (RGB 240, 240, 240), and 'Outside area' is black (RGB 0, 0, 0)."></p>
 <figcaption>Table 0-2: Colour palette and attributes of CTYCL layer</figcaption>
 </figure>
 </div>
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image5.png" class="img-fluid"></p>
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image6.png" class="img-fluid"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image5.png" class="img-fluid" style="width:6.27in" alt="This table defines the colour palette and attributes for the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Crop Types (CTY) layer. It maps 'Class Code' to 'Class Name' and specifies the corresponding Red, Green, and Blue (RGB) colour values. | Class Code | Class Name | Red | Green | Blue | |---|---|---|---|---| | 0 | No annual cropland | 240 | 240 | 240 | | 17090 | Apr (product year) | 255 | 128 | 159 | | 17120 | May (product year) | 255 | 176 | 127 | | 17151 | Jun (product year) | 255 | 223 | 128 | | 17181 | Jul (product year) | 223 | 255 | 128 | | 17212 | Aug (product year) | 159 | 255 | 128 | | 17243 | Sep (product year) | 109 | 220 | 141 | | 17273 | Oct (product year) | 128 | 255 | 223 | | 17304 | Nov (product year) | 128 | 223 | 255 | | 17334 | Dec (product year) | 127 | 189 | 255 | | 18365 | Jan (product year+1) | 64 | 0 | 255 | | 65526 | 65526 | 225 | 225 | 225 | | 65527 | 65527 | 200 | 200 | 200 | The table provides RGB colour definitions for annual cropland by month, spanning April of the product year to January of the subsequent year (product year+1). Class 0 represents 'No annual cropland' with a light grey (240,240,240). The monthly crop types transition from pinks/oranges (Apr, May) through yellows/greens (Jun, Jul, Aug, Sep) to blues (Oct, Nov, Dec, Jan). Two additional codes, 65526 and 65527, are assigned light grey (225,225,225) and medium grey (200,200,200) respectively, with their Class Name being identical to their Class Code."></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image6.png" class="img-fluid" style="width:6.27in" alt="A partial table displaying colour palette attributes. The column headers are not visible in the provided image snippet. The table lists three rows of data. * **Row 1**: Code 65531, followed by two empty cells, then repeated Code 65531, with RGB values R=100, G=100, B=100, represented by a dark grey colour swatch. * **Row 2**: Code 65532, followed by two empty cells, then repeated Code 65532, with RGB values R=75, G=75, B=75, represented by a dark grey colour swatch. * **Row 3**: Code 65533, followed by two empty cells, then repeated Code 65533, with RGB values R=126, G=52, B=107, represented by a purple colour swatch. | Code 1 | [unreadable/missing header] | [unreadable/missing header] | Code 2 | R | G | B | Colour Sample | |---|---|---|---|---|---|---|---| | 65531 | | | 65531 | 100 | 100 | 100 | Dark Grey | | 65532 | | | 65532 | 75 | 75 | 75 | Dark Grey | | 65533 | | | 65533 | 126 | 52 | 107 | Purple | This table provides integer codes and corresponding RGB colour values for specific entries in a Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands product, identified as 'C' [partial] layer in the context. The first two entries (65531 and 65532) share similar dark grey colours with slightly different RGB values, while the third entry (65533) is distinctly purple."></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image7.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image7.png" class="img-fluid figure-img" style="width:6.27in" alt="This image displays a single row from a colour palette and attributes table, likely associated with a Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands product, based on the surrounding context. The row represents data classified as 'Outside area'. | Pixel Value (Class ID) | Class Name | R | G | B | Colour Swatch | |---|---|---|---|---|---| | 65535 | Outside area | 0 | 0 | 0 | black | The 'Pixel Value' of 65535 typically indicates a 'no data' or 'fill value' for areas outside the product's defined geographic extent or processing domain. The 'Class Name' for this value is 'Outside area'. The R, G, and B values of 0, 0, 0 collectively represent the colour black, as depicted by the solid black rectangle in the 'Colour Swatch' column."></p>
 <figcaption>Table 0-3: Colour palette and attributes of CPMCH layer</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image8.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image8.png" class="img-fluid figure-img" style="width:6.27in" alt="This table defines the colour palette and attributes for the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands CPMCE layer, providing Class Codes, Class Names, and corresponding Red, Green, and Blue (RGB) component values. | Class Code | Class Name | Red | Green | Blue | |------------|------------------------|------------------------|------------------------|------------------------| | 0 | No annual cropland | 240 | 240 | 240 | | 1 | 1 day uncertainty | 202 | 0 | 32 | | 1-19 | 1-19 days uncertainty | Colour shades in between | | | | 20 | 20 days uncertainty | 247 | 243 | 241 | | 21-39 | 21-39 days uncertainty | Colour shades in between | | | | 40 | 40 days uncertainty | 5 | 113 | 176 | | 65526 | 65526 | 225 | 225 | 225 | | 65527 | 65527 | 200 | 200 | 200 | | 65531 | 65531 | 100 | 100 | 100 | | 65532 | 65532 | 75 | 75 | 75 | | 65533 | 65533 | 126 | 52 | 107 | | 65534 | 65534 | 179 | 48 | 179 | | 65535 | Outside area | 0 | 0 | 0 | The table maps class codes to land cover categories and their associated colour representations. It includes specific RGB values for distinct classes such as 'No annual cropland' (light grey, RGB 240, 240, 240), '1 day uncertainty' (red, RGB 202, 0, 32), '20 days uncertainty' (very light grey, RGB 247, 243, 241), and '40 days uncertainty' (blue, RGB 5, 113, 176). For class code ranges '1-19 days uncertainty' and '21-39 days uncertainty', the table indicates 'Colour shades in between' for the RGB values. Additional class codes (65526 to 65534) are provided, with their Class Names being the codes themselves, representing a progression of greyscale tones and two purple shades. Class 655"></p>
 <figcaption>Table 0-4: Colour palette and attributes of CPMCHCL layer</figcaption>
 </figure>
 </div>
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image9.png" class="img-fluid"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image9.png" class="img-fluid" style="width:6.27in" alt="This table provides the colour palette and attributes for the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands CPMCD layer. It lists 'Class Code', 'Class Name', and Red, Green, and Blue (RGB) colour component values, alongside a visual representation of the colour. | Class Code | Class Name | Red | Green | Blue | | :--------- | :----------------- | --: | ----: | ---: | | 0 | No annual cropland | 240 | 240 | 240 | | 16214 | Aug (product year-1) | 72 | 135 | 67 | | 16245 | Sep (product year-1) | 101 | 204 | 129 | | 16276 | Oct (product year-1) | 125 | 252 | 200 | | 16306 | Nov (product year-1) | 128 | 255 | 223 | | 16336 | Dec (product year-1) | 128 | 223 | 255 | | 16366 | Jan (product year) | 159 | 127 | 255 | | 17031 | Feb (product year) | 221 | 127 | 255 | | 17059 | Mar (product year) | 255 | 127 | 223 | The table details distinct colours for 'No annual cropland' (light grey, RGB 240, 240, 240) and various monthly periods related to crop development. These monthly periods span from 'Aug (product year-1)' (dark green, RGB 72, 135, 67) to 'Mar (product year)' (pink, RGB 255, 127, 223), showing a progression of hues from greens, through teals and light blues, to purples and pinks."></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image10.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image10.png" class="img-fluid figure-img" style="width:6.27in" alt="| Value | Attribute | R | G | B | Colour representation | |---|---|---|---|---|---| | 17120 | Apr (product year) | 255 | 127 | 161 | Pink | | 17151 | May (product year) | 255 | 176 | 127 | Orange | | 17181 | Jun (product year) | 255 | 223 | 128 | Yellow | | 17212 | Jul (product year) | 223 | 255 | 128 | Light Green | | 17243 | Aug (product year) | 159 | 255 | 128 | Medium Green | | 17273 | Sep (product year) | 109 | 220 | 141 | Darker Green | | 65526 | 65526 | 225 | 225 | 225 | Light Grey | | 65527 | 65527 | 200 | 200 | 200 | Medium Grey | | 65531 | 65531 | 100 | 100 | 100 | Dark Grey | | 65532 | 65532 | 75 | 75 | 75 | Darker Grey | | 65533 | 65533 | 126 | 52 | 107 | Purple | | 65535 | Outside area | 0 | 0 | 0 | Black | This table, titled 'Table 0-7: Colour palette and attributes of CPMCD layer', defines the colour scheme and associated attributes for the Cropland Parcel Monitoring Crop Type Density (CPMCD) layer within the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands product. It lists numerical pixel values, their descriptive attributes (including specific months indicating a product year or phenological stage, or specific codes like 65526-65533, and 'Outside area'), and the corresponding Red, Green, and Blue (RGB) colour components for visual representation. The monthly attributes (Apr-Sep) show a progression from pink to various shades of green, while the numerical codes 65526 through 65532 are assigned shades of grey, and 65533 is purple. The 'Outside area' attribute is assigned the value 65535 and represented by black (RGB 0,0,0)."></p>
 <figcaption>Table 0-5: Colour palette and attributes of CPMCE layer</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image11.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image11.png" class="img-fluid figure-img" style="width:6.27in" alt="This table provides the colour palette and attributes for the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands Permanent Minor Cultivated Dynamics (CPMCD) layer. It maps `Class Code` to `Class Name` and defines the corresponding Red, Green, and Blue (RGB) colour components. | Class Code | Class Name | Red | Green | Blue | |---|---|---|---|---| | 0 | No annual cropland | 240 | 240 | 240 | | 1 | 1 day uncertainty | 202 | 0 | 32 | | 1-19 | 1-19 days uncertainty | Colour shades in between | | | | 20 | 20 days uncertainty | 247 | 243 | 241 | | 21-39 | 21-39 days uncertainty | Colour shades in between | | | | 40 | 40 days uncertainty | 5 | 113 | 176 | | 65526 | 65526 | 225 | 225 | 225 | | 65527 | 65527 | 200 | 200 | 200 | | 65531 | 65531 | 100 | 100 | 100 | | 65532 | 65532 | 75 | 75 | 75 | | 65533 | 65533 | 126 | 52 | 107 | | 65534 | 65534 | 179 | 48 | 179 | | 65535 | Outside area | 0 | 0 | 0 | The table details specific uncertainty ranges for cropland detection, such as '1 day uncertainty' (Class Code 1, RGB 202, 0, 32) and '40 days uncertainty' (Class Code 40, RGB 5, 113, 176). Intermediate ranges like '1-19 days uncertainty' and '21-39 days uncertainty' are represented by colour shades in between the defined RGB values. Miscellaneous codes (65526, 65527, 65531, 65532, 65533, 65534) are also assigned specific RGB values, and 'Outside area' (Class Code 65535) is mapped to black (RGB 0, 0, 0)."></p>
 <figcaption>Table 0-6: Colour palette and attributes of CPMCECL layer</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image12.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image12.png" class="img-fluid figure-img" style="width:6.27in" alt="This table defines the colour palette and attributes for the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Cropland Phenology Monitoring - Cropping Duration (CPMCD) layer. It maps specific class codes and names to Red, Green, and Blue (RGB) colour values. | Class Code | Class Name | Red | Green | Blue | |---|---|---|---|---| | 0 | No annual cropland | 240 | 240 | 240 | | 40 | 40 days | 215 | 25 | 28 | | 41-189 | 41-189 days | Colour shades in between | Colour shades in between | Colour shades in between | | 190 | 190 days | 255 | 243 | 178 | | 191-365 | 191-365 days | Colour shades in between | Colour shades in between | Colour shades in between | | 366 | 366 days | 26 | 150 | 65 | | 65526 | 65526 | 225 | 225 | 225 | | 65527 | 65527 | 200 | 200 | 200 | | 65531 | 65531 | 100 | 100 | 100 | | 65532 | 65532 | 75 | 75 | 75 | | 65533 | 65533 | 126 | 52 | 107 | | 65535 | Outside area | 0 | 0 | 0 | The table details distinct RGB values for specific cropping durations: 'No annual cropland' (white, RGB 240,240,240), '40 days' (red, RGB 215,25,28), '190 days' (light yellow, RGB 255,243,178), and '366 days' (green, RGB 26,150,65). For duration ranges '41-189 days' and '191-365 days', the colour is specified as 'Colour shades in between', implying interpolation. Additionally, it lists specific class codes (65526, 65527, 65531, 65532, 65533, 65535) with corresponding grayscale shades (light to very dark grey), a purple (RGB 126,52,107), and black for 'Outside area' (RGB 0,0,0)."></p>
 <figcaption>Table 0-7: Colour palette and attributes of CPMCD layer</figcaption>
 </figure>
 </div>
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image13.png" class="img-fluid"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image13.png" class="img-fluid" style="width:6.27in" alt="This table defines the colour palette and attributes for the Copernicus Land Monitoring Service (CLMS) CPMCDCL layer. It maps Class Codes and Class Names to their corresponding Red, Green, and Blue (RGB) colour components. | Class Code | Class Name | Red | Green | Blue | | :--------- | :--------------------- | :-- | :---- | :--- | | 0 | No annual cropland | 240 | 240 | 240 | | 1 | 1 | 202 | 0 | 32 | | 2-29 | 2-29 days uncertainty | Colour shades in between | | 30 | 30 days uncertainty | 247 | 245 | 243 | | 31-59 | 31-59 days uncertainty | Colour shades in between | | 60 | >60 days uncertainty | 5 | 113 | 176 | | 65526 | 65526 | 225 | 225 | 225 | | 65527 | 65527 | 200 | 200 | 200 | | 65531 | 65531 | 100 | 100 | 100 | | 65532 | 65532 | 75 | 75 | 75 | | 65533 | 65533 | 126 | 52 | 107 | | 65534 | 65534 | 179 | 48 | 179 | The table details specific colour assignments for categories such as 'No annual cropland' (RGB 240, 240, 240) and various levels of 'days uncertainty' (e.g., '30 days uncertainty' is RGB 247, 245, 243; '>60 days uncertainty' is RGB 5, 113, 176). Intermediate uncertainty ranges like '2-29 days uncertainty' and '31-59 days uncertainty' are represented by colour shades derived between defined values. Several class codes (1, 65526 through 65534) also have corresponding RGB values, with some of the higher codes using various shades of grey."></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image14.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image14.png" class="img-fluid figure-img" style="width:6.27in" alt="This table row specifies the colour palette attributes for a land cover class designated as 'Outside area' within a Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) product, likely related to Croplands (CTY) based on the surrounding document context. | Value | Description | R | G | B | Colour | |---|---|---|---|---|---| | 65535 | Outside area | 0 | 0 | 0 | (black) | The 'Outside area' class is assigned a pixel value of 65535, and its colour is defined by RGB values of (0, 0, 0), which corresponds to black."></p>
 <figcaption>Table 0-8: Colour palette and attributes of CPMCDCL layer</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image15.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image15.png" class="img-fluid figure-img" style="width:6.27in" alt="This table defines the colour palette and attributes for the Copernicus Land Monitoring Service (CLMS) CPMCH (Cropland Monthly Change) layer. It lists Class Codes, their corresponding Class Names, and the Red, Green, and Blue (RGB) colour components (0-255) used for visualisation. A visual colour swatch is provided in the rightmost column. | Class Code | Class Name | Red | Green | Blue | |:-----------|:-------------------------|:-------------------------|:------|:-----| | 0 | No annual cropland | 240 | 240 | 240 | | 10 | 10 days | 214 | 44 | 58 | | 11-74 | 11-74 days | Colour shades in between | | | | 75 | 75 days | 247 | 247 | 247 | | 76-149 | 76-149 days | Colour shades in between | | | | 150 | > 150 days | 5 | 113 | 176 | | 65526 | 65526 | 225 | 225 | 225 | | 65527 | 65527 | 200 | 200 | 200 | | 65529 | 65529 | 150 | 150 | 150 | | 65531 | 65531 | 100 | 100 | 100 | | 65532 | 65532 | 75 | 75 | 75 | | 65533 | 65533 | 126 | 52 | 107 | | 65534 | 65534 | 179 | 48 | 179 | | 65535 | Outside area | 0 | 0 | 0 | The table maps temporal categories, such as '10 days' and '> 150 days' (likely referring to a duration related to cropland), and specific internal classification codes (e.g., 65526-65534) to unique RGB colour values. Class 0, 'No annual cropland,' is rendered in light grey (RGB 240, 240, 240), while Class 65535, 'Outside area,' is black (RGB 0, 0, 0). Ranges '11-74 days' and '76-149 days' are indicated to use 'Colour shades in between' without specifying fixed RGB values."></p>
 <figcaption>Table 0-9: Colour palette and attributes of CPBSB layer</figcaption>
 </figure>
 </div>
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image16.png" class="img-fluid"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image16.png" class="img-fluid" style="width:6.27in" alt="This table defines the colour palette and attributes for the Copernicus Land Monitoring Service (CLMS) Croplands Best Single Bounding Box with Confidence Level (CPBSBCL) layer. It lists Class Codes, their corresponding Class Names, and the Red, Green, and Blue (RGB) colour components for visual representation. | Class Code | Class Name | Red | Green | Blue | |:---|:---|:---:|:---:|:---:| | 0 | No annual cropland | 240 | 240 | 240 | | 1 | 1 | 202 | 0 | 32 | | 2-29 | 2-29 days uncertainty | Colour shades in between | Colour shades in between | Colour shades in between | | 30 | 30 days uncertainty | 247 | 245 | 243 | | 31-59 | 31-59 days uncertainty | Colour shades in between | Colour shades in between | Colour shades in between | | 60 | > 60 days uncertainty | 5 | 113 | 176 | | 65526 | 65526 | 225 | 225 | 225 | The table maps specific class codes and ranges of uncertainty, measured in days, to distinct RGB colour values or a range of colour shades. For example, 'No annual cropland' is assigned an RGB value of (240, 240, 240), representing a light grey, while '> 60 days uncertainty' is assigned (5, 113, 176), representing a medium blue. Class codes 1 and 65526 have identical class names and corresponding RGB values, with class 1 being red (202, 0, 32) and class 65526 being light grey (225, 225, 225)."></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image17.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image17.png" class="img-fluid figure-img" style="width:6.27in" alt="This table defines the colour palette and attributes for the Copernicus Land Monitoring Service (CLMS) CPMCHCL (Cropland Monitoring High Coverage Change Layer) product. It lists seven distinct data values, their corresponding Red (R), Green (G), and Blue (B) colour components, and a descriptive label for one value. | Value | Description | Value (repeated) | R | G | B | |-------|-------------|------------------|---|---|---| | 65527 | | 65527 | 200 | 200 | 200 | | 65529 | | 65529 | 150 | 150 | 150 | | 65531 | | 65531 | 100 | 100 | 100 | | 65532 | | 65532 | 75 | 75 | 75 | | 65533 | | 65533 | 126 | 52 | 107 | | 65534 | | 65534 | 179 | 48 | 179 | | 65535 | Outside area| | 0 | 0 | 0 | The colours represented by the RGB values are: light grey for value 65527, medium grey for 65529, dark grey for 65531, very dark grey for 65532, purple for 65533, magenta for 65534, and black for value 65535. Value 65535 is explicitly labelled 'Outside area', and its 'Value (repeated)' column is empty, while for all other entries, the 'Value (repeated)' column matches the 'Value' column."></p>
 <figcaption>Table 0-10: Colour palette and attributes of CPBSBCL layer</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image18.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image18.png" class="img-fluid figure-img" style="width:6.27in" alt="This table defines the colour palette and attributes for a Copernicus Land Monitoring Service (CLMS) cropland layer, mapping Class Codes to Class Names and their corresponding Red, Green, and Blue (RGB) colour component values. | Class Code | Class Name | Red | Green | Blue | |:-----------|:---------------------|:----|:------|:-----| | 0 | No annual cropland | 240 | 240 | 240 | | 10 | 10 days | 214 | 44 | 58 | | 11-74 | 11-74 days | Colour shades in between | | 75 | 75 days | 247 | 247 | 247 | | 76-149 | 76-149 days | Colour shades in between | | 150 | >150 days | 5 | 113 | 176 | | 65526 | 65526 | 225 | 225 | 225 | | 65527 | 65527 | 200 | 200 | 200 | | 65529 | 65529 | 150 | 150 | 150 | | 65531 | 65531 | 100 | 100 | 100 | | 65532 | 65532 | 75 | 75 | 75 | | 65533 | 65533 | 126 | 52 | 107 | | 65534 | 65534 | 179 | 48 | 179 | | 65535 | Outside area | 0 | 0 | 0 | The table defines colours for cropland classes based on duration in days, ranging from 'No annual cropland' (code 0, light grey) to '>150 days' (code 150, dark blue), with intermediate ranges (11-74 days and 76-149 days) indicating colour gradients. Class codes 65526 through 65534 are defined with their own code as the class name, coloured in shades of grey (65526-65532) and specific purple/magenta tones (65533, 65534). Class 65535, labelled 'Outside area', is assigned black (RGB 0,0,0). This table is likely part of a Product User Manual (PUM) for a CLMS Cropland product."></p>
 <figcaption>Table 0-11: Colour palette and attributes of CPBSA layer</figcaption>
 </figure>
 </div>
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image19.png" class="img-fluid"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image19.png" class="img-fluid" style="width:6.27in" alt="| Class Code | Class Name | Red | Green | Blue | |------------|--------------------|-----|-------|------| | 0 | No annual cropland | 240 | 240 | 240 | This table defines the colour palette and attributes for Class Code 0, named 'No annual cropland'. The class is assigned an RGB colour value of Red: 240, Green: 240, and Blue: 240, which corresponds to a light grey colour. This specific table relates to the colour palette and attributes of the Copernicus Land Monitoring Service (CLMS) CPBSBCL layer, which represents the Annual Cropland Base Seed Layer with Cropland Classification."></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image20.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image20.png" class="img-fluid figure-img" style="width:6.27in" alt="This table defines the colour palette and attributes for the CPBSBCL (Cropland Bare Soil Bioclimatic Classification Layer). It maps pixel values or ranges to specific colour representations using RGB component values. | Pixel Value / Range | Description | R | G | B | Colour Representation | | :------------------ | :--------------------- | :-- | :-- | :-- | :-------------------- | | 1 | | 202 | 0 | 32 | Red | | 2-29 | 2-29 days uncertainty | | | | Colour shades in between | | 30 | 30 days uncertainty | 247 | 245 | 243 | Very Light Grey | | 31-59 | 31-59 days uncertainty | | | | Colour shades in between | | 60 | >60 days uncertainty | 5 | 113 | 176 | Dark Blue | | 65526 | 65526 | 225 | 225 | 225 | Light Grey | | 65527 | 65527 | 200 | 200 | 200 | Medium Grey | | 65529 | 65529 | 150 | 150 | 150 | Dark Grey | | 65531 | 65531 | 100 | 100 | 100 | Very Dark Grey | | 65532 | 65532 | 75 | 75 | 75 | Darkest Grey | | 65533 | 65533 | 126 | 52 | 107 | Purple | | 65534 | 65534 | 179 | 48 | 179 | Magenta | | 65535 | Outside area | 0 | 0 | 0 | Black | The table displays distinct RGB values for specific pixel codes (1, 30, 60, 65526-65535) and indicates 'Colour shades in between' for ranges of uncertainty days (2-29 and 31-59). Pixel code 1 is represented in Red, 30 in Very Light Grey, and 60 in Dark Blue, corresponding to various levels of uncertainty. Specific codes from 65526 to 65532 are assigned to a gradient of grey colours, while 65533 and 65534 are assigned Purple and Magenta, respectively. Pixel code 65535, indicating 'Outside area,' is represented in Black."></p>
 <figcaption>Table 0-12: Colour palette and attributes of CPBSBCL layer</figcaption>
 </figure>
 </div>
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image21.png" class="img-fluid"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image21.png" class="img-fluid" style="width:6.27in" alt="The table defines the colour palette and RGB (Red, Green, Blue) attributes for different cropland classes within a Copernicus Land Monitoring Service (CLMS) CPSCE layer. | Class Code | Class Name | Red | Green | Blue | |:-----------|:--------------------|:----|:------|:-----| | 0 | No annual cropland | 240 | 240 | 240 | | 1 | Short summer CC | 254 | 203 | 91 | | 2 | Long summer CC | 255 | 198 | 1 | | 3 | Short winter CC | 99 | 229 | 59 | | 4 | Long winter CC | 16 | 100 | 0 | | 65526 | 65526 | 225 | 225 | 225 | | 65527 | 65527 | 200 | 200 | 200 | | 65530 | 65530 | 125 | 125 | 125 | | 65531 | 65531 | 100 | 100 | 100 | | 65532 | 65532 | 75 | 75 | 75 | | 65533 | 65533 | 126 | 52 | 107 | | 65534 | 65534 | 179 | 48 | 179 | Note: 'CC' stands for 'Cover Crop'. The table assigns specific RGB values for visualisation, ranging from light grey (No annual cropland) to dark green (Long winter Cover Crop) and various shades of yellow, green, grey, purple. Classes 65526 through 65534 repeat the class code in the Class Name column."></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image22.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image22.png" class="img-fluid figure-img" style="width:6.27in" alt="The table displays a single row from a colour palette and attributes table, likely associated with a Copernicus Land Monitoring Service (CLMS) Croplands layer. | Pixel Value | Attribute | R | G | B | Colour Sample | |---|---|---|---|---|---| | 65535 | Outside area | 0 | 0 | 0 | black | This row indicates that pixels with a Digital Number (DN) value of 65535 are classified as 'Outside area' and are represented by an RGB colour of (0, 0, 0), which corresponds to black."></p>
 <figcaption>Table 0-13: Colour palette and attributes of CPSCT layer</figcaption>
 </figure>
 </div>
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image23.png" class="img-fluid"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image23.png" class="img-fluid" style="width:6.27in" alt="The table defines the colour palette and attributes for the Copernicus Land Monitoring Service (CLMS) 'CPSCE' layer, providing a mapping between numerical Class Codes, descriptive Class Names (months of a product year), and their corresponding Red, Green, and Blue (RGB) colour components. | Class Code | Class Name | Red | Green | Blue | |:-----------|:--------------------|----:|------:|-----:| | 0 | No annual cropland | 240 | 240 | 240 | | 16366 | Jan (product year) | 159 | 127 | 255 | | 17031 | Feb (product year) | 221 | 127 | 255 | | 17059 | Mar (product year) | 255 | 127 | 223 | | 17090 | Apr (product year) | 255 | 127 | 161 | | 17120 | May (product year) | 255 | 176 | 127 | | 17151 | Jun (product year) | 255 | 223 | 128 | | 17181 | Jul (product year) | 223 | 255 | 128 | | 17212 | Aug (product year) | 159 | 255 | 128 | | 17243 | Sep (product year) | 109 | 220 | 141 | | 17273 | Oct (product year) | 128 | 255 | 223 | | 17304 | Nov (product year) | 128 | 223 | 255 | The table lists 12 distinct classes, including a 'No annual cropland' class (Class Code 0) assigned a light grey colour (RGB 240, 240, 240). The remaining 11 classes represent months from January to November within a 'product year', each assigned a unique colour to facilitate visual interpretation, ranging from purple for January to light blue for November."></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image24.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image24.png" class="img-fluid figure-img" style="width:6.27in" alt="This table presents the colour palette and attributes for the Copernicus Land Monitoring Service (CLMS) CPBSBCL layer, showing the mapping between numeric values, their descriptions, and corresponding RGB colour codes. | Value | Description | R | G | B | |---|---|---|---|---| | 17334 | Dec (product year) | 127 | 189 | 255 | | 65526 | 65526 | 222 | 225 | 225 | | 65527 | 65527 | 200 | 200 | 200 | | 65530 | 65530 | 125 | 125 | 125 | | 65531 | 65531 | 100 | 100 | 100 | | 65532 | 65532 | 75 | 75 | 75 | | 65533 | 65533 | 126 | 52 | 107 | | 65535 | Outside area | 0 | 0 | 0 | The table details eight distinct entries. Value 17334 is described as 'Dec (product year)' and is assigned a light blue colour (RGB 127, 189, 255). Values 65526, 65527, 65530, 65531, and 65532 are assigned progressively darker shades of grey, ranging from very light grey (RGB 222, 225, 225) for 65526 to very dark grey (RGB 75, 75, 75) for 65532. Value 65533 is given a purple/burgundy colour (RGB 126, 52, 107). The final entry, 65535, represents 'Outside area' and is coloured black (RGB 0, 0, 0)."></p>
 <figcaption>Table 0-14: Colour palette and attributes of CPSCE layer</figcaption>
 </figure>
 </div>
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image25.png" class="img-fluid"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image25.png" class="img-fluid" style="width:6.27in" alt="This table defines the colour palette and attributes for a Copernicus Land Monitoring Service (CLMS) Cropland layer, classifying land based on crop duration or status. It lists Class Codes, their corresponding Class Names indicating duration in days or status, and the Red, Green, and Blue (RGB) colour components, along with a visual colour swatch. | Class Code | Class Name | Red | Green | Blue | |:-----------|:----------------------|:---------------------|:-----------------------|:-----------------------| | 0 | No annual cropland | 240 | 240 | 240 | | 40 | 40 days | 215 | 25 | 28 | | 41-149 | 41-149 days | Colour shades in between | Colour shades in between | Colour shades in between | | 150 | 150 days | 247 | 252 | 189 | | 151-199 | 151-200 days | Colour shades in between | Colour shades in between | Colour shades in between | | 200 | 200 days | 165 | 217 | 165 | | 201-249 | 201-249 days | Colour shades in between | Colour shades in between | Colour shades in between | | 250 | >250 days | 43 | 131 | 186 | | 65526 | 65526 | 225 | 225 | 225 | | 65527 | 65527 | 200 | 200 | 200 | | 65530 | 65530 | 125 | 125 | 125 | | 65531 | 65531 | 100 | 100 | 100 | The table defines specific RGB values for 'No annual cropland' (light grey, RGB 240,240,240), '40 days' (red, RGB 215,25,28), '150 days' (light yellow, RGB 247,252,189), '200 days' (light green, RGB 165,217,165), and '>250 days' (blue, RGB 43,131,186). For intermediate duration ranges (41-149 days, 151-199 days, 201-249 days), the table specifies 'Colour shades in between' for the RGB values, indicating a gradient. Class Codes 65526 to 65531 are assigned various shades of grey, ranging from very light grey (65526, RGB 225,225,225) to dark grey (65531, RGB 100,100,100), likely representing auxiliary data categories such as masked areas or no data."></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image26.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image26.png" class="img-fluid figure-img" style="width:6.27in" alt="This table provides the colour palette and attributes for the Copernicus Cropland Single Crop Dominance (CPSCD) layer. It lists pixel values, their corresponding descriptions, RGB colour components, and a visual colour swatch. | Pixel Value | Description | R | G | B | | :---------- | :----------- | :-- | :-- | :-- | | 65532 | 65532 | 75 | 75 | 75 | | 65533 | 65533 | 126 | 52 | 107 | | 65535 | Outside area | 0 | 0 | 0 | The table defines three entries: pixel value 65532 is represented by RGB (75, 75, 75) which is a dark grey; pixel value 65533 is represented by RGB (126, 52, 107) which is a purple colour; and pixel value 65535, described as 'Outside area', is represented by RGB (0, 0, 0) which is black."></p>
 <figcaption>Table 0-15: Colour palette and attributes of CPSCD layer</figcaption>
 </figure>
 </div>
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image27.png" class="img-fluid"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image27.png" class="img-fluid" style="width:6.27in" alt="| Class Code | Class Name | Red | Green | Blue | |---|---|---|---|---| | 0 | No annual cropland | 240 | 240 | 240 | | 1 | | 202 | 0 | 32 | | 2-29 | 2-29 days uncertainty | Colour shades in between | Colour shades in between | Colour shades in between | | 30 | 30 days uncertainty | 247 | 245 | 243 | | 31-59 | 31-59 days uncertainty | Colour shades in between | Colour shades in between | Colour shades in between | | 60 | >60 days uncertainty | 5 | 113 | 176 | | 65526 | 65526 | 225 | 225 | 225 | | 65527 | 65527 | 200 | 200 | 200 | The table defines the colour palette and attributes for the Copernicus Cropland Season Classification and Dynamics Classification Layer (CPSCDCL), mapping class codes to land cover categories, uncertainty levels, and their corresponding RGB colour values. Class Code 0 represents 'No annual cropland' (RGB: 240, 240, 240), Class Code 1 has a blank name and is assigned a red colour (RGB: 202, 0, 32), and Class Code 60 indicates '>60 days uncertainty' in blue (RGB: 5, 113, 176). Intermediate uncertainty ranges (2-29 days and 31-59 days) are described as having 'Colour shades in between' the defined values."></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image28.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image28.png" class="img-fluid figure-img" style="width:6.27in" alt="| Pixel Value | Attribute Description | Red | Green | Blue | |---|---|---|---|---| | 65530 | (no description visible) | 125 | 125 | 125 | | 65531 | (no description visible) | 100 | 100 | 100 | | 65532 | (no description visible) | 75 | 75 | 75 | | 65533 | (no description visible) | 126 | 52 | 107 | | 65534 | (no description visible) | 179 | 48 | 179 | | 65535 | Outside area | 0 | 0 | 0 | This table defines a colour palette and attributes for a Copernicus Land Monitoring Service (CLMS) Croplands product layer, likely related to CPBSBCL, CPBSA, CPSCT, CPSCE, CPSCD, CPFLP, or CPFLPCL, based on the surrounding context. It assigns specific RGB colour values to distinct pixel values. Pixel values 65530, 65531, and 65532 are represented by progressively darker shades of grey. Pixel value 65533 is defined as purple (RGB 126, 52, 107), and 65534 as magenta (RGB 179, 48, 179). The pixel value 65535 is explicitly labelled 'Outside area' and is assigned black (RGB 0,0,0)."></p>
 <figcaption>Table 0-16: Colour palette and attributes of CPSCDCL layer</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image29.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image29.png" class="img-fluid figure-img" style="width:6.27in" alt="This table defines the colour palette and attributes for the Copernicus Fallow Land Dynamics (CPFLD) layer, mapping class codes to land cover types and their corresponding RGB colour values. | Class Code | Class Name | Red | Green | Blue | |:-----------|:----------------|:----|:------|:-----| | 0 | No fallow land | 240 | 240 | 240 | | 1 | Fallow | 206 | 139 | 39 | | 65535 | Outside area | 0 | 0 | 0 | The table shows that 'No fallow land' is represented by RGB (240, 240, 240), 'Fallow' land by RGB (206, 139, 39), and 'Outside area' by RGB (0, 0, 0)."></p>
 <figcaption>Table 0-17: Colour palette and attributes of CPFLP layer</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image30.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image30.png" class="img-fluid figure-img" style="width:6.27in" alt="The table specifies the colour palette and attributes for the Fallow Land Detection Confidence Level (CPFLDCL) layer, detailing the mapping from Class Code to Class Name, associated RGB values, and a visual colour representation. | Class Code | Class Name | Red | Green | Blue | | :--------- | :------------------ | :-- | :---- | :--- | | 0 | 0% confidence | 202 | 0 | 32 | | 1-49 | 1-49% confidence | Colour shades in between | | 50 | 50% confidence | 247 | 247 | 247 | | 51-99 | 51-99% confidence | Colour shades in between | | 100 | 100% confidence | 5 | 113 | 176 | | 253 | No fallow land | 240 | 240 | 240 | | 65535 | Outside area | 0 | 0 | 0 | The colour palette uses a gradient for confidence levels: 0% confidence is represented by RGB (202, 0, 32), which is red; 50% confidence by RGB (247, 247, 247), which is a light grey; and 100% confidence by RGB (5, 113, 176), which is blue. Intermediate confidence ranges (1-49% and 51-99%) correspond to colour shades interpolated between these key values. Specific codes are assigned for 'No fallow land' (Class Code 253, RGB 240, 240, 240, a very light grey) and 'Outside area' (Class Code 65535, RGB 0, 0, 0, black)."></p>
 <figcaption>Table 0-18: Colour palette and attributes of CPFLPCL layer</figcaption>
 </figure>
 </div>
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image31.png" class="img-fluid"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image31.png" class="img-fluid" style="width:6.27in" alt="| Class Code | Class Name | Red | Green | Blue | |---|---|---|---|---| | 0 | No fallow land | 240 | 240 | 240 | | 40 | 40 days | 215 | 25 | 28 | | 41-948 | 41-948 days | Colour shades in between | | | This table defines the colour palette for the Copernicus Cropland Fallow Land Duration (CPFLD) layer, mapping specific fallow land duration classes to RGB colour values. Class 0, representing 'No fallow land', is assigned light grey (RGB 240, 240, 240). Class 40, representing '40 days' of fallow land, is assigned a bright red colour (RGB 215, 25, 28). For the range of '41-948 days' of fallow land, the table indicates a gradient of colour shades would be used in between the specified colours."></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image32.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image32.png" class="img-fluid figure-img" style="width:6.27in" alt="The table displays the colour palette and corresponding attributes for a CPFLD (Copernicus Cropland Field Delineation) layer, mapping specific numerical values to colour representations. | Value | Description | Red (R) | Green (G) | Blue (B) | Colour | |---|---|---|---|---|---| | 949 | 949 days | 248 | 252 | 185 | (light yellow) | | 950-1825 | 950-1825 days | - | - | - | Colour shades in between | | 1826 | 1826 days | 26 | 150 | 65 | (dark green) | | 65535 | Outside area | 0 | 0 | 0 | (black) | This table defines specific integer values, descriptive text, and their associated Red, Green, Blue (RGB) colour components for visual representation. Values up to 949 days are mapped to a light yellow colour (RGB: 248, 252, 185), while 1826 days are mapped to a dark green (RGB: 26, 150, 65). The range 950-1825 days is represented by transitional colour shades between these two specific values. The value 65535 represents 'Outside area' and is mapped to black (RGB: 0, 0, 0)."></p>
 <figcaption>Table 0-19: Colour palette and attributes of CPFLD layer</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image33.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image33.png" class="img-fluid figure-img" style="width:6.27in" alt="This table defines the colour palette and attributes for the Copernicus Land Monitoring Service (CLMS) Cropland Fallow Land Dynamics and Crop Type Layer (CPFLDCL), as specified in a Product User Manual for 2017-present data. | Class Code | Class Name | Red | Green | Blue | | :--------- | :--------------------- | --: | ----: | ---: | | 0 | No fallow land | 240 | 240 | 240 | | 1 | 1 day uncertainty | 202 | 0 | 32 | | 1-19 | 1-19 days uncertainty | _ | _ | _ | | 20 | 20 days uncertainty | 247 | 243 | 241 | | 21-39 | 21-39 days uncertainty | _ | _ | _ | | 40 | >40 days uncertainty | 5 | 113 | 176 | | 65534 | 65534 | 179 | 48 | 179 | | 65535 | Outside area | 0 | 0 | 0 | For class codes '1-19' and '21-39', the RGB values are described as 'Colour shades in between' other defined values. The table maps levels of uncertainty in days for fallow land, ranging from 'No fallow land' (light grey, RGB 240,240,240) to '>40 days uncertainty' (dark blue, RGB 5,113,176). '1 day uncertainty' is specifically assigned a bright red colour (RGB 202,0,32). Additionally, special codes 65534 (purple, RGB 179,48,179) and 65535 ('Outside area', black, RGB 0,0,0) are defined."></p>
 <figcaption>Table 0-20: Colour palette and attributes of CPFLDCL layer</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image34.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image34.png" class="img-fluid figure-img" style="width:6.27in" alt="This table defines the colour palette and attributes for a Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands product, specifically for a layer identified in the context as 'CPFLD'. It lists `Class Code`, `Class Name`, and the `Red`, `Green`, and `Blue` (RGB) colour components for each class, along with a visual colour swatch. | Class Code | Class Name | Red | Green | Blue | |:-----------|:-------------------|:----|:------|:-----| | 0 | No annual cropland | 240 | 240 | 240 | | 1 | 1 growing season | 231 | 157 | 29 | | 2 | 2 growing seasons | 138 | 233 | 55 | | 65526 | 65526 | 225 | 225 | 225 | | 65527 | 65527 | 200 | 200 | 200 | | 65531 | 65531 | 100 | 100 | 100 | | 65532 | 65532 | 75 | 75 | 75 | | 65533 | | 126 | 52 | 107 | | 65535 | Outside area | 0 | 0 | 0 | The table details specific colour assignments for different cropland classifications, including codes for 'No annual cropland' (light grey), '1 growing season' (orange), and '2 growing seasons' (lime green). Other class codes (65526, 65527, 65531, 65532, 65533) are assigned various shades of grey and purple, with code 65535 representing 'Outside area' (black). For class codes 65526, 65527, 65531, and 65532, the class name column repeats the numeric class code itself, and for 65533, the class name column is empty."></p>
 <figcaption>Table 0-21: Colour palette and attributes of CPCSY layer</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image35.png" class="img-fluid figure-img"></p>
+<p><img src="High_Resolution_Layer_Croplands_2017-present_PUM_v2-media/image35.png" class="img-fluid figure-img" style="width:6.27in" alt="This table defines the colour palette and attributes for the Copernicus Land Monitoring Service (CLMS) Cropland Field Delineation (CPFLD) layer. It maps specific class codes and names to Red, Green, and Blue (RGB) colour values. | Class Code | Class Name | Red | Green | Blue | Colour Swatch | |:-----------|:----------------------------------|:----|:------|:-----|:--------------| | 0 | No annual cropland (over 3-years period) | 240 | 240 | 240 | Light Grey | | 1 | 1 annual crop type over three years period | 231 | 157 | 29 | Orange | | 2 | 2 annual crop types over three years period | 138 | 233 | 55 | Light Green | | 3 | 3 annual crop types over three years period | 243 | 58 | 252 | Magenta | | 65528 | 65528 | 175 | 175 | 175 | Grey | | 65535 | Outside area | 0 | 0 | 0 | Black | The table details 6 distinct classes, including specific annual crop type counts over a three-year period, non-cropland, and special codes for unclassified areas (65528) and outside the area of interest (65535). Each class is assigned a unique RGB triplet and a visual colour representation."></p>
 <figcaption>Table 0-22: Colour palette and attributes of CPCST layer</figcaption>
 </figure>
 </div>
@@ -3204,8 +3235,8 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 <h1 data-number="13"><span class="header-section-number">13</span> Document Control Information:</h1>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 32%">
+<col style="width: 67%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3254,6 +3285,11 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 <section id="change-log" class="level1" data-number="14">
 <h1 data-number="14"><span class="header-section-number">14</span> Change Log</h1>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 75%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Date</th>
@@ -3333,13 +3369,14 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -3685,7 +3722,7 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>2025 EEA. All rights reserved.</p>
+<p>2026 EEA. All rights reserved.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

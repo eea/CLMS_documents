@@ -2,16 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-04-01">
-<meta name="keywords" content="Land cover classification, Sentinel-2 time series, Temporal Convolutional Neural Network, Bilateral filtering, Interannual calibration, Raster Confidence Layer, Raster Data Score Layer, Production Units stratification, Spectral-temporal dynamics, Coastal seawater buffer">
-<meta name="description" content="This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive overview of the CLCplus Backbone 2023, a core component of the Copernicus Land Monitoring Service (CLMS). It details the product characteristics, production methodologies, and workflows employed in generating the 2023 land cover raster and its auxiliary layers, including the Raster Confidence Layer, Raster Data Score Layer, and Raster Post-Processing Layer. The document aims to provide a thorough understanding of the product’s strengths, limitations, input data, and underlying algorithms, facilitating informed use and interpretation of the CLCplus Backbone 2023 data.">
+<meta name="dcterms.date" content="2025-12-03">
+<meta name="keywords" content="Algorithm Theoretical Basis, Land cover classification, Sentinel-2 data, Time series analysis, Temporal Convolutional Neural Network, Deep learning, Bilateral filtering, Interannual calibration, Remote sensing, Geospatial analysis">
+<meta name="description" content="This Algorithm Theoretical Basis Document (ATBD) outlines the methodologies and algorithms employed in creating the CLCplus Backbone 2023 product. It provides detailed insights into the technical specifications, input data (including Sentinel-2 imagery), and processing steps involved in producing both the main land cover raster layer (RAS) and its auxiliary layers. Key aspects such as time series analysis, the application of the Temporal Convolutional Neural Network (TempCNN), and post-processing techniques are thoroughly described, focusing on a seamless integration of land cover characteristics.">
 
 <title>CLCplus Backbone 2023 - Algorith Theoretical Basis Document – Technical Library</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -39,10 +42,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-24cc52c546c003a7d891213737239288.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ccd9cb9b1c9bdf1eabc4708995bd1808.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,8 +77,8 @@ ul.task-list li input[type="checkbox"] {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "CLCplus Backbone 2023 - Algorith Theoretical Basis Document",
-    "description": "This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive overview of the CLCplus Backbone 2023, a core component of the Copernicus Land Monitoring Service (CLMS). It details the product characteristics, production methodologies, and workflows employed in generating the 2023 land cover raster and its auxiliary layers, including the Raster Confidence Layer, Raster Data Score Layer, and Raster Post-Processing Layer. The document aims to provide a thorough understanding of the product’s strengths, limitations, input data, and underlying algorithms, facilitating informed use and interpretation of the CLCplus Backbone 2023 data.",
-    "datePublished": "April 1, 2025",
+    "description": "This Algorithm Theoretical Basis Document (ATBD) outlines the methodologies and algorithms employed in creating the CLCplus Backbone 2023 product. It provides detailed insights into the technical specifications, input data (including Sentinel-2 imagery), and processing steps involved in producing both the main land cover raster layer (RAS) and its auxiliary layers. Key aspects such as time series analysis, the application of the Temporal Convolutional Neural Network (TempCNN), and post-processing techniques are thoroughly described, focusing on a seamless integration of land cover characteristics.",
+    "datePublished": "December 3, 2025",
     "author": {
       "@type": "Person",
       "name": "?meta:author"
@@ -88,7 +91,26 @@ ul.task-list li input[type="checkbox"] {
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "?invalid meta type:keywords",
+    "keywords": "Algorithm Theoretical Basis
+
+Land cover classification
+
+Sentinel-2 data
+
+Time series analysis
+
+Temporal Convolutional Neural Network
+
+Deep learning
+
+Bilateral filtering
+
+Interannual calibration
+
+Remote sensing
+
+Geospatial analysis
+",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -100,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
 </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -113,7 +135,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -155,7 +177,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Content</h2>
+    <h2 id="toc-title">Index</h2>
    
   <ul>
   <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary"><span class="header-section-number">1</span> Executive summary</a></li>
@@ -204,16 +226,12 @@ window.Quarto = {
   <li><a href="#applicable-documents" id="toc-applicable-documents" class="nav-link" data-scroll-target="#applicable-documents"><span class="header-section-number">8</span> Applicable documents</a></li>
   <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">9</span> Change Log</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="CLCplus_Backbone_2023_ATBD_v1.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="CLCplus_Backbone_2023_ATBD_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="CLCplus_Backbone_2023_ATBD_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Remove link to .docx file
-    //
-    document.querySelectorAll("a[href$='.docx']").forEach((link) => (link.style.display = "none"));
-
     // Add Version to the title's metadata
     //
     const titleMetaEl = document.querySelector(".quarto-title-meta");
@@ -221,7 +239,7 @@ window.Quarto = {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.2</p>
+          <p>1.2.0</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -236,7 +254,7 @@ window.Quarto = {
 
 <div>
   <div class="description">
-    This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive overview of the CLCplus Backbone 2023, a core component of the Copernicus Land Monitoring Service (CLMS). It details the product characteristics, production methodologies, and workflows employed in generating the 2023 land cover raster and its auxiliary layers, including the Raster Confidence Layer, Raster Data Score Layer, and Raster Post-Processing Layer. The document aims to provide a thorough understanding of the product’s strengths, limitations, input data, and underlying algorithms, facilitating informed use and interpretation of the CLCplus Backbone 2023 data.
+    This Algorithm Theoretical Basis Document (ATBD) outlines the methodologies and algorithms employed in creating the CLCplus Backbone 2023 product. It provides detailed insights into the technical specifications, input data (including Sentinel-2 imagery), and processing steps involved in producing both the main land cover raster layer (RAS) and its auxiliary layers. Key aspects such as time series analysis, the application of the Temporal Convolutional Neural Network (TempCNN), and post-processing techniques are thoroughly described, focusing on a seamless integration of land cover characteristics.
   </div>
 </div>
 
@@ -247,7 +265,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 1, 2025</p>
+      <p class="date">December 3, 2025</p>
     </div>
   </div>
   
@@ -258,7 +276,7 @@ window.Quarto = {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>Land cover classification, Sentinel-2 time series, Temporal Convolutional Neural Network, Bilateral filtering, Interannual calibration, Raster Confidence Layer, Raster Data Score Layer, Production Units stratification, Spectral-temporal dynamics, Coastal seawater buffer</p>
+    <p>Algorithm Theoretical Basis, Land cover classification, Sentinel-2 data, Time series analysis, Temporal Convolutional Neural Network, Deep learning, Bilateral filtering, Interannual calibration, Remote sensing, Geospatial analysis</p>
   </div>
 </div>
 
@@ -275,7 +293,7 @@ Denmark<br>
 <a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
 </div>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Figure  1:  General  workflow  of  the  CLCplus  Backbone  2023  production.","url":"CLCplus_Backbone_2023_ATBD_v1-media/img-d86af53513d44e0fc06c590f00f0705e2ad9a943.png"},{"@type":"ImageObject","caption":"Figure  2:  Production  Units  (without  French  DOMs)  for  the  CLCplus  Backbone  2023  production  and  Global  Environmental  Zones  in  the  background  (GEnZ  version  3  according  to  Metzger  et  al. 2013).","url":"CLCplus_Backbone_2023_ATBD_v1-media/img-2958cf50b8c5670c63e3f8d65b82303e8b13eb02.png"},{"@type":"ImageObject","caption":"Figure  3:  CLCplus  Backbone  2018  Raster  Product  (left)  and  2023  Raster  Product  (right)  with  recoded  coastal  seawater  buffer  (light  blue).","url":"CLCplus_Backbone_2023_ATBD_v1-media/img-7cc57154edc902e772bfe23ce96737478c11dbba.png"}]}
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Figure  1:  General  workflow  of  the  CLCplus  Backbone  2023  production.","url":"CLCplus_Backbone_2023_ATBD_v1-media/img-d86af53513d44e0fc06c590f00f0705e2ad9a943.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  2:  Production  Units  (without  French  DOMs)  for  the  CLCplus  Backbone  2023  production  and  Global  Environmental  Zones  in  the  background  (GEnZ  version  3  according  to  Metzger  et  al. 2013).","url":"CLCplus_Backbone_2023_ATBD_v1-media/img-2958cf50b8c5670c63e3f8d65b82303e8b13eb02.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  3:  CLCplus  Backbone  2018  Raster  Product  (left)  and  2023  Raster  Product  (right)  with  recoded  coastal  seawater  buffer  (light  blue).","url":"CLCplus_Backbone_2023_ATBD_v1-media/img-7cc57154edc902e772bfe23ce96737478c11dbba.png","width":"6.27in"}]}
 </script>
 <section id="executive-summary" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Executive summary</h1>
@@ -340,10 +358,10 @@ Denmark<br>
 <li><p>255: No data</p></li>
 </ul>
 <p><strong>Metadata:</strong> XML metadata files according to INSPIRE metadata standards</p>
-<p><strong>Delivery format:</strong> Cloud optimized GeoTIFFs as 100x100km tiles incl.&nbsp;pyramids and embedded colour map (<em>.tif), attribute table (</em>.aux.xml), and INSPIRE-compliant metadata in XML format (*.xml)</p>
+<p><strong>Delivery format:</strong> Cloud optimized GeoTIFFs as 100x100km tiles incl.&nbsp;pyramids and embedded colour map (*.tif), attribute table (*.aux.xml), and INSPIRE-compliant metadata in XML format (*.xml)</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="CLCplus_Backbone_2023_ATBD_v1-media/img-d86af53513d44e0fc06c590f00f0705e2ad9a943.png" class="img-fluid figure-img"></p>
+<p><img src="CLCplus_Backbone_2023_ATBD_v1-media/img-d86af53513d44e0fc06c590f00f0705e2ad9a943.png" class="img-fluid figure-img" style="width:6.27in" alt="This is a classification and quality control workflow diagram for the Copernicus Land Monitoring Service (CLMS), showing the process from data acquisition to product delivery for the reference year 2023. The workflow begins with **Sentinel-2 (S-2) time series data** for 2023 (± 0.25 years), which undergoes cloud masking and interpolation. This preprocessed data is then fed into a **Temporal Convolutional Neural Network**. The network architecture includes COS v1, COS v3, Flatten, Dense, and Softmax layers, outputting probabilities for Class 1, Class 2, and Class 3. The neural network is continuously refined through **Regional Calibration &amp; testing**, which also draws upon a **Training data** set of approximately 1 Million unique points. **Operators**, interacting via a WEkEO API (REST), manage the classification process. Inputs also include **In Situ and ancillary data** such as National data, CLMS Products, Very High Resolution (VHR) imagery, S-2 time series, OpenStreetMap (OSM), and Google StreetView. The classified outputs from the neural network, represented as **Class probabilities**, undergo **Bilateral filtering** and subsequent **PU Blending**. A **Quality Control** sub-process, demarcated by a dashed blue line, follows. It includes: 1. **Rule-based post-processing** applying conditional logic: IF a condition is met, THEN increase_probability(); ELSE IF the condition is NOT met, THEN reduce_probability(); ELSE pass. 2. **Calibration**, which compares current 2023 data with previous 2018/21 reference data. This calibration step feeds back into the Quality Control process for iterative refinement. Parallel to this, **Sample outlier detection** is performed on the Neural Network's outputs, leading to a **Sample revision** step (a scattered plot of points). Operators manage these revisions, which feed back into the overall process, influencing the class probability refinement. After the Quality Control phase, further processing occurs: 1. Application of a **Coastal seawater buffer** (corresponding to class 253 in CLC+). 2. **Internal verification by regional experts**, a step performed by **Independent operators** (i.e., not involved in the initial production). The final outcome of this comprehensive process is **Delivery** of the CLMS product."></p>
 <figcaption>Figure 1: General workflow of the CLCplus Backbone 2023 production.</figcaption>
 </figure>
 </div>
@@ -362,7 +380,7 @@ Denmark<br>
 <p>With the CLCplus Backbone 2021 production, the United Kingdom (UK) was excluded and the remaining 223 PUs were aggregated to 132 PUs, as the 2018 production had shown that it would be possible to aggregate some PUs with similar bio-geographical conditions, while retaining good regional calibrations at the same time. As the UK officially re-joined Copernicus in 2024, its territory was added to the ongoing production of the reference year 2023. Accordingly, the PU layout was adapted to now contain 138 PUs that cover the full production area, i.e.&nbsp;the EEA38+UK and the 5 French DOMs. Figure 2 shows the outlines of the PUs for the CLCplus Backbone 2023 production (without the French DOMs).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="CLCplus_Backbone_2023_ATBD_v1-media/img-2958cf50b8c5670c63e3f8d65b82303e8b13eb02.png" class="img-fluid figure-img"></p>
+<p><img src="CLCplus_Backbone_2023_ATBD_v1-media/img-2958cf50b8c5670c63e3f8d65b82303e8b13eb02.png" class="img-fluid figure-img" style="width:6.27in" alt="A choropleth map illustrating the geographic extent and Production Unit (PU) outlines for the Copernicus Land Monitoring Service (CLMS) CLCplus Backbone production across Europe, parts of North Africa, and Western Asia. The main map displays a continuous colour gradient across landmasses, transitioning from dark blue and purple tones in northern regions (e.g., Iceland, northern Scandinavia) through various shades of purple and green in central Europe, to yellow and orange in southern and eastern areas (e.g., Mediterranean basin, North Africa, Turkey). The specific environmental parameter represented by this colour gradient is not indicated by a legend. The map includes black 'PU outlines' which delineate numerous distinct production areas across the mapped territory. Two inset maps are provided: one for the Azores Islands and another for the Canary and Madeira Islands, both displaying their respective PU outlines. The main map includes a scale bar indicating 0, 250, 500, and 1,000 km. The inset maps each have a scale bar showing 0, 150, and 300 km. The surrounding text indicates this map is part of the 'General workflow of the CLCplus Backbone 2023 production' which primarily uses Sentinel-2 (S-2) time-series data as input."></p>
 <figcaption>Figure 2: Production Units (without French DOMs) for the CLCplus Backbone 2023 production and Global Environmental Zones in the background (GEnZ version 3 according to Metzger et al.&nbsp;2013).</figcaption>
 </figure>
 </div>
@@ -416,7 +434,7 @@ M^{max}_{meas}=\sqrt[2]{2}=1.414...
 <p>As a last step of the post-processing, the separation of the coastal seawater buffer area from inland water, as introduced in the 2021 production, was performed to enable the derivation of reliable inland water statistics also for countries with significant coastlines. This was done by using the CLMS EU-Hydro coastline product (EEA, 2020) with further manually implemented improvements and the Copernicus EEA39 Boundary Layer with 250 m buffer (EEA, 2019) to derive a mask, covering the respective seawater areas. The underlying pixels were then recoded to a unique raster code with the help of this masking layer. The naming and coding for this technical class is ‘coastal seawater buffer’ with raster code 253, respectively. The raster code 253 is in the range of the outside area and the no data values (254 &amp; 255), which separates it from the 11 thematic land cover classes and does not imply a newly introduced thematic class. Figure 3 shows the CLCplus Backbone 2018 product in comparison to the respective2023 product with the subsequently introduced recoding of the coastal seawater buffer.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="CLCplus_Backbone_2023_ATBD_v1-media/img-7cc57154edc902e772bfe23ce96737478c11dbba.png" class="img-fluid figure-img"></p>
+<p><img src="CLCplus_Backbone_2023_ATBD_v1-media/img-7cc57154edc902e772bfe23ce96737478c11dbba.png" class="img-fluid figure-img" style="width:6.27in" alt="This image displays a side-by-side comparison of Copernicus Land Monitoring Service (CLMS) CLCplus Backbone (BB) raster data for the same geographic area in 2018 and 2023, illustrating land cover/land use (LCLU) classifications. The left panel, labelled 'CLCplus BB Raster 2018', shows a landscape with several distinct land cover types: * Large areas of deep blue, representing significant water bodies (e.g., sea, large lakes). * Vast areas of light green, typically denoting vegetated land, likely agricultural or natural vegetation. * Smaller patches of yellow, often associated with agricultural fields or sparsely vegetated land. * Fine red lines and small red areas, indicating artificial surfaces like roads or urban infrastructure. * Grey patches, which can represent wetlands, bare land, or other artificial areas. A prominent, long, narrow land feature (causeway/dam) extends across a large water body. The right panel, labelled 'CLCplus BB Raster 2023', shows the same geographic area but with notable differences: * The large water bodies are now outlined or partially replaced by a lighter blue shade, particularly around the coastal areas, the long causeway, and the internal water bodies. This light blue area, not present in the 2018 map, represents a change in the classification of water bodies or their immediate surroundings, possibly indicating a redefinition of coastal waters, a transition zone, or a different certainty of water extent in the 2023 product. * The light green, yellow, red, and grey land cover features show subtle changes in their extent and distribution compared to 2018, reflecting land use and land cover dynamics over the five-year period. No legend, scale bar, or compass is visible. The image highlights changes in CLCplus Backbone classification between production cycles, particularly regarding water body delineation."></p>
 <figcaption>Figure 3: CLCplus Backbone 2018 Raster Product (left) and 2023 Raster Product (right) with recoded coastal seawater buffer (light blue).</figcaption>
 </figure>
 </div>
@@ -462,7 +480,7 @@ M^{max}_{meas}=\sqrt[2]{2}=1.414...
 <li><p>254: Outside area</p></li>
 </ul>
 <p><strong>Metadata:</strong> XML metadata files according to INSPIRE metadata standards</p>
-<p><strong>Delivery format:</strong> Cloud optimized GeoTIFFs as 100x100km tiles incl.&nbsp;pyramids and embedded colour map (<em>.tif), attribute table (</em>.aux.xml), and INSPIRE-compliant metadata in XML format (*.xml)</p>
+<p><strong>Delivery format:</strong> Cloud optimized GeoTIFFs as 100x100km tiles incl.&nbsp;pyramids and embedded colour map (*.tif), attribute table (*.aux.xml), and INSPIRE-compliant metadata in XML format (*.xml)</p>
 </section>
 <section id="production-algorithm-and-methodology-1" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="production-algorithm-and-methodology-1"><span class="header-section-number">3.2.2</span> Production algorithm and methodology</h3>
@@ -494,7 +512,7 @@ M^{max}_{meas}=\sqrt[2]{2}=1.414...
 <li><p>65535: Outside area</p></li>
 </ul>
 <p><strong>Metadata:</strong> XML metadata files according to INSPIRE metadata standards</p>
-<p><strong>Delivery format:</strong> Cloud optimized GeoTIFFs as 100x100km tiles incl.&nbsp;pyramids and embedded colour map (<em>.tif), attribute table (</em>.aux.xml), and INSPIRE-compliant metadata in XML format (*.xml)</p>
+<p><strong>Delivery format:</strong> Cloud optimized GeoTIFFs as 100x100km tiles incl.&nbsp;pyramids and embedded colour map (*.tif), attribute table (*.aux.xml), and INSPIRE-compliant metadata in XML format (*.xml)</p>
 </section>
 <section id="production-algorithm-and-methodology-2" class="level3" data-number="3.3.2">
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="production-algorithm-and-methodology-2"><span class="header-section-number">3.3.2</span> Production algorithm and methodology</h3>
@@ -528,7 +546,7 @@ M^{max}_{meas}=\sqrt[2]{2}=1.414...
 </ul>
 <p><strong>Attributes:</strong> Value, Count, Class_name</p>
 <p><strong>Metadata:</strong> XML metadata files according to INSPIRE metadata standards</p>
-<p><strong>Delivery format:</strong> Cloud optimized GeoTIFFs as 100x100km tiles incl.&nbsp;pyramids and embedded colour map (<em>.tif), attribute table (</em>.aux.xml), and INSPIRE-compliant metadata in XML format (*.xml)</p>
+<p><strong>Delivery format:</strong> Cloud optimized GeoTIFFs as 100x100km tiles incl.&nbsp;pyramids and embedded colour map (*.tif), attribute table (*.aux.xml), and INSPIRE-compliant metadata in XML format (*.xml)</p>
 </section>
 <section id="production-algorithm-and-methodology-3" class="level3" data-number="3.4.2">
 <h3 data-number="3.4.2" class="anchored" data-anchor-id="production-algorithm-and-methodology-3"><span class="header-section-number">3.4.2</span> Production algorithm and methodology</h3>
@@ -571,9 +589,9 @@ M^{max}_{meas}=\sqrt[2]{2}=1.414...
 <h1 data-number="5"><span class="header-section-number">5</span> List of abbreviations</h1>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 13%">
+<col style="width: 16%">
+<col style="width: 71%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -811,6 +829,11 @@ M^{max}_{meas}=\sqrt[2]{2}=1.414...
 <section id="document-history" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> Document history</h1>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 26%">
+<col style="width: 54%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Version</th>
@@ -849,6 +872,11 @@ M^{max}_{meas}=\sqrt[2]{2}=1.414...
 <section id="change-log" class="level1" data-number="9">
 <h1 data-number="9"><span class="header-section-number">9</span> Change Log</h1>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 75%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Date</th>
@@ -925,13 +953,14 @@ M^{max}_{meas}=\sqrt[2]{2}=1.414...
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1277,7 +1306,7 @@ M^{max}_{meas}=\sqrt[2]{2}=1.414...
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>2025 EEA. All rights reserved.</p>
+<p>2026 EEA. All rights reserved.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
