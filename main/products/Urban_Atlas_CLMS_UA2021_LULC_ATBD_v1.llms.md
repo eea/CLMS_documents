@@ -6,7 +6,7 @@ The Copernicus Urban Atlas Algorithm Theoretical Basis Document (UA ATBD) presen
 
 Published
 
-June 3, 2026
+February 5, 2026
 
 Keywords
 

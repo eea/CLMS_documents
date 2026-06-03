@@ -1,6 +1,6 @@
 # Setup Guide
 European Environment Agency (EEA)
-2026-06-03
+2026-05-26
 
 - [<span class="toc-section-number">1</span> What This Sets
   Up](#what-this-sets-up)

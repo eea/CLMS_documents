@@ -10,7 +10,7 @@ Copernicus Land Monitoring Service
 
 Published
 
-June 3, 2026
+November 3, 2025
 
 Keywords
 

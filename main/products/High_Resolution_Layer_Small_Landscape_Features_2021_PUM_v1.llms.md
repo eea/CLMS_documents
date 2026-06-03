@@ -6,7 +6,7 @@ The High-Resolution Layer Small Landscape Features 2021 (HRL SLF) Product User M
 
 Published
 
-February 10, 2026
+April 9, 2026
 
 Keywords
 

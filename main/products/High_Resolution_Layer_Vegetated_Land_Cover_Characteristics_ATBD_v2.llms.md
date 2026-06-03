@@ -6,7 +6,7 @@ This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive overvi
 
 Published
 
-June 3, 2026
+June 27, 2025
 
 Keywords
 

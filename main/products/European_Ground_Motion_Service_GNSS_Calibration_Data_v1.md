@@ -1,6 +1,6 @@
 # European Ground Motion Service (EGMS) - GNSS calibration data
 
-2026-06-03
+2023-04-15
 
 | \#Latitude | Longitude | N | E | Up | SigmaN | SigmaE | SigmaUP | easting | northing |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|

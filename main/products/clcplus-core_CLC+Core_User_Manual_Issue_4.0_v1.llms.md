@@ -10,7 +10,7 @@ European Environment Agency (EEA)
 
 Published
 
-June 3, 2026
+December 22, 2023
 
 Keywords
 

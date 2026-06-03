@@ -1,6 +1,6 @@
 # CLCplus Backbone 2021 - Product User Manual
 Copernicus Land Monitoring Service
-2026-06-03
+2025-06-12
 
 - [<span class="toc-section-number">1</span> Executive
   Summary](#executive-summary)

@@ -6,7 +6,7 @@ This Product User Manual (PUM) serves as a primary guide for users of the Copern
 
 Published
 
-June 3, 2026
+August 1, 2023
 
 Keywords
 

@@ -1,6 +1,6 @@
 # Copernicus Land Data Store - Public Consultation Report
 
-2026-06-03
+2024-03-18
 
 - [<span class="toc-section-number">1</span>
   Introduction](#introduction)

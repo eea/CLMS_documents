@@ -1,6 +1,6 @@
 # Editor Guide
 European Environment Agency (EEA)
-2026-06-03
+2026-05-26
 
 - [<span class="toc-section-number">1</span> How This
   Works](#how-this-works)

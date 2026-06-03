@@ -1,6 +1,6 @@
 # IT Architecture Principles and Implementation Guidelines
 European Environment Agency (EEA)
-2026-06-03
+2025-06-19
 
 - [<span class="toc-section-number">1</span> Preface](#preface)
 - [<span class="toc-section-number">2</span>

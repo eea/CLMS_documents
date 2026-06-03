@@ -6,7 +6,7 @@ This document presents Global Navigation Satellite System (GNSS) calibration dat
 
 Published
 
-June 3, 2026
+April 15, 2023
 
 Keywords
 

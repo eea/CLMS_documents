@@ -1,6 +1,6 @@
 # European Ground Motion Service (EGMS) - Product Description and Format Specification
 
-2026-06-03
+2025-08-07
 
 - [<span class="toc-section-number">1</span>
   Introduction](#introduction)

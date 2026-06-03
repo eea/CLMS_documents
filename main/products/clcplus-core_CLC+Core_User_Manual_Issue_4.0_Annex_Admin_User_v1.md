@@ -1,6 +1,6 @@
 # CLC+ Core User Manual Annex
 European Environment Agency (EEA)
-2026-06-03
+2023-12-22
 
 - [<span class="toc-section-number">1</span> Admin User
   only](#admin-user-only)

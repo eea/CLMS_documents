@@ -1,6 +1,6 @@
 # Urban Atlas 2021 – Product User Manual
 
-2026-06-03
+2026-02-05
 
 - [<span class="toc-section-number">1</span> Non-technical
   summary](#non-technical-summary)

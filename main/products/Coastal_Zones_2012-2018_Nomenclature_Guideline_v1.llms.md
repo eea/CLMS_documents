@@ -6,7 +6,7 @@ This document functions as a land cover and land use nomenclature guideline spec
 
 Published
 
-June 3, 2026
+February 15, 2021
 
 Keywords
 
