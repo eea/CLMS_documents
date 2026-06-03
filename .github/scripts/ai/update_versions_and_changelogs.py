@@ -816,9 +816,8 @@ def process_single_batch(batch_files, batch_num, total_batches):
         print("=" * 70)
         print(result_text)
         print("=" * 70)
-        raise Exception(
-            f"Batch {batch_num}/{total_batches} failed: Invalid JSON response"
-        )
+        # Empty -> batch_with_retry splits and retries the halves instead of aborting.
+        return {}
     except Exception as e:
         print(f"\n❌ ERROR: Batch {batch_num}/{total_batches} processing failed")
         print(f"    Error: {e}")
