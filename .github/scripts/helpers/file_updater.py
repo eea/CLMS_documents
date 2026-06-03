@@ -5,7 +5,6 @@ from __future__ import annotations
 
 from pathlib import Path
 import json
-from datetime import datetime
 
 from .qmd_utils import read_qmd_frontmatter, write_qmd_frontmatter
 from .json_io import load_json_or_empty
@@ -109,9 +108,6 @@ def apply_all_updates(
                 new_version = version_data.get("current_version")
                 if new_version:
                     yaml_data["version"] = new_version
-                    yaml_data["date"] = version_data.get(
-                        "last_updated", datetime.now().strftime("%Y-%m-%d")
-                    )
                     modified = True
                     updates_desc.append(f"version → {new_version}")
                     stats["versions_applied"] += 1
