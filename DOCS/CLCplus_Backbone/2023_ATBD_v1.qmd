@@ -1,14 +1,12 @@
 ---
-title: "CLCplus Backbone 2023 - Algorith Theoretical Basis Document"
-subtitle: "Copernicus Land Monitoring Service"
-date: "2025-04-01"
-version: 1.2
-
-toc: true
-toc-title: "Content"
-toc-depth: 3
-
 category: products
+date: '2025-04-01'
+subtitle: Copernicus Land Monitoring Service
+title: CLCplus Backbone 2023 - Algorith Theoretical Basis Document
+toc: true
+toc-depth: 3
+toc-title: Content
+version: 1.2
 ---
 
 # Executive summary
@@ -107,9 +105,9 @@ This section provides a methodological description of the production approach fo
 
 **Metadata:** XML metadata files according to INSPIRE metadata standards
 
-**Delivery format:** Cloud optimized GeoTIFFs as 100x100km tiles incl. pyramids and embedded colour map (*.tif), attribute table (*.aux.xml), and INSPIRE-compliant metadata in XML format (\*.xml)
+**Delivery format:** Cloud optimized GeoTIFFs as 100x100km tiles incl. pyramids and embedded colour map (\*.tif), attribute table (\*.aux.xml), and INSPIRE-compliant metadata in XML format (\*.xml)
 
-![Figure 1: General workflow of the CLCplus Backbone 2023 production.](2023_ATBD_v1-media/img-d86af53513d44e0fc06c590f00f0705e2ad9a943.png)
+![Figure 1: General workflow of the CLCplus Backbone 2023 production.](2023_ATBD_v1-media/img-d86af53513d44e0fc06c590f00f0705e2ad9a943.png){width="6.27in"}
 
 ### Input data
 
@@ -131,7 +129,7 @@ The first CLCplus Backbone raster production for the reference year 2018 was str
 
 With the CLCplus Backbone 2021 production, the United Kingdom (UK) was excluded and the remaining 223 PUs were aggregated to 132 PUs, as the 2018 production had shown that it would be possible to aggregate some PUs with similar bio-geographical conditions, while retaining good regional calibrations at the same time. As the UK officially re-joined Copernicus in 2024, its territory was added to the ongoing production of the reference year 2023. Accordingly, the PU layout was adapted to now contain 138 PUs that cover the full production area, i.e. the EEA38+UK and the 5 French DOMs. Figure 2 shows the outlines of the PUs for the CLCplus Backbone 2023 production (without the French DOMs).
 
-![Figure 2: Production Units (without French DOMs) for the CLCplus Backbone 2023 production and Global Environmental Zones in the background (GEnZ version 3 according to Metzger et al. 2013).](2023_ATBD_v1-media/img-2958cf50b8c5670c63e3f8d65b82303e8b13eb02.png)
+![Figure 2: Production Units (without French DOMs) for the CLCplus Backbone 2023 production and Global Environmental Zones in the background (GEnZ version 3 according to Metzger et al. 2013).](2023_ATBD_v1-media/img-2958cf50b8c5670c63e3f8d65b82303e8b13eb02.png){width="6.27in"}
 
 The homogenous character of the PUs facilitated the regional calibration of the land cover classification models that were trained specifically for each PU. Furthermore, the partitioning allowed to orchestrate and distribute the computation efficiently. The production was generally performed with a spatial overlap of 10 km to neighbouring PU in order to enable post-hoc border harmonization and to avoid any border effects.
 
@@ -209,7 +207,7 @@ In cases where significant remaining misclassifications in the raster classifica
 
 As a last step of the post-processing, the separation of the coastal seawater buffer area from inland water, as introduced in the 2021 production, was performed to enable the derivation of reliable inland water statistics also for countries with significant coastlines. This was done by using the CLMS EU-Hydro coastline product (EEA, 2020) with further manually implemented improvements and the Copernicus EEA39 Boundary Layer with 250 m buffer (EEA, 2019) to derive a mask, covering the respective seawater areas. The underlying pixels were then recoded to a unique raster code with the help of this masking layer. The naming and coding for this technical class is ‘coastal seawater buffer’ with raster code 253, respectively. The raster code 253 is in the range of the outside area and the no data values (254 & 255), which separates it from the 11 thematic land cover classes and does not imply a newly introduced thematic class. Figure 3 shows the CLCplus Backbone 2018 product in comparison to the respective2023 product with the subsequently introduced recoding of the coastal seawater buffer.
 
-![Figure 3: CLCplus Backbone 2018 Raster Product (left) and 2023 Raster Product (right) with recoded coastal seawater buffer (light blue).](2023_ATBD_v1-media/img-7cc57154edc902e772bfe23ce96737478c11dbba.png)
+![Figure 3: CLCplus Backbone 2018 Raster Product (left) and 2023 Raster Product (right) with recoded coastal seawater buffer (light blue).](2023_ATBD_v1-media/img-7cc57154edc902e772bfe23ce96737478c11dbba.png){width="6.27in"}
 
 ### Strengths and limitations of the applied methodology
 
@@ -273,7 +271,7 @@ Below summarizes the technical specifications of the Raster Confidence Layer.
 
 **Metadata:** XML metadata files according to INSPIRE metadata standards
 
-**Delivery format:** Cloud optimized GeoTIFFs as 100x100km tiles incl. pyramids and embedded colour map (*.tif), attribute table (*.aux.xml), and INSPIRE-compliant metadata in XML format (\*.xml)
+**Delivery format:** Cloud optimized GeoTIFFs as 100x100km tiles incl. pyramids and embedded colour map (\*.tif), attribute table (\*.aux.xml), and INSPIRE-compliant metadata in XML format (\*.xml)
 
 ### Production algorithm and methodology
 
@@ -321,7 +319,7 @@ The general technical specifications of the RASDL are provided below.
 
 **Metadata:** XML metadata files according to INSPIRE metadata standards
 
-**Delivery format:** Cloud optimized GeoTIFFs as 100x100km tiles incl. pyramids and embedded colour map (*.tif), attribute table (*.aux.xml), and INSPIRE-compliant metadata in XML format (\*.xml)
+**Delivery format:** Cloud optimized GeoTIFFs as 100x100km tiles incl. pyramids and embedded colour map (\*.tif), attribute table (\*.aux.xml), and INSPIRE-compliant metadata in XML format (\*.xml)
 
 ### Production algorithm and methodology
 
@@ -373,7 +371,7 @@ The technical product specifications of the Raster Post-processing layer are pro
 
 **Metadata:** XML metadata files according to INSPIRE metadata standards
 
-**Delivery format:** Cloud optimized GeoTIFFs as 100x100km tiles incl. pyramids and embedded colour map (*.tif), attribute table (*.aux.xml), and INSPIRE-compliant metadata in XML format (\*.xml)
+**Delivery format:** Cloud optimized GeoTIFFs as 100x100km tiles incl. pyramids and embedded colour map (\*.tif), attribute table (\*.aux.xml), and INSPIRE-compliant metadata in XML format (\*.xml)
 
 ### Production algorithm and methodology
 
@@ -424,7 +422,7 @@ More information on the products can be found on the Copernicus Land Monitoring 
 # List of abbreviations
 
 | Abbreviation | Name | Reference |
-|------------------------|------------------------|------------------------|
+|-----------------------------------------|------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | ADs | Applicable Documents |  |
 | AI | Action Item |  |
 | AOI | Area Of Interest |  |
@@ -487,11 +485,11 @@ More information on the products can be found on the Copernicus Land Monitoring 
 # Document history
 
 | Version | Date       | Short description of changes |
-|---------|------------|------------------------------|
+|---------------------------------------|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------|
 | 1.2     | 01.04.2025 | Initial published version    |
 
 # Applicable documents
 
 | ID | Applicable document |
-|------------------------------------|------------------------------------|
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AD-1 | [CLCplus Backbone 2023 - Product User Manual (PUM)](https://land.copernicus.eu/en/products/clc-backbone?tab=documentation) |

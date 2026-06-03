@@ -1,4 +1,4 @@
-name: Deploy Documentation
+name: Build and Deploy Documentation
 
 on:
   push:
@@ -6,21 +6,33 @@ on:
       - develop
       - test
       - main
-  workflow_dispatch:  # Allow manual triggers from GitHub UI
+  workflow_dispatch:  # manual trigger from Actions UI
+
+# One run per branch - concurrent runs race on the cache commit-back and the
+# gh-pages deploy. Queue, don't cancel (a half-written cache is worse).
+concurrency:
+  group: deploy-docs-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   deploy_docs:
-    name: Build and Deploy Docs [${{ github.ref_name }}]
+    name: Build and Deploy Docs
     runs-on: ubuntu-latest
 
-    container:
-      image: mckeea/quarto-doc-builder:latest
+    # Force bash for every run step. Inside a container the default is sh.
+    defaults:
+      run:
+        shell: bash
 
+    container:
+      # Pinned (May 2026).
+      image: mckeea/quarto-doc-builder:1.0.4
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
-          fetch-depth: 0
+          # develop/test only diff HEAD^..HEAD, so a shallow clone is enough
+          fetch-depth: ${{ (github.ref_name == 'main' || startsWith(github.ref, 'refs/heads/test-')) && '0' || '50' }}
           fetch-tags: true
 
       - name: Mark repo as safe for Git
@@ -35,15 +47,6 @@ jobs:
           echo "Modified .qmd files:"
           cat modified_docs_list.txt
 
-      - name: Generate intros and keywords
-        uses: addnab/docker-run-action@v3
-        with:
-          image: mckeea/llm-doc-annotator:latest
-          options: -e GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} -v ${{ github.workspace }}:/app
-          run: python .github/scripts/generate_intros_and_keywords.py modified_docs_list.txt
-
-
-
       - name: Set up git user for commits
         run: |
           git config user.name "GitHub Actions"
@@ -52,23 +55,38 @@ jobs:
       - name: Detect test mode for dry-run
         id: test_mode
         run: |
-          if [[ "${{ github.ref }}" == refs/heads/test-* ]]; then
-            echo "dry_run=true" >> $GITHUB_OUTPUT
+          if [[ "$GITHUB_REF" == refs/heads/test-* ]]; then
+            echo "dry_run=true" >> "$GITHUB_OUTPUT"
             echo "🔍 Test branch detected - enabling DRY_RUN mode"
           else
-            echo "dry_run=false" >> $GITHUB_OUTPUT
+            echo "dry_run=false" >> "$GITHUB_OUTPUT"
             echo "✅ Production branch - normal execution"
           fi
 
-      - name: Update versions and changelogs (test/main only)
-        if: github.ref_name == 'test' || github.ref_name == 'main' || startsWith(github.ref, 'refs/heads/test-')
-        uses: addnab/docker-run-action@v3
-        with:
-          image: mckeea/llm-doc-annotator:latest
-          options: -e GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} -e DRY_RUN=${{ steps.test_mode.outputs.dry_run }} -v ${{ github.workspace }}:/app
-          run: |
-            git config --global --add safe.directory /app
-            python .github/scripts/update_versions_and_changelogs.py
+      # Runs in the container - it carries google-genai + tiktoken.
+      - name: Update intros, keywords, versions & changelogs
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          DRY_RUN: ${{ steps.test_mode.outputs.dry_run }}
+        run: |
+          DRY_RUN_FLAG=()
+          if [[ "$DRY_RUN" == "true" ]]; then DRY_RUN_FLAG=(--dry-run); fi
+          # --versions runs only on main (real releases) and test-* (dry-run tests).
+          # develop/test skip it: no version bumps there, and no tags to diff against.
+          if [[ "$GITHUB_REF_NAME" == "main" || "$GITHUB_REF" == refs/heads/test-* ]]; then
+            python .github/scripts/ai/update_documentation.py --intros modified_docs_list.txt --versions "${DRY_RUN_FLAG[@]}"
+          else
+            python .github/scripts/ai/update_documentation.py --intros modified_docs_list.txt "${DRY_RUN_FLAG[@]}"
+          fi
+
+      - name: Describe images (develop only — cache propagates to test/main)
+        if: github.ref_name == 'develop'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          # Describe images under DOCS/*-media/. Keyed by image md5, so only
+          # new or changed ones hit the API. Cache is committed back next step.
+          python .github/scripts/ai/describe_images.py
 
       - name: Commit updated LLM cache and version history
         if: steps.test_mode.outputs.dry_run == 'false'
@@ -83,9 +101,7 @@ jobs:
           fi
 
       - name: Build Docs
-        run: .github/scripts/build-docs.sh
-        env:
-          SKIP_DOCX: ${{ github.ref_name != 'develop' && '1' || '' }}
+        run: .github/scripts/build/build-docs.sh
 
       - name: Commit updated non-browsable doc map
         run: |

@@ -1,0 +1,35 @@
+name: Validate Pull Request
+
+# Direction check. Re-runs on events that can change base/head. Skips
+# synchronize - head-only pushes can't change direction, just add noise.
+
+on:
+  pull_request:
+    types: [opened, edited, reopened]
+    branches:
+      - test
+      - main
+
+jobs:
+  validate_merge_origin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR base and head
+        run: |
+          echo "🔍 Validating PR from '$GITHUB_HEAD_REF' to '$GITHUB_BASE_REF'..."
+          ALLOWED=false
+
+          if [[ "$GITHUB_BASE_REF" == "test" && "$GITHUB_HEAD_REF" == "develop" ]]; then
+            ALLOWED=true
+          elif [[ "$GITHUB_BASE_REF" == "main" && "$GITHUB_HEAD_REF" == "test" ]]; then
+            ALLOWED=true
+          fi
+
+          if [[ "$ALLOWED" != "true" ]]; then
+            echo "❌ Invalid PR direction. Only allow:"
+            echo "   develop → test"
+            echo "   test → main"
+            exit 1
+          fi
+
+          echo "✅ PR direction is valid."
