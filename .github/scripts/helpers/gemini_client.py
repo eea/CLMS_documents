@@ -272,9 +272,8 @@ IMAGE_MIME_TYPES = {
 # Keeps the inline request body small and avoids the ~128k inline token limit.
 FILE_API_THRESHOLD_TOKENS = 30_000
 
-# Cap output tokens to reduce TPM consumption (input + output must fit in quota).
-# 4096 gives changelog generation enough room for 7 files × ~200 tokens each.
-MAX_OUTPUT_TOKENS = 4_096
+# 4_096 truncated the 15-file changelog batches mid-JSON; 2.5-flash allows 65k.
+MAX_OUTPUT_TOKENS = 32_768
 
 
 def _upload_prompt_as_file(prompt: str) -> object:
