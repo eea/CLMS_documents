@@ -113,7 +113,7 @@ Before passing to editors, confirm:
 - [ ] All three integration steps completed without errors
 - [ ] Verification checks above pass
 - [ ] Editors have the Editor Guide link: [Editor
-  Guide](guidelines-editor-guide_v1.html)
+  Guide](guidelines_editor-manual_v1.html)
 - [ ] Editors know they need RStudio and Quarto on their machines (see
   [Prerequisites](#prerequisites))
 

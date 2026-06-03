@@ -108,7 +108,7 @@ All three integration steps completed without errors
 
 Verification checks above pass
 
-Editors have the Editor Guide link: [Editor Guide](guidelines-editor-guide_v1.llms.md)
+Editors have the Editor Guide link: [Editor Guide](guidelines_editor-manual_v1.llms.md)
 
 Editors know they need RStudio and Quarto on their machines (see [Prerequisites](#prerequisites))
 

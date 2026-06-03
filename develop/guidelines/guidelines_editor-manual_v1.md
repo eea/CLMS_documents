@@ -65,7 +65,7 @@ European Environment Agency (EEA)
 > This guide assumes your project is already integrated with the
 > Technical Library - the `DOCS/` subtree is in place and the Git
 > aliases are configured. If that setup isn’t done yet, see the [Setup
-> Guide](guidelines-setup-guide_v1.html) first.
+> Guide](guidelines_setup-guide_v1.html) first.
 
 # How This Works
 
