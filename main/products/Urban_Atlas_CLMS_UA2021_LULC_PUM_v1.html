@@ -2,16 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-02-05">
-<meta name="keywords" content="Urban Atlas, Land Cover Land Use, Functional Urban Area, Very High Resolution imagery, Sentinel-2 data, Change detection, Green Urban Areas, Image processing methods, Minimum Mapping Unit, Thematic accuracy">
-<meta name="description" content="This Product User Manual (PUM) offers guidance on using the Copernicus Urban Atlas (UA) for the 2021 reference year. It provides detailed definitions and specifications for the Urban Atlas, which includes vector layers dedicated to Land Cover and Land Use (LC/LU) mapping in urban areas. The UA covers 38 EEA member countries, the UK, and focuses on semi-automatic image processing of Very High Resolution Earth Observation imagery and Sentinel-2 data. The manual is intended for a wide range of users, from urban planners to policymakers, aiding in environmental monitoring and informed decision-making.">
+<meta name="dcterms.date" content="2026-06-03">
+<meta name="keywords" content="Copernicus Urban Atlas, Land Use Land Cover, Functional Urban Areas, Very High Resolution imagery, Sentinel-2 time series, Change detection methodology, Minimum Mapping Unit, Green Urban Areas, ETRS89 LAEA projection, Local Climate Zones">
+<meta name="description" content="This Product User Manual (PUM) provides comprehensive guidance for utilising the Copernicus Urban Atlas (UA) 2021, a key component of the Copernicus Land Monitoring Service (CLMS). It details product specifications, definitions, and methodologies employed in creating high-resolution land use and land cover maps for 790 Functional Urban Areas (FUAs) across Europe. The manual focuses on the vector layers, derived from semi-automatic image processing of Very High Resolution (VHR) and High-Resolution (HR) Earth Observation imagery, covering land use and land cover status in 2021 and changes detected between 2018 and 2021. This document aids a broad audience in effectively applying the Urban Atlas data for environmental monitoring and spatial decision-making.">
 
 <title>Urban Atlas 2021 – Product User Manual – Technical Library</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -39,10 +42,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4111b555c20d397ee3d6af686ca7e74c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ccd9cb9b1c9bdf1eabc4708995bd1808.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,8 +77,8 @@ ul.task-list li input[type="checkbox"] {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "Urban Atlas 2021 – Product User Manual",
-    "description": "This Product User Manual (PUM) offers guidance on using the Copernicus Urban Atlas (UA) for the 2021 reference year. It provides detailed definitions and specifications for the Urban Atlas, which includes vector layers dedicated to Land Cover and Land Use (LC/LU) mapping in urban areas. The UA covers 38 EEA member countries, the UK, and focuses on semi-automatic image processing of Very High Resolution Earth Observation imagery and Sentinel-2 data. The manual is intended for a wide range of users, from urban planners to policymakers, aiding in environmental monitoring and informed decision-making.",
-    "datePublished": "February 5, 2026",
+    "description": "This Product User Manual (PUM) provides comprehensive guidance for utilising the Copernicus Urban Atlas (UA) 2021, a key component of the Copernicus Land Monitoring Service (CLMS). It details product specifications, definitions, and methodologies employed in creating high-resolution land use and land cover maps for 790 Functional Urban Areas (FUAs) across Europe. The manual focuses on the vector layers, derived from semi-automatic image processing of Very High Resolution (VHR) and High-Resolution (HR) Earth Observation imagery, covering land use and land cover status in 2021 and changes detected between 2018 and 2021. This document aids a broad audience in effectively applying the Urban Atlas data for environmental monitoring and spatial decision-making.",
+    "datePublished": "June 3, 2026",
     "author": {
       "@type": "Person",
       "name": "?meta:author"
@@ -88,7 +91,26 @@ ul.task-list li input[type="checkbox"] {
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "?invalid meta type:keywords",
+    "keywords": "Copernicus Urban Atlas
+
+Land Use Land Cover
+
+Functional Urban Areas
+
+Very High Resolution imagery
+
+Sentinel-2 time series
+
+Change detection methodology
+
+Minimum Mapping Unit
+
+Green Urban Areas
+
+ETRS89 LAEA projection
+
+Local Climate Zones
+",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -126,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Content</h2>
+    <h2 id="toc-title">Index</h2>
    
   <ul>
   <li><a href="#non-technical-summary" id="toc-non-technical-summary" class="nav-link active" data-scroll-target="#non-technical-summary"><span class="header-section-number">1</span> Non-technical summary</a></li>
@@ -185,16 +207,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#applicable-documents" id="toc-applicable-documents" class="nav-link" data-scroll-target="#applicable-documents"><span class="header-section-number">14</span> Applicable documents</a></li>
   <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">15</span> Change Log</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Remove link to .docx file
-    //
-    document.querySelectorAll("a[href$='.docx']").forEach((link) => (link.style.display = "none"));
-
     // Add Version to the title's metadata
     //
     const titleMetaEl = document.querySelector(".quarto-title-meta");
@@ -202,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.0.1</p>
+          <p>1.0.2</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -217,7 +235,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    This Product User Manual (PUM) offers guidance on using the Copernicus Urban Atlas (UA) for the 2021 reference year. It provides detailed definitions and specifications for the Urban Atlas, which includes vector layers dedicated to Land Cover and Land Use (LC/LU) mapping in urban areas. The UA covers 38 EEA member countries, the UK, and focuses on semi-automatic image processing of Very High Resolution Earth Observation imagery and Sentinel-2 data. The manual is intended for a wide range of users, from urban planners to policymakers, aiding in environmental monitoring and informed decision-making.
+    This Product User Manual (PUM) provides comprehensive guidance for utilising the Copernicus Urban Atlas (UA) 2021, a key component of the Copernicus Land Monitoring Service (CLMS). It details product specifications, definitions, and methodologies employed in creating high-resolution land use and land cover maps for 790 Functional Urban Areas (FUAs) across Europe. The manual focuses on the vector layers, derived from semi-automatic image processing of Very High Resolution (VHR) and High-Resolution (HR) Earth Observation imagery, covering land use and land cover status in 2021 and changes detected between 2018 and 2021. This document aids a broad audience in effectively applying the Urban Atlas data for environmental monitoring and spatial decision-making.
   </div>
 </div>
 
@@ -228,7 +246,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 5, 2026</p>
+      <p class="date">June 3, 2026</p>
     </div>
   </div>
   
@@ -239,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>Urban Atlas, Land Cover Land Use, Functional Urban Area, Very High Resolution imagery, Sentinel-2 data, Change detection, Green Urban Areas, Image processing methods, Minimum Mapping Unit, Thematic accuracy</p>
+    <p>Copernicus Urban Atlas, Land Use Land Cover, Functional Urban Areas, Very High Resolution imagery, Sentinel-2 time series, Change detection methodology, Minimum Mapping Unit, Green Urban Areas, ETRS89 LAEA projection, Local Climate Zones</p>
   </div>
 </div>
 
@@ -256,7 +274,7 @@ Denmark<br>
 <a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
 </div>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-74ba74755432054c019b04c37cc972e8785e6317.png"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-87c21c7c04e003001a144ad28cc9305d084946ca.png"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-54059741438c873bd6ecb859d30620018f9ab691.png"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-87d1a7009176100d4a09373b0e22528bc1120b3c.png"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/figure5.png"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/figure6.png"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/figure7.png"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-b2a5ee3fbe67ecb823db882daf38b32172f70c3f.png"}]}
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-74ba74755432054c019b04c37cc972e8785e6317.png","width":"5.81in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-87c21c7c04e003001a144ad28cc9305d084946ca.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-54059741438c873bd6ecb859d30620018f9ab691.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-87d1a7009176100d4a09373b0e22528bc1120b3c.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/figure5.png","width":"5.64in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/figure6.png","width":"3.6in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/figure7.png","width":"3.01in"},{"@type":"ImageObject","caption":"","url":"Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-b2a5ee3fbe67ecb823db882daf38b32172f70c3f.png","width":"6.27in"}]}
 </script>
 <section id="non-technical-summary" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Non-technical summary</h1>
@@ -325,10 +343,10 @@ Denmark<br>
 <h2 data-number="6.1" class="anchored" data-anchor-id="use-case-1-assessing-quality-and-accessibility-of-finnish-urban-green-spaces-with-urban-atlas"><span class="header-section-number">6.1</span> Use case 1: Assessing quality and accessibility of Finnish urban green spaces with Urban Atlas</h2>
 <p>One of the key applications of the Urban Atlas is in assessing the quality and accessibility of urban green spaces. A notable example is the study conducted in Finland, which utilized the Urban Atlas to evaluate green spaces across the country’s seven largest city regions<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The primary goal was to understand how accessibility and quality vary with neighbourhood-level socioeconomic status. High-quality urban green spaces, such as Helsinki’s Central Park, enhance the quality of life for residents by encouraging physical activity, fostering social interaction, and improving air quality while also mitigating urban heat island effects.</p>
 <p>Researchers used Urban Atlas to map green spaces and analyse their accessibility using pedestrian street networks. This data helped city managers ensure that residents, regardless of income, have access to high-quality green spaces. The study highlighted the importance of differentiating green urban areas according to their public accessibility, as easy and free access to these areas is crucial for urban ecology and quality of life.</p>
-<div id="fig-figure1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This map displays detailed Land Use / Land Cover (LULC) classifications for an urban and peri-urban area in Turku, Finland, as indicated by an inset map showing Finland with Turku highlighted by a black square on its southwest coast. The main map features a colour-coded legend: * Continuous urban fabric (dark red) * Discontinuous dense urban fabric (red) * Discontinuous medium density urban fabric (medium red) * Discontinuous low density urban fabric (light red) * Discontinuous very low density urban fabric (very light red) * Roads (grey) * Pastures (yellow) * Green urban areas (light green) * Arable land (very light yellow) * Forests (dark green) The map includes two white stars with black outlines as points of interest. Dashed black lines indicate measured distances between points: 315 m from the lower left star, 700 m along a path, and then from the upper right star, 300 m and 200 m along another path. A light blue line represents a water body. The scale bar shows distances up to 0.5 km (0, 0.15, 0.3, 0.5 km). The spatial pattern reveals an intricate mix of various urban fabric densities, green urban areas, forests, pastures, and arable land, typical of a developing urban fringe, with a clear network of roads. This map exemplifies the detailed geographical information provided by the Copernicus Urban Atlas for urban planning and environmental monitoring.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-74ba74755432054c019b04c37cc972e8785e6317.png" class="img-fluid figure-img">
+<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-74ba74755432054c019b04c37cc972e8785e6317.png" class="img-fluid figure-img" style="width:5.81in" alt="This map displays detailed Land Use / Land Cover (LULC) classifications for an urban and peri-urban area in Turku, Finland, as indicated by an inset map showing Finland with Turku highlighted by a black square on its southwest coast. The main map features a colour-coded legend: * Continuous urban fabric (dark red) * Discontinuous dense urban fabric (red) * Discontinuous medium density urban fabric (medium red) * Discontinuous low density urban fabric (light red) * Discontinuous very low density urban fabric (very light red) * Roads (grey) * Pastures (yellow) * Green urban areas (light green) * Arable land (very light yellow) * Forests (dark green) The map includes two white stars with black outlines as points of interest. Dashed black lines indicate measured distances between points: 315 m from the lower left star, 700 m along a path, and then from the upper right star, 300 m and 200 m along another path. A light blue line represents a water body. The scale bar shows distances up to 0.5 km (0, 0.15, 0.3, 0.5 km). The spatial pattern reveals an intricate mix of various urban fabric densities, green urban areas, forests, pastures, and arable land, typical of a developing urban fringe, with a clear network of roads. This map exemplifies the detailed geographical information provided by the Copernicus Urban Atlas for urban planning and environmental monitoring.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Urban Atlas 2018 land cover/land use layer of an area of the suburb of Harittu (Finland), showcasing an illustrated example of the methodology used to calculate the shortest path to various green spaces in the study
@@ -340,10 +358,10 @@ Figure&nbsp;1: Urban Atlas 2018 land cover/land use layer of an area of the subu
 <h2 data-number="6.2" class="anchored" data-anchor-id="use-case-2-national-mapping-of-local-climate-zones-lcz-to-help-communities-diagnose-urban-overheating-in-france"><span class="header-section-number">6.2</span> Use case 2: National mapping of Local Climate Zones (LCZ) to help communities diagnose urban overheating in France</h2>
 <p>Cerema (French Centre for Studies on Risks, the Environment, Mobility and Urban Planning) and French Ministry of Ecological Transition, Energy, Climate, and Risk Prevention published a national map of Local Climate Zones (LCZ)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> to help local authorities diagnose urban overheating. This data is made available free of charge to the public and local authorities for urban areas with more than 50,000 inhabitants in France. Therefore, Cerema used areas covered by the Urban Atlas of the European Earth Observation Program Copernicus.</p>
 <p>In this type of study, the advantage of the Copernicus Urban Atlas product is that it provides free and consistent data for local authorities.</p>
-<div id="fig-figure2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This map illustrates the geographic distribution of Copernicus Land Monitoring Service (CLMS) Urban Atlas mapping zones across Metropolitan France, with a small portion of Réunion visible in the bottom right. The base layer is a grey-scale satellite image of France, showing general terrain. Superimposed on this base, numerous distinct urban agglomerations are highlighted. Each of these agglomerations is delineated by a red outline, within which detailed land cover mapping is visible. The land cover within these outlined areas is represented by colours, predominantly shades of green (indicating vegetated areas like green urban areas, forests, or grasslands), with some lighter yellow/beige and red-brown elements (likely indicating built-up or agricultural areas). The context suggests these detailed areas are part of the Urban Atlas 2021 dataset, focusing on differentiating green urban areas. The mapped zones are spread throughout France, clustering around major cities, with concentrations notable in northern, eastern, and southeastern regions. No scale bar, compass, legend, or explicit year is visible on the map itself.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-87c21c7c04e003001a144ad28cc9305d084946ca.png" class="img-fluid figure-img">
+<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-87c21c7c04e003001a144ad28cc9305d084946ca.png" class="img-fluid figure-img" style="width:6.27in" alt="This map illustrates the geographic distribution of Copernicus Land Monitoring Service (CLMS) Urban Atlas mapping zones across Metropolitan France, with a small portion of Réunion visible in the bottom right. The base layer is a grey-scale satellite image of France, showing general terrain. Superimposed on this base, numerous distinct urban agglomerations are highlighted. Each of these agglomerations is delineated by a red outline, within which detailed land cover mapping is visible. The land cover within these outlined areas is represented by colours, predominantly shades of green (indicating vegetated areas like green urban areas, forests, or grasslands), with some lighter yellow/beige and red-brown elements (likely indicating built-up or agricultural areas). The context suggests these detailed areas are part of the Urban Atlas 2021 dataset, focusing on differentiating green urban areas. The mapped zones are spread throughout France, clustering around major cities, with concentrations notable in northern, eastern, and southeastern regions. No scale bar, compass, legend, or explicit year is visible on the map itself.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: 83 Urban Atlas FUA’s with more than 50,000 inhabitants used for this study
@@ -366,10 +384,10 @@ Figure&nbsp;2: 83 Urban Atlas FUA’s with more than 50,000 inhabitants used for
 <li><p>Street Tree Layer 2021 status layer</p></li>
 <li><p>Building Block Height 2021 (product described in a separate Product User Manual)</p></li>
 </ul>
-<div id="fig-figure3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This map displays the detailed land use and land cover (LULC) of the Bruxelles/Brussel/Leuven Functional Urban Area (FUA), identified as BE001L3, for the reference year 2021. The map is part of the Copernicus Land Monitoring Service (CLMS) Urban Atlas product, generated by CLS. The main map highlights the BE001L3 FUA, outlined in red, against a satellite imagery background. Surrounding FUAs are labelled with their codes and names: BE003L2 Gent, BE007L2 Antwerpen, BE012L1 Mechelen, BE005L2 Liège, BE007L2 Namur, BE004L2 Charleroi, BE014L1 La Louvière, BE009L1 Mons. A smaller inset map shows Belgium's location within Europe, and another inset provides a regional context within Belgium, indicating the FUA of Brussels with a red star. The legend classifies land cover into 30 categories with specific colour codes, which can be grouped into Artificial surfaces, Green urban areas, Agricultural and Semi-Natural Areas, and Water. Key categories include: * **Artificial surfaces:** * 11100 Continuous urban fabric (Surface Level (S.L.): > 80%) - Dark red * 11210 Discontinuous dense urban fabric (S.L.: 50% - 80%) - Red * 11220 Discontinuous medium density urban fabric (S.L.: 30% - 50%) - Lighter red * 11230 Discontinuous low density urban fabric (S.L.: 10% - 30%) - Pink * 11240 Discontinuous very low density urban fabric (S.L.: < 10%) - Light pink * 11300 Isolated structures - Purple * 12100 Industrial, commercial, public, military and private units - Dark purple/brown * 12210 Fast transport roads and associated land - Brown * 12220 Other roads and associated land - Lighter brown * 12230 Railways and associated land - Darker brown * 12300 Port areas - Grey-brown * 12400 Airports - Light grey-brown * 13100 Mineral extraction and dump sites - Light purple * 13300 Construction sites - Darker grey-blue * 13400 Land without current use - Grey-blue * **Green Urban Areas:** * 14110 Green urban areas (Public spaces) - Bright green * 14120 Green urban areas (Private spaces) - Lighter bright green * 14130 Green urban areas (Leisure, sports, amenities) - Dark green * 14200 Sports and leisure facilities - Yellow-green * **Agricultural and Semi-Natural Areas:** * 21000 Arable land (annual crops) - Yellow * 22000 Permanent crops - Yellow-orange * 23000 Pastures - Light green * 24000 Complex and mixed cultivation patterns - Green-yellow * 31000 Forests - Darker green * 32000 Herbaceous vegetation associations - Light blue-green * 33000 Open spaces with little or no vegetation - Yellow-grey * 40000 Wetlands - Light blue * **Water:** * 50000 Water - Dark blue The spatial pattern shows a concentrated urban core (Brussels) with high imperviousness, dominated by continuous and discontinuous urban fabric, surrounded by a mosaic of agricultural fields (yellow), forests (dark green), and smaller settlements. Green urban areas are interspersed within the urban fabric. The map information indicates that the data is derived from Very High Resolution (VHR) satellite imagery, processed using semi-automatic Sentinel-2 time series classification and visual interpretation. The map date is 05 August 2021. The scale is 1:392,897 for an A3 format, with a scale bar showing 0 to 10 km. The projection is EPSG: 3035 - ETRS89-extended / LAEA Europe.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-54059741438c873bd6ecb859d30620018f9ab691.png" class="img-fluid figure-img">
+<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-54059741438c873bd6ecb859d30620018f9ab691.png" class="img-fluid figure-img" style="width:6.27in" alt="This map displays the detailed land use and land cover (LULC) of the Bruxelles/Brussel/Leuven Functional Urban Area (FUA), identified as BE001L3, for the reference year 2021. The map is part of the Copernicus Land Monitoring Service (CLMS) Urban Atlas product, generated by CLS. The main map highlights the BE001L3 FUA, outlined in red, against a satellite imagery background. Surrounding FUAs are labelled with their codes and names: BE003L2 Gent, BE007L2 Antwerpen, BE012L1 Mechelen, BE005L2 Liège, BE007L2 Namur, BE004L2 Charleroi, BE014L1 La Louvière, BE009L1 Mons. A smaller inset map shows Belgium's location within Europe, and another inset provides a regional context within Belgium, indicating the FUA of Brussels with a red star. The legend classifies land cover into 30 categories with specific colour codes, which can be grouped into Artificial surfaces, Green urban areas, Agricultural and Semi-Natural Areas, and Water. Key categories include: * **Artificial surfaces:** * 11100 Continuous urban fabric (Surface Level (S.L.): > 80%) - Dark red * 11210 Discontinuous dense urban fabric (S.L.: 50% - 80%) - Red * 11220 Discontinuous medium density urban fabric (S.L.: 30% - 50%) - Lighter red * 11230 Discontinuous low density urban fabric (S.L.: 10% - 30%) - Pink * 11240 Discontinuous very low density urban fabric (S.L.: < 10%) - Light pink * 11300 Isolated structures - Purple * 12100 Industrial, commercial, public, military and private units - Dark purple/brown * 12210 Fast transport roads and associated land - Brown * 12220 Other roads and associated land - Lighter brown * 12230 Railways and associated land - Darker brown * 12300 Port areas - Grey-brown * 12400 Airports - Light grey-brown * 13100 Mineral extraction and dump sites - Light purple * 13300 Construction sites - Darker grey-blue * 13400 Land without current use - Grey-blue * **Green Urban Areas:** * 14110 Green urban areas (Public spaces) - Bright green * 14120 Green urban areas (Private spaces) - Lighter bright green * 14130 Green urban areas (Leisure, sports, amenities) - Dark green * 14200 Sports and leisure facilities - Yellow-green * **Agricultural and Semi-Natural Areas:** * 21000 Arable land (annual crops) - Yellow * 22000 Permanent crops - Yellow-orange * 23000 Pastures - Light green * 24000 Complex and mixed cultivation patterns - Green-yellow * 31000 Forests - Darker green * 32000 Herbaceous vegetation associations - Light blue-green * 33000 Open spaces with little or no vegetation - Yellow-grey * 40000 Wetlands - Light blue * **Water:** * 50000 Water - Dark blue The spatial pattern shows a concentrated urban core (Brussels) with high imperviousness, dominated by continuous and discontinuous urban fabric, surrounded by a mosaic of agricultural fields (yellow), forests (dark green), and smaller settlements. Green urban areas are interspersed within the urban fabric. The map information indicates that the data is derived from Very High Resolution (VHR) satellite imagery, processed using semi-automatic Sentinel-2 time series classification and visual interpretation. The map date is 05 August 2021. The scale is 1:392,897 for an A3 format, with a scale bar showing 0 to 10 km. The projection is EPSG: 3035 - ETRS89-extended / LAEA Europe.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: UA2021 status layer for Bruxelles/Brussel/Leuven
@@ -395,10 +413,10 @@ Figure&nbsp;3: UA2021 status layer for Bruxelles/Brussel/Leuven
 <li><p>For class 12220 (MMW = 6 m).</p></li>
 <li><p>To maintain continuity of linear structures, they can be mapped smaller than 10 m over a distance up to 50 m (see figure below).</p></li>
 </ul>
-<div id="fig-figure4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure4" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This diagram illustrates a geometric interpretation rule for the delineation of linear features in Land Use / Land Cover (LULC) mapping, likely for the Copernicus Land Monitoring Service (CLMS) Urban Atlas (UA) product. It depicts a linear area, highlighted in light yellow, with two bounding wavy lines representing a feature's edges. The rule defines that if a linear feature has a minimum width of 10 meters at its wider sections and contains a segment where it narrows, provided this narrowed segment is 50 meters or less (≤ 50 m) in length, the entire feature is mapped and classified under the code '1.2.2.3'. In the Urban Atlas classification, code 1.2.2.3 typically corresponds to 'Other roads and associated land.'">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-87d1a7009176100d4a09373b0e22528bc1120b3c.png" class="img-fluid figure-img">
+<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-87d1a7009176100d4a09373b0e22528bc1120b3c.png" class="img-fluid figure-img" style="width:6.27in" alt="This diagram illustrates a geometric interpretation rule for the delineation of linear features in Land Use / Land Cover (LULC) mapping, likely for the Copernicus Land Monitoring Service (CLMS) Urban Atlas (UA) product. It depicts a linear area, highlighted in light yellow, with two bounding wavy lines representing a feature's edges. The rule defines that if a linear feature has a minimum width of 10 meters at its wider sections and contains a segment where it narrows, provided this narrowed segment is 50 meters or less (≤ 50 m) in length, the entire feature is mapped and classified under the code '1.2.2.3'. In the Urban Atlas classification, code 1.2.2.3 typically corresponds to 'Other roads and associated land.'">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: Exception rule for the minimum mapping width
@@ -456,6 +474,13 @@ Figure&nbsp;4: Exception rule for the minimum mapping width
 <p>Vector classes: see Annex 1 (containing 28 classes)</p>
 <p>Attribute information associated with vector features, including the following minimum fields:</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 29%">
+<col style="width: 15%">
+<col style="width: 12%">
+<col style="width: 19%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Field</th>
@@ -570,6 +595,13 @@ Figure&nbsp;4: Exception rule for the minimum mapping width
 <p>Vector classes: see Annex 1 (containing 26 classes)</p>
 <p>Attribute information associated with vector features, including the following minimum fields:</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 29%">
+<col style="width: 15%">
+<col style="width: 12%">
+<col style="width: 19%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Field</th>
@@ -672,6 +704,13 @@ Figure&nbsp;4: Exception rule for the minimum mapping width
 <p>Vector classes: see Annex 1 (containing 28 classes)</p>
 <p>Attribute information associated with vector features, including the following minimum fields:</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 29%">
+<col style="width: 15%">
+<col style="width: 12%">
+<col style="width: 19%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Field</th>
@@ -774,6 +813,13 @@ Figure&nbsp;4: Exception rule for the minimum mapping width
 <p>Vector classes: 1: Street Tree Layer</p>
 <p>Attribute information associated with vector features, including the following minimum fields:</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 27%">
+<col style="width: 17%">
+<col style="width: 23%">
+<col style="width: 13%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Field</th>
@@ -927,10 +973,10 @@ Figure&nbsp;4: Exception rule for the minimum mapping width
 <section id="change-detection-methodology-based-on-vhr" class="level3" data-number="8.3.1">
 <h3 data-number="8.3.1" class="anchored" data-anchor-id="change-detection-methodology-based-on-vhr"><span class="header-section-number">8.3.1</span> Change detection methodology based on VHR</h3>
 <p>To characterize the appearance of a real change between two images (in our case, two VHR mosaic, 2018-2021), CLS (Collecte Localisation Satellite) propose a method based on the <strong>Principal Component Analysis (PCA)</strong> which is a statistical method for dimensionality reduction that preserves the inherent structure of data. PCA transforms correlated variables into uncorrelated principal components, which are linear combinations of the original variables. These components are ordered by their ability to explain data variance, enabling the separation of significant changes from other variations. PCA involves computing the eigenvalues and eigenvectors of the covariance matrix derived from the difference image. By retaining only the principal component with the largest eigenvalue, PCA reduces sensor-induced noise and extracts the most significant change information, aiding in the generation of change maps. The <a href="#fig-figure5" class="quarto-xref">Figure&nbsp;5</a> is showing an example of a change detected between 2018 and 2021.</p>
-<div id="fig-figure5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure5" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The image displays three Very High Resolution (VHR) satellite images of a peri-urban area, demonstrating the change detection process for the Copernicus Land Monitoring Service (CLMS) Urban Atlas (UA) between 2018 and 2021. Each image includes a North arrow and a scale bar indicating 200 m. The top-left image, labelled 'Reference image 2018', shows a mosaic of residential buildings, roads, forested areas, and a large, light-brown, possibly cleared or fallow land plot in the lower central part. The top-right image, labelled 'Reference image 2021', shows the same area with visible changes, including new construction and expansion of built-up areas within the residential zones. The large cleared land plot in the lower center now exhibits distinct linear patterns, suggesting agricultural activity or ground preparation. The bottom image, labelled 'change detection based on VHR (yellow)', is based on the 2021 imagery and highlights areas of detected change with yellow polygons. These polygons delineate new buildings or significant expansions of existing structures, particularly evident in the main residential cluster, near larger buildings on the left side (close to a tennis court), and a small development in the bottom right corner. This visualization exemplifies the use of VHR for identifying urban land use and land cover changes over time.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/figure5.png" class="img-fluid figure-img">
+<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/figure5.png" class="img-fluid figure-img" style="width:5.64in" alt="The image displays three Very High Resolution (VHR) satellite images of a peri-urban area, demonstrating the change detection process for the Copernicus Land Monitoring Service (CLMS) Urban Atlas (UA) between 2018 and 2021. Each image includes a North arrow and a scale bar indicating 200 m. The top-left image, labelled 'Reference image 2018', shows a mosaic of residential buildings, roads, forested areas, and a large, light-brown, possibly cleared or fallow land plot in the lower central part. The top-right image, labelled 'Reference image 2021', shows the same area with visible changes, including new construction and expansion of built-up areas within the residential zones. The large cleared land plot in the lower center now exhibits distinct linear patterns, suggesting agricultural activity or ground preparation. The bottom image, labelled 'change detection based on VHR (yellow)', is based on the 2021 imagery and highlights areas of detected change with yellow polygons. These polygons delineate new buildings or significant expansions of existing structures, particularly evident in the main residential cluster, near larger buildings on the left side (close to a tennis court), and a small development in the bottom right corner. This visualization exemplifies the use of VHR for identifying urban land use and land cover changes over time.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5: Change detection based on VHR (location: Bordeaux, France)
@@ -951,10 +997,10 @@ Figure&nbsp;5: Change detection based on VHR (location: Bordeaux, France)
 </ul>
 <p>Finally, this normalized change metric is combined with change information from VHR imagery. This multi-source fusion further increases the confidence of the detected changes.</p>
 <p>See the latest version of the ATBD, for full details on RMSD computation and normalization.</p>
-<div id="fig-figure6" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure6" class="quarto-float quarto-figure quarto-figure-center anchored" alt="This is a satellite imagery map displaying land cover change detection in Bordeaux, France, likely between 2018 and 2021, for Copernicus Land Monitoring Service (CLMS) Urban Atlas (UA) products. The map features a heatmap derived from Sentinel-2 imagery, ranging from dark blue (low intensity) to light blue and yellow-green (high intensity), indicating areas of detected change using methods like Principal Component Analysis (PCA). Overlaid on this heatmap are multiple irregular polygons outlined in yellow, which represent areas identified as changed through Very High Resolution (VHR) change detection. The polygons generally correspond to the brighter, higher-intensity areas on the Sentinel-2 heatmap. A white compass rose indicates North, and a scale bar at the bottom shows a distance of 200 metres.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/figure6.png" class="img-fluid figure-img">
+<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/figure6.png" class="img-fluid figure-img" style="width:3.6in" alt="This is a satellite imagery map displaying land cover change detection in Bordeaux, France, likely between 2018 and 2021, for Copernicus Land Monitoring Service (CLMS) Urban Atlas (UA) products. The map features a heatmap derived from Sentinel-2 imagery, ranging from dark blue (low intensity) to light blue and yellow-green (high intensity), indicating areas of detected change using methods like Principal Component Analysis (PCA). Overlaid on this heatmap are multiple irregular polygons outlined in yellow, which represent areas identified as changed through Very High Resolution (VHR) change detection. The polygons generally correspond to the brighter, higher-intensity areas on the Sentinel-2 heatmap. A white compass rose indicates North, and a scale bar at the bottom shows a distance of 200 metres.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6: Change detection based on Sentinel-2 (location: Bordeaux, France)
@@ -965,10 +1011,10 @@ Figure&nbsp;6: Change detection based on Sentinel-2 (location: Bordeaux, France)
 <section id="production-of-a-layer-of-change-candidates" class="level3" data-number="8.3.3">
 <h3 data-number="8.3.3" class="anchored" data-anchor-id="production-of-a-layer-of-change-candidates"><span class="header-section-number">8.3.3</span> Production of a layer of change candidates</h3>
 <p>After obtaining the heatmaps derived from S2 (Sentinel-2) data and those derived from VHR data, it is necessary to combine both into a single layer that will constitute the change candidates. This process includes a comparison of the two detection bases, followed by a rule-based cleaning procedure and alignment with the minimum surface specifications of the LC/LU product.</p>
-<div id="fig-figure7" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure7" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The image is a Very High Resolution (VHR) satellite mosaic from 2021, depicting a peri-urban landscape in Bordeaux, France. The base imagery shows residential areas with numerous detached houses, roads, several larger buildings (possibly institutional or commercial), sports facilities (tennis courts, football pitch), and forested/wooded sections. A large cleared field with visible tracks occupies the bottom-left portion. Three distinct polygonal areas are outlined in red, representing a 'change detection layer' where significant land cover or land use changes were identified between 2018 and 2021. These red-outlined areas appear to correspond to recent construction or land alteration. A north arrow is present in the top-left, and a scale bar in the bottom-left indicates a distance of 200 m.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/figure7.png" class="img-fluid figure-img">
+<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/figure7.png" class="img-fluid figure-img" style="width:3.01in" alt="The image is a Very High Resolution (VHR) satellite mosaic from 2021, depicting a peri-urban landscape in Bordeaux, France. The base imagery shows residential areas with numerous detached houses, roads, several larger buildings (possibly institutional or commercial), sports facilities (tennis courts, football pitch), and forested/wooded sections. A large cleared field with visible tracks occupies the bottom-left portion. Three distinct polygonal areas are outlined in red, representing a 'change detection layer' where significant land cover or land use changes were identified between 2018 and 2021. These red-outlined areas appear to correspond to recent construction or land alteration. A north arrow is present in the top-left, and a scale bar in the bottom-left indicates a distance of 200 m.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7: Extracted change detection layer (location: Bordeaux, France)
@@ -1020,10 +1066,10 @@ Figure&nbsp;7: Extracted change detection layer (location: Bordeaux, France)
 <p>In subsequent processing steps each GUA polygon was checked for intersection with TomTom® point of interest (POI) dataset, and distinct selections of OSM polygons grouped into those indicating either public or private access.</p>
 <p>GUA polygons that did not intersect with any of the above data were assigned ‘unknown’ access (class 14130).</p>
 <p><a href="#fig-figure8" class="quarto-xref">Figure&nbsp;8</a> below shows the result of the labelling process and the final classification of GUAs into public (blue), private (red) and unknown (purple) in the FUA of Iasi, Romania. Additionally, it also shows class 14200 - recreational and sport areas (green).</p>
-<div id="fig-figure8" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-figure8" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two geographic maps of an urban area in Iasi, Romania, showing the classification of Green Urban Areas (GUA) and Recreational Areas with respect to public, private, or unknown access, based on Copernicus Land Monitoring Service (CLMS) Urban Atlas (UA) nomenclature extensions. Both maps display the same vector data overlay from the `ro502l1_iasi_ua2018_2021` dataset, indicated by coloured outlines, and share an identical legend and scale bar. A North arrow is present in the top right corner of each map. The top map uses an OpenStreetMap (OSM) topographic base layer, depicting streets, buildings, and green spaces. The bottom map uses high-resolution aerial or satellite imagery as its base layer, showing detailed land cover and urban infrastructure. The legend classifies polygons by their border colour: * **Blue outline (14110):** Public access areas. * **Red outline (14120):** Private access areas. * **Purple outline (14130):** Unknown access areas. * **Green outline (14200):** Recreational Areas. The scale bar indicates distances of 0, 0.1, and 0.2 km. The maps visually compare how these classified areas of different access types are situated within the urban landscape and natural surroundings, highlighting, for example, a large forested area with significant public access (blue outlines) adjacent to a stadium identified as a Recreational Area (green outline).">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-b2a5ee3fbe67ecb823db882daf38b32172f70c3f.png" class="img-fluid figure-img">
+<img src="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1-media/img-b2a5ee3fbe67ecb823db882daf38b32172f70c3f.png" class="img-fluid figure-img" style="width:6.27in" alt="Two geographic maps of an urban area in Iasi, Romania, showing the classification of Green Urban Areas (GUA) and Recreational Areas with respect to public, private, or unknown access, based on Copernicus Land Monitoring Service (CLMS) Urban Atlas (UA) nomenclature extensions. Both maps display the same vector data overlay from the `ro502l1_iasi_ua2018_2021` dataset, indicated by coloured outlines, and share an identical legend and scale bar. A North arrow is present in the top right corner of each map. The top map uses an OpenStreetMap (OSM) topographic base layer, depicting streets, buildings, and green spaces. The bottom map uses high-resolution aerial or satellite imagery as its base layer, showing detailed land cover and urban infrastructure. The legend classifies polygons by their border colour: * **Blue outline (14110):** Public access areas. * **Red outline (14120):** Private access areas. * **Purple outline (14130):** Unknown access areas. * **Green outline (14200):** Recreational Areas. The scale bar indicates distances of 0, 0.1, and 0.2 km. The maps visually compare how these classified areas of different access types are situated within the urban landscape and natural surroundings, highlighting, for example, a large forested area with significant public access (blue outlines) adjacent to a stadium identified as a Recreational Area (green outline).">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-figure8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8: Examples of the public, private and unknown classes in Iasi, Romania. For completeness, the figure also includes class 14200 - recreational and sport areas
@@ -1350,10 +1396,10 @@ Figure&nbsp;8: Examples of the public, private and unknown classes in Iasi, Roma
 <p>Table 2: UA LC/LU nomenclature (in bold, classes used in the products, without any further subdivision)</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 19%">
+<col style="width: 16%">
+<col style="width: 40%">
+<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2028,6 +2074,11 @@ Figure&nbsp;8: Examples of the public, private and unknown classes in Iasi, Roma
 <section id="document-history" class="level1" data-number="13">
 <h1 data-number="13"><span class="header-section-number">13</span> Document history</h1>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 26%">
+<col style="width: 54%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Version</th>
@@ -2047,6 +2098,10 @@ Figure&nbsp;8: Examples of the public, private and unknown classes in Iasi, Roma
 <section id="applicable-documents" class="level1" data-number="14">
 <h1 data-number="14"><span class="header-section-number">14</span> Applicable documents</h1>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 79%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Version</th>
@@ -2066,6 +2121,11 @@ Figure&nbsp;8: Examples of the public, private and unknown classes in Iasi, Roma
 <section id="change-log" class="level1" data-number="15">
 <h1 data-number="15"><span class="header-section-number">15</span> Change Log</h1>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 75%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Date</th>
@@ -2075,11 +2135,16 @@ Figure&nbsp;8: Examples of the public, private and unknown classes in Iasi, Roma
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-06-03</td>
+<td>1.0.2</td>
+<td>Standardised YAML frontmatter keys and formatting. Improved table header rendering and added explicit width attributes for images throughout the document for consistent display.</td>
+</tr>
+<tr class="even">
 <td>2026-03-31</td>
 <td>1.0.1</td>
 <td>Updated date format in YAML frontmatter to ISO 8601 (YYYY-MM-DD) for consistency and improved machine readability.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2026-02-10</td>
 <td>1.0.0</td>
 <td>Initial release</td>
@@ -2149,13 +2214,14 @@ Figure&nbsp;8: Examples of the public, private and unknown classes in Iasi, Roma
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -2501,7 +2567,7 @@ Figure&nbsp;8: Examples of the public, private and unknown classes in Iasi, Roma
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>2025 EEA. All rights reserved.</p>
+<p>2026 EEA. All rights reserved.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

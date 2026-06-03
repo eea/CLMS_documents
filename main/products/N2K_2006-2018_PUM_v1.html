@@ -2,16 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2021-06-01">
-<meta name="keywords" content="Natura 2000 sites, Land Cover/Land Use mapping, Grassland habitat types, Very High Resolution imagery, Minimum Mapping Unit, Change detection analysis, Thematic accuracy assessment, Data pre-processing workflows, EU Biodiversity Strategy 2030, Reference year time series">
-<meta name="description" content="This document serves as the Product User Manual for the Natura 2000 (N2K) product within the Copernicus Land Monitoring Service (CLMS). It provides a comprehensive guide for users, covering the product’s characteristics, methodology, potential applications, quality assessment, and technical support. The N2K product focuses on detailed Land Cover/Land Use (LC/LU) mapping of grassland-rich Natura 2000 sites across Europe, offering valuable insights into the effectiveness of conservation measures and biodiversity trends.">
+<meta name="dcterms.date" content="2026-06-03">
+<meta name="keywords" content="Natura 2000 sites, Land Cover/Land Use, Very High Resolution imagery, Minimum Mapping Unit, visual image interpretation, ESRI file geodatabase, ETRS89 Lambert Azimuthal Equal Area, thematic classification accuracy, change detection, MAES ecosystem types">
+<meta name="description" content="This Product User Manual (PUM) serves as a guide for users of the Copernicus Land Monitoring Service (CLMS) N2K 2006-2018 product, a Land Cover/Land Use (LC/LU) dataset focused on Natura 2000 sites. It outlines the product’s characteristics, methodology, and potential use cases, such as grassland trend analysis and measuring conservation effectiveness. The manual details the data’s thematic depth, spatial resolution, and file formats, providing essential information for effective application and interpretation of the N2K data.">
 
 <title>N2K 2006-2018 - Product User Manual – Technical Library</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -39,10 +42,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4111b555c20d397ee3d6af686ca7e74c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ccd9cb9b1c9bdf1eabc4708995bd1808.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,8 +77,8 @@ ul.task-list li input[type="checkbox"] {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "N2K 2006-2018 - Product User Manual",
-    "description": "This document serves as the Product User Manual for the Natura 2000 (N2K) product within the Copernicus Land Monitoring Service (CLMS). It provides a comprehensive guide for users, covering the product’s characteristics, methodology, potential applications, quality assessment, and technical support. The N2K product focuses on detailed Land Cover/Land Use (LC/LU) mapping of grassland-rich Natura 2000 sites across Europe, offering valuable insights into the effectiveness of conservation measures and biodiversity trends.",
-    "datePublished": "June 1, 2021",
+    "description": "This Product User Manual (PUM) serves as a guide for users of the Copernicus Land Monitoring Service (CLMS) N2K 2006-2018 product, a Land Cover/Land Use (LC/LU) dataset focused on Natura 2000 sites. It outlines the product’s characteristics, methodology, and potential use cases, such as grassland trend analysis and measuring conservation effectiveness. The manual details the data’s thematic depth, spatial resolution, and file formats, providing essential information for effective application and interpretation of the N2K data.",
+    "datePublished": "June 3, 2026",
     "author": {
       "@type": "Person",
       "name": "?meta:author"
@@ -88,7 +91,26 @@ ul.task-list li input[type="checkbox"] {
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "?invalid meta type:keywords",
+    "keywords": "Natura 2000 sites
+
+Land Cover/Land Use
+
+Very High Resolution imagery
+
+Minimum Mapping Unit
+
+visual image interpretation
+
+ESRI file geodatabase
+
+ETRS89 Lambert Azimuthal Equal Area
+
+thematic classification accuracy
+
+change detection
+
+MAES ecosystem types
+",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -126,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Content</h2>
+    <h2 id="toc-title">Index</h2>
    
   <ul>
   <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary"><span class="header-section-number">1</span> Executive summary</a></li>
@@ -177,16 +199,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#annexes" id="toc-annexes" class="nav-link" data-scroll-target="#annexes"><span class="header-section-number">10</span> Annexes</a></li>
   <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">11</span> Change Log</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="N2K_2006-2018_PUM_v1.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="N2K_2006-2018_PUM_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="N2K_2006-2018_PUM_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Remove link to .docx file
-    //
-    document.querySelectorAll("a[href$='.docx']").forEach((link) => (link.style.display = "none"));
-
     // Add Version to the title's metadata
     //
     const titleMetaEl = document.querySelector(".quarto-title-meta");
@@ -194,7 +212,7 @@ ul.task-list li input[type="checkbox"] {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1</p>
+          <p>1.0.2</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -209,7 +227,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    This document serves as the Product User Manual for the Natura 2000 (N2K) product within the Copernicus Land Monitoring Service (CLMS). It provides a comprehensive guide for users, covering the product’s characteristics, methodology, potential applications, quality assessment, and technical support. The N2K product focuses on detailed Land Cover/Land Use (LC/LU) mapping of grassland-rich Natura 2000 sites across Europe, offering valuable insights into the effectiveness of conservation measures and biodiversity trends.
+    This Product User Manual (PUM) serves as a guide for users of the Copernicus Land Monitoring Service (CLMS) N2K 2006-2018 product, a Land Cover/Land Use (LC/LU) dataset focused on Natura 2000 sites. It outlines the product’s characteristics, methodology, and potential use cases, such as grassland trend analysis and measuring conservation effectiveness. The manual details the data’s thematic depth, spatial resolution, and file formats, providing essential information for effective application and interpretation of the N2K data.
   </div>
 </div>
 
@@ -220,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 1, 2021</p>
+      <p class="date">June 3, 2026</p>
     </div>
   </div>
   
@@ -231,7 +249,7 @@ ul.task-list li input[type="checkbox"] {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>Natura 2000 sites, Land Cover/Land Use mapping, Grassland habitat types, Very High Resolution imagery, Minimum Mapping Unit, Change detection analysis, Thematic accuracy assessment, Data pre-processing workflows, EU Biodiversity Strategy 2030, Reference year time series</p>
+    <p>Natura 2000 sites, Land Cover/Land Use, Very High Resolution imagery, Minimum Mapping Unit, visual image interpretation, ESRI file geodatabase, ETRS89 Lambert Azimuthal Equal Area, thematic classification accuracy, change detection, MAES ecosystem types</p>
   </div>
 </div>
 
@@ -248,7 +266,7 @@ Denmark<br>
 <a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
 </div>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image5.png"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image6.png"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image7.png"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image8.png"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image9.png"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image10.png"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image11.png"},{"@type":"ImageObject","caption":"Figure  1:  The  CLMS  N2K  product  portfolio","url":"N2K_2006-2018_PUM_v1-media/Figure1.png"},{"@type":"ImageObject","caption":"Figure  2:  Coverage  of  the  CLMS  N2K  product","url":"N2K_2006-2018_PUM_v1-media/image12.png"},{"@type":"ImageObject","caption":"Figure  3:  Example  coverage  of  CLMS  N2K  product  for  a  selected  Natura  2000  site  (DE4617303  Kalkkuppen  near  Brilon,  Germany).  Green=  extent  of  Natura  2000  site,  Blue  =  CLMS  N2K  product  extent.","url":"N2K_2006-2018_PUM_v1-media/image13.png"},{"@type":"ImageObject","caption":"Figure  4:  Example  of  diverging  Natura  2000  site  boundaries  (red  2015  version,  blue  2019  version,  grey  N2K  product  coverage  incl. the  2km  buffer)","url":"N2K_2006-2018_PUM_v1-media/image14.png"},{"@type":"ImageObject","caption":"Figure  5  -  Example  of  N2K  AoI  (red)  covering  multiple  N2K  sites  (black)","url":"N2K_2006-2018_PUM_v1-media/image15.png"},{"@type":"ImageObject","caption":"Figure  6  -  Example  of  multi-part  Natura  2000  site  (AT3210001)  only  partially  covered  by  N2K  AOI","url":"N2K_2006-2018_PUM_v1-media/image16.png"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image17.jpeg"},{"@type":"ImageObject","caption":"Figure  7  -  Example  of  changed  site  codes  and  geometries  from  2015  (top)  to  2018  (bottom)  Natura  2000  DB  version","url":"N2K_2006-2018_PUM_v1-media/image18.jpeg"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image19.jpeg"},{"@type":"ImageObject","caption":"Figure  8  -  Example  of  Natura  2000  DB  site  changes  from  2015  (top)  to  2018  (bottom).  Background  N2K  AOI","url":"N2K_2006-2018_PUM_v1-media/image20.jpeg"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image21.jpeg"},{"@type":"ImageObject","caption":"Figure  9  -  More  examples  of  Natura  2000  DB  site  changes  from  2015  (top)  to  2018  (bottom).  Background  N2K  AOI","url":"N2K_2006-2018_PUM_v1-media/image22.jpeg"},{"@type":"ImageObject","caption":"Figure  10  -  Example  of  Natura  2000  DB  site  overlap.  The  site  codes  IT6020025,  IT7120201  and  IT5340010  overlay  the  area  of  site  code  IT7110128.","url":"N2K_2006-2018_PUM_v1-media/image23.jpeg"},{"@type":"ImageObject","caption":"Figure  11  –  Example  of  a  Natura  2000  site  change  in  extent  (enlargement):  the  green  buffer  follows  the  shape  of  the  site  in  2012,  but  in  the  2018  Natura  2000  database  the  site  has  been  enlarged  therefore  not  anymore  totally  covered  by  the  N2K  AoI","url":"N2K_2006-2018_PUM_v1-media/image24.png"},{"@type":"ImageObject","caption":"Figure  12:  CLMS  N2K  status  product  2018.  Example  for  a  selected  Natura  2000  site  (DE4617303  Kalkkuppen  near  Brilon,  Germany).","url":"N2K_2006-2018_PUM_v1-media/image25.png"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image26.png"},{"@type":"ImageObject","caption":"Figure  13:  CLMS  N2K  Change  product  2006-2012  (top)  and  2012-2018  (bottom).  Example  for  a  selected  Natura  2000  site  (DE4617303  Kalkkuppen  bei  Brilon,  Germany).  Yellow  =  LC/LU  changes  mapped  between  reference  years,  Blue  =  CLMS  N2K  site  extent","url":"N2K_2006-2018_PUM_v1-media/image27.png"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/Table1.png"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/Table2.png"},{"@type":"ImageObject","caption":"Table  10:  CLMS  N2K  nomenclature  overview  (v1.4,  dated  03.05.2021)","url":"N2K_2006-2018_PUM_v1-media/Table3.png"},{"@type":"ImageObject","caption":"Figure  14:  Production  workflow  for  CMLS  N2K  products","url":"N2K_2006-2018_PUM_v1-media/image28.png"},{"@type":"ImageObject","caption":"Figure  15:  Simple  change  mapping","url":"N2K_2006-2018_PUM_v1-media/image29.png"},{"@type":"ImageObject","caption":"Figure  16:  Complex  change  mapping.  Individual  changes  with  each  MMU  <  0.5  ha  make  up  a  change  area  of  0.5  ha.","url":"N2K_2006-2018_PUM_v1-media/image30.png"},{"@type":"ImageObject","caption":"Figure  17:  New  established  feature  with  splitted  change.","url":"N2K_2006-2018_PUM_v1-media/image31.png"},{"@type":"ImageObject","caption":"Figure  18:  Area  related  to  change  within  road  relocation.","url":"N2K_2006-2018_PUM_v1-media/image32.png"}]}
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image5.png","width":"6.03in"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image6.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image7.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image8.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image9.png","width":"5.25in"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image10.png","width":"5.01in"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image11.png","width":"5.01in"},{"@type":"ImageObject","caption":"Figure  1:  The  CLMS  N2K  product  portfolio","url":"N2K_2006-2018_PUM_v1-media/Figure1.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  2:  Coverage  of  the  CLMS  N2K  product","url":"N2K_2006-2018_PUM_v1-media/image12.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  3:  Example  coverage  of  CLMS  N2K  product  for  a  selected  Natura  2000  site  (DE4617303  Kalkkuppen  near  Brilon,  Germany).  Green=  extent  of  Natura  2000  site,  Blue  =  CLMS  N2K  product  extent.","url":"N2K_2006-2018_PUM_v1-media/image13.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  4:  Example  of  diverging  Natura  2000  site  boundaries  (red  2015  version,  blue  2019  version,  grey  N2K  product  coverage  incl. the  2km  buffer)","url":"N2K_2006-2018_PUM_v1-media/image14.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  5  -  Example  of  N2K  AoI  (red)  covering  multiple  N2K  sites  (black)","url":"N2K_2006-2018_PUM_v1-media/image15.png","width":"5.87in"},{"@type":"ImageObject","caption":"Figure  6  -  Example  of  multi-part  Natura  2000  site  (AT3210001)  only  partially  covered  by  N2K  AOI","url":"N2K_2006-2018_PUM_v1-media/image16.png","width":"6.2in"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image17.jpeg","width":"4.61in"},{"@type":"ImageObject","caption":"Figure  7  -  Example  of  changed  site  codes  and  geometries  from  2015  (top)  to  2018  (bottom)  Natura  2000  DB  version","url":"N2K_2006-2018_PUM_v1-media/image18.jpeg","width":"4.57in"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image19.jpeg","width":"2.58in"},{"@type":"ImageObject","caption":"Figure  8  -  Example  of  Natura  2000  DB  site  changes  from  2015  (top)  to  2018  (bottom).  Background  N2K  AOI","url":"N2K_2006-2018_PUM_v1-media/image20.jpeg","width":"2.55in"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image21.jpeg","width":"3.09in"},{"@type":"ImageObject","caption":"Figure  9  -  More  examples  of  Natura  2000  DB  site  changes  from  2015  (top)  to  2018  (bottom).  Background  N2K  AOI","url":"N2K_2006-2018_PUM_v1-media/image22.jpeg","width":"3.09in"},{"@type":"ImageObject","caption":"Figure  10  -  Example  of  Natura  2000  DB  site  overlap.  The  site  codes  IT6020025,  IT7120201  and  IT5340010  overlay  the  area  of  site  code  IT7110128.","url":"N2K_2006-2018_PUM_v1-media/image23.jpeg","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  11  –  Example  of  a  Natura  2000  site  change  in  extent  (enlargement):  the  green  buffer  follows  the  shape  of  the  site  in  2012,  but  in  the  2018  Natura  2000  database  the  site  has  been  enlarged  therefore  not  anymore  totally  covered  by  the  N2K  AoI","url":"N2K_2006-2018_PUM_v1-media/image24.png","width":"3.31in"},{"@type":"ImageObject","caption":"Figure  12:  CLMS  N2K  status  product  2018.  Example  for  a  selected  Natura  2000  site  (DE4617303  Kalkkuppen  near  Brilon,  Germany).","url":"N2K_2006-2018_PUM_v1-media/image25.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/image26.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  13:  CLMS  N2K  Change  product  2006-2012  (top)  and  2012-2018  (bottom).  Example  for  a  selected  Natura  2000  site  (DE4617303  Kalkkuppen  bei  Brilon,  Germany).  Yellow  =  LC/LU  changes  mapped  between  reference  years,  Blue  =  CLMS  N2K  site  extent","url":"N2K_2006-2018_PUM_v1-media/image27.png","width":"6.27in"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/Table1.png","width":"5.19in"},{"@type":"ImageObject","caption":"","url":"N2K_2006-2018_PUM_v1-media/Table2.png","width":"5.19in"},{"@type":"ImageObject","caption":"Table  10:  CLMS  N2K  nomenclature  overview  (v1.4,  dated  03.05.2021)","url":"N2K_2006-2018_PUM_v1-media/Table3.png","width":"5.19in"},{"@type":"ImageObject","caption":"Figure  14:  Production  workflow  for  CMLS  N2K  products","url":"N2K_2006-2018_PUM_v1-media/image28.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  15:  Simple  change  mapping","url":"N2K_2006-2018_PUM_v1-media/image29.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  16:  Complex  change  mapping.  Individual  changes  with  each  MMU  <  0.5  ha  make  up  a  change  area  of  0.5  ha.","url":"N2K_2006-2018_PUM_v1-media/image30.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  17:  New  established  feature  with  splitted  change.","url":"N2K_2006-2018_PUM_v1-media/image31.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  18:  Area  related  to  change  within  road  relocation.","url":"N2K_2006-2018_PUM_v1-media/image32.png","width":"6.27in"}]}
 </script>
 <section id="executive-summary" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Executive summary</h1>
@@ -262,7 +280,6 @@ Denmark<br>
 <p>This is a unique product with a high level of detail (Minimum Mapping Unit (MMU) is 0.5 ha), based on Very High Resolution (VHR) satellite data. The classification provides 55 distinct thematic classes and the class definitions follow a pre-defined nomenclature based on the Mapping and Assessment of Ecosystems and their Services typology of ecosystems (at level 1) and are further harmonised with Corine Land Cover and adapted to the specific characteristics of grasslands habitats (levels 2 to 4). It offers two types of products: status maps for the three reference years and two change products for the two reference periods.</p>
 <p>The N2K product offers a good basis to analyse the LC/LU situation in grassland-rich Natura 2000 sites and furthermore allows to devise the general trends and change factors within the sites through the observation periods, as well as within the buffer zone surrounding those.</p>
 <p>Hereinafter referred to as “<strong>CLMS N2K</strong>”, a LC/LU product in a selection of Natura 2000 sites.</p>
-<div style="page-break-after: always;"></div>
 </section>
 <section id="guide-for-the-reader" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Guide for the reader</h1>
@@ -296,17 +313,22 @@ Denmark<br>
 <tbody>
 <tr class="odd">
 <td>AD 01</td>
-<td><p>CLMS N2K Nomenclature and Mapping Guideline (Issue 1.4, Date Issued: 03/05/2021)</p>
-<p><a href="https://land.copernicus.eu/user-corner/technical-library/nmg_n2k_status_2018_change_2012_2018">NOMENCLATURE and MAPPING GUIDELINE (copernicus.eu)</a></p></td>
+<td>CLMS N2K Nomenclature and Mapping Guideline (Issue 1.4, Date Issued: 03/05/2021)</td>
 </tr>
 <tr class="even">
+<td></td>
+<td><a href="https://land.copernicus.eu/user-corner/technical-library/nmg_n2k_status_2018_change_2012_2018">NOMENCLATURE and MAPPING GUIDELINE (copernicus.eu)</a></td>
+</tr>
+<tr class="odd">
 <td>AD 02</td>
-<td><p>N2K validation report (2006 and 2012 databases)</p>
-<p><a href="https://land.copernicus.eu/user-corner/technical-library/n2k-validation-report">Framework service contract for the GMES Initial Operations / Copernicus Land monitoring services – Validation of products</a></p></td>
+<td>N2K validation report (2006 and 2012 databases)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><a href="https://land.copernicus.eu/user-corner/technical-library/n2k-validation-report">Framework service contract for the GMES Initial Operations / Copernicus Land monitoring services – Validation of products</a></td>
 </tr>
 </tbody>
 </table>
-<div style="page-break-after: always;"></div>
 </section>
 </section>
 <section id="review-of-user-requirements" class="level1" data-number="3">
@@ -318,7 +340,6 @@ Denmark<br>
 <p>Particularly grasslands are affected by changing agricultural management and land conversion (EEA 2019). Land cover changes can be monitored with this product for the existing time series 2006-2012-2018. This can help to monitor biodiversity health as proposed by the GEOBON working group of the Group on Earth Observation (GEO). The CLMS N2K product can provide information for indicators such as land abandonment, intensification/extensification within agriculture as well as landscape context maps indicating overall landscape configuration or fragmentation.</p>
 <p>The new EU Biodiversity Strategy for 2030 makes it clear that for the good of our environment and our economy additional efforts are needed, to deal with the five main direct drivers of biodiversity loss – changes in land and sea use, overexploitation, climate change, pollution, and invasive alien species.</p>
 <p>The CLMS N2K products supports the EU Biodiversity Strategy 2030 with specific focus on areas of very high biodiversity value or potential.</p>
-<div style="page-break-after: always;"></div>
 </section>
 <section id="product-application-areas-andor-examples-of-use-cases" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Product application areas and/or examples of use cases</h1>
@@ -361,31 +382,31 @@ Denmark<br>
 </ul>
 <p>The mapped area covers a substantial part of the Natura 2000 sites and the European territory and includes, to different degrees, all MS and most Biogeographical Regions. Some biogeographical zones and MS are better represented than others and therefore the analysis should be read in the context of this representativeness.</p>
 <p>The figure below (Distribution of Level 1 classes in the mapped N2K AoI (Natura 2000 sites and buffer zone) for the reference years 2006, 2012 and 2018.) gives an overview of the eight Level 1 classes, their area coverage and N2K AoI proportion for the three-time steps 2006, 2012 and 2018. The highest share is taken up by <em>Woodland and forests</em>, followed by <em>Cropland</em> and <em>Grassland</em>. <em>Wetlands</em> are by far the rarest class, followed by <em>Water</em> and <em>Open spaces with little or no vegetation</em>.</p>
-<p><img src="N2K_2006-2018_PUM_v1-media/image5.png" class="img-fluid"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image5.png" class="img-fluid" style="width:6.03in" alt="This image is a composite visualization showing the distribution of eight Level 1 land cover classes and a 'No Data' category, by area in hectares (HA) and percentage (%), within the Natura 2000 Area of Interest (AoI) and its buffer zone across Europe for the reference years 2006, 2012, and 2018. The top portion is a data table, followed by a horizontal layered bar chart visualizing the same data. The data table is structured as follows: | CLASSES | 1 (Urban) | 2 (Cropland) | 3 (Woodland and forest) | 4 (Grassland) | 5 (Heathland and scrub) | 6 (Open spaces with little or no vegetation) | 7 (Wetland) | 8 (Water) | 0 (No Data) | |:------------------------------------|:------------|:-------------|:------------------------|:--------------|:------------------------|:---------------------------------------------|:------------|:------------|:------------| | **AREA (HA)** | | | | | | | | | | | 2006 | 2,815,009 | 15,415,698 | 24,665,098 | 11,270,402 | 4,689,384 | 1,795,959 | 735,350 | 1,792,739 | 2,457 | | 2012 | 2,889,208 | 15,393,883 | 24,683,118 | 11,207,789 | 4,656,799 | 1,816,606 | 730,511 | 1,804,084 | 97 | | 2018 | 2,940,737 | 15,430,349 | 24,698,560 | 11,121,261 | 4,643,509 | 1,808,837 | 728,157 | 1,810,686 | 0 | | **AREA (%)** | | | | | | | | | | | 2006 | 4.46% | 24.40% | 39.04% | 17.84% | 7.42% | 2.84% | 1.16% | 2.84% | 0.00% | | 2012 | 4.57% | 24.36% | 39.07% | 17.74% | 7.37% | 2.88% | 1.16% | 2.86% | 0.00% | | 2018 | 4.65% | 24.42% | 39.09% | 17.60% | 7.35% | 2.86% | 1.15% | 2.87% | 0.00% | The horizontal layered bar chart visually represents the area changes for each class from 2006 to 2018. The X-axis represents Area (HA) ranging from 0 to 25,000,000 hectares. The Y-axis lists the land cover classes: URBAN, CROPLAND, WOODLAND AND FOREST, GRASSLAND, HEATHLAND AND SCRUB, OPEN SPACES WITH LITTLE OR NO VEGETATION, WETLAND, WATER, and NO DATA. For each class, three overlaid bars show the area in 2006, 2012, and 2018, with the 2018 bar typically being the longest or shortest depending on the trend, showing the net change. Key trends observed: - **Woodland and forest** is the largest class, showing a continuous increase from 24,665,098 HA"></p>
 <p>A look at the changes between the time steps 2006 – 2012 and 2012 – 2018 shown in the figure below (Overview total gains and losses per Level 1 class in ha and % for the periods 2006-2012 and 2012-2018 on European Level) reveals high dynamics in the classes Urban and Grassland, both in total numbers and percentage share. The observation period 2006 – 2012 indicates a considerable high increase of Urban areas (2,64%) whereas Grasslands decreased to a similar total area but a lesser percentage. A percentual high loss was also experienced by Wetlands and Heathland and moorlands.</p>
 <p>The period 2012 – 2018 is dominated by the high decrease of the Grassland class, with even 0,21 percentage points more than the previous period, and a high increase of Urban area, even though to a lesser extent than in 2006 – 2012.</p>
 <p>Comparing the two periods of observation, the decrease of Cropland between 2006 and 2012 is compensated by an increase in the following six years. Both classes, Urban and Grassland, continued their trend in opposite directions. Heathland and moorlands as well as Wetlands continue to loose area, even if to a slower ratio than in the subsequent period. The Open spaces with little or no vegetation class has experienced a reverse trend from an area gain between 2006-2012 to area loss in 2012-2018. One reason behind this may be the recovery of landscape after fire events. The figure also shows the declining area of No Data areas which reached zero in 2018. Since this cannot be considered a real change but is only resulting from a significant improvement in satellite data availability, it appears without bar in the graph.</p>
-<p><img src="N2K_2006-2018_PUM_v1-media/image6.png" class="img-fluid"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image6.png" class="img-fluid" style="width:6.27in" alt="A combined table and grouped bar chart illustrating the area coverage in hectares (HA) for eight Level 1 land cover classes and 'No Data' within Natura 2000 (N2K) sites and their buffer zones (N2K AoI) for the reference years 2006, 2012, and 2018, along with absolute and percentage changes between the periods 2006-2012 and 2012-2018. The Level 1 classes and their corresponding numeric codes and colours are: - Class 1: Urban (red) - Class 2: Cropland (light yellow) - Class 3: Woodland and forest (dark green) - Class 4: Grassland (yellow-green) - Class 5: Heathland and scrub (light green) - Class 6: Open spaces with little or no vegetation (light grey-green) - Class 7: Wetland (light purple) - Class 8: Water (light blue) - Class 0: No Data (white) The area coverage for each class is: - **2006:** - Urban: 2,815,009 HA - Cropland: 15,415,698 HA - Woodland and forest: 24,665,098 HA - Grassland: 11,270,402 HA - Heathland and scrub: 4,689,384 HA - Open spaces with little or no vegetation: 1,795,959 HA - Wetland: 735,350 HA - Water: 1,792,739 HA - No Data: 2,457 HA - **2012:** - Urban: 2,889,208 HA - Cropland: 15,393,883 HA - Woodland and forest: 24,683,118 HA - Grassland: 11,207,789 HA - Heathland and scrub: 4,656,799 HA - Open spaces with little or no vegetation: 1,816,606 HA - Wetland: 730,511 HA - Water: 1,804,084 HA - No Data: 97 HA - **2018:** - Urban: 2,940,737 HA - Cropland: 15,430,349 HA - Woodland and forest: 24,698,560 HA - Grassland: 11,121,261 HA - Heathland and scrub: 4,643,509 HA - Open spaces with little or no vegetation: 1,808,837 HA - Wetland: 728,157 HA - Water: 1,810,686 HA - No Data: 0 HA Changes in area coverage: - **Change 2006-2012:** - Urban: +74,199 HA (+2.64%) - Cropland: -22,815 HA (-0.14%) - Woodland and forest: +18,020 HA (+0.07%) - Grassland: -62,613 HA (-0.56%) - Heathland and scrub: -32,584 HA (-0.69%) - Open spaces with little or no vegetation: +20,647 HA (+1.15%) - Wetland: -4,839 HA (-0.66%) - Water: +11,346 HA (+0.63%) - No Data: -2,360 HA (-96.04%) - **Change 2012-2018:** - Urban: +51,529 HA (+1.78%) - Cropland: +36,466 HA (+0.24%) - Woodland and forest: +15,442 HA (+0.06%) - Grassland: -86,528 HA (-0.77%) - Heathland and scrub: -13,290 HA (-0.29%) - Open spaces with little or no vegetation: -7,769 HA (-0.43%) - Wetland: -2,354 HA (-0.32%) - Water: +6,602 HA (+0.37%) - No Data: -97 HA (-100.00%) Overall, 'Woodland and forest' consistently holds the highest area, followed by 'Cropland' and 'Grassland', with 'Wetland' and 'Water' being the rarest classes. 'Urban' areas showed continuous growth across both periods, gaining 74,199 HA (2006-2012) and 51,529 HA (2012-2018). 'Grassland' experienced the most significant losses, totaling -62,613 HA (2006-2012) and -86,528 HA (2012-2018). 'No Data' area decreased dramatically, reaching zero by 2018, indicating improved data completeness."></p>
 <p>The figure below shows the most important pressures on grassland habitats for the 2012 – 2018 period. This helps to better understand the changes in the mapped area. The percentage of each pressure is related to the total area of changes.</p>
 <p>The most prominent pressures are ‘Agricultural intensification’ (16%), Tree encroachment (16%) and ‘Agricultural conversion to cropland’ (14%) and followed by ‘Urbanization’ (13%). ‘Expansion of grassland’ (9%) remains the most important change process related to a grassland gain.</p>
-<p><img src="N2K_2006-2018_PUM_v1-media/image7.png" class="img-fluid"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image7.png" class="img-fluid" style="width:6.27in" alt="This pie chart illustrates the distribution of total observed land cover change processes across Europe for the combined periods 2006-2012 and 2012-2018. The chart displays 18 distinct change categories, each with its percentage share of the total changes. The largest shares are: * Agricultural intensification: 16% * Tree encroachment: 16% * Agricultural conversion to cropland: 14% * Urbanization: 13% * Expansion of grassland: 9% * Intensification of grassland use: 7% * De-urbanization: 4% * Agricultural conversion to managed grassland: 4% * Forest increase - Natural succession: 3% * Woody plant encroachment: 3% * Scrub encroachment: 2% * Grassland degradation: 2% * Extensification of grassland use: 2% Smaller categories, each representing 1% of the total change, include: * Agricultural extensification * Occupation by water infrastructures / Hydrological restructuring * Drainage * Hydrological restoration * Other The chart highlights that agricultural changes (intensification, conversion to cropland, extensification, conversion to managed grassland) account for a significant portion of the total land cover dynamics. Tree and woody plant encroachment, along with forest increase, also represent substantial shares. Urbanization and de-urbanization processes demonstrate dynamic land use changes."></p>
 </section>
 <section id="measuring-the-effectiveness-of-eu-member-states-efforts-for-protecting-natura-2000-grasslands" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="measuring-the-effectiveness-of-eu-member-states-efforts-for-protecting-natura-2000-grasslands"><span class="header-section-number">4.2</span> Measuring the effectiveness of EU Member States efforts for protecting Natura 2000 grasslands</h2>
 <p>In addition to the previous general assessment, Copernicus Land Monitoring Service is helping to support and measure the effectiveness of EU Member States and their efforts for protecting the increasingly important Natura 2000 grasslands.</p>
 <p>When looking at the LC/LU inside the Natura 2000 sites, as compared to the 2 km buffer surrounding the sites, and as expected, the more anthropogenic land uses, such as urban and cropland, cover larger areas in the buffer zones as shown in the table below. In contrast, Natural and semi-Natural land cover is more abundant inside the sites. Grasslands are found to an almost equal extent in both areas because the class includes not only Natural and semi-Natural (species-rich) but also intensely managed (species-poor) grasslands, which are more comparable in their use to croplands.</p>
 <p>Overall, a continuous loss of grasslands can be observed, and the trend is visible both in the buffer zone and the sites themselves, even though it is to a lesser amount in the latter.</p>
-<p><img src="N2K_2006-2018_PUM_v1-media/image8.png" class="img-fluid"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image8.png" class="img-fluid" style="width:6.27in" alt="| CLASSES – Level 1 | N2000 Sites (2006) | N2000 Sites (2012) | N2000 Sites (2018) | 2 KM Buffer Zone (2006) | 2 KM Buffer Zone (2012) | 2 KM Buffer Zone (2018) | |:------------------|:-------------------|:-------------------|:-------------------|:------------------------|:------------------------|:------------------------| | 1 | Urban | 1.06% | 1.09% | 1.11% | 7.76% | 7.96% | 8.11% | | 2 | Cropland | 13.41% | 13.42% | 13.49% | 35.11% | 35.04% | 35.07% | | 3 | Woodland and forest | 45.36% | 45.38% | 45.40% | 32.88% | 32.91% | 32.94% | | 4 | Grassland | 18.51% | 18.46% | 18.38% | 17.18% | 17.03% | 16.84% | | 5 | Heathland and scrub | 10.25% | 10.17% | 10.16% | 4.67% | 4.64% | 4.61% | | 6 | Open spaces with little or no vegetation | 4.48% | 4.54% | 4.52% | 1.25% | 1.25% | 1.25% | | 7 | Wetland | 2.10% | 2.09% | 2.08% | 0.25% | 0.25% | 0.25% | | 8 | Water | 4.82% | 4.84% | 4.85% | 0.91% | 0.92% | 0.93% | | 0 | No Data | 0.01% | 0.00% | 0.00% | 0.00% | 0.00% | 0.00% | This table displays the percentage area coverage for eight Level 1 land cover classes and a 'No Data' category within Natura 2000 (N2K) sites and their 2 km buffer zones for the years 2006, 2012, and 2018. Within N2K sites, 'Woodland and forest' consistently holds the largest share, increasing slightly from 45.36% (2006) to 45.40% (2018), while 'Wetland' remains the smallest natural class, declining from 2.10% to 2.08%. In the 2 km buffer zone, 'Cropland' is the dominant class (around 35%), followed by 'Woodland and forest' (around 32%), and 'Urban' area is substantially higher, increasing from 7.76% (2006) to 8.11% (2018), significantly more than within N2K sites, and 'Wetland' areas are notably smaller at 0.25% across all years."></p>
 <p>Other key findings (shown in the table below) include:</p>
 <ul>
 <li><p>Grasslands showed a decline for two of the four different classes distinguished in the mapping. Managed grassland (class 4100) and Semi-Natural grassland with woody plants (class 4212) have the highest losses.</p></li>
 <li><p>Alpine areas (4220) as the only type being more or less stable.</p></li>
 <li><p>Semi-Natural grassland without woody plants (4211) experienced a gain for both reference periods.</p></li>
 </ul>
-<p><img src="N2K_2006-2018_PUM_v1-media/image9.png" class="img-fluid"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image9.png" class="img-fluid" style="width:5.25in" alt="| Class Code (Level 4) | 4100 | 4211 | 4212 | 4220 | |---|---|---|---|---| | Class Name | Managed grassland | Semi-natural grassland with woody plants (CCD ≥ 30 %) | Semi-natural grassland without woody plants (CCD < 30 %) | Alpine &amp; sub-alpine natural grassland | | Area (HA) (2006) | 4.994.954 | 784.537 | 4.603.982 | 886.929 | | Change 2006–2012 | -43.464 (-0.87 %) | +1.962 (+0.25 %) | -20.970 (-0.46 %) | -142 (-0.02 %) | | Area (HA) (2012) | 4.951.490 | 786.500 | 4.583.012 | 886.787 | | Change 2012–2018 | -40.204 (-0.81 %) | +75 (+0.01 %) | -46.135 (-1.01 %) | -265 (-0.03 %) | | Area (HA) (2018) | 4.911.286 | 786.575 | 4.536.877 | 886.522 | This table presents the area in hectares (HA) and the percentage change for four Level 4 grassland classes from 2006 to 2018, broken down into two periods: 2006–2012 and 2012–2018. Managed grassland (Class 4100) consistently showed the largest area, decreasing from 4,994,954 HA in 2006 to 4,911,286 HA in 2018, with percentage losses of -0.87% and -0.81% in the respective periods. Semi-natural grassland without woody plants (Class 4212) also experienced significant area reduction, from 4,603,982 HA in 2006 to 4,536,877 HA in 2018, with a notable decrease of -1.01% between 2012 and 2018. In contrast, Semi-natural grassland with woody plants (Class 4211, with Canopy Cover Density (CCD) ≥ 30 %) saw a slight increase in area over both periods, from 784,537 HA in 2006 to 786,575 HA in 2018. Alpine &amp; sub-alpine natural grassland (Class 4220) showed minor area losses in both periods."></p>
 <p>Looking at the data for Natura 2000 sites and buffer zones separately (Figure below), the grassland classes inside the Natura 2000 network can be seen to still be declining in area, apart from class 4211, which experienced slight gains in both periods, the reason for this most likely being land abandonment leading to shrub encroachment. In the buffer zone, classes 4100, 4212 and 4220 all decline more severely than inside the sites. The graph clearly shows once again that grassland cover seems overall to be subject to bigger changes outside Natura 2000 sites (i.e.&nbsp;in the buffer).</p>
-<p><img src="N2K_2006-2018_PUM_v1-media/image10.png" class="img-fluid"></p>
-<p><img src="N2K_2006-2018_PUM_v1-media/image11.png" class="img-fluid"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image10.png" class="img-fluid" style="width:5.01in" alt="Grouped bar chart showing the percentage change of four Natura 2000 (N2K) grassland habitat types inside N2K sites over two periods: 2006–2012 and 2012–2018. The Y-axis represents percentage change, ranging from -1.60% to 0.40%, with major gridlines at -1.60%, -1.10%, -0.60%, -0.10%, and 0.40%. The X-axis displays the grassland habitat types labelled '4100', '4211', '4212', and '4220'. Two data series are presented in the legend: dark green bars for the '2006–2012' period and light green bars for the '2012–2018' period. Key data points are as follows: * **Habitat type 4100:** Decreased by approximately -0.40% in 2006–2012 and by approximately -0.30% in 2012–2018. * **Habitat type 4211:** Increased by approximately +0.08% in 2006–2012 and by approximately +0.03% in 2012–2018. * **Habitat type 4212:** Decreased by approximately -0.25% in 2006–2012 and significantly by approximately -0.75% in 2012–2018. * **Habitat type 4220:** Showed negligible positive change, approximately +0.01% in both 2006–2012 and 2012–2018. The chart illustrates a net decline in the area of N2K grassland habitat types 4100 and 4212, with the most significant decrease observed for type 4212 during the 2012–2018 period. Habitat type 4211 experienced minor positive change in both periods, while habitat type 4220 remained largely stable with minimal area change."></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image11.png" class="img-fluid" style="width:5.01in" alt="Grouped bar chart showing the percentage change of four grassland types (4100, 4211, 4212, 4220) in a 2 km buffer zone, over two periods: 2006–2012 and 2012–2018. The Y-axis represents the percentage change, ranging from -1.60% to 0.40%. The X-axis labels the grassland types. Data series: * 2006-2012 (darker yellow bars) * 2012-2018 (lighter yellow bars) Specific changes for each grassland type: * **Type 4100:** Decreased by -1.10% in 2006–2012 and by approximately -0.98% in 2012–2018. * **Type 4211:** Increased by 0.40% in 2006–2012, then decreased by approximately -0.05% in 2012–2018. * **Type 4212:** Decreased by approximately -0.70% in 2006–2012, with a more substantial decrease of approximately -1.55% in 2012–2018. * **Type 4220:** Experienced minor decreases, approximately -0.08% in 2006–2012 and approximately -0.03% in 2012–2018. Overall, grassland types 4100 and 4212 show significant decreases, particularly 4212 in the later period. Type 4211 experienced growth in the first period, reversing to a slight decline in the second, while type 4220 remained relatively stable with minor declines. These grassland types refer to habitat classifications relevant to areas such as Natura 2000 sites."></p>
 <p>The N2K product allows us to recognise that good work is being done within Natura 2000 areas to lessen the decline of grasslands areas. However, it also tells us more work is required to protect these valuable areas, in particular with the continual monitoring of changing agricultural practices.</p>
 <p>The Copernicus Land Monitoring Service (implemented by the European Environment Agency) is committed to the continual improvement of such monitoring schemes to address these challenges collectively. In particular, it is hoped that grasslands can not only be effectively preserved with N2K, but that the monitoring and assessment of biodiversity in line with the objectives of the EU Biodiversity Strategy to 2030 can also be achieved to the highest level. All of which will help ensure the continual protection of the vitally important Natura 2000 grasslands.</p>
 </section>
@@ -402,7 +423,6 @@ Denmark<br>
 <p>The CLMS N2K product provides highly detailed and consistent information on Land Cover / Land Use (LC/LU ) for approximately 631.000 km² across Europe. It has a thematic depth of 55 different LC/LU classes with a Minimum Mapping Unit (MMU) and Minimum Mapping Width (MMW), i.e.&nbsp;the smallest area to be distinguished, of 0.5ha and 10m, respectively.</p>
 <p>The product is available for the reference years 2006, 2012 and 2018 and allows due to its technical setup a direct analysis of LC/LU changes across time using a homogenous data source across Europe.</p>
 <p>The hierarchical CLMS N2K LC/LU nomenclature is highly compatible to the CLMS Local Component Coastal Zone (CZ) and Riparian Zone (RZ) products. Depending on the LC/LU under investigation, these products could be jointly used to analyse LC/LC trends and changes.</p>
-<div style="page-break-after: always;"></div>
 </section>
 </section>
 <section id="product-description" class="level1" data-number="5">
@@ -412,7 +432,7 @@ Denmark<br>
 <p>The CLMS N2K product contains two specific information layers for each reference year (Figure 1). The status layer describes the LC/LU situation in the relevant reference year. The change layer describes LC/LU change areas between two reference years. Currently status layers for the reference years 2006, 2012 and 2018 are available, with corresponding change layers for 2006-2012 and 2012-2018. The CLMS N2K product covers an area of 631.820 km² (Figure 2).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/Figure1.png" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/Figure1.png" class="img-fluid figure-img" style="width:6.27in" alt="The diagram illustrates the data product categories and time periods provided by the Copernicus Land Monitoring Service Natura 2000 (CLMS N2K). The CLMS N2K product offers two main types of Land Cover / Land Use (LC/LU) data. The first type is LC/LU STATUS, which provides static land cover and land use information for the individual reference years: 2006, 2012, and 2018. The second type is LC/LU CHANGE, which provides data on land cover and land use changes for the specific periods: 2006–2012 and 2012–2108."></p>
 <figcaption>Figure 1: The CLMS N2K product portfolio</figcaption>
 </figure>
 </div>
@@ -431,13 +451,13 @@ Denmark<br>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image12.png" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image12.png" class="img-fluid figure-img" style="width:6.27in" alt="This map illustrates the geographical distribution of 'Mapped Sites' (dark green polygons) within the 'EEA-38 and the UK' (tan/beige landmass background). The legend indicates that the dark green areas represent 'Mapped Sites', while the tan areas represent the geographical extent of the 'EEA-38 and the UK'. These mapped sites are identified as 4,790 Natura 2000 (N2K) sites, each including a 2km buffer zone, which together cover a total area of 631,820 km². The sites are broadly distributed across the European continent, with a notable density of smaller, fragmented areas in the Iberian Peninsula, France, Italy, Central Europe, and the Balkan region. Larger, but fewer, mapped sites are visible in Northern European countries like Sweden and Finland. A scale bar at the bottom right indicates distances of 0, 50, and 100 km."></p>
 <figcaption>Figure 2: Coverage of the CLMS N2K product</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image13.png" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image13.png" class="img-fluid figure-img" style="width:6.27in" alt="This map displays an example Natura 2000 (N2K) site, along with a 2 km buffer zone, situated within a broader European landscape. The background is Very High Resolution (VHR) satellite imagery, likely in false colour infrared, showing dark green and maroon forested areas, light red and pink agricultural fields, and light blue/cyan urban and bare soil areas. A prominent blue outline demarcates the boundary of the Natura 2000 site combined with its 2 km buffer. Within this boundary, numerous irregularly shaped polygons are highlighted with a green outline. These green-outlined areas represent specific Land Cover / Land Use (LCLU) features, delineated based on visual image interpretation. The map includes a scale bar indicating 1:50.000, with segments for 0, 1, and 2 km, and a north arrow pointing upwards."></p>
 <figcaption>Figure 3: Example coverage of CLMS N2K product for a selected Natura 2000 site (DE4617303 Kalkkuppen near Brilon, Germany). Green= extent of Natura 2000 site, Blue = CLMS N2K product extent.</figcaption>
 </figure>
 </div>
@@ -564,13 +584,13 @@ Denmark<br>
 <table class="caption-top table">
 <caption>Table 2: Representativeness of CLMS N2K mapping for all Natura 2000 site types within each MS</caption>
 <colgroup>
+<col style="width: 14%">
+<col style="width: 12%">
 <col style="width: 13%">
-<col style="width: 18%">
-<col style="width: 18%">
-<col style="width: 10%">
-<col style="width: 18%">
-<col style="width: 10%">
-<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -864,12 +884,12 @@ Denmark<br>
 <table class="caption-top table">
 <caption>Table 3: Representativeness of Natura 2000 sites with grassland habitat types per MS.</caption>
 <colgroup>
-<col style="width: 18%">
-<col style="width: 6%">
-<col style="width: 12%">
+<col style="width: 20%">
+<col style="width: 15%">
 <col style="width: 14%">
-<col style="width: 18%">
-<col style="width: 28%">
+<col style="width: 14%">
+<col style="width: 17%">
+<col style="width: 19%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1138,7 +1158,7 @@ Denmark<br>
 <p>A GIS- and EO data analysis was then performed to:</p>
 <ol type="a">
 <li><p>Buffer the Natura 2000 sites by 2km, which increased the N2K AOI area to around 252.600 km²)</p></li>
-<li><p>Identify existing VHR satellite coverage for the reference years 2006 +/- 1 year (with extension to +/- 2 years for gap-filling) and 2012 +/- 2 years within defined seasonal windows, so that in combination they reach &gt; 80% coverage of the full (buffered) N2000 site size (i.e.&nbsp;in the same areas, for both time steps). This reduced the AOI to around 162.600 km² - 173.800 km²</p></li>
+<li><p>Identify existing VHR satellite coverage for the reference years 2006 ± 1 year (with extension to ± 2 years for gap-filling) and 2012 ± 2 years within defined seasonal windows, so that in combination they reach &gt; 80% coverage of the full (buffered) N2000 site size (i.e.&nbsp;in the same areas, for both time steps). This reduced the AOI to around 162.600 km² - 173.800 km²</p></li>
 </ol>
 <p>The finally mapped N2K product during the GIO Phase covered 160.443 km².</p>
 <p>In the <strong><u>second</u></strong> production phase (started in 2016) the N2K AOI was enlarged. Additional Natura 2000 sites were selected, now based on a list of 32 different Annex 1 grassland habitat types as defined under the Habitats Directive. The additional Natura 2000 site boundaries were again taken from the Natura 2000 Database (this time from version: end2015). The buffer was applied to the newly selected sites and minor adaptations to the N2K AoI were made to correct imprecisions and omission errors. This changed the AoI size and geometry in a way that:</p>
@@ -1160,14 +1180,14 @@ Denmark<br>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image14.png" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image14.png" class="img-fluid figure-img" style="width:6.27in" alt="This map displays multiple Natura 2000 (N2K) sites, primarily consisting of islands or coastal sections, likely within France given the 'FR' prefix in the site codes. Each N2K site is enclosed by a blue outline, representing its main boundary. Surrounding these sites are light grey shaded areas, which denote the buffer zones (Area of Interest or AoI) applied to the N2K sites. Within some of these blue-outlined areas, particularly along coastlines, red outlines are visible. These red outlines indicate adjustments, corrections, or newly included site boundaries, such as the inclusion of missing 2 km buffers, correction of wrongly clipped buffers, or filling of existing gaps. Specific sites are identified by codes: FR8212005, FR8201773, FR8201781, FR8212028, FR8202003, and FR8201777. The map illustrates the N2K Area of Interest (AoI) adjustments made during the second production phase, which began in 2016. No scale bar, compass, legend, or explicit data source year is visible on the map."></p>
 <figcaption>Figure 4: Example of diverging Natura 2000 site boundaries (red 2015 version, blue 2019 version, grey N2K product coverage incl.&nbsp;the 2km buffer)</figcaption>
 </figure>
 </div>
 <p>Also, due to the buffering of the Natura 2000 sites by 2km, the N2K sites may actually cover more than one Natura 2000 site (Figure 5). This has been one the reasons for the removal of the Natura 2000 <strong><u>Site code</u></strong> from the N2K AoI, to avoid a misinterpretation of the data. Because within the same N2K polygon there could be reference to more than one Natura 2000 site.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image15.png" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image15.png" class="img-fluid figure-img" style="width:5.87in" alt="Choropleth map displaying a section of Poland with Natura 2000 (N2K) sites and associated buffer zones. The map highlights detailed boundaries of specific N2K sites, identified by black outlines and codes: `PLH220052`, `PLH220005`, and `PLH220037`. These codes indicate sites located in Poland (PL). A continuous red outer line represents a buffer zone surrounding these Natura 2000 sites, consistent with the 2km buffer mentioned in the documentation. Additionally, an isolated, elongated red-outlined polygon is present within the larger buffered area, potentially indicating a corrected 'wrongly clipped buffer' or specific feature. A red label `4109` is placed near a black-outlined feature in the upper right, likely denoting a habitat type or specific feature within the N2K network, as defined under the Habitats Directive. The map illustrates the geometric extent and refinement of N2K Area of Interest (AOI) boundaries and buffers, including corrections for missing buffers, wrongly clipped buffers, and gaps. No scale bar, compass, or explicit reference year is visible on the map; however, the surrounding context refers to the second production phase (2016) using end-2015 N2K Database, with updates to reference year 2018."></p>
 <figcaption>Figure 5 - Example of N2K AoI (red) covering multiple N2K sites (black)</figcaption>
 </figure>
 </div>
@@ -1177,28 +1197,28 @@ Denmark<br>
 <p>Other Natura 2000 DB changes led to a partial coverage of 2018 geometries of formerly fully covered in 2015 (Figure 8). Partially these changes might still be covered by the N2K AoI, but initially the original 2km buffer around the site is no longer valid for the complete site (Figure 9).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image16.png" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image16.png" class="img-fluid figure-img" style="width:6.2in" alt="A geographic map showing three distinct areas related to the Natura 2000 (N2K) network, each composed of a light blue inner zone and a surrounding peach-coloured buffer zone. The map illustrates how Natura 2000 site boundaries are used to define an Area of Interest (AoI), including a 2km buffer zone around selected sites. Two main contiguous areas are visible. The upper left area is labelled 'AT3210001'. Below it, a connected area is labelled 'IT3110017'. To the right, another distinct area is also labelled 'AT3210001'. A smaller, isolated buffered area is partially visible at the bottom of the map, but its label is unreadable. The 'AT' prefix indicates Austria, and 'IT' indicates Italy, suggesting cross-border or nearby sites. The map visually demonstrates the N2K AoI creation process, highlighting instances where site definitions and buffer applications might lead to deviations from strict 2km buffer zones, as described in the accompanying text."></p>
 <figcaption>Figure 6 - Example of multi-part Natura 2000 site (AT3210001) only partially covered by N2K AOI</figcaption>
 </figure>
 </div>
-<p><img src="N2K_2006-2018_PUM_v1-media/image17.jpeg" class="img-fluid"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image17.jpeg" class="img-fluid" style="width:4.61in" alt="The map illustrates two distinct Natura 2000 (N2K) sites, likely located in Denmark given the 'DK' prefix in the codes, and their corresponding Areas of Interest (AoI). The light blue polygons represent the N2K sites, identified by their codes: `DK00BX166` and `DK00BX044`. Surrounding each N2K site, a larger, light red (peach) polygon indicates the Area of Interest (AoI). These AoI polygons define the broader mapping extent used for the Copernicus Land Monitoring Service (CLMS) Natura 2000 product, which often includes a buffer zone around the core N2K site. The context specifies that the N2K AoI of 631,820 km² was updated for the reference year 2018, and that the AoI adaptations may lead to deviations from a strict 2 km buffer zone around each selected Natura 2000 site. The map does not include a scale bar, compass, or legend for colour interpretation."></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image18.jpeg" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image18.jpeg" class="img-fluid figure-img" style="width:4.57in" alt="This map illustrates the divergence between official Natura 2000 (N2K) site boundaries and the Copernicus Land Monitoring Service (CLMS) N2K Area of Interest (AoI). The geographic area shown depicts sections of Denmark, indicated by the 'DK' prefix in the site codes. Light blue polygons represent the actual Natura 2000 site boundaries, with three specific sites labelled: `DK00BX166`, `DK00BB396`, and `DK00BB380`. Peach-coloured shaded areas represent the N2K AoI, which encompasses the Natura 2000 sites for CLMS product generation. The spatial pattern shows that the N2K AoI (peach) is generally broader and smoother than the specific site boundaries (light blue polygons). Notably, two distinct Natura 2000 sites, `DK00BB396` and `DK00BB380`, are depicted as separate light blue polygons but are contained within a single, continuous peach-coloured AoI. This divergence reflects factors such as the application of different Natura 2000 database versions (e.g., v2013 and end2015), technical adaptations to ensure a clean dataset, and the use of buffer zones around selected sites. No scale bar, compass, legend, or explicit data source/year is visible."></p>
 <figcaption>Figure 7 - Example of changed site codes and geometries from 2015 (top) to 2018 (bottom) Natura 2000 DB version</figcaption>
 </figure>
 </div>
-<p><img src="N2K_2006-2018_PUM_v1-media/image19.jpeg" class="img-fluid"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image19.jpeg" class="img-fluid" style="width:2.58in" alt="The map displays a spatial representation of a Natura 2000 (N2K) site, specifically site code FR7200672 in France, and its associated buffered Area of Interest (AoI). Multiple irregularly shaped light blue polygons, each labelled 'FR7200672', represent individual components or patches of the Natura 2000 site. These site components are entirely encompassed by a larger, contiguous, irregularly shaped light peach-coloured polygon. This peach-coloured area represents the N2K product coverage, which includes a 2 km buffer zone around the selected Natura 2000 site boundaries, as used by the Copernicus Land Monitoring Service (CLMS) N2K product. The map shows one version of the site boundaries and their buffered AoI. No scale bar, compass, or explicit legend is present in the image."></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image20.jpeg" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image20.jpeg" class="img-fluid figure-img" style="width:2.55in" alt="This map displays a Natura 2000 (N2K) Area of Interest (AoI) with its 2km buffer, represented by a single light orange/peach polygon. Enclosed within this buffered AoI are numerous individual Natura 2000 site boundaries, depicted as fragmented light blue polygons. Each of these individual site polygons is repeatedly labelled with the Natura 2000 site code 'FR7200672', indicating that multiple fragmented sites belonging to the same code are covered by a single buffered AoI. The map illustrates how the N2K AoI, including its 2km buffer zone, can encompass several discrete Natura 2000 site components. No scale bar, compass, legend, or specific reference year is visible on the map."></p>
 <figcaption>Figure 8 - Example of Natura 2000 DB site changes from 2015 (top) to 2018 (bottom). Background N2K AOI</figcaption>
 </figure>
 </div>
-<p><img src="N2K_2006-2018_PUM_v1-media/image21.jpeg" class="img-fluid"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image21.jpeg" class="img-fluid" style="width:3.09in" alt="This map displays Natura 2000 (N2K) sites as light blue polygons and their surrounding Natura 2000 Area of Interest (N2K AoI) as salmon-coloured polygons, which represent a 2km buffer around the N2K sites. The geographic area is located in France, evidenced by the 'FR' prefix in the N2K site codes. Multiple N2K sites are labelled with codes: FR7200684, FR7200683, FR7200685, FR7200686, and FR7200682. The map illustrates that an N2K AoI polygon can encompass one or more individual N2K sites; for instance, the AoI in the upper right contains two FR7200684 sites, and the larger AoI in the lower right contains both FR7200685 and FR7200686 sites. Conversely, three distinct FR7200683 sites are shown, each with its own separate 2km buffered AoI. No scale bar, compass, legend, or explicit data source/year is visible."></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image22.jpeg" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image22.jpeg" class="img-fluid figure-img" style="width:3.09in" alt="This map displays several Natura 2000 (N2K) sites and their corresponding buffered Areas of Interest (AoI), likely located in France given the 'FRZ' prefix in the site codes. The colour coding indicates: * Light blue shaded polygons: Natura 2000 sites, identified by unique codes such as FRZ200683, FRZ200684, FRZ200685, FRZ200686, and FRZ200682 (partially visible). * Light orange shaded polygons: The Natura 2000 Area of Interest (AoI), which encompasses the N2K site and an associated 2 km buffer zone. * Dark grey lines within site FRZ200685: Represent hydrological features, likely rivers or streams, integrated into the N2K site definition. The spatial pattern illustrates how a single Natura 2000 site code can refer to multiple geographically detached areas, known as 'multi-part polygons.' For instance, site FRZ200683 comprises three distinct light blue polygons, each surrounded by its own light orange AoI buffer. Similarly, FRZ200684 is composed of two separate light blue polygons, each buffered. FRZ200685 represents a linear, dendritic N2K site, characteristic of a river system, with its encompassing AoI. FRZ200686 shows a larger, irregularly shaped N2K site and its buffer. No scale bar, compass, legend, or data source information is explicitly visible on the map."></p>
 <figcaption>Figure 9 - More examples of Natura 2000 DB site changes from 2015 (top) to 2018 (bottom). Background N2K AOI</figcaption>
 </figure>
 </div>
@@ -1206,50 +1226,50 @@ Denmark<br>
 <p>The results showed that more than 98% of the area covered by the selected grassland-rich Natura 2000 sites is covered by the N2K product in for both Natura 2000 site definitions, version end2015 and end2018 (Figure 5).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image23.jpeg" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image23.jpeg" class="img-fluid figure-img" style="width:6.27in" alt="Choropleth map displaying an example of Natura 2000 (N2K) sites within a larger geographic context, illustrating the concept of 'multi-part' polygons as described in Copernicus Land Monitoring Service (CLMS) documentation. The light blue shaded area represents a larger geographic region, likely a Natura 2000 Area of Interest (N2K AoI). Within this area, six distinct polygons, outlined in turquoise, represent individual Natura 2000 sites or their components. Each polygon is identified by an Italian (IT-prefixed) site code: IT534001"></p>
 <figcaption>Figure 10 - Example of Natura 2000 DB site overlap. The site codes IT6020025, IT7120201 and IT5340010 overlay the area of site code IT7110128.</figcaption>
 </figure>
 </div>
 <table class="caption-top table">
 <caption>Table 4 - Spatial coverage of Natura 2000 DB sites by N2K AOI in 2015 and 2018</caption>
 <colgroup>
-<col style="width: 57%">
-<col style="width: 9%">
-<col style="width: 10%">
-<col style="width: 20%">
+<col style="width: 38%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 23%">
 </colgroup>
 <thead>
 <tr class="header">
 <th></th>
-<th style="text-align: left;"><strong>2015</strong></th>
-<th style="text-align: left;"><strong>2018</strong></th>
-<th style="text-align: left;"><strong>Difference 2015-2018</strong></th>
+<th><strong>2015</strong></th>
+<th><strong>2018</strong></th>
+<th><strong>Difference 2015-2018</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Total area of Natura 2000 sites (with overlaps) [km²]</td>
-<td style="text-align: left;">284.195,48</td>
-<td style="text-align: left;">284.977,85</td>
-<td style="text-align: left;">+ 782,37</td>
+<td>284.195,48</td>
+<td>284.977,85</td>
+<td>+ 782,37</td>
 </tr>
 <tr class="even">
 <td>Total area of Natura 2000 sites (without overlaps) [km²]</td>
-<td style="text-align: left;">272.483,95</td>
-<td style="text-align: left;">273.266,93</td>
-<td style="text-align: left;">+ 782,98</td>
+<td>272.483,95</td>
+<td>273.266,93</td>
+<td>+ 782,98</td>
 </tr>
 <tr class="odd">
 <td>Area of Natura 2000 sites (without overlap) covered by N2K AOI [km²]</td>
-<td style="text-align: left;">267.820,37</td>
-<td style="text-align: left;">268.167,05</td>
-<td style="text-align: left;">+ 346,68</td>
+<td>267.820,37</td>
+<td>268.167,05</td>
+<td>+ 346,68</td>
 </tr>
 <tr class="even">
 <td>Percentage of Natura 2000 area covered by N2K AOI (without overlaps) [%]</td>
-<td style="text-align: left;">98,3</td>
-<td style="text-align: left;">98,1</td>
-<td style="text-align: left;">- 0,2</td>
+<td>98,3</td>
+<td>98,1</td>
+<td>- 0,2</td>
 </tr>
 </tbody>
 </table>
@@ -1257,49 +1277,49 @@ Denmark<br>
 <table class="caption-top table">
 <caption>Table 5 - Area changes for Natura 2000 DB sites from 2015 to 2018</caption>
 <colgroup>
-<col style="width: 40%">
-<col style="width: 35%">
-<col style="width: 21%">
+<col style="width: 42%">
+<col style="width: 26%">
+<col style="width: 31%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;"><strong>Natura 2000 area changes 2015-2018</strong></th>
+<th><strong>Natura 2000 area changes 2015-2018</strong></th>
 <th></th>
-<th style="text-align: right;"><strong>Value</strong></th>
+<th><strong>Value</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Common area in 2015 and 2018</td>
+<td>Common area in 2015 and 2018</td>
 <td></td>
-<td style="text-align: right;">271.946,91 km²</td>
+<td>271.946,91 km²</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Area only in 2015 data (removed)</td>
+<td>Area only in 2015 data (removed)</td>
 <td></td>
-<td style="text-align: right;">537,04 km²</td>
+<td>537,04 km²</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Area only in 2018 data (new)</td>
+<td>Area only in 2018 data (new)</td>
 <td></td>
-<td style="text-align: right;">1320,02 km²</td>
+<td>1320,02 km²</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
+<td></td>
 <td>covered by N2K AOI (Inside)</td>
-<td style="text-align: right;">871,79 km² (66 %)</td>
+<td>871,79 km² (66 %)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
+<td></td>
 <td>not covered by N2K AOI (Outside)</td>
-<td style="text-align: right;">448,23 km² (44 %)</td>
+<td>448,23 km² (44 %)</td>
 </tr>
 </tbody>
 </table>
 <p>The boundaries of Natura 2000 may change from year to year but usually those are not dramatic changes and are usually covered by the 2km buffer zone. There are however a few occasions when a change in extent may have gone over the N2K established AoI. Extreme situation illustrated below (Figure 11)</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image24.png" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image24.png" class="img-fluid figure-img" style="width:3.31in" alt="A spatial map illustrating the geographical extent and overlap of Natura 2000 (N2K) sites and the Natura 2000 Area of Interest (N2K AOI). The map features two primary spatial layers: 1. **Pink shaded polygons**: Represent the boundaries of Natura 2000 sites. These areas form a main elongated, irregular shape extending across the central portion of the map, with several smaller, isolated polygons visible to the top-left and bottom-left. 2. **Dark green shaded areas with white outlines**: Represent the Natura 2000 Area of Interest (N2K AOI). This layer largely encompasses and extends beyond the main pink Natura 2000 site polygon, creating a buffer or broader area of interest. The white outlines within the green area suggest finer spatial units or a detailed underlying land cover representation. The map shows that while a significant portion of the Natura 2000 sites (pink) are covered by the N2K AOI (dark green), there are instances where N2K site boundaries extend beyond the N2K AOI, or isolated N2K site polygons are entirely outside the main N2K AOI green area. Conversely, the N2K AOI covers areas not designated as N2K sites. No legend, scale bar, or compass is visible. The image visually supports discussions of spatial coverage dynamics of Natura 2000 areas."></p>
 <figcaption>Figure 11 – Example of a Natura 2000 site change in extent (enlargement): the green buffer follows the shape of the site in 2012, but in the 2018 Natura 2000 database the site has been enlarged therefore not anymore totally covered by the N2K AoI</figcaption>
 </figure>
 </div>
@@ -1310,7 +1330,7 @@ Denmark<br>
 <p>The N2K status layer represents the LC/LU status identified on the available satellite images for the specific reference year (Figure 12).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image25.png" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image25.png" class="img-fluid figure-img" style="width:6.27in" alt="This map displays various land cover types within a defined Natura 2000 (N2K) Area of Interest (AOI), overlaid on a false-colour infrared satellite background image. The blue boundary line delineates the N2K AOI. Inside this boundary, polygons of different colours represent distinct land cover features: red areas likely indicate urban fabric or artificial surfaces; purple areas likely represent industrial, commercial, or transport units; yellow and light yellow areas typically denote agricultural fields or pastures; light green and dark green areas likely represent forests or other natural vegetation; and brown areas may represent sparsely vegetated land or wetlands. The background satellite imagery uses false colours: healthy vegetation appears in shades of red/pink, urban areas and bare soil appear in light blue/cyan, and a river is visible as a dark blue/black feature in the bottom right corner. The map includes a scale bar indicating '1:50.000' and lengths of '0', '1', and '2 km', along with a North arrow pointing upwards. No explicit legend for the coloured land cover polygons is present in the image."></p>
 <figcaption>Figure 12: CLMS N2K status product 2018. Example for a selected Natura 2000 site (DE4617303 Kalkkuppen near Brilon, Germany).</figcaption>
 </figure>
 </div>
@@ -1318,10 +1338,10 @@ Denmark<br>
 <section id="clms-n2k-change-layer" class="level2" data-number="5.6">
 <h2 data-number="5.6" class="anchored" data-anchor-id="clms-n2k-change-layer"><span class="header-section-number">5.6</span> CLMS N2K change layer</h2>
 <p>The CLMS N2K change layer represents the LC/LU changes between the specific reference years and identifiable on the satellite images (Figure 13).</p>
-<p><img src="N2K_2006-2018_PUM_v1-media/image26.png" class="img-fluid"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image26.png" class="img-fluid" style="width:6.27in" alt="This map displays an example of a Natura 2000 (N2K) site, illustrating its enlargement between 2012 and 2018. The base imagery is a false-colour infrared satellite view, where dense vegetation (forests) appears dark red, agricultural fields are lighter pink/red, and urban/built-up areas are cyan. A blue line outlines the 2 km buffer zone of the N2K site as defined in 2012. Yellow-coloured polygons indicate areas that were added to the Natura 2000 database in 2018, representing the site's enlargement. These newly included yellow areas are predominantly situated outside the 2012 blue buffer, especially visible in the southern and western parts of the map. The map includes a scale bar of '1:50.000' with a segment length of '2 km' and a north arrow."></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image27.png" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image27.png" class="img-fluid figure-img" style="width:6.27in" alt="False Colour Composite map depicting a landscape with varied land cover, overlaid with a blue outline representing a Natura 2000 (N2K) Area of Interest (AoI) from 2012 and yellow polygons indicating newly identified N2K areas from 2018. The background satellite imagery shows vegetation in dark red (likely forests) and lighter red/pink tones, agricultural fields and open land in light blue/cyan tones, and a central urbanized area in bright cyan clusters. The blue line delineates the boundary of the N2K AoI as it was in 2012. The scattered yellow polygons highlight areas that were added to the N2K database in 2018 and are located outside the 2012 AoI boundary, illustrating an enlargement of the protected area. A scale bar at the bottom right indicates distances of 0, 1, and 2 km, and a North arrow points upwards."></p>
 <figcaption>Figure 13: CLMS N2K Change product 2006-2012 (top) and 2012-2018 (bottom). Example for a selected Natura 2000 site (DE4617303 Kalkkuppen bei Brilon, Germany). Yellow = LC/LU changes mapped between reference years, Blue = CLMS N2K site extent</figcaption>
 </figure>
 </div>
@@ -1332,12 +1352,12 @@ Denmark<br>
 <table class="caption-top table">
 <caption>Table 6: Product overview sheet</caption>
 <colgroup>
-<col style="width: 19%">
-<col style="width: 34%">
+<col style="width: 18%">
 <col style="width: 14%">
-<col style="width: 11%">
+<col style="width: 18%">
+<col style="width: 18%">
 <col style="width: 14%">
-<col style="width: 6%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1378,8 +1398,8 @@ Denmark<br>
 </table>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 30%">
-<col style="width: 70%">
+<col style="width: 28%">
+<col style="width: 71%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1483,11 +1503,11 @@ Denmark<br>
 <table class="caption-top table">
 <caption>Table 7: Product attribute definition for the table LC_LU (ESRI GDB representation)</caption>
 <colgroup>
-<col style="width: 5%">
-<col style="width: 55%">
-<col style="width: 7%">
-<col style="width: 22%">
-<col style="width: 8%">
+<col style="width: 19%">
+<col style="width: 28%">
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1672,11 +1692,11 @@ Denmark<br>
 <table class="caption-top table">
 <caption>Table 8: Product attribute definition for the table LC_LU (GeoPackage .gpkg representation)</caption>
 <colgroup>
-<col style="width: 7%">
-<col style="width: 61%">
-<col style="width: 8%">
-<col style="width: 14%">
-<col style="width: 8%">
+<col style="width: 19%">
+<col style="width: 31%">
+<col style="width: 16%">
+<col style="width: 22%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1862,10 +1882,10 @@ Denmark<br>
 <table class="caption-top table">
 <caption>Table 9: List of allowed [COMMENT] and [COMMENT_XX] entries</caption>
 <colgroup>
-<col style="width: 2%">
-<col style="width: 15%">
-<col style="width: 76%">
-<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 22%">
+<col style="width: 53%">
+<col style="width: 17%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1924,15 +1944,14 @@ Denmark<br>
 <section id="clms-n2k-nomenclature" class="level2" data-number="5.8">
 <h2 data-number="5.8" class="anchored" data-anchor-id="clms-n2k-nomenclature"><span class="header-section-number">5.8</span> CLMS N2K nomenclature</h2>
 <p>The Nomenclature for the LC/LU dataset is structured into four levels (Code level 1- Code level 4). There are 55 different LC/LU classes (Table 10). The detailed description of each class is given in the N2K nomenclature and mapping guideline (AD01). The LC/LU code levels were designed to correspond to the Mapping and Assessment of Ecosystems and their Services (MAES) typology Level 2 (EU 2013).</p>
-<p><img src="N2K_2006-2018_PUM_v1-media/Table1.png" class="img-fluid"></p>
-<p><img src="N2K_2006-2018_PUM_v1-media/Table2.png" class="img-fluid"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/Table1.png" class="img-fluid" style="width:5.19in" alt="The table presents a hierarchical classification system for Land Cover / Land Use (LULC) categories, detailing levels 1, 2, and 3, with an empty column for Level 4, and corresponding Mapping and Assessment of Ecosystems and their Services (MAES) Level 2 classifications. The table is partially visible, showing categories for 'Urban', 'Cropland', and 'Woodland and forest'. | Level 1 | Level 2 | Level 3 | Level 4 | MAES Level 2 | |--------------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------|---------|-------------------------| | 1. Urban | 1.1 Urban fabric, industrial, commercial, public, military and private units |"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/Table2.png" class="img-fluid" style="width:5.19in" alt="| Main Category | Level 2 Classification | Level 3 Classification | Level 4 Classification | Aggregated CLC Group | | :------------------------ | :------------------------------------ | :--------------------------------------------------------- | :---------------------------------------------------------------- | :------------------- | | (Implicit 3. Forest) | | 3.2.2 Highly artificial coniferous plantations | | | | (Implicit 3. Forest) | 3.3 Mixed forest | 3.3.1 Natural &amp; semi-Natural mixed forest | | | | (Implicit 3. Forest) | | 3.3.2 Highly artificial mixed plantations | | | | (Implicit 3. Forest) | 3.4 Transitional woodland and scrub | | | | | (Implicit 3. Forest) | 3.5 Lines of trees and scrub | | | | | (Implicit 3. Forest) | 3.6 Damaged forest | | | | | 4. Grassland | 4.1 Managed grassland | | | GRASSLAND | | 4. Grassland | 4"></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/Table3.png" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/Table3.png" class="img-fluid figure-img" style="width:5.19in" alt="This table presents a hierarchical classification scheme for land cover and land use, specifically detailing categories related to wetlands and water bodies. The scheme is organised into four levels of increasing detail, with a fifth column providing a higher-level aggregation suitable for environmental reporting. | Level 1 Category | Level 2 Category | Level 3 Category | Level 4 Category | Higher-level Aggregation | | :--------------- | :--------------- | :--------------- | :--------------- | :----------------------- | | | | 6.3.2 Burnt areas (except burnt forest) | | | | | | 6.3.3 Glaciers and perpetual snow | | | | 7. Wetland | 7.1 Inland wetlands | 7.1.1 Inland marshes | | WETLAND | | 7. Wetland | 7.1 Inland wetlands | 7.1.2 Peat bogs | 7.1.2.1 Exploited peat bogs | WETLAND | | 7. Wetland | 7.1 Inland wetlands | 7.1.2 Peat bogs | 7.1.2.2 Unexploited peat bogs | WETLAND | | 7. Wetland | 7.2 Coastal wetlands | 7.2.1 Salt marshes | | MARINE INLETS AND TRANSITIONAL WATERS | | 7. Wetland | 7.2 Coastal wetlands | 7.2.2 Salines | | MARINE INLETS AND TRANSITIONAL WATERS | | 7. Wetland | 7.2 Coastal wetlands | 7.2.3 Intertidal flats | | MARINE INLETS AND TRANSITIONAL WATERS | | 8. Water | 8.1 Water courses | 8.1.1 Natural &amp; semi-Natural water courses | | RIVERS AND LAKES | | 8. Water | 8.1 Water courses | 8.1.2 Highly modified water courses and canals | | RIVERS AND LAKES | | 8. Water | 8.1 Water courses | 8.1.3 Seasonally connected water courses (oxbows) | | RIVERS AND LAKES | | 8. Water | 8.2 Lakes and reservoirs | 8.2.1 Natural lakes | | RIVERS AND LAKES | | 8. Water | 8.2 Lakes and reservoirs | 8.2.2 Reservoirs | | RIVERS AND LAKES | | 8. Water | 8.2 Lakes and reservoirs | 8.2.3 Aquaculture ponds | | RIVERS AND LAKES | | 8. Water | 8.2 Lakes and reservoirs | 8.2.4 Standing water bodies of extractive industrial sites | | RIVERS AND LAKES | | 8. Water | 8.3 Transitional waters | 8.3.1 Lagoons | | MARINE INLETS AND TRANSITIONAL WATERS | | 8. Water | 8.3 Transitional waters | 8.3.2 Estuaries | | MARINE INLETS AND TRANSITIONAL WATERS | | 8. Water | 8.3 Transitional waters | 8.3.3 Marine inlets and fjords | | MARINE INLETS AND TRANSITIONAL WATERS | | 8. Water | 8.4 Sea and ocean | 8.4.1 Open sea | | OPEN OCEAN | | 8. Water | 8.4 Sea and ocean | 8.4.2 Coastal waters | | COASTAL | The table details Level 1 categories '7. Wetland' and '8. Water,' breaking them down into subclasses like '7.1 Inland wetlands' and '8.1 Water courses.' These categories further specify features such as '7.1.2.1 Exploited peat bogs' and '8.1.3 Seasonally connected water courses (oxbows).' The 'Higher-level Aggregation' column groups various detailed categories under broader terms like 'WETLAND,' 'RIVERS AND LAKES,' 'MARINE INLETS AND TRANSITIONAL WATERS,' 'OPEN OCEAN,' and 'COASTAL,' which can encompass sub-categories from different Level 1 parents. The top two rows (6.3.2 Burnt areas and 6.3.3 Glaciers) are shown without their higher-level parent categories in this excerpt."></p>
 <figcaption>Table 10: CLMS N2K nomenclature overview (v1.4, dated 03.05.2021)</figcaption>
 </figure>
 </div>
-<div style="page-break-after: always;"></div>
 </section>
 </section>
 <section id="product-methodology-and-workflow" class="level1" data-number="6">
@@ -1940,7 +1959,7 @@ Denmark<br>
 <p>The CLMS N2K production is based on a three-tier approach (Figure 14). The presented workflow is valid for the 2018 production update cycle. Core to the project is the step visual <em>Interpretation and Classification</em> of LC/LU changes with respect to new VHR satellite information for the reference year 2018.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image28.png" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image28.png" class="img-fluid figure-img" style="width:6.27in" alt="This diagram illustrates the production workflow for Natura 2000 (N2K) Land Cover / Land Use (LC/LU) products, divided into three main phases: Data Pre-Processing, Interpretation and Classification (TASK 1 PRODUCTION TASKS), and Post-Processing, Validation, Delivery. A legend defines the component types: * **Process:** Grey rectangle * **QA/QC measure:** Green oval * **Pre-processed data:** Orange parallelogram * **Input data:** Blue parallelogram * **Internal Product:** Yellow parallelogram * **Final Product:** Orange rectangle * **Delivery:** Green rectangle The workflow proceeds as follows: **Phase 1: Data Pre-Processing** 1. Very High Resolution (VHR) 2018 input data undergoes 'Satellite image data pre-processing'. 2. 'QA 1-1' is performed on the output of satellite image data pre-processing. 3. N2K Products 2006/2012 input data undergoes 'Data preparation'. 4. 'QA 1-2' is performed on the output of data preparation. 5. In-situ, Ancillary data undergoes 'In-situ and ancillary data pre-processing'. 6. 'QA 1-4' is performed on the output of in-situ and ancillary data pre-processing. **Phase 2: TASK 1 PRODUCTION TASKS: Interpretation and Classification** 1. **Inputs for N2K Production:** * **VHR image data:** Pre-processed 'VHR 2018 + PSIL', 'VHR 2012 + PSIL', and 'VHR 2006 + PSIL'. * **Internal Product:** 'PSIL' (Product Specific Information Layer). * **In-situ / Ancillary data:** 'CORDA data' (pre-processed). * **Ancillary Copernicus Land Monitoring Service (CLMS) data:** 'High Resolution Layer (HRL) 2012 / 2018', 'CORINE Land Cover (CLC) 2006 / 2012 / 2018', and 'CLMS hotspots 12/18'. * **Earth Observation (EO) Ancillary data:** 'Google Earth / Bing Maps' and 'S2 time series' (Sentinel-2). 2. These inputs feed into the 'N2K Production' processes, which include: 'LC/LU Change Mapping 2012-2018', 'LC/LU 2018 Status Production', 'LC/LU 2012 and 2006 Status Revision', and 'LC/LU Change Mapping 2012-2006 Revision'. 3. 'QA 2-1, 2-2, 2-3' is performed following the N2K Production processes. **Phase 3: Post-Processing, Validation, Delivery** 1. The output from QA 2-1, 2-2, 2-3 proceeds to 'Post-processing &amp; data integration'. 2. Following this, several Quality Assurance (QA) steps are performed: 'QA 3-1', 'Internal Validation, Thematic Validation, EAGLE compliance QA 3-2', and 'QA 3-3'. 'QA 3-4' is also indicated as a quality check. 3. The final 'N2K Products' generated are: 'LC/LU 2012-2018 Change Map', 'LC/LU 2018 Status Map', 'LC/LU 2012 Status Map', 'LC/LU 2006 Status Map', and 'LC/LU 2006-2012 Change Map'. 4. The final step is 'Delivery via EEA' (European Environment Agency)."></p>
 <figcaption>Figure 14: Production workflow for CMLS N2K products</figcaption>
 </figure>
 </div>
@@ -2049,7 +2068,7 @@ Denmark<br>
 <li>To maintain continuity of features with mostly linear nature (Codes 1.2.1, 1.2.2, 6.2.1, 6.2.2, 8.1.1 and 8.1.2), the MMW may fall below the limit of 10 m over a distance of up to 100 m.</li>
 </ul>
 <p><strong>Mapping LC/LU Changes</strong></p>
-<p>Land Cover Changes (LCC) are changes that occur between the different reference timespans 2006 (+/- 2 years), 2012 (+/- 2 years) and the timespan 2018 (+/-&nbsp;1 year). Differences resulting from different interpretations of the same subject are not considered as change. A change is mapped if it covers over a Minimum Mapping Unit (MMU) of &gt;0.5ha. The mapping is carried out by visual interpretation and comparison of two subsequent reference years (2006-2012, 2012-2018) and their corresponding LC/LU vector data and satellite imagery. Changed areas are directly delineated. In CLMS N2K changes are provided as separate vector products (2006-2012 and 2012-2018).</p>
+<p>Land Cover Changes (LCC) are changes that occur between the different reference timespans 2006 (± 2 years), 2012 (± 2 years) and the timespan 2018 (±&nbsp;1 year). Differences resulting from different interpretations of the same subject are not considered as change. A change is mapped if it covers over a Minimum Mapping Unit (MMU) of &gt;0.5ha. The mapping is carried out by visual interpretation and comparison of two subsequent reference years (2006-2012, 2012-2018) and their corresponding LC/LU vector data and satellite imagery. Changed areas are directly delineated. In CLMS N2K changes are provided as separate vector products (2006-2012 and 2012-2018).</p>
 <p>Possible prone to change areas are, for example:</p>
 <ul>
 <li><p>Construction sites;</p></li>
@@ -2076,32 +2095,31 @@ Denmark<br>
 <p>Being the most frequently occurring change type, changes &gt; 0.5 ha connected to an existing CLMS N2K polygon are always mapped. In the following example scheme an existing urban site has been enlarged by more than 0.5ha between the reference year t0 (1.1.1) and the reference year t+1.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image29.png" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image29.png" class="img-fluid figure-img" style="width:6.27in" alt="This diagram illustrates the rule for mapping land cover changes within Copernicus Land Monitoring Service (CLMS) Natura 2000 (N2K) polygons, specifically when changes are greater than 0.5 hectares and connected to an existing N2K polygon. The diagram consists of four panels comparing two time points (t0 and t+1) and two data interpretations (Image and N2K): 1. **Image t0:** Shows an initial state with a red rectangular area labeled '1.1.1' (likely 'Continuous urban fabric' based on context) embedded within a larger yellow area labeled '4.1'. 2. **Image t+1:** Shows an expansion of the '1.1.1' area from t0. The original rectangle has extended into an L-shape. A new, horizontally adjacent rectangular segment of this expansion is outlined with a dashed line and explicitly labeled '> 0.5 ha'. 3. **N2K t0:** Represents the Natura 2000 polygon corresponding to the 'Image t0' state, showing the same single rectangular '1.1.1' area. 4. **N2K t+1:** Represents the updated Natura 2000 polygon after applying the change mapping rule. The entire L-shaped expanded area from 'Image t+1' is now mapped as a single contiguous '1.1.1' polygon. This illustrates that because the change (expansion) exceeds 0.5 hectares and is connected to an existing N2K polygon, the entire new extent of the land cover class is mapped."></p>
 <figcaption>Figure 15: Simple change mapping</figcaption>
 </figure>
 </div>
 <p>Although the MMU for change mapping is 0.5 ha, in some cases single changes &lt; 0.5 ha are also mapped together. When a polygon, existing for the reference year t0, is split at the later t1 reference into several other areas (e.g.&nbsp;a road construction, urban growth, …), the individually connected change parts can be mapped together, if they make up a ≥ 0.5 ha complex change polygon. Resulting polygons in the database &lt;0.5ha receive the COMMENT attribute “Area size exception (inside Natura2000 AoI boundary)” (see chapter Technical specification and AD01).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image30.png" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image30.png" class="img-fluid figure-img" style="width:6.27in" alt="This diagram illustrates the process of mapping land cover changes, specifically urban expansion, within Copernicus Land Monitoring Service (CLMS) Natura 2000 (N2K) polygons between two reference years, t0 and t+1. The diagram consists of four panels: 1. **Image t0**: Shows an initial land cover state with three classes: 1.1.1 (Urban fabric, red), 2.1.1 (Arable land, light yellow), and 4.1 (Forests and semi-natural areas, yellow). 2. **Image t+1**: Shows the same area at a later reference year, revealing changes. The existing 1.1.1 (Urban fabric) area has expanded. Two new areas are demarcated with dashed borders: one area of 0.1 ha, originally 4.1, converted to 1.1.1; and another area of 0.4 ha, originally 2.1.1, converted to 1.1.1. 3. **N2K t0**: Represents the Natura 2000 mapping at reference year t0, which is identical to the land cover composition shown in Image t0. 4. **N2K t+1**: Shows the updated Natura 2000 mapping at reference year t+1. The changes observed in Image t+1 are incorporated. The original 1.1.1 area remains, and the two newly converted polygons (0.1 ha and 0.4 ha), totaling 0.5 ha of urban expansion, are now mapped as 1.1.1 polygons within the N2K product. The surrounding text indicates that 'changes > 0.5 ha connected to an existing CLMS N2K polygon are always mapped,' and that the example specifically shows an 'enlargement by more than 0.5ha'."></p>
 <figcaption>Figure 16: Complex change mapping. Individual changes with each MMU &lt; 0.5 ha make up a change area of 0.5 ha.</figcaption>
 </figure>
 </div>
 <p>“Splitted” changes can also lead to change polygons &lt;0.5ha. In the example scheme below, an existing industrial site exists in the image t0, but is not mapped in the CLMS N2K product for t0, because it is below the MMU (&lt;0.5ha). The site has enlarged between t0 and t+1 and now forms together an area &gt;0.5ha. The small industrial area from t0 “changes” now as well and forms together with the actual change a complex change area. The formerly too small area receives the COMMENT “Splitted change”.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image31.png" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image31.png" class="img-fluid figure-img" style="width:6.27in" alt="Conceptual diagram illustrating the Copernicus Land Monitoring Service (CLMS) change mapping rules, specifically for an urban site's expansion and its implications for Natura 2000 (N2K) polygons between a reference year t0 and a later reference year t+1. The diagram shows four panels: 1. **Image t0:** Displays a land cover classified as 1.1.1 (representing urban areas, from context). A brown area of change, labelled '< 0.5 ha', is present at the bottom. 2. **Image t+1:** Shows the same land cover, 1.1.1, but the brown area has expanded to '> 0.5 ha' in the center of the panel. This represents the enlargement of an urban site. 3. **N2K t0:** Illustrates the Natura 2000 mapping at t0. The entire area is classified as 1.1.1, and the initial change polygon (< 0.5 ha) is not mapped as an N2K feature. 4. **N2K t+1:** Illustrates the Natura 2000 mapping at t+1. The background remains 1.1.1. The expanded brown area (> 0.5 ha) is now mapped as a new N2K polygon, outlined in black, and classified as 1.3.1 (a new land cover class within the N2K context), split into two sections. This demonstrates that changes greater than 0.5 hectares connected to an existing CLMS Natura 2000 polygon are always mapped."></p>
 <figcaption>Figure 17: New established feature with splitted change.</figcaption>
 </figure>
 </div>
 <p>Exceptions for a polygon &lt;0.5 ha are also allowed for unchanged areas in relation to a change situation. In the following example, an existing road in t0 is relocated. Previous road sections change to an urban class (1.1.1) and previous urban area changes to new road (1.2.1) in t+1. A small road section (&lt;0.5 ha) remains as road over the years and does not change. It gets the comment “Areas related to change” in the CLMS N2K product.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="N2K_2006-2018_PUM_v1-media/image32.png" class="img-fluid figure-img"></p>
+<p><img src="N2K_2006-2018_PUM_v1-media/image32.png" class="img-fluid figure-img" style="width:6.27in" alt="This conceptual diagram illustrates the Copernicus Land Monitoring Service (CLMS) rule for mapping land cover changes, specifically how the Minimum Mapping Unit (MMU) of 0.5 ha is applied in relation to Natura 2000 (N2K) polygons. The diagram presents four panels: 1. **Image t0:** Displays an initial land cover state with a large area classified as 1.1.1 (red) and a horizontal strip classified as 1.2.1 (grey). 2. **Image t+1:** Shows a later land cover state where the 1.2.1 area has transformed into a vertical strip, indicating a land cover change. A segment within this new vertical 1.2.1 strip is highlighted with a dashed outline and labelled '< 0,5 ha', signifying a change area smaller than the standard 0.5 ha MMU. 3. **N2K t0:** Represents the initial state of a Natura 2000 (N2K) polygon, mirroring 'Image t0,' with the horizontal 1.2.1 strip outlined in black to denote it as an existing N2K site. 4. **N2K t+1:** Illustrates the final mapped land cover for N2K areas after the change. The entire new vertical 1.2.1 strip, critically including the portion previously labelled '< 0,5 ha', is mapped as a continuous 1.2.1 area. This demonstrates the rule that even land cover changes smaller than the 0.5 ha Minimum Mapping Unit are mapped if they are connected to an existing CLMS Natura 2000 polygon. The original horizontal 1.2.1 area from N2K t0 is also depicted as being integrated into the new, transformed configuration, or fragmented by the change."></p>
 <figcaption>Figure 18: Area related to change within road relocation.</figcaption>
 </figure>
 </div>
-<div style="page-break-after: always;"></div>
 </section>
 </section>
 <section id="quality-assessment" class="level1" data-number="7">
@@ -2126,49 +2144,49 @@ Denmark<br>
 <table class="caption-top table">
 <caption>Table 11: LC/LU internal <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>accuracy assessment - unweighted results per product</caption>
 <colgroup>
-<col style="width: 39%">
+<col style="width: 34%">
+<col style="width: 21%">
+<col style="width: 26%">
 <col style="width: 18%">
-<col style="width: 17%">
-<col style="width: 22%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;"><strong>Thematic accuracy [%]</strong></th>
-<th style="text-align: left;"><strong>Confidence* Interval</strong></th>
-<th style="text-align: left;"><strong>No.&nbsp;of assessed sample points</strong></th>
+<th></th>
+<th><strong>Thematic accuracy [%]</strong></th>
+<th><strong>Confidence* Interval</strong></th>
+<th><strong>No.&nbsp;of assessed sample points</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">LC/LU 2012 overall unweighted accuracy</td>
-<td style="text-align: left;">96.52 %</td>
-<td style="text-align: left;">0.20 %</td>
-<td style="text-align: left;">30 203</td>
+<td>LC/LU 2012 overall unweighted accuracy</td>
+<td>96.52 %</td>
+<td>0.20 %</td>
+<td>30 203</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">LC/LU 2018 overall unweighted accuracy</td>
-<td style="text-align: left;">96.22 %</td>
-<td style="text-align: left;">0.21 %</td>
-<td style="text-align: left;">30 203</td>
+<td>LC/LU 2018 overall unweighted accuracy</td>
+<td>96.22 %</td>
+<td>0.21 %</td>
+<td>30 203</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">LC/LU change 2012-2018 overall unweighted accuracy for level 4</td>
-<td style="text-align: left;">97.85 %</td>
-<td style="text-align: left;">0.16 %</td>
-<td style="text-align: left;">29 088</td>
+<td>LC/LU change 2012-2018 overall unweighted accuracy for level 4</td>
+<td>97.85 %</td>
+<td>0.16 %</td>
+<td>29 088</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">LC/LU change 2012-2018 overall unweighted accuracy for level 1</td>
-<td style="text-align: left;">98.61 %</td>
-<td style="text-align: left;">0.13 %</td>
-<td style="text-align: left;">29 088</td>
+<td>LC/LU change 2012-2018 overall unweighted accuracy for level 1</td>
+<td>98.61 %</td>
+<td>0.13 %</td>
+<td>29 088</td>
 </tr>
 </tbody>
 </table>
@@ -2178,49 +2196,49 @@ Denmark<br>
 <table class="caption-top table">
 <caption>Table 12: LC/LU internal<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> accuracy assessment - weighted results per product</caption>
 <colgroup>
-<col style="width: 38%">
-<col style="width: 19%">
-<col style="width: 17%">
-<col style="width: 22%">
+<col style="width: 34%">
+<col style="width: 21%">
+<col style="width: 26%">
+<col style="width: 18%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;"><strong>Thematic accuracy [%]</strong></th>
-<th style="text-align: left;"><strong>Confidence* Interval</strong></th>
-<th style="text-align: left;"><strong>No.&nbsp;of assessed sample points</strong></th>
+<th></th>
+<th><strong>Thematic accuracy [%]</strong></th>
+<th><strong>Confidence* Interval</strong></th>
+<th><strong>No.&nbsp;of assessed sample points</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">LC/LU 2012 overall weighted accuracy</td>
-<td style="text-align: left;">96.80 %</td>
-<td style="text-align: left;">0.21 %</td>
-<td style="text-align: left;">30 203</td>
+<td>LC/LU 2012 overall weighted accuracy</td>
+<td>96.80 %</td>
+<td>0.21 %</td>
+<td>30 203</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">LC/LU 2018 overall weighted accuracy</td>
-<td style="text-align: left;">96.67 %</td>
-<td style="text-align: left;">0.21 %</td>
-<td style="text-align: left;">30 203</td>
+<td>LC/LU 2018 overall weighted accuracy</td>
+<td>96.67 %</td>
+<td>0.21 %</td>
+<td>30 203</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">LC/LU change 2012-2018 overall weighted accuracy for level 4</td>
-<td style="text-align: left;">98.64 %</td>
-<td style="text-align: left;">0.12 %</td>
-<td style="text-align: left;">29 088</td>
+<td>LC/LU change 2012-2018 overall weighted accuracy for level 4</td>
+<td>98.64 %</td>
+<td>0.12 %</td>
+<td>29 088</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">LC/LU change 2012-2018 overall weighted accuracy for level 1</td>
-<td style="text-align: left;">99.33 %</td>
-<td style="text-align: left;">0.08 %</td>
-<td style="text-align: left;">29 088</td>
+<td>LC/LU change 2012-2018 overall weighted accuracy for level 1</td>
+<td>99.33 %</td>
+<td>0.08 %</td>
+<td>29 088</td>
 </tr>
 </tbody>
 </table>
@@ -2617,7 +2635,6 @@ Denmark<br>
 <p>Its main goal is to inform users of the databases about quality in quantitative terms. Validation must be based on independent, very-high resolution in-situ data as reference. The date of in-situ data should coincide as much as possible with the acquisition date of satellite images used to derive the N2K product. In-situ data used in the validation should be independent, i.e.&nbsp;must not have been used in compilation of the N2K databases. Experts working on validation also should be independent, not having participated in the mapping exercise.</p>
 <p>Validation in the N2K context means thematic validation.</p>
 <p>Not yet performed at the time of writing this report.</p>
-<div style="page-break-after: always;"></div>
 </section>
 </section>
 <section id="terms-of-use-and-product-technical-support" class="level1" data-number="8">
@@ -2634,7 +2651,6 @@ Denmark<br>
 <section id="product-technical-support" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="product-technical-support"><span class="header-section-number">8.3</span> Product technical support</h2>
 <p>Product technical support is provided by the product custodian through Copernicus Land Monitoring Service helpdesk at <a href="mailto:copernicus@eea.europa.eu" class="email">copernicus@eea.europa.eu</a>. Product technical support doesn’t include software specific user support or general GIS or remote sensing support.</p>
-<div style="page-break-after: always;"></div>
 </section>
 </section>
 <section id="references" class="level1" data-number="9">
@@ -2645,7 +2661,6 @@ Denmark<br>
 <p>EEA 2019: The European environment — state and outlook 2020. Knowledge for transition to a sustainable Europe. Information available at <a href="https://www.eea.europa.eu/publications/soer-2020" class="uri">https://www.eea.europa.eu/publications/soer-2020</a></p>
 <p>ETC-ULS 2020: Contributions to building a coherent Trans-European Nature Network. Information available at <a href="https://www.eea.europa.eu/themes/biodiversity/green-infrastructure/building-a-coherent-trans-european/contributions-to-building-a-coherent/view" class="uri">https://www.eea.europa.eu/themes/biodiversity/green-infrastructure/building-a-coherent-trans-european/contributions-to-building-a-coherent/view</a></p>
 <p>EU 2013: Mapping and Assessment of Ecosystems and their Services. An analytical framework for ecosystem assessments under Action 5 of the EU Biodiversity Strategy to 2020. Information available at https://ec.europa.eu/environment/nature/knowledge/ecosystem_assessment/pdf/MAESWorkingPaper2013.pdf</p>
-<div style="page-break-after: always;"></div>
 </section>
 <section id="annexes" class="level1" data-number="10">
 <h1 data-number="10"><span class="header-section-number">10</span> Annexes</h1>
@@ -3710,6 +3725,11 @@ Denmark<br>
 <section id="change-log" class="level1" data-number="11">
 <h1 data-number="11"><span class="header-section-number">11</span> Change Log</h1>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 75%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Date</th>
@@ -3719,11 +3739,22 @@ Denmark<br>
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-06-03</td>
+<td>1.0.2</td>
+<td><ul>
+<li>Standardised YAML frontmatter formatting and reordered fields.</li>
+<li>Added explicit width attributes to numerous images for consistent rendering.</li>
+<li>Improved table formatting across various sections and added explicit column width definitions.</li>
+<li>Corrected the '`+/-`' symbol to '`±`' for consistency.</li>
+<li>Removed obsolete page breaks throughout the document.</li>
+</ul></td>
+</tr>
+<tr class="even">
 <td>2026-02-10</td>
 <td>1.0.1</td>
 <td>Document maintenance updates.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2025-12-03</td>
 <td>1.0.0</td>
 <td>Initial release</td>
@@ -3791,13 +3822,14 @@ Denmark<br>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -4143,7 +4175,7 @@ Denmark<br>
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>2025 EEA. All rights reserved.</p>
+<p>2026 EEA. All rights reserved.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
