@@ -1,6 +1,6 @@
 # Urban Atlas Land Cover/Land Use and Street Tree Layer 2012 and 2018 - Product User Manual
 
-2025-12-03
+2020-01-01
 
 - [<span class="toc-section-number">1</span> Executive
   summary](#executive-summary)

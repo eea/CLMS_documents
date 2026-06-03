@@ -6,7 +6,7 @@ This document serves as the Product User Manual (PUM) for the Copernicus Land Mo
 
 Published
 
-December 3, 2025
+August 1, 2022
 
 Keywords
 
