@@ -15,42 +15,108 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v6
 
-      - name: Get PR title
-        id: title
+      - name: Wait for all required status checks to pass
+        run: |
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          HEAD_SHA=${{ github.event.pull_request.head.sha }}
+          echo "Waiting for required status checks on PR #$PR_NUMBER (SHA: $HEAD_SHA)..."
+
+          # Guard the empty-checks race: if approval lands before any check
+          # registers, pending=0/failed=0 reads as vacuously green. This check
+          # always runs on these PRs, so require it green before merging.
+          ANCHOR_CHECK="validate_merge_origin"
+
+          MAX_WAIT=1800  # 30 min - covers a deploy-docs build finishing mid-review
+          INTERVAL=15
+          ELAPSED=0
+
+          while true; do
+            CHECKS=$(gh api \
+              "repos/${{ github.repository }}/commits/$HEAD_SHA/check-runs" \
+              --jq '[.check_runs[] | {name: .name, status: .status, conclusion: .conclusion}]')
+
+            TOTAL=$(echo   "$CHECKS" | jq 'length')
+            PENDING=$(echo "$CHECKS" | jq '[.[] | select(.status != "completed")] | length')
+            FAILED=$(echo  "$CHECKS" | jq '[.[] | select(.status == "completed" and (.conclusion != "success" and .conclusion != "skipped" and .conclusion != "neutral"))] | length')
+            ANCHOR_OK=$(echo "$CHECKS" | jq --arg n "$ANCHOR_CHECK" '[.[] | select(.name == $n and .status == "completed" and .conclusion == "success")] | length')
+
+            echo "  checks total=$TOTAL pending=$PENDING failed=$FAILED anchor_ok=$ANCHOR_OK  (elapsed=${ELAPSED}s)"
+
+            if [[ "$FAILED" -gt 0 ]]; then
+              echo "❌ One or more required checks failed — aborting merge."
+              echo "$CHECKS" | jq '.[] | select(.conclusion != "success" and .conclusion != "skipped" and .conclusion != "neutral")'
+              exit 1
+            fi
+
+            if [[ "$ANCHOR_OK" -ge 1 && "$PENDING" -eq 0 ]]; then
+              echo "✅ Anchor check '$ANCHOR_CHECK' passed and all checks completed."
+              break
+            fi
+
+            if [[ "$ANCHOR_OK" -eq 0 ]]; then
+              echo "  ⏳ Anchor check '$ANCHOR_CHECK' not yet present/successful — waiting."
+            fi
+
+            if [[ "$ELAPSED" -ge "$MAX_WAIT" ]]; then
+              echo "⏰ Timed out waiting for checks after ${MAX_WAIT}s — aborting merge."
+              exit 1
+            fi
+
+            sleep $INTERVAL
+            ELAPSED=$((ELAPSED + INTERVAL))
+          done
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get PR title and description
+        id: pr_info
         run: |
           title=$(gh pr view ${{ github.event.pull_request.number }} --json title -q .title)
-          echo "title=$title" >> $GITHUB_OUTPUT
+          # test->main: the body may carry the BREAKING CHANGE marker (major release).
+          pr_body=$(gh pr view ${{ github.event.pull_request.number }} --json body -q .body)
+          echo "title=$title" >> "$GITHUB_OUTPUT"
+          {
+            echo 'pr_body<<PR_BODY_EOF'
+            echo "$pr_body"
+            echo 'PR_BODY_EOF'
+          } >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate commit message body
         id: commit_body
         run: |
-          body=$(.github/scripts/generate_commit_message.sh ${{ github.event.pull_request.number }})
-          
-          # Save to output (use delimiter for multiline)
+          file_list=$(.github/scripts/generate_commit_message.sh ${{ github.event.pull_request.number }})
           {
             echo 'body<<EOF'
-            echo "$body"
+            echo "$file_list"
             echo 'EOF'
-          } >> $GITHUB_OUTPUT
+          } >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Auto-merge the PR
         run: |
-          # Create commit message file
-          cat > /tmp/commit_msg.txt << 'EOF'
-          ${{ steps.title.outputs.title }}
+          # develop->test: squash (title = subject, body = file list).
+          # test->main:    merge commit, --subject avoids "Merge pull request #N".
+          #                body = PR description + file list, so semantic-release sees the bump.
+          if [[ "${{ github.event.pull_request.base.ref }}" == "main" ]]; then
+            cat > /tmp/commit_msg.txt << 'EOF'
+          ${{ steps.pr_info.outputs.pr_body }}
+
+          ## Changed documents
           ${{ steps.commit_body.outputs.body }}
           EOF
-          
-          gh pr merge ${{ github.event.pull_request.number }} \
-            --squash \
-            --body "$(cat /tmp/commit_msg.txt)"
+            gh pr merge ${{ github.event.pull_request.number }} \
+              --merge \
+              --subject "${{ steps.pr_info.outputs.title }}" \
+              --body "$(cat /tmp/commit_msg.txt)"
+          else
+            gh pr merge ${{ github.event.pull_request.number }} \
+              --squash \
+              --body "${{ steps.commit_body.outputs.body }}"
+          fi
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}

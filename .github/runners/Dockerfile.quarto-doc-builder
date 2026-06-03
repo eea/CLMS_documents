@@ -1,52 +1,81 @@
-FROM debian:bookworm-slim
+FROM debian:trixie-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# apt upgrade pulls security fixes past the base-image snapshot.
+# Fonts: the OFL families the Typst template falls through to (Lato, JetBrains
+#   Mono, Carlito for Calibri, Liberation Sans for Arial, DejaVu mono).
+# python-is-python3: the workflows invoke bare `python`.
+# unzip: required by `quarto install chrome-headless-shell` (below) to extract.
+# rsync: github-pages-deploy-action shells out to it to sync the build.
+# lib* : runtime deps for chrome-headless-shell, which Quarto uses to
+#   rasterize mermaid/dot diagrams during the Typst PDF render.
+RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
     wget \
-    curl \
-    sudo \
     git \
     bash \
-    rsync \
     ca-certificates \
     python3 \
     python3-pip \
-    fonts-dejavu \
+    python-is-python3 \
+    unzip \
+    rsync \
+    fonts-dejavu-core \
+    fonts-lato \
+    fonts-jetbrains-mono \
+    fonts-crosextra-carlito \
+    fonts-liberation2 \
     coreutils \
-    procps \
-    chromium \
-    libreoffice-core \
-    libreoffice-writer \
-    libreoffice-java-common \
-    default-jre-headless
+    libnss3 libnspr4 libdbus-1-3 libglib2.0-0t64 libatk1.0-0t64 \
+    libatk-bridge2.0-0t64 libatspi2.0-0t64 libcups2t64 libdrm2 libgbm1 \
+    libxcb1 libx11-6 libxcomposite1 libxdamage1 libxext6 libxfixes3 \
+    libxrandr2 libxkbcommon0 libasound2t64 libpango-1.0-0 libcairo2 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* \
+    /usr/share/doc /usr/share/man /usr/share/locale \
+    /var/cache/* /tmp/* /var/tmp/*
 
 
-# Install Quarto CLI
+# Install Quarto CLI.
+ENV QUARTO_VERSION=1.9.37
 RUN arch=$(dpkg --print-architecture) && \
     case "$arch" in \
-      amd64)  deb=quarto-1.7.30-linux-amd64.deb ;; \
-      arm64)  deb=quarto-1.7.30-linux-arm64.deb ;; \
-      *)      echo "Unsupported architecture: $arch" && exit 1 ;; \
+    amd64)  deb=quarto-${QUARTO_VERSION}-linux-amd64.deb ;; \
+    arm64)  deb=quarto-${QUARTO_VERSION}-linux-arm64.deb ;; \
+    *)      echo "Unsupported architecture: $arch" && exit 1 ;; \
     esac && \
-    wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.7.30/$deb && \
+    wget -q https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/$deb && \
     dpkg -i $deb && \
-    rm $deb
+    rm $deb && \
+    rm -rf /usr/share/doc /usr/share/man /tmp/* /var/tmp/*
 
-# Install Node.js (for GitHub Actions written in Node)
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get install -y nodejs
+# panflute     -> inject_changelog.py filter
+# PyYAML       -> strip_unknown_frontmatter.py + the AI scripts
+# google-genai -> helpers/gemini_client.py (LLM doc annotation, 2.x; uses
+#                 files.upload(file=), see gemini_client.py)
+# tiktoken     -> token counting for the LLM rate limiter
+RUN pip install --no-cache-dir --break-system-packages \
+    panflute PyYAML google-genai==2.6.0 tiktoken==0.13.0 && \
+    python3 -m pip cache purge 2>/dev/null || true && \
+    rm -rf /root/.cache /tmp/* /var/tmp/*
 
-# Clean up apt, pip, Python, and docs
-RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    python3 -m pip cache purge && \
-    find /usr/local/lib/python3.*/ -name '__pycache__' -exec rm -r {} + && \
-    find /usr/local/lib/python3.*/ -name '*.pyc' -delete && \
-    rm -rf /root/.cache/pip /root/.cache/fontconfig && \
-    rm -rf $HF_HOME/hub/tmp-* $HF_HOME/hub/*.lock $HF_HOME/hub/models--*/blobs &&\
-    rm -rf /usr/share/doc /usr/share/man /usr/share/locale /var/cache/* /tmp/* /var/tmp/*
+
+# Pin Quarto's data dir to a fixed path so it finds chrome-headless-shell at
+# runtime regardless of $HOME. GitHub container jobs set HOME=/github/home,
+# which would otherwise hide this install and break the Typst diagram render.
+ENV XDG_DATA_HOME=/root/.local/share
+
+# Headless browser Quarto uses to rasterize mermaid/dot diagrams during the
+# Typst PDF render. Needs unzip + the lib* packages installed above.
+RUN quarto install chrome-headless-shell && \
+    rm -rf /root/.cache /tmp/* /var/tmp/*
+
+# Fail the build early if the headless browser can't actually launch (e.g. a
+# missing runtime lib): render a trivial mermaid doc to PDF.
+RUN cd /tmp && \
+    printf '```{mermaid}\nflowchart LR\n  A --> B\n```\n' > smoke.qmd && \
+    quarto render smoke.qmd --to typst -o smoke.pdf && \
+    rm -rf /tmp/smoke* /root/.cache
 
 
 # Entrypoint script

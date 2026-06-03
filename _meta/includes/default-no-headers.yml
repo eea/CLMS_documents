@@ -1,6 +1,6 @@
 documentclass: scrartcl
 toc: true # Enable the Table of Contents
-toc-title: "Index" # Customize the title of the table of contents
+toc-title: "Index"
 toc-depth: 3 # Include headings up to level 3 (###)
 number-sections: true
 sitemap: true # Enables sitemap generation for web crawlers
@@ -18,13 +18,33 @@ format:
     filters:
       - ../../.github/scripts/filters/extract-images.lua
       - ../../.github/scripts/filters/inject_contact_info.lua
-      - ../../.github/scripts/inject_changelog.py
-  docx:
-    toc-location: before-body
-    toc-pagebreak: true
-    data: false
-    reference-doc: ../_meta/theme/template-guideline.docx
+      - ../../.github/scripts/build/inject_changelog.py
+
+  # PDF output: rendered by Typst via a custom OFL-licensed template.
+  typst:
+    template-partials:
+      - _meta/theme/typst/typst-template.typ
+      - _meta/theme/typst/typst-show.typ
+    toc-title: "Table of contents"
+    section-numbering: 1.1.1
+    papersize: a4
+    margin:
+      x: 2.54cm
+      top: 2.54cm
+      bottom: 3.35cm
+    fontsize: 10pt
+    # Contact info isn't injected here for Typst - typst-template.typ renders it
+    # after the TOC so paging stays clean. No image-description filter either:
+    # PDFs are untagged so fig-alt does nothing (it goes in html alt + .llms.md).
     filters:
-      - ../../.github/scripts/filters/inject_contact_info.lua
-      - ../../.github/scripts/inject_changelog.py
-  pdf: default
+      - ../../.github/scripts/build/inject_changelog.py
+
+  # gfm writer makes the .llms.md sidecars. Descriptions are baked into the
+  # source by inject_image_descriptions.py, so no filter is needed here.
+  gfm: default
+
+format-links:
+  - html
+  - format: typst
+    text: PDF
+    icon: file-pdf

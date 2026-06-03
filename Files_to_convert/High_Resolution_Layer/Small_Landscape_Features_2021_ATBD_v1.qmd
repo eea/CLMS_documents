@@ -178,9 +178,9 @@ Each image overlapping a sample from the reference database (refer to next secti
 
 Each image to be predicted for the production phase (i.e. VHR_IMAGE_2021 full dataset) was:
 
-1. Converted from 16bits to 8bits (stretching each band between 0 and 255 from its min and max).
+  1. Converted from 16bits to 8bits (stretching each band between 0 and 255 from its min and max).
 
-2. Converted to COG format.
+  2. Converted to COG format.
 
 #### Sentinel Data
 
@@ -194,7 +194,7 @@ Here, the base frequency (ω) is set to 2π per year, enabling the model to desc
 
 #### Masks
 
-##### Forest Mask
+**Forest Mask**
 
 The Forest Mask is designed to exclude specific densely tree covered areas. 
 
@@ -206,7 +206,7 @@ A 10 m external buffer was applied to prevent wrongly detected SWF at forest bou
 
 Areas covered by Crop Mask (see below) were excluded from Forest Mask.
 
-Crop Mask
+**Crop Mask**
 
 The Crop Mask is an essential component of the workflow and was designed to exclude specific land-use classes that are indicative of agricultural activity. 
 
@@ -214,9 +214,9 @@ The mask was derived from the VLCC CTY product, a comprehensive dataset that cat
 
 All classes within the VLCC CTY product that signify agricultural usage were included in the mask. This ensured a broad and accurate representation of areas used for farming activities. The output is a binary layer crop/non-crop.
 
-##### Urban Mask
+**Urban Mask**
 
-The Urban Mask is an essential component of the workflow as it defines the extent of the STL  product. It was derived from the UA LULC 2021 product and consists of urban areas (class 1)  with the exclusion of road and railway networks connecting cities and villages. To do so, urban  areas were selected first. Subsequently, a negative buffer, set at 20m, was applied to eliminate  isolated streets. Following this, the buffering process was reversed, and an additional 50m buffer  was added to obtain the final version of the Urban Mask.
+The Urban Mask is an essential component of the workflow as it defines the extent of the STL product. It was derived from the UA LULC 2021 product and consists of urban areas (class 1) with the exclusion of road and railway networks connecting cities and villages. To do so, urban areas without including roads were selected first and converted to a raster format aligned with EEA grid. Subsequently, a dilation followed by an erosion allowed to fill-in roads areas within dense urban. Finaly, the urban mask is converted back to vector format. Illustrations below present those different steps over a subset of Vienna FUA: on top, Urban Atlas 2021 LULC layer (red: urban areas (code level 1 : “1”), grey: non-urban areas). On centre, selection of urban areas without transportation network. On bottom, final urban mask used as area of interest for STL production.
 
 #### Reference Database
 

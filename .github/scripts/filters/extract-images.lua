@@ -1,10 +1,12 @@
+-- Collects every image in the document and emits a JSON-LD ItemList of
+-- schema.org ImageObjects as an HTML <script> block (structured data for SEO).
+
 local images = {}
 
--- Extract images from the document
 function Image(el)
   local caption_text = ""
 
-  -- Extract caption correctly (works with ![Caption](image.png) syntax)
+  -- Pull the caption out of the ![Caption](image.png) inline structure.
   if el.caption and type(el.caption) == "table" then
     for _, inline in ipairs(el.caption) do
       if inline.t == "Str" then
@@ -26,13 +28,12 @@ function Image(el)
   return el
 end
 
--- Function to inject JSON-LD before the first heading or at the end
 function Pandoc(doc)
   if #images == 0 then
     return doc
   end
 
-  -- Ensure `site_url` exists; otherwise, use empty string
+  -- Resolve relative image URLs against site_url (defaults to "").
   local site_url = doc.meta.site_url or ""
   if site_url ~= "" and not site_url:match("/$") then
     site_url = site_url .. "/"
@@ -59,11 +60,10 @@ function Pandoc(doc)
     })
   end
 
-  -- Convert JSON-LD to a script tag
   local jsonld_script = pandoc.RawBlock("html", "<script type=\"application/ld+json\">\n"
     .. quarto.json.encode(jsonld_images, { pretty = true }) .. "\n</script>")
 
-  -- Inject JSON-LD **before the first <h1> or at the end**
+  -- Place the script just before the first H1, or at the end if there's no H1.
   local inserted = false
   for i, block in ipairs(doc.blocks) do
     if block.t == "Header" and block.level == 1 then
@@ -73,7 +73,6 @@ function Pandoc(doc)
     end
   end
 
-  -- If no <h1> was found, append JSON-LD at the end
   if not inserted then
     table.insert(doc.blocks, jsonld_script)
   end

@@ -35,14 +35,20 @@ def _get_api_token():
 
 
 def upload_pdf_and_get_id(pdf_path):
-    pdf_path = Path(pdf_path)
-    if not pdf_path.is_file():
+    """Upload PDF to ChatDOC API and return document ID"""
+    pdf_path = Path(pdf_path).resolve()  # Resolve to absolute path
+
+    if not pdf_path.exists():
         raise FileNotFoundError(f"PDF not found: {pdf_path}")
+
+    if not pdf_path.is_file():
+        raise FileNotFoundError(f"Path is not a file: {pdf_path}")
 
     token = _get_api_token()
     headers = {"Authorization": f"Bearer {token}"}
 
-    with pdf_path.open("rb") as f:
+    # Use string path for better Windows compatibility
+    with open(str(pdf_path), "rb") as f:
         files = {"file": (pdf_path.name, f, "application/pdf")}
         resp = requests.post(
             f"{BASE_URL}/documents/upload", headers=headers, files=files
@@ -129,7 +135,7 @@ toc-depth: 3
 #### REMOVE THE SECTION BELOW BEFORE PUBLISHING 
 format:
   html:
-    css: ../theme/styles.css
+    css: ../../theme/styles.css
     code-fold: true 
     self-contained: false
     embed-resources: true
@@ -137,7 +143,7 @@ format:
     toc-location: before-body
     toc-pagebreak: true
     data: false
-    reference-doc: ../theme/template-guideline.docx
+    reference-doc: ../../_meta/theme/template-guideline.docx
 #### 
 ---
 

@@ -1,14 +1,13 @@
 ---
-title: "Urban Atlas 2021 – Algorithm Theoretical Basis Document"
-subtitle: "Copernicus Land Monitoring Service – Priority Area Monitoring – Urban Atlas 2021 and 2024"
-date: "2026-02-05"
-version: 1.2
-
 category: products
-
+date: '2026-02-05'
+subtitle: Copernicus Land Monitoring Service – Priority Area Monitoring – Urban Atlas
+  2021 and 2024
+title: Urban Atlas 2021 – Algorithm Theoretical Basis Document
 toc: true
-toc-title: "Content"
 toc-depth: 3
+toc-title: Content
+version: 1.2
 ---
 
 # Executive summary {#sec-executive-summary}
@@ -60,7 +59,7 @@ The methodology applied to produce the Building Block Height is presented in a s
 Table 1: Overview table of methodology
 
 |Category Title|Description/Details|
-|--|--|
+|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 |Retrieval Methodology|Change Detection|
 |Input Data|Sentinel-2 (S2A, S2B), Level-2A (processing baseline 05.11), retrieved from Amazon Web ServicesVHR_IMAGE_2018 and VHR_IMAGE_2021 retrieved via ESA (European Space Agency) Data WareHouse (DWH)|
 |Ancillary Data|OSM (Open Street Map) for roads, railways, rivers, etc.,CLCplus (Corine Land Cover) for rural classes, HRL (High Resolution Layer) IMD (Imperviousness Degree), TomTom®|
@@ -72,7 +71,7 @@ Table 1: Overview table of methodology
 
 The figure below shows an overview of the workflow:
 
-![UA2021 LC/LU workflow](CLMS_UA2021_LULC_ATBD_v1-media/img-2cf3034b1d6467165bba95b2c0efb0bfb737e009.png){#fig-figure1}
+![UA2021 LC/LU workflow](CLMS_UA2021_LULC_ATBD_v1-media/img-2cf3034b1d6467165bba95b2c0efb0bfb737e009.png){width="6.27in" #fig-figure1}
 
 ## Source data
 
@@ -131,7 +130,7 @@ In the context of the labelling the accessibility of GUAs, in-situ and ancillary
 Table 2: Ancillary datasets used for the UA 2021 production
 
 |Source|Use|Reference|
-|--|--|--|
+|----------------------------------|----------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
 |OSM (Open Street Map)|Road and railway networks|[https://www.openstreetmap.org/](https://www.openstreetmap.org/)|
 |TomTom®|Green Urban Area classification|[https://www.tomtom.com/](https://www.tomtom.com/)|
 |CLCplus Backbone 2021|Rural classification for extensions|[https://land.copernicus.eu/en/products/clc-backbone](https://land.copernicus.eu/en/products/clc-backbone)|
@@ -171,7 +170,7 @@ $f(t)=\sum_{i=0}^{P}p_{i}t^{i}\;\;+\sum_{k=0}^{H}(\alpha_{k}\mathrm{sin}\left(k\
 
 in this equation, p~i~ are the coefficients of the polynomial term with order P, H is the order of the  harmonic system and α~k~ and β~k~ are the coefficients of the harmonic functions with order k. $\omega= 2π$/year is the base angular frequency of the harmonic system. The coefficients p~i~, α~k~ and β~k~ are  estimated by performing ordinary least squares fit to the signal of each pixel of the time series. <br> Cloud and atmospheric artifacts (@fig-figure2) are mitigated through a weighting scheme based on  the Sentinel-2 L2A Scene Classification Layer (SCL), in which observations with high cloud or  shadow probability are down-weighted during the modelling process. This ensures that only  high-quality observations contribute meaningfully to the fitted time series.
 
-![Number of observations for Sentinel-2 as extracted from the Sen2Cor scene classification map: <br> a: Antwerpen 2018, b: Antwerpen 2021, c: Madrid 2018, d: Madrid 2021](CLMS_UA2021_LULC_ATBD_v1-media/img-368bd0a7ba855372998b556a130d1a530b822bc1.png){#fig-figure2}
+![Number of observations for Sentinel-2 as extracted from the Sen2Cor scene classification map: <br> a: Antwerpen 2018, b: Antwerpen 2021, c: Madrid 2018, d: Madrid 2021](CLMS_UA2021_LULC_ATBD_v1-media/img-368bd0a7ba855372998b556a130d1a530b822bc1.png){width="6.27in" #fig-figure2}
 
 By focusing on NDVI time-series modelling, the approach leverages established evidence of its  effectiveness for land surface monitoring while maintaining computational efficiency and  interpretability across diverse landscape types.
 
@@ -201,7 +200,7 @@ where μ~class~ and σ~class~ are the mean and standard deviation of the RMSD wi
 
 This normalized RMSD highlights pixels where the observed change is significantly greater than  what is typical for that land cover type, allowing for a more context-aware detection of  anomalies and potential change events. In the @fig-figure3 below, an example for a detected change  in Vienna, Austria is displayed.
 
-![Example of the S2-change detection. The image shows a detected change in Vienna. <br> Upper left: Copernicus VHR Satellite image of 2018 with OSM building footprints overlay, upper  right: Copernicus VHR Satellite image of 2021 with OSM building footprints overlay, lower left:  The normalized RMSD calculation, lower right: The normalized RMSD calculation with OSM  building footprints overlay.](CLMS_UA2021_LULC_ATBD_v1-media/img-9937c1b12fadb16ec003747b2921e1c9d1b5d766.png){#fig-figure3}
+![Example of the S2-change detection. The image shows a detected change in Vienna. <br> Upper left: Copernicus VHR Satellite image of 2018 with OSM building footprints overlay, upper  right: Copernicus VHR Satellite image of 2021 with OSM building footprints overlay, lower left:  The normalized RMSD calculation, lower right: The normalized RMSD calculation with OSM  building footprints overlay.](CLMS_UA2021_LULC_ATBD_v1-media/img-9937c1b12fadb16ec003747b2921e1c9d1b5d766.png){width="6.27in" #fig-figure3}
 
 To further improve the accuracy and reliability of detected changes, the normalized RMSD layer is subsequently fused with information derived from very high resolution (VHR) imagery-based change detection, resulting in a more robust, multi-source assessment of land cover change.
 
@@ -219,7 +218,7 @@ By merging the two approaches, CLS hastested to combine the advantages of PCA th
 
 Finally, after several iterations and analysis of outputs, the methodology was adapted by giving priority to the **PCA approach**. The SFA results required a heavy and lengthy computing process, and results were not fully satisfactory, showing a high number of commission errors (@fig-figure4). 
 
-![Change detection heatmap derived from VHR data (left: VHR2018 and UA2018  product; centre: VHR2021; right: Change heatmap where changes are highlighted in yellow/red) (location: Madrid, Spain)](CLMS_UA2021_LULC_ATBD_v1-media/img-09eb2e9f24c74dfd56b196c98442d476880fe8f9.png){#fig-figure4}
+![Change detection heatmap derived from VHR data (left: VHR2018 and UA2018  product; centre: VHR2021; right: Change heatmap where changes are highlighted in yellow/red) (location: Madrid, Spain)](CLMS_UA2021_LULC_ATBD_v1-media/img-09eb2e9f24c74dfd56b196c98442d476880fe8f9.png){width="6.27in" #fig-figure4}
 
 #### Production of change candidate layer
 
@@ -227,7 +226,7 @@ After obtaining the heatmaps derived from S2 data and those derived from VHR dat
 
 A CLC change layer is extracted and applied to the S2 change candidates, retaining only the  changes identified by both the CLC and S2 layers, while small elements are removed based on  the defined MMU. On the VHR side, changes are preserved only in urban areas and where they  overlap with the CLC/S2 layer—meaning that, in the end, only VHR-detected changes within the  S2 and CLC change areas are kept. The methodology is illustrated in @fig-figure5 below:
 
-![Methodology of Change Detection for UA2021](CLMS_UA2021_LULC_ATBD_v1-media/img-2af73a172321d5fb216bb889eb5ec30e77f5b4ae.png){#fig-figure5}
+![Methodology of Change Detection for UA2021](CLMS_UA2021_LULC_ATBD_v1-media/img-2af73a172321d5fb216bb889eb5ec30e77f5b4ae.png){width="4.89in" #fig-figure5}
 
 Starting with the two change detection heat maps, the next steps consist of:
 
@@ -255,7 +254,7 @@ Exceptions can be considered in two cases:
 
 - To maintain continuity of linear structures, they can be mapped smaller than 10 m over  a distance up to 50 m (see figure below).
 
-![Exception rule for the minimum mapping width](CLMS_UA2021_LULC_ATBD_v1-media/img-834e715dc033114faa122e89cdc459db3bf039c3.png){#fig-figure6}
+![Exception rule for the minimum mapping width](CLMS_UA2021_LULC_ATBD_v1-media/img-834e715dc033114faa122e89cdc459db3bf039c3.png){width="6.27in" #fig-figure6}
 
 Priority mapping rules for areas smaller than the MMU are used:
 
@@ -355,14 +354,14 @@ Each subsequent step may overwrite an existing classification. Polygons remain u
 
 @fig-figure7 shows the result of the labelling process and the final classification of GUAs into public (blue), private (red) and unknown (purple) in the FUA of Iasi, Romania. Additionally, it also shows class 14200 - recreational and sport areas (green).
 
-![Examples of the public, private and unknown classes in Iasi, Romania. For  completeness, the figure also includes class 14200 - recreational and sport areas](CLMS_UA2021_LULC_ATBD_v1-media/img-04ba10b31f195e99675e225dd2792a5419e40b8c.png){#fig-figure7}
+![Examples of the public, private and unknown classes in Iasi, Romania. For  completeness, the figure also includes class 14200 - recreational and sport areas](CLMS_UA2021_LULC_ATBD_v1-media/img-04ba10b31f195e99675e225dd2792a5419e40b8c.png){width="6.27in" #fig-figure7}
 
 Table 3 shows the number of private/public and unknown occurrences of selected FUAs.
 
 Table 3: Number of private/public and unknown occurrences of selected FUAs of one delivery batch
 
 |Site|Name|Ref year|Private|Public|Unknown|
-|--|--|--|--|--|--|
+|--------------------------------------|--------------------------------------------------------|-------------------------|---------------------------|---------------------------|----------------------------|
 |al004l1|Shkoder|2021|0|69|24|
 |ba004l1|Tuzla|2021|0|90|28|
 |bg001l2|Sofia|2021|1|685|206|
@@ -502,7 +501,7 @@ Additionally, a series of topological rules reflecting the relationships between
 Table 4: Quality Assurance: topological rules
 
 |Feature|Rule|Notes|
-|--|--|--|
+|------------------------------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 |Area|Must not overlap|Requires that the interior of polygons in the Feature Class not overlap at the same scale. The polygons can share edges or vertices|
 |Area|Must not have gaps|No voids within a single polygon or between adjacent polygons. All polygons must form a continuous surface. Guarantee full land cover|
 
@@ -586,7 +585,7 @@ This criterion will target omitted change by focusing the selection of samples t
 Table 5: Share of samples to be interpreted
 
 |Criterion selection|Share of samples to be interpreted|
-|--|--|
+|-----------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
 |Discrepancy between UA 2021 product and UA2018 reference data|67%|
 |Agreement between UA2021 product and UA2018 reference and included in a 200m buffer around urban classes|11%|
 |Agreement between UA2021 product and UA2018 reference and located in a construction site in 2018|11%|
@@ -710,7 +709,7 @@ More information on the products can be found on the Copernicus Land Monitoring 
 # List of abbreviations & acronyms
 
 |Abbreviation|Name|Reference|
-|--|--|--|
+|---------------------------------------|--------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
 |AOI|Area of Interest|[Wikipedia](https://en.wikipedia.org/wiki/Area_of_interest)|
 |API|Application Programming Interface|[Wikipedia](https://en.wikipedia.org/wiki/API)|
 |ATBD|Algorithm Theoretical Basis Document||
@@ -875,7 +874,7 @@ A decision matric below illustrate the rules followed to apply LC/LU nomenclatur
 Table 6: UA LC/LU nomenclature (in bold, classes used in the products, without any further subdivision)
 
 |UA No.|Code|Nomenclature|Additional Information|
-|--|--|--|--|
+|-----------------------------------------|-----------------------------------|--------------------------------------------------------------------------|--------------------------------------------------|
 |1||Artificial surfaces||
 |1.1||Urban Fabric||
 |**1.1.1**|**11100**|**Continuous urban fabric (S.L. : > 80%)**|HRL IMD required|
@@ -921,11 +920,11 @@ Table 6: UA LC/LU nomenclature (in bold, classes used in the products, without a
 # Document history
 
 |Version|Date|Short description of changes|
-|--|--|--|
+|---------------------------------------|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------|
 |1.2|05.02.2026|Initial published version|
 
 # Applicable documents
 
 |Version|Applicable document|
-|--|--|
+|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 |AD-1|Urban Atlas 2021 – Product User Manual (PUM)|

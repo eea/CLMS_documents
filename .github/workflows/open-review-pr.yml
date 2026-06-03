@@ -1,0 +1,114 @@
+name: Open Pre-Release Review PR
+
+# Opens a develop -> test PR (manual, from the Actions tab). Run after
+# deploy-docs has finished on develop, or the PR misses the latest cache commits.
+#
+# Title uses chore(docs): on purpose - chore is a no-bump type, so this PR
+# can't drive a semantic-release bump (bumps happen at the test->main step).
+# If you edit the title, keep a non-bump prefix (chore/docs/style/refactor),
+# not feat: or fix:.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  open_pr:
+    name: Open develop -> test PR
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Guard — ensure deploy-docs is not still running on develop
+        run: |
+          echo "Checking whether deploy-docs is currently running on develop..."
+          running=$(gh run list \
+            --workflow="deploy-docs.yml" \
+            --branch=develop \
+            --status=in_progress \
+            --json databaseId \
+            --jq 'length')
+          if [[ "$running" -gt 0 ]]; then
+            echo "⚠️  'Build and Deploy Documentation' is still running on develop."
+            echo "   Wait for it to finish before opening a review PR."
+            exit 1
+          fi
+          echo "✅ No active deploy-docs run on develop."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check for existing PR
+        id: check
+        run: |
+          existing=$(gh pr list \
+            --base test \
+            --head develop \
+            --state open \
+            --json number,url \
+            --jq '.[0]')
+
+          if [[ -n "$existing" ]]; then
+            url=$(echo "$existing" | jq -r '.url')
+            number=$(echo "$existing" | jq -r '.number')
+            {
+              echo "exists=true"
+              echo "url=$url"
+              echo "number=$number"
+            } >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Report existing PR
+        if: steps.check.outputs.exists == 'true'
+        run: |
+          echo "✅ A review PR already exists: ${{ steps.check.outputs.url }}"
+          echo "   Nothing to do — go approve PR #${{ steps.check.outputs.number }} when you're ready."
+
+      - name: Check develop is ahead of test
+        if: steps.check.outputs.exists == 'false'
+        id: diff_check
+        run: |
+          git fetch origin develop test
+          ahead=$(git rev-list --count origin/test..origin/develop)
+          echo "ahead=$ahead" >> "$GITHUB_OUTPUT"
+          echo "develop is $ahead commit(s) ahead of test"
+
+      - name: Abort if nothing to review
+        if: steps.check.outputs.exists == 'false' && steps.diff_check.outputs.ahead == '0'
+        run: |
+          echo "⚠️  develop has no new commits ahead of test. Nothing to review."
+          exit 1
+
+      - name: Open PR
+        if: steps.check.outputs.exists == 'false' && steps.diff_check.outputs.ahead != '0'
+        run: |
+          today=$(date +%Y-%m-%d)
+          title="chore(docs): pre-release batch ${today}"
+          body=$(printf '%s\n' \
+            '## Pre-release review' \
+            '' \
+            "develop -> test for review before the next release (${today})." \
+            '' \
+            '- Review the diff below.' \
+            '- Approve to auto-merge.' \
+            '- After merge, docs build + deploy to the **test** environment.' \
+            '' \
+            '_Title prefix: keep a non-bump conventional-commit type (chore / docs / style / refactor)._' \
+            '_The bump for the release itself is decided at the test -> main step._')
+          url=$(gh pr create \
+            --base test \
+            --head develop \
+            --title "$title" \
+            --body "$body")
+          echo "🚀 Review PR opened: $url"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
