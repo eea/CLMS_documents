@@ -99,8 +99,10 @@ python3 ../.github/scripts/build/generate_index_all.py
 step "[5/6] Rendering index.qmd files..."
 mv _quarto.yml _quarto_not_used.yml
 mv _quarto-index.yml _quarto.yml
+# Serial (-P1): parallel renders raced on shared _site files (sitemap/search/
+# listings) and intermittently failed the whole build with xargs exit 123.
 find ./ -type f -name index.qmd -print0 | \
-  xargs -0 -P4 -I{} \
+  xargs -0 -P1 -I{} \
   bash -c 'quarto render "$1" --profile index --to html --no-clean --quiet 2>&1 | grep -v -e "Unknown meta key .* specified in a metadata Shortcode" -e "^Output created:"; exit ${PIPESTATUS[0]}' _ {}
 mv _quarto.yml _quarto-index.yml
 cp _quarto_not_used.yml _quarto.yml && rm _quarto_not_used.yml
