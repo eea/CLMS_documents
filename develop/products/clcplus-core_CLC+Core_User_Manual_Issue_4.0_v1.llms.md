@@ -37,8 +37,8 @@ Content ID: /
 |----|----|
 | Project Title | CLC+ Core production and provision of complementary consultancy services |
 | Document Author | Thomas Mathis (Cloudflight), Tanja Gasber (GeoVille), Amelie Lindmayer (GAF) |
-| Project Owner | Tobias Langanke (EEA) |
-| Project Manager | Tobias Langanke (EEA) |
+| Project Owner | Massimiliano Rossi (EEA) |
+| Project Manager | Massimiliano Rossi (EEA) |
 | Document Code | / |
 | Document Version | Issue 4.0 |
 | Distribution |  |
