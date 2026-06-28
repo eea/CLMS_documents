@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+import panflute as pf
+# Monkeypatch RAW_FORMATS to bypass strict obsolete panflute validators
+pf.elements.RAW_FORMATS.add('typst')
+pf.elements.RAW_FORMATS.add('pdf')
+
 import os
 import json
 import sys
