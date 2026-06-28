@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2020-08-16">
+<meta name="keywords" content="Lake Surface Water Temperature, Sentinel-3 SLSTR, AATSR instrument, Optimal Estimation, inland water bodies, 10-day composite, 1/120 degree spatial resolution, water detection algorithm, LSWT uncertainty, global lake monitoring">
+<meta name="description" content="This Product User Manual offers a comprehensive guide to the Copernicus Global Land Service’s Lake Surface Water Temperature (LSWT) products, encompassing historical, reprocessed, and Near Real Time datasets. It details the 10-day aggregated LSWT for approximately 1000 global inland water bodies, delivered at 1/120° spatial resolution. The document elucidates the Optimal Estimation retrieval algorithm, adapted for lakes and utilising AATSR and SLSTR satellite data. It further specifies data formats, content, and highlights product characteristics, validation results, and inherent limitations, crucial for environmental monitoring and climate research.">
+
+<title>PRODUCT USER MANUAL LAKE SURFACE WATER TEMPERATURE 1KM PRODUCTS – Technical Library</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3e4b792c78aaba79123027d3b782d07b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "Search ...",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "PRODUCT USER MANUAL LAKE SURFACE WATER TEMPERATURE 1KM PRODUCTS",
+    "description": "This Product User Manual offers a comprehensive guide to the Copernicus Global Land Service’s Lake Surface Water Temperature (LSWT) products, encompassing historical, reprocessed, and Near Real Time datasets. It details the 10-day aggregated LSWT for approximately 1000 global inland water bodies, delivered at 1/120° spatial resolution. The document elucidates the Optimal Estimation retrieval algorithm, adapted for lakes and utilising AATSR and SLSTR satellite data. It further specifies data formats, content, and highlights product characteristics, validation results, and inherent limitations, crucial for environmental monitoring and climate research.",
+    "datePublished": "August 16, 2020",
+    "author": {
+      "@type": "Person",
+      "name": "?meta:author"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Copernicus Land Monitoring Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
+      }
+    },
+    "keywords": "Lake Surface Water Temperature
+
+Sentinel-3 SLSTR
+
+AATSR instrument
+
+Optimal Estimation
+
+inland water bodies
+
+10-day composite
+
+1/120 degree spatial resolution
+
+water detection algorithm
+
+LSWT uncertainty
+
+global lake monitoring
+",
+    "articleSection": "General",
+    "isAccessibleForFree": "true",
+    "license": "",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": "article p"
+    }
+  }
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../_meta/theme/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Technical Library</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Index</h2>
+   
+  <ul>
+  <li><a href="#change-record" id="toc-change-record" class="nav-link active" data-scroll-target="#change-record"><span class="header-section-number">1</span> Change Record</a></li>
+  <li><a href="#acronyms" id="toc-acronyms" class="nav-link" data-scroll-target="#acronyms"><span class="header-section-number">2</span> Acronyms</a></li>
+  <li><a href="#general-definitions" id="toc-general-definitions" class="nav-link" data-scroll-target="#general-definitions"><span class="header-section-number">3</span> General definitions</a></li>
+  <li><a href="#background-of-the-document" id="toc-background-of-the-document" class="nav-link" data-scroll-target="#background-of-the-document"><span class="header-section-number">4</span> Background of the document</a>
+  <ul class="collapse">
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link" data-scroll-target="#executive-summary"><span class="header-section-number">4.1</span> Executive summary</a></li>
+  <li><a href="#scope-and-objectives" id="toc-scope-and-objectives" class="nav-link" data-scroll-target="#scope-and-objectives"><span class="header-section-number">4.2</span> Scope and objectives</a></li>
+  <li><a href="#content-of-the-document" id="toc-content-of-the-document" class="nav-link" data-scroll-target="#content-of-the-document"><span class="header-section-number">4.3</span> Content of the document</a></li>
+  <li><a href="#related-documents" id="toc-related-documents" class="nav-link" data-scroll-target="#related-documents"><span class="header-section-number">4.4</span> Related documents</a>
+  <ul class="collapse">
+  <li><a href="#applicable-documents" id="toc-applicable-documents" class="nav-link" data-scroll-target="#applicable-documents"><span class="header-section-number">4.4.1</span> Applicable documents</a></li>
+  <li><a href="#input" id="toc-input" class="nav-link" data-scroll-target="#input"><span class="header-section-number">4.4.2</span> Input</a></li>
+  <li><a href="#external-documents" id="toc-external-documents" class="nav-link" data-scroll-target="#external-documents"><span class="header-section-number">4.4.3</span> External documents</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#review-of-user-requirements" id="toc-review-of-user-requirements" class="nav-link" data-scroll-target="#review-of-user-requirements"><span class="header-section-number">5</span> Review of user requirements</a></li>
+  <li><a href="#algorithm" id="toc-algorithm" class="nav-link" data-scroll-target="#algorithm"><span class="header-section-number">6</span> Algorithm</a>
+  <ul class="collapse">
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">6.1</span> Overview</a>
+  <ul class="collapse">
+  <li><a href="#lake-surface-water-temperature-retrieval" id="toc-lake-surface-water-temperature-retrieval" class="nav-link" data-scroll-target="#lake-surface-water-temperature-retrieval"><span class="header-section-number">6.1.1</span> Lake Surface Water Temperature retrieval</a></li>
+  <li><a href="#lake-specific-inputs-to-radiative-transfer-modelling-simulation" id="toc-lake-specific-inputs-to-radiative-transfer-modelling-simulation" class="nav-link" data-scroll-target="#lake-specific-inputs-to-radiative-transfer-modelling-simulation"><span class="header-section-number">6.1.2</span> Lake-specific inputs to radiative transfer modelling (simulation)</a></li>
+  <li><a href="#classification" id="toc-classification" class="nav-link" data-scroll-target="#classification"><span class="header-section-number">6.1.3</span> Classification</a></li>
+  <li><a href="#gridding" id="toc-gridding" class="nav-link" data-scroll-target="#gridding"><span class="header-section-number">6.1.4</span> Gridding</a></li>
+  <li><a href="#temporal-aggregation" id="toc-temporal-aggregation" class="nav-link" data-scroll-target="#temporal-aggregation"><span class="header-section-number">6.1.5</span> Temporal aggregation</a></li>
+  </ul></li>
+  <li><a href="#limitations-of-the-product" id="toc-limitations-of-the-product" class="nav-link" data-scroll-target="#limitations-of-the-product"><span class="header-section-number">6.2</span> Limitations of the product</a></li>
+  </ul></li>
+  <li><a href="#product-description" id="toc-product-description" class="nav-link" data-scroll-target="#product-description"><span class="header-section-number">7</span> Product description</a>
+  <ul class="collapse">
+  <li><a href="#the-c-glops-products" id="toc-the-c-glops-products" class="nav-link" data-scroll-target="#the-c-glops-products"><span class="header-section-number">7.1</span> The C-GLOPS products</a></li>
+  <li><a href="#file-naming" id="toc-file-naming" class="nav-link" data-scroll-target="#file-naming"><span class="header-section-number">7.2</span> File naming</a></li>
+  <li><a href="#file-format" id="toc-file-format" class="nav-link" data-scroll-target="#file-format"><span class="header-section-number">7.3</span> File format</a></li>
+  <li><a href="#product-content" id="toc-product-content" class="nav-link" data-scroll-target="#product-content"><span class="header-section-number">7.4</span> Product content</a>
+  <ul class="collapse">
+  <li><a href="#data-file" id="toc-data-file" class="nav-link" data-scroll-target="#data-file"><span class="header-section-number">7.4.1</span> Data file</a></li>
+  </ul></li>
+  <li><a href="#product-characteristics" id="toc-product-characteristics" class="nav-link" data-scroll-target="#product-characteristics"><span class="header-section-number">7.5</span> Product characteristics</a>
+  <ul class="collapse">
+  <li><a href="#projection-and-grid-information" id="toc-projection-and-grid-information" class="nav-link" data-scroll-target="#projection-and-grid-information"><span class="header-section-number">7.5.1</span> Projection and grid information</a></li>
+  <li><a href="#spatial-information" id="toc-spatial-information" class="nav-link" data-scroll-target="#spatial-information"><span class="header-section-number">7.5.2</span> Spatial information</a></li>
+  <li><a href="#temporal-information" id="toc-temporal-information" class="nav-link" data-scroll-target="#temporal-information"><span class="header-section-number">7.5.3</span> Temporal information</a></li>
+  <li><a href="#data-policies" id="toc-data-policies" class="nav-link" data-scroll-target="#data-policies"><span class="header-section-number">7.5.4</span> Data policies</a></li>
+  <li><a href="#contacts" id="toc-contacts" class="nav-link" data-scroll-target="#contacts"><span class="header-section-number">7.5.5</span> Contacts</a></li>
+  <li><a href="#sample-product" id="toc-sample-product" class="nav-link" data-scroll-target="#sample-product"><span class="header-section-number">7.5.6</span> Sample product</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#validation" id="toc-validation" class="nav-link" data-scroll-target="#validation"><span class="header-section-number">8</span> Validation</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9</span> References</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="products_Product_user_manual_-_Lake_Surface_Water_Temperature_version_1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Add Version to the title's metadata
+    //
+    const titleMetaEl = document.querySelector(".quarto-title-meta");
+    const wrapperDiv = document.createElement("div");
+    wrapperDiv.innerHTML = `
+        <div class="quarto-title-meta-heading">Version</div>
+        <div class="quarto-title-meta-contents">
+          <p>VERSION 1.0.1, 1.0.2, 1.1.0 ISSUE 11.09</p>
+        </div>
+      `;
+    titleMetaEl.appendChild(wrapperDiv);
+  });
+</script>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PRODUCT USER MANUAL LAKE SURFACE WATER TEMPERATURE 1KM PRODUCTS</h1>
+<p class="subtitle lead">Copernicus Global Land Operations Cryosphere and Water C-GLOPS2 Framework Service Contract N 199496 (JRC)</p>
+</div>
+
+<div>
+  <div class="description">
+    This Product User Manual offers a comprehensive guide to the Copernicus Global Land Service’s Lake Surface Water Temperature (LSWT) products, encompassing historical, reprocessed, and Near Real Time datasets. It details the 10-day aggregated LSWT for approximately 1000 global inland water bodies, delivered at 1/120° spatial resolution. The document elucidates the Optimal Estimation retrieval algorithm, adapted for lakes and utilising AATSR and SLSTR satellite data. It further specifies data formats, content, and highlights product characteristics, validation results, and inherent limitations, crucial for environmental monitoring and climate research.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 16, 2020</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>Lake Surface Water Temperature, Sentinel-3 SLSTR, AATSR instrument, Optimal Estimation, inland water bodies, 10-day composite, 1/120 degree spatial resolution, water detection algorithm, LSWT uncertainty, global lake monitoring</p>
+  </div>
+</div>
+
+</header>
+
+
+<p><br>
+<strong>Contact:</strong></p>
+<div data-custom-style="LeftAlign">
+<p>European Environment Agency (EEA)<br>
+Kongens Nytorv 6<br>
+1050 Copenhagen K<br>
+Denmark<br>
+<a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
+</div>
+<div class="tbl-caption">
+<p>Dissemination Level</p>
+</div>
+<div class="tbl-caption">
+<p>Document Release Sheet</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 85%">
+<col style="width: 6%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>PU</td>
+<td>Public</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>PP</td>
+<td>Restricted to other programme participants (including the Commission Services)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>RE</td>
+<td>Restricted to a group specified by the consortium (including the Commission Services)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>CO</td>
+<td>Confidential, only for members of the consortium (including the Commission Services)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>Book Captain:</td>
+<td>Laura Carrea (University of Reading)</td>
+<td>Sign</td>
+</tr>
+<tr class="even">
+<td>Approval:</td>
+<td></td>
+<td>Sign</td>
+</tr>
+<tr class="odd">
+<td>Endorsement:</td>
+<td></td>
+<td>Sign</td>
+</tr>
+<tr class="even">
+<td>Distribution:</td>
+<td>Public</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"","url":"products_Product_user_manual_-_Lake_Surface_Water_Temperature_version_1-media/img-e4230d4ebc1b1bc3507a14d9c3b44904.png"},{"@type":"ImageObject","caption":"Figure  2:  LSWT,  uncertainty  and  number  of  observations  for  lakes  Malawi,  Malombe,  Chiuta  and  Chilwa  in  Malawi  for  the  10-day  period  starting  on  the  11-Jun-2018  using  SLSTR-A  data.","url":"products_Product_user_manual_-_Lake_Surface_Water_Temperature_version_1-media/img-bf888966e58a378df19d4f7bba3c6528.png"},{"@type":"ImageObject","caption":"Figure  3:  Standard  deviation  of  the  observations,  quality  levels  and  observation  time  for  lakes  Malawi,  Malombe,  Chiuta  and  Chilwa  in  Malawi  for  the  10-day  period  starting  on  the  11-Jun-2018  using  SLSTR-A  data.","url":"products_Product_user_manual_-_Lake_Surface_Water_Temperature_version_1-media/img-eb22e0ed56791f309b95790efde05efb.png"},{"@type":"ImageObject","caption":"Figure  4:  LSWT,  uncertainty  and  number  of  observations  for  a  glacial  lake  in  Greenland  (centre  lat=65.087,  lon=-50.040,  maximum  distance  from  land  =  1.8  km)  for  the  10-day  period  starting  on  the  21-Jul-2020  using  SLSTR-AB  data.","url":"products_Product_user_manual_-_Lake_Surface_Water_Temperature_version_1-media/img-96ea0ecaa58bdd82a6fcda2aad489d05.png"},{"@type":"ImageObject","caption":"Figure  5:  Standard  deviation  of  the  observations,  quality  levels  and  observation  time  for  a  glacial  lake  in  Greenland  (centre  lat=65.087,  lon=-50.040,  maximum  distance  from  land  =  1.8  km)  for  the  10-day  period  starting  on  the  21-Jul-2020  using  SLSTR-AB  data.","url":"products_Product_user_manual_-_Lake_Surface_Water_Temperature_version_1-media/img-73f2564ddaa618095c9297a95a5bf1ce.png"}]}
+</script>
+<section id="change-record" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Change Record</h1>
+<div class="tbl-caption">
+<p>Change Record</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 19%">
+<col style="width: 12%">
+<col style="width: 44%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Issue/Rev</th>
+<th>Date</th>
+<th>Page(s)</th>
+<th>Description of Change</th>
+<th>Release</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>I1.01:</td>
+<td>26.06.2018</td>
+<td>18</td>
+<td>First Version for PUM Lake Surface Water Temperature products Version 1.1.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>I1.02:</td>
+<td>09.11.2017</td>
+<td>18</td>
+<td>Internal review</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>I1.03:</td>
+<td>27.06.2018</td>
+<td>21</td>
+<td>Internal review</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>I1.04:</td>
+<td>26.06.2018</td>
+<td>21</td>
+<td>Internal review</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>I1.05:</td>
+<td>22.03.2019</td>
+<td>21</td>
+<td>Corrections according to Review 4</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>I1.06:</td>
+<td>22.05.2019</td>
+<td>20</td>
+<td>Final minor corrections according to Review 4</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>I1.07:</td>
+<td>30.11.2019</td>
+<td>20</td>
+<td>Inclusion of the validation of the LSWT product from Sentinel-3A SLSTR instrument. Update of the C-GLOPS website link at the University of Reading. Introduction of SLSTR-A LSWT v1.0.2 for reprocessed data.</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>I1.08:</td>
+<td>22.04.2020</td>
+<td>20</td>
+<td>Inclusion of the LSWT product from Sentinel-3A and Sentinel-3B SLSTR instruments.</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>I1.09:</td>
+<td>15.08.2020</td>
+<td>22</td>
+<td>Inclusion of the LSWT product from Sentinel-3A and Sentinel-3B SLSTR instruments and the reprocessed SLSTR-A LSWT product.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="acronyms" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Acronyms</h1>
+<p><strong>AATRS</strong> Advanced Along-Track Scanning Radiometer.</p>
+<p><strong>ARC</strong> ATSR Reprocessing for Climate.</p>
+<p><strong>ATBD</strong> Algorithm Theoretical Basis Document.</p>
+<p><strong>BT</strong> Brightness Temperature.</p>
+<p><strong>C-GLOPS</strong> Copernicus Global Land Operations.</p>
+<p><strong>CCI</strong> Climate Change Initiative.</p>
+<p><strong>ECV</strong> Essential Climate Variable.</p>
+<p><strong>ESA</strong> European Space Agency.</p>
+<p><strong>GHRSST</strong> Group for High Resolution SST.</p>
+<p><strong>GLWD</strong> Global Lakes and Wetlands Database.</p>
+<p><strong>LSWT</strong> Lake Surface Water Temperature.</p>
+<p><strong>MAP</strong> Maximum Aposteriori Probability.</p>
+<p><strong>MERIS</strong> MEdium Resolution Imaging Spectometer.</p>
+<p><strong>NIR</strong> Near-InfraRed.</p>
+<p><strong>NRT</strong> Near Real Time.</p>
+<p><strong>NWP</strong> Numerical Weather Prediction.</p>
+<p><strong>OE</strong> Optimal Estimation.</p>
+<p><strong>PML</strong> Plymouth Marine Laboratory.</p>
+<p><strong>PUM</strong> Product User Manual.</p>
+<p><strong>QAR</strong> Quality Assessment Report.</p>
+<p><strong>RTM</strong> Radiative Transfer Model.</p>
+<p><strong>SLSTR</strong> Sea and Land Surface Temperature Radiometer.</p>
+<p><strong>SLSTRA</strong> Sentinel-3A Sea and Land Surface Temperature Radiometer.</p>
+<p><strong>SST</strong> Sea Surface Tempertaure.</p>
+<p><strong>SWIR</strong> Short-Wave-InfraRed.</p>
+<p><strong>TCWV</strong> Total Column Water Vapour.</p>
+<p><strong>VIS</strong> Visible.</p>
+<p><strong>WGS84</strong> World Geodetic System 1984.</p>
+</section>
+<section id="general-definitions" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> General definitions</h1>
+<ul>
+<li><p><strong>L2P</strong> Geophysical variables derived from Level 1 source data on the Level 1 grid (typically the satellite swath projection). Ancillary data and metadata added following the Group for High Resolution SST (GHRSST) Data Specification.</p></li>
+<li><p><strong>L3U</strong> L2 data granules remapped to a regular latitude/longitude grid without combining observations from multiple source files. L3U files will typically be sparse, corresponding to a single satellite orbit.</p></li>
+<li><p><strong>L3C</strong> LSWT observations from a single instrument combined into a space-time grid. In this project, a typical L3C file may contain all the observations from a single instrument in a 24-hour period.</p></li>
+</ul>
+</section>
+<section id="background-of-the-document" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Background of the document</h1>
+<section id="executive-summary" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="executive-summary"><span class="header-section-number">4.1</span> Executive summary</h2>
+<p>The C-GLOPS Lake Water provides an optical and thermal characterization of nominally 1000 inland water bodies (listed in the Algorithm Theoretical Basis Document (ATBD)) that belong to the world’s largest (according to the Global Lakes and Wetlands Database Global Lakes and Wetlands Database (GLWD)) or are otherwise of specific environmental monitoring interest. The products contain four sets of parameters: lake water surface temperature, lake water reflectance (all wavebands that are available after atmospheric correction), turbidity (derived from suspended solids concentration estimates) and a trophic state index (derived from phytoplankton biomass by proxy of chlorophyll-a). Production and delivery of the parameters are over 10-day intervals on a set grid (starting the 1st, 11th and 21st day of each month) and mapped to a common global grid at either nominally 300m (~0.0026°) or 1000m (~0.01°) resolution.</p>
+<p>This Product User Manual (PUM) describes the LSWT products based on observations in the visible and infrared by the Advanced Along-Track Scanning Radiometer (AATSR) instrument on Envisat and by the SLSTR-A and Sentinel-3B Sea and Land Surface Temperature Radiometer (SLSTR-A) instruments on Sentinel-3A and Sentinel-3B. Table 1 summarises the C-GLOPS products.</p>
+<div class="tbl-caption">
+<p>Table 1: C-GLOPS LSWT products.</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 17%">
+<col style="width: 26%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sensor</th>
+<th>version</th>
+<th>type</th>
+<th>period covered</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AATSR</td>
+<td>v1.0.2</td>
+<td>historical</td>
+<td>11-May-2002 to 01-Apr-2012</td>
+</tr>
+<tr class="even">
+<td>SLSTR-A</td>
+<td>v1.0.1</td>
+<td>Near Real Time (NRT)</td>
+<td>10-Apr-2018 to 20-Aug-2020</td>
+</tr>
+<tr class="odd">
+<td>SLSTR-A</td>
+<td>v1.0.2</td>
+<td>reprocessed</td>
+<td>01-Jun-2016 to 30-Apr-2020</td>
+</tr>
+<tr class="even">
+<td>SLSTR-A + SLSTR-A</td>
+<td>v1.1.0</td>
+<td>NRT</td>
+<td>21-Aug-2020 to current</td>
+</tr>
+</tbody>
+</table>
+<p>It also summarizes the validation results of the AATSR C-GLOPS product carried out through comparison with in-situ measurements. The validation of SLSTR-A is performed with a comparison with in-situ measurements for data until the end of 2018. For the NRT LSWT product from SLSTR-A/B a validity check is performed with a comparison with the climatology routinely. This document also summarises the assessment of the reprocessed SLSTR-A LSWT product and the assessment of the new SLSTR-AB C-GLOPS LSWT product reported in details in the Quality Assessment Report (QAR) and in the ATBD.</p>
+</section>
+<section id="scope-and-objectives" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="scope-and-objectives"><span class="header-section-number">4.2</span> Scope and objectives</h2>
+<p>This document provides an overview on the products provided within the Lake Surface Water Temperature Service. The products follow the specification (CGLOPS2-SSD) of the Global Component of the Copernicus Land Service. The Sea and Land Surface Temperature Radiometer (SLSTR) product is both operationally generated and reprocessed while the AATSR product is a reprocessing of the full archive. They are delivered freely through the Copernicus Global Land portal (http://land.copernicus.vgt.vito.be). The main aim of the document is to help users in selecting the data products they require, understanding features and limitations and to then enable them to read and use the data. A summary of how the data were produced is also included.</p>
+</section>
+<section id="content-of-the-document" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="content-of-the-document"><span class="header-section-number">4.3</span> Content of the document</h2>
+<p>This document is structured as follows:</p>
+<ul>
+<li><p>Chapter 2 recalls the users requirements, and the expected performance</p></li>
+<li><p>Chapter 3 review the retrieval methodology</p></li>
+<li><p>Chapter 4 describes the technical properties of the product</p></li>
+<li><p>Chapter 5 summarizes the results of the quality assessment</p></li>
+</ul>
+</section>
+<section id="related-documents" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="related-documents"><span class="header-section-number">4.4</span> Related documents</h2>
+<section id="applicable-documents" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="applicable-documents"><span class="header-section-number">4.4.1</span> Applicable documents</h3>
+<p>AD1: Annex I Technical Specifications JRC/IPR/2015/H.5/0026/OC to Contract Notice 2015/S 151-277962 of 7th August 2015</p>
+<p>AD2: Appendix 1 Copernicus Global land Component Product and Service Detailed Technical requirements to Technical Annex to Contract Notice 2015/S 151-277962 of 7th August 2015</p>
+</section>
+<section id="input" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="input"><span class="header-section-number">4.4.2</span> Input</h3>
+<p>The inputs are:</p>
+<ul>
+<li><p>the Service Specifications of the Global Component of the Copernicus Land Service with document ID CGLOPS2_SSD</p></li>
+<li><p>the Algorithm Theoretical Basis Document of the Lake Surface Water Temperature</p></li>
+<li><p>the report describing the results of the scientific quality assessment of the Lake Surface Water Temperature</p></li>
+</ul>
+</section>
+<section id="external-documents" class="level3" data-number="4.4.3">
+<h3 data-number="4.4.3" class="anchored" data-anchor-id="external-documents"><span class="header-section-number">4.4.3</span> External documents</h3>
+<p>ΝΑ</p>
+</section>
+</section>
+</section>
+<section id="review-of-user-requirements" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Review of user requirements</h1>
+<p>According to the applicable document [AD2], the user’s requirements relevant for LSWT are:</p>
+<p><strong>Definition</strong> The Lake Surface Water Temperature LSWT is defined as the temperature of the water at the surface of the water body (surface skin temperature).</p>
+<p><strong>Geometric properties</strong> The baseline dataset pixel size shall be provided at a resolution of 1km. The target baseline location accuracy shall be 1/3 of the at-nadir instantaneous field of view. Pixel co-ordinates shall be given for the centre of the pixel.</p>
+<p><strong>Geographical coverage</strong> The initial window definition is aligned to the global dataset produced during the GIO phase for the most widely used output data:</p>
+<ul>
+<li>geographic projection: lat lon</li>
+<li>geodetical datum: WGS84</li>
+<li>pixel size: 1/120°</li>
+<li>accuracy: min 10 digits</li>
+<li>coordinate position: pixel centre</li>
+<li>global window coordinates: UL: 180W 90N, LR: 180E 90S</li>
+</ul>
+<p><strong>Accuracy requirements</strong> LSWT is an Essential Climate Variable (ECV) (GCOS-200, 2016) with an associated uncertainty requirement of 1°K.</p>
+<p><strong>Temporal Definition</strong> As a baseline the physical parameter is computed by and representative of decades, i.e.&nbsp;for ten-day periods a decade is defined as follows: days 1 to 10, days 11 to 20 and days 21 to end of month for each month of the year.</p>
+</section>
+<section id="algorithm" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Algorithm</h1>
+<p>The algorithm to derive the LSWT product from imagery of visible and infrared radiometers consists of many components which aim to retrieve the LSWT from the observed reflectances and brightness temperatures for only-water pixels. The core of the algorithm is the retrieval part which is based on Optimal Estimation (OE) given simulations and observations. The other components of the algorithm prepare the inputs for the retrieval part, namely simulate the brightness temperatures and classify a pixel as water or non-water. Finally, the observations are gridded in a regular 1/120° resolution grid and subsequently they are aggregated in time.</p>
+<section id="overview" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">6.1</span> Overview</h2>
+<p>The core algorithm used for LSWT retrieval is an adaptation of the European Space Agency (ESA) Climate Change Initiative (CCI) Sea Surface Temperature (SST) retrieval algorithm [Merchant and Team, 2017] for lakes developed within the UK-based National Environment Research Council (UK) (NERC) GloboLakes project. It comprises the following conceptual steps:</p>
+<p><strong>Preparatory processing</strong> This includes orbit file reading, validity checks, association of auxiliary information to the orbit file being processed, and any pre-processing adjustment to the data themselves.</p>
+<p><strong>Classification</strong> It identifies valid pixels for LSWT retrieval. Although sometimes referred to as cloud detection, this also involves identifying which image pixels cover only lake water.</p>
+<p><strong>Retrieval of LSWT (geophysical inversion)</strong> In case of inland water, LSWT is calculated dynamically given prior information with OE. Estimation of the retrieval uncertainty at pixel level is also part of this step. The prime retrieval is of the radiometric temperature of the inland water, which is taken as equivalent to the skin temperature.</p>
+<p><strong>Gridding/averaging</strong> The algorithm grids the full resolution imagery (L2P) into a L3C daily file. The L3C product is then aggregated in time to generate the C-GLOPS product.</p>
+<p>After the preparatory processing, before LSWT retrievals can be made it is first necessary to define the location of each lake, achieved through the use of a land water mask and a water detection algorithm since lakes have generally a dynamic extension. A suitable cloud detection algorithm must then be employed to minimize the effect of cloud contamination in the retrieved LSWT, while at the same time keeping the number of observations incorrectly flagged as cloud to a minimum.</p>
+<p>The approach to both cloud detection and LSWT retrieval in the CCI SST processor is physics and it depends on forward modelling of clear-sky infrared observations. Such modelling requires, as input, data describing the state of the atmosphere and the surface.</p>
+<p>Some of these data are lake-specific, in particular the prior surface temperature and the lake surface emissivity and they will be discussed in details.</p>
+<p>In particular, it has been found that Numerical Weather Prediction (NWP)-based values are not (at present) sufficiently accurate for this purpose [MacCallum and Merchant, 2013]. Therefore, an alternative source for these values needs to be identified. The prior surface temperature is generated in form of a spatially-completed daily climatology using a modification of the CCI SST retrieval algorithm. The climatology will be stored in the prior surface temperature variable within the retrieval algorithm through a look-up in the pre-processing phase.</p>
+<p>Moreover, since the performance of the CCI cloud detection (Bayesian) depends on how accurate the prior surface temperature is, in the process of creation of a suitable prior we attempted a classification of water pixels which does not rely on the Bayesian cloud detection and therefore on an accurate prior. The water pixel classification and the generation of the prior surface temperature will be discussed in details in this document.</p>
+<p>The emissivity algorithm involves interpolation of fresh and saline water emissivity according to the nature of any given lake.</p>
+<p>The adaptations of the CCI SST processor for lakes are related to the following aspects:</p>
+<ul>
+<li><p>accurate land water mask for inland water</p></li>
+<li><p>water detection algorithm in presence of clouds</p></li>
+<li><p>prior lake surface water temperature</p></li>
+<li><p>lake surface emissivity</p></li>
+</ul>
+<p>A summary of the main algorithms involved in the generation of the 10-day C-GLOPS LSWT products is reported in the following subsections.</p>
+<section id="lake-surface-water-temperature-retrieval" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="lake-surface-water-temperature-retrieval"><span class="header-section-number">6.1.1</span> Lake Surface Water Temperature retrieval</h3>
+<p>The LSWT is estimated for each (clear-sky) water pixel using joint optimal estimation OE [MacCallum and Merchant, 2012] of surface temperature and Total Column Water Vapour (TCWV) given the simulations and observations. The form of OE used is to return the Maximum A-posteriori Probability (MAP) assuming Gaussian error characteristics. OE also gives an uncertainty estimate for each retrieval.</p>
+</section>
+<section id="lake-specific-inputs-to-radiative-transfer-modelling-simulation" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="lake-specific-inputs-to-radiative-transfer-modelling-simulation"><span class="header-section-number">6.1.2</span> Lake-specific inputs to radiative transfer modelling (simulation)</h3>
+<p>The LSWT retrieval algorithm is based on radiative transfer modelling. The algorithm is generic with respect to what choice of Radiative Transfer Model (RTM) is applied, as long as appropriate simulations of Brightness Temperature (BT) and visible reflectance can be made. In addition, the Jacobian (derivative of BT) is required with respect to prior surface temperature and prior TCWV; any radiative transfer model that simulates BT can provide the Jacobians by perturbation if it does not directly output them. Thus, discussion of the RTM as such is properly outside the scope of this document. Likewise, the algorithm is generic with respect to the origin of the profiles of atmospheric temperature and water vapour that are required to run the RTM: the sourcing of such numerical weather prediction NWP fields for a given location and observation is a generic process for which any implementer of the retrieval algorithm will have a preferred local solution. However, the sourcing of the prior surface temperature, and the lake surface emissivity, e, are also required, and we have found that NWP-based values for these are not (at present) sufficiently accurate for this purpose. Therefore, they need to be specified by an algorithm, presented here.</p>
+</section>
+<section id="classification" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="classification"><span class="header-section-number">6.1.3</span> Classification</h3>
+<p>Valid LSWT can be estimated only for pixels that are effectively water and free of cloud. The algorithm for the discrimination of water and non-water pixels in presence of clouds is based on threshold tests on the Visible (VIS), Near-InfraRed (NIR), and Short-Wave-InfraRed (SWIR) channels of the AATSR and SLSTR-A/B instruments. The thresholds to detect water in presence of clouds have been defined starting from the thresholds to detect water proposed within the ATSR Reprocessing for Climate (ARC) Lake project [MacCallum and Merchant, 2013]. These thresholds have been then tuned according the probability of clouds over water computed on observations from the MEdium Resolution Imaging Spectrometer (MERIS) instrument on Envisat like the AATSR instrument. The probability of clouds have been computed by the Plymouth Marine Laboratory (PML) with the method in [Schiller et al., Sept.&nbsp;2008] within the GloboLakes project. Importantly, at this stage the water detection algorithm has been applied only to inland-water pixels in the water bodies identifier mask [Carrea et al., 2015] built from the ESA CCI Land Cover Project.</p>
+</section>
+<section id="gridding" class="level3" data-number="6.1.4">
+<h3 data-number="6.1.4" class="anchored" data-anchor-id="gridding"><span class="header-section-number">6.1.4</span> Gridding</h3>
+<p>The LSWT product is required on a 1/120° latitude-longitude grid, and thus a gridding algorithm is specified to take the observations from the imagery resolution to the product resolution. The gridding algorithm is based on the nearest neighbour scheme. The single orbit files are combined into a space grid to obtain a daily L3C file.</p>
+</section>
+<section id="temporal-aggregation" class="level3" data-number="6.1.5">
+<h3 data-number="6.1.5" class="anchored" data-anchor-id="temporal-aggregation"><span class="header-section-number">6.1.5</span> Temporal aggregation</h3>
+<p>The LSWT product is required on a 10-day basis. The temporal aggregation of the observations is performed as a weighted average according to weights related to the uncertainties and the quality of the observations. The average is performed on the anomalies with respect to a 20-year base. The temporal aggregation of the uncertainties is carried out using a technique which take into account the error covariance matrix estimated through the available observations.</p>
+</section>
+</section>
+<section id="limitations-of-the-product" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="limitations-of-the-product"><span class="header-section-number">6.2</span> Limitations of the product</h2>
+<p>The most crucial assumption is related to the water detection algorithm which is used to detect water in presence of clouds. The algorithm relies on threshold tests which are applied to visible channels and combinations. Since the spectral properties at the measured wavelengths vary, lakes are optically diverse. Consequently, the thresholds depend on water type and each threshold may be different for each water type. Also, the thresholds depend on wind and satellite zenith angle and false positives can be introduced by cloud/mountain shadowing. In this version of the water detection algorithm one threshold for all the lakes has been derived and utilised. As a result some water pixels may have not been detected as water and more importantly some cloud/land contaminated pixels may have been included in the set of pixel where the retrieval has been applied. The <span class="math inline">\(\chi^2\)</span> test on the retrieval (see ATBD) which has been used to derive the quality levels may have been of help in those cases. The performance of the water detection is captured in a water detection score which is used together with <span class="math inline">\(\chi^2\)</span> and other parameters) to set the value of the quality levels. They range from 2 (worst quality) to 5 (best quality). We recommend to use ideally LSWT only with quality levels 4 and 5 where the confidence of the results is the highest. LSWT of quality levels = 3,2 should be used with care.</p>
+</section>
+</section>
+<section id="product-description" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Product description</h1>
+<section id="the-c-glops-products" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="the-c-glops-products"><span class="header-section-number">7.1</span> The C-GLOPS products</h2>
+<p>Currently, the C-GLOPS product consists of three types of data: historical, reprocessed and NRT. The dataset available for day-time are (see also Table 1):</p>
+<ul>
+<li><p>AATSR LSWT (v1.0.2) starting in May 2002 and continuing through April 2012 (historical data)</p></li>
+<li><p>SLSTR-A reprocessed LSWT (v1.0.2) starting on the 01-Nov-2016 until 10-Apr-2018. This reprocessing was performed because of problems in the SLSTR-A ground segment related to the NWP fields. The L1b files used for product were all Non-Time-Critical and the set of L1b files used was complete</p></li>
+<li><p>SLSTR-A reprocessed LSWT (v1.0.2) starting on the 11-Apr-2018 until 30-Apr-2020. The L1b files used for the product are Non-Time-Critical and all the L1b data were available at the time of processing. An evaluation of the benefit of regular reprocessing is reported in the QAR.</p></li>
+<li><p>SLSTR-A NRT LSWT (v1.0.1) starting on the 11-Apr-2018 until current time (NRT data). The L1b files used for the product are partly Non-Time-Critical and party Near-Real-Time. Moreover, not necessarily all the L1b data were available at the time of processing.</p></li>
+<li><p>SLSTR-AB NRT LSWT (v1.1.0) is planned to start on the 21-Aug-2020. The L1b files used for the product will be partly Non-Time-Critical and party Near-Real-Time. Moreover, not necessarily all the L1b data were available at the time of processing.</p></li>
+</ul>
+<p>Each file contains one set of LSWT which provides a measure of the 10-day average temperature of the skin of the water for all the in-land water bodies included in C-GLOPS list (see Appendix of ATBD) at 1/120° resolution. Each LSWT has a correspondent uncertainty estimate, a quality level value and the standard deviation of the observations used for the 10-day aggregation.</p>
+</section>
+<section id="file-naming" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="file-naming"><span class="header-section-number">7.2</span> File naming</h2>
+<p>For the Lake Surface Water Temperature Products, the following naming convention is used: <code>c_gls_&lt;Acronym&gt;-&lt;YYYYMMDDHHmm&gt;-&lt;AREA&gt;-&lt;SENSOR&gt;-&lt;Version&gt;.&lt;EXTENSION&gt;</code> where</p>
+<ul>
+<li><code>&lt;Acronym&gt;</code> is the name of the product, which is LSWT.</li>
+<li><code>&lt;YYYYMMDDHHmm&gt;</code> gives the temporal location of the file. YYYY, MM, DD denote the year, the month, the day of the product. The day is the first day of the decadal average. Because time is not relevant, HHmm is always set to 0000.</li>
+<li><code>&lt;AREA&gt;</code> gives the spatial coverage of the file. In our case, <code>&lt;AREA&gt;</code> is either GLOBE (Table 2).</li>
+<li><code>&lt;SENSOR&gt;</code> gives the name of the sensor used to retrieve the product, either AATSR, SLSTR-A or SLSTR-AB.</li>
+<li>The <code>&lt;Version&gt;</code> is
+<ul>
+<li>1.0.2 for historical AATSR data</li>
+<li>1.0.1 for NRT SLSTR-A data</li>
+<li>1.0.2 for reprocessed SLSTR-A data</li>
+<li>1.1.0 for NRT SLSTR-AB data</li>
+</ul></li>
+<li><code>&lt;EXTENSION&gt;</code> is indicating the file format, which is .nc for the netCDF4 files produced.</li>
+</ul>
+<div class="tbl-caption">
+<p>Table 2: Naming convention and bounding box for continental subsets</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 26%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Short name Continent</th>
+<th>Continent</th>
+<th>Bounding Box</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GLOBE</td>
+<td>global</td>
+<td>180°W 180°E, 90°N 90°S</td>
+</tr>
+</tbody>
+</table>
+<p>Example: c_gls_LSWT_200504010000_GLOBE_AATSR_v1.0.2.nc</p>
+</section>
+<section id="file-format" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="file-format"><span class="header-section-number">7.3</span> File format</h2>
+<p>The file format is netCDF CF1.6. The format of each parameter (band) is provided in Table 4.</p>
+</section>
+<section id="product-content" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="product-content"><span class="header-section-number">7.4</span> Product content</h2>
+<section id="data-file" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="data-file"><span class="header-section-number">7.4.1</span> Data file</h3>
+<p>The dimensions of the product are listed in Table 3 and the variables that are coming with the products are listed in Table 4.</p>
+<p>Each variable in the netCDF file has attributes associated with. The most important attributes to be able to read the data are reported in Table 5, where:</p>
+<ul>
+<li><strong>units</strong>: The units of the data after applying the scale_factor and add_offset conversion.</li>
+<li><strong>scale_factor</strong>: Multiply the data stored in the NetCDF file by this number.</li>
+</ul>
+<div class="tbl-caption">
+<p>Table 3: Dimensions of the LSWT product</p>
+</div>
+<div class="tbl-caption">
+<p>Table 4: Variables in the LSWT product.</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 22%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimension name</th>
+<th>Data type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>lat</td>
+<td>float</td>
+<td>Latitude</td>
+</tr>
+<tr class="even">
+<td>lon</td>
+<td>float</td>
+<td>Longitude</td>
+</tr>
+<tr class="odd">
+<td>time</td>
+<td>int</td>
+<td>Day at the beginning of the 10 days</td>
+</tr>
+<tr class="even">
+<td>Variable name</td>
+<td>Data type</td>
+<td>Description</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>lake_surface_water_temperature</td>
+<td>short</td>
+<td>10-day aggregated lake surface water temperature</td>
+</tr>
+<tr class="odd">
+<td>lwst_uncertainty</td>
+<td>short</td>
+<td>Uncertainty of the LSWT obtained from the OE uncertainty propagated through the 10 days taking into account a number of observations &lt; 10</td>
+</tr>
+<tr class="even">
+<td>lwst_standard_deviation</td>
+<td>short</td>
+<td>Standard deviation of the LSWT observations within the 10 days. It is 0 in case of 1 observation only.</td>
+</tr>
+<tr class="odd">
+<td>quality_level</td>
+<td>byte</td>
+<td>Overall quality indicators</td>
+</tr>
+<tr class="even">
+<td>n_lswt</td>
+<td>byte</td>
+<td>Number of observations contributing to the 10-day product</td>
+</tr>
+<tr class="odd">
+<td>time_obs</td>
+<td>short</td>
+<td>Time of the observations used to build the 10-day C-GLOPS product</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>add_offset</strong>: After applying scale_factor, add this to obtain the data in the units specified in the units attribute.</li>
+<li>**_FillValue**: The number put into the data arrays where there are no valid data (before applying the scale_factor and add_offset attributes).</li>
+</ul>
+<div class="tbl-caption">
+<p>Table 5: Attributes of the variables in the LSWT product.</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 10%">
+<col style="width: 16%">
+<col style="width: 14%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>units</th>
+<th>scale_factor</th>
+<th>add_offset</th>
+<th>_FillValue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>lake_surface_water_temperature</td>
+<td>K</td>
+<td>0.01</td>
+<td>273.15</td>
+<td>-32768</td>
+</tr>
+<tr class="even">
+<td>lwst_uncertainty</td>
+<td>K</td>
+<td>0.001</td>
+<td>0</td>
+<td>-32768</td>
+</tr>
+<tr class="odd">
+<td>lwst_standard_deviation</td>
+<td>K</td>
+<td>0.001</td>
+<td>0</td>
+<td>-32768</td>
+</tr>
+<tr class="even">
+<td>quality_level</td>
+<td></td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>n_lswt</td>
+<td></td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>time_obs</td>
+<td></td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="product-characteristics" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="product-characteristics"><span class="header-section-number">7.5</span> Product characteristics</h2>
+<section id="projection-and-grid-information" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="projection-and-grid-information"><span class="header-section-number">7.5.1</span> Projection and grid information</h3>
+<p>Global, regional, or water-body specific files in NetCDF4 format, mapped to a global 1/120° grid and including dimensions latitude, longitude (WGS84 projection, EPSG: 4326), and time (seconds since 1981-01-01 00:00:00).</p>
+</section>
+<section id="spatial-information" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="spatial-information"><span class="header-section-number">7.5.2</span> Spatial information</h3>
+<p>The spatial extension of the global product covers the full globe. The bounding box coordinates of the global product are reported in Table 6. Figure 1 shows the distribution of the C-GLOPS lakes around the globe. The full list of lakes is reported in the ATBD and at the following website http://www.laketemp.net/home_CGLOPS/cglops_targets.php.</p>
+<div class="tbl-caption">
+<p>Table 6: Bounding box coordinates of the global product.</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 36%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Latitude</th>
+<th>Longitude</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Upper left</td>
+<td>89°59′45″N</td>
+<td>179°59′45″W</td>
+</tr>
+<tr class="even">
+<td>Upper right</td>
+<td>89°59′45″N</td>
+<td>179°59′45″E</td>
+</tr>
+<tr class="odd">
+<td><img src="products_Product_user_manual_-_Lake_Surface_Water_Temperature_version_1-media/img-e4230d4ebc1b1bc3507a14d9c3b44904.png" class="img-fluid">{fig-alt=“This global map, titled ‘Location of the CGLOPS lakes’ and referred to as ‘Figure 1: C-GLOPS lakes location’, illustrates the distribution of Copernicus Global Lake and Ocean Products and Services (C-GLOPS) lakes worldwide. The continents are rendered in grey, and oceans in white. Individual C-GLOPS lake locations are marked as small black dots across the landmasses. The spatial distribution shows a higher concentration of monitored lakes in North America (particularly Canada and the USA), Europe, central Africa, and parts of Asia. Fewer lakes are visible in South America and Australia. The map includes Antarctica at the bottom. Above the map, a small table provides the bounding box coordinates for the global product:</td>
+<td></td>
+<td>Latitude</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="temporal-information" class="level3" data-number="7.5.3">
+<h3 data-number="7.5.3" class="anchored" data-anchor-id="temporal-information"><span class="header-section-number">7.5.3</span> Temporal information</h3>
+<p>The LSWT product (v1.0.1/v1.0.2 for SLSTR-A, v1.1.0 for SLSTR-AB and v1.0.2 for AATSR) is 10-day composite. The temporal information YYYYMMDDHHmm in the filename corresponds to the start date of the 10-daily period. The variable time in the netCDF4 file contains the start date of the 10-day period as seconds since 1981-01-01 00:00:00.</p>
+<p>The 10-day averages are always comprising the following days: 1-10, 11-20, 21-end of the month. Therefore, the last period of the month may have between 8 and 11 observation days. In addition to this theoretical time frame, the products contain the temporal information of the actual observations used to construct the 10-day LSWT product. It is in the form of a flag, where the first bit set to 1 implies that the observation on day 1 of the 10-day period was present and used in the temporal aggregation, and so on.</p>
+</section>
+<section id="data-policies" class="level3" data-number="7.5.4">
+<h3 data-number="7.5.4" class="anchored" data-anchor-id="data-policies"><span class="header-section-number">7.5.4</span> Data policies</h3>
+<p>Any use of the Lake Surface Water Temperature product implies the obligation to include in any publication or communication using these products the following citation: The products were extracted from land service of Copernicus, the Earth Observation program of the European Commission. The research leading to the current version of the products has received funding from the UK NERC GloboLakes project.</p>
+</section>
+<section id="contacts" class="level3" data-number="7.5.5">
+<h3 data-number="7.5.5" class="anchored" data-anchor-id="contacts"><span class="header-section-number">7.5.5</span> Contacts</h3>
+<ul>
+<li><p>Accountable contact: European Commission Directorate General Joint Research Centre, Email address: <a href="mailto:copernicuslandproducts@jrc.ec.europa.eu" class="email">copernicuslandproducts@jrc.ec.europa.eu</a></p></li>
+<li><p>Scientific contact: University of Reading, Email address: <a href="mailto:c.j.merchant@reading.ac.uk" class="email">c.j.merchant@reading.ac.uk</a>, <a href="mailto:l.carrea@reading.ac.uk" class="email">l.carrea@reading.ac.uk</a></p></li>
+<li><p>Production and distribution contact: University of Reading Email address: <a href="mailto:l.carrea@reading.ac.uk" class="email">l.carrea@reading.ac.uk</a></p></li>
+</ul>
+</section>
+<section id="sample-product" class="level3" data-number="7.5.6">
+<h3 data-number="7.5.6" class="anchored" data-anchor-id="sample-product"><span class="header-section-number">7.5.6</span> Sample product</h3>
+<p>Figures 2 and 3 provide an example of the SLSTR-A LSWT product for the lakes Malawi, Malombe, Chiuta and Chilwa in Malawi for the period starting on the 11-Jun-2018. They show the LSWT, its uncertainty and the number of observations in Figure 2, and the quality levels, the standard deviation and the time of the observations in Figure 3.</p>
+<p>Figures 4 and 5 provide an example of the SLSTR-AB LSWT product for the for a glacial lake in Greenland (centre lat=65.087, lon=-50.040, maximum distance from land = 1.8 km) for the 10-day period starting on the 21-Jul-2020 using SLSTR-AB data. They show the LSWT, its uncertainty and the number of observations in Figure 4, and the quality levels, the standard deviation and the time of the observations in Figure 5. Despite the lake is small, the 10-day SLSTR-AB LSWT product has a good number of observations for most of the lake, good values of uncertainty and high quality levels which indicates that the product is very reliable.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Product_user_manual_-_Lake_Surface_Water_Temperature_version_1-media/img-bf888966e58a378df19d4f7bba3c6528.png" class="img-fluid figure-img" alt="Three choropleth maps display Copernicus Land Monitoring Service (CLMS) data for Lake Malawi, dated 20180611. The maps share a geographical extent, with longitudes from approximately +34° to +35° and latitudes from -10° to -15°. 1. **Left Map: Lake Surface Water Temperature (LSWT)**. The colour scale ranges from purple to yellow, representing LSWT in Kelvin (K). Values range from 292.0 K (purple) to 300.0 K (yellow). Specific scale increments are 292.0, 292.8, 293.6, 294.4, 295.2, 296.0, 296.8, 297.6, 298.4, 299.2, and 300.0 K. The northern and central parts of the lake show warmer temperatures (yellow/orange), while the southern arm displays cooler temperatures (purple/red). 2. **Middle Map: LSWT Uncertainty**. The colour scale ranges from white/light blue to dark green/black, representing LSWT uncertainty in Kelvin (K). Values range from 0.0 K (white/light blue) to 1.0 K (dark green/black). Specific scale increments are 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, and 1.0 K. Higher uncertainty (darker colours) is observed in the northern and central areas of the lake, with lower uncertainty (lighter colours) predominantly in the southern parts. 3. **Right Map: Number of observations**. The colour scale ranges from white/light yellow to black/dark red, indicating the number of observations used for the data composite. Values range from 0 (white) to 6 (black). Specific scale increments are 0, 1, 2, 3, 4, 5, and 6. The central and northern areas of the lake generally exhibit higher numbers of observations (up to 6), whereas the southernmost sections have fewer observations (1-2)."></p>
+<figcaption>Figure 2: LSWT, uncertainty and number of observations for lakes Malawi, Malombe, Chiuta and Chilwa in Malawi for the 10-day period starting on the 11-Jun-2018 using SLSTR-A data.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Product_user_manual_-_Lake_Surface_Water_Temperature_version_1-media/img-eb22e0ed56791f309b95790efde05efb.png" class="img-fluid figure-img" alt="Three choropleth maps of Lake Malawi for the period starting 2018-06-11, depicting Lake Surface Water Temperature (LSWT) Standard Deviation, Quality Levels, and Observation Days used for temporal aggregation. All maps show a geographic area spanning approximately 9°S to 15°S latitude and 34°E to 35°E longitude. 1. **LSWT Standard Deviation (left map):** Shows the standard deviation of Lake Surface Water Temperature in Kelvin (K). The colour scale ranges from 0.0 K (light blue/white) to 2.0 K (dark purple), indicating variability in LSWT. Areas in the northern and central parts of the lake show higher standard deviation (pink/purple), while southern areas tend to have lower values (light blue/white). 2. **Quality levels (middle map):** Displays data quality levels. The colour scale represents four discrete quality levels: 2 (dark purple), 3 (light purple), 4 (light green), and 5 (dark green). The majority of the lake area is covered by quality levels 4 and 5, indicating high data quality, with smaller, scattered regions showing lower quality levels 2 and 3. 3. **Observation days (right map):** Illustrates the combinations of days within the 10-day period (1-10) for which observations were used to construct the LSWT product. The legend lists various combinations of day numbers (e.g., '3+6+7+10', '2+7+10', '7+10', '2+3+5+6+10', '2+3'). These combinations vary spatially across the lake, indicating heterogeneous data availability for temporal aggregation. For instance, the northern tip predominantly shows combinations involving days 7 and 10, while the central and southern parts show a wider mix of days, including combinations like '2+3' at the southern end."></p>
+<figcaption>Figure 3: Standard deviation of the observations, quality levels and observation time for lakes Malawi, Malombe, Chiuta and Chilwa in Malawi for the 10-day period starting on the 11-Jun-2018 using SLSTR-A data.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Product_user_manual_-_Lake_Surface_Water_Temperature_version_1-media/img-96ea0ecaa58bdd82a6fcda2aad489d05.png" class="img-fluid figure-img" alt="This image displays three choropleth maps side-by-side, illustrating data for an 'NN-Glacial-Lake' region for the period starting 2020-07-21. All maps cover the geographic extent from approximately -50.4° to -49.8° longitude and +64.8° to +65.4° latitude. 1. **Left Map: Lake Surface Water Temperature (LSWT)** * Title: 'NN-Glacial-Lake 20200721' * Data: Lake Surface Water Temperature in Kelvin (K). * Colour scale: A vertical bar ranging from purple (276.5 K) at the bottom to yellow (281.5 K) at the top. * Spatial pattern: Shows clusters of pixels with varying LSWT, generally higher (yellow/orange) in some areas and lower (purple/dark blue) in others, within the observed lake region. 2. **Middle Map: LSWT Uncertainty** * Title: 'Lake NN-Glacial-Lake 20200721' * Data: LSWT Uncertainty in Kelvin (K). * Colour scale: A vertical bar ranging from light blue/green (0.0 K) at the bottom to black (1.0 K) at the top. * Spatial pattern: Areas with observed LSWT also show corresponding uncertainty values, with higher uncertainty (darker colours) distributed across parts of the lake. 3. **Right Map: Number of Observations** * Title: 'Lake NN-Glacial-Lake 20200721' * Data: Number of observations. * Colour scale: A vertical bar ranging from white/light grey (0) at the bottom to red (12) at the top. * Spatial pattern: Indicates the count of individual observations contributing to the 10-day composite LSWT product for each pixel. Areas with higher observation density (darker colours, up to 12 observations) are clustered, while other areas have fewer observations (lighter colours). The maps collectively show the derived Lake Surface Water Temperature, its associated uncertainty, and the underlying data density used to create the 10-day composite product, all within a specific glacial lake region in July 2020."></p>
+<figcaption>Figure 4: LSWT, uncertainty and number of observations for a glacial lake in Greenland (centre lat=65.087, lon=-50.040, maximum distance from land = 1.8 km) for the 10-day period starting on the 21-Jul-2020 using SLSTR-AB data.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Product_user_manual_-_Lake_Surface_Water_Temperature_version_1-media/img-73f2564ddaa618095c9297a95a5bf1ce.png" class="img-fluid figure-img" alt="This figure presents three gridded maps showing characteristics of a Lake Surface Water Temperature (LSWT) product for a specific Glacial Lake on 2020-07-21, within the geographic coordinates of approximately -50.4° to -49.8° longitude and +64.8° to +65.4° latitude. 1. **Left Map: LSWT Standard Deviation (K)** This map displays the standard deviation of Lake Surface Water Temperature in Kelvin (K). The colour legend ranges from 0.0 K (dark blue) to 3.0 K (dark red), with intermediate values marked at 0.2 K increments. The pixels indicating the lake show a range of standard deviations, with values generally between 0.0 K and 2.0 K. 2. **Middle Map: Quality levels** This map shows the quality levels of the LSWT product. The colour legend ranges from 2 (dark purple) to 5 (dark green), with 3 (light purple) and 4 (light green) as intermediate levels. The majority of the lake pixels exhibit quality levels of 4 or 5, with a few areas at level 2 or 3. 3. **Right Map: Observation days flag** This map indicates which specific observation days contributed to the 10-day LSWT composite product for each pixel, within the 10-day period starting 2020-07-21. The legend shows a complex colour coding representing various combinations of observation days, such as '1+2', '1+3+4', '1+3+4+6', '2+3+10', and '1+3+4+6+9+10+11'. These numbers correspond to specific days within the 10-day period. Different parts of the lake were constructed from observations on varying sets of days."></p>
+<figcaption>Figure 5: Standard deviation of the observations, quality levels and observation time for a glacial lake in Greenland (centre lat=65.087, lon=-50.040, maximum distance from land = 1.8 km) for the 10-day period starting on the 21-Jul-2020 using SLSTR-AB data.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="validation" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Validation</h1>
+<p>A detailed description of the validation and respective results are provided with the QAR. The AATSR LSWT product was tested against in-situ data, for the set of lakes where in-situ measurements were available. The SLSTR-A LSWT product was compared with in-situ measurements and for NRT validity check it is routinely compared with the climatology described in the ATBD.</p>
+<p>A first assessment of the L2P LSWT data (for both AATSR and SLSTR-A instruments) is performed mainly through basic statistics and time series comparison with in-situ measurements. Time series comparison of in-situ data and satellite derived parameters enables to assess the behaviour of both measurement techniques over time. The focus is on the consistency of the time series on the one hand and on the comparability of the datasets on the other hand. The order of magnitude and seasonal patterns are investigated. The assessment of the available sites/lakes shows that the products are consistent in time and mainly also in space. Seasonal patterns are as expected. The in-situ measurements show at times possible invalid data. The comparison between the C-GLOPS products and in-situ measurements show same magnitude, but only a few analysis could be performed at this stage. In future and in a scope of a second level validation these investigations will be intensified dependently on the availability of an extended in-situ measurements dataset.</p>
+<p>An assessment of the reprocessed SLSTR-A LSWTs shows benefits for both the uncertainties and the confidence levels. This suggests that regular reprocessing of the NRT product is beneficial for its usability.</p>
+<p>Regarding the SLSTR-AB C-GLOPS LSWT, a comparative analysis of LSWTs from the two instruments during the tandem phase shows a very good agreement between the temperatures from the two instruments as shown in the ATBD. Moreover, an assessment of the improvements offered by the inclusion of the measurements from a second instrument is reported in the QAR. The LSWTs utilised to generated the 10-day product are doubled, the uncertainties are lower and the quality levels higher granting more reliability in the product.</p>
+<p>Manual inspection of all products for more than 1000 water bodies is impossible and in most cases requires local knowledge. The validation of the products is, and always will be, based on a small sample of well-studied areas. Users of these products are therefore advised to inspect the results for their area of interest before generating derivative products. This inspection could include, for example, histograms to identify outliers. Users are also advised to take into account the number of observations underlying the results. Where observations are sparse, having a small number of satellite passes to cover a large water body can lead to visual inconsistencies that do not reflect the state of the water body at any particular time this is merely the nature of creating aggregate products. Expert users are encouraged to take part in the validation of these products that is increasingly taking place at the global scale. The spatio-temporal coverage and quality of the global lake water products can be improved if the algorithms underlying these products can be accurately adjusted to waters of each optical type.</p>
+</section>
+<section id="references" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> References</h1>
+<ul>
+<li><p>L. Carrea, O. Embury, and C.J. Merchant. Datasets related to in-land water for limnology and remote sensing applications: distance-to-land, distance-to-water, water-body identifier and lake-centre co-ordinates. <em>Geoscience Data Journal</em>, 2:83-97, 2015.</p></li>
+<li><p>S. MacCallum and C.J. Merchant. Surface water temperature observations of large lakes by optimal estimation. <em>Canandian J Rem Sens</em>, 38:25-45, 2012.</p></li>
+<li><p>S. MacCallum and C.J. Merchant. ATSR reprocessing for climate lake surface temperature: ARC-Lake Algorithm Theoretical Basis Document (no. v1.4), Univ. of Edinburgh. Retrieved from <a href="http://www.laketemp.net/home/dataF/ARC-Lake-ATBD-v1.4.pdf" class="uri">http://www.laketemp.net/home/dataF/ARC-Lake-ATBD-v1.4.pdf</a>, 2013.</p></li>
+<li><p>C.J. Merchant and SST CCI Team. Algorithm Theoretical Basis Document (Phase II EXP 1.8), European Space Agency Contract Report. Retrieved from <a href="http://www.esa-sst-cci.org/PUG/pdf/SST-CCI-ATBD-UOR-202_Issue-1-signed.pdf" class="uri">http://www.esa-sst-cci.org/PUG/pdf/SST-CCI-ATBD-UOR-202_Issue-1-signed.pdf</a>, 2017.</p></li>
+<li><p>H. Schiller, C. Brockmann, H. Krasemann, and W. Schoenfeld. A method for detection and classification of clouds over water. In Proc. of the 2nd MERIS (A)ATSR Users Workshop, Sept.&nbsp;2008.</p></li>
+</ul>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/library\.land\.copernicus\.eu");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2026 EEA. All rights reserved.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

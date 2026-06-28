@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2016-01-01">
+<meta name="keywords" content="population density mapping, Functional Urban Areas, Urban Atlas polygons, dasymetric mapping, areal interpolation, residential population estimates, European Settlement Map, built-up density, census data disaggregation, land use/land cover classification">
+<meta name="description" content="This technical report presents a robust methodology for mapping residential population density within European Functional Urban Areas, enriching the Urban Atlas (UA) dataset. It details a smart dasymetric mapping approach that disaggregates census population data, originating from diverse source geometries, onto UA land use/land cover polygons. The method effectively integrates UA LULC information with built-up densities derived from the European Settlement Map. This work significantly increases the spatial resolution of population estimates, enabling fine-scale urban analyses vital for planning, disaster risk assessment, and socio-economic policy applications across Europe.">
+
+<title>Mapping population density in Functional Urban Areas – Technical Library</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3e4b792c78aaba79123027d3b782d07b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "Search ...",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Mapping population density in Functional Urban Areas",
+    "description": "This technical report presents a robust methodology for mapping residential population density within European Functional Urban Areas, enriching the Urban Atlas (UA) dataset. It details a smart dasymetric mapping approach that disaggregates census population data, originating from diverse source geometries, onto UA land use/land cover polygons. The method effectively integrates UA LULC information with built-up densities derived from the European Settlement Map. This work significantly increases the spatial resolution of population estimates, enabling fine-scale urban analyses vital for planning, disaster risk assessment, and socio-economic policy applications across Europe.",
+    "datePublished": "January 1, 2016",
+    "author": {
+      "@type": "Person",
+      "name": "?meta:author"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Copernicus Land Monitoring Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
+      }
+    },
+    "keywords": "population density mapping
+
+Functional Urban Areas
+
+Urban Atlas polygons
+
+dasymetric mapping
+
+areal interpolation
+
+residential population estimates
+
+European Settlement Map
+
+built-up density
+
+census data disaggregation
+
+land use/land cover classification
+",
+    "articleSection": "General",
+    "isAccessibleForFree": "true",
+    "license": "",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": "article p"
+    }
+  }
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../_meta/theme/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Technical Library</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Index</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract"><span class="header-section-number">0.1</span> Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#data-and-methods" id="toc-data-and-methods" class="nav-link" data-scroll-target="#data-and-methods"><span class="header-section-number">2</span> Data and methods</a>
+  <ul class="collapse">
+  <li><a href="#key-concepts-and-definitions" id="toc-key-concepts-and-definitions" class="nav-link" data-scroll-target="#key-concepts-and-definitions"><span class="header-section-number">2.1</span> Key concepts and definitions</a></li>
+  <li><a href="#input-data" id="toc-input-data" class="nav-link" data-scroll-target="#input-data"><span class="header-section-number">2.2</span> Input data</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">2.3</span> Methods</a></li>
+  </ul></li>
+  <li><a href="#results-and-data-quality" id="toc-results-and-data-quality" class="nav-link" data-scroll-target="#results-and-data-quality"><span class="header-section-number">3</span> Results and data quality</a></li>
+  <li><a href="#concluding-remarks" id="toc-concluding-remarks" class="nav-link" data-scroll-target="#concluding-remarks"><span class="header-section-number">4</span> Concluding remarks</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements"><span class="header-section-number">5</span> Acknowledgements</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
+  <li><a href="#list-of-abbreviations" id="toc-list-of-abbreviations" class="nav-link" data-scroll-target="#list-of-abbreviations"><span class="header-section-number">7</span> List of abbreviations</a></li>
+  <li><a href="#appendix-1-border-adjustments" id="toc-appendix-1-border-adjustments" class="nav-link" data-scroll-target="#appendix-1-border-adjustments"><span class="header-section-number">8</span> Appendix 1: Border adjustments</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="products_Technical_Report_Mapping_Population_Density.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Add Version to the title's metadata
+    //
+    const titleMetaEl = document.querySelector(".quarto-title-meta");
+    const wrapperDiv = document.createElement("div");
+    wrapperDiv.innerHTML = `
+        <div class="quarto-title-meta-heading">Version</div>
+        <div class="quarto-title-meta-contents">
+          <p>?meta:version</p>
+        </div>
+      `;
+    titleMetaEl.appendChild(wrapperDiv);
+  });
+</script>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Mapping population density in Functional Urban Areas</h1>
+<p class="subtitle lead">JRC TECHNICAL REPORTS</p>
+</div>
+
+<div>
+  <div class="description">
+    This technical report presents a robust methodology for mapping residential population density within European Functional Urban Areas, enriching the Urban Atlas (UA) dataset. It details a smart dasymetric mapping approach that disaggregates census population data, originating from diverse source geometries, onto UA land use/land cover polygons. The method effectively integrates UA LULC information with built-up densities derived from the European Settlement Map. This work significantly increases the spatial resolution of population estimates, enabling fine-scale urban analyses vital for planning, disaster risk assessment, and socio-economic policy applications across Europe.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 1, 2016</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>population density mapping, Functional Urban Areas, Urban Atlas polygons, dasymetric mapping, areal interpolation, residential population estimates, European Settlement Map, built-up density, census data disaggregation, land use/land cover classification</p>
+  </div>
+</div>
+
+</header>
+
+
+<p><br>
+<strong>Contact:</strong></p>
+<div data-custom-style="LeftAlign">
+<p>European Environment Agency (EEA)<br>
+Kongens Nytorv 6<br>
+1050 Copenhagen K<br>
+Denmark<br>
+<a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
+</div>
+<p>This publication is a Technical report by the Joint Research Centre (JRC), the European Commission’s science and knowledge service. It aims to provide evidence-based scientific support to the European policy-making process. The scientific output expressed does not imply a policy position of the European Commission. Neither the European Commission nor any person acting on behalf of the Commission is responsible for the use which might be made of this publication.</p>
+<p><strong>Contact information</strong> Name: Carlo Lavalle Address: European Commission, Joint Research Centre, Via Enrico Fermi 2749, 21027 Ispra (VA), Italy E-mail: carlo.lavalle@jrc.ec.europa.eu Tel.: +39 0332 78 5231</p>
+<p><strong>JRC Science Hub</strong> https://ec.europa.eu/jrc</p>
+<p><strong>Land-Use-based Integrated Sustainability Assessment Modelling Platform</strong> https://ec.europa.eu/jrc/en/luisa</p>
+<p>JRC103756</p>
+<p>EUR 28194 EN</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 39%">
+<col style="width: 24%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>PDF</th>
+<th>ISBN 978-92-79-63484-0</th>
+<th>ISSN 1831-9424</th>
+<th>doi:10.2791/06831</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>© European Union, 2016</p>
+<p>Reproduction is authorised provided the source is acknowledged.</p>
+<p>How to cite: Batista e Silva F and Poelman H (2016) Mapping population density in Functional Urban Areas - A method to downscale population statistics to Urban Atlas polygons. JRC Technical Report no. EUR 28194 EN. doi:10.2791/06831.</p>
+<p>All images © European Union 2016, except front cover photo from Oliver Wendel, licensed under Creative Commons Zero. Source: unsplash.com</p>
+<section id="abstract" class="level2" data-number="0.1">
+<h2 data-number="0.1" class="anchored" data-anchor-id="abstract"><span class="header-section-number">0.1</span> Abstract</h2>
+<p>Urban Atlas 2012 is a powerful geographical dataset that describes land use/land cover at high spatial resolution for nearly 700 European Functional Urban Areas of more than 50,000 inhabitants in 31 European countries (EU28 + EFTA). The objective of the work described in this report was to enrich the Urban Atlas dataset by including estimates of residential population at the vector polygon level.</p>
+<p>The estimation was done by downscaling, or disaggregating, census population reported at country-specific geometries (‘source geometry’) to the Urban Atlas land use/land cover polygons (‘target geometry’). The downscaling method can be described as a ‘smart’ areal interpolation which combined land use/land cover information from Urban Atlas, building densities from the European Settlement Map and census data. For numerous Functional Urban Areas for which population data were previously only available at coarse resolution (e.g.&nbsp;municipality, or 1 Km² grid cells), these newly released estimates represent a significant increase in spatial resolution, enabling diverse fine scale analyses for the whole Urban Atlas dataset.</p>
+<p>With the free-of-charge distribution of this dataset, the number of potential users and applications of the Urban Atlas can further increase. Detailed maps of population density are very important for the study and characterisation of urban areas, and are essential inputs for urban and infrastructure planning and management, disaster risk assessment and mitigation, social policies, and analysis of quality of life and well-being. Moreover, this work further expands the knowledge base of JRC’s LUISA territorial modelling platform, used to assess regional and local impacts of European trends, policies and investments.</p>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Figure  1.  Interface  of  the  downscaling  tool  within  ArcGIS  environment.","url":"products_Technical_Report_Mapping_Population_Density-media/img-4e3c081d793388d6371e69a233668989.png"},{"@type":"ImageObject","caption":"Figure  2.  Inputs  and  outputs  of  the  disaggregation  method.  Top  rows:  Lisbon.  Bottom  rows:  Budapest.  Insets  from  left  to  right:  a)  Urban  Atlas  land  use/cover  map;  b)  European  settlement  map;  c)  Population  density  per  source  zones  (census  tracts  for  Lisbon  and  GEOSTAT  grid  for  Budapest);  d)  Final  output:  population  density  per  target  zones  (UA  polygons).","url":"products_Technical_Report_Mapping_Population_Density-media/img-d6f31dd3e47ced3b9b7efbafd423c633.png"},{"@type":"ImageObject","caption":"Figure  3.  Population  distribution  per  age-groups.  Top  rows:  Brussels.  Bottom  rows:  Rome.  Insets  from  left  to  right:  a)  Population  density;  b)  Proportion  of  population  below  15  years  of  age;  c)  Proportion  of  population  between  15  and  64  years  of  age;  d)  Proportion  of  population  above  64  years  of  age.","url":"products_Technical_Report_Mapping_Population_Density-media/img-2b9309be10f4e3d4d5130fa52778e2f1.png"},{"@type":"ImageObject","caption":"","url":"products_Technical_Report_Mapping_Population_Density-media/img-20dd05dd1414f9f2c5288bff3fc74526.png"},{"@type":"ImageObject","caption":"","url":"products_Technical_Report_Mapping_Population_Density-media/img-f185862f824403224efbfef7802f7191.png"},{"@type":"ImageObject","caption":"","url":"products_Technical_Report_Mapping_Population_Density-media/img-ef162a0dcdb38e36c8d0401a1889bafd.png"},{"@type":"ImageObject","caption":"","url":"products_Technical_Report_Mapping_Population_Density-media/img-d8041104a887fc4c1324caaed886005e.png"},{"@type":"ImageObject","caption":"","url":"products_Technical_Report_Mapping_Population_Density-media/img-60938041d0cc60992b4cae8ffa558b2b.png"}]}
+</script>
+</section>
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p><strong>The importance of population density maps</strong></p>
+<p>Detailed maps of population density are very important for the study and characterisation of urban areas. Such maps help urban practitioners design plans and policies that are based on knowledge of the urban area’s population distribution profiles. Detailed and accurate information of population distribution is relevant for urban planning in general, particularly for planning of infrastructures, management of waste and utilities, disaster risk assessment and mitigation, social policies, quality of life and well-being, to mention just a few areas of application.</p>
+<p><strong>Complete and consistent data for comparable assessments</strong></p>
+<p>Complete and consistent data of population densities across European cities is useful if one needs to compare aspects from different cities in the wider continental context. As such, the coverage of population density maps ought to be large and representative and the maps must be as comparable as possible. This double challenge is becoming more feasible to overcome with the increasing availability of data in large quantities and high quality with which such comparable population density maps can be constructed.</p>
+<p>One key issue is that a definition of a city or urban area based on its official administrative boundaries is a poor and misleading one. Urban areas are functional spaces which often do not match with politically defined boundaries. The Organisation for Economic Co-operation and Development (OECD) and the European Commission (EC) have recently established a harmonized definition of Functional Urban Areas (FUA) which takes into account both the population distribution and densities (urban form) and the commuting patterns to the urban centre. In simple terms, a Functional Urban Area is therefore defined as the contiguous set of municipalities which have at least 50% of their population in the urban centre (defined as the contiguous set of urban cells of 1 Km by 1 Km with a population density of at least 1500 inhabitants/Km² and a total population of at least 50,000 inhabitants), plus the surrounding municipalities for which at least 15% of the employed persons commute to the main municipality of the urban agglomeration)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p><strong>Mapping land uses and population for European Functional Urban Areas</strong></p>
+<p>In their continuous efforts to improve the knowledge base for the European urban areas, the EC Directorate-General for Regional and Urban Policy (DG REGIO) and the Directorate-General</p>
+<p>for Growth, in coordination with the European Space Agency and the European Environment Agency (EEA), supported the creation of the Urban Atlas (UA) dataset. The Urban Atlas is a collection of high-resolution digital and vector land use/land cover (LULC) maps, covering hundreds of European FUAs. The UA is now part of the range of Copernicus land monitoring services, and is freely available to the public.</p>
+<p>At the request and with the support of DG REGIO, the Directorate-General Joint Research Centre (JRC) enriched the UA dataset by estimating the number of residents in each vector polygon for all the covered FUAs. The estimated residential population remains as an additional attribute to the land-use classification, which is hoped to broaden the range of potential applications of the Urban Atlas dataset, contributing to new analyses and assessments in different thematic fields<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Moreover, these new estimates are an additional element of the knowledge base of JRC’s LUISA territorial modelling platform, used to assess regional and local impacts of European trends, policies and investments<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<p>The methodology used to perform the estimation combines the land-use information present in the UA dataset itself with two other key data inputs: population data derived from the latest censuses by the National Statistical Institutes (NSIs) and built-up densities derived from the JRC’s European Settlement Map (ESM). By combining these three data inputs by means of Geographical Information System (GIS) operations, it is possible to produce highly detailed and comparable population density maps for all the Functional Urban Areas available in the Urban Atlas.</p>
+<p>The estimation of residential population for the Urban Atlas polygons has already been conducted and documented in the past by JRC and REGIO<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. The main differences of the current work vis-à-vis the earlier experience are synthetized in table 1. In summary, in the current estimation exercise the base year is updated from 2006 to 2011-2012, the coverage in terms of number FUAs has more than doubled, population for main age-groups is present for FUAs in a selected number of countries, and improvements to the estimation methodology have been implemented, particularly by including an improved and updated representation of built-up densities and by recording the number of residents as integer numbers, instead of continuous.</p>
+<p><strong>Aim and structure of the report</strong></p>
+<p>The aim of this report is to describe the methodology and source data used to estimate residential population in each built-up polygon of the Urban Atlas 2012 dataset. The remainder of the report is organized as follows: section 2 describes in detail the input data and methodology applied; section 3 describes the resulting product and discusses data quality issues; section 4 wraps-up the work done and sets the scene for future developments in the field of high-resolution population mapping.</p>
+<div class="tbl-caption">
+<p>Table 1. Summary of main differences between the 2013 and the 2016 releases of the Urban Atlas population estimates.</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 41%">
+<col style="width: 27%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>2013 release</th>
+<th>2016 release</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Urban Atlas version</strong></td>
+<td>2006</td>
+<td>2012</td>
+</tr>
+<tr class="even">
+<td><strong>No.&nbsp;of countries covered</strong></td>
+<td>27 (EU27)</td>
+<td>31 (EU28 + EFTA)</td>
+</tr>
+<tr class="odd">
+<td><strong>No.&nbsp;of FUAs covered</strong></td>
+<td>301</td>
+<td>697</td>
+</tr>
+<tr class="even">
+<td><strong>Source of population data</strong></td>
+<td>NSIS + GEOSTAT + Others</td>
+<td>NSIS + GEOSTAT</td>
+</tr>
+<tr class="odd">
+<td>Reference year</td>
+<td>2006</td>
+<td>2011</td>
+</tr>
+<tr class="even">
+<td>Age-group data</td>
+<td>No</td>
+<td>Yes (selected countries)*</td>
+</tr>
+<tr class="odd">
+<td><strong>Source for built-up density</strong></td>
+<td>EEA Soil Sealing Layer</td>
+<td>JRC European Settlement Map</td>
+</tr>
+<tr class="even">
+<td>Reference year</td>
+<td>2006</td>
+<td>2012</td>
+</tr>
+<tr class="odd">
+<td><strong>Methodology</strong></td>
+<td>Areal weighting / Dasymetric</td>
+<td>Areal weighting / Dasymetric</td>
+</tr>
+<tr class="even">
+<td><strong>Number type</strong></td>
+<td>Continuous (float)</td>
+<td>Discrete (integer)</td>
+</tr>
+</tbody>
+</table>
+<p>Notes: * Belgium, Spain, Italy, Malta, Netherlands, Slovenia, and UK (except Scotland).</p>
+</section>
+<section id="data-and-methods" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Data and methods</h1>
+<section id="key-concepts-and-definitions" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="key-concepts-and-definitions"><span class="header-section-number">2.1</span> Key concepts and definitions</h2>
+<p><strong>Population data and population maps</strong></p>
+<p>In very broad terms, population data can be stored in a conventional table, relational database, or geographical database. The latter form of storing population data is the most convenient because it links population counts to the respective spatial reporting units, their shape, size and geographical location. Population maps are visual representations of population distribution or density, and can nowadays be easily constructed with specialized GIS-software used to display, manage and manipulate geographical databases.</p>
+<p><strong>Zoning systems</strong></p>
+<p>Population maps are therefore composed of population counts for a set of individual geographical units which, altogether, form a geographical zoning system. There are various types of geographical zoning systems: administrative, statistical, analytical, and regular.</p>
+<p>Administrative zoning systems are those composed of geographical units relevant for political and administrative purposes, such as countries, regions, municipalities or even parishes. Statistical zoning systems are those which are created deliberately for the collection and dissemination of statistical data. Examples are the European nomenclature of territorial units for statistics (NUTS), or census tracts. For practical reasons, there is often a correspondence between administrative and statistical zoning systems. Analytical zoning systems are those whose boundaries are constructed with certain underlying thematic considerations. That is the case of tessellations based on land use/land cover, soil types, climate or biogeographical regions. Finally, regular zoning systems are tessellations of space based on equally shaped and sized geographical units, e.g.&nbsp;a grid of squared-cells of a pre-established size.</p>
+<p><strong>Residential, night-time and day-time population</strong></p>
+<p>Another important preliminary consideration is the definition of residential population. Residential population refers to the number of people who declare to reside in a given location. As such, when mapping residential population we are essentially mapping the distribution of population during the night time, assuming that most people stay in their declared places of residence during the night for shelter and rest, and excluding the fraction of people who work outside their residences during night time. Conversely, the location of population during the day is determined by the location of economic, social and leisure facilities which pull population off their residences, driving commuting flows and other forms of daily trips. Day-time population distribution thus varies greatly from night-time distribution. Contrary to night-time population, which can be straightforwardly inferred by official statistics on residential population, it is extremely more challenging to infer day-time population distribution. While research is currently on-going at the JRC to advance as well in the mapping of day-time population<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>, that is not addressed in the report herein.</p>
+<p><strong>The ‘dasymetric’ mapping method</strong></p>
+<p>The estimation of residential population for the Urban Atlas polygons is done by a ‘smart’ areal interpolation procedure whereby counts of residents provided at a given ‘source’ geometry</p>
+<p>(regular grids, census tracts or commune boundaries) are transferred to the ‘target’ geometry, i.e.&nbsp;in this case the Urban Atlas polygons. The transfer, downscaling, or disaggregation, of the population counts from source to target geometry is done by means of GIS and tabular operations, whereby source geometry, target geometry, and population covariates (‘ancillary’ data) are combined. The combination of population counts available at a relatively coarse spatial geometry with covariates of population distribution such as land uses, building footprints, night-time lights, or street segments to generate more detailed maps of population density is typically referred in the literature as ‘dasymetric’ mapping<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>.</p>
+<p>The following sections describe in more detail the different types of input data used and how they have been combined in this work.</p>
+</section>
+<section id="input-data" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="input-data"><span class="header-section-number">2.2</span> Input data</h2>
+<p><strong>Source data: census population reported at various zoning systems</strong></p>
+<p>Source data refers to the original population values reported at a given zoning system (e.g.&nbsp;regular grids, census tracts or commune boundaries). The spatial resolution/detail of the source data influences significantly the accuracy of the final disaggregated population maps, and so it is convenient to use the finest available source of population data for each FUA or country. As preferred option, high resolution ‘bottom-up grids’ (&lt; 1 km² cell size) were chosen as source data. Bottom-up grids refer to population values assigned to fine grid systems of regular squared cells, usually based on geo-referenced point data obtained through field surveys/censuses conducted by NSIs. Because such grids are unfortunately only available for a few countries, other sources of population data were sought, namely census tracts and commune boundaries. For the majority of the countries, however, the GEOSTAT grid 2011 was used as source data. The GEOSTAT grid is a population dataset maintained by Eurostat which reports residential population for each 1 Km² grid cell. This grid is based on the censuses carried in most countries in 2011, and largely produced by aggregating point-based population records<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>.</p>
+<p><strong>Target data: Urban Atlas land use polygons</strong></p>
+<p>Target data is herein defined as the set of polygonal entities for which population needs to be estimated. In this case, the target data are the polygons of the Urban Atlas dataset. The Urban Atlas 2012 is a collection of high-resolution maps of land use/land cover covering 697 Functional Urban Areas of over 50,000 inhabitants from 31 European countries (EU28 + EFTA).</p>
+<p>The UA has a thematic resolution of 27 LULC classes compatible with the CORINE Land Cover nomenclature. In terms of spatial resolution, the UA is characterized by a minimum mapping unit (MMU) of 0.25 hectares for all artificial surfaces and 1 hectare for all the remaining LULC classes (agriculture, forest, wetlands and water). The UA is produced using Earth Observation (EO) data, road network datasets and topographic maps. The delineation of LULC polygons is done by using a mix of automatic methods, visual interpretation and local expertise<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>. The UA is available for free download in the Copernicus Land Monitoring Services<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>.</p>
+<p><strong>Ancillary data: European Settlement Map’s built-up densities</strong></p>
+<p>Lastly, as ancillary data to guide the population disaggregation process, the European Settlement Map was used. The ESM is an EO-derived, 10 metre-resolution raster dataset representing built-up areas. The pixel values represent the share of pixel covered by any built-up structure, and was produced by the JRC using innovative machine learning techniques that relate morphological and textural characteristics present in the imagery with the occurrence of built-up structures.</p>
+<p>In the herein work, the ESM was used to populate each UA polygon with a built-up area estimate, which is then used as a weight in the population disaggregation process. This of course assumes a positive relationship between share of built-up area and population density. An important shortcoming of the ESM is that it only captures the horizontal density of built-up, while missing the vertical dimension. The implication is that the volume of built-up (a better predictor of population presence) cannot be derived. Building heights could be derived, for example, from airborne LIDAR sensor data, but their acquisition for all the European space is still unviable<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>.</p>
+<p>Table 2 summarizes the data used in this project.</p>
+<div class="tbl-caption">
+<p>Table 2. Input data used.</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 26%">
+<col style="width: 16%">
+<col style="width: 22%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Data category</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Reference year</strong></td>
+<td><strong>Coverage</strong></td>
+</tr>
+<tr class="even">
+<td rowspan="4" style="vertical-align: middle">Source</td>
+<td>Type 1: High resolution bottom-up grids (&lt;1km)</td>
+<td rowspan="4" style="text-align: center; vertical-align: middle;">2011*</td>
+<td>Estonia, Finland, Slovenia**</td>
+</tr>
+<tr class="odd">
+<td>Type 2: Census tracts</td>
+<td>Belgium, Cyprus***, Spain, Italy, Malta, Netherlands, Poland, Portugal, United Kingdom</td>
+</tr>
+<tr class="even">
+<td>Type 3: Municipal/parish boundaries</td>
+<td>Luxembourg, Latvia</td>
+</tr>
+<tr class="odd">
+<td>Type 4: Medium resolution bottom-up or hybrid grid (1km) (GEOSTAT grid)</td>
+<td>The remainder EU28 + EFTA countries</td>
+</tr>
+<tr class="even">
+<td>Target</td>
+<td>Urban Atlas polygons (only the polygons presumed to be populated)</td>
+<td style="text-align: center;">2011-2013</td>
+<td>EU28 + EFTA</td>
+</tr>
+<tr class="odd">
+<td>Ancillary</td>
+<td>European Settlement Map</td>
+<td style="text-align: center;">2012</td>
+<td>EU28 + EFTA</td>
+</tr>
+</tbody>
+</table>
+<p>Notes:<br>
+* Except Finland (2012) and the Netherlands (2014).<br>
+** Estonia: mixed grid (100m for urban areas; 500m suburban areas; 1Km for rural areas); Finland: 250m grid; Slovenia: 100m grid.<br>
+*** Only for the areas under the effective control of the Government of the Republic of Cyprus.</p>
+</section>
+<section id="methods" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="methods"><span class="header-section-number">2.3</span> Methods</h2>
+<p><strong>Main assumptions and weighting scheme</strong></p>
+<p>When transferring source population to the target zones, the Urban Atlas classes were classified into three major categories relevant to population distribution. This pre-classification is the first main assumption.</p>
+<ul>
+<li>Category 1: LULC classes for which population shares are assumed to be directly proportional to the amount of built-up detected in the ESM;
+<ul>
+<li>‘Urban fabric’ classes (1.1.X.X), ranging from high to very low density urban fabric, plus the class ‘isolated structures’ (1.1.3.0);</li>
+<li>‘Agricultural areas’ (2.X.X.X).</li>
+</ul></li>
+<li>Category 2: LULC classes assumed to contain only residual amounts of resident population:
+<ul>
+<li>‘Industrial, commercial, public, military and private units’ (1.2.1.0);</li>
+<li>‘Port areas’ (1.2.3.0);</li>
+<li>‘Sports and leisure facilities’ (1.4.2.0);</li>
+</ul></li>
+<li>Category 3: LULC classes assumed to have no resident population:
+<ul>
+<li>All remaining classes.</li>
+</ul></li>
+</ul>
+<p>The above identified LULC class categories are treated differently in the disaggregation process. LULC classes in category 3 are not allowed to contain any population. Conversely, for all the polygons for which residential population is warranted (LULC classes from categories 1 and 2 above), the total built-up area, as derived from the ESM raster at 10 metre resolution, is determined. This is done using the so-called ‘zonal statistics’ function from the GIS software. For LULC classes in category 2, however, the amount of built-up area is further modified by a numerical factor which accounts for the presumption that only a small fraction of the built-up areas found in these land use polygons are used for residential purposes. This factor was set to 0.05. The built-up area for each polygon is then used as a weighing factor in the disaggregation process.</p>
+<p>For illustration purposes, table 3 shows the average building densities per LULC class found in the FUA of Lisbon, Portugal.</p>
+<div class="tbl-caption">
+<p>Table 3. Average share of built-up per LULC class in the FUA of Lisbon, Portugal.</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 47%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>LULC class code</th>
+<th>LULC class description</th>
+<th>Average share of built-up*</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1.1.1.0</strong></td>
+<td>Continuous urban fabric</td>
+<td>48.8%</td>
+</tr>
+<tr class="even">
+<td><strong>1.1.2.1</strong></td>
+<td>Discontinuous dense urban fabric</td>
+<td>38.9%</td>
+</tr>
+<tr class="odd">
+<td><strong>1.1.2.2</strong></td>
+<td>Discontinuous medium density urban fabric</td>
+<td>29.5%</td>
+</tr>
+<tr class="even">
+<td><strong>1.1.2.3</strong></td>
+<td>Discontinuous low density urban fabric</td>
+<td>24.7%</td>
+</tr>
+<tr class="odd">
+<td><strong>1.1.2.4</strong></td>
+<td>Discontinuous very low density urban fabric</td>
+<td>20.3%</td>
+</tr>
+<tr class="even">
+<td><strong>1.1.3.0</strong></td>
+<td>Isolated structures</td>
+<td>20.1%</td>
+</tr>
+<tr class="odd">
+<td><strong>1.2.1.0</strong></td>
+<td>Industrial, commercial, public, military and private units</td>
+<td>39.4% (2.0%)**</td>
+</tr>
+<tr class="even">
+<td><strong>1.2.3.0</strong></td>
+<td>Port areas</td>
+<td>33.5% (1.7%)**</td>
+</tr>
+<tr class="odd">
+<td><strong>1.4.2.0</strong></td>
+<td>Sport and leisure facilities</td>
+<td>21.8% (1.1%)**</td>
+</tr>
+<tr class="even">
+<td><strong>2.X.X.X</strong></td>
+<td>Agricultural areas</td>
+<td>4.2%</td>
+</tr>
+</tbody>
+</table>
+<p>Notes: * Calculated as total built-up surface divided by total area of polygon of LULC class. ** In parenthesis the built-up density after applying the residential share factor.</p>
+<p><strong>Disaggregation</strong></p>
+<p>To redistribute population from the source to the target spatial units, source and target layers are first intersected geometrically through a GIS operation, resulting in a third layer which we will refer to as ‘transitional’ geometry. It contains unique combinations between all overlapping source polygons s ∈ S and urban atlas polygons t ∈ T, so that t ∈ T ∩ S. This yields a set of areal units indicated by i that can be aggregated to source polygons, indicated by s, or to urban atlas polygons, indicated by t. The next step is to estimate the population for each polygon of the transitional geometry. The following, standard formulation was used:</p>
+<p><span class="math display">\[P_{i,g} = P_{s,g} \cdot \frac{A_i}{\sum_{i} A_i}\]</span></p>
+<p>where:</p>
+<p><span class="math inline">\(P_{i,g}\)</span> corresponds to estimated population in a given polygon <span class="math inline">\(i\)</span> of the transitional geometry;</p>
+<p><span class="math inline">\(g\)</span> corresponds to an age-group of <span class="math inline">\(k\)</span> possible age-groups. Typically, <span class="math inline">\(k=1\)</span> (when age-group breakdown is absent), or <span class="math inline">\(k=3\)</span>, with <span class="math inline">\(g \in \{\le 14, 15:64, \ge 65\}\)</span>;</p>
+<p><span class="math inline">\(P_s\)</span> is the known population in the source polygon <span class="math inline">\(s\)</span>;</p>
+<p><span class="math inline">\(A_i\)</span> is the total built-up area within polygon <span class="math inline">\(i\)</span>;</p>
+<p><span class="math inline">\(n\)</span> corresponds to the number of transitional polygons within each source polygon.</p>
+<p>At this point, <span class="math inline">\(P_{i,g}\)</span> is a continuous numerical value. Given that population only occurs in discrete numbers, a procedure is then implemented to convert the continuous numerical values into discrete ones. Simply rounding the numbers was not appropriate because it would almost inevitably result in a total population for the FUA different (even if slightly) from the original total. The applied procedure starts by rounding down the initial estimates of population for each transitional polygon <span class="math inline">\(i\)</span>:</p>
+<p><span class="math display">\[P'_{i,g} = \text{floor}(P_{i,g})\]</span></p>
+<p>This leaves a remainder population <span class="math inline">\(R\)</span> in each polygon <span class="math inline">\(i\)</span>:</p>
+<p><span class="math display">\[R_i = P'_i - P''_i\]</span></p>
+<p><span class="math inline">\(R_{FUA}\)</span> is then calculated as the sum of <span class="math inline">\(R_i\)</span> in all <span class="math inline">\(i\)</span> polygons within the FUA, and corresponds to the total amount of population which needs to be reallocated among <span class="math inline">\(i\)</span> polygons to ensure consistency between total population in the FUA and the sum of population in all transitional polygons. In the equation below, <span class="math inline">\(d\)</span> is the total number of <span class="math inline">\(i\)</span> polygons within the FUA:</p>
+<p><span class="math display">\[R_{FUA} = \sum_{i}^{d} R_i\]</span></p>
+<p>Because <span class="math inline">\(R_i\)</span> is smaller than 1 in all <span class="math inline">\(i\)</span> polygons, <span class="math inline">\(R_{FUA}\)</span> is necessarily smaller than <span class="math inline">\(d\)</span>. Therefore, if we select a <span class="math inline">\(R_{FUA}\)</span> number of <span class="math inline">\(i\)</span> polygons and warrant an additional inhabitant we ensure that the sum of population values in all <span class="math inline">\(i\)</span> polygons corresponds to the original total population in the FUA. In order make the selection, we first sort <span class="math inline">\(R_i\)</span> values in a descending sequence (from highest remainder population to lowest). The sequence is stored as variable <span class="math inline">\(O_i\)</span>:</p>
+<p><span class="math display">\[O_i = \text{sort}(R_i), \text{with } O_i \in \{1:d\}\]</span></p>
+<p>Subsequently, we grant one additional inhabitant in polygons <span class="math inline">\(i\)</span> ranked higher than the <span class="math inline">\(R_{FUA}\)</span>-th position (i.e.&nbsp;the highest <span class="math inline">\(R_i\)</span> remainders):</p>
+<p><span class="math display">\[
+P''_{i,g} = \begin{cases} P'_{i,g} + 1 &amp; \text{if } O_i \le R_{FUA} \\ P'_{i,g} &amp; \end{cases}
+\]</span></p>
+<p>This results in an integer number of people <span class="math inline">\(P''_{i,g}\)</span>, where <span class="math inline">\(\sum P''_{i,g} = P_{FUA,g}\)</span>. Finally, the estimated population for each Urban Atlas polygon <span class="math inline">\(t\)</span> is simply:</p>
+<p><span class="math display">\[P_{t,g} = \sum_i P''_{i,g}\]</span></p>
+<p>where <span class="math inline">\(j\)</span> corresponds to the number of transitional polygons within each target polygon of the Urban Atlas dataset. Total population for <span class="math inline">\(P_t\)</span> can be obtained:</p>
+<p><span class="math display">\[P_t = \sum_g^k P_{t,g}\]</span></p>
+<p><strong>Software used</strong></p>
+<p>The disaggregation was implemented using ArcGIS geoprocessing tools. A script written in Python programming language, and accessible as a tool within the ArcGIS environment was created to facilitate the processing and allow batch processing.</p>
+<p>The tool accepts any type of source data in vector format. Other parameters are used to specify the fields that contain population data (total population and/or population per age-groups) and the desired output field names. The ‘weighting layer’ parameter refers to the built-up density map in raster format. If a country boundary is provided, the source vector file is first clipped by the country boundary (see Appendix 1, ‘step 1’).</p>
+<p>If the final parameter is checked, the population age-groups are summed for each row/polygon to achieve total population as a new field. This option, however, should only be checked in case the sum of the age-groups is equivalent to the total population in the source data. Due to privacy issues, that is not the case for some countries. In such cases, the parameter should not be checked, resulting in that both age-groups and total population are disaggregated separately.</p>
+<p>Log files are produced and stored in the specified workspace with information regarding any errors that might have occurred and with the date and duration of the geoprocessing. The implemented technical solution allows an easy re-run of specific cities whenever source data of superior quality become available. Figure 1 shows the interface of the tool.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Technical_Report_Mapping_Population_Density-media/img-4e3c081d793388d6371e69a233668989.png" class="img-fluid figure-img" alt="This image displays the graphical user interface of the 'Downscaling population into Urban Atlas (UA) polygons_v6' software tool. The right-hand panel provides context, stating: 'The script transfers population data from any given vector source to Urban Atlas polygons.' The user interface is structured with several input parameters: 1. **Set workspace (temporary files)**: An input field for specifying a temporary file directory. 2. **Set output folder**: An input field for defining the output directory. 3. **Input UA feature class**: An input field for the Urban Atlas feature class. 4. **Input reference population file**: An input field for the source population data file. 5. **Population fields**: A large text area to list population fields, accompanied by 'Select All', 'Unselect All', and 'Add Field' buttons. 6. **Labels for population groups (same nr of selected fields above)**: A text area for defining labels corresponding to the population fields, with buttons for adding (+), deleting (x), moving up (↑), and moving down (↓) entries. 7. **Input Weighting Layer**: An input field for a weighting layer. 8. **Input country boundary (optional)**: An input field for an optional country boundary file. 9. A checkbox labelled 'Sum age-groups to obtain total population?'. Control buttons at the bottom include 'OK', 'Cancel', 'Environments...', '<< Hide Help', and 'Tool Help'. The tool is designed to facilitate the spatial disaggregation of population data using ArcGIS geoprocessing tools."></p>
+<figcaption>Figure 1. Interface of the downscaling tool within ArcGIS environment.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="results-and-data-quality" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Results and data quality</h1>
+<p>The final output is a conventional DBF-format table with the following fields:</p>
+<ul>
+<li><code>UATL_ID</code>: unique identifier for each Urban Atlas polygon. This field allows establishing the link with the Urban Atlas geometry.</li>
+<li><code>Pop_tot</code>: Total residential population.</li>
+<li><code>Pop_0_14</code>: Residential population until 14 years of age.</li>
+<li><code>Pop_15_64</code>: Residential population between 15 and 64 years of age.</li>
+<li><code>Pop_65</code>: Residential population above 64 years.</li>
+</ul>
+<p>Figure 2 shows the inputs used for the disaggregation of population in the FUAs of Lisbon and Budapest and the respective results as population density per Urban Atlas polygon. Figure 3 shows results for the FUAs of Brussels and Rome, for which population data with age-group breakdown were available.</p>
+<p><strong>Considerations on data quality and comparability of estimates</strong></p>
+<p>In a disaggregation procedure such as the one herein described, the outcome is never less accurate than the original source data. By disaggregating numerical data from one coarse geometry to a finer one, there is always a gain in detail and a better approximation to ground truth without the risk of deteriorating the source information. The degree to which the disaggregation approximates reality, however, varies greatly, and depends chiefly on two factors: 1) the quality of the ancillary data and 2) the appropriateness of the disaggregation algorithm and its parameters.</p>
+<p>Because the above mentioned factors were equal in all FUAs (same ancillary data, and same algorithm and parameters), the quality of the disaggregation per se is constant across Europe. However, the overall accuracy of the population estimations for the Urban Atlas polygons may differ between FUAs depending on the spatial resolution of the source population data. Ceteris paribus, FUAs for which source population was available at higher spatial resolution are characterized by polygon-level population estimates of higher accuracy.</p>
+<p>In table 2, four types of source data were presented depending on the spatial resolution. Source data of type 1 refers to high-resolution bottom-up grids. FUAs for which this type of data has been used have the highest accuracy levels, in particular Slovenia, for which a grid of 100 x 100m was available. Subsequently, source data of type 2, referring to census tracts, are expected to deliver the next highest overall accuracies thanks to the typically very small size of census zones. However, contrary to regular grids, census tracts have irregular shapes and sizes, leading in fact to a spatially heterogeneous resolution (i.e.&nbsp;higher within urbanised settings, lower in rural areas). Source data of type 4, referring to the GEOSTAT grid should lead to the third highest accuracies, in particular for countries where the grid has been produced by aggregating point-data<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a>. Finally, source data of type 3 – municipal or parish boundaries – should deliver the lowest accuracies.</p>
+<p>The diversity of source data used poses the question of comparability of estimates between FUAs. Before using the estimates for comparisons between FUAs, one should bear in mind the following rules of thumb:</p>
+<ol type="1">
+<li>FUAs belonging to the same country are comparable in terms of the population estimation quality;</li>
+<li>Idem for FUAs for which the source population data is of equal spatial resolution;</li>
+<li>For FUAs for which source data is of different spatial resolution, comparisons between FUAs are admissible depending on the spatial scale of the application<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a>.</li>
+</ol>
+<p>In the 2013 release of the Urban Atlas population estimation<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a>, a validation of the population estimates for a selection of FUAs was undertaken. Given the small changes to the nature of the input data and to the disaggregation method applied, no significant differences to the earlier validation results are expected.</p>
+</section>
+<section id="concluding-remarks" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Concluding remarks</h1>
+<p>The work herein presented resulted in an enriched Urban Atlas dataset with an estimate of residential population for each vector polygon. This enables diverse analyses at fine scale for the whole UA dataset which comprehends nearly 700 European Functional Urban Areas of more than 50,000 inhabitants in 31 countries (EU28 + EFTA). For countries like Belgium, Spain, Italy, Malta, Netherlands, Slovenia, and UK (except Scotland), population is also broken-down in 3 main age-groups: &lt;15, 15-64, &gt;64.</p>
+<p>The residential population estimates for the UA polygons were produced by downscaling census population counts from country-specific source geometries. This was done by combining the most up-to-date and state-of-the-art geographical layers concerning land use/land cover, built-up density, and census population, using spatial and tabular operators from Geographical Information Systems software. The downscaling procedure allows gaining additional detail and insight regarding actual population distribution without deteriorating the original population data sources. Countries for which the dataset is most reliable are all those for which the downscaling was performed from bottom-up grids or census tracts, as reported in table 2.</p>
+<p>UA population estimates have already been used for various assessments by the European Commission services. The current release will become freely available to the wider public through the European Copernicus Land Monitoring Services website, thus expanding greatly the number of potential users and applications of this enriched Urban Atlas dataset.</p>
+<p>Many European countries produce already today point-based population registers. This would allow – by means of simple spatial aggregation operations – the production of population datasets for any desired type of zoning system and resolution. However, due to privacy and data protections issues, many countries still refrain from disclosing bottom-up population data at high grid resolution (&lt; 1 Km²). In other cases, high-resolution grids are available but not free of charge. In the longer term, the expected (and hoped) increase of freely available bottom-up grids at high resolution could progressively fade the need for population disaggregation methods. Until disaggregation cannot be fully discarded, current methods are fairly mature given the existing available ancillary data. Significant improvements to the disaggregation accuracies are now dependent on the widespread of new datasets that allow deriving building volume (such as building heights, nr. of floors, floor area) and building use (residential, commercial, mixed, etc.).</p>
+<p>Another strand of innovative research regards the mapping of day-time population, requiring the use of new and unconventional (‘big’) data sources. Although not addressed in this report, on-going research at the JRC (ENACT project) aims at developing methods to map multi-temporal population distribution, so to take into account daily and seasonal variations of population. Detailed knowledge of population distribution is an essential element for JRC’s LUISA Territorial Modelling Platform.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Technical_Report_Mapping_Population_Density-media/img-d6f31dd3e47ced3b9b7efbafd423c633.png" class="img-fluid figure-img" alt="This image displays eight thematic maps arranged in two rows and four columns, illustrating the process of spatial disaggregation of population data for two distinct Functional Urban Areas (FUAs): Lisbon (top row) and Budapest (bottom row). Each row consists of four maps, typically showing data before and after disaggregation. A north arrow and 2 km scale bar are present on maps in the top right and bottom right. The legends apply as follows: * **Land use/land cover classes** (applies to column 1, top and bottom): * Red: Urban fabric * Purple: Industrial or commercial * Grey: Infrastructures * Bright Green: Green or leisure * Light Yellow: Agricultural * Dark Green: Forests * Light Blue: Wetlands * Aqua Blue: Water Bodies * **Built-up density** (applies to column 2, top and bottom): * Shaded from light yellow (0-10%) to dark brown (90-100%) in 10% increments. * **Inhabitants / hectare** (applies to column 3 and 4, top and bottom): * Grey: 0.0 * Light Yellow: 0.1 - 5.0 * Orange: 5.1 - 15.0 * Darker Orange: 15.1 - 50.0 * Red: 50.1 - 100.0 * Darker Red: 100.1 - 200.0 * Darkest Red: 200.1 - 300.0 * Maroon: > 300.0 The specific maps are: 1. **Top Row, Column 1 (Lisbon):** Land use/land cover classes, showing a mix of urban fabric, green areas, agricultural land, and water bodies. 2. **Top Row, Column 2 (Lisbon):** Built-up density, with higher densities (darker brown) concentrated in urban areas. 3. **Top Row, Column 3 (Lisbon):** Population density (Inhabitants / hectare) at a coarser, irregular polygon resolution, representing source population data. 4. **Top Row, Column 4 (Lisbon):** Disaggregated population density (Inhabitants / hectare) at a finer, polygon-level resolution, showing increased detail, particularly in highly populated urban fabric areas. 5. **Bottom Row, Column 1 (Budapest):** Land use/land cover classes, highlighting urban fabric along the Danube river and surrounding green and agricultural areas. 6. **Bottom Row, Column 2 (Budapest):** Built-up density, with high-density areas concentrated along the river and extending into the surrounding city. 7. **Bottom Row, Column 3 (Budapest):** Population density (Inhabitants / hectare) at a coarser grid cell resolution, representing source population data. 8. **Bottom Row, Column 4 (Budapest):** Disaggregated population density (Inhabitants / hectare) at a finer, polygon-level resolution, revealing detailed population distribution within the urban fabric, particularly dense along the river. The overall pattern shows how ancillary data like land use/land cover and built-up density are used to disaggregate coarser population data into finer, more detailed spatial estimates, enhancing the approximation to ground truth at a polygon level for Functional Urban Areas."></p>
+<figcaption>Figure 2. Inputs and outputs of the disaggregation method. Top rows: Lisbon. Bottom rows: Budapest. Insets from left to right: a) Urban Atlas land use/cover map; b) European settlement map; c) Population density per source zones (census tracts for Lisbon and GEOSTAT grid for Budapest); d) Final output: population density per target zones (UA polygons).</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Technical_Report_Mapping_Population_Density-media/img-2b9309be10f4e3d4d5130fa52778e2f1.png" class="img-fluid figure-img" alt="A grid of eight thematic maps displaying population density and age-group proportions across an unlabelled urban area, likely a Functional Urban Area (FUA) as referred to in the surrounding context. The maps are arranged in two rows of four. Each individual map includes a scale bar of 0, 1, 2 km and a North arrow. The first column (top-left and bottom-left maps) displays 'Inhabitants / hectare' using a yellow-orange-red colour scale: * Light grey: 0.0 * Light yellow: 0.1 - 5.0 * Orange: 5.1 - 15.0 * Darker orange: 15.1 - 50.0 * Red-orange: 50.1 - 100.0 * Red: 100.1 - 200.0 * Darker red: 200.1 - 300.0 * Darkest red: > 300.0 These two maps show similar overall patterns of higher population density in the urban core and along main arteries, with lower densities in peripheral areas, but with discernible differences in the specific distribution and granularity of density values, possibly indicating different source data resolutions or methods. The remaining six maps (three in the top row, three in the bottom row, excluding the first column) illustrate 'Age-group proportion' using a qualitative light red to dark red colour scale, labelled from 'Low' to 'High'. No specific age groups are identified for these individual maps. Each of these six maps shows a distinct spatial pattern of age-group proportion distribution across the urban landscape, suggesting they represent different demographic cohorts or different modelling outcomes for the same FUA."></p>
+<figcaption>Figure 3. Population distribution per age-groups. Top rows: Brussels. Bottom rows: Rome. Insets from left to right: a) Population density; b) Proportion of population below 15 years of age; c) Proportion of population between 15 and 64 years of age; d) Proportion of population above 64 years of age.</figcaption>
+</figure>
+</div>
+</section>
+<section id="acknowledgements" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Acknowledgements</h1>
+<p>To Emile Robe and Olivier Draily from GIS team in DG REGIO with whom we interacted throughout the whole production process of the population estimations for the Urban Atlas polygons. To Mario Marin (JRC) who helped in various practical tasks of this project. To Chris Jacobs Crisioni (JRC) who suggested the method to allocate discrete population numbers. To all NSIs who are disclosing population data at increasing levels of spatial and thematic disaggregation, thus contributing to improved research and policy support.</p>
+</section>
+<section id="references" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> References</h1>
+<p>Batista e Silva F, Gallego J, Lavalle C (2013b) A high-resolution population grid for Europe. Journal of Maps 9(1): 16-28. Online: http://www.tandfonline.com/doi/abs/10.1080/17445647.2013.764830</p>
+<p>Batista e Silva F, Poelman H, Martens V, Lavalle C (2013a) Population Estimation for the Urban Atlas Polygons. JRC technical report no. EUR 26437 EN. Publications Office of the European Union. Online: http://bookshop.europa.eu/en/population-estimation-for-the-urban-atlas-polygons-pbLBNA26437/</p>
+<p>Dijkstra L and Poelman H (2012) Cities in Europe – the new OECD-EC definition. Regional focus 01/2012. Online: http://ec.europa.eu/regional_policy/sources/docgener/focus/2012_01_city.pdf.</p>
+<p>European Commission (2016) Mapping Guide for a European Urban Atlas. Online: http://land.copernicus.eu/user-corner/technical-library/urban-atlas-mapping-guide</p>
+<p>Lavalle C, Batista e Silva F, Baranzelli C, et al.&nbsp;(2016) Land Use and Scenario Modeling for Integrated Sustainability Assessment, in J Feranec et al.&nbsp;(eds.) European Landscape Dynamics: CORINE Land Cover Data. CRC Press - Taylor &amp; Francis Group. pp.&nbsp;237-262.</p>
+<p>Poelman H (2016) A walk to the park? Assessing access to green areas in Europe’s cities. Working paper 01/2016. Online: http://ec.europa.eu/regional_policy/sources/docgener/work/2016_03_green_urban_area.pdf</p>
+</section>
+<section id="list-of-abbreviations" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> List of abbreviations</h1>
+<p><strong>DG JRC</strong> Directorate-General Joint Research Centre</p>
+<p><strong>DG REGIO</strong> Directorate-General for Regional and Urban Policy</p>
+<p><strong>DG</strong> Directorate-General</p>
+<p><strong>EC</strong> European Commission</p>
+<p><strong>EEA</strong> European Environment Agency</p>
+<p><strong>EFTA</strong> European Free Trade Association</p>
+<p><strong>EO</strong> Earth Observation</p>
+<p><strong>ESM</strong> European Settlement Map</p>
+<p><strong>EU</strong> European Union</p>
+<p><strong>FUA</strong> Functional Urban Area</p>
+<p><strong>GIS</strong> Geographical Information Systems</p>
+<p><strong>LIDAR</strong> Light Detection And Ranging</p>
+<p><strong>LUISA</strong> Territorial Modelling Platform</p>
+<p><strong>LULC</strong> Land use/land cover</p>
+<p><strong>MMU</strong> Minimum mapping unit</p>
+<p><strong>NSI</strong> National Statistical Institute</p>
+<p><strong>OECD</strong> Organisation for Economic Co-operation and Development</p>
+<p><strong>UA</strong> Urban Atlas</p>
+</section>
+<section id="appendix-1-border-adjustments" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Appendix 1: Border adjustments</h1>
+<p>The source population data comes in various forms/geometries: regular grids, census tracts and commune boundaries. The geometry of the source data may not always coincide with the target geometry, particularly when the source data comes as a regular grid. The mismatch is troublesome along the coastline and country borders.</p>
+<p>It is common to find populated cells which have a portion of area covered by the sea, but whose reported population refers only to the actual land surface of the cell. Similarly, in a grid of cells reporting population for country A, some of those cells will also include a portion of area of a neighbouring country B. In such situations, the source data has to be clipped by the boundary of the country, thus removing the unpopulated surface from the cell.</p>
+<p>In addition, the spatial extent of the Functional Urban Areas is smaller than the extent of the source data. Therefore, remaining source cells ought to be clipped by the border of the FUA and its population adjusted. The adjustment is done through a simple areal weighting rule.</p>
+<p>These preparatory steps related to the source data are part of the downscaling procedure. The following sequence of images and respective labels illustrate the adjustments mentioned above.</p>
+<p>Original source data (grid), with respective total population per cell. The actual land area, in yellow.</p>
+<p><img src="products_Technical_Report_Mapping_Population_Density-media/img-20dd05dd1414f9f2c5288bff3fc74526.png" class="img-fluid" alt="The image displays two conceptual grids, each 7 cells wide by 7 cells high, illustrating a spatial data adjustment process for values within grid cells, such as population data. The left panel shows the 'Before adjustment' state, while the right panel shows the 'After adjustment' state, depicting how grid cells are aligned with an irregular geographic boundary, like a coastline or country border. In the 'Before adjustment' panel, all grid cells are uniformly coloured pink. An irregular, wavy pink shape with a black outline along the left edge of the grid represents a geographic boundary. All grid cells, including those partially covered by this boundary, contain numerical values. The numbers in the cells from left to right, top to bottom are: 0, 660, 707, 306, 168, 166, 543 0, 1919, 754, 411, 363, 612, 385 0, 1136, 734, 142, 161, 553, 1262 173, 1471, 722, 800, 347, 1242, 2449 147, 799, 476, 300, 60, 2354, 2471 10, 1504, 1345, 1465, 205, 1011, 998 0, 916, 2302, 3373, 1361, 389, 539 In the 'After adjustment' panel, the irregular wavy boundary is unchanged. All grid cells that are entirely within this boundary are now coloured yellow, while the portions of cells along the left edge that lie outside the boundary retain their pink colour. The numerical values within all grid cells remain identical to those in the 'Before adjustment' panel. This visual adjustment demonstrates the conceptual clipping of grid cells by a country border, where reported population values refer only to the actual land surface of the cell. The yellow areas indicate the valid spatial extent of the data after this border adjustment."></p>
+<p>Step 1: The grid cells are clipped by the country border. Population values are kept the same.</p>
+<p><img src="products_Technical_Report_Mapping_Population_Density-media/img-f185862f824403224efbfef7802f7191.png" class="img-fluid" alt="This map illustrates a grid of original source data, representing numerical values (likely population counts) across a geographic area, specifically showing the interface with an irregular boundary, which may represent a coastline or country border. The main grid consists of approximately 7 rows and 6 columns of uniformly purple-coloured cells. Each cell contains a black numerical value. Along the irregular western border, several smaller, uncoloured land segments also display numerical values, specifically 173, 147, 10, 0, and 0 from top to bottom. The numerical values within the main grid cells range from a minimum of 60 (Row 5, Column 4) to a maximum of 3373 (Row 7, Column 3). Other example values include 660 (top-left cell), 543 (top-right cell), and 916 (bottom-left cell). This visual represents the raw data structure before spatial adjustments such as clipping or areal weighting, which are typically applied during downscaling procedures to handle mismatches between source data geometries and target boundaries."></p>
+<p>Border of the Functional Urban Area, in blue.</p>
+<p><img src="products_Technical_Report_Mapping_Population_Density-media/img-ef162a0dcdb38e36c8d0401a1889bafd.png" class="img-fluid" alt="A thematic map depicting original source population data distributed across a regular grid of square cells, approximately 6 columns by 8 rows, overlaid on a generic geographic area. The map illustrates a coastal zone on the left and a land border separating two distinct regions or countries. The primary region (Country A, as per context) is shaded light blue, while the adjacent region (Country B) is shaded light purple. Each grid cell contains a numerical value representing its total population. Along the coastline on the western side, several cells show low population counts, such as 0, 10, 147, and 173, indicating partial land coverage or unpopulated sea areas. Population figures across the grid vary widely, from these low coastal values up to a maximum of 3373 in an inland cell. The map visually demonstrates the challenge of aligning source data geometries, such as regular grids, with target geometries like country boundaries and coastlines, where cells may encompass portions of both land and sea or parts of neighbouring countries, necessitating subsequent border adjustments as part of a downscaling procedure."></p>
+<p>Step 2: The grid cells are clipped by the border of the Functional Urban Area. Population in clipped cells is adjusted through simple areal weighting. The resulting grid is used in the subsequent disaggregation steps.</p>
+<p><img src="products_Technical_Report_Mapping_Population_Density-media/img-d8041104a887fc4c1324caaed886005e.png" class="img-fluid" alt="This map displays an irregular geographic area, likely a country or region, overlaid with a regular grid of cells. Each peach-coloured grid cell contains a numerical value representing the total population for that cell. The map illustrates original source population data in a grid format, prior to border adjustments as part of a downscaling procedure. Numbers visible in the cells include: 1912, 748, 173, 1136, 734, 62, 1471, 722, 800, 799, 476, 300, 1502, 1345, 1465, 916, 2302, 3373, 341, 1242, 1739, 60, 2354, 2471, 205, 1011, 998, 1361, 389, 539. Along the irregular northern and western country boundaries, smaller values are present in partial grid cells, such as 141, 41, 12, 29, 140, 74, 173, 147, 10, and 0, indicating population counts for land portions within those cells. The highest population count observed is 3373."></p>
+<blockquote class="blockquote">
+<p>Europe Direct is a service to help you find answers to your questions about the European Union</p>
+<p>Free phone number (<em>): 00 800 6 7 8 9 10 11 (</em>) Certain mobile telephone operators do not allow access to 00 800 numbers or these calls may be billed.</p>
+<p>A great deal of additional information on the European Union is available on the Internet. It can be accessed through the Europa server http://europa.eu</p>
+<p><strong>How to obtain EU publications</strong></p>
+<p>Our publications are available from EU Bookshop (http://bookshop.europa.eu), where you can place an order with the sales agent of your choice.</p>
+<p>The Publications Office has a worldwide network of sales agents. You can obtain their contact details by sending a fax to (352) 29 29-42758.</p>
+</blockquote>
+<p><strong>JRC Mission</strong></p>
+<p>As the science and knowledge service of the European Commission, the Joint Research Centre’s mission is to support EU policies with independent evidence throughout the whole policy cycle.</p>
+<p><img src="products_Technical_Report_Mapping_Population_Density-media/img-60938041d0cc60992b4cae8ffa558b2b.png" class="img-fluid" alt="A blue and white QR code, a two-dimensional barcode used to encode information such as a URL or text. Given the surrounding document context, this QR code likely provides a link to information about the European Union, such as the Europa server (http://europa.eu), the EU Bookshop (http://bookshop.europa.eu), or contact details for the Publications Office."></p>
+<p><strong>EU Science Hub</strong> ec.europa.eu/jrc</p>
+<p>“@EU_ScienceHub”</p>
+<p>EU Science Hub - Joint Research Centre</p>
+<p>Joint Research Centre</p>
+<p>EU Science Hub</p>
+<p>doi:10.2791/06831<br>
+ISBN 978-92-79-63484-0</p>
+
+
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>See Dijkstra and Poelman (2012) for additional details.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>See a recent example of how population estimates for UA polygons have been used to evaluate access to green areas in Europe’s cities in Poelman (2016).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>See Lavalle et al.&nbsp;(2016) and https://ec.europa.eu/jrc/en/luisa.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>See Batista e Silva et al.&nbsp;(2013a) for related report.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>The JRC exploratory research project ‘ENACT’ is exploring methods to construct multi-temporal population distribution grid maps that reflect both daily and seasonal variations, leveraging new and unconventional (‘big’) data sources.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>See Batista e Silva et al.&nbsp;(2013b) for a review of the dasymetric method.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Further information available at: http://ec.europa.eu/eurostat/statistics-explained/index.php/Population_grids<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>For additional details on the technical specifications and methodologies applied to produce the UA, refer to the report European Commission (2016).<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>http://land.copernicus.eu/local/urban-atlas/urban-atlas-2012/<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>The Spanish Instituto Geografico Nacional provides free access to a LIDAR data for Spain (http://pnoa.ign.es), but this is still a relatively isolated initiative among European countries.<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>For details, refer to the GEOSTAT grid product specifications here: http://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/population-distribution-demography.<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>If the spatial scale of application is the neighbourhood level, then population estimations for FUAs based on high-resolution grids and census tracts should be fairly comparable. For applications of a spatial scale equal or greater than 1Km², population estimations for all FUAs are comparable, except those based on source data of type 3 (municipal/parishes).<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p>Batista e Silva et al.&nbsp;(2013a).<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/library\.land\.copernicus\.eu");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2026 EEA. All rights reserved.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

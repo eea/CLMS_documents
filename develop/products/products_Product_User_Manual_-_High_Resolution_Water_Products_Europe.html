@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-12-23">
+<meta name="keywords" content="High Resolution Water products, Water Cover Duration (WCD), High Resolution Water Layer (HRWL), Water Layer Rolling Archive (WLRA), Sentinel-1 Synthetic Aperture Radar (SAR), Sentinel-2 optical imagery, Water presence index (WPI), Water confidence layer (WCL), Pan-European land monitoring, Daily Water Masks (DWM), Data fusion techniques, Water Framework Directive">
+<meta name="description" content="This Product User Manual details the Copernicus Land Monitoring Service’s High Resolution Water portfolio for Europe, encompassing Water Cover Duration (WCD) and High Resolution Water Layer (HRWL) products, along with the Water Layer Rolling Archive. Derived from Sentinel-1 SAR and Sentinel-2 optical imagery, these products provide comprehensive information on water presence frequency, extent, and confidence across the pan-European area. The manual outlines product specifications, retrieval methodologies including data fusion and classification criteria, and usage terms, supporting critical applications in water management, climate change adaptation, and SDG reporting.">
+
+<title>Production of High Resolution Water, Snow and Ice products (Lot 1) – Technical Library</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3e4b792c78aaba79123027d3b782d07b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "Search ...",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Production of High Resolution Water, Snow and Ice products (Lot 1)",
+    "description": "This Product User Manual details the Copernicus Land Monitoring Service’s High Resolution Water portfolio for Europe, encompassing Water Cover Duration (WCD) and High Resolution Water Layer (HRWL) products, along with the Water Layer Rolling Archive. Derived from Sentinel-1 SAR and Sentinel-2 optical imagery, these products provide comprehensive information on water presence frequency, extent, and confidence across the pan-European area. The manual outlines product specifications, retrieval methodologies including data fusion and classification criteria, and usage terms, supporting critical applications in water management, climate change adaptation, and SDG reporting.",
+    "datePublished": "December 23, 2025",
+    "author": {
+      "@type": "Person",
+      "name": "?meta:author"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Copernicus Land Monitoring Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
+      }
+    },
+    "keywords": "High Resolution Water products
+
+Water Cover Duration (WCD)
+
+High Resolution Water Layer (HRWL)
+
+Water Layer Rolling Archive (WLRA)
+
+Sentinel-1 Synthetic Aperture Radar (SAR)
+
+Sentinel-2 optical imagery
+
+Water presence index (WPI)
+
+Water confidence layer (WCL)
+
+Pan-European land monitoring
+
+Daily Water Masks (DWM)
+
+Data fusion techniques
+
+Water Framework Directive
+",
+    "articleSection": "General",
+    "isAccessibleForFree": "true",
+    "license": "",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": "article p"
+    }
+  }
+</script>
+
+
+<link rel="stylesheet" href="../_meta/theme/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Technical Library</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Index</h2>
+   
+  <ul>
+  <li><a href="#document-approvers-and-reviewers" id="toc-document-approvers-and-reviewers" class="nav-link active" data-scroll-target="#document-approvers-and-reviewers"><span class="header-section-number">0.0.1</span> Document Approver(s) and Reviewer(s)</a></li>
+  <li><a href="#document-history" id="toc-document-history" class="nav-link" data-scroll-target="#document-history"><span class="header-section-number">0.0.2</span> Document history</a></li>
+  <li><a href="#list-of-figures" id="toc-list-of-figures" class="nav-link" data-scroll-target="#list-of-figures"><span class="header-section-number">0.0.3</span> List of figures</a></li>
+  <li><a href="#list-of-tables" id="toc-list-of-tables" class="nav-link" data-scroll-target="#list-of-tables"><span class="header-section-number">0.0.4</span> List of tables</a></li>
+  <li><a href="#scope-and-objectives-of-the-document" id="toc-scope-and-objectives-of-the-document" class="nav-link" data-scroll-target="#scope-and-objectives-of-the-document"><span class="header-section-number">0.1</span> Scope and objectives of the document</a></li>
+  <li><a href="#sentinel-1-and-sentinel-2-missions" id="toc-sentinel-1-and-sentinel-2-missions" class="nav-link" data-scroll-target="#sentinel-1-and-sentinel-2-missions"><span class="header-section-number">0.2</span> Sentinel-1 and Sentinel-2 missions</a></li>
+  <li><a href="#document-structure" id="toc-document-structure" class="nav-link" data-scroll-target="#document-structure"><span class="header-section-number">0.3</span> Document structure</a></li>
+  <li><a href="#applicable-documents" id="toc-applicable-documents" class="nav-link" data-scroll-target="#applicable-documents"><span class="header-section-number">0.4</span> Applicable documents</a>
+  <ul class="collapse">
+  <li><a href="#key-application-areas" id="toc-key-application-areas" class="nav-link" data-scroll-target="#key-application-areas"><span class="header-section-number">0.4.1</span> Key Application Areas</a></li>
+  <li><a href="#potential-users" id="toc-potential-users" class="nav-link" data-scroll-target="#potential-users"><span class="header-section-number">0.4.2</span> Potential Users</a></li>
+  </ul></li>
+  <li><a href="#hr-wsi-water-products-overview" id="toc-hr-wsi-water-products-overview" class="nav-link" data-scroll-target="#hr-wsi-water-products-overview"><span class="header-section-number">1</span> HR-WSI water products overview</a>
+  <ul class="collapse">
+  <li><a href="#algorithm" id="toc-algorithm" class="nav-link" data-scroll-target="#algorithm"><span class="header-section-number">1.1</span> Algorithm</a>
+  <ul class="collapse">
+  <li><a href="#retrieval-methodology" id="toc-retrieval-methodology" class="nav-link" data-scroll-target="#retrieval-methodology"><span class="header-section-number">1.1.1</span> Retrieval methodology</a></li>
+  <li><a href="#product-limitations" id="toc-product-limitations" class="nav-link" data-scroll-target="#product-limitations"><span class="header-section-number">1.1.2</span> Product limitations</a></li>
+  <li><a href="#differences-from-the-previous-version" id="toc-differences-from-the-previous-version" class="nav-link" data-scroll-target="#differences-from-the-previous-version"><span class="header-section-number">1.1.3</span> Differences from the previous version</a></li>
+  </ul></li>
+  <li><a href="#product-description" id="toc-product-description" class="nav-link" data-scroll-target="#product-description"><span class="header-section-number">1.2</span> Product description</a>
+  <ul class="collapse">
+  <li><a href="#spatial-information" id="toc-spatial-information" class="nav-link" data-scroll-target="#spatial-information"><span class="header-section-number">1.2.1</span> Spatial information</a></li>
+  <li><a href="#temporal-information" id="toc-temporal-information" class="nav-link" data-scroll-target="#temporal-information"><span class="header-section-number">1.2.2</span> Temporal information</a></li>
+  <li><a href="#file-naming-convention" id="toc-file-naming-convention" class="nav-link" data-scroll-target="#file-naming-convention"><span class="header-section-number">1.2.3</span> File naming convention</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#high-resolution-water-layer-hrwl" id="toc-high-resolution-water-layer-hrwl" class="nav-link" data-scroll-target="#high-resolution-water-layer-hrwl"><span class="header-section-number">2</span> High Resolution Water Layer (HRWL)</a>
+  <ul class="collapse">
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">2.1</span> Overview</a></li>
+  <li><a href="#algorithm-1" id="toc-algorithm-1" class="nav-link" data-scroll-target="#algorithm-1"><span class="header-section-number">2.2</span> Algorithm</a>
+  <ul class="collapse">
+  <li><a href="#retrieval-methodology-1" id="toc-retrieval-methodology-1" class="nav-link" data-scroll-target="#retrieval-methodology-1"><span class="header-section-number">2.2.1</span> Retrieval methodology</a></li>
+  <li><a href="#product-limitations-1" id="toc-product-limitations-1" class="nav-link" data-scroll-target="#product-limitations-1"><span class="header-section-number">2.2.2</span> Product limitations</a></li>
+  </ul></li>
+  <li><a href="#product-specifications" id="toc-product-specifications" class="nav-link" data-scroll-target="#product-specifications"><span class="header-section-number">2.3</span> Product specifications</a>
+  <ul class="collapse">
+  <li><a href="#spatial-information-1" id="toc-spatial-information-1" class="nav-link" data-scroll-target="#spatial-information-1"><span class="header-section-number">2.3.1</span> Spatial information</a></li>
+  <li><a href="#temporal-information-1" id="toc-temporal-information-1" class="nav-link" data-scroll-target="#temporal-information-1"><span class="header-section-number">2.3.2</span> Temporal information</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#high-resolution-water-layer-rolling-archive-wlra" id="toc-high-resolution-water-layer-rolling-archive-wlra" class="nav-link" data-scroll-target="#high-resolution-water-layer-rolling-archive-wlra"><span class="header-section-number">3</span> High Resolution Water Layer Rolling Archive (WLRA)</a>
+  <ul class="collapse">
+  <li><a href="#overview-1" id="toc-overview-1" class="nav-link" data-scroll-target="#overview-1"><span class="header-section-number">3.1</span> Overview</a></li>
+  <li><a href="#algorithm-2" id="toc-algorithm-2" class="nav-link" data-scroll-target="#algorithm-2"><span class="header-section-number">3.2</span> Algorithm</a>
+  <ul class="collapse">
+  <li><a href="#retrieval-methodology-2" id="toc-retrieval-methodology-2" class="nav-link" data-scroll-target="#retrieval-methodology-2"><span class="header-section-number">3.2.1</span> Retrieval methodology</a></li>
+  <li><a href="#product-limitations-2" id="toc-product-limitations-2" class="nav-link" data-scroll-target="#product-limitations-2"><span class="header-section-number">3.2.2</span> Product limitations</a></li>
+  <li><a href="#differences-from-the-previous-version-1" id="toc-differences-from-the-previous-version-1" class="nav-link" data-scroll-target="#differences-from-the-previous-version-1"><span class="header-section-number">3.2.3</span> Differences from the previous version</a></li>
+  </ul></li>
+  <li><a href="#product-description-1" id="toc-product-description-1" class="nav-link" data-scroll-target="#product-description-1"><span class="header-section-number">3.3</span> Product description</a>
+  <ul class="collapse">
+  <li><a href="#temporal-information-2" id="toc-temporal-information-2" class="nav-link" data-scroll-target="#temporal-information-2"><span class="header-section-number">3.3.1</span> Temporal information</a></li>
+  <li><a href="#product-content" id="toc-product-content" class="nav-link" data-scroll-target="#product-content"><span class="header-section-number">3.3.2</span> Product content</a></li>
+  <li><a href="#file-naming-convention-1" id="toc-file-naming-convention-1" class="nav-link" data-scroll-target="#file-naming-convention-1"><span class="header-section-number">3.3.3</span> File naming convention</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#terms-of-use-and-product-technical-support" id="toc-terms-of-use-and-product-technical-support" class="nav-link" data-scroll-target="#terms-of-use-and-product-technical-support"><span class="header-section-number">4</span> Terms of use and product technical support</a>
+  <ul class="collapse">
+  <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation"><span class="header-section-number">4.1</span> Citation</a></li>
+  <li><a href="#product-technical-support" id="toc-product-technical-support" class="nav-link" data-scroll-target="#product-technical-support"><span class="header-section-number">4.2</span> Product technical support</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="products_Product_User_Manual_-_High_Resolution_Water_Products_Europe.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Add Version to the title's metadata
+    //
+    const titleMetaEl = document.querySelector(".quarto-title-meta");
+    const wrapperDiv = document.createElement("div");
+    wrapperDiv.innerHTML = `
+        <div class="quarto-title-meta-heading">Version</div>
+        <div class="quarto-title-meta-contents">
+          <p>1.3</p>
+        </div>
+      `;
+    titleMetaEl.appendChild(wrapperDiv);
+  });
+</script>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Production of High Resolution Water, Snow and Ice products (Lot 1)</h1>
+<p class="subtitle lead">HR-WSI PRODUCT USER MANUAL- WATER PRODUCTS</p>
+</div>
+
+<div>
+  <div class="description">
+    This Product User Manual details the Copernicus Land Monitoring Service’s High Resolution Water portfolio for Europe, encompassing Water Cover Duration (WCD) and High Resolution Water Layer (HRWL) products, along with the Water Layer Rolling Archive. Derived from Sentinel-1 SAR and Sentinel-2 optical imagery, these products provide comprehensive information on water presence frequency, extent, and confidence across the pan-European area. The manual outlines product specifications, retrieval methodologies including data fusion and classification criteria, and usage terms, supporting critical applications in water management, climate change adaptation, and SDG reporting.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 23, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>High Resolution Water products, Water Cover Duration (WCD), High Resolution Water Layer (HRWL), Water Layer Rolling Archive (WLRA), Sentinel-1 Synthetic Aperture Radar (SAR), Sentinel-2 optical imagery, Water presence index (WPI), Water confidence layer (WCL), Pan-European land monitoring, Daily Water Masks (DWM), Data fusion techniques, Water Framework Directive</p>
+  </div>
+</div>
+
+</header>
+
+
+<p><br>
+<strong>Contact:</strong></p>
+<div data-custom-style="LeftAlign">
+<p>European Environment Agency (EEA)<br>
+Kongens Nytorv 6<br>
+1050 Copenhagen K<br>
+Denmark<br>
+<a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="font-weight: bold">Document Author</td>
+<td>Tanja Gasber¹, Christian Gruber¹, Adam Pasik¹, Florence Marti², Matthieu Denisselle²<br>
+¹GeoVille GmbH, ²Magellium (lead).</td>
+</tr>
+<tr class="even">
+<td style="font-weight: bold">Project Owner</td>
+<td>Joanna Przystawska</td>
+</tr>
+<tr class="odd">
+<td style="font-weight: bold">Project Manager</td>
+<td>Florence Marti</td>
+</tr>
+<tr class="even">
+<td style="font-weight: bold">Document Code</td>
+<td>HR-WSI-DT-067-MAG_PUM_WATER</td>
+</tr>
+<tr class="odd">
+<td style="font-weight: bold">Document Version</td>
+<td>1.3</td>
+</tr>
+<tr class="even">
+<td style="font-weight: bold">Distribution</td>
+<td>Public</td>
+</tr>
+<tr class="odd">
+<td style="font-weight: bold">Date</td>
+<td>23/12/2025</td>
+</tr>
+</tbody>
+</table>
+<section id="document-approvers-and-reviewers" class="level3" data-number="0.0.1">
+<h3 data-number="0.0.1" class="anchored" data-anchor-id="document-approvers-and-reviewers"><span class="header-section-number">0.0.1</span> Document Approver(s) and Reviewer(s)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 28%">
+<col style="width: 25%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Role</th>
+<th>Action</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Joanna Przystawska</td>
+<td>Project Owner</td>
+<td>Revision (WCD)</td>
+<td>27/01/2025</td>
+</tr>
+<tr class="even">
+<td>Lorenzo Solari</td>
+<td>Project Owner (deputy)</td>
+<td>Revision (WCD)</td>
+<td>27/01/2025</td>
+</tr>
+<tr class="odd">
+<td>Joanna Przystawska</td>
+<td>Project Owner</td>
+<td>Revision (WCD)</td>
+<td>11/03/2025</td>
+</tr>
+<tr class="even">
+<td>Lorenzo Solari</td>
+<td>Project Owner (deputy)</td>
+<td>Revision (WCD)</td>
+<td>11/03/2025</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="document-history" class="level3" data-number="0.0.2">
+<h3 data-number="0.0.2" class="anchored" data-anchor-id="document-history"><span class="header-section-number">0.0.2</span> Document history</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 35%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Revision</th>
+<th>Date</th>
+<th>Created by</th>
+<th>Short description of changes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.1</td>
+<td>17/04/2024</td>
+<td>F. Marti (Magellium) and the HR-WSI consortium</td>
+<td>First draft</td>
+</tr>
+<tr class="even">
+<td>1.0</td>
+<td>22/11/2024</td>
+<td>F. Marti (Magellium) and the HR-WSI consortium</td>
+<td>First version of the document. In line with: WCD V100</td>
+</tr>
+<tr class="odd">
+<td>1.1</td>
+<td>03/03/2025</td>
+<td>F. Marti (Magellium) and the HR-WSI consortium</td>
+<td>Account for EEA revision. In line with: WCD V100; HRWL 2021 V100</td>
+</tr>
+<tr class="even">
+<td>1.2</td>
+<td>14/03/2025</td>
+<td>F. Marti (Magellium) and the HR-WSI consortium</td>
+<td>Account for EEA revision. In line with: WCD V100; HRWL 2021 V100</td>
+</tr>
+<tr class="odd">
+<td>1.3</td>
+<td>23/12/2025</td>
+<td>M.Denisselle (Magellium) and the HR-WSI consortium</td>
+<td>Update for a consistent and clear terminology for the water masks. In line with: WCD V100; HRWL 2021 V100</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="list-of-figures" class="level3" data-number="0.0.3">
+<h3 data-number="0.0.3" class="anchored" data-anchor-id="list-of-figures"><span class="header-section-number">0.0.3</span> List of figures</h3>
+<p>Figure 3. HR-WSI water production workflow.</p>
+<p>Figure 4. Water Cover Duration (WCD) layer workflow diagram.</p>
+<p>Figure 5. Two examples of WCD products for the hydrological year 2021 (i.e.&nbsp;2020-2021). Alpine tile 32TNS on the left (with Lake Como at the bottom). Eastern Turkey tile 38SLH on the right (with Lake Van on the upper left). The colour scale is defined in days. No water pixels are transparent.</p>
+<p>Figure 6. Workflow diagram for the production of the HR Water Layer</p>
+<p>Figure 7. Examples of the HRWL products for the 38TKL UTM tile located in Turkey showing the Çoruh river, background: Google. Top left: Water Layer (WL) classification differentiating between permanent and temporary water (dark and light blue, respectively) and dry land (transparent for visibility). Top right: Water Presence Index (WPI) layer showing the frequency of water. Dry pixels are partly transparent for visibility. Bottom: Water Confidence Layer (WCL) showing the confidence in the WL classification, illustrating the complexity of classifying mountainous areas. The development timeframe is from 2020-09 to 2021-08.</p>
+<p>Figure 8. Overview of the Water rolling archive data collection and layers for the HR Water production.</p>
+<p>Figure 9. Monthly binary water mask for the 38TKL UTM tile located in Turkey showing the Çoruh river. The blue value indicates the presence of water representing a value of one, while partly transparent dry pixels are presented as a zero. The timeframe of the mask is September 2020.</p>
+</section>
+<section id="list-of-tables" class="level3" data-number="0.0.4">
+<h3 data-number="0.0.4" class="anchored" data-anchor-id="list-of-tables"><span class="header-section-number">0.0.4</span> List of tables</h3>
+<p>Table 1. Applicable documents</p>
+<p>Table 2. WCD product content</p>
+<p>Table 3. Definition of water classes.</p>
+<p>Table 4. Elements to be included and excluded in the Water Layer (main layer of the HRWL product).</p>
+<p>Table 5. Classification criteria for the WL layer of the HRWL product</p>
+<p>Table 6. High Resolution Water Layer (HRWL) product content.</p>
+<p>Table 7. Water Layer Rolling Archive (WLRA) content</p>
+<p>Table 8. List of the abbreviations and acronyms</p>
+<p>based on satellite Earth observation and in situ (non-space) data. These services are freely and openly accessible to its users through six thematic Copernicus services (atmosphere monitoring, marine environment monitoring, land monitoring, climate change, emergency management and security). The Copernicus Land Monitoring Service (CLMS) provides geographical information on land cover and its changes, land use, vegetation state, water cycle and earth surface energy variables to a broad range of users in Europe and across the world in the field of environmental terrestrial applications. CLMS is jointly implemented by the European Environment Agency and the European Commission DG Joint Research Centre.</p>
+<p>Among its bio-geophysical products, CLMS produces and disseminates information on snow, ice, and water bodies at the European scale. Managed by the European Environment Agency, this data is compiled into the High Resolution Water, Snow, and Ice (HR-WSI) portfolio. HR-WSI covers snow properties on land (snow cover, snow state conditions, and annual snow synthesis), ice occurrences in the hydrographic network (ice cover and annual ice synthesis), and changes in the network’s extent at annual and multi-annual scales. These land characteristics are derived from optical and radar satellite data from the Copernicus program (Sentinel-1 and Sentinel-2), with most products delivered as high-resolution maps ranging from 60m to 10m pixel spacing. Monitoring snow, ice, and water cover is essential due to their significant influence on the water cycle and surface energy fluxes. HR-WSI products offer valuable data for various sectors, including water management, energy, infrastructure safety, transportation, biodiversity, climate change research, and winter tourism, benefiting stakeholders at local, national, and European levels.</p>
+<p>The Product User Manual is the primary document that users are highly recommended to read before starting to work with the products. This manual specifically focuses on the water products within the HR-WSI portfolio, while separate manuals are available for snow and ice products. They provide information on the frequency of water presence at an annual scale and over a 7-year period.</p>
+</section>
+<section id="scope-and-objectives-of-the-document" class="level2" data-number="0.1">
+<h2 data-number="0.1" class="anchored" data-anchor-id="scope-and-objectives-of-the-document"><span class="header-section-number">0.1</span> Scope and objectives of the document</h2>
+<p>This document is the Product User Manual (PUM) dedicated to the content and format description of water products generated in the framework of the pan-European High Resolution Water Snow &amp; Ice (HR-WSI) product suite, as part of the Copernicus Land Monitoring Service (CLMS). For snow and ice products, users are referred to their respective PUMs [AD1] and [AD2].</p>
+<p>The PUM is intended for a wide range of end-users who wish to understand and use the product effectively. This document provides detailed specifications for these products, including content, format, naming conventions, and an overview of the retrieval method. It offers key information on the product’s characteristics, quality indicators, usage terms, and</p>
+</section>
+<section id="sentinel-1-and-sentinel-2-missions" class="level2" data-number="0.2">
+<h2 data-number="0.2" class="anchored" data-anchor-id="sentinel-1-and-sentinel-2-missions"><span class="header-section-number">0.2</span> Sentinel-1 and Sentinel-2 missions</h2>
+<p>The Sentinel-1 and Sentinel-2 constellations were launched to meet the operational needs of the Copernicus Earth Observation programme, in particular the Copernicus services as CLMS, as part of the European response to monitor the environment, mitigate the effects of climate change and ensure civil security.</p>
+<p>The Sentinel-1 constellation operates 24/7 and uses C-band synthetic aperture radar (SAR) imaging, allowing it to acquire images in all weather conditions. The satellites offer four exclusive imaging modes with different resolutions (down to 5 m) and coverage (up to 400 km), as well as dual polarisation capability. The operational configuration involves two satellites orbiting the Earth at an altitude of 693 km, 180° apart, operating in a repeat pass interval of 6 days. On the 23rd of December 2021, Copernicus Sentinel-1B experienced an anomaly related to the instrument electronics power supply provided by the satellite platform, leaving it unable to deliver radar data. It has been officially non-operational since August 2022. The Sentinel-1 Level 1 Ground Range Detected (GRD) data is utilised to produce HR-WSI products. It comprises focused SAR data that has been detected, multi-looked, and projected to ground range using the Earth ellipsoid model WGS84.</p>
+<p>The Sentinel-2 constellation operates 24/7 and each satellite is equipped with a camera that captures images of Earth’s surface in 13 spectral bands at high spatial resolution. The visible and near-infrared bands have a resolution of 10 m, the red edge has a resolution of 20 m, and the shortwave infrared bands have a resolution of 60 m. Two satellites are positioned 180° apart in orbit at an altitude of 786 km. This configuration optimises coverage and revisit times, resulting in a five-day revisit time at the equator under cloud-free conditions, and 2-3 days at European latitudes. The overlap between the two satellite swaths from adjacent orbits increases the revisit frequency, under varying viewing conditions. However, like with any optical sensor, the availability of usable data is influenced by cloud cover and solar illumination conditions. The Sentinel-2 Level 1C product, which is a monodated orthorectified image expressed in top-of-atmosphere reflectance, is used to derive HR-WSI products. The L1C product is disseminated in granules of a fixed size: 110 km tiles in UTM/WGS84 projection, as shown in Figure 1 (page 11).</p>
+<p>Both Sentinel-1 and Sentinel-2 constellations offer valuable information for monitoring water, snow, and ice over continental surfaces at high spatial resolutions. The main challenge in using Sentinel-2 optical data is to identify clouds and their shadows to define reliable usable image pixels. When studying the snow and ice variables, it is essential to have a good understanding of cloud cover to distinguish it from snow cover. After masking out clouds and their shadows, it is possible to detect snow over land, identify inland waters and distinguish ice over inland waters.</p>
+<p>To support clarity throughout this document, it is important to note that several intermediate and final water mask layers are produced during the processing chain. Because their names and functions may appear similar, a dedicated lookup table is provided to ensure readers can easily distinguish between them at any point in the document.</p>
+<p>Readers are therefore encouraged to refer to Table 1 when a specific mask is mentioned. The table summarizes:</p>
+<ul>
+<li>Product name,</li>
+<li>Abbreviation,</li>
+<li>Purpose,</li>
+<li>Type, whether it is intermediate or final,</li>
+<li>Temporal frequency, whether it is monthly or daily,</li>
+<li>Projection, whether it is LAEA or UTM,</li>
+<li>Deliverable</li>
+</ul>
+<p>This reference should minimise ambiguity and ensure consistent interpretation of the product descriptions and results.</p>
+<div class="tbl-caption">
+<p>Table 1. Overview of Water Masks produced in this project</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 16%">
+<col style="width: 10%">
+<col style="width: 16%">
+<col style="width: 13%">
+<col style="width: 14%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Product name</th>
+<th>Abbreviation</th>
+<th>Purpose</th>
+<th>Type</th>
+<th>Temporal frequency</th>
+<th>Projection</th>
+<th>Deliverable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sentinel-1 Water Mask</td>
+<td>S1WM</td>
+<td>Daily and Fusion water masks</td>
+<td>Intermediate</td>
+<td>Monthly</td>
+<td>UTM</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Sentinel-2 Water Mask</td>
+<td>S2WM</td>
+<td>Daily and Fusion water masks</td>
+<td>Intermediate</td>
+<td>Monthly</td>
+<td>UTM</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>Sentinel-2 Minimum Water Mask</td>
+<td>S2MWM</td>
+<td>Daily and Fusion water masks</td>
+<td>Intermediate</td>
+<td>Monthly</td>
+<td>UTM</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Sentinel-2 Potential Water Masks</td>
+<td>S2PWM</td>
+<td>Daily and Fusion water masks</td>
+<td>Intermediate</td>
+<td>Monthly</td>
+<td>UTM</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>S1/S2 Fusion Water Masks</td>
+<td>S1S2FWM</td>
+<td>Daily and Fusion water masks</td>
+<td>Intermediate</td>
+<td>Monthly</td>
+<td>UTM</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Daily Water Masks</td>
+<td>DWM</td>
+<td>WCD</td>
+<td>Intermediate</td>
+<td>Daily</td>
+<td>UTM</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>Water Occurrence Layers</td>
+<td>WOL</td>
+<td>HRWL/ WLRAMWM</td>
+<td>Intermediate</td>
+<td>Monthly</td>
+<td>UTM</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Water Masks</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="document-structure" class="level2" data-number="0.3">
+<h2 data-number="0.3" class="anchored" data-anchor-id="document-structure"><span class="header-section-number">0.3</span> Document structure</h2>
+<p>The document is organised as follows.</p>
+<ul>
+<li>Section 2 presents potential application areas and example use cases for the HR-WSI water products.</li>
+<li>Section 3 introduces the HR-WSI water portfolio.</li>
+<li>Section 4 presents the Water Cover Duration (WCD) product.</li>
+<li>Section 5 presents a detailed description of the High Resolution Water Layer (HRWL) products.</li>
+<li>Section 6 provides a detailed description of the associated HR water rolling archive (WLRA).</li>
+<li>Section 7 provides information about terms of use as well as the technical product support.</li>
+<li>Section 8 introduces the HR-WSI access manual.</li>
+<li>Section 9 and 10 list the abbreviations, acronyms and references used in this document.</li>
+</ul>
+</section>
+<section id="applicable-documents" class="level2" data-number="0.4">
+<h2 data-number="0.4" class="anchored" data-anchor-id="applicable-documents"><span class="header-section-number">0.4</span> Applicable documents</h2>
+<p>The following table lists the documents with a direct bearing on the content of this document.</p>
+<div class="tbl-caption">
+<p>Table 1. Applicable documents</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 33%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Id.</th>
+<th>Reference</th>
+<th>Name of the document</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AD1</td>
+<td>HR-WSI-DT-068-MAG_PUM_SNOW</td>
+<td>Pan-European component Lot 1 - production of High Resolution Water, Snow and Ice products: HR-WSI Product User Manual - Snow products</td>
+</tr>
+<tr class="even">
+<td>AD2</td>
+<td>HR-WSI-DT-069-MAG_PUM_ICE</td>
+<td>Pan-European component Lot 1 - production of High Resolution Water, Snow and Ice products: HR-WSI Product User Manual - Ice products</td>
+</tr>
+<tr class="odd">
+<td>AD3</td>
+<td>HR-WSI-DT-064-MAG_ATBD_WATER</td>
+<td>Pan-European component Lot 1 - production of High Resolution Water, Snow and Ice products: HR-WSI Algorithm Theoretical Basis Document - Water products</td>
+</tr>
+<tr class="even">
+<td>AD4</td>
+<td>HR-WSI-DT-065-MAG_ATBD_SNOW</td>
+<td>Pan-European component Lot 1 - production of High Resolution Water, Snow and Ice products: HR-WSI Algorithm Theoretical Basis Document - Snow products</td>
+</tr>
+<tr class="odd">
+<td>AD5</td>
+<td>HR-WSI-DT-066-MAG_ATBD_ICE</td>
+<td>Pan-European component Lot 1 - production of High Resolution Water, Snow and Ice products: HR-WSI Algorithm Theoretical Basis Document - Ice products</td>
+</tr>
+</tbody>
+</table>
+<p>across various fields, whether for monitoring, forecasting, or analysing past events, all of which contribute to data-driven decision-making in environmental management. A wide range of sectors can benefit from accurate, timely water-related data to support decision-making and strategic planning at various levels. This data can be applied to both local and national needs or, on a larger scale, to support the implementation of European directives, for example.</p>
+<section id="key-application-areas" class="level3" data-number="0.4.1">
+<h3 data-number="0.4.1" class="anchored" data-anchor-id="key-application-areas"><span class="header-section-number">0.4.1</span> Key Application Areas</h3>
+<section id="water-management" class="level4" data-number="0.4.1.1">
+<h4 data-number="0.4.1.1" class="anchored" data-anchor-id="water-management"><span class="header-section-number">0.4.1.1</span> Water management</h4>
+<p>HR-WSI products provide essential support for water management at both the basin and national levels, helping with equitable water distribution across various sectors, including domestic use, agriculture, and recreation. These products play a key role in managing water sharing between rural and urban areas, upstream and downstream catchments, and even across countries, contributing to international efforts for universal water access. HR-WSI products can contribute to compliance with the Water Framework Directive (2000/60/EC) and to achieving Sustainable Development Goal (SDG) 6: clean water and sanitation, by improving water quality, availability and access [AUX1]. Providing insights into the quantity of water stored as water and snow, HR-WSI data is crucial for monitoring snowpack and water flows, which are necessary for managing flood risks, droughts, and overall water availability. They are instrumental in risk management for public territorial bodies, helping prevent flooding and ensuring balanced water resource management. They also assist organisations involved in land development and spatial planning, where hydrological data is critical for infrastructure planning, risk management, and climate adaptation strategies. Additionally, industries requiring accurate water flow estimates—such as hydropower and nuclear energy—can rely on HR-WSI data to plan water usage for power generation, optimize production or ensure infrastructure safety. From a research perspective, HR-WSI water products serve as valuable tools for advancing hydrology and snow science. They enhance understanding of snowpack variations and river flow rates, supporting the modeling, assimilation, prediction, and validation of hydrological and snow models. These products also play a crucial role in research on extreme hydrological events, such as floods and droughts, by improving prediction capabilities and risk assessments.</p>
+</section>
+<section id="climate-change-and-extreme-events" class="level4" data-number="0.4.1.2">
+<h4 data-number="0.4.1.2" class="anchored" data-anchor-id="climate-change-and-extreme-events"><span class="header-section-number">0.4.1.2</span> Climate Change and Extreme Events</h4>
+<p>Climate change is intensifying extreme weather events, including floods, droughts, and shifts in hydrological patterns. The HR-WSI Water Cover Duration (WCD) and Water Layer (WL) provides valuable insights into these changes by offering high-resolution data on surface water dynamics. One critical use case is flood risk assessment and management. As extreme precipitation events become more frequent, emergency responders and policymakers rely on the Water products to identify flood-prone areas and track water body expansions. By analyzing long-term trends, authorities can refine flood defense strategies and urban planning to minimize damage to infrastructure and communities.</p>
+<p>to climate variations. By tracking temporal water availability, conservationists can take timely actions to protect these fragile ecosystems from degradation. In summary, the CLMS HR Water Layer is a powerful tool for understanding and adapting to the impacts of climate change (SDG 13: combat climate change and its impacts [AUX1]). Whether for flood preparedness, drought mitigation, or environmental conservation, this dataset enables data-driven decisions that enhance resilience in the face of extreme weather events.</p>
+</section>
+<section id="sdg-reporting" class="level4" data-number="0.4.1.3">
+<h4 data-number="0.4.1.3" class="anchored" data-anchor-id="sdg-reporting"><span class="header-section-number">0.4.1.3</span> SDG reporting</h4>
+<p>Scientists, governments, and agencies rely on these datasets for regular assessments to ensure informed decision-making. This use case, using examples from the HR-WSI water products, aims to enhance operational capacities by enabling nations to generate spatial time-series data for water resource reporting. The methodology aligns with the United Nations Environment Programme’s step-by-step monitoring [AUX2] approach for SDG Indicator 6.6.1 [AUX1], ensuring compatibility with global reporting frameworks. While Earth Observation data is already recognized for tracking inland water trends, most existing approaches rely solely on optical data. By integrating dense time series of optical and Synthetic Aperture Radar (SAR) imagery, this use case demonstrates the added value of Copernicus data streams in improving national-level SDG water resource monitoring. The ability to leverage both data types enhances monitoring accuracy, particularly in regions affected by persistent cloud cover, seasonal variations, or rapid hydrological changes. Sustaining this monitoring capability at the national level depends on human resources and ICT infrastructure. Long-term success requires investment in cloud storage, data processing, or national data cubes, either through national stakeholders or donor support. Strengthening these capacities ensures that countries can independently monitor their water resources using Copernicus data, fostering resilience in water management and environmental reporting.</p>
+</section>
+</section>
+<section id="potential-users" class="level3" data-number="0.4.2">
+<h3 data-number="0.4.2" class="anchored" data-anchor-id="potential-users"><span class="header-section-number">0.4.2</span> Potential Users</h3>
+<p>HR-WSI water products can be valuable to a wide range of stakeholders, both economic and non-economic water users, at local, national, and European levels. These include:</p>
+<ul>
+<li>Water Management Agencies</li>
+<li>Urban and Regional Planning Agencies</li>
+<li>Hydrological Monitoring and Forecasting Agencies</li>
+<li>Water Distributors and Agricultural Stakeholders, Including agricultural sectors (crop farming, livestock, fisheries, and forestry)</li>
+<li>Energy Sector Stakeholders, such as those involved in hydropower or nuclear energy</li>
+<li>Biodiversity and Environmental Protection Organizations</li>
+<li>National Parks and Protected Area Managers</li>
+<li>Tourism Industry Stakeholders, including winter tourism operators, ski resorts, and other recreational businesses</li>
+<li>Research Institutions, academic and scientific organizations</li>
+<li>Space industry actors</li>
+</ul>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Figure  1.  Sentinel-2  tiles  over  EEA38  +  UK,  area  of  computation  of  the  HR-WSI  products  (EEA38  922  tiles  +  61  UK  tiles)","url":"products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-20325c9e84027a381dd3d3a1b1673f3b.png"},{"@type":"ImageObject","caption":"Figure  2.  The  HR-WSI  High  Resolution  Water  Layer  portfolio,  including  the  WL  for  the  reference  year  2021.","url":"products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-92f435992ddd64b1fe4c07c31802de96.png"},{"@type":"ImageObject","caption":"Figure  3.  HR-WSI  water  production  workflow.","url":"products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-bfbb773ee1cfcd064267255caad15f29.png"},{"@type":"ImageObject","caption":"Figure  4.  Water  Cover  Duration  (WCD)  layer  workflow  diagram.","url":"products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-c157346403dd47d9edc22a3eda94d3a6.png"},{"@type":"ImageObject","caption":"Figure  5.  Two  examples  of  WCD  products  for  the  hydrological  year  2021  (i.e. 2020-2021).  Alpine  tile  32TNS  on  the  left  (with  Lake  Como  at  the  bottom).  Eastern  Turkey  tile  38SLH  on  the  right  (with  Lake  Van  on  the  upper  left).  The  colour  scale  is  defined  in  days.  No  water  pixels  are  transparent.","url":"products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-d4ab65add8d241d0cbaffeb3970c30c6.png"},{"@type":"ImageObject","caption":"Figure  6.  Workflow  diagram  for  the  production  of  the  HR  Water  Layer","url":"products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-ce3593f7472c020f14f1dd11ee6c934c.png"},{"@type":"ImageObject","caption":"Figure  7.  Examples  of  the  HRWL  products  for  the  38TKL  UTM  tile  located  in  Turkey  showing  the  Çoruh  river,  background:  Google.  Top  left:  Water  Layer  (WL)  classification  differentiating  between  permanent  and  temporary  water  (dark  and  light  blue,  respectively)  and  dry  land  (transparent  for  visibility).  Top  right:  Water  Presence  Index  (WPI)  layer  showing  the  frequency  of  water.  Dry  pixels  are  partly  transparent  for  visibility.  Bottom:  Water  Confidence  Layer  (WCL)  showing  the  confidence  in  the  WL  classification,  illustrating  the  complexity  of  classifying  mountainous  areas.  The  development  timeframe  is  from  2020-09  to  2021-08.","url":"products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-544d4a66adb9fae31e239f5363c80ea8.png"},{"@type":"ImageObject","caption":"Figure  8.  Overview  of  the  Water  Layer  Rolling  Archive  (WLRA)  data  collection  and  layers  for  the  HR  Water  production.","url":"products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-ba152e443bd1303f20bff6a9258d2bb6.png"},{"@type":"ImageObject","caption":"Figure  9.  Monthly  binary  water  mask  (RAMWaM)  for  the  38TKL  UTM  tile  located  in  Turkey  showing  the  Çoruh  river.  The  blue  value  indicates  the  presence  of  water  representing  a  value  of  one,  while  partly  transparent  dry  pixels  are  presented  as  a  zero.  The  timeframe  of  the  mask  is  September  2020.","url":"products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-73a89ef7cb012883e0b81e1f049c6e64.png"}]}
+</script>
+</section>
+</section>
+<section id="hr-wsi-water-products-overview" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> HR-WSI water products overview</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-20325c9e84027a381dd3d3a1b1673f3b.png" class="img-fluid figure-img" alt="This map displays the geographic coverage of Copernicus Land Monitoring Service (CLMS) High Resolution Water and Wetness (HR-WSI) products, specifically the Water Cover Duration (WCD) and Water Layer (WL) datasets, over Europe, North Africa, and parts of Western Asia. The land area is shaded in light green, with darker green indicating more vegetated regions (e.g., Scandinavia, Eastern Europe), and water bodies in light blue. An overlay of numerous green-outlined rectangular grid cells indicates the extent of the HR-WSI product availability. The grid covers most of continental Europe, including the British Isles (Ireland, United Kingdom), Scandinavia (Norway, Sweden, Finland), and extends eastward into Western Russia, Belarus, and Ukraine. In the Mediterranean region, coverage includes Spain, Portugal, France, Italy, Greece, and countries along the North African coast such as Morocco, Algeria, Tunisia, and Libya. The grid also extends into parts of the Middle East, covering Turkey, Syria, and Iraq. Isolated grid cells are visible off the coast of Western Sahara and the Canary Islands. The grid cells are typically 100 km by 100 km and are slightly rotated in some areas to align with the projection. No scale bar, compass, or specific legend is provided."></p>
+<figcaption>Figure 1. Sentinel-2 tiles over EEA38 + UK, area of computation of the HR-WSI products (EEA38 922 tiles + 61 UK tiles)</figcaption>
+</figure>
+</div>
+<p>The HR-WSI Water portfolio, as visualised in Figure 2 (page 12), covers two types of products:</p>
+<ul>
+<li><strong>Water Cover Duration (WCD)</strong>, an annual (hydrological year) product based on Sentinel-1 and Sentinel-2 imagery. The WCD is divided into main and derived products.
+<ul>
+<li>The main products:
+<ul>
+<li>The 10m WCD in WGS84/UTM projection.</li>
+</ul></li>
+<li>The derived products:
+<ul>
+<li>The 10m layer in ETRS89 LAEA projection,</li>
+<li>The 100m resolution layer in ETRS89 LAEA projection.</li>
+</ul></li>
+</ul></li>
+<li><strong>High Resolution Water Layer (HRWL)</strong>, a multi-annual product based on Sentinel-1 and Sentinel-2 imagery. The Water Layer is divided into main, derived and auxiliary products.
+<ul>
+<li>The main products:
+<ul>
+<li>The 10m WL in WGS84/UTM projection,</li>
+<li>The 10m Water Presence Index (WPI) in ETRS89 LAEA projection, derived from the Water Occurrence Layers (WOL),</li>
+</ul></li>
+<li>The auxiliary data:
+<ul>
+<li>The Water Layer Rolling Archive (WLRA), a ZARR data collection that consists of intermediate production layers of binary water masks (2009-2021) and showing the seasonal/monthly water and dry occurrences. The HRWL covers a period of seven years per reference year and is regularly updated every three years. It is therefore important that it is consistent over the entire period. To guarantee reproducibility and future continuation of the baseline product, these binary water masks are provided within a ZARR data collection consisting of all seasonal masks (RASWaM) starting from 2009. The computation frequency for the new HRWL changed from seasonal to monthly water masks (RASWaM) . Readers should note that the auxiliary datasets are not distributed in the same way as other HR-WSI products and are available on request from the CLMS Service Desk.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Important note:</strong> Above is an overview of the HRWL product that will be produced in the coming months. By the end of 2025, the portfolio will include the multi-annual WL product for the reference years 2021 and 2024. These products will cover the period 2016-2021 and 2018-2024 respectively. Figure 2 illustrates the HR-WSI water portfolio made of the WCD products and the future HRWL product for the reference year 2021.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-92f435992ddd64b1fe4c07c31802de96.png" class="img-fluid figure-img" alt="This diagram illustrates the structure of the High Resolution Water and Snow Ice (HR_WSI) Water products portfolio, categorising its components hierarchically. The top-level 'HR_WSI Water products portfolio' branches into two main product groups: 'HR Water Layer (HRWL) 2021' and 'Water Cover Duration (WCD), yearly 2017-2021'. The 'HR Water Layer (HRWL) 2021' group is further divided into: - **Main Products:** - HR Water Layer (HRWL) 2021, 10m resolution, WGS84/UTM Coordinate Reference System (CRS). - Water Presence Index (WPI) 2021, 10m resolution, ETRS89 LAEA CRS. - HR Water Layer (HRWL) Confidence Layer (WCL) 2021, 10m resolution, LAEA CRS. - **Derived Products:** - HR Water Layer (HRWL) 2021, 10m resolution, LAEA CRS. - HR Water Layer (HRWL) 2021, 100m resolution, LAEA CRS. - **Auxiliary Data:** - Rolling Archive (WLRA) 2009-2021, binary water masks, 10m resolution, LAEA CRS. The 'Water Cover Duration (WCD), yearly 2017-2021' group is divided into: - **Main Products:** - Water Cover Duration (WSD), 10m resolution, WGS84/UTM CRS. - **Derived Products:** - Water Cover Duration (WSC), 10m resolution, LAEA CRS. - Water Cover Duration (WCD), 100m resolution, LAEA CRS."></p>
+<figcaption>Figure 2. The HR-WSI High Resolution Water Layer portfolio, including the WL for the reference year 2021.</figcaption>
+</figure>
+</div>
+<p>The production chain of HR-WSI water products is presented in Figure 3. It is composed of various modules to process all water products from Sentinel-1 and 2 observations. Figure 3 highlights the relation and dependency between the different water products as well as the satellite data they are derived from. A brief description of each product is given in the following sections. For a detailed characterisation of all products, users are referred to the dedicated sections below. More technical explanations of the used methods and algorithms can be found in the Algorithm Theoretical Basis Document (ATBD) [AD3].</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-bfbb773ee1cfcd064267255caad15f29.png" class="img-fluid figure-img" alt="This workflow diagram illustrates the production process for High-Resolution Water and Snow/Ice (HR-WSI) water products, utilizing Sentinel-1 and Sentinel-2 satellite imagery. The workflow begins with two primary input sources and converges into a daily water mask generation, which then feeds into annual and multi-annual product modules. The process steps are: 1. **Sentinel-2 L1C processing:** Sentinel-2 L1C data undergoes 'Maja atmospheric correction and cloud detection' to produce 'Sentinel-2 L2A &amp; cloud mask' data. 2. **Sentinel-2 derived masks:** From the 'Sentinel-2 L2A &amp; cloud mask', two parallel processes occur: a. 'LIS snow detection' generates a 'Cloud and snow mask'. b. 'S2 water detection' produces a 'Sentinel-2 water mask (S2WM)'. 3. **Sentinel-1 processing:** Sentinel-1 Ground Range Detected (GRD) data undergoes 'S1 preprocessing' to create 'Sentinel-1 backscatter maps'. These maps are then used in 'S1 water detection' to produce a 'Sentinel-1 water mask (S1WM)'. 4. **Water fusion:** The 'Sentinel-2 water mask (S2WM)' and 'Sentinel-1 water mask (S1WM)' are combined in the 'Water fusion module' to create an 'S1/S2 fusion water mask (S1S2FWM)'. 5. **Water and ice detection:** In parallel to the water fusion, 'S2 water &amp; ice detection' is performed on 'Sentinel-2 L2A &amp; cloud mask' data, yielding 'Sentinel-2 Water Ice cover (WIC-S2)'. 6. **WIC integration:** The 'Sentinel-2 Water Ice cover (WIC-S2)' and the 'S1/S2 fusion water mask (S1S2FWM)' are integrated in the 'WIC integration in water mask' step, which produces 'Daily water masks (DWM)'. 7. **Product generation:** The 'Daily water masks (DWM)' serve as input for two main product modules: a. **Water Cover Duration (WCD) module:** This module produces the 'WCD product (annual release)', identified in the legend as an 'Annual product' (purple box). b. **High Resolution Water Layer (HRWL) module:** This module produces three multi-annual products, identified in the legend as 'Multi-annual product' (green boxes): i. 'WL product (3 yr release)' ii. 'HRWL derived products (3 yr release)' iii. 'Rolling Archive Monthly Water Masks (RAMWaM)'."></p>
+<figcaption>Figure 3. HR-WSI water production workflow.</figcaption>
+</figure>
+</div>
+<p>(S1S2FWM) and on the outputs of the Water and Ice Cover (WIC S2) product (described in the ice PUM [AD2] and ATBD [AD4]). This combined approach leads to a higher-quality WCD information layer. The Operational Surface Water Extent processor used to retrieve water occurrence information based on Sentinel-1 and Sentinel-2 data has been developed and improved over the past years within several EEA productions and ESA-funded activities and has recently been evaluated as the most accurate water detection algorithm in a round robin intercomparison of 14 different methodologies (Tottrup et al., 2022). The resulting WCD layer describes the water presence frequency in a hydrological year and is expressed in days. It is published each year around October, after the end of the hydrological year. Additionally, it is used as a water mask for the WIC S1 and WIC S2 products of the following year (see the ATBD of the ice products [AD2]). The WCD product is disseminated in two different pixel spacings and projections (native projection from S2 products, i.e.&nbsp;UTM/WGS84 and European LAEA projection).</p>
+<section id="algorithm" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="algorithm"><span class="header-section-number">1.1</span> Algorithm</h2>
+<section id="retrieval-methodology" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="retrieval-methodology"><span class="header-section-number">1.1.1</span> Retrieval methodology</h3>
+<p>In the hybrid sensor approach, a dynamic thresholding method is applied on both optical and SAR imagery separately as described in Ludwig et al.&nbsp;(2019) and Martinis et al.&nbsp;(2009). Subsequently, a rule-based approach fuses the optical (S2WM) and radar-based (S1WM) information into combined S1/S2 fusion water reference masks (S1S2FWM). Finally, the S1WM and S2WM, S1S2FWM, S2 annual minimum and potential water masks are combined with the WIC S2 scene-based water and ice classification product into the daily water mask. These DWM layers are aggregated to an intermediate monthly Water Occurrence Layer (WOL) which is temporarily stored for further processing in the HRWL product (see Section 5). The final WCD product follows from an aggregation of the DWM for a hydrological year and is expressed in days per year.</p>
+<p>The scene-based DWM is computed by combining information from the S1WM and S2WM and the scene-based WIC S2 product. The merging of the three products is done with a rule-based approach, where majority agreement (min. two products) rules whether the pixel is classified as water or not. Where necessary, missing swaths of the WIC S2 scenes are completed with the S1S2FWM and so are the cloud-obscured areas in the optical products (see Figure 4).</p>
+<p>Additionally, the S2 time-series based potential water mask (S2PWM) is incorporated into the rule-based approach to delimit the maximum extent of the area where water might be detected. That is, if at least two out of three products agree on the pixels belonging to the water class it is classified as water as long as it lies within the limits of the potential water mask. This minimizes Sentinel-1 artefacts in mountainous areas, while preserving SAR-detected water features, including small rivers.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-c157346403dd47d9edc22a3eda94d3a6.png" class="img-fluid figure-img" alt="This is a data processing workflow diagram illustrating the generation of the Annual Water Cycle Dynamics (WCD) layer, a Copernicus Land Monitoring Service (CLMS) High Resolution Water and Wetness (HR-WSI) product. The process initiates with Sentinel-2 based Water Ice cover (WIC-S2) data, which is subsequently resampled to a 10-meter resolution. Concurrently, S1/S2 fusion water masks (S1S2FWM) are generated from upstream data sources. These S1S2FWM are then used in the production of additional water masks (SZWWFM), which also incorporate another unspecified upstream input. All three data streams – the resampled 10-meter WIC-S2, the S1S2FWM, and the water masks (SZWWFM) – converge for a rule-based fusion step conducted at the WIC S2 scene-level. The output of this fusion process consists of Daily water masks (DWM). These Daily water masks (DWM) then undergo aggregation and normalisation, resulting in values scaled over a range of 0 to 366 days. The final product of this workflow is the Annual WCD layer (WCD)."></p>
+<figcaption>Figure 4. Water Cover Duration (WCD) layer workflow diagram.</figcaption>
+</figure>
+</div>
+<p>The combined DWM layer undergoes several steps before it is delivered as the final WCD product. These post-processing steps include masking using the HRL NVLCC IMD 2018 layer [AUX4] to exclude commission errors over built-up areas and clipping the extent of the product to the EEA38 + UK area boundaries using the HRL Water and Wetness Layer (WAW) 2018 information [AUX5]. The seawater class from the WAW was derived using the EU-Hydro product [AUX6].</p>
+<p>Users seeking more information can find detailed explanations on the retrieval algorithm in the ATBD [AD3].</p>
+</section>
+<section id="product-limitations" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="product-limitations"><span class="header-section-number">1.1.2</span> Product limitations</h3>
+<p>The WCD comes with a sound and state of the art methodology and provides users with highly accurate information on water masks at pan-European level. Even if the used method handles outliers to a certain extent, intensive preparation of the input data and a dedicated post-processing (including automatic and semi-automatic steps) were necessary in order to ensure a valid thematic classification. It should be noted that combining data from both optical and SAR sensors enhances the robustness of the WCD datasets, however it also introduces uncertainties associated with each input source. Additionally, the WIC S2 product, while providing a finer temporal resolution essential to the WCD production, is delivered at 20 m spatial resolution and requires resampling before it can be merged with the S1WM and S2WM into the final product (see Figure 4). It should be noted, particularly in areas with a strong winter influence and the occurrence of polar nights the number of Sentinel-2 data with low cloud and snow cover is reduced. This may lead to incorrect water detection and propagating in potential errors in the water bodies. In such cases, Sentinel-1 may improve the situation but cannot correct all potential errors.</p>
+<p>characteristics and geographical distribution of European water bodies, including rivers, lakes, and catchments. As no alternative European dataset is available to distinguish between freshwater and saltwater areas, the sea water mask used in the WAW 2018 layer was applied to the current WCD layer to ensure consistency. However, due to the dynamic nature of coastlines, this approach may not perfectly align with the actual shoreline, potentially leading to minor discrepancies, such as unexpected water detections along the coast in a few pixels. For further information and details, see ATBD [AD3].</p>
+</section>
+<section id="differences-from-the-previous-version" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="differences-from-the-previous-version"><span class="header-section-number">1.1.3</span> Differences from the previous version</h3>
+<p>This is the first version of this product.</p>
+</section>
+</section>
+<section id="product-description" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="product-description"><span class="header-section-number">1.2</span> Product description</h2>
+<section id="spatial-information" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="spatial-information"><span class="header-section-number">1.2.1</span> Spatial information</h3>
+<p>Main product:</p>
+<ul>
+<li>The main WCD layer covers an area of 110 km by 110 km, which corresponds to the Sentinel-2 tiling grid with a pixel size of 10 m by 10 m in UTM/WGS84 projection or EPSG:326XX, where xx indicates the UTM zone over which the product is set. XX also corresponds to the first 2 digits of a tile name (such as 32TLR).</li>
+</ul>
+<p>Derived products:</p>
+<ul>
+<li>The derived WCD layer covers an area of 100 km by 100 km, which corresponds to the EEA reference grid with a pixel size of 10 m by 10 m in ETRS89 LAEA projection.</li>
+<li>The derived aggregated WCD product covers an area of 100 km by 100 km, which corresponds to the EEA reference grid with a pixel size of 100 m by 100 m in ETRS89 LAEA projection.</li>
+</ul>
+<p>All WCD layers are generated over the entire EEA38 + UK (covering UTM zones 25 to 38). Since the final UTM products are combined with the integrated EEA boundaries [AUX9] and coastline [AUX6], inconsistencies may occur along these boundaries. Incorrect NoData values caused by the reprojection are corrected by assigning the value of the nearest neighboring pixel. This approach is used to adjust the output to the EEA boundary file (LAEA).</p>
+</section>
+<section id="temporal-information" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="temporal-information"><span class="header-section-number">1.2.2</span> Temporal information</h3>
+<p>The WCD is produced for each hydrological year starting 2017. The hydrological year starts 01. September and ends 31. August of the following year. This timeframe aligns with the natural cycle of precipitation, snowmelt, and runoff, allowing for consistent assessment of water resources and hydrological processes across different regions.</p>
+<p>component (WIC S2 data) and the level of agreement among the three fused products (S1WM and S2WM and WIC S2 classification layer). Quality is expressed in four categories as indicated in Table 2. The WCD in 10m, UTM/WGS84 and LAEA projection, consists of three files:</p>
+<ul>
+<li>the main layer, which has the same name as the product,</li>
+<li>the WCD-QA layer,</li>
+<li>INSPIRE-compliant XML metadata file [AUX7].</li>
+</ul>
+<p>The derived WCD in 100m, only in LAEA projection, consists of three files:</p>
+<ul>
+<li>the main layer, which has the same name as the product,</li>
+<li>the WCD-QA layer,</li>
+<li>INSPIRE-compliant XML metadata file [AUX7].</li>
+</ul>
+<p>The content, format, data type and size of the layers are described in Table 2.</p>
+<div class="tbl-caption">
+<p>Table 2. WCD product content</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 36%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<td>File identifier (layer/ metadata)</td>
+<td>Description</td>
+<td>Format</td>
+<td>Data type</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>WCD</td>
+<td>Describes the water presence frequency in a hydrological year and is expressed in days as follows:<br>
+→ 0: no water<br>
+→ 1-366 day with water detected<br>
+→ 65485: cloud or cloud shadow<br>
+→ 65533: sea water<br>
+→ 65535: no data</td>
+<td>GeoTIFF</td>
+<td>uint16</td>
+</tr>
+<tr class="even">
+<td>WCD-QA</td>
+<td>Quality layer providing a basic assessment of WCD quality:<br>
+→ 0: high quality<br>
+→ 1: medium quality<br>
+→ 2: low quality<br>
+→ 3: minimal quality<br>
+→ 205: cloud or cloud shadow<br>
+→ 253: sea water<br>
+→ 255: no data</td>
+<td>GeoTIFF</td>
+<td>uint8</td>
+</tr>
+<tr class="odd">
+<td>MTD</td>
+<td>Product metadata (INSPIRE compatible)</td>
+<td>XML</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-d4ab65add8d241d0cbaffeb3970c30c6.png" class="img-fluid figure-img" alt="This image displays two satellite imagery maps illustrating the Copernicus Land Monitoring Service (CLMS) Water presence frequency (WCD) product. The WCD layer describes the water presence frequency in days per hydrological year, using a vertical colour legend ranging from dark blue (366) to white (0). Dark blue indicates water detected 366 days a year (permanent water), while white indicates no water (0 days). The left map shows an Alpine region, likely depicting parts of the Alps, with large lakes and mountainous terrain. Water bodies, such as the large lakes and rivers, are rendered in dark blue, signifying a high frequency of water presence. Surrounding areas show snow-capped mountains and green valleys. The right map depicts an arid coastal region. The large sea body and water channels within a green river valley are shown in dark blue, indicating permanent water presence. The surrounding land is predominantly brown and arid. Both maps visually represent the WCD data for distinct geographical environments."></p>
+<figcaption>Figure 5. Two examples of WCD products for the hydrological year 2021 (i.e.&nbsp;2020-2021). Alpine tile 32TNS on the left (with Lake Como at the bottom). Eastern Turkey tile 38SLH on the right (with Lake Van on the upper left). The colour scale is defined in days. No water pixels are transparent.</figcaption>
+</figure>
+</div>
+</section>
+<section id="file-naming-convention" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="file-naming-convention"><span class="header-section-number">1.2.3</span> File naming convention</h3>
+<p>The following naming convention is applicable to each layer of the product:</p>
+<p><code>CLMS_WSI_WCD_&lt;PIXEL_SPACING&gt;_&lt;TILEID&gt;_&lt;YYYYMMDDP1Y&gt;_COMB_&lt;VERSION&gt;_&lt;FILE_ID&gt;.&lt;EXTENSION&gt;</code></p>
+<p>This contains the following components:</p>
+<ul>
+<li><code>&lt;PIXEL_SPACING&gt;</code> indicates the pixel spacing/spatial resolution of the product in metres as a three-digit number followed by “m” for metres (‘010m’ or ‘100m’).</li>
+<li><code>&lt;TILEID&gt;</code> indicates the tile ID from the S2 or EEA grid and is defined as TXXXXX or EXXXNXX respectively.</li>
+<li><code>&lt;YYYYMMDDP1Y&gt;</code> where the date YYYYMMDD corresponds to the first day of the hydrological year. P1Y indicates the Period of one year for annual products.</li>
+<li><code>&lt;COMB&gt;</code> the data source “S1-S2-Landsat”.</li>
+<li><code>&lt;VERSION&gt;</code> is the three-digit version number and starts with ‘V100’ for the first major version published. <version> is defined in VXYY format where X changes each time a major version is released (‘V200’, ‘V300’) and YY indicates minor versions released between two major versions (‘V101’, ‘V111’).</version></li>
+<li><code>&lt;FILE_ID&gt;</code> corresponds to the different WCD file identifiers defined in Table 2 (page 17).</li>
+<li><code>&lt;EXTENSION&gt;</code> is ‘tif’ for the raster file or ‘xml’ for the metadata file.</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li>For an S2 inherited tile: <code>CLMS_WSI_HRWL_010m_T31TCH_20160901P1Y_COMB_V100_WCD.tif</code></li>
+<li>For an ETRS89 LAEA tile at native resolution: <code>CLMS_WSI_HRWL_010m_E010N20_20160901P1Y_COMB_V100_WCD.tif</code></li>
+<li>For an ETRS89 LAEA tile with 100m pixel spacing: <code>CLMS_WSI_HRWL_100m_E010N20_20160901P1Y_COMB_V100_WCD.tif</code></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="high-resolution-water-layer-hrwl" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> High Resolution Water Layer (HRWL)</h1>
+<section id="overview" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">2.1</span> Overview</h2>
+<p>provides classified maps distinguishing among permanent water, temporary water, dry areas, and sea water. Table 3 below summarizes the detailed definitions for these classes.</p>
+<p>Multi-annual HRWL products are based on a 7-year period and are released on a 3-year scale. This section presents the HRWL product for the reference year 2021, based on Sentinel-1 and Sentinel-2 imagery from the period 2016-2021, at full spatial resolution of 10m x 10m for the EEA38 + UK. The primary input for this product comes from the Water Cover Duration (WCD) production (see Section 4). In the context of the HR-WSI production, the Water Occurrence Layers (WOL) are derived from DWM of the WCD workflow, combining the S1WM and S2WM with the WIC S2 NRT product. The key difference compared to the WCD product is that the information is aggregated based on months on a calendar year (Jan-Dec) rather than a hydrological year and multiple scenes based (Sep-Aug).</p>
+<p>In addition to the release of multi-annual HRWL products on a 3-year scale, a data archive is regularly updated with binary monthly water masks (RAMWaM). This auxiliary ZARR data collection starting in 2009, described in Section 6, is available upon request only.</p>
+<div class="tbl-caption">
+<p>Table 3. Definition of water classes.</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 48%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<td>Class</td>
+<td>Explanation</td>
+<td>Examples</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dry</td>
+<td>Always dry or mostly dry with minor instances of water (i.e. &lt;25%)</td>
+<td><ul>
+<li>Sand</li>
+<li>Bedrock</li>
+<li>Sealed surfaces</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Permanent water</td>
+<td>Always water.<br>
+The highest ratio of the water / total instances (&gt;85%) are classified as permanent water surfaces.</td>
+<td><ul>
+<li>Permanent inland lakes (natural)</li>
+<li>Artificial ponds (permanent fishponds, reservoir)</li>
+<li>Natural ponds (permanent open water surfaces of inland or coastal wetlands)</li>
+<li>Rivers</li>
+<li>Channels (permanently with water)</li>
+<li>Coastal water surfaces: lagoons, estuaries</li>
+<li>Liquid dump sites (permanent)</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>Temporary water</td>
+<td>Temporary water surfaces.<br>
+Alteration of dry and water<br>
+Temporary water surfaces will have a ratio between &gt;25% to 85% (water / total instances)</td>
+<td><ul>
+<li>Temporary water surfaces associated to permanent water bodies</li>
+<li>Temporary natural (e.g. steppe) lakes and temporary artificial lakes (e.g. cassettes of fishponds)</li>
+<li>Intermittent rivers</li>
+<li>Flood areas</li>
+<li>Water-logged areas</li>
+<li>Wet agricultural fields, including rice fields</li>
+<li>Intertidal areas</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Sea water</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="tbl-caption">
+<p>Table 4. Elements to be included and excluded in the Water Layer (main layer of the HRWL product).</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 59%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<td>Elements to be included in the HR Water Layer 2021</td>
+<td>Elements to be excluded from the HR Water Layer 2021</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><ul>
+<li>Open water bodies (including floating or emergent vegetation)
+<ul>
+<li>Permanent lakes, reservoirs, ponds</li>
+<li>Rivers</li>
+</ul></li>
+<li>Temporary open water bodies (intermittent rivers, changing lake/reservoir levels)</li>
+<li>Temporarily inundated areas (due to snow melt, floods, or rain)</li>
+<li>Wet agricultural fields, including rice fields and water-logged areas</li>
+<li>Transitional coastal water bodies (lagoons, estuaries)</li>
+</ul></td>
+<td><ul>
+<li>Sea and ocean (sea water beyond a boundary provided by the EEA)</li>
+<li>Permanent snow and glaciers</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="algorithm-1" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="algorithm-1"><span class="header-section-number">2.2</span> Algorithm</h2>
+<p>The methodologies and workflows of the HRWL portfolio are described in the following sections in more detail.</p>
+<section id="retrieval-methodology-1" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="retrieval-methodology-1"><span class="header-section-number">2.2.1</span> Retrieval methodology</h3>
+<p>The methodology applied for the production of the HRWL allows deriving water in a robust, reliable and reproducible way from high resolution optical and SAR satellite images. It is based on a fully pre-processed Sentinel-2 and Sentinel-1 time series spanning from 2016 to 2021 to generate the HRWL products for the 2021 reference year.</p>
+<p>The HRWL portfolio consists of three pieces of information, as outlined below:</p>
+<ul>
+<li>The Water Layer (WL)</li>
+<li>The Water Presence Index (WPI)</li>
+<li>The Water Confidence Layer (WCL)</li>
+</ul>
+<p>The production is based on an unsupervised dynamic thresholding approach and derivation of water frequencies based on monthly spectral composites and different biophysical indices as Normalized Difference Water Index (NDWI), Modified Normalised Difference Water Index (mNDWI), or for Sentinel-1 on percentiles based on the backscatter maps. In additional processing steps, (see Section 4.2) a WOL is generated based on a monthly stack from DWM. By aggregating these WOL for the period of seven years (for reference year 2021, only the period 2016-2021 is used due to S2 data availability) and postprocessing with additional</p>
+<div class="tbl-caption">
+<p>Table 5. Classification criteria for the WL layer of the HRWL product</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 62%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Class</th>
+<th>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>Water relative frequency</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Permanent water (always water with minor instances of dry/non-water)</td>
+<td>&gt; 85 %</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Temporary water (alternation of dry and water)</td>
+<td>&gt; 25 %- 85 %</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>No water (dry; always or mostly dry/no water with minor instances of water)</td>
+<td>&lt; 25%</td>
+</tr>
+</tbody>
+</table>
+<p>The RAMWaM that are stored in the WLRA are derived from WOL, intermediate outputs of the WCD. Here, any non-zero water occurrence is mapped to 1 while dry pixels are mapped to 0. The WOL are then aggregated for the whole period (here 2016-2021) and a Water Presence Index (WPI) with values from 0 (only dry observations) to 100 (only water observations) is created. This index has two interpretations: (1) as a probability that a particular location contains water, and (2) the duration of water cover within the period of evaluation. The final WPI indicates the occurrence of water areas throughout the entire observation period 2016-2021 for the 2021 reference year. The main classification Water Layer (WL) is finally created from the WPI. Here a water presence index above 85% is considered as permanent water, below 25% as dry or mostly dry and everything between 25% - 85% as temporary water.</p>
+<p>The Water Confidence Layer (WCL) for the WL combines multiple quality and processing-based parameters and as well as per-pixel confidence information at 10 m pixel resolution. It is based upon combining the classification probabilities for the three underlying input water masks (S2WM, S1WM and WIC S2), i.e.&nbsp;the probabilities for the monthly Sentinel-2 water probability, the Sentinel-1 fuzzy-membership and the classification probabilities for the WIC S2 product. The Sentinel-1 fuzzy-membership is normalized and converted into a water probability. The scene based WIC S2 probabilities are averaged to a monthly probability matching the S1 and S2 monthly inputs. The three inputs are then combined with a weighted average, where the weights are inversely proportional to the deviation from the mean. This aims at reducing the impact of a single input disagreeing with the remaining two inputs. The final WCL is then produced by taking the 75th percentile of the whole period of observation. Based on the WL classification, pixels of the confidence layer represent the classification confidence for each pixel either being dry or being water.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-ce3593f7472c020f14f1dd11ee6c934c.png" class="img-fluid figure-img" alt="This diagram illustrates the processing workflow for generating the High Resolution Water Layer (HRWL) products. The workflow begins with multiple 'WIC S2 scene based probability' inputs. These probabilities are fed into a 'Resample to 10 m' step. In parallel, a 'WCD module' generates 'Water occurrence layers (WOL)'. Both the output from the 'Resample to 10 m' step and the 'Water occurrence layers (WOL)' are processed by the central 'HRWL module'. The 'HRWL module' produces a 'Rolling Archive (WLRA)' and splits the processing into two subsequent HRWL submodules. One branch leads to the 'HRWL submodule Confidence layer', which directly generates the 'HR Water Confidence Layer (WCL)'. The second branch leads to the 'HRWL submodule WPI &amp; WL', which produces two distinct products: the 'HR Water Presence Index (WPI)' and the 'Water Layer (WL)'."></p>
+<figcaption>Figure 6. Workflow diagram for the production of the HR Water Layer</figcaption>
+</figure>
+</div>
+</section>
+<section id="product-limitations-1" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="product-limitations-1"><span class="header-section-number">2.2.2</span> Product limitations</h3>
+<p>The WL comes with a sound and state of the art methodology and provides users with comprehensive information on water and water masks at pan-European level. Even if the used method handles outliers to a certain extent, thanks to intensive preparation of the input data and a dedicated post-processing, misclassifications and artefacts may still be present within the products. The WCL is well suited to assessing the confidence in the classification, particularly to indicate complex areas of high uncertainty. However, it is inherently dependent on the quality of the confidence of the different input layers, making it difficult to assess systematic inaccuracies in the inputs. Further, see ATBD [AD3]. The EEA boundary layer provided by the European Environment Agency (EEA) includes a 250m buffer and does not account for the distinction between freshwater and saltwater areas. To address this limitation, the CLMS EU-Hydro [AUX6] product was utilized to delineate these areas, introducing class 253 (Sea water) as part of the WAW 2018 production. The EU-Hydro product offers a comprehensive dataset that includes a photo-interpreted river network, ensuring alignment with the surface representation of water bodies (such as lakes and wide rivers) using several additional data sources to provide detailed insights into the physical characteristics and geographical distribution of European water bodies, including rivers, lakes, and catchments. As no alternative European dataset is available to distinguish between freshwater and saltwater areas, the sea water mask used in the WAW 2018 layer was applied to the current</p>
+<p>This is the first version of this product.</p>
+</section>
+</section>
+<section id="product-specifications" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="product-specifications"><span class="header-section-number">2.3</span> Product specifications</h2>
+<section id="spatial-information-1" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="spatial-information-1"><span class="header-section-number">2.3.1</span> Spatial information</h3>
+<p>The main layer, WL, is delivered in three different versions (projection and pixel spacing).</p>
+<ul>
+<li>At 10m x 10m spatial resolution and in native UTM/WGS84 coordinate system, fully compliant with the S2 reference grid. The coordinate reference system is UTM/WGS84 or EPSG:326XX where XX indicates the UTM zone over which the product is set. XX also corresponds to the first 2 digits of a tile name (such as 32TLR).</li>
+<li>At 10m x 10m spatial resolution as tiles aligned with the Pan-European High Resolution Layers¹ in the European grid (ETRS89 LAEA - EPSG: 3035).</li>
+<li>At 100m x 100m spatial resolution as tiles aligned with the Pan-European High Resolution Layers¹ in the European grid (ETRS89 LAEA - EPSG: 3035).</li>
+</ul>
+<p>The WPI and WLC layers are provided in 10m x 10m spatial resolution as tiles aligned with the Pan-European High Resolution Layers¹ in the European grid (ETRS89 LAEA - EPSG: 3035) (also indicated in Table 6 - page 24).</p>
+<p>The conversion from UTM/WGS84 to LAEA projection is described in the ATBD for water products [AD3]. Layers’ versions can be distinguished by the product naming convention (see <code>&lt;PIXEL_SPACING&gt;</code> and <code>&lt;TILE_ID&gt;</code> in Section 5.3.4). Since the final UTM products are combined with the integrated EEA boundaries [AUX9] and coastline [AUX6], inconsistencies may occur along these boundaries. Incorrect NoData values caused by the reprojection are corrected by assigning the value of the nearest neighboring pixel. This approach is used to adjust the output to the EEA boundary file (LAEA). All HRWL products are generated over the entire EEA38+UK area (covering UTM zones 25 to 38).</p>
+</section>
+<section id="temporal-information-1" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="temporal-information-1"><span class="header-section-number">2.3.2</span> Temporal information</h3>
+<p>All HRWL products are computed over a 7-year period. They are delivered to end-users on a 3-annual basis. The HRWL 2021 products are based on 2016² - 2021 imagery for the reference year 2021.</p>
+<p>The WL is a classified layer, differentiating the classes of permanent water, temporary water, and dry areas as well as sea water, non-classifiable pixels, and outside area.</p>
+<p>The WPI indicates the occurrence of water areas throughout the entire observation period and is derived from frequencies of WATER and DRY. The WPI is finally calculated according to the number of Water occurrences. The resulting layer assembles the water occurrence as an index on a scale between 0 (only dry observations) to 100 (only water observations).</p>
+<p>The WCL is a raster displaying a measure of confidence for the WL. It provides information regarding the spatial variability of the product quality. The confidence layer informs the user at pixel level about the reliability of the product enabling, for instance, potential users to include the product in modelling studies or to exclude parts of the maps with enhanced uncertainty from further analyses.</p>
+<div class="tbl-caption">
+<p>Table 6. High Resolution Water Layer (HRWL) product content.</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 37%">
+<col style="width: 13%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<td>File identifier (layer/metadata)</td>
+<td>Description</td>
+<td>Format</td>
+<td>Data type</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>WL</td>
+<td>Classified layer, differentiating the classes of permanent water, temporary water, and dry areas as well as sea water, non-classifiable pixels, and outside area throughout the entire observation period 2016-2021 as follows:<br>
+→ 0: dry<br>
+→ 1: permanent water<br>
+→ 2: temporary water<br>
+→ 205: cloud or cloud shadow<br>
+→ 253: sea water<br>
+→ 255: no data</td>
+<td>GeoTIFF</td>
+<td>uint8</td>
+</tr>
+<tr class="even">
+<td>WPI (delivered in 10m, EPSG:3035 version only)</td>
+<td>Shows the occurrence of water areas throughout the entire observation period 2016-2021 as follows:<br>
+→ 0: no water<br>
+→ 1-100: water presence<br>
+→ 205: cloud or cloud shadow<br>
+→ 253: sea water<br>
+→ 255: no data</td>
+<td>GeoTIFF</td>
+<td>uint8</td>
+</tr>
+<tr class="odd">
+<td>WCL (delivered in 10m, EPSG:3035 version only)</td>
+<td>Quality layer providing an assessment of WL quality:<br>
+→ 0-100: classification confidence<br>
+→ 205: cloud or cloud shadow<br>
+→ 253: sea water<br>
+→ 255: no data</td>
+<td>GeoTIFF</td>
+<td>uint8</td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-544d4a66adb9fae31e239f5363c80ea8.png" class="img-fluid figure-img" alt="This image displays three different Copernicus Land Monitoring Service (CLMS) High Resolution Water and Wetness (HRWL) product layers for the 38TKL Universal Transverse Mercator (UTM) tile located in Turkey, against a Google background map showing the Çoruh river. The development timeframe for these products is 2020-09 to 2021-08. The top left map shows the Water Layer (WL) classification, differentiating between permanent water (dark blue), temporary water (light blue), and dry land (transparent for visibility, revealing the Google background). A small legend shows '255: no data'. The top right map displays the Water Presence Index (WPI) layer, which indicates the occurrence of water areas throughout the observation period 2016-2021. Dry pixels are partly transparent for visibility. The WPI legend ranges from 1 (light green) to 100 (dark blue), with darker blue signifying higher frequency of water presence. The bottom map shows the Water Confidence Layer (WCL), providing an assessment of the WL classification quality. The WCL legend ranges from 0 (red/orange) to 100 (dark green), where dark green represents high classification confidence and red/orange indicates low confidence. This layer illustrates the complexity of classifying mountainous areas."></p>
+<figcaption>Figure 7. Examples of the HRWL products for the 38TKL UTM tile located in Turkey showing the Çoruh river, background: Google. Top left: Water Layer (WL) classification differentiating between permanent and temporary water (dark and light blue, respectively) and dry land (transparent for visibility). Top right: Water Presence Index (WPI) layer showing the frequency of water. Dry pixels are partly transparent for visibility. Bottom: Water Confidence Layer (WCL) showing the confidence in the WL classification, illustrating the complexity of classifying mountainous areas. The development timeframe is from 2020-09 to 2021-08.</figcaption>
+</figure>
+</div>
+<ul>
+<li><code>&lt;VERSION&gt;</code> is the three-digit version number and starts with ‘V100’ for the first major version published. <version> is defined in VXYY format where X changes each time a major version is released (‘V200’, ‘V300’) and YY indicates minor versions released between two major versions (‘V101’, ‘V111’).</version></li>
+<li><code>&lt;FILE_ID&gt;</code> corresponds to the different WL file identifiers defined in Table 6 (page 24).</li>
+<li><code>&lt;EXTENSION&gt;</code> is ‘tif’ for the raster file or ‘xml’ for the metadata file.</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li>For an S2 inherited tile: <code>CLMS_WSI_HRWL_010m_T31TCH_&lt;20160101P64M&gt;_COMB_V100_WL.tif</code></li>
+<li>For an ETRS89 LAEA tile at native resolution: <code>CLMS_WSI_HRWL_010m_E020N030_&lt;20160101P64M&gt;_COMB_V100_WL.tif</code></li>
+<li>For an ETRS89 LAEA tile with 100m pixel spacing: <code>CLMS_WSI_HRWL_100m_E020N030_&lt;20160101P64M&gt;_COMB_V100_WL.tif</code></li>
+<li>Water Confidence Layer for an ETRS89 LAEA tile at native resolution: <code>CLMS_WSI_HRWL_010m_E020N030_&lt;20160101P64M&gt;_COMB_V100_WCL.tif</code></li>
+<li>Water Presence Index for an ETRS89 LAEA tile at native resolution: <code>CLMS_WSI_HRWL_010m_E020N030_&lt;20160101P64M&gt;_COMB_V100_WPI.tif</code></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="high-resolution-water-layer-rolling-archive-wlra" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> High Resolution Water Layer Rolling Archive (WLRA)</h1>
+<section id="overview-1" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="overview-1"><span class="header-section-number">3.1</span> Overview</h2>
+<p>The Water Layer Rolling Archive (WLRA) is a collection of water masks (RAMWaM, binary information: surface water presence/absence) generated from the multi-annual High Resolution Water Layer (WL) products (see Section 5). It is called a “rolling archive” because it is continuously updated as new HRWL products are produced. The planned productions for the reference years 2021 and 2024 will together cover the period from 2016 to 2024. These RAMWaM are derived from Sentinel-1 and Sentinel-2 observations and are available monthly at a 10m pixel resolution over the EEA38+UK area. <strong>History of the WLRA:</strong> The postgres database was initially created to store masks derived from the CLMS High Resolution Water and Wetness (HRL-WAW) [AUX5] production for the reference year 2015 (covering the period 2009-2015). These historic RASWaM were derived on a seasonal basis and showed water and dry occurrences. With the production for the reference year 2018 (covering the 2012-2018 period), there was a change in both the satellite input data and the methodology used. To ensure consistency across the archive, a harmonization effort was made: the historical masks (2009-2015) were re-processed using the 2018 methodology and resampled to 10m resolution for full geometric consistency with the 2018 production.</p>
+<p>With the HRWL products for the years 2021 and 2024, other changes will be introduced. Now, monthly binary water masks (RAMWaM) will be added to the WLRA changing to the ZARR file format [AUX8] for the period 2016-2024. As the methodology for these masks differs from that used in the HRL-WAW 2018 production, the existing seasonal water masks RASWaM for the period 2016-2018 will be replaced with the more recent RAMWaM.</p>
+<p>The archive includes the following types of masks (Figure 8):</p>
+<ul>
+<li>Re-processed historic seasonal binary masks (RASWaM) (i.e., 16 seasons): time-stamped seasonal binary water masks for the period 2009–2015. Each season is defined on a calendar basis (e.g., January-February-March, etc.).</li>
+<li>Monthly binary masks (RAMWaM): time-stamped monthly binary water and dry masks for the period 2016-2021.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-ba152e443bd1303f20bff6a9258d2bb6.png" class="img-fluid figure-img" alt="This diagram illustrates the data processing timeline and product generation workflow for the Copernicus Land Monitoring Service (CLMS) High Resolution Water Layer (HRL), spanning from 2009 to 2024 within the 'Rolling Archive'. The process begins with two types of raw data layers: 1. **Seasonal Water and Wetness layers**: Collected from 2009 to 2018, with each year visually segmented into four coloured blocks (blue, green, yellow, orange) representing seasonal observations. 2. **Monthly Water layers**: Collected from 2019 to 2024, with each year segmented into twelve blocks, representing monthly observations. These raw data layers feed into subsequent processing steps: - The 'HRL Water and Wetness 2015' product is derived from the Seasonal Water and Wetness layers covering the period 2009–2018. - This HRL Water and Wetness 2015 data then undergoes further processing: - An initial portion is labelled 'Archive (re-processed using 2018 methodology)'. - A subsequent portion undergoes 'Calibration/harmonisation'. - These processed components converge to form the 'HRL Water and Wetness 2018' product. - In parallel, the 'Monthly Water layers' (2019–2024) contribute to the 'Current monthly water masks'. - Finally, the 'HRL Water and Wetness 2018' product and the 'Current monthly water masks' combine to produce the 'HR Water Layer 2021 &amp; 2024'."></p>
+<figcaption>Figure 8. Overview of the Water Layer Rolling Archive (WLRA) data collection and layers for the HR Water production.</figcaption>
+</figure>
+</div>
+<p>The WLRA is specified as an ‘auxiliary product’ and therefore not directly available on the CLMS portal but can be requested by users. Users could use the data for example to create new</p>
+</section>
+<section id="algorithm-2" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="algorithm-2"><span class="header-section-number">3.2</span> Algorithm</h2>
+<section id="retrieval-methodology-2" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="retrieval-methodology-2"><span class="header-section-number">3.2.1</span> Retrieval methodology</h3>
+<p>The WLRA data collection is set up as in a ZARR file format [AUX8] to store all seasonal (RAsWaM, from former production) and monthly RAMWaM for the full 2009–2021 period in a structured and easily accessible manner. ZARR is an open standard and an efficient file format designed for chunked, compressed, and scalable storage of large multidimensional data, making it particularly well-suited for geospatial raster datasets such as geospatial GeoTiffs. ZARR provides an optimized solution that allows for efficient compression, and seamless integration with cloud-based storage using a chunked storage mechanism, which enables efficient read and write operations by dividing large datasets into smaller, independently accessible chunks. Thus, the data can be stored in ZARR format with compression applied to optimize storage space while maintaining fast access times. The format allows data to be stored in object storage solutions such as Amazon S3, Open Data Cube or Google Cloud Storage. This setup enables researchers, data scientists, and organizations to efficiently access and use the data. The WLRA will not only enable the structured storage and access of already existing individual time steps (e.g.&nbsp;water detection spring 2020) but will also provide an added value through querying the content. The RAMWaM of the WLRA are created partly during the WCD process (see Section 4.2.1) and the HRWL process (see Section 5.2.1). In short, the DWM created in the WCD procedure are aggregated to WOL, which determines the number of water observations in the monthly observation period. These WOL are then processed into RAMWaM for the WLRA in the HRWL process. Here any non-zero water occurrence is consolidated as a 1 while dry pixels remain as a 0, resulting in monthly binary water masks (RAMWaM).</p>
+</section>
+<section id="product-limitations-2" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="product-limitations-2"><span class="header-section-number">3.2.2</span> Product limitations</h3>
+<p>Apart from the limitation in creating monthly water masks (see Section 4.2.2), a particular limitation of binary masks is the lack of any notion of observation count or frequency. For example, rare artefacts and permanent water bodies are given equal weight. However, this limitation is overcome by considering a long time series of binary water masks. Furthermore, the monthly mask is derived from three different data sets, which contribute directly to the quality of the result. However, the different input data (S1WM, S2WM and WIC S2 masks) can also be potential sources of error for the generated monthly mask.</p>
+</section>
+<section id="differences-from-the-previous-version-1" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="differences-from-the-previous-version-1"><span class="header-section-number">3.2.3</span> Differences from the previous version</h3>
+<p>The differences between the masks available in the WLRA before and after 2016 are as follows:</p>
+<ul>
+<li>Monthly masks (RAMWaM) (seasonal masks before 2016: RASWaM),</li>
+<li>An updated workflow is used, which includes the incorporation of the WIC S2 product.</li>
+</ul>
+</section>
+</section>
+<section id="product-description-1" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="product-description-1"><span class="header-section-number">3.3</span> Product description</h2>
+<section id="temporal-information-2" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="temporal-information-2"><span class="header-section-number">3.3.1</span> Temporal information</h3>
+<p>The WLRA contains binary water and dry masks from 2009 to 2021. From 2009 to 2016, the archive is made of RASWaM seasonal masks. Since August 2016, the archive contains RAMWaM.</p>
+</section>
+<section id="product-content" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="product-content"><span class="header-section-number">3.3.2</span> Product content</h3>
+<p>The WLRA is delivered as a zip file containing the RASWaM &amp; RAMWaM in ZARR data format [AUX8] to increase the accessibility and user-friendliness instead of a database. The WLRA zip comes in a package with the INSPIRE metadata XML for each file. File description, format, data type and size are given in Table 7.</p>
+<div class="tbl-caption">
+<p>Table 7. Water Layer Rolling Archive (WLRA) content</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 29%">
+<col style="width: 22%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<td>File identifier (layer/metadata)</td>
+<td>Description</td>
+<td>Format</td>
+<td>Data type</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>WLRA: RASWaM</td>
+<td>Water masks showing the seasonal (2009-2015) water / dry occurrences in binary values as follows:<br>
+→ 0: no water/dry<br>
+→ 1: water<br>
+→ 255: no data</td>
+<td>ZARR files with Geotiffs</td>
+<td>uint8</td>
+</tr>
+<tr class="even">
+<td>RAMWaM</td>
+<td>Water masks showing the monthly (2016-2021) water / dry occurrences in binary values as follows:<br>
+→ 0: no water/dry<br>
+→ 1: water<br>
+→ 255: no data</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="products_Product_User_Manual_-_High_Resolution_Water_Products_Europe-media/img-73a89ef7cb012883e0b81e1f049c6e64.png" class="img-fluid figure-img" alt="A satellite imagery basemap showing mountainous and valley terrain, overlaid with blue polygons representing water bodies. The basemap displays varied land cover, with greener, more vegetated areas in the western and northern parts, transitioning to drier, more arid land with rocky outcrops and sparse vegetation in the eastern portion. A prominent, winding river is visible in the upper-left and central-left, extending downwards. Several distinct, irregular blue shapes indicate lakes or reservoirs, primarily concentrated in the central-left and lower-left, with a few smaller water features scattered in the eastern portion of the map. This map visually demonstrates the water mask component of the Copernicus Land Monitoring Service (CLMS) High Resolution Water Layer (HRWL) product, which identifies water occurrences, likely at a 10 meter resolution (010m) based on file naming conventions in the surrounding text. No scale bar, compass, or explicit geographic labels are present."></p>
+<figcaption>Figure 9. Monthly binary water mask (RAMWaM) for the 38TKL UTM tile located in Turkey showing the Çoruh river. The blue value indicates the presence of water representing a value of one, while partly transparent dry pixels are presented as a zero. The timeframe of the mask is September 2020.</figcaption>
+</figure>
+</div>
+</section>
+<section id="file-naming-convention-1" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="file-naming-convention-1"><span class="header-section-number">3.3.3</span> File naming convention</h3>
+<p>The following naming convention is applicable to each layer of the product:</p>
+<p><code>CLMS_WSI_HRWL_&lt;RES&gt;_&lt;TILEID&gt;_&lt;YYYYMMDDPXXX&gt;_COMB_&lt;VERSION&gt;_&lt;FILE_ID&gt;.&lt;EXTENSION&gt;</code></p>
+<p>Examples:</p>
+<ul>
+<li>For the full package in ETRS89 LAEA resolution: <code>CLMS_WSI_HRWL_010m_&lt;20090101P12Y&gt;_COMB_V100_WLRA.zip</code></li>
+<li>For an ETRS89 LAEA tile at native resolution - recent monthly water masks (RAMWaM): <code>CLMS_WSI_HRWL_010m_&lt;20160101P1M&gt;_COMB_V100_WaM.zarr</code></li>
+<li>For an ETRS89 LAEA tile at native resolution - historical seasonal water masks (RASWaM): <code>CLMS_WSI_HRWL_010m_&lt;20090101P3M&gt;_COMB_V100_WaM.zarr</code></li>
+</ul>
+<p>This contains the following components:</p>
+<ul>
+<li><code>&lt;RES&gt;</code> defines the spatial resolution.</li>
+<li><code>&lt;TILEID&gt;</code> indicates the tile ID from the EEA grid and is defined as EXXXNXX.</li>
+<li><code>&lt;YYYYMMDDPXXX&gt;</code> where YYYYMMDD corresponds to the first day of the period, and XXX indicates the period’s duration. P1M indicates a period of one month (applicable for monthly masks), P3M indicates three months (applicable for historical masks), and P12Y refers to the full period of the WLRA, i.e.&nbsp;12 years, since the first entry into the WLRA dates from 01.01.2009.</li>
+<li><code>&lt;COMB&gt;</code> the data source “S1-S2-Landsat” for instance has to be specified in the XML (with GDAL edit in a later version).</li>
+<li><code>&lt;VERSION&gt;</code> is the three-digit version number and starts with ‘V100’ for the first major version published. <version> is defined in VXYY format where X changes each time a</version></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="terms-of-use-and-product-technical-support" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Terms of use and product technical support</h1>
+<p>The products described in this document are generated in the frame of the Copernicus programme of the European Union by the European Environment Agency and are owned by the European Union. The products can be used following Copernicus full free and open data policy, which allows the use of the products also for any commercial purpose. Derived products created by end users from the products described in this document are owned by the end users, who have all intellectual rights to the derived products. More details about data use terms and conditions can be found on the Copernicus Land Monitoring Service portal: https://land.copernicus.eu/en/data-policy.</p>
+<section id="citation" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="citation"><span class="header-section-number">4.1</span> Citation</h2>
+<p>In cases of re-dissemination of the products described in this document or when the products are used to create a derived product it is required to provide a reference to the source. A template is provided below:</p>
+<blockquote class="blockquote">
+<p>“© European Union, Copernicus Land Monitoring Service <year>, European Environment Agency (EEA)”</year></p>
+</blockquote>
+<p>In case of use in a publication, it is recommended to cite the dataset, in the following template. Note that the Digital Object Identifier (DOI), if applicable, is provided on the dataset page on the CLMS webportal.</p>
+<blockquote class="blockquote">
+<p>“Dataset title. European Union’s Copernicus Land Monitoring Service information, <provide the="" name="" and="" url="" of="" data="" access="" point="">. &lt;DOI: dataset DOI, if applicable&gt; (Accessed on DD.MM.YYYY)”</provide></p>
+</blockquote>
+</section>
+<section id="product-technical-support" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="product-technical-support"><span class="header-section-number">4.2</span> Product technical support</h2>
+<p>Product technical support is provided by the product custodian through Copernicus Land Monitoring Service helpdesk at https://land.copernicus.eu/en/contact-service-helpdesk or directly at copernicus@eea.europa.eu.</p>
+<p>portal or contact the service desk at https://land.copernicus.eu/en/contact-service-helpdesk.</p>
+<div class="tbl-caption">
+<p>Table 8. List of the abbreviations and acronyms</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 31%">
+<col style="width: 49%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Abbreviation</th>
+<th>Name</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AD</td>
+<td>Applicable documents</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ATBD</td>
+<td>Algorithm Theoretical Basis Document</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>CDSE</td>
+<td>Copernicus Data Space Ecosystem</td>
+<td>https://dataspace.copernicus.eu/</td>
+</tr>
+<tr class="even">
+<td>CLD</td>
+<td>Cloud layer in the FSC product</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>CLMS</td>
+<td>Copernicus Land Monitoring Service</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DWM</td>
+<td>Daily Water Masks</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>DEM</td>
+<td>Digital Elevation Model</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DIAS</td>
+<td>Data and Information Access Services</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>EEA</td>
+<td>European Environment Agency</td>
+<td>www.eea.europa.eu</td>
+</tr>
+<tr class="even">
+<td>EEA38 + UK</td>
+<td>EEA 38 area plus UK</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ETRS89</td>
+<td>European Terrestrial Reference system 1989</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ESA</td>
+<td>European Space Agency</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>FSC</td>
+<td>Fractional Snow Cover</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>GRD</td>
+<td>Ground Range Detected</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>HAND</td>
+<td>Height Above Nearest Drainage</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>HRL</td>
+<td>High Resolution Layers</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>HR-S&amp;I</td>
+<td>HR-S&amp;I High resolution Snow and Ice (service, products)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>HR-WSI</td>
+<td>High resolution Water, Snow and Ice (products, service)</td>
+<td>https://land.copernicus.eu</td>
+</tr>
+<tr class="odd">
+<td>HRL-WAW</td>
+<td>High Resolution Layers - Water &amp; Wetness</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>HRWL</td>
+<td>High Resolution Water Layer</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>INSPIRE</td>
+<td>Infrastructure for Spatial Information in the European</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ITT</td>
+<td>Invitation To Tender</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>JRC</td>
+<td>Joint Research Council (European commission)</td>
+<td>https://joint-research-centre.ec.europa.eu/</td>
+</tr>
+<tr class="even">
+<td>LAEA</td>
+<td>Lambert azimuthal equal-area projection</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>MNDWI</td>
+<td>Modified Normalised Difference Water Index</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>MTD</td>
+<td>Metadata</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NRT</td>
+<td>Near Real-Time</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>NDWI</td>
+<td>Normalised Difference Water Index</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>PUM</td>
+<td>Product User Manual</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>RAMWAM</td>
+<td>Rolling Archive Monthly Water Masks</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>RASWAM</td>
+<td>Rolling Archive Seasonal Water Masks</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>QA</td>
+<td>Quality Assessment</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>SAR</td>
+<td>Synthetic Aperture Radar</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>SDG</td>
+<td>Sustainable Development Goal</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>UK</td>
+<td>The United Kingdom</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>UTM</td>
+<td>Universal Transverse Mercator</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>WCD</td>
+<td>Water Cover Duration</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>WCL</td>
+<td>Water Confidence Layer</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>WEKEO</td>
+<td>WEKEO European cloud infrastructure (DIAS)</td>
+<td>https://www.wekeo.eu/</td>
+</tr>
+<tr class="even">
+<td>WGS84</td>
+<td>World Geodetic System 1984</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>WIC</td>
+<td>Water Ice Cover</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>WOL</td>
+<td>Water occurrence layers</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>WPI</td>
+<td>Water Presence Index</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>WLRA</td>
+<td>Water Layer Rolling Archive</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>XML</td>
+<td>Extensible Markup Language</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Environment, 224, 333-351. https://doi.org/10.1016/j.rse.2019.01.017 Martinis, S., Twele, A., &amp; Voigt, S. (2009). Towards operational near real-time flood detection using a split-based automatic thresholding procedure on high resolution TerraSAR-X data. Natural Hazards and Earth System Sciences, 9(2), 303-314. https://doi.org/10.5194/nhess-9-303-2009 Seewald, M., Ralser, S., Innerbichler, F., Dulleck, B., Gruber, C., Leitner, A., Duffy, C., Ziselsberger, M., Reimer, C., Stachl, T., Milinkovic, D., McCormick, N., Salamon, P., &amp; Joint Research Centre (European Commission). (2023). Global flood monitoring: Annual product and service quality assessment report 2022: Vol. JRC TECHNICAL REPORT (European Union). European Union. https://doi.org/10.2760/666238 Tottrup, C., Druce, D., Meyer, R. P., Christensen, M., Riffler, M., Dulleck, B., Rastner, P., Jupova, K., Sokoup, T., Haag, A., Cordeiro, M. C. R., Martinez, J.-M., Franke, J., Schwarz, M., Vanthof, V., Liu, S., Zhou, H., Marzi, D., Rudiyanto, R., … Paganini, M. (2022). Surface Water Dynamics from Space: A Round Robin Intercomparison of Using Optical and SAR High-Resolution Satellite Observations for Regional Surface Water Detection. Remote Sensing, 14(10), Article 10. https://doi.org/10.3390/rs14102410</p>
+<p>The following table lists the auxiliary data and the respective url used in support of this document.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 92%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Id.</th>
+<th>Document</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AUX1</td>
+<td>Sustainable development goals as defined by the Department of Economic and Social Affairs of the United Nations, https://sdgs.un.org/goals, accessed: 03/2025</td>
+</tr>
+<tr class="even">
+<td>AUX2</td>
+<td>United Nations Environment Programme’s monitoring of ecosystems, https://www.unwater.org/publications/step-step-methodology-monitoring-ecosystems-661, accessed: 03/2025</td>
+</tr>
+<tr class="odd">
+<td>AUX3</td>
+<td>European Environment Information and Observation Network (Eionet), https://www.eionet.europa.eu/, accessed: 09/2024</td>
+</tr>
+<tr class="even">
+<td>AUX4</td>
+<td>Copernicus Land Monitoring Service, High Resolution Layer (HRL), Imperviousness Density (IMD), 2018. https://land.copernicus.eu/en/products/high-resolution-layer-imperviousness/imperviousness-density-2018, accessed: 02/2024</td>
+</tr>
+<tr class="odd">
+<td>AUX5</td>
+<td>Copernicus Land Monitoring Service, High Resolution Layer (HRL), Water and Wetness (WAW), 10m, 2015 &amp; 2018. https://land.copernicus.eu/en/products/high-resolution-layer-water-and-wetness, accessed: 02/2024</td>
+</tr>
+<tr class="even">
+<td>AUX6</td>
+<td>Copernicus Land Monitoring Service, EU-Hydro database (version 1.0) https://land.copernicus.eu/en/products/eu-hydro/eu-hydro-river-network-database, documentation: https://land.copernicus.eu/en/technical-library/eu-hydro_user_guide/%40%40download/file, accessed 10/04/2024</td>
+</tr>
+<tr class="odd">
+<td>AUX9</td>
+<td>EEA Administrative Boundaries of EEA38 and the United Kingdom, https://sdi.eea.europa.eu/data/08c0e074-4a98-4545-bd85-f58fe3f74d82, accessed 12/2025</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/library\.land\.copernicus\.eu");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2026 EEA. All rights reserved.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
