@@ -199,24 +199,15 @@ def add_changelog(doc):
 
                 # Render a <ul> summary as a real BulletList so it survives in
                 # every output format; otherwise fall back to plain text.
-                if sanitized_summary.startswith("<ul>"):
-                    list_items = re.findall(
-                        r"<li>(.*?)</li>", sanitized_summary, re.DOTALL
-                    )
-                    if list_items:
-                        list_items_elements = []
-                        for item in list_items:
-                            clean_item = re.sub(r"<[^>]+>", "", item).strip()
-                            # ListItem expects a list of Block elements
-                            list_item = pf.ListItem(pf.Plain(pf.Str(clean_item)))
-                            list_items_elements.append(list_item)
-                        bullet_list = pf.BulletList(*list_items_elements)
-                        summary_cell = pf.TableCell(bullet_list)
+                if "<li>" in sanitized_summary:
+                    items = re.findall(r"<li>(.*?)</li>", sanitized_summary, re.DOTALL)
+                    if items:
+                        bulleted = "\n".join(f"• {re.sub(r'<[^>]+>', '', x).strip()}" for x in items)
+                        summary_cell = pf.TableCell(pf.Plain(pf.Str(bulleted)))
                     else:
-                        clean_summary = re.sub(r"<[^>]+>", "", sanitized_summary)
-                        summary_cell = pf.TableCell(pf.Plain(pf.Str(clean_summary)))
+                        summary_cell = pf.TableCell(pf.Plain(pf.Str(re.sub(r'<[^>]+>', '', sanitized_summary).strip())))
                 else:
-                    summary_cell = pf.TableCell(pf.Plain(pf.Str(sanitized_summary)))
+                    summary_cell = pf.TableCell(pf.Plain(pf.Str(re.sub(r'<[^>]+>', '', sanitized_summary).strip())))
 
                 row = pf.TableRow(date_cell, version_cell, summary_cell)
                 body_rows.append(row)
