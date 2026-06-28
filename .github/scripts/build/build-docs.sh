@@ -83,9 +83,12 @@ python3 ../.github/scripts/build/inject_image_descriptions.py .
 cp _quarto-no-headers.yml _quarto.yml
 
 step "[3/6] Rendering all documents (HTML + Typst PDF + gfm) in one pass..."
-# Render every format in the config - html (site), typst (PDFs), gfm
-# (the .llms.md sidecars). One pass over the files instead of one per format.
+# Temporary move out of docs before render to avoid Jupyter engine selections crashes
+echo "	 [BUILD BYPASS] Temporarily moving Ice products out of the build context..."
+mv products/Algorithm_theoretical_basis_document_-_High_Resolution_Ice_products_Europe.qmd ../../origin_DOCS/
 quarto_render --no-clean
+echo "	 [BUILD BYPASS] Restoring Ice products..."
+mv ../../origin_DOCS/Algorithm_theoretical_basis_document_-_High_Resolution_Ice_products_Europe.qmd products/
 
 # Back up sitemap.xml and llms.txt - the index.qmd renders below regenerate
 # them, and we want to keep the values from this first render.
