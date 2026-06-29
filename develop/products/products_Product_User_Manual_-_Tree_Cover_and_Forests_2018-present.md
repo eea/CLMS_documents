@@ -1148,89 +1148,59 @@ layers
 
 </div>
 
-<table data-quarto-postprocess="true">
+<table>
 <colgroup>
-<col style="width: 16%" />
-<col style="width: 8%" />
-<col style="width: 13%" />
-<col style="width: 61%" />
+<col style="width: 16.3%">
+<col style="width: 8.3%">
+<col style="width: 13.7%">
+<col style="width: 61.7%">
 </colgroup>
-<tbody>
 <tr>
-<td><strong>Name of layer</strong></td>
-<td><strong>Acronym</strong></td>
-<td><strong>Spatial coverage</strong></td>
-<td><strong>Coordinate reference system (WKT)</strong></td>
-</tr>
-<tr>
-<td>Tree Cover Density</td>
-<td>TCD</td>
-<td rowspan="11" style="vertical-align: middle">5.751.002 km² (covering
-the full EEA-38)</td>
-<td rowspan="11" style="vertical-align: top"><div
-style="font-family:monospace; font-size:8pt; white-space:pre">
-PROJCS["ETRS89-extended / LAEA Europe", GEOGCS["ETRS89", DATUM
-["European_Terrestrial_Reference_System_1989", SPHEROID ["GRS
-1980",6378137,298.257222101, AUTHORITY["EPSG","7019"]],
-AUTHORITY["EPSG","6258"]], PRIMEM["Greenwich", 0,
-AUTHORITY["EPSG","8901"]], UNIT["degree", 0.0174532925199433,
-AUTHORITY["EPSG","9122"]], AUTHORITY["EPSG","4258"]], PROJECTION
-["Lambert_Azimuthal_Equal_Area"], PARAMETER ["latitude_of_center",52],
-PARAMETER ["longitude_of_center", 10], PARAMETER
-["false_easting",4321000], PARAMETER["false_northing",3210000],
-UNIT["metre", 1, AUTHORITY["EPSG","9001"]], AXIS["Northing", NORTH],
-AXIS["Easting", EAST], AUTHORITY["EPSG","3035"]]
-</div>
-<hr />
-Except for French DOMs where the following CRS are used: YT: EPSG
-32738<br />
-RE: EPSG 32740<br />
-MQ: EPSG 32620<br />
-GP: EPSG 32620<br />
-GF: EPSG 32620</td>
-</tr>
-<tr>
-<td>Dominant Leaf Type</td>
-<td>DLT</td>
-</tr>
-<tr>
-<td>Tree Cover Presence Change</td>
-<td>TCPC</td>
-</tr>
-<tr>
-<td>Dominant Leaf Type Change</td>
-<td>DLTC</td>
-</tr>
-<tr>
-<td>Forest Type</td>
-<td>FTY</td>
-</tr>
-<tr>
-<td>Forest Additional Support Layer</td>
-<td>FADSL</td>
-</tr>
-<tr>
-<td>Broadleaved Cover Density</td>
-<td>BCD</td>
-</tr>
-<tr>
-<td>Coniferous Cover Density</td>
-<td>CCD</td>
-</tr>
-<tr>
-<td>Tree Cover Density Confidence Layer</td>
-<td>TCDCL</td>
-</tr>
-<tr>
-<td>Dominant Leaf Type Confidence Layer</td>
-<td>DLTCL</td>
-</tr>
-<tr>
-<td>Tree Cover Presence Change Confidence Layer</td>
-<td>TCPCCL</td>
-</tr>
-</tbody>
-</table>
+    <td><b>Name of layer</b></td>
+    <td><b>Acronym</b></td>
+    <td><b>Spatial coverage</b></td>
+    <td><b>Coordinate reference system (WKT)</b></td>
+  </tr>
+  <tr>
+    <td>Tree Cover Density</td>
+    <td>TCD</td>
+    <td rowspan="11" style="vertical-align:middle">5.751.002 km² (covering the full EEA-38)</td>
+    <td rowspan="11" style="vertical-align:top">
+
+PROJCS\[“ETRS89-extended / LAEA Europe”, GEOGCS\[“ETRS89”, DATUM
+\[“European_Terrestrial_Reference_System_1989”, SPHEROID \[“GRS
+1980”,6378137,298.257222101, AUTHORITY\[“EPSG”,“7019”\]\],
+AUTHORITY\[“EPSG”,“6258”\]\], PRIMEM\[“Greenwich”, 0,
+AUTHORITY\[“EPSG”,“8901”\]\], UNIT\[“degree”, 0.0174532925199433,
+AUTHORITY\[“EPSG”,“9122”\]\], AUTHORITY\[“EPSG”,“4258”\]\], PROJECTION
+\[“Lambert_Azimuthal_Equal_Area”\], PARAMETER
+\[“latitude_of_center”,52\], PARAMETER \[“longitude_of_center”, 10\],
+PARAMETER \[“false_easting”,4321000\],
+PARAMETER\[“false_northing”,3210000\], UNIT\[“metre”, 1,
+AUTHORITY\[“EPSG”,“9001”\]\], AXIS\[“Northing”, NORTH\],
+AXIS\[“Easting”, EAST\], AUTHORITY\[“EPSG”,“3035”\]\]
+
+
+            <hr>
+            Except for French DOMs where the following CRS are used:
+            YT: EPSG 32738<br>
+            RE: EPSG 32740<br>
+            MQ: EPSG 32620<br>
+            GP: EPSG 32620<br>
+            GF: EPSG 32620
+        </td>
+      </tr>
+      <tr><td>Dominant Leaf Type</td><td>DLT</td></tr>
+      <tr><td>Tree Cover Presence Change</td><td>TCPC</td></tr>
+      <tr><td>Dominant Leaf Type Change</td><td>DLTC</td></tr>
+      <tr><td>Forest Type</td><td>FTY</td></tr>
+      <tr><td>Forest Additional Support Layer</td><td>FADSL</td></tr>
+      <tr><td>Broadleaved Cover Density</td><td>BCD</td></tr>
+      <tr><td>Coniferous Cover Density</td><td>CCD</td></tr>
+      <tr><td>Tree Cover Density Confidence Layer</td><td>TCDCL</td></tr>
+      <tr><td>Dominant Leaf Type Confidence Layer</td><td>DLTCL</td></tr>
+      <tr><td>Tree Cover Presence Change Confidence Layer</td><td>TCPCCL</td></tr>
+    </table>
 
 ## Spatial resolution
 
