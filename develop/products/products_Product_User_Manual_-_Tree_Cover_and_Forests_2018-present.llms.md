@@ -260,10 +260,10 @@ Table 7-3: Projection and spatial coverage for HRL Tree Cover & Forests layers
 
 ## 7.4 Spatial resolution
 
-The native spatial resolution of the Tree Cover & Forests products DLT, TCD and FTY is 10 metres and linked to the highest resolution of Sentinel-2 (red, blue, green and near-infrared bands) as the primary input data source. For products at 20 metres and 100 metres, aggregation rules are defined in the ATBD \[7\]. The spatial resolution should, however, not be confused with the size and location-precision of the elements that can be represented in the maps. The latter is limited by certain factors that are intrinsic to the available input data:
+The native spatial resolution of the Tree Cover & Forests products DLT, TCD and FTY is 10 metres and linked to the highest resolution of Sentinel-2 (red, blue, green and near-infrared bands) as the primary input data source. For products at 20 metres and 100 metres, aggregation rules are defined in the ATBD [^6]. The spatial resolution should, however, not be confused with the size and location-precision of the elements that can be represented in the maps. The latter is limited by certain factors that are intrinsic to the available input data:
 
 - Ground Resolved Distance (GRD) is a metric that better reflects the spatial resolution of a satellite sensor than the spatial resolution of the image. For Sentinel-2 recent estimates suggest a GRD around 12.5 metres \[10\]
-- To fully leverage Sentinel-2, the analyses of the time-series are essential. Since the completion of the reprocessing of Sentinel-2 Colllection-1 the multi-temporal co-registration is better than 4m in most cases whereas observations until August 2021 only had a co-registration accuracy of 12 metres before the reprocessing[^6].
+- To fully leverage Sentinel-2, the analyses of the time-series are essential. Since the completion of the reprocessing of Sentinel-2 Colllection-1 the multi-temporal co-registration is better than 4m in most cases whereas observations until August 2021 only had a co-registration accuracy of 12 metres before the reprocessing[^7].
 
 While it is difficult to quantify the cumulative effect and variability of these factors, limited detectability and spatial uncertainty of elements at a scale from 10-20 metres should probably be considered for the usage and validation of the maps.
 
@@ -347,7 +347,7 @@ Guiding data are those used for production of the **HRL Tree Cover & Forests** p
 
 Reference data are complementary and independent data that can provide more spatial details and landscape context:
 
-- **VHR_IMAGE_2018**[^7] and **VHR_IMAGE_2021**[^8]: very high resolution optical earth observation imagery, covering **EEA38** for the reference years 2018 and 2021 (+-1 year).
+- **VHR_IMAGE_2018**[^8] and **VHR_IMAGE_2021**[^9]: very high resolution optical earth observation imagery, covering **EEA38** for the reference years 2018 and 2021 (+-1 year).
 - Other external datasets:
   - Bing maps image/cartography layer
   - Open Street Map data
@@ -912,10 +912,12 @@ EUPL (\>= 1.2)
 
 [^5]: In previous productions the TCPC was still called Tree Cover Change Mask (TCCM)
 
-[^6]:
+[^6]: https://sentiwiki.copernicus.eu/\_\_attachments/1673423/OMPC.CS.DQR.001.08-2025-Sentinel-2-MSI-L1C-DQR-September-2025-115.pdf?inst-v=21d709d1-2d56-4cc7-aec1-05e4dd76e738
+
+[^7]:
     - Most other input data have a coarser spatial resolution (e.g. Sentinel-1 ~20 metre, Sentinel-2 short wave infrared at 20 metre).
     - The detectability of land cover elements can be further limited by the intensity of their reflectance. This concerns for example vegetation on very bright soils or in urban areas where the reflectance of the brighter non-vegetated surfaces easily dominates the recorded reflectance within one pixel.
 
-[^7]: Copernicus Data Space Ecosystem - Copernicus Contributing Missions – VHR IMAGE 2018
+[^8]: Copernicus Data Space Ecosystem - Copernicus Contributing Missions – VHR IMAGE 2018
 
-[^8]: Copernicus Data Space Ecosystem - Copernicus Contributing Missions – VHR IMAGE 2021
+[^9]: Copernicus Data Space Ecosystem - Copernicus Contributing Missions – VHR IMAGE 2021

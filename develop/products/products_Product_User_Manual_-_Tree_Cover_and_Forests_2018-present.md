@@ -1238,7 +1238,7 @@ The native spatial resolution of the Tree Cover & Forests products DLT,
 TCD and FTY is 10 metres and linked to the highest resolution of
 Sentinel-2 (red, blue, green and near-infrared bands) as the primary
 input data source. For products at 20 metres and 100 metres, aggregation
-rules are defined in the ATBD \[7\]. The spatial resolution should,
+rules are defined in the ATBD [^6]. The spatial resolution should,
 however, not be confused with the size and location-precision of the
 elements that can be represented in the maps. The latter is limited by
 certain factors that are intrinsic to the available input data:
@@ -1251,7 +1251,7 @@ certain factors that are intrinsic to the available input data:
   essential. Since the completion of the reprocessing of Sentinel-2
   Colllection-1 the multi-temporal co-registration is better than 4m in
   most cases whereas observations until August 2021 only had a
-  co-registration accuracy of 12 metres before the reprocessing[^6].
+  co-registration accuracy of 12 metres before the reprocessing[^7].
 
 While it is difficult to quantify the cumulative effect and variability
 of these factors, limited detectability and spatial uncertainty of
@@ -1543,7 +1543,7 @@ Forests** product and consist mainly of time-series of Sentinel data..
 Reference data are complementary and independent data that can provide
 more spatial details and landscape context:
 
-- **VHR_IMAGE_2018**[^7] and **VHR_IMAGE_2021**[^8]: very high
+- **VHR_IMAGE_2018**[^8] and **VHR_IMAGE_2021**[^9]: very high
   resolution optical earth observation imagery, covering **EEA38** for
   the reference years 2018 and 2021 (+-1 year).
 - Other external datasets:
@@ -4383,7 +4383,9 @@ between</td>
 [^5]: In previous productions the TCPC was still called Tree Cover
     Change Mask (TCCM)
 
-[^6]:
+[^6]: https://sentiwiki.copernicus.eu/\_\_attachments/1673423/OMPC.CS.DQR.001.08-2025-Sentinel-2-MSI-L1C-DQR-September-2025-115.pdf?inst-v=21d709d1-2d56-4cc7-aec1-05e4dd76e738
+
+[^7]:
     - Most other input data have a coarser spatial resolution
       (e.g. Sentinel-1 ~20 metre, Sentinel-2 short wave infrared at 20
       metre).
@@ -4393,8 +4395,8 @@ between</td>
       reflectance of the brighter non-vegetated surfaces easily
       dominates the recorded reflectance within one pixel.
 
-[^7]: Copernicus Data Space Ecosystem - Copernicus Contributing Missions
+[^8]: Copernicus Data Space Ecosystem - Copernicus Contributing Missions
     – VHR IMAGE 2018
 
-[^8]: Copernicus Data Space Ecosystem - Copernicus Contributing Missions
+[^9]: Copernicus Data Space Ecosystem - Copernicus Contributing Missions
     – VHR IMAGE 2021

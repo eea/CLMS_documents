@@ -960,10 +960,10 @@ GF: EPSG 32620</td>
 </section>
 <section id="spatial-resolution" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="spatial-resolution"><span class="header-section-number">7.4</span> Spatial resolution</h2>
-<p>The native spatial resolution of the Tree Cover &amp; Forests products DLT, TCD and FTY is 10 metres and linked to the highest resolution of Sentinel-2 (red, blue, green and near-infrared bands) as the primary input data source. For products at 20 metres and 100 metres, aggregation rules are defined in the ATBD [7]. The spatial resolution should, however, not be confused with the size and location-precision of the elements that can be represented in the maps. The latter is limited by certain factors that are intrinsic to the available input data:</p>
+<p>The native spatial resolution of the Tree Cover &amp; Forests products DLT, TCD and FTY is 10 metres and linked to the highest resolution of Sentinel-2 (red, blue, green and near-infrared bands) as the primary input data source. For products at 20 metres and 100 metres, aggregation rules are defined in the ATBD <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. The spatial resolution should, however, not be confused with the size and location-precision of the elements that can be represented in the maps. The latter is limited by certain factors that are intrinsic to the available input data:</p>
 <ul>
 <li>Ground Resolved Distance (GRD) is a metric that better reflects the spatial resolution of a satellite sensor than the spatial resolution of the image. For Sentinel-2 recent estimates suggest a GRD around 12.5 metres [10]</li>
-<li>To fully leverage Sentinel-2, the analyses of the time-series are essential. Since the completion of the reprocessing of Sentinel-2 Colllection-1 the multi-temporal co-registration is better than 4m in most cases whereas observations until August 2021 only had a co-registration accuracy of 12 metres before the reprocessing<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>.</li>
+<li>To fully leverage Sentinel-2, the analyses of the time-series are essential. Since the completion of the reprocessing of Sentinel-2 Colllection-1 the multi-temporal co-registration is better than 4m in most cases whereas observations until August 2021 only had a co-registration accuracy of 12 metres before the reprocessing<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>.</li>
 </ul>
 <p>While it is difficult to quantify the cumulative effect and variability of these factors, limited detectability and spatial uncertainty of elements at a scale from 10-20 metres should probably be considered for the usage and validation of the maps.</p>
 <div class="tbl-caption">
@@ -1319,7 +1319,7 @@ Urban trees and trees under predominantly agricultural use are</td>
 <p>Guiding data are those used for production of the <strong>HRL Tree Cover &amp; Forests</strong> product and consist mainly of time-series of Sentinel data..</p>
 <p>Reference data are complementary and independent data that can provide more spatial details and landscape context:</p>
 <ul>
-<li><strong>VHR_IMAGE_2018</strong><a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> and <strong>VHR_IMAGE_2021</strong><a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>: very high resolution optical earth observation imagery, covering <strong>EEA38</strong> for the reference years 2018 and 2021 (+-1 year).</li>
+<li><strong>VHR_IMAGE_2018</strong><a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> and <strong>VHR_IMAGE_2021</strong><a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>: very high resolution optical earth observation imagery, covering <strong>EEA38</strong> for the reference years 2018 and 2021 (+-1 year).</li>
 <li>Other external datasets:
 <ul>
 <li>Bing maps image/cartography layer</li>
@@ -4169,13 +4169,14 @@ Urban trees and trees under predominantly agricultural use are</td>
 <li id="fn3"><p><a href="https://www.evo-land.eu/method/biomass-mapping/" class="uri">https://www.evo-land.eu/method/biomass-mapping/</a> of additional adequate local reference data for algorithm training are required for retrieval of the results[^4].<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p><a href="https://www.fao.org/4/ad665e/ad665e03.htm" class="uri">https://www.fao.org/4/ad665e/ad665e03.htm</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>In previous productions the TCPC was still called Tree Cover Change Mask (TCCM)<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><ul>
+<li id="fn6"><p>https://sentiwiki.copernicus.eu/__attachments/1673423/OMPC.CS.DQR.001.08-2025-Sentinel-2-MSI-L1C-DQR-September-2025-115.pdf?inst-v=21d709d1-2d56-4cc7-aec1-05e4dd76e738<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><ul>
 <li>Most other input data have a coarser spatial resolution (e.g.&nbsp;Sentinel-1 ~20 metre, Sentinel-2 short wave infrared at 20 metre).</li>
 <li>The detectability of land cover elements can be further limited by the intensity of their reflectance. This concerns for example vegetation on very bright soils or in urban areas where the reflectance of the brighter non-vegetated surfaces easily dominates the recorded reflectance within one pixel.</li>
 </ul>
-<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></li>
-<li id="fn7"><p>Copernicus Data Space Ecosystem - Copernicus Contributing Missions – VHR IMAGE 2018<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn8"><p>Copernicus Data Space Ecosystem - Copernicus Contributing Missions – VHR IMAGE 2021<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></li>
+<li id="fn8"><p>Copernicus Data Space Ecosystem - Copernicus Contributing Missions – VHR IMAGE 2018<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Copernicus Data Space Ecosystem - Copernicus Contributing Missions – VHR IMAGE 2021<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
