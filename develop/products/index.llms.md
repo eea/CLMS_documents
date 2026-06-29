@@ -14,7 +14,6 @@
 | [European Ground Motion Service (EGMS) - Algorithm Theoretical Basis Document](../products/European_Ground_Motion_Service_Algorithm_Theoretical_Basis_Document_v4.llms.md) | 4.0.0 | Aug 7, 2025 |
 | [European Ground Motion Service (EGMS) - GNSS calibration data](../products/European_Ground_Motion_Service_GNSS_Calibration_Data_v1.llms.md) | 1.0.0 | Apr 15, 2023 |
 | [European Ground Motion Service (EGMS) - Product Description and Format Specification](../products/European_Ground_Motion_Service_Product_Description_v3.llms.md) | 3.0.0 | Aug 7, 2025 |
-| [Final Delivery Report](../products/products_2012-2018_Quality_Assessment_Report_v0.llms.md) | 0.0.0 | Feb 10, 2021 |
 | [HRL TREE COVER & FORESTS - PRODUCT USER MANUAL](../products/products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present.llms.md) | 2.3 | Nov 3, 2025 |
 | [High Resolution Layer Croplands 2017-present - Product User Manual](../products/High_Resolution_Layer_Croplands_2017-present_PUM_v2.llms.md) | 2.3.0 | Nov 3, 2025 |
 | [High Resolution Layer Small Landscape Features 2021 – Algorithm Theoretical Basis Document (ATBD)](../products/High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.llms.md) | 1.0.0 | Nov 20, 2025 |
