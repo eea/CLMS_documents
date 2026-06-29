@@ -27,7 +27,6 @@
 | [Production of High Resolution Water, Snow and Ice products (Lot 1)](../products/products_Product_User_Manual_-_High_Resolution_Water_Products_Europe.llms.md) | 1.3 | Dec 23, 2025 |
 | [Riparian Zones 2012-2018 - Nomenclature Guideline](../products/Riparian_Zones_2012-2018_Nomenclature_Guideline_v1.llms.md) | 1.0.0 | Dec 14, 2021 |
 | [Riparian Zones LC/LU and change 2012-2018 - Product User Manual](../products/Riparian_Zones_2012-2018_PUM_v1.llms.md) | 1.0.0 | Aug 1, 2023 |
-| [Task 2: Product development support - HRL vegetated](../products/products_HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency.llms.md) | 0.9 | Apr 15, 2025 |
 | [Urban Atlas 2021 – Algorithm Theoretical Basis Document](../products/Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1.llms.md) | 1.0.0 | Feb 5, 2026 |
 | [Urban Atlas 2021 – Product User Manual](../products/Urban_Atlas_CLMS_UA2021_LULC_PUM_v1.llms.md) | 1.0.0 | Feb 5, 2026 |
 | [Urban Atlas Building Block Height Model 2012 - Product User Manual](../products/Urban_Atlas_Building_Height_2012_PUM_v1.llms.md) | 1.0.0 | Aug 1, 2022 |
