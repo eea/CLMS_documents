@@ -18,7 +18,7 @@
 | [HRL TREE COVER & FORESTS - PRODUCT USER MANUAL](../products/products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present.llms.md) | 2.3 | Nov 3, 2025 |
 | [High Resolution Layer Croplands 2017-present - Product User Manual](../products/High_Resolution_Layer_Croplands_2017-present_PUM_v2.llms.md) | 2.3.0 | Nov 3, 2025 |
 | [High Resolution Layer Small Landscape Features 2021 – Algorithm Theoretical Basis Document (ATBD)](../products/High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.llms.md) | 1.0.0 | Nov 20, 2025 |
-| [High Resolution Layer Small Landscape Features 2021 – Product User Manual (PUM)](../products/High_Resolution_Layer_CLMS_PUM_HRLSLF_v1.llms.md) | 1.0.0 | Nov 4, 2025 |
+| [High Resolution Layer Small Landscape Features 2021 – Product User Manual](../products/High_Resolution_Layer_Small_Landscape_Features_2021_PUM_v1.llms.md) | 1.0.0 | Apr 9, 2026 |
 | [High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical Basis Document](../products/High_Resolution_Layer_Vegetated_Land_Cover_Characteristics_ATBD_v2.llms.md) | 2.1.0 | Jun 27, 2025 |
 | [MAPPING GUIDE FOR A EUROPEAN URBAN ATLAS](../products/products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018.llms.md) |   | Jun 27, 2026 |
 | [Mapping Guide for a European Urban Atlas](../products/products_Mapping_Guide_Land%20_Cover_Land_Use_2006.llms.md) |   | Jun 27, 2026 |
