@@ -4,10 +4,6 @@
 
 | Title | version | Date |
 |----|----|----|
-| [ALGORITHM THEORETICAL BASIS DOCUMENT](../products/products_Algorithm_theoretical_basis_document_-_Land_Surface_Temperature_10-daily_version_3.llms.md) | ISSUE 11.10 | Mar 12, 2026 |
-| [ALGORITHM THEORETICAL BASIS DOCUMENT LAND SURFACE TEMPERATURE - LST](../products/products_Algorithm_theoretical_basis_document__-_Land_Surface_Temperature_version_1.llms.md) | V1.2 Issue I1.41 | Mar 4, 2019 |
-| [ALGORITHM THEORETICAL BASIS DOCUMENT Leaf Area Index (LAI) Fraction of Absorbed Photosynthetically Active Radiation (FAPAR) Fraction of green Vegetation Cover (FCover)](../products/products_Algorithm_theoretical_basis_document_-_Fraction_of_Absorbed_Photosynthetically_Active_Radiation_300m_version_2.llms.md) | Issue 11.10 | Apr 10, 2026 |
-| [ALGORITHM THEORETICAL BASIS DOCUMENT SNOW WATER EQUIVALENT COLLECTION 5KM NORTHERN HEMISPHERE](../products/products_Algorithm_theoretical_basis_document_-_Snow_Water_Equivalent_Northern_Hemisphere_version_1.llms.md) | Issue 11.01 | May 31, 2017 |
 | [CLC+ Core User Manual](../products/clcplus-core_CLC+Core_User_Manual_Issue_4.0_v1.llms.md) | 1.0.0 | Dec 22, 2023 |
 | [CLC+ Core User Manual Annex](../products/clcplus-core_CLC+Core_User_Manual_Issue_4.0_Annex_Admin_User_v1.llms.md) | 1.0.0 | Dec 22, 2023 |
 | [CLC2018 Technical Guidelines](../products/products_2018_Technical_Guidelines_v1.llms.md) | 1.0.0 | Oct 25, 2017 |
@@ -26,14 +22,9 @@
 | [High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical Basis Document](../products/High_Resolution_Layer_Vegetated_Land_Cover_Characteristics_ATBD_v2.llms.md) | 2.1.0 | Jun 27, 2025 |
 | [MAPPING GUIDE FOR A EUROPEAN URBAN ATLAS](../products/products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018.llms.md) |   | Jun 27, 2026 |
 | [Mapping Guide for a European Urban Atlas](../products/products_Mapping_Guide_Land%20_Cover_Land_Use_2006.llms.md) |   | Jun 27, 2026 |
-| [Mapping population density in Functional Urban Areas](../products/products_Technical_Report_Mapping_Population_Density.llms.md) |   | Jan 1, 2016 |
 | [N2K 2006-2018 - Product User Manual](../products/N2K_2006-2018_PUM_v1.llms.md) | 1.0.0 | Jun 1, 2021 |
-| [PRODUCT USER MANUAL LAKE ICE EXTENT NORTHERN HEMISPHERE (LIE-NH) COLLECTION 500M NORTHERN HEMISPHERE](../products/products_Product_user_manual_-_Lake_Ice_Extent_Northern_Hemisphere_500m_version_1.1.llms.md) | 1.1 Issue 11.3 | May 27, 2024 |
-| [PRODUCT USER MANUAL LAKE SURFACE WATER TEMPERATURE 1KM PRODUCTS](../products/products_Product_user_manual_-_Lake_Surface_Water_Temperature_version_1.llms.md) | VERSION 1.0.1, 1.0.2, 1.1.0 ISSUE 11.09 | Aug 16, 2020 |
-| [PRODUCT USER MANUAL Snow Cover Extent Collection 1 km Northern Hemisphere](../products/products_Product_user_manual_-_Snow_Cover_Extent_Northern_Hemisphere_version_1.llms.md) | Issue 11.05 | Apr 17, 2020 |
 | [Production of High Resolution Water, Snow and Ice products (Lot 1)](../products/products_Algorithm_theoretical_basis_document_-_High_Resolution_Ice_products_Europe.llms.md) | 1.4 | Jan 20, 2026 |
 | [Production of High Resolution Water, Snow and Ice products (Lot 1)](../products/products_Product_User_Manual_-_High_Resolution_Water_Products_Europe.llms.md) | 1.3 | Dec 23, 2025 |
-| [QUALITY ASSESSMENT REPORT](../products/products_Quality_assessment_report_-_Soil_Water_Index_0.1_version_3.llms.md) | I1.10 | Jul 1, 2015 |
 | [Riparian Zones 2012-2018 - Nomenclature Guideline](../products/Riparian_Zones_2012-2018_Nomenclature_Guideline_v1.llms.md) | 1.0.0 | Dec 14, 2021 |
 | [Riparian Zones LC/LU and change 2012-2018 - Product User Manual](../products/Riparian_Zones_2012-2018_PUM_v1.llms.md) | 1.0.0 | Aug 1, 2023 |
 | [Task 2: Product development support - HRL vegetated](../products/products_HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency.llms.md) | 0.9 | Apr 15, 2025 |
