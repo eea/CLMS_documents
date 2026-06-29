@@ -18,6 +18,7 @@ EXCLUDED_DOCS_DIRS = {
 CATEGORY_TO_DIRECTORY_MAP = {
     "guidelines": "guidelines",
     "products": "products",
+    "reports": "reports",
 }
 
 
