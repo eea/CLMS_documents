@@ -1,10 +1,14 @@
 ---
-title: "Task 2: Product development support - HRL vegetated"
+title: "Product development support - HRL vegetated"
 subtitle: "Negotiated procedure EEA/DIS/R0/24006 Copernicus 2024/2025"
 date: "2025-04-15"
-category: products
+category: reports
 version: "0.9"
+execute:
+  eval: false
+jupyter: false
 ---
+
 # Background
 
 The new High-Resolution Layer (HRL) production on vegetated land cover has been ongoing since 2022. HRL Vegetated is a complex product comprising HRL Crop Types, HRL Grasslands, and HRL Forest, each with several sub-layers. In preparation for the continuation of HRL Vegetated Land Cover Characteristics (VLCC) for the reference year 2025 onwards, the European Environment Agency (EEA) foresees the potential need for product definitions and methodologies updates. This task is aimed at supporting the EEA in the evolution of the HRL VLCC products.
@@ -93,13 +97,13 @@ The dataset consists of four core mapping products that integrate multi-source e
 
     Represented by bi-monthly carbon flux maps, estimating the amount of carbon fixed by grasslands through photosynthesis. These maps help assess grassland health, productivity, and carbon sequestration potential over time.
 
-![Figure 1 Methodology of Global Pasture Watch dataset production. The diagram outlines the workflow used to generate the grassland class and extent datasets, including data preprocessing, sampling, machine learning classification, validation, and map production.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-a2c96346397e60da1174013adc9a2c45.png)
+![Figure 1 Methodology of Global Pasture Watch dataset production. The diagram outlines the workflow used to generate the grassland class and extent datasets, including data preprocessing, sampling, machine learning classification, validation, and map production.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-a2c96346397e60da1174013adc9a2c45.png)
 
 The Global Pasture Watch dataset is derived using an integrated remote sensing and machine learning approach (see Figure 1). It combines GLAD Landsat ARD-2, MOD11A2, MCD19A2, and auxiliary datasets (e.g., accessibility, roads, water) to enhance classification accuracy. Over 2.3 million reference samples, visually interpreted from VHR imagery within the dedicated QGIS Fast Grid Inspection plugin, support model training. Two spatiotemporal Random Forest models separately classify cultivated and natural/semi-natural grasslands, ensuring robust differentiation. The models generate annual probability-based maps (2000–2022) at 30m resolution, enabling long-term monitoring of grassland dynamics.
 
 Furthermore, various maps can be generated using custom algorithms accessible from GitHub (see: [https://github.com/wri/global-pasture-watch/blob/main/ggc-30m/README.md](https://github.com/wri/global-pasture-watch/blob/main/ggc-30m/README.md)), and data produced by the Global Pasture Watch project can also be viewed by the Google Earth Engine app (see: [https://global-pasture-watch.projects.earthengine.app/view/ggc-30m](https://global-pasture-watch.projects.earthengine.app/view/ggc-30m); Figure 2).
 
-![Figure 2 Viewing Global Pasture Watch products in the web application.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-d2c7542543900ab5b4943b0b539ce4b9.png)
+![Figure 2 Viewing Global Pasture Watch products in the web application.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-d2c7542543900ab5b4943b0b539ce4b9.png)
 
 In summary, some aspects of Global Pasture Watch can be relevant to the potential further development of CLMS HRL VLCC Grassland data. In particular, methodologies applied to produce the Global Pasture Watch dataset may contribute to enhancing the CLMS HRL VLCC Grassland product by machine learning-based classification. HRL VLCC could benefit from similar probabilistic classification methods, for example, for detecting grassland management practices, which is one of the challenges in grassland mapping within the CLMS portfolio. This information about farming practises of management intensity is sometimes available only in national LPIS data, although it can be very useful for various research related to, for example, productivity monitoring on the pan-European level. Specifically, grazing still remains an important aspect of agricultural grassland management not addressed within the VLCC. Within Global Pasture Watch grazing is inferred from national databases. For Europe this is mainly provided by Eurostat. While this approach is suitable for products with a global scope, it does not provide means to map at higher spatial accuracy underlining the need for in-situ data on livestock density to be used as input for higher resolution mapping within Europe.
 
@@ -189,7 +193,7 @@ While SUPER-G does not provide a large-scale remote sensing dataset, the most im
 
 In contrast to two previously described initiatives, the GRASS SIGNAL project is an Al-powered satellite-based grassland monitoring and decision-support service designed to provide real-time insights on grass growth, biomass, quality, and degradation risks. The GRASS SIGNAL is a dynamic forecasting tool, delivering weekly predictions to support sustainable grassland and rangeland management. Developed by Deep Planet in partnership with the European Space Agency, the project harnesses Earth Observation data (Sentinel-1 and Sentinel-2), Al-driven analytics, and machine learning models (Figure 4) to optimise grazing, fertilisation, and irrigation strategies across diverse ecosystems.
 
-![Figure 4 Prediction scheme based on a proprietary machine learning platform.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-a79014b42b25044941de77e38a333dee.png)
+![Figure 4 Prediction scheme based on a proprietary machine learning platform.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-a79014b42b25044941de77e38a333dee.png)
 
 The GRASS SIGNAL is specifically designed to support farmers, rangeland managers, livestock producers, and policymakers by providing highly accurate, data-driven decision support. The service offers:
 
@@ -215,7 +219,7 @@ The GRASS SIGNAL is specifically designed to support farmers, rangeland managers
 
 The GRASS SIGNAL methodology integrates Sentinel-1 SAR and Sentinel-2 optical imagery, accessed via the Sentinel Hub API, to enable high-resolution monitoring of grasslands. It employs Al-driven predictive models trained on EO data, historical field observations, and in-situ validation, ensuring accurate classification. The system provides high-frequency updates, generating biomass, grazing intensity, and moisture maps every 2 to 3 days, significantly enhancing traditional monitoring approaches. Additionally, the cloud-based Al platform offers a web interface for visualizing data, receiving alerts, and tracking pasture conditions in real time, facilitating informed decision-making for land managers and stakeholders (Figure 5).
 
-![Figure 5 Web-based platform offering a user-friendly interface for visualizing data.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-cf0e8ae09be78ccc205a2752e64a7c0f.png)
+![Figure 5 Web-based platform offering a user-friendly interface for visualizing data.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-cf0e8ae09be78ccc205a2752e64a7c0f.png)
 
 While GRASS SIGNAL is not a conventional grassland mapping initiative, its dynamic monitoring capabilities offer potential enhancements to CLMS HRL VLCC Grassland. These improvements could benefit from high-frequency biomass updates, which may, for instance, enhance the detection of seasonal mowing events. However, it may also be useful to integrate these advancements into product platforms such as the High Resolution – Vegetation Phenology and Productivity (HR-VPP) where their application may be more targeted. Furthermore, GRASS SIGNAL's data on overgrazing and soil moisture could refine CLMS HRL VLCC Grassland classifications by distinguishing between different management practices.
 
@@ -285,7 +289,7 @@ The product definition and choice of input data for EUGW have been aligned with 
 
 At the secondary level, all areas within this mask are further characterised by three independent components (Figure 6Figure 6 Three independent thematic components developed within the EUGW project. These components are further described in more detail in the next chapter.):
 
-![Figure 6 Three independent thematic components developed within the EUGW project. These components are further described in more detail in the next chapter.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-20f987ca121abf8e62c80bd479a76764.png)
+![Figure 6 Three independent thematic components developed within the EUGW project. These components are further described in more detail in the next chapter.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-20f987ca121abf8e62c80bd479a76764.png)
 
 Grassland type and productivity are computed for the full-time series (1994-2024), while the management data relies on a denser time series and is only available for the Sentinel 2 era (2016 onwards). To enhance accuracy, EUGW integrates multiple Earth Observation (EO) datasets, including:
 
@@ -443,7 +447,7 @@ Table 7 The key characteristics of both initiatives.
 
 EUGW is designed for optimal cross-comparability with CLMS and, therefore, will include an aggregated grassland mask, ensuring direct overlap between EUGW permanent herbaceous areas, CLC-BB permanent herbaceous, HRL-GRA, and VLCC GRA (Figure 7).
 
-![Figure 7 Aggregated grassland mask produced by EUGW to ensure cross comparability with existing CLMS products, including VLCC Grassland (Source: Jan Mišurec GISAT / EUGW internal communication)](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-44a29bf6eb06793ebb71610d38d615fb.png)
+![Figure 7 Aggregated grassland mask produced by EUGW to ensure cross comparability with existing CLMS products, including VLCC Grassland (Source: Jan Mišurec GISAT / EUGW internal communication)](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-44a29bf6eb06793ebb71610d38d615fb.png)
 
 #### Grazing Detection – A Common Challenge
 
@@ -1315,7 +1319,7 @@ Various possible calculation methods are used to calculate the extent of tree co
 -   $TCD \ge 30\%$: Commonly applied value for practical applications, appearing e.g in CLC forest definition;
 -   $TCD \ge 50\%$: Corresponding to theoretical majority rule (initial assumption for the comparability with CLCplus Backbone woody classes).
 
-![Figure 8 Time-series of estimated tree cover for the area of EEA38 countries based on HRL Forest surveys. FTY layer was not created for 2019 and 2020 reference years, VLCC FTY2018 values were copied to fill these gaps.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-311ae6e6e70b6691756876f53e589bad.png)
+![Figure 8 Time-series of estimated tree cover for the area of EEA38 countries based on HRL Forest surveys. FTY layer was not created for 2019 and 2020 reference years, VLCC FTY2018 values were copied to fill these gaps.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-311ae6e6e70b6691756876f53e589bad.png)
 
 Considering various possibilities for the estimations of tree cover described above, the estimated total tree covered area is influenced by the major factors of:
 
@@ -1336,7 +1340,7 @@ Both the extent and structure of tree cover mask, as well as calibration of TCD 
 
 TCD-value based estimations of tree covered area are significantly influenced by the calibration of TCD values. Calibration differences between individual surveys may be illustrated well by the histogram of TCD values. The calibration differences between HRL TCD2018 and VLCC TCD2018 are highlighted to demonstrate that the distribution of TCD values is not specific to the reference year, but to the survey.
 
-![Figure 9 Calibration differences of various surveys illustrated by the distribution of TCD values. Y axis represents total area (ha) in EEA38 countries covered by raster cells characterised by a certain TCD value.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-e282e8058eba9d7214d914a5ec52b2bc.png)
+![Figure 9 Calibration differences of various surveys illustrated by the distribution of TCD values. Y axis represents total area (ha) in EEA38 countries covered by raster cells characterised by a certain TCD value.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-e282e8058eba9d7214d914a5ec52b2bc.png)
 
 While the distribution of TCD values shows significant differences between each reference year in 2012-2018 period, the shape of the histograms is almost the same for all VLCC TCD layers - the yearly time-series of VLCC TCD layers shows stability in terms of calibration as well. The question is however, how far the calibration of next survey (beyond 2021) may be harmonized with the current calibration of VLCC TCD layers.
 
@@ -1422,7 +1426,7 @@ Table 23 Differences in estimated tree cover for the reference year of 2018
 
 Significant differences in estimated tree cover are shown between the two classifications performed to the same reference year of 2018. Altogether 146 363 sqkm areas (7.6% of all stable tree cover) were classified in VLCC DLT2018 as new tree cover against HRL DLT2018, while 238 325 sqkm (12.4% of all stable tree cover) were classified as loss of tree cover compared to HRL DLT2018.
 
-![Figure 10 Aggregated difference map of all tree cover differences. Green colours indicate surplus of tree cover mapped by VLCC DLT2018, while red colours indicate surplus of tree cover mapped by HRL DLT2018.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-32d63c515af7799baea1df52ffd59923.png)
+![Figure 10 Aggregated difference map of all tree cover differences. Green colours indicate surplus of tree cover mapped by VLCC DLT2018, while red colours indicate surplus of tree cover mapped by HRL DLT2018.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-32d63c515af7799baea1df52ffd59923.png)
 
 Aggregated tree cover differences were calculated for a 10x10km statistical grid. The distribution of tree cover differences between the two classifications shows regional variations, especially large differences are shown for Mediterranean and Scandinavian areas.
 
@@ -1460,15 +1464,15 @@ Table 24 DLT classification uncertainties for the reference year of 2018
 
 Not only the presence of tree cover, but also the leaf type classification is showing differences between the two surveys. Classification differences were coded in similar way as in case of dominant leaf type change data, but all the meaningful combinations were kept.
 
-![Figure 11 Aggregated difference map of broadleaved cover differences. Green colours indicate surplus of broadleaved cover mapped by VLCC DLT2018, while red colours indicate surplus of broadleaved cover mapped by HRL DLT2018.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-1ec3d6e380fe7439ca0c3479dd789046.png)
+![Figure 11 Aggregated difference map of broadleaved cover differences. Green colours indicate surplus of broadleaved cover mapped by VLCC DLT2018, while red colours indicate surplus of broadleaved cover mapped by HRL DLT2018.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-1ec3d6e380fe7439ca0c3479dd789046.png)
 
 Aggregated differences of broadleaved / coniferous cover were calculated for a 10x10km statistical grid to illustrate regional variations in leaf type classification. Large amount of broadleaved cover was eliminated or re-classified to coniferous cover by VLCC DLT survey compared to HRL DLT2018.
 
-![Figure 12 Aggregated difference map of coniferous cover differences. Green colours indicate surplus of coniferous cover mapped by VLCC DLT2018, while red colours indicate surplus of coniferous cover mapped by HRL DLT2018.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-cbb85153645e3c9aeee6428dd3d29a08.png)
+![Figure 12 Aggregated difference map of coniferous cover differences. Green colours indicate surplus of coniferous cover mapped by VLCC DLT2018, while red colours indicate surplus of coniferous cover mapped by HRL DLT2018.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-cbb85153645e3c9aeee6428dd3d29a08.png)
 
 Large green areas in Scandinavia indicate new coniferous cover partly as new cover partly as re-classified from broadleaved by VLCC DLT survey compared to HRL DLT2018.
 
-![Figure 13 DLT2018 maps illustrating differences between the two surveys. x,y= 4323013,4079743 close to lake Vrangla, Norway.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-7e837cb6c0a5adb20b4c1e055c3596dd.png)
+![Figure 13 DLT2018 maps illustrating differences between the two surveys. x,y= 4323013,4079743 close to lake Vrangla, Norway.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-7e837cb6c0a5adb20b4c1e055c3596dd.png)
 HRL DLT2018
 VLCC DLT2018
 
@@ -1476,17 +1480,17 @@ VLCC DLT2018
 
 In order to gain exact statistics and be able to visualize all differences between DLT classifications DLT difference maps were calculated in 10m raster resolution between neighbouring status data, where all possible combinations were considered. The high-resolution difference map between HRL DLT2018 and VLCC DLT2018 survey results indicate especially large variations in tree cover classifications Mediterranean, Scandinavian and Alpine regions.
 
-![Figure 14 Typical view of differences between tree cover classifications for the reference year 2018. x,y= 4323013,4079743 close to lake Vrangla, Norway.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-21d1ab18ffa3734969f2177447ba31b8.png)
+![Figure 14 Typical view of differences between tree cover classifications for the reference year 2018. x,y= 4323013,4079743 close to lake Vrangla, Norway.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-21d1ab18ffa3734969f2177447ba31b8.png)
 CLCplus Backbone 2018
 
 The re-classification of broadleaved cover to coniferous by VLCC DLT2018 is typical for most of Scandinavian area.
 
-![Figure 15 Typical view of differences between tree cover classifications for the reference year 2018. x,y = 2817368,2020876 - close to Atalaia, Portugal](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-f21efee1e215800108c6bc47d662f737.png)
+![Figure 15 Typical view of differences between tree cover classifications for the reference year 2018. x,y = 2817368,2020876 - close to Atalaia, Portugal](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-f21efee1e215800108c6bc47d662f737.png)
 CLCplus Backbone 2018
 
 The example in Portugal illustrates well the uncertainty of the classification on low density Mediterranean tree cover. Primarily the presence of tree cover is classified differently in Mediterranean area by the two surveys, but at several regions the re-classification of broadleaved to coniferous is characteristic to southern areas as well.
 
-![Figure 16 Typical view of differences between tree cover classifications for the reference year 2018. x,y = 4589578,2725264 - close to Stambach, Austria](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-5e6187e234250570682d4a3e1e6aca8c.png)
+![Figure 16 Typical view of differences between tree cover classifications for the reference year 2018. x,y = 4589578,2725264 - close to Stambach, Austria](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-5e6187e234250570682d4a3e1e6aca8c.png)
 CLCplus Backbone 2018
 
 Forest areas in the mountainous Alpine relief are often misclassified. Typical differences between the two surveys are illustrated for Alpine region, the most characteristic difference is the re-classification of broadleaved to coniferous by VLCC DLT2018, but similarly typical issue is the loss of coniferous cover in the new classification. In the example the latter area was classified as low-growing woody vegetation by CLCplus Backbone.
@@ -1579,7 +1583,7 @@ Table 25 Overall statistics of VLCC DLT vs CLCplus Backbone for the reference ye
 
 Only few differences (47 237 sqkm, corresponding to 2.3% surplus by DLT2018) are indicated by overall statistics between the two surveys. Largest difference (65 968 sqkm, corresponding to 6.0% surplus by DLT2018) is shown for broadleaved trees.
 
-![Figure 17 Aggregated difference map of all tree cover differences. Green colours indicate surplus of tree cover mapped by VLCC DLT2018, while red colours indicate surplus of tree cover mapped by CLCplus Backbone 2018.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-45f37abc1d2b9403b968e120e3d10243.png)
+![Figure 17 Aggregated difference map of all tree cover differences. Green colours indicate surplus of tree cover mapped by VLCC DLT2018, while red colours indicate surplus of tree cover mapped by CLCplus Backbone 2018.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-45f37abc1d2b9403b968e120e3d10243.png)
 
 Aggregated tree cover differences were calculated for a 10x10km statistical grid. Relatively few differences are shown for most of the European area except the large green spot in Spain-Portugal, indicating significant surplus of tree cover mapped by DLT2018 compared to CLCplus Backbone.
 
@@ -1718,7 +1722,7 @@ Table 27 DLT differences compared to DLT changes indicated by DLTC1215* data
 
 \*DLTC1215 layer is outdated, not available any more in CLMS website
 
-![Figure 18 Aggregated difference map of all tree cover differences. Green colours indicate surplus of tree cover mapped by HRL DLT2015, while red colours indicate surplus of tree cover mapped by HRL DLT2012](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-061becf2e843480e6c8eff117b39aed4.png)
+![Figure 18 Aggregated difference map of all tree cover differences. Green colours indicate surplus of tree cover mapped by HRL DLT2015, while red colours indicate surplus of tree cover mapped by HRL DLT2012](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-061becf2e843480e6c8eff117b39aed4.png)
 
 Aggregated tree cover differences were calculated for a 10x10km statistical grid. The distribution of all tree cover differences between the two classifications shows regional variations. The overall vision based on the statistics and maps is, that tree cover differences are more the consequence of classification uncertainties of individual processing units, than of real tree cover changes.
 
@@ -1731,7 +1735,7 @@ The main findings and recommendations for the HRL TCDC product are summarised in
 -   The next exercise for the production of the Forest layer should include the reprocessing of the change layers.
 -   Results provided at bio-geographical regions and country/group of country level, should provide a sound basis for further improving the product.
 
-![Figure 19 DLT changes and differences between 2012-2015 x,y = 4552489,4083593 - close to Nordmark, Sweden](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-7dfcbadafc51b6367027b5d57c9b939a.png)
+![Figure 19 DLT changes and differences between 2012-2015 x,y = 4552489,4083593 - close to Nordmark, Sweden](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-7dfcbadafc51b6367027b5d57c9b939a.png)
 Dominant Leaf Type Change (DLTC) 2012-2015 (outdated map and classification)
 
 In order to gain exact statistics and be able to visualize all differences between DLT2012 and DLT2015 classifications DLT difference map was calculated in 20m raster resolution, where all possible combinations were considered. The high-resolution difference map between HRL DLT2012 and HRL DLT2015 survey results indicate especially large variations in tree cover classifications Mediterranean, Scandinavian and Alpine regions. Unclassified areas due to cloud cover occur in many places sporadically across Europe, but extreme large unclassified areas are appearing in Scandinavian region.
@@ -1862,7 +1866,7 @@ Table 29 DLT differences compared to DLT changes indicated by DLT1518 data
 
 Changes in DLTC layer represent only the minority of all differences, all the rest of differences were considered as "technical change" and filtered out. Relatively high share (20.2%) of differences were kept in case of DLTC class 4 (loss of coniferous forest).
 
-![Figure 20 Aggregated difference map of all tree cover differences. Green colours indicate surplus of tree cover mapped by HRL DLT2018, while red colours indicate surplus of tree cover mapped by HRL DLT2015.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-b2078f1bad220032b9ee35fdd2023818.png)
+![Figure 20 Aggregated difference map of all tree cover differences. Green colours indicate surplus of tree cover mapped by HRL DLT2018, while red colours indicate surplus of tree cover mapped by HRL DLT2015.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-b2078f1bad220032b9ee35fdd2023818.png)
 
 Aggregated tree cover differences were calculated for a 10x10km statistical grid. The distribution of all tree cover differences between the two classifications shows regional variations. The overall vision based on the statistics and maps is, that tree cover differences are more the consequence of classification uncertainties of individual processing units, than of real tree cover changes.
 
@@ -1874,7 +1878,7 @@ Only limited information is available about the reliability of change data, as n
 -   The other three classes reached “acceptable” level, class “new broadleaved cover (1)” with the lowest score among them: 2.5;
 -   Class "new coniferous cover (2)" with 2.9 and class "loss of broadleaved cover (3)" with the highest score among them, exceeding overall average, as 3.3.
 
-![Figure 21 DLT changes and differences between 2015-2018 х,у = 4600625,2848324 - close to Klaffenstrass, Germany / Austria.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-98b8e29d7fc14df7ed2c4f7b356944b2.png)
+![Figure 21 DLT changes and differences between 2015-2018 х,у = 4600625,2848324 - close to Klaffenstrass, Germany / Austria.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-98b8e29d7fc14df7ed2c4f7b356944b2.png)
 Dominant Leaf Type Change (DLTC) 2015-2018 (20m resolution)
 
 In order to gain exact statistics and be able to visualize all differences between HRL DLT2015 and HRL DLT2018 classifications DLT difference map was calculated in 10m raster resolution, where all possible combinations were considered. The high-resolution difference map between HRL DLT2018 and HRL DLT2018 survey results indicate especially large variations in tree cover classifications Mediterranean, Scandinavian and in mountainous regions.
@@ -2021,13 +2025,13 @@ No re-classification between broadleaved to coniferous neither vice-versa is app
 
 TCPC and DLTC changes represent almost all differences except that a Minimum Mapping Unit (MMU = 1ha) was applied. TCPC and DLTC changes represent between 27-72% of all differences depending on change classes, where the missing changes correspond to differences appearing as contiguous patches with a size smaller than 1 ha.
 
-![Figure 22 Aggregated difference map of all tree cover differences. Green colours indicate surplus of tree cover mapped by VLCC DLT2021, while red colours indicate surplus of tree cover mapped by VLCC DLT2018.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-5ac0950a64c5e4c7d0c4ea5b8926aea4.png)
+![Figure 22 Aggregated difference map of all tree cover differences. Green colours indicate surplus of tree cover mapped by VLCC DLT2021, while red colours indicate surplus of tree cover mapped by VLCC DLT2018.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-5ac0950a64c5e4c7d0c4ea5b8926aea4.png)
 
 Aggregated tree cover differences were calculated for a 10x10km statistical grid. The distribution of all tree cover differences between the two classifications shows slight decrease of tree cover over Scandinavia and sporadically across Europe except some Mediterranean locations mostly in Spain or Portugal.
 
 The overall vision is, that tree cover differences may correspond mostly to real tree cover changes, however no external QA/QC results are available yet for VLCC Forest data.
 
-![Figure 23 DLT changes and differences between 2018-2021. DLT changes and differences in the patch size range larger than 1ha seem to be almost identical. x,y = 4600625, 2848324 - close to Lysa, Czech Republic](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-f770bcedbbb18535f245fc8051a8a75b.png)
+![Figure 23 DLT changes and differences between 2018-2021. DLT changes and differences in the patch size range larger than 1ha seem to be almost identical. x,y = 4600625, 2848324 - close to Lysa, Czech Republic](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-f770bcedbbb18535f245fc8051a8a75b.png)
 Dominant Leaf Type Change (VLCC DLTC) 2018-2021
 
 In order to gain exact statistics and be able to visualize all differences between VLCC DLT2018 and VLCC DLT2021 classifications DLT difference map was calculated in 10m raster resolution, where all possible combinations were considered.
@@ -2167,7 +2171,7 @@ Step 1: Tree cover difference polygons in the size range of 0.1-1ha (correspondi
 
 Step 2: Altogether 100 random samples were selected both for new tree cover and loss of tree cover from the pre-selected set;
 
-![Figure 24 The location of random samples selected in a stratified to check the validity of tree cover differences in the size range 0.1-1ha, whether these represent a real change in tree cover between 2018-2021.](HRL_Vegetation_Layers_Comparative_Analysis,_Forest_Classification,_and_Temporal_Consistency-media/img-dd71d46dd0e69a23523965c21e87cef3.png)
+![Figure 24 The location of random samples selected in a stratified to check the validity of tree cover differences in the size range 0.1-1ha, whether these represent a real change in tree cover between 2018-2021.](HRL_Vegetation_Layers_Comparative_Analysis_v0-media/img-dd71d46dd0e69a23523965c21e87cef3.png)
 
 Step 3: The random samples were checked visually against historical Google Earth imagery supported by EEA VHR satellite imagery, by answering following questions:
 
