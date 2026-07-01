@@ -14,7 +14,13 @@ import logging
 import os
 from pathlib import Path
 
-from ._vendor import fix_grid_stray_dividers, fix_pagebreaks, fix_table_colwidths, fix_typst_patterns
+from ._vendor import (
+    fix_grid_stray_dividers,
+    fix_pagebreaks,
+    fix_table_colwidths,
+    fix_typst_patterns,
+    promote_bare_captions as _promote,
+)
 from .transforms import (
     normalize_table_captions,
     normalize_table_grid,
@@ -35,9 +41,9 @@ def run_phase_tablefix(qmd_path: Path, *, source_pdf: Path = None, events=None) 
     `source_pdf` is accepted for backward compatibility but unused (orientation is now
     decided from each table's estimated content width)."""
     summary = {"grid_normalized": 0, "tables_unwrapped": 0, "captions_normalized": 0,
-               "captions_moved": 0, "captions_redistributed": 0, "colgroups_stamped": 0,
-               "tables_oriented": 0, "pagebreaks": 0, "typst_escapes": 0,
-               "pipe_colwidths": 0, "stray_dividers": 0}
+               "captions_moved": 0, "captions_promoted": 0, "captions_redistributed": 0,
+               "colgroups_stamped": 0, "tables_oriented": 0, "pagebreaks": 0,
+               "typst_escapes": 0, "pipe_colwidths": 0, "stray_dividers": 0}
     try:
         text = qmd_path.read_text(encoding="utf-8")
 
@@ -45,6 +51,7 @@ def run_phase_tablefix(qmd_path: Path, *, source_pdf: Path = None, events=None) 
         text, summary["tables_unwrapped"] = unwrap_pseudo_header_tables(text)
         text, summary["captions_normalized"] = normalize_table_captions(text)
         text, summary["captions_moved"] = pipe_captions_to_divs(text)
+        text, summary["captions_promoted"] = _promote.promote_bare_captions(text)
         text, summary["captions_redistributed"] = redistribute_stacked_captions(text)
         text, summary["colgroups_stamped"] = stamp_html_colgroups(text)
         text, summary["tables_oriented"] = orient_wide_tables(text)
@@ -67,13 +74,13 @@ def run_phase_tablefix(qmd_path: Path, *, source_pdf: Path = None, events=None) 
     except Exception as exc:                # noqa: BLE001 — never abort the conversion
         log.warning("table-fix phase error on %s: %s", qmd_path.name, exc)
 
-    log.info("[Table-fix] grid-norm:%d unwrapped:%d cap-norm:%d captions:%d cap-redist:%d "
-             "colgroups:%d oriented:%d pagebreaks:%d escapes:%d pipe-widths:%d stray:%d",
+    log.info("[Table-fix] grid-norm:%d unwrapped:%d cap-norm:%d captions:%d promoted:%d "
+             "cap-redist:%d colgroups:%d oriented:%d pagebreaks:%d escapes:%d pipe-widths:%d stray:%d",
              summary["grid_normalized"], summary["tables_unwrapped"],
              summary["captions_normalized"], summary["captions_moved"],
-             summary["captions_redistributed"], summary["colgroups_stamped"],
-             summary["tables_oriented"], summary["pagebreaks"], summary["typst_escapes"],
-             summary["pipe_colwidths"], summary["stray_dividers"])
+             summary["captions_promoted"], summary["captions_redistributed"],
+             summary["colgroups_stamped"], summary["tables_oriented"], summary["pagebreaks"],
+             summary["typst_escapes"], summary["pipe_colwidths"], summary["stray_dividers"])
     if events:
         events.tablefix_done(summary)
     return summary

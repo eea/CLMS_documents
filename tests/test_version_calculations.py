@@ -164,8 +164,10 @@ class TestCalculateNewVersion:
         result = calculate_new_version("1.0.0", "minor", 1)
         assert result == "1.1.0"
 
+        # A _v0 filename floors to major 1 (first published is 1.0.0), so a
+        # legacy 0.0.0 mismatches its floored major and resets to 1.0.0.
         result = calculate_new_version("0.0.0", "patch", 0)
-        assert result == "0.0.1"
+        assert result == "1.0.0"
 
     # CONSISTENCY CHECKS
 

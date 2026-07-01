@@ -70,5 +70,20 @@ Algorithm v3:
    If the caption already has a `tbl-colwidths` attribute, update its
    value in lockstep so both sources of truth agree.
 
+### `promote_bare_captions.py`
+
+Promotes captions the converters left as plain paragraphs ("Table N: ...",
+"*Table N: ...*", "Figure N: ...") sitting next to their float — these render as
+ordinary body text instead of captions. A bare table caption adjacent to a table
+(pipe, `{=html}`, or a table-as-image `![](...)`) is wrapped in a
+`::: {.tbl-caption}` div above the float; a bare figure caption next to an
+empty-alt image is folded into that image's alt text. Attachment prefers the
+float below the caption, else above; a caption below a cluster of stacked
+table-images is left alone (ambiguous, fix by hand). Runs of 3+ consecutive
+caption lines (a List-of-Tables/Figures index) are left alone. Run it after
+`fix_table_colwidths.py` so grid tables are already pipe form. The companion
+`audit_plaintext_captions.py` reports any remaining plain-text captions (read-only,
+non-zero exit if found).
+
 Run them in any order, any number of times — each one no-ops on content it
 has already fixed.

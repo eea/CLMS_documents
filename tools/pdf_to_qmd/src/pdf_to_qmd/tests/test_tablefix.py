@@ -414,6 +414,24 @@ class TestRunPhase:
         s2 = run_phase_tablefix(qmd)
         assert s2["tables_oriented"] == 0 and s2["colgroups_stamped"] == 0
 
+    def test_bare_caption_promoted_and_survives_downstream(self, tmp_path):
+        # A bare "Table N:" caption is promoted to a .tbl-caption div and survives
+        # the rest of run_phase_tablefix (redistribute/colgroups/orient) unchanged.
+        qmd = tmp_path / "doc.qmd"
+        qmd.write_text(
+            "---\ntitle: T\n---\n\n"
+            "Table 1: a bare caption\n\n| A | B |\n|---|---|\n| 1 | 2 |\n",
+            encoding="utf-8")
+        summary = run_phase_tablefix(qmd)
+        assert summary["captions_promoted"] == 1
+        text = qmd.read_text(encoding="utf-8")
+        assert "::: {.tbl-caption}" in text
+        assert text.index("::: {.tbl-caption}") < text.index("| A | B |")
+        # idempotent: a second pass promotes nothing and leaves the div intact
+        s2 = run_phase_tablefix(qmd)
+        assert s2["captions_promoted"] == 0
+        assert qmd.read_text(encoding="utf-8") == text
+
 
 class TestDateColumnWidth:
     """A '/'-joined date must be treated as one unbreakable token so its column is
@@ -433,3 +451,116 @@ class TestDateColumnWidth:
         date_pct = pcts[3]
         # 10-char date needs ~10/70 ≈ 14% minimum; previously it got ~10% and clipped
         assert date_pct >= 14, f"date column too narrow: {date_pct}%"
+
+
+class TestPromoteBareCaptions:
+    from pdf_to_qmd.tablefix._vendor import promote_bare_captions as P
+
+    DIV0 = "::: {.tbl-caption}"
+
+    def _run(self, text):
+        return self.P.promote_bare_captions(text)
+
+    def test_table_caption_above_pipe_table(self):
+        qmd = "Table 1: foo\n\n| A | B |\n|---|---|\n| 1 | 2 |\n"
+        out, n = self._run(qmd)
+        assert n == 1
+        assert out.index(self.DIV0) < out.index("| A | B |")
+        assert out.count("Table 1: foo") == 1
+        assert "#set text(size: 9pt" in out
+
+    def test_table_caption_above_table_image(self):
+        qmd = 'Table 2: classes\n\n![](media/Table2.png){width="3.59in"}\n'
+        out, n = self._run(qmd)
+        assert n == 1
+        assert out.index(self.DIV0) < out.index("![](media/Table2.png)")
+        assert "Table2.png" in out  # image preserved, not swallowed
+
+    def test_table_caption_abutting_image_no_blank(self):
+        qmd = 'Table 2: classes\n![](media/Table2.png){width="3.59in"}\n'
+        out, n = self._run(qmd)
+        assert n == 1
+        assert out.index(self.DIV0) < out.index("![](media/Table2.png)")
+
+    def test_italic_caption_below_table_moved_above(self):
+        qmd = "| A | B |\n|---|---|\n| 1 | 2 |\n\n*Table 10: QC steps*\n"
+        out, n = self._run(qmd)
+        assert n == 1
+        assert out.index(self.DIV0) < out.index("| A | B |")
+        assert "Table 10: QC steps" in out
+        assert "*Table 10" not in out          # asterisks stripped
+        assert out.count("Table 10: QC steps") == 1   # original removed
+
+    def test_figure_caption_folded_into_empty_alt_image(self):
+        qmd = '![](media/img.png){width="6.27in"}\n\nFigure 9: A mapping example\n'
+        out, n = self._run(qmd)
+        assert n == 1
+        assert "![Figure 9: A mapping example](media/img.png){width=\"6.27in\"}" in out
+        assert self.DIV0 not in out            # figures don't use tbl-caption
+        # the bare paragraph is gone (only the alt remains)
+        assert out.count("Figure 9: A mapping example") == 1
+
+    def test_idempotent(self):
+        qmd = "Table 1: foo\n\n| A | B |\n|---|---|\n| 1 | 2 |\n"
+        once, n1 = self._run(qmd)
+        twice, n2 = self._run(once)
+        assert n1 == 1 and n2 == 0 and once == twice
+
+    def test_conservative_skip_stacked_images(self):
+        qmd = ("![](media/T3.png){width=\"4in\"}\n\n![](media/T4.png){width=\"4in\"}\n\n"
+               "*Table 3: nomenclature*\n\nNext paragraph.\n")
+        out, n = self._run(qmd)
+        assert n == 0 and out == qmd          # ambiguous cluster left for human
+
+    def test_index_run_left_alone(self):
+        qmd = ("Table 1: a\n\nTable 2: b\n\nTable 3: c\n\n"
+               "| A | B |\n|---|---|\n| 1 | 2 |\n")
+        out, n = self._run(qmd)
+        assert n == 0 and out == qmd          # 3+ run = List-of-Tables index
+
+    def test_prose_reference_untouched(self):
+        qmd = "As shown in Table 5 the results improve.\n\n| A | B |\n|---|---|\n| 1 | 2 |\n"
+        out, n = self._run(qmd)
+        assert n == 0 and out == qmd          # not a caption (mid-sentence)
+
+    def test_already_wrapped_untouched(self):
+        qmd = ("::: {.tbl-caption}\n```{=typst}\n#set text(size: 9pt)\n```\n"
+               "Table 1: foo\n:::\n\n| A | B |\n|---|---|\n| 1 | 2 |\n")
+        out, n = self._run(qmd)
+        assert n == 0 and out == qmd
+
+    def test_image_with_existing_alt_not_folded(self):
+        qmd = "![Figure 8: existing](media/img.png)\n\nFigure 9: stray\n"
+        out, n = self._run(qmd)
+        assert n == 0 and out == qmd          # adjacent image already captioned
+
+    def test_multiline_caption_captured_whole(self):
+        qmd = "Table 4: first part\nsecond part of caption\n\n| A | B |\n|---|---|\n| 1 | 2 |\n"
+        out, n = self._run(qmd)
+        assert n == 1
+        assert "Table 4: first part second part of caption" in out
+
+    def test_figure_targets_empty_alt_not_captioned_neighbor(self):
+        # caption belongs to the empty-alt image ABOVE, not the already-captioned
+        # Figure 10 image BELOW it (the directional "prefer below" trap).
+        qmd = ('![](media/fig9.png){width="6in"}\n\nFigure 9: ephemeral classes\n\n'
+               '![Figure 10: snow and ice](media/fig10.png){width="6in"}\n')
+        out, n = self._run(qmd)
+        assert n == 1
+        assert '![Figure 9: ephemeral classes](media/fig9.png){width="6in"}' in out
+        assert '![Figure 10: snow and ice](media/fig10.png)' in out  # untouched
+        assert out.count("Figure 9: ephemeral classes") == 1
+
+    def test_stacked_pipe_tables_not_skipped(self):
+        # caption below two stacked pipe tables (a conversion fragment + the full
+        # table) attaches to the nearest table above — only stacked IMAGES skip.
+        qmd = ("| A | B |\n|---|---|\n| 1 | 2 |\n\n"
+               "| A | B |\n|---|---|\n| 3 | 4 |\n| 5 | 6 |\n\n"
+               "*Table 10: QC steps*\n\nProse after.\n")
+        out, n = self._run(qmd)
+        assert n == 1
+        # div sits above the nearest (second) table, below the first fragment
+        assert self.DIV0 in out
+        assert out.index(self.DIV0) > out.index("| 1 | 2 |")
+        assert out.index(self.DIV0) < out.index("| 3 | 4 |")
+        assert "*Table 10" not in out
