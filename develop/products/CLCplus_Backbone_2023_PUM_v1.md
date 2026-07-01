@@ -188,7 +188,11 @@ comply with these original user requirements and compliance of the
 product shall be ensured. User requirements may be reviewed as needed
 and production shall account for altered requirements where possible.
 
+<div class="tbl-caption">
+
 Table 1: User requirements for CLCplus Backbone (CLCplus BB) products
+
+</div>
 
 | No. | Description | Comment |
 |----|----|----|
@@ -403,8 +407,13 @@ available for the territory of the 38 EEA member and cooperating
 countries and the United Kingdom (i.e. EEA38 + UK), including the French
 DOMs, and maps an area of approximately 6 million km².
 
+<div class="tbl-caption">
+
 Table 2: Thematic raster classes of CLCplus Backbone 2023, their class
 codes and colours
+
+</div>
+
 <img src="CLCplus_Backbone_2023_PUM_v1-media/Table2.png"
 style="width:3.59in"
 data-fig-alt="This table presents the 11 thematic raster classes used in the Copernicus Land Monitoring Service (CLMS) CLCplus Backbone product, as defined for the reference year 2023. Each entry includes a &#39;Class code and colour&#39; and a &#39;Class Name&#39;. | Class code and colour | Class Name | | :-------------------- | :-------------------------------- | | 1 (Red) | Sealed | | 2 (Dark Forest Green) | Woody needle leaved trees | | 3 (Lime Green) | Woody broadleaved deciduous trees | | 4 (Bright Green) | Woody broadleaved evergreen trees | | 5 (Brown) | Low-growing woody plants | | 6 (Pale Yellow-Green) | Permanent herbaceous | | 7 (Yellow) | Periodically herbaceous | | 8 (Magenta) | Lichens and mosses | | 9 (Grey) | Non- and sparsely vegetated | | 10 (Blue) | Water | | 11 (Cyan) | Snow and ice | The table serves as a categorical legend for the main land cover raster layer of the CLCplus Backbone 2023 product, classifying various land cover types from sealed surfaces to water and snow/ice." />
@@ -559,7 +568,11 @@ year 2023 are summarized in Table 3. Further product details and
 information on nomenclature etc. can be found in the following
 sub-sections.
 
+<div class="tbl-caption">
+
 Table 3: Technical specifications of the CLCplus Backbone
+
+</div>
 
 | CLCplus Backbone Raster / Acronym: RAS / Product family: CLMS_CLCplus |
 |----|
@@ -1783,7 +1796,11 @@ Where:
 The product specifications for the CLCplus Backbone RASDL layer are
 summarized in Table 4.
 
+<div class="tbl-caption">
+
 Table 4: Technical specifications of the Raster Data Score Layer
+
+</div>
 
 | CLCplus Backbone Raster Data Score Layer / Acronym: RAS / Product family: CLMS_CLCplus |
 |----|
@@ -1943,8 +1960,12 @@ Where:
 
 The product specifications for the RASCL are summarized in Table 5.
 
+<div class="tbl-caption">
+
 Table 5: Technical specifications of the CLCplus Backbone Raster
 Confidence Layer
+
+</div>
 
 | CLCplus Backbone Raster Confidence Layer / Acronym: RASCL / Product family: CLMS_CLCplus |
 |----|
@@ -2030,7 +2051,11 @@ Where:
 The product specifications for the CLCplus Backbone Raster
 Post-Processing Layer (RASPL) are summarized in Table 6.
 
+<div class="tbl-caption">
+
 Table 6: Technical specifications of the Raster Post-Processing Layer
+
+</div>
 
 | CLCplus Backbone Raster Post-Processing Layer / Acronym: RASPL / Product family: CLMS_CLCplus |
 |----|

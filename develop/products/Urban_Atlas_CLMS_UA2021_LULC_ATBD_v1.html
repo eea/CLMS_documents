@@ -372,7 +372,9 @@ Denmark<br>
 <h1 data-number="3"><span class="header-section-number">3</span> Methodology</h1>
 <p>The present section describes in detail the methodology applied for the production of UA LC/LU 2021 layer, including the change layer 2018-2021 and the UA LC/LU 2018 revised.</p>
 <p>The methodology applied to produce the Building Block Height is presented in a separate ATBD. So as the methodology applied for the production of the Street Tree Layer 2021 that is presented in the ATBD document for Copernicus High Resolution Layer Small Landscape Feature products.</p>
+<div class="tbl-caption">
 <p>Table 1: Overview table of methodology</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 26%">
@@ -464,7 +466,9 @@ Figure&nbsp;1: UA2021 LC/LU workflow
 <li><p>Urban Atlas uses the corresponding classes of the CLCplus raster product for a major part of the rural classification (classes). This is the case for classes 21000, 23000, 31000, 32000, 33000 and 50000. Some classes (22000, 24000 and 40000) must be extracted visually because they are not present in the CLCplus raster. Class 50000 must be completed visually, mainly concerning the watercourses because the resolution of CLCplus is not sufficient to extract them properly.</p></li>
 </ul></li>
 </ul>
+<div class="tbl-caption">
 <p>Table 2: Ancillary datasets used for the UA 2021 production</p>
+</div>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -704,7 +708,9 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 </figure>
 </div>
 <p>Table 3 shows the number of private/public and unknown occurrences of selected FUAs.</p>
+<div class="tbl-caption">
 <p>Table 3: Number of private/public and unknown occurrences of selected FUAs of one delivery batch</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -1215,7 +1221,9 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 <li><p>No kink or kickback online or polygon features, i.e.&nbsp;features with geometric anomalies such as narrow angles or back points.</p></li>
 </ul>
 <p>Additionally, a series of topological rules reflecting the relationships between entities inside each feature class will be checked. The Table presents the topological rules included in our QC procedure.</p>
+<div class="tbl-caption">
 <p>Table 4: Quality Assurance: topological rules</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -1306,7 +1314,9 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 </ol></li>
 </ul>
 <p>This criterion will target omitted change by focusing the selection of samples to areas which are the most expected to be targeted by changes (urban/rural area limit and construction sites, categories 1 &amp; 2) or potential changes within rural areas (category 3).</p>
+<div class="tbl-caption">
 <p>Table 5: Share of samples to be interpreted</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 74%">
@@ -1797,7 +1807,9 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 </ol>
 <p>Four hierarchical levels are defined in the nomenclature for artificial surfaces (class 1) while only two are defined for the non-artificial ones (classes 2-5). The table below shows the LC/LU nomenclature providing class codes and descriptions and any information or ancillary data source useful for the product generation in addition to EO data.</p>
 <p>A decision matric below illustrate the rules followed to apply LC/LU nomenclature to each identified feature.</p>
+<div class="tbl-caption">
 <p>Table 6: UA LC/LU nomenclature (in bold, classes used in the products, without any further subdivision)</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 19%">
@@ -2120,6 +2132,30 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 <li id="fn3"><p><a href="https://land.copernicus.eu/en/contact-service-helpdesk">Copernicus Land Monitoring Service – Service desk</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<!-- Mobile-only "Contents" button that reveals the section TOC, which the
+     full-width HTML layout hides on small screens. Styling is in
+     theme/styles.css (.toc-mobile-btn / body.toc-mobile-open). -->
+<script>
+(function () {
+  var toc = document.getElementById('TOC');
+  if (!toc) return; // no section TOC on this page (e.g. listings) -> no button
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toc-mobile-btn';
+  btn.setAttribute('aria-label', 'Toggle table of contents');
+  btn.innerHTML = '☰ Contents';
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('toc-mobile-open');
+  });
+  document.body.appendChild(btn);
+
+  // Tapping a TOC link closes the panel.
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a')) document.body.classList.remove('toc-mobile-open');
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

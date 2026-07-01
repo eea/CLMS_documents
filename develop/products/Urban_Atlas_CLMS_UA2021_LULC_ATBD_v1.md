@@ -150,7 +150,11 @@ production of the Street Tree Layer 2021 that is presented in the ATBD
 document for Copernicus High Resolution Layer Small Landscape Feature
 products.
 
+<div class="tbl-caption">
+
 Table 1: Overview table of methodology
+
+</div>
 
 | Category Title | Description/Details |
 |----|----|
@@ -356,7 +360,11 @@ or privately accessible:
     the resolution of CLCplus is not sufficient to extract them
     properly.
 
+<div class="tbl-caption">
+
 Table 2: Ancillary datasets used for the UA 2021 production
+
+</div>
 
 | Source | Use | Reference |
 |----|----|----|
@@ -1102,8 +1110,12 @@ for the Urban Atlas Green Urban Areas in Iasi.
 Table 3 shows the number of private/public and unknown occurrences of
 selected FUAs.
 
+<div class="tbl-caption">
+
 Table 3: Number of private/public and unknown occurrences of selected
 FUAs of one delivery batch
+
+</div>
 
 | Site    | Name           | Ref year | Private | Public | Unknown |
 |---------|----------------|----------|---------|--------|---------|
@@ -1304,7 +1316,11 @@ Additionally, a series of topological rules reflecting the relationships
 between entities inside each feature class will be checked. The Table
 presents the topological rules included in our QC procedure.
 
+<div class="tbl-caption">
+
 Table 4: Quality Assurance: topological rules
+
+</div>
 
 | Feature | Rule | Notes |
 |----|----|----|
@@ -1472,7 +1488,11 @@ samples to areas which are the most expected to be targeted by changes
 (urban/rural area limit and construction sites, categories 1 & 2) or
 potential changes within rural areas (category 3).
 
+<div class="tbl-caption">
+
 Table 5: Share of samples to be interpreted
+
+</div>
 
 | Criterion selection | Share of samples to be interpreted |
 |----|----|
@@ -1870,8 +1890,12 @@ data source useful for the product generation in addition to EO data.
 A decision matric below illustrate the rules followed to apply LC/LU
 nomenclature to each identified feature.
 
+<div class="tbl-caption">
+
 Table 6: UA LC/LU nomenclature (in bold, classes used in the products,
 without any further subdivision)
+
+</div>
 
 | UA No. | Code | Nomenclature | Additional Information |
 |----|----|----|----|

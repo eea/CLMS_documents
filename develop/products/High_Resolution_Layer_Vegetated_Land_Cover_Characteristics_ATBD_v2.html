@@ -390,7 +390,9 @@ Denmark<br>
 <p>In a further step change detection is performed to identify potential tree cover changes. To this end, the sum of the probabilities for tree cover (tree cover-broadleaved; tree cover-coniferous, tree crops) are considered; the difference of the sums is computed between the reference year at the intervals of the 3-yearly change layers (2018-2021-2024). Changes from a tree cover class to a non-tree cover class are allowed in the time-series if the difference of the tree cover probabilities exceed a certain threshold (see Section 3.2 for further details). Tree cover changes that do not exceed the thresholds are harmonized in the time-series to the class with the highest mean probability across a time-window of five years.</p>
 <p>Finally, a rule-based postprocessing is applied to harmonize the 5-year classification, identify areas with potential overlaps among the different HRL VLCC products, and generate the final BVLs. Detected changes tree-cover changes are not modified by the rule-based processing.</p>
 <p>The rules summarized in Table 1 are processed hierarchically so that latter rules overwrite the result of a previous rule for the same pixel:</p>
+<div class="tbl-caption">
 <p>Table 1: Overview of post-processing rules for the derivation of the harmonized annual BVLs.</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 8%">
@@ -919,7 +921,9 @@ P_{\mathrm{total}} = \sum_{i=1}^{N-1} p_i \left( \frac{\Delta t_i}{\Delta T} \ri
 <figcaption>Figure 18: Schematic overview of the crop type model architecture</figcaption>
 </figure>
 </div>
+<div class="tbl-caption">
 <p>Table 3: Overview of the used training points per dataset and year for the CTY model training</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 49%">
@@ -1159,7 +1163,9 @@ P_{\mathrm{total}} = \sum_{i=1}^{N-1} p_i \left( \frac{\Delta t_i}{\Delta T} \ri
 </ul></li>
 </ul>
 <p>If no main season is detected for a specific field in a certain reference year also no secondary crop season information is provided.</p>
+<div class="tbl-caption">
 <p>Table 4: Expert rules with seasonal limits for season delineation based on emergence and harvest input.</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 10%">
@@ -1236,7 +1242,9 @@ P_{\mathrm{total}} = \sum_{i=1}^{N-1} p_i \left( \frac{\Delta t_i}{\Delta T} \ri
 </tr>
 </tbody>
 </table>
+<div class="tbl-caption">
 <p>Table 5: Translation of Metzger environmental zones into a zone used with the same season delineation limits.</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 83%">
@@ -1946,6 +1954,30 @@ days\;uncertainty_{\mathrm{event}} =
 <li id="fn11"><p>https://openeo.org/<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<!-- Mobile-only "Contents" button that reveals the section TOC, which the
+     full-width HTML layout hides on small screens. Styling is in
+     theme/styles.css (.toc-mobile-btn / body.toc-mobile-open). -->
+<script>
+(function () {
+  var toc = document.getElementById('TOC');
+  if (!toc) return; // no section TOC on this page (e.g. listings) -> no button
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toc-mobile-btn';
+  btn.setAttribute('aria-label', 'Toggle table of contents');
+  btn.innerHTML = '☰ Contents';
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('toc-mobile-open');
+  });
+  document.body.appendChild(btn);
+
+  // Tapping a TOC link closes the panel.
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a')) document.body.classList.remove('toc-mobile-open');
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

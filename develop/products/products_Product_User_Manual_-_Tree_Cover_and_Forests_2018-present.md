@@ -1166,41 +1166,186 @@ layers
     <td>TCD</td>
     <td rowspan="11" style="vertical-align:middle">5.751.002 km² (covering the full EEA-38)</td>
     <td rowspan="11" style="vertical-align:top">
+        <div style="font-family:'JetBrains Mono', 'DejaVu Sans Mono'; font-size:8pt; white-space:pre">
+PROJCS["ETRS89-extended / LAEA Europe",
+  GEOGCS["ETRS89",
+    DATUM ["European_Terrestrial_Reference_System_1989",
+      SPHEROID ["GRS 1980",6378137,298.257222101,
+        AUTHORITY["EPSG","7019"]],
+      AUTHORITY["EPSG","6258"]],
+    PRIMEM["Greenwich", 0,
+      AUTHORITY["EPSG","8901"]],
+    UNIT["degree", 0.0174532925199433,
+      AUTHORITY["EPSG","9122"]],
+    AUTHORITY["EPSG","4258"]],
+  PROJECTION ["Lambert_Azimuthal_Equal_Area"],
+  PARAMETER ["latitude_of_center",52],
+  PARAMETER ["longitude_of_center", 10],
+  PARAMETER ["false_easting",4321000],
+  PARAMETER["false_northing",3210000],
+  UNIT["metre", 1,
+    AUTHORITY["EPSG","9001"]],
+  AXIS["Northing", NORTH],
+  AXIS["Easting", EAST],
+  AUTHORITY["EPSG","3035"]]
 
-PROJCS\[“ETRS89-extended / LAEA Europe”, GEOGCS\[“ETRS89”, DATUM
-\[“European_Terrestrial_Reference_System_1989”, SPHEROID \[“GRS
-1980”,6378137,298.257222101, AUTHORITY\[“EPSG”,“7019”\]\],
-AUTHORITY\[“EPSG”,“6258”\]\], PRIMEM\[“Greenwich”, 0,
-AUTHORITY\[“EPSG”,“8901”\]\], UNIT\[“degree”, 0.0174532925199433,
-AUTHORITY\[“EPSG”,“9122”\]\], AUTHORITY\[“EPSG”,“4258”\]\], PROJECTION
-\[“Lambert_Azimuthal_Equal_Area”\], PARAMETER
-\[“latitude_of_center”,52\], PARAMETER \[“longitude_of_center”, 10\],
-PARAMETER \[“false_easting”,4321000\],
-PARAMETER\[“false_northing”,3210000\], UNIT\[“metre”, 1,
-AUTHORITY\[“EPSG”,“9001”\]\], AXIS\[“Northing”, NORTH\],
-AXIS\[“Easting”, EAST\], AUTHORITY\[“EPSG”,“3035”\]\]
+        <hr>
+        Except for French DOMs where the following CRS are used:
+        YT: EPSG 32738<br>
+        RE: EPSG 32740<br>
+        MQ: EPSG 32620<br>
+        GP: EPSG 32620<br>
+        GF: EPSG 32620
+    </td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Dominant Leaf Type
+</td>
+
+<td>
+
+DLT
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Tree Cover Presence Change
+</td>
+
+<td>
+
+TCPC
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Dominant Leaf Type Change
+</td>
+
+<td>
+
+DLTC
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Forest Type
+</td>
+
+<td>
+
+FTY
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Forest Additional Support Layer
+</td>
+
+<td>
+
+FADSL
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Broadleaved Cover Density
+</td>
+
+<td>
+
+BCD
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Coniferous Cover Density
+</td>
+
+<td>
+
+CCD
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Tree Cover Density Confidence Layer
+</td>
+
+<td>
+
+TCDCL
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Dominant Leaf Type Confidence Layer
+</td>
+
+<td>
+
+DLTCL
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Tree Cover Presence Change Confidence Layer
+</td>
+
+<td>
+
+TCPCCL
+</td>
+
+</tr>
+
+</table>
 
 
-            <hr>
-            Except for French DOMs where the following CRS are used:
-            YT: EPSG 32738<br>
-            RE: EPSG 32740<br>
-            MQ: EPSG 32620<br>
-            GP: EPSG 32620<br>
-            GF: EPSG 32620
-        </td>
-      </tr>
-      <tr><td>Dominant Leaf Type</td><td>DLT</td></tr>
-      <tr><td>Tree Cover Presence Change</td><td>TCPC</td></tr>
-      <tr><td>Dominant Leaf Type Change</td><td>DLTC</td></tr>
-      <tr><td>Forest Type</td><td>FTY</td></tr>
-      <tr><td>Forest Additional Support Layer</td><td>FADSL</td></tr>
-      <tr><td>Broadleaved Cover Density</td><td>BCD</td></tr>
-      <tr><td>Coniferous Cover Density</td><td>CCD</td></tr>
-      <tr><td>Tree Cover Density Confidence Layer</td><td>TCDCL</td></tr>
-      <tr><td>Dominant Leaf Type Confidence Layer</td><td>DLTCL</td></tr>
-      <tr><td>Tree Cover Presence Change Confidence Layer</td><td>TCPCCL</td></tr>
-    </table>
+    ```{=typst}
+    #set page(flipped: false, paper: "a4")
+    #set text(size: 11pt)
 
 ## Spatial resolution
 
@@ -1478,27 +1623,8 @@ and **Grasslands** products (2 000 in the tree cover change strata, 2
 000 in the grasslands change strata), for a total of 14 000 points
 samples (Primary Sampling Units) across **EEA38**.
 
-<img
-src="products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-57f7154abeb6dd64f49c32c542bdf0ae.png"
-data-fig-alt="Choropleth map displaying the geographic distribution of validation sampling points across Europe. The land areas of continental Europe, including EU Member States, Iceland, parts of Turkey, and several Atlantic islands (e.g., Azores, Madeira), are shaded in grey and extensively covered by red dots. These red dots represent sampling points used for the internal validation of Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Tree Cover &amp; Forests products, specifically Dominant Leaf Type (DLT), Tree Cover Density (TCD), Tree Cover Presence Change (TCPC), and Dominant Leaf Type Change (DLTC) for reference years 2018, 2021, and 2022. The United Kingdom is shown in grey but without red sampling points, indicating its exclusion from this specific sampling design. Fine white lines delineate national or regional borders within the sampled areas. The map illustrates a broad and dense coverage of sampling points across the European continent, spanning from Portugal in the southwest to Finland in the northeast and Turkey in the southeast."
-alt="Figure 8-1: Spatial distribution of 14.000 Primary Sampling Units." />
-
-Choropleth map displaying the geographic distribution of validation
-sampling points across Europe. The land areas of continental Europe,
-including EU Member States, Iceland, parts of Turkey, and several
-Atlantic islands (e.g., Azores, Madeira), are shaded in grey and
-extensively covered by red dots. These red dots represent sampling
-points used for the internal validation of Copernicus Land Monitoring
-Service (CLMS) High Resolution Layer (HRL) Tree Cover & Forests
-products, specifically Dominant Leaf Type (DLT), Tree Cover Density
-(TCD), Tree Cover Presence Change (TCPC), and Dominant Leaf Type Change
-(DLTC) for reference years 2018, 2021, and 2022. The United Kingdom is
-shown in grey but without red sampling points, indicating its exclusion
-from this specific sampling design. Fine white lines delineate national
-or regional borders within the sampled areas. The map illustrates a
-broad and dense coverage of sampling points across the European
-continent, spanning from Portugal in the southwest to Finland in the
-northeast and Turkey in the southeast.
+![Figure 8-1: Spatial distribution of 14.000 Primary Sampling
+Units.](products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-57f7154abeb6dd64f49c32c542bdf0ae.png)
 
 ## Response Design
 
@@ -1550,25 +1676,11 @@ SSUs are labelled”no tree”, the initial sample unit gets the reference
 **DLT** label which corresponds to the majority of tree labelled SSUs
 (coniferous or broadleaved).
 
-<img
-src="products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-20b8f339d0da250fe8db5d7560f29558.png"
-data-fig-alt="This map-like image illustrates a single Primary Sampling Unit (PSU) used in the accuracy assessment of the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Tree Cover &amp; Forests product. A green square boundary outlines the PSU, which, according to the document context, corresponds to a 2 km by 2 km area from the LUCAS grid. The background shows natural land cover, predominantly dense tree cover in dark green with some lighter brown/grey areas of sparser vegetation or ground. Overlaying this is a white grid pattern, and 25 white circular sampling points are systematically distributed at grid intersections within the green boundary (forming a 5x5 arrangement). One specific sampling point near the centre of the PSU is highlighted by a red circle with a white inner point. The image depicts the systematic sampling approach for selecting points for validation and reference data collection, as part of the overall 14,000 point samples across EEA38."
-alt="Figure 8-2: Secondary Sample Units used for 2018 and 2021 Tree Cover &amp; Forests reference layers. Red dot: initial sample; white dot: secondary sample unit; green outline: area around the initial sample that is used to derived product statistics." />
-
-This map-like image illustrates a single Primary Sampling Unit (PSU)
-used in the accuracy assessment of the Copernicus Land Monitoring
-Service (CLMS) High Resolution Layer (HRL) Tree Cover & Forests product.
-A green square boundary outlines the PSU, which, according to the
-document context, corresponds to a 2 km by 2 km area from the LUCAS
-grid. The background shows natural land cover, predominantly dense tree
-cover in dark green with some lighter brown/grey areas of sparser
-vegetation or ground. Overlaying this is a white grid pattern, and 25
-white circular sampling points are systematically distributed at grid
-intersections within the green boundary (forming a 5x5 arrangement). One
-specific sampling point near the centre of the PSU is highlighted by a
-red circle with a white inner point. The image depicts the systematic
-sampling approach for selecting points for validation and reference data
-collection, as part of the overall 14,000 point samples across EEA38.
+![Figure 8-2: Secondary Sample Units used for 2018 and 2021 Tree Cover &
+Forests reference layers. Red dot: initial sample; white dot: secondary
+sample unit; green outline: area around the initial sample that is used
+to derived product
+statistics.](products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-20b8f339d0da250fe8db5d7560f29558.png)
 
 To compare these reference information with the layers, an extraction is
 performed over the SSU extent (green outline in Figure 8-2): the average
@@ -1700,63 +1812,13 @@ than 0.8. The figures are fairly consistent across all reference years,
 the accuracies and correlations seem slightly higher for the EU27 area
 when compared to full EEA38.
 
-<img
-src="products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-69c9c36476c8043f3056cf7e7f38b273.png"
-data-fig-alt="Three scatter charts display the statistical analysis of Tree Cover Density (TCD) product values against TCD reference values for EU-27 Member States for the years 2018, 2021, and 2022. Each chart plots individual sample locations with &#39;TCD[Year] Product Value&#39; on the X-axis and &#39;TCD[Year] Reference Value&#39; on the Y-axis, both scaled from 0 to 100. A black dashed linear regression line is fitted to the data points, with its equation and R² coefficient provided. 1. **TCD 2018 - EU27**: The regression line equation is y = 1.1346x + 4.3481, with an R² value of 0.9042. 2. **TCD 2021 - EU27**: The regression line equation is y = 1.1232x + 4.5339, with an R² value of 0.8543. 3. **TCD 2022 - EU27**: The regression line equation is y = 1.1269x + 4.6818, with an R² value of 0.8739. All three charts show a strong positive linear correlation between the product and reference values, with R² coefficients ranging from 0.8543 to 0.9042. The TCD 2018 data exhibits the highest correlation (R² = 0.9042), while TCD 2021 shows the lowest (R² = 0.8543). The regression line slopes are consistently slightly above 1 (ranging from 1.1232 to 1.1346), and the y-intercepts are positive (ranging from 4.3481 to 4.6818), indicating a tendency for product values to be slightly lower than reference values, particularly at higher TCD percentages. There is a high density of points along the diagonal, especially at TCD values of 0 and 100."
-alt="Figure 8-3: HRL TCD 2018, 2021 and 2022 scatterplots and correlations at EU27 level" />
+![Figure 8-3: HRL TCD 2018, 2021 and 2022 scatterplots and correlations
+at EU27
+level](products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-69c9c36476c8043f3056cf7e7f38b273.png)
 
-Three scatter charts display the statistical analysis of Tree Cover
-Density (TCD) product values against TCD reference values for EU-27
-Member States for the years 2018, 2021, and 2022. Each chart plots
-individual sample locations with “TCD\[Year\] Product Value” on the
-X-axis and “TCD\[Year\] Reference Value” on the Y-axis, both scaled from
-0 to 100. A black dashed linear regression line is fitted to the data
-points, with its equation and R² coefficient provided.
-
-1.  **TCD 2018 - EU27**: The regression line equation is y = 1.1346x +
-    4.3481, with an R² value of 0.9042.
-2.  **TCD 2021 - EU27**: The regression line equation is y = 1.1232x +
-    4.5339, with an R² value of 0.8543.
-3.  **TCD 2022 - EU27**: The regression line equation is y = 1.1269x +
-    4.6818, with an R² value of 0.8739.
-
-All three charts show a strong positive linear correlation between the
-product and reference values, with R² coefficients ranging from 0.8543
-to 0.9042. The TCD 2018 data exhibits the highest correlation (R² =
-0.9042), while TCD 2021 shows the lowest (R² = 0.8543). The regression
-line slopes are consistently slightly above 1 (ranging from 1.1232 to
-1.1346), and the y-intercepts are positive (ranging from 4.3481 to
-4.6818), indicating a tendency for product values to be slightly lower
-than reference values, particularly at higher TCD percentages. There is
-a high density of points along the diagonal, especially at TCD values of
-0 and 100.
-
-<img
-src="products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-02a37e3012417618f24d3b4e2dda719a.png"
-data-fig-alt="Three scatter plots, each comparing Tree Cover Density (TCD) product values against reference values for the EEA38 region for the years 2018, 2021, and 2022. The X-axis represents &#39;TCD[year] Product Value&#39; and the Y-axis represents &#39;TCD[year] Reference Value&#39;, both ranging from 0 to 100%, indicating percentage. Each plot displays individual sample points as green dots and a black linear regression line with its equation and R² (coefficient of determination). * **TCD 2018 - EEA38:** The regression line is y = 1.1395x + 4.8931 with an R² value of 0.8778. * **TCD 2021 - EEA38:** The regression line is y = 1.1335x + 5.3527 with an R² value of 0.8213. * **TCD 2022 - EEA38:** The regression line is y = 1.1361x + 3.8718 with an R² value of 0.8798. These charts illustrate the thematic accuracy assessment for the HRL Tree Cover &amp; Forests product, showing a strong positive linear correlation between the product&#39;s estimated TCD and the validated reference values across the European Environment Agency 38 countries (EEA38) for all three years, as indicated by R² values consistently above 0.8."
-alt="Figure 8-4: HRL TCD 2018, 2021 and 2022 scatterplots and correlations at EEA38 level" />
-
-Three scatter plots, each comparing Tree Cover Density (TCD) product
-values against reference values for the EEA38 region for the years 2018,
-2021, and 2022. The X-axis represents “TCD\[year\] Product Value” and
-the Y-axis represents “TCD\[year\] Reference Value”, both ranging from 0
-to 100%, indicating percentage. Each plot displays individual sample
-points as green dots and a black linear regression line with its
-equation and R² (coefficient of determination).
-
-- **TCD 2018 - EEA38:** The regression line is y = 1.1395x + 4.8931 with
-  an R² value of 0.8778.
-- **TCD 2021 - EEA38:** The regression line is y = 1.1335x + 5.3527 with
-  an R² value of 0.8213.
-- **TCD 2022 - EEA38:** The regression line is y = 1.1361x + 3.8718 with
-  an R² value of 0.8798.
-
-These charts illustrate the thematic accuracy assessment for the HRL
-Tree Cover & Forests product, showing a strong positive linear
-correlation between the product’s estimated TCD and the validated
-reference values across the European Environment Agency 38 countries
-(EEA38) for all three years, as indicated by R² values consistently
-above 0.8.
+![Figure 8-4: HRL TCD 2018, 2021 and 2022 scatterplots and correlations
+at EEA38
+level](products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-02a37e3012417618f24d3b4e2dda719a.png)
 
 <div style="font-size: 9pt">
 <p style="text-align:center; font-weight:bold">Table 8-2: HRL TCD validation results at EU27 level</p>
@@ -2220,30 +2282,12 @@ reference years 2022 and 2023 the significantly better user’s accuracies
 for 2022 (Table 8-5) might be partially caused by the response design
 focusing on a plausibility analysis only (section 8.3)
 
-<img
-src="products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-12034a22ccd045adae7e34f8be9157be.png"
-data-fig-alt="This image illustrates the process of identifying and validating Small Linear Features (SLF) or Small Woody Features (SWF) within a High Resolution Layer (HRL) product, likely related to Dominant Leaf Type (DLT) mapping. Panel (b) displays an aerial or satellite image of a rural landscape with agricultural fields delineated by dark green linear features, resembling hedgerows or riparian vegetation. A scale bar indicates distances of 0 m, 100 m, 200 m, and 300 m. Panel (a) shows a thematic classification derived from the imagery in (b), highlighting the linear features in two shades of green against a white background. The darker green forms the core of the linear features, while a lighter green surrounds it, possibly representing a buffer or broader extent of the feature. This panel uses the same scale as (b): 0 m, 100 m, 200 m, 300 m. Panel (c) is a magnified view of a selected intersection of linear features from panel (b), indicated by a black bounding box. This zoomed-in view shows the imagery at a pixel level, overlaid with a grid and yellow circular points. The grid cells represent individual pixels, and the yellow points are likely validation sample points placed along the linear features for accuracy assessment. The scale bar for panel (c) is more granular, showing 0 m, 10 m, 20 m, 30 m, and 40 m."
-alt="Figure 8-5: Illustration of typical broadleaved tree cover commissions errors in the DLT for an area Terceira island, Portugal. Shown are a) the DLT 2022 b) an overlay of the DLT 2022 on top of the VHR IMAGE 2021 and c) a zoom of the latter and the pixels with commission errors marked in yellow." />
-
-This image illustrates the process of identifying and validating Small
-Linear Features (SLF) or Small Woody Features (SWF) within a High
-Resolution Layer (HRL) product, likely related to Dominant Leaf Type
-(DLT) mapping. Panel (b) displays an aerial or satellite image of a
-rural landscape with agricultural fields delineated by dark green linear
-features, resembling hedgerows or riparian vegetation. A scale bar
-indicates distances of 0 m, 100 m, 200 m, and 300 m. Panel (a) shows a
-thematic classification derived from the imagery in (b), highlighting
-the linear features in two shades of green against a white background.
-The darker green forms the core of the linear features, while a lighter
-green surrounds it, possibly representing a buffer or broader extent of
-the feature. This panel uses the same scale as (b): 0 m, 100 m, 200 m,
-300 m. Panel (c) is a magnified view of a selected intersection of
-linear features from panel (b), indicated by a black bounding box. This
-zoomed-in view shows the imagery at a pixel level, overlaid with a grid
-and yellow circular points. The grid cells represent individual pixels,
-and the yellow points are likely validation sample points placed along
-the linear features for accuracy assessment. The scale bar for panel (c)
-is more granular, showing 0 m, 10 m, 20 m, 30 m, and 40 m.
+![Figure 8-5: Illustration of typical broadleaved tree cover commissions
+errors in the DLT for an area Terceira island, Portugal. Shown are a)
+the DLT 2022 b) an overlay of the DLT 2022 on top of the VHR IMAGE 2021
+and c) a zoom of the latter and the pixels with commission errors marked
+in
+yellow.](products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-12034a22ccd045adae7e34f8be9157be.png)
 
 <div style="font-size: 8pt">
 <p style="text-align:center; font-weight:bold">Table 8-4: DLT validation results at EU27 level</p>

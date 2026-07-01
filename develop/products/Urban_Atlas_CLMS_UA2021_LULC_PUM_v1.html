@@ -934,7 +934,9 @@ Figure&nbsp;4: Exception rule for the minimum mapping width
 <section id="ancillary-and-other-data" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="ancillary-and-other-data"><span class="header-section-number">8.2</span> Ancillary and other data</h2>
 <p>Several ancillary datasets were used to collect landcover information for the reference year 2021, which were then used for calibration and training of the classification models and/or for deriving additional layers used for masking purposes. The list of the datasets and their use is presented in the table below.</p>
+<div class="tbl-caption">
 <p>Table 1: Ancillary datasets used for UA 2021 production</p>
+</div>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1392,7 +1394,9 @@ Figure&nbsp;8: Examples of the public, private and unknown classes in Iasi, Roma
 </ol>
 <p>Four hierarchical levels are defined in the nomenclature for artificial surfaces (class 1) while only two are defined for the non-artificial ones (classes 2-5). The table below shows the LC/LU nomenclature providing class codes and descriptions and any information or ancillary data source useful for the product generation in addition to EO data.</p>
 <p>A decision matric below illustrate the rules followed to apply LC/LU nomenclature to each identified feature.</p>
+<div class="tbl-caption">
 <p>Table 2: UA LC/LU nomenclature (in bold, classes used in the products, without any further subdivision)</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 19%">
@@ -2128,6 +2132,30 @@ Figure&nbsp;8: Examples of the public, private and unknown classes in Iasi, Roma
 <li id="fn4"><p><a href="https://land.copernicus.eu/en/contact-service-helpdesk">Copernicus Land Monitoring Service – Service desk</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<!-- Mobile-only "Contents" button that reveals the section TOC, which the
+     full-width HTML layout hides on small screens. Styling is in
+     theme/styles.css (.toc-mobile-btn / body.toc-mobile-open). -->
+<script>
+(function () {
+  var toc = document.getElementById('TOC');
+  if (!toc) return; // no section TOC on this page (e.g. listings) -> no button
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toc-mobile-btn';
+  btn.setAttribute('aria-label', 'Toggle table of contents');
+  btn.innerHTML = '☰ Contents';
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('toc-mobile-open');
+  });
+  document.body.appendChild(btn);
+
+  // Tapping a TOC link closes the panel.
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a')) document.body.classList.remove('toc-mobile-open');
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

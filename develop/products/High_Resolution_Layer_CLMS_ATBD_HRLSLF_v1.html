@@ -338,7 +338,9 @@ Denmark<br>
 <section id="methodology" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Methodology</h1>
 <p>The present section describes in detail the methodology applied for the production of all the HRL SLF 2021 layers, including the change layer 2018-2021.</p>
+<div class="tbl-caption">
 <p>Table 1: Overview table of methodology</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 27%">
@@ -421,7 +423,9 @@ Figure&nbsp;1: HRL SLF 2021 workflow
 <section id="ancillary-data" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="ancillary-data"><span class="header-section-number">3.2.2</span> Ancillary data</h3>
 <p>Several ancillary datasets were used to collect landcover information for the reference year 2021, which were then used for calibration and training of the classification models and/or for deriving additional layers used for masking purposes. The list of the datasets and their use is presented in the table below.</p>
+<div class="tbl-caption">
 <p>Table 2: Ancillary datasets used for HRL SLF production</p>
+</div>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -610,7 +614,9 @@ Figure&nbsp;5: Reference database patch example
 <section id="sentinel-data-2" class="level4" data-number="3.3.3.2">
 <h4 data-number="3.3.3.2" class="anchored" data-anchor-id="sentinel-data-2"><span class="header-section-number">3.3.3.2</span> Sentinel Data</h4>
 <p>The key layers generated from the Sentinel-2 preprocessing that directly serve as input for the deep learning algorithm are the following:</p>
+<div class="tbl-caption">
 <p>Table 3: Parameters for S2 time series analysis</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 48%">
@@ -718,7 +724,9 @@ Figure&nbsp;7: U-NET super resolution prediction at 5m. Single trees visible on 
 <li><p><strong>Final Output Creation</strong>: The remaining geometries were simplified and rasterized into final 5m and 100m resolution outputs. The remaining features were stored in a final vector file in Geopackage format.</p></li>
 </ol>
 <p>The primary goal of these steps was to derive properties that are needed for the application of the specifications summarized in Table 4 below:</p>
+<div class="tbl-caption">
 <p>Table 4: Geometric specifications of SWF</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 32%">
@@ -1302,6 +1310,30 @@ Figure&nbsp;11: Comparison of densely planted orchards between 20cm imagery and 
 <li id="fn5"><p><a href="https://land.copernicus.eu/en/contact-service-helpdesk">Copernicus Land Monitoring Service – Service desk</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<!-- Mobile-only "Contents" button that reveals the section TOC, which the
+     full-width HTML layout hides on small screens. Styling is in
+     theme/styles.css (.toc-mobile-btn / body.toc-mobile-open). -->
+<script>
+(function () {
+  var toc = document.getElementById('TOC');
+  if (!toc) return; // no section TOC on this page (e.g. listings) -> no button
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toc-mobile-btn';
+  btn.setAttribute('aria-label', 'Toggle table of contents');
+  btn.innerHTML = '☰ Contents';
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('toc-mobile-open');
+  });
+  document.body.appendChild(btn);
+
+  // Tapping a TOC link closes the panel.
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a')) document.body.classList.remove('toc-mobile-open');
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

@@ -1025,7 +1025,11 @@ training of the classification models and/or for deriving additional
 layers used for masking purposes. The list of the datasets and their use
 is presented in the table below.
 
+<div class="tbl-caption">
+
 Table 1: Ancillary datasets used for UA 2021 production
+
+</div>
 
 | Source | Use | Reference |
 |----|----|----|
@@ -1478,8 +1482,12 @@ data source useful for the product generation in addition to EO data.
 A decision matric below illustrate the rules followed to apply LC/LU
 nomenclature to each identified feature.
 
+<div class="tbl-caption">
+
 Table 2: UA LC/LU nomenclature (in bold, classes used in the products,
 without any further subdivision)
+
+</div>
 
 | UA No. | Code | Nomenclature | Additional Information |
 |----|----|----|----|
