@@ -404,7 +404,9 @@ def pipe_captions_to_divs(text: str) -> tuple:
                 start = p
                 while start - 1 >= 0 and _ROW_RE.match(out[start - 1]):
                     start -= 1
-                out[start:start] = build_tbl_caption(cap).split("\n") + [""]
+                div = build_tbl_caption(cap)          # "" for an attribute-only caption
+                if div:
+                    out[start:start] = div.split("\n") + [""]
                 n += 1
                 i += 1
                 while i < len(lines) and not lines[i].strip():
@@ -415,8 +417,10 @@ def pipe_captions_to_divs(text: str) -> tuple:
             while q < len(lines) and not lines[q].strip():
                 q += 1
             if q + 1 < len(lines) and _ROW_RE.match(lines[q]) and _DIV_RE.match(lines[q + 1]):
-                out.extend(build_tbl_caption(cap).split("\n"))
-                out.append("")
+                div = build_tbl_caption(cap)          # "" for an attribute-only caption
+                if div:
+                    out.extend(div.split("\n"))
+                    out.append("")
                 n += 1
                 i = q                                 # resume at the table itself
                 continue

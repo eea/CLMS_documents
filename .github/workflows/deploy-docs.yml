@@ -35,9 +35,6 @@ jobs:
           fetch-depth: ${{ (github.ref_name == 'main' || startsWith(github.ref, 'refs/heads/test-')) && '0' || '50' }}
           fetch-tags: true
 
-      - name: Upgrade panflute to latest version
-        run: pip install --no-cache-dir --break-system-packages --upgrade panflute
-
       - name: Mark repo as safe for Git
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 

@@ -289,6 +289,17 @@ class TestPipeCaptionsToDivs:
         once = _ensure_blank_after_captions(qmd)
         assert _ensure_blank_after_captions(once) == once
 
+    def test_attribute_only_caption_emits_no_orphan_div(self):
+        # A caption that is just a tbl-colwidths attribute (no visible text) must
+        # NOT become a `.tbl-caption` div whose body is a bare `{...}` line —
+        # Pandoc binds that to the typst fence and flips Quarto to the jupyter
+        # engine, crashing the build. The colwidths already live in the divider.
+        qmd = '| A | B |\n|---|---|\n| 1 | 2 |\n\n: {tbl-colwidths="[30,70]"}\n'
+        out, _ = pipe_captions_to_divs(qmd)
+        assert ".tbl-caption" not in out         # no styling div emitted
+        assert "tbl-colwidths" not in out         # the attribute line is dropped, not orphaned
+        assert "| A | B |" in out                 # table preserved
+
 
 class TestColgroup:
     def test_stamps_when_missing(self):

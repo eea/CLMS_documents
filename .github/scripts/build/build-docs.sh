@@ -31,6 +31,11 @@ step() {
   _STEP_PREV=$now; _STEP_NAME="$*"
 }
 
+# Snapshot the pristine source before the build mutates it, so a local build is
+# easy to undo. After testing, restore your working tree with:
+#   rm -rf DOCS origin_DOCS && mv source_DOCS DOCS
+rm -rf source_DOCS && cp -rp DOCS source_DOCS
+
 # Apply cached intros/keywords before the rename - the cache is keyed by original path.
 echo "Injecting cached intros & keywords (no API)..."
 python3 .github/scripts/build/apply_cached_intros.py DOCS
@@ -73,6 +78,13 @@ python3 ../.github/scripts/build/fill_version.py .
 echo "Balancing table column widths..."
 python3 ../.github/scripts/qmd-tools/fix_table_colwidths.py .
 
+# Promote bare "Table N:"/"Figure N:" captions (left as plain text by the
+# converters) into .tbl-caption divs / image alt text, so they render as styled
+# captions instead of body text. Runs after the grid->pipe conversion above so a
+# caption next to a (now pipe) table is recognised. Build-copy only; idempotent.
+echo "Promoting bare table/figure captions..."
+python3 ../.github/scripts/qmd-tools/promote_bare_captions.py .
+
 # Bake image descriptions into the qmd source now, so the render doesn't re-hash
 # every image once per format (see the script). This was a Lua filter.
 echo "Baking image descriptions into qmd source..."
@@ -83,12 +95,12 @@ python3 ../.github/scripts/build/inject_image_descriptions.py .
 cp _quarto-no-headers.yml _quarto.yml
 
 step "[3/6] Rendering all documents (HTML + Typst PDF + gfm) in one pass..."
-# Temporary move out of docs before render to avoid Jupyter engine selections crashes
-echo "	 [BUILD BYPASS] Temporarily moving Ice products out of the build context..."
-mv products/products_Algorithm_theoretical_basis_document_-_High_Resolution_Ice_products_Europe.qmd ../origin_DOCS/
+# # Temporary move out of docs before render to avoid Jupyter engine selections crashes
+# echo "	 [BUILD BYPASS] Temporarily moving Ice products out of the build context..."
+# mv products/products_Algorithm_theoretical_basis_document_-_High_Resolution_Ice_products_Europe.qmd ../origin_DOCS/
 quarto_render --no-clean
-echo "	 [BUILD BYPASS] Restoring Ice products..."
-mv ../origin_DOCS/products_Algorithm_theoretical_basis_document_-_High_Resolution_Ice_products_Europe.qmd products/
+# echo "	 [BUILD BYPASS] Restoring Ice products..."
+# mv ../origin_DOCS/products_Algorithm_theoretical_basis_document_-_High_Resolution_Ice_products_Europe.qmd products/
 
 # Back up sitemap.xml and llms.txt - the index.qmd renders below regenerate
 # them, and we want to keep the values from this first render.

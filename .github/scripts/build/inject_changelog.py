@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # ruff: noqa: E402
 import panflute as pf
-# Monkeypatch RAW_FORMATS to bypass strict obsolete panflute validators
-pf.elements.RAW_FORMATS.add("typst")
-pf.elements.RAW_FORMATS.add("pdf")
 import os
 import json
 import sys
 import re
 from html.parser import HTMLParser
-import panflute as pf
+
+# Monkeypatch RAW_FORMATS to bypass strict obsolete panflute validators
+pf.elements.RAW_FORMATS.add("typst")
+pf.elements.RAW_FORMATS.add("pdf")
 
 CHANGE_LOG_PATH = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "../../../.llm_cache/change_logs.json")

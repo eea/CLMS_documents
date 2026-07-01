@@ -202,6 +202,13 @@ _CAPTION_EL_RE = re.compile(r"[ \t]*<caption\b[^>]*>(?P<text>.*?)</caption>\s*",
 # bare `quarto render doc.qmd` without the _meta theme still compiles.
 _TBL_CAPTION_FILL = '#3E6893'
 
+# A trailing Pandoc attribute block (e.g. `{tbl-colwidths="[30,70]"}`) carries
+# table metadata, never display text — and column widths are already encoded in
+# the divider row by fix_table_colwidths, so it is redundant here. Strip it.
+# ponytail: only a single trailing {...} at end-of-string; a caption that ends
+# in literal braces (improbable for table titles) would be over-trimmed.
+_CAPTION_ATTR_RE = re.compile(r"\s*\{[^}]*\}\s*$")
+
 
 def build_tbl_caption(caption_text: str) -> str:
     """Build a `.tbl-caption` div for `caption_text` (already whitespace-collapsed).
@@ -211,7 +218,15 @@ def build_tbl_caption(caption_text: str) -> str:
     manual "Table N:"). This plain div renders the caption verbatim in HTML, PDF
     (raw-typst `#set text` scoped to the block), and gfm (raw-typst dropped,
     plain text remains). No `#tbl-` id, so the source's own number stays.
+
+    Returns "" when there is no visible caption text (empty, or attribute-only):
+    emitting a div whose body is a bare `{...}` attribute leaves a line that
+    Pandoc binds to the preceding typst fence, which flips Quarto to the jupyter
+    engine and crashes the build. Callers skip an empty return.
     """
+    caption_text = _CAPTION_ATTR_RE.sub("", caption_text).strip()
+    if not caption_text:
+        return ""
     return (
         "::: {.tbl-caption}\n"
         "```{=typst}\n"

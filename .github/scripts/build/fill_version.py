@@ -6,13 +6,17 @@ The field still has to be present on every render or the index shows a blank
 version, so we fill it each build, like intros and changelogs.
 
 The value is the tracked version from .llm_cache/versions.json, looked up via the
-original-filename field. No record yet -> {major}.0.0 from the _vN.qmd name. No
+original-filename field. The doc's own `version:` frontmatter is never trusted as
+input - it is output we overwrite. No record yet -> seed one (max(major,1).0.0,
+so a _v0 or a name without _vN starts at 1.0.0) so the doc becomes tracked. No
 bump is computed here.
 """
 
 import argparse
+import json
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))  # .github/scripts
@@ -68,7 +72,8 @@ def main():
     vf = Path(args.versions_file) if args.versions_file else repo_root / VERSIONS_FILE
     versions = load_json_or_empty(vf, label="versions")
 
-    filled = baseline = 0
+    filled = baseline = seeded = 0
+    today = date.today().isoformat()
     for qmd in sorted(Path(args.docs_dir).rglob("*.qmd")):
         if {"_site", ".quarto", "_meta"} & set(qmd.parts):
             continue
@@ -79,31 +84,49 @@ def main():
         _, end = bounds
 
         src = fm_value(lines, end, "original-filename")
-        major = major_from_name(src) if src else None
-        if major is None:
-            major = major_from_name(qmd.name)
-        if major is None:
-            print(f"[fill_version] {qmd}: no _vN in filename, skipping")
-            continue
+        mj = major_from_name(src) if src else None
+        if mj is None:
+            mj = major_from_name(qmd.name)
+        # First published version is 1.0.0: a _v0 or a name without _vN starts
+        # at 1.0.0, while _v4 etc. keep their filename major.
+        baseline_major = max(mj, 1) if mj is not None else 1
 
+        key = f"DOCS/{src}" if src else None
         tracked = None
-        if src:
-            entry = versions.get(f"DOCS/{src}") or versions.get(src)
+        if key:
+            entry = versions.get(key) or versions.get(src)
             tracked = (entry or {}).get("current_version")
 
-        if tracked and tracked.split(".")[0] == str(major):
+        if tracked and (mj is None or tracked.split(".")[0] == str(mj)):
             version = tracked
         else:
-            version = f"{major}.0.0"
+            version = f"{baseline_major}.0.0"
             baseline += 1
+            # No record yet: seed one so the doc becomes tracked, rather than
+            # re-deriving the fallback every build. Keyed by original-filename.
+            if key and key not in versions:
+                versions[key] = {
+                    "current_version": version,
+                    "last_bump": "initial",
+                    "last_bump_reason": "First release",
+                    "last_release_tag": "initial",
+                    "last_updated": today,
+                    "major_from_filename": baseline_major,
+                }
+                seeded += 1
 
         if set_version(lines, end, version):
             qmd.write_text("".join(lines), encoding="utf-8")
             filled += 1
 
+    if seeded:
+        vf.parent.mkdir(parents=True, exist_ok=True)
+        with vf.open("w", encoding="utf-8") as f:
+            json.dump(versions, f, indent=2, sort_keys=True)
+
     print(
         f"[fill_version] set version on {filled} files "
-        f"({baseline} fell back to {{major}}.0.0)"
+        f"({baseline} used max(major,1).0.0 baseline, {seeded} new cache entries)"
     )
 
 
