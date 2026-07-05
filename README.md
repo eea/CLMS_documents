@@ -43,13 +43,20 @@ This repository is designed to be fully customizable. If you wish to fork this p
 ### 1. Structure Your Documents
 1. Clean your repository structure and place your Markdown (`.qmd`) document files under `DOCS/`.
 2. Give your files a version-controlling suffix (e.g., `My_Manual_v1.qmd`).
-3. Set your document metadata categories by adding headers at the top of your `.qmd` files:
+3. Set your document metadata by adding a YAML header at the top of each `.qmd` file:
    ```yaml
    ---
-   title: "Technical Specification"
-   category: "products" # can be products, guidelines, or non-browsable
+   category: products
+   date: '2025-01-15'
+   subtitle: Your Organization Name
+   title: Technical Specification – Product User Manual
+   toc: true
+   toc-depth: 3
+   toc-title: Content
+   version: 1.0
    ---
    ```
+   `category` can be `products`, `guidelines`, or `non-browsable`.
 
 ### 2. Configure Your Brand Assets
 *   Go to `assets/` and replace the logo files (`copernicus-logo.svg`, `lms_logo.svg`) with your own organization logos.
