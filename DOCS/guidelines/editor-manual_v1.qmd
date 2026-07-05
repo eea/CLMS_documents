@@ -71,34 +71,44 @@ Migrating an existing `.docx`? See the Migration Guide [TBD link].
 
 # The YAML Header
 
-If you copied a template, the header is pre-filled - just update `title`, `subtitle`, `date`, and `product-name`.
+If you copied a template, the header is pre-filled — update `title`, `subtitle`, `date`, `category`, and `version`.
 
 ## Required fields
 
 ```yaml
 ---
-title: "HRL Forest"
-subtitle: "High Resolution Layer - Forest Type"
-date: "2026-01-27"
-product-name: "HRL Forest"
+category: products
+date: '2026-01-27'
+subtitle: Copernicus Land Monitoring Service
+title: HRL Forest - Product User Manual
+toc: true
+toc-depth: 3
+toc-title: Content
+version: 1.0
 ---
 ```
 
-- `title` - short product name, appears as the document title
-- `subtitle` - full product name or document type description
-- `date` - publication or last-updated date in ISO format
-- `product-name` - used internally for metadata and indexing
+- `category` — one of `products`, `guidelines`, or `non-browsable`. Determines where the document appears in the library.
+- `date` — publication or last-updated date in ISO format (`YYYY-MM-DD`).
+- `subtitle` — typically `Copernicus Land Monitoring Service` for product documents.
+- `title` — the document title, including the product name and document type (e.g. "– Product User Manual").
+- `toc` — always `true` for published documents.
+- `toc-depth` — always `3`.
+- `toc-title` — always `Content`.
+- `version` — the current published version (e.g. `1.0`, `2.3`). This number appears in the document header and must match the filename suffix.
 
 ## Optional fields
 
-- `template-version` - records which template version was used as the starting point. Set automatically when copying a template; don't edit it manually.
+- `author` — document author or organisation (e.g. `Copernicus Land Monitoring Service`).
+- `description` — a short summary of the document, used for SEO and library listings.
+- `editor` — Quarto editor settings (e.g. `markdown: wrap: 72`).
+- `template-version` — records which template version was used as the starting point. Set automatically when copying a template; don't edit it manually.
 
 ## System-managed fields
 
-Leave these out of your YAML header entirely - the publishing system handles them:
+Leave these out of your YAML header entirely — the publishing system handles them:
 
-- `keywords` - AI-generated at publish time based on document content. Anything you add gets overwritten.
-- `version` - carried by the filename suffix, not the YAML. No version field belongs in the header.
+- `keywords` — AI-generated at publish time based on document content. Anything you add gets overwritten.
 
 
 # Writing Content
@@ -228,7 +238,7 @@ Your work lives in `DOCS/` directly: one `.qmd` file per document, plus a matchi
 
 ## The version suffix
 
-The `_v<N>` suffix in the filename is the major version - the only version number you control. Minor and patch versions are assigned automatically by AI at library release time based on the scope of changes: small corrections get a patch bump (`2.3.5 → 2.3.6`), new or revised sections get a minor bump (`2.3.0 → 2.4.0`). A new file `CLMS_HRL-Forest_PUM_v3.qmd` starts at `3.0.0` at its first release. You never set a version number in YAML.
+The `_v<N>` suffix in the filename and the `version` field in the YAML header should match — both carry the major version. Minor and patch versions are assigned automatically by AI at library release time based on the scope of changes: small corrections get a patch bump (`2.3.5 → 2.3.6`), new or revised sections get a minor bump (`2.3.0 → 2.4.0`). A new file `CLMS_HRL-Forest_PUM_v3.qmd` starts with `version: 3.0` in YAML and `3.0.0` at its first release.
 
 ## When to create a new major version
 
