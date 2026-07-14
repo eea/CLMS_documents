@@ -8,8 +8,8 @@
 
 <meta name="author" content="Copernicus Land Monitoring Service">
 <meta name="dcterms.date" content="2026-07-14">
-<meta name="keywords" content="CLMS product migration, Copernicus Data Space Ecosystem, data ingestion status, S3 data access, OData API, STAC catalogue, OpenEO platform, Sentinel Hub access, Global land monitoring products, Pan-European land monitoring products, Priority Area products, product migration completeness">
-<meta name="description" content="This report provides a comprehensive and up-to-date overview of the Copernicus Land Monitoring Service (CLMS) product migration to the Copernicus Data Space Ecosystem (CDSE). It details the ingestion status of the extensive CLMS product portfolio, categorising products by global, Pan-European, and priority area. The document now also summarises product groups by their migration completeness, highlighting those fully available and those not yet ingested across key CDSE data access services, including S3, OData, STAC, OpenEO, and Sentinel Hub. This weekly updated report is essential for monitoring CLMS data accessibility and dissemination progress.">
+<meta name="keywords" content="CLMS product migration, Copernicus Data Space Ecosystem, data ingestion status, S3 data access, OData API, STAC catalogue, OpenEO platform, Sentinel Hub access, Global land monitoring products, Pan-European land monitoring products, Priority Area products">
+<meta name="description" content="This report provides an up-to-date overview of the Copernicus Land Monitoring Service (CLMS) product migration to the Copernicus Data Space Ecosystem (CDSE). It details the ingestion status of the extensive CLMS product portfolio, categorising products by global, Pan-European, and priority area. The document summarises product group migration completeness across key CDSE data access services, including S3, OData, STAC, OpenEO, and Sentinel Hub, monitoring CLMS data accessibility and dissemination progress.">
 
 <title>CLMS → CDSE Migration Status – Technical Library</title>
 <style>
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "CLMS → CDSE Migration Status",
-    "description": "This report provides a comprehensive and up-to-date overview of the Copernicus Land Monitoring Service (CLMS) product migration to the Copernicus Data Space Ecosystem (CDSE). It details the ingestion status of the extensive CLMS product portfolio, categorising products by global, Pan-European, and priority area. The document now also summarises product groups by their migration completeness, highlighting those fully available and those not yet ingested across key CDSE data access services, including S3, OData, STAC, OpenEO, and Sentinel Hub. This weekly updated report is essential for monitoring CLMS data accessibility and dissemination progress.",
+    "description": "This report provides an up-to-date overview of the Copernicus Land Monitoring Service (CLMS) product migration to the Copernicus Data Space Ecosystem (CDSE). It details the ingestion status of the extensive CLMS product portfolio, categorising products by global, Pan-European, and priority area. The document summarises product group migration completeness across key CDSE data access services, including S3, OData, STAC, OpenEO, and Sentinel Hub, monitoring CLMS data accessibility and dissemination progress.",
     "datePublished": "July 14, 2026",
     "author": {
       "@type": "Person",
@@ -114,8 +114,6 @@ Global land monitoring products
 Pan-European land monitoring products
 
 Priority Area products
-
-product migration completeness
 ",
     "articleSection": "General",
     "isAccessibleForFree": "true",
@@ -159,16 +157,14 @@ product migration completeness
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><span class="header-section-number">1</span> Summary</a></li>
   <li><a href="#per-group-ingestion-status" id="toc-per-group-ingestion-status" class="nav-link" data-scroll-target="#per-group-ingestion-status"><span class="header-section-number">2</span> Per-Group Ingestion Status</a></li>
-  <li><a href="#groups-not-yet-on-cdse-0" id="toc-groups-not-yet-on-cdse-0" class="nav-link" data-scroll-target="#groups-not-yet-on-cdse-0"><span class="header-section-number">3</span> Groups Not Yet on CDSE (0%)</a></li>
-  <li><a href="#fully-ingested-groups-100" id="toc-fully-ingested-groups-100" class="nav-link" data-scroll-target="#fully-ingested-groups-100"><span class="header-section-number">4</span> Fully Ingested Groups (100%+)</a></li>
-  <li><a href="#scope-breakdown" id="toc-scope-breakdown" class="nav-link" data-scroll-target="#scope-breakdown"><span class="header-section-number">5</span> Scope Breakdown</a>
+  <li><a href="#scope-breakdown" id="toc-scope-breakdown" class="nav-link" data-scroll-target="#scope-breakdown"><span class="header-section-number">3</span> Scope Breakdown</a>
   <ul class="collapse">
-  <li><a href="#global-products" id="toc-global-products" class="nav-link" data-scroll-target="#global-products"><span class="header-section-number">5.1</span> 🌍 Global Products</a></li>
-  <li><a href="#pan-european-products" id="toc-pan-european-products" class="nav-link" data-scroll-target="#pan-european-products"><span class="header-section-number">5.2</span> 🇪🇺 Pan-European Products</a></li>
-  <li><a href="#priority-area-products" id="toc-priority-area-products" class="nav-link" data-scroll-target="#priority-area-products"><span class="header-section-number">5.3</span> 📍 Priority Area Products</a></li>
+  <li><a href="#global-products" id="toc-global-products" class="nav-link" data-scroll-target="#global-products"><span class="header-section-number">3.1</span> 🌍 Global Products</a></li>
+  <li><a href="#pan-european-products" id="toc-pan-european-products" class="nav-link" data-scroll-target="#pan-european-products"><span class="header-section-number">3.2</span> 🇪🇺 Pan-European Products</a></li>
+  <li><a href="#priority-area-products" id="toc-priority-area-products" class="nav-link" data-scroll-target="#priority-area-products"><span class="header-section-number">3.3</span> 📍 Priority Area Products</a></li>
   </ul></li>
-  <li><a href="#services" id="toc-services" class="nav-link" data-scroll-target="#services"><span class="header-section-number">6</span> Services</a></li>
-  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">7</span> Methodology</a></li>
+  <li><a href="#services" id="toc-services" class="nav-link" data-scroll-target="#services"><span class="header-section-number">4</span> Services</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">5</span> Methodology</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="54ab2b07e82f82143780f24e2704ef211394c00216e83839e7c1dc42ba8e3a91.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -198,7 +194,7 @@ product migration completeness
 
 <div>
   <div class="description">
-    This report provides a comprehensive and up-to-date overview of the Copernicus Land Monitoring Service (CLMS) product migration to the Copernicus Data Space Ecosystem (CDSE). It details the ingestion status of the extensive CLMS product portfolio, categorising products by global, Pan-European, and priority area. The document now also summarises product groups by their migration completeness, highlighting those fully available and those not yet ingested across key CDSE data access services, including S3, OData, STAC, OpenEO, and Sentinel Hub. This weekly updated report is essential for monitoring CLMS data accessibility and dissemination progress.
+    This report provides an up-to-date overview of the Copernicus Land Monitoring Service (CLMS) product migration to the Copernicus Data Space Ecosystem (CDSE). It details the ingestion status of the extensive CLMS product portfolio, categorising products by global, Pan-European, and priority area. The document summarises product group migration completeness across key CDSE data access services, including S3, OData, STAC, OpenEO, and Sentinel Hub, monitoring CLMS data accessibility and dissemination progress.
   </div>
 </div>
 
@@ -226,7 +222,7 @@ product migration completeness
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>CLMS product migration, Copernicus Data Space Ecosystem, data ingestion status, S3 data access, OData API, STAC catalogue, OpenEO platform, Sentinel Hub access, Global land monitoring products, Pan-European land monitoring products, Priority Area products, product migration completeness</p>
+    <p>CLMS product migration, Copernicus Data Space Ecosystem, data ingestion status, S3 data access, OData API, STAC catalogue, OpenEO platform, Sentinel Hub access, Global land monitoring products, Pan-European land monitoring products, Priority Area products</p>
   </div>
 </div>
 
@@ -544,7 +540,7 @@ Denmark<br>
 </tr>
 <tr class="odd">
 <td><a href="https://land.copernicus.eu/en/products/lclcc-hot-spots/present_land_cover">Hot Spots Monitoring</a></td>
-<td>Priority Area</td>
+<td>Global</td>
 <td>5</td>
 <td>0</td>
 <td><span style="background-color:#ff0000;color:#fff;padding:1px 6px;border-radius:3px;font-weight:bold">0</span></td>
@@ -818,72 +814,26 @@ Denmark<br>
 </tbody>
 </table>
 </section>
-<section id="groups-not-yet-on-cdse-0" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="groups-not-yet-on-cdse-0"><span class="header-section-number">3</span> Groups Not Yet on CDSE (0%)</h2>
-<p>The following product groups have no datasets ingested on CDSE yet. These are the main gap in the migration.</p>
-<ul>
-<li>Pan-European — <strong>HR Imperviousness</strong> — 26 datasets pending</li>
-<li>Global — <strong>Vegetation Phenology and Productivity Parameters</strong> — 16 datasets pending</li>
-<li>Pan-European — <strong>European Image Mosaic</strong> — 13 datasets pending</li>
-<li>Pan-European — <strong>CORINE Land Cover</strong> — 9 datasets pending</li>
-<li>Priority Area — <strong>Hot Spots Monitoring</strong> — 5 datasets pending</li>
-<li>Priority Area — <strong>N2K / Protected Areas</strong> — 5 datasets pending</li>
-<li>Pan-European — <strong>CLCplus Backbone</strong> — 4 datasets pending</li>
-<li>Pan-European — <strong>European Ground Motion Service</strong> — 4 datasets pending</li>
-<li>Pan-European — <strong>Small Landscape Features</strong> — 4 datasets pending</li>
-<li>Priority Area — <strong>Coastal Zones</strong> — 3 datasets pending</li>
-<li>Priority Area — <strong>Riparian Zones</strong> — 3 datasets pending</li>
-<li>Pan-European — <strong>HR Water and Wetness</strong> — 2 datasets pending</li>
-<li>Pan-European — <strong>Vegetation Seasonal Trajectories</strong> — 2 datasets pending</li>
-<li>Pan-European — <strong>EU-Hydro</strong> — 1 dataset pending</li>
-<li>Global — <strong>Surface Reflectance</strong> — 1 dataset pending</li>
-</ul>
-</section>
-<section id="fully-ingested-groups-100" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="fully-ingested-groups-100"><span class="header-section-number">4</span> Fully Ingested Groups (100%+)</h2>
-<p>These groups are fully available on CDSE. Percentages above 100% indicate CDSE contains additional derived datasets (e.g., confidence layers) beyond the land portal’s base product listing.</p>
-<ul>
-<li>Pan-European — <strong>Crop Types</strong> — 2/1 (200%)</li>
-<li>Global — <strong>Water Extent</strong> — 7/4 (175%)</li>
-<li>Pan-European — <strong>Cropping Patterns</strong> — 20/12 (167%)</li>
-<li>Pan-European — <strong>Grassland Mowing Events</strong> — 3/2 (150%)</li>
-<li>Global — <strong>Vegetation Indices</strong> — 8/6 (133%)</li>
-<li>Global — <strong>River and Lake Ice Extent</strong> — 8/7 (114%)</li>
-<li>Global — <strong>Burnt Area</strong> — 4/4 (100%)</li>
-<li>Pan-European — <strong>CLCplus LULUCF Instance</strong> — 1/1 (100%)</li>
-<li>Global — <strong>Dynamic Land Cover</strong> — 3/3 (100%)</li>
-<li>Global — <strong>Evapotranspiration</strong> — 2/2 (100%)</li>
-<li>Pan-European — <strong>Grassland and Herbaceous</strong> — 7/7 (100%)</li>
-<li>Global — <strong>Lake Water Quality</strong> — 5/5 (100%)</li>
-<li>Global — <strong>Primary Production</strong> — 10/10 (100%)</li>
-<li>Global — <strong>River and Lake Water Level</strong> — 2/2 (100%)</li>
-<li>Global — <strong>Snow Cover Extent</strong> — 7/7 (100%)</li>
-<li>Global — <strong>Snow State</strong> — 2/2 (100%)</li>
-<li>Global — <strong>Snow Water Equivalent</strong> — 2/2 (100%)</li>
-<li>Global — <strong>Soil Moisture / SWI</strong> — 10/10 (100%)</li>
-<li>Global — <strong>Vegetation Properties</strong> — 9/9 (100%)</li>
-</ul>
-</section>
-<section id="scope-breakdown" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="scope-breakdown"><span class="header-section-number">5</span> Scope Breakdown</h2>
-<section id="global-products" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="global-products"><span class="header-section-number">5.1</span> 🌍 Global Products</h3>
+<section id="scope-breakdown" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="scope-breakdown"><span class="header-section-number">3</span> Scope Breakdown</h2>
+<section id="global-products" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="global-products"><span class="header-section-number">3.1</span> 🌍 Global Products</h3>
 <p>Products with worldwide coverage — bio-geophysical variables (temperature, water, snow, vegetation, energy fluxes), land cover (Dynamic Land Cover, Water Extent), and vegetation parameters.</p>
-<p><strong>15/17</strong> groups have datasets on CDSE.</p>
+<p><strong>15/18</strong> groups have datasets on CDSE.</p>
 </section>
-<section id="pan-european-products" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="pan-european-products"><span class="header-section-number">5.2</span> 🇪🇺 Pan-European Products</h3>
+<section id="pan-european-products" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="pan-european-products"><span class="header-section-number">3.2</span> 🇪🇺 Pan-European Products</h3>
 <p>Products covering the EEA39 region (Europe) — high-resolution land cover, land use, forest, grassland, and imperviousness layers, thematic products (CLC, CLC+, EU-Hydro, EGMS, Image Mosaic), and vegetation seasonal trajectories.</p>
 <p><strong>8/17</strong> groups have datasets on CDSE.</p>
 </section>
-<section id="priority-area-products" class="level3" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="priority-area-products"><span class="header-section-number">5.3</span> 📍 Priority Area Products</h3>
+<section id="priority-area-products" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="priority-area-products"><span class="header-section-number">3.3</span> 📍 Priority Area Products</h3>
 <p>Local-scale monitoring products covering specific areas of interest (urban, coastal, riparian, protected areas, hot spots).</p>
-<p><strong>1/5</strong> groups have datasets on CDSE.</p>
+<p><strong>1/4</strong> groups have datasets on CDSE.</p>
 </section>
 </section>
-<section id="services" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="services"><span class="header-section-number">6</span> Services</h2>
+<section id="services" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="services"><span class="header-section-number">4</span> Services</h2>
 <p>CLMS data on CDSE is available through the following services:</p>
 <ul>
 <li><a href="https://csv.dataspace.copernicus.eu/CLMS/">S3</a></li>
@@ -894,8 +844,8 @@ Denmark<br>
 <li><a href="https://documentation.dataspace.copernicus.eu/Data/CopernicusServices/CLMS.html">Docs</a></li>
 </ul>
 </section>
-<section id="methodology" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="methodology"><span class="header-section-number">7</span> Methodology</h2>
+<section id="methodology" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="methodology"><span class="header-section-number">5</span> Methodology</h2>
 <p>This report is generated by a weekly scraper that:</p>
 <ol type="1">
 <li><strong>Fetches the land.copernicus.eu portfolio</strong> — all 249 datasets across 39 product groups via the Plone REST API.</li>
