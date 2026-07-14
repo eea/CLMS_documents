@@ -9,6 +9,7 @@
 | [CLCplus Backbone 2021 - Product User Manual](../products/CLCplus_Backbone_2021_PUM_v1.llms.md) | 1.2.2 | Jun 12, 2025 |
 | [CLCplus Backbone 2023 - Algorith Theoretical Basis Document](../products/CLCplus_Backbone_2023_ATBD_v1.llms.md) | 1.2.2 | Apr 1, 2025 |
 | [CLCplus Backbone 2023 – Product User Manual](../products/CLCplus_Backbone_2023_PUM_v1.llms.md) | 1.3.1 | Apr 1, 2025 |
+| [CLMS → CDSE Migration Status](../products/CDSE_Migration_CLMS_CDSE_Migration_Status.llms.md) | weekly | Jul 14, 2026 |
 | [Coastal Zones Monitoring 2012-2018 - Nomenclature Guideline](../products/Coastal_Zones_2012-2018_Nomenclature_Guideline_v1.llms.md) | 1.2.2 | Feb 15, 2021 |
 | [European Ground Motion Service (EGMS) - Algorithm Theoretical Basis Document](../products/European_Ground_Motion_Service_Algorithm_Theoretical_Basis_Document_v4.llms.md) | 4.0.1 | Aug 7, 2025 |
 | [European Ground Motion Service (EGMS) - GNSS calibration data](../products/European_Ground_Motion_Service_GNSS_Calibration_Data_v1.llms.md) | 1.0.1 | Apr 15, 2023 |
