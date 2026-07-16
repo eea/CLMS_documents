@@ -12,21 +12,13 @@ format:
     embed-resources: false
 ---
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  var cb = function() {
-    var els = document.querySelectorAll("details.quarto-code-fold, .cell-code, .sourceCode");
-    for (var i = 0; i < els.length; i++) { els[i].style.display = "none"; }
-  };
-  if (document.readyState === "complete" || document.readyState === "interactive") {
-    cb();
-  } else {
-    document.addEventListener("readystatechange", cb);
-  }
-});
-</script>
+
 
 ```{ojs}
+// ── Hide Quarto code-fold disclosure triangles ──
+await new Promise(r => { if (document.readyState === "complete") setTimeout(r, 200); else addEventListener("load", () => setTimeout(r, 500)); });
+document.querySelectorAll("details.quarto-code-fold, .cell-code, .sourceCode").forEach(function(el) { el.style.display = "none"; });
+
 // ── Load data from external URL (not from repo) ──
 data = await fetch("https://raw.githubusercontent.com/copernicus-land/clms-cdse-migration-data/main/migration_data.json")
   .then(r => r.json())
