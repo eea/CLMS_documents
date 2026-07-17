@@ -74,6 +74,20 @@ template, an old document, or the rendered page shows more:
 | `author` | no | string, or list of strings |
 | `type` | no | experimental: `dashboard` / `table` / `document` (default) |
 
+`type` selects a per-document rendering profile (`TYPE_FEATURES` in
+`strip_unknown_frontmatter.py`):
+
+- `dashboard` — allows `format`, `echo`, `code-fold`, `toc`, `toc-depth` in
+  frontmatter; skips intro generation, keyword tagging, and PDF rendering.
+- `table` — no extra allowed fields; skips PDF rendering.
+- `document` (default) — no extra fields, no skips.
+
+An invalid `type` never fails the build — it degrades to `document`. A
+non-string value (e.g. a YAML list) is dropped from frontmatter entirely; an
+unrecognized string (typo, unsupported type) is left in place but triggers a
+build warning. Either way the effective allowlist and features fall back to
+plain `document` behavior.
+
 Do **not** add any other field to source. Two kinds get discarded:
 
 - **Pipeline writes them (overwrites yours):** `version`, `keywords`,
