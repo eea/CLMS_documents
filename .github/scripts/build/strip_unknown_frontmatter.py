@@ -36,6 +36,12 @@ ALLOWLIST = {
     "version",
     "keywords",
     "original-filename",
+    "type",
+}
+
+TYPE_ALLOWLIST = {
+    "dashboard": {"format", "echo", "code-fold"},
+    "table": set(),  # reserved for future
 }
 
 EXCLUDED_DIRS = {"templates", "theme", "includes", "_meta", "_site", ".quarto"}
@@ -52,11 +58,15 @@ def strip_one(qmd_path: Path) -> tuple[bool, list[str]]:
     if not yaml_data or not lines:
         return False, []
 
-    dropped = sorted(k for k in yaml_data.keys() if k not in ALLOWLIST)
+    doc_type = yaml_data.get("type")
+    extra = TYPE_ALLOWLIST.get(doc_type, set())
+    effective_allowlist = ALLOWLIST | extra
+
+    dropped = sorted(k for k in yaml_data.keys() if k not in effective_allowlist)
     if not dropped:
         return False, []
 
-    cleaned = {k: v for k, v in yaml_data.items() if k in ALLOWLIST}
+    cleaned = {k: v for k, v in yaml_data.items() if k in effective_allowlist}
     write_qmd_frontmatter(qmd_path, cleaned, lines)
     return True, dropped
 

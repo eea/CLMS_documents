@@ -72,6 +72,7 @@ template, an old document, or the rendered page shows more:
 | `category` | yes | one of the values in [`.github/scripts/categories.yml`](.github/scripts/categories.yml) |
 | `date` | yes | `YYYY-MM-DD` |
 | `author` | no | string, or list of strings |
+| `type` | no | experimental: `dashboard` / `table` / `document` (default) |
 
 Do **not** add any other field to source. Two kinds get discarded:
 

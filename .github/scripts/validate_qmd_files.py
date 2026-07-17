@@ -120,6 +120,15 @@ def validate_qmd(file_path: Path) -> List[str]:
     if author is not None and not isinstance(author, (str, list)):
         issues.append("author, if present, must be a string or list of strings")
 
+    doc_type = metadata.get("type")
+    if doc_type is not None:
+        if not isinstance(doc_type, str):
+            issues.append("type, if present, must be a string")
+        elif doc_type not in {"dashboard", "table", "document"}:
+            issues.append(
+                f"type must be one of dashboard, table, document; got {doc_type!r}"
+            )
+
     return issues
 
 
