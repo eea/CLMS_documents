@@ -1,26 +1,18 @@
 ---
-title: "CLMS to Copernicus Data Space Ecosystem Migration"
-subtitle: "Weekly Status Update"
+title: "CLMS Migration to Copernicus Data Space Ecosystem"
+subtitle: "Status Update"
 author: "Copernicus Land Monitoring Service"
 date: 2026-07-16
-date-format: "long"
 category: non-browsable
+type: dashboard
 format:
   html:
-    page-layout: full
-    toc: true
-    toc-depth: 2
-    embed-resources: false
+    code-fold: false
 ---
 
 
 
 ```{ojs}
-// ── Hide Quarto code-fold disclosure triangles ──
-hideCode = new Promise(r => { if (document.readyState === "complete") setTimeout(r, 200); else addEventListener("load", () => setTimeout(r, 500)); }).then(() => {
-  document.querySelectorAll("details.quarto-code-fold, .cell-code, .sourceCode").forEach(function(el) { el.style.display = "none"; });
-})
-
 // ── Load data from external URL (not from repo) ──
 data = await fetch("https://raw.githubusercontent.com/copernicus-land/clms-cdse-migration-data/main/migration_data.json")
   .then(r => r.json())
@@ -80,16 +72,6 @@ catStats = categories.map(cat => {
 })
 
 // ── Helpers ──
-pctColor = (pct) => pct >= 100 ? "#00aa00" : pct >= 75 ? "#66cc00" : pct >= 50 ? "#ffcc00" : pct >= 25 ? "#ff8800" : "#ff0000"
-
-pctBar = (pct) => {
-  const capped = Math.min(pct, 100)
-  const color = pctColor(pct)
-  const filled = "█".repeat(Math.floor(capped / 20))
-  const empty = "░".repeat(Math.max(0, 5 - Math.floor(capped / 20)))
-  return htl.html`<span style="color:${color};font-weight:bold">${pct}%</span> <span style="color:#bbb">${filled}${empty}</span>`
-}
-
 badge = (val, total) => {
   if (val === 0 && total === 0) return htl.html`<span style="background:#888;color:#fff;padding:1px 6px;border-radius:3px;font-weight:bold">—</span>`
   const pct = Math.min(val / Math.max(total, 1), 1)
@@ -111,6 +93,11 @@ dailyDelta = data.daily_delta || 0
 weeklyDelta = data.weekly_delta || 0
 odataDailyAvg = data.odata_daily_avg || 0
 
+// ── Expand/collapse state, kept outside the DOM so it survives the full
+// table rebuild that happens on every filter or search change ──
+expandedCategories = new Set()
+expandedGroups = new Set()
+
 // ── Toggle functions for expand/collapse (plain DOM, no OJS reactivity) ──
 toggleScript = {
   window.toggleCategory = function(catName) {
@@ -122,6 +109,10 @@ toggleScript = {
       // Collapsing the category also collapses any open dataset rows within it
       document.querySelectorAll('tr[data-category="' + key + '"][data-group]').forEach(function(r) { r.style.display = 'none'; });
       document.querySelectorAll('span[data-group-arrow^="' + key + '::"]').forEach(function(a) { a.textContent = '▶'; });
+      expandedCategories.delete(catName);
+      [...expandedGroups].filter(k => k.startsWith(catName + '::')).forEach(k => expandedGroups.delete(k));
+    } else {
+      expandedCategories.add(catName);
     }
     const arrow = document.querySelector('span[data-arrow="' + key + '"]');
     if (arrow) arrow.textContent = isExpanded ? '▶' : '▼';
@@ -131,6 +122,8 @@ toggleScript = {
     const rows = document.querySelectorAll('tr[data-group="' + key + '"]');
     const isExpanded = rows.length > 0 && rows[0].style.display !== 'none';
     rows.forEach(function(r) { r.style.display = isExpanded ? 'none' : ''; });
+    if (isExpanded) expandedGroups.delete(groupKey);
+    else expandedGroups.add(groupKey);
     const arrow = document.querySelector('span[data-group-arrow="' + key + '"]');
     if (arrow) arrow.textContent = isExpanded ? '▶' : '▼';
   }
@@ -219,7 +212,7 @@ onboardingPlot = {
 }
 ```
 
-## Migration History
+## Migration Statistics
 
 ```{ojs}
 html`
@@ -239,7 +232,7 @@ ${changes.length === 0 ? htl.html `<div style="background:#f5f5f5;border:1px sol
 
 ${(odataDaily.weekly_delta || odataDaily.daily_delta || (odataDaily.history || []).length > 0) ? htl.html `
 <div style="background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:12px;margin:12px 0">
-  <strong>📦 Onboarding history</strong>
+  <strong>📦 File Level Statitics</strong>
   ${odataDaily.daily_avg ? htl.html `<div style="margin:4px 0;color:#888;font-size:0.85em">Daily average: ${odataDaily.daily_avg.toLocaleString()} new files/day</div>` : ""}
   ${onboardingPlot}
 </div>` : ""}
@@ -299,8 +292,8 @@ viewof searchTerm = Inputs.text({label: "Search", placeholder: "Product group…
 // so that column widths defined on <colgroup> are guaranteed to apply to
 // every row, including rows toggled between hidden/visible.
 productGroupsTable = {
-  const COLS = 8;
-  const colWidths = ["auto", "9%", "9%", "9%", "9%", "9%", "9%", "18%"];
+  // Category takes the remaining width (~46%) now that Progress is gone
+  const colWidths = ["auto", "9%", "9%", "9%", "9%", "9%", "9%"];
 
   function makeCell(tag, html, opts = {}) {
     const el = document.createElement(tag);
@@ -333,8 +326,8 @@ productGroupsTable = {
   const thead = document.createElement("thead");
   const headRow = document.createElement("tr");
   headRow.style.cssText = "background:#f0f0f0;text-align:left";
-  ["Category", "Total", "CDSE", "S3", "STAC", "OpenEO", "S.Hub", "Progress"].forEach((label, i) => {
-    const th = makeCell("th", label, { center: i > 0 && i < 7, padding: "6px" });
+  ["Category", "Total", "CDSE", "S3", "STAC", "OpenEO", "S.Hub"].forEach((label, i) => {
+    const th = makeCell("th", label, { center: i > 0, padding: "6px" });
     th.style.borderBottom = "2px solid #ddd";
     headRow.appendChild(th);
   });
@@ -350,7 +343,7 @@ productGroupsTable = {
     const nameCell = makeCell("td", "", { bold: true, title: cat.name });
     const arrow = document.createElement("span");
     arrow.dataset.arrow = cat.name;
-    arrow.textContent = "▶";
+    arrow.textContent = expandedCategories.has(cat.name) ? "▼" : "▶";
     nameCell.appendChild(arrow);
     nameCell.append(" " + cat.name);
     tr.appendChild(nameCell);
@@ -361,7 +354,6 @@ productGroupsTable = {
     tr.appendChild(makeCell("td", badge(cat.stac, cat.total), { center: true }));
     tr.appendChild(makeCell("td", badge(cat.openeo, cat.total), { center: true }));
     tr.appendChild(makeCell("td", badge(cat.shub, cat.total), { center: true }));
-    tr.appendChild(makeCell("td", pctBar(cat.pct), {}));
 
     tr.addEventListener("click", () => window.toggleCategory(cat.name));
     tbody.appendChild(tr);
@@ -370,7 +362,7 @@ productGroupsTable = {
       const groupKey = cat.name + "::" + g.name;
       const gtr = document.createElement("tr");
       gtr.dataset.category = cat.name;
-      gtr.style.cssText = "border-bottom:1px solid #ddd;display:none;cursor:pointer";
+      gtr.style.cssText = "border-bottom:1px solid #ddd;cursor:pointer" + (expandedCategories.has(cat.name) ? "" : ";display:none");
 
       const gNameCell = makeCell("td", "", { title: g.name, padding: "4px 6px 4px 24px" });
       const dsInFilter = (g.cdse_datasets || []).filter(ds => activeComponents.has(ds.component));
@@ -379,7 +371,7 @@ productGroupsTable = {
       if (hasDatasets) {
         const gArrow = document.createElement("span");
         gArrow.dataset.groupArrow = groupKey;
-        gArrow.textContent = "▶";
+        gArrow.textContent = expandedGroups.has(groupKey) ? "▼" : "▶";
         gArrow.style.marginRight = "4px";
         gNameCell.appendChild(gArrow);
       }
@@ -397,7 +389,6 @@ productGroupsTable = {
       gtr.appendChild(makeCell("td", badge(g.stac, g.total), { center: true, padding: "4px 6px" }));
       gtr.appendChild(makeCell("td", badge(g.openeo, g.total), { center: true, padding: "4px 6px" }));
       gtr.appendChild(makeCell("td", badge(g.shub, g.total), { center: true, padding: "4px 6px" }));
-      gtr.appendChild(makeCell("td", pctBar(g.pct), { padding: "4px 6px" }));
 
       if (hasDatasets) {
         gtr.addEventListener("click", () => window.toggleGroup(groupKey));
@@ -408,7 +399,7 @@ productGroupsTable = {
         const dtr = document.createElement("tr");
         dtr.dataset.category = cat.name;
         dtr.dataset.group = groupKey;
-        dtr.style.cssText = "border-bottom:1px solid #eee;display:none;background:#fafafa";
+        dtr.style.cssText = "border-bottom:1px solid #eee;background:#fafafa" + (expandedGroups.has(groupKey) ? "" : ";display:none");
 
         dtr.appendChild(makeCell("td", ds.id, { padding: "3px 6px 3px 44px", title: ds.id }));
         dtr.appendChild(makeCell("td", "", { padding: "3px 6px" }));
@@ -417,7 +408,6 @@ productGroupsTable = {
         dtr.appendChild(makeCell("td", check(ds.stac), { center: true, padding: "3px 6px" }));
         dtr.appendChild(makeCell("td", check(ds.openeo), { center: true, padding: "3px 6px" }));
         dtr.appendChild(makeCell("td", check(ds.shub), { center: true, padding: "3px 6px" }));
-        dtr.appendChild(makeCell("td", "", { padding: "3px 6px" }));
 
         tbody.appendChild(dtr);
       });
@@ -426,7 +416,7 @@ productGroupsTable = {
         const dtr = document.createElement("tr");
         dtr.dataset.category = cat.name;
         dtr.dataset.group = groupKey;
-        dtr.style.cssText = "border-bottom:1px solid #eee;display:none;background:#fafafa";
+        dtr.style.cssText = "border-bottom:1px solid #eee;background:#fafafa" + (expandedGroups.has(groupKey) ? "" : ";display:none");
 
         dtr.appendChild(makeCell("td", lp.title, { padding: "3px 6px 3px 44px", title: lp.title, style: "color:#999;font-style:italic" }));
         dtr.appendChild(makeCell("td", "", { padding: "3px 6px" }));
@@ -435,7 +425,6 @@ productGroupsTable = {
         dtr.appendChild(makeCell("td", "—", { center: true, padding: "3px 6px", style: "color:#ccc" }));
         dtr.appendChild(makeCell("td", "—", { center: true, padding: "3px 6px", style: "color:#ccc" }));
         dtr.appendChild(makeCell("td", "—", { center: true, padding: "3px 6px", style: "color:#ccc" }));
-        dtr.appendChild(makeCell("td", "", { padding: "3px 6px" }));
 
         tbody.appendChild(dtr);
       });
@@ -455,7 +444,6 @@ productGroupsTable = {
   const sumSTAC = d3.sum(catStats, d => d.stac);
   const sumOEO = d3.sum(catStats, d => d.openeo);
   const sumSHub = d3.sum(catStats, d => d.shub);
-  const sumPct = Math.round(sumCDSE / Math.max(sumTotal, 1) * 100);
 
   sumRow.appendChild(makeCell("td", String(sumTotal), { center: true, bold: true }));
   sumRow.appendChild(makeCell("td", String(sumCDSE), { center: true, bold: true }));
@@ -463,7 +451,6 @@ productGroupsTable = {
   sumRow.appendChild(makeCell("td", badge(sumSTAC, sumTotal), { center: true }));
   sumRow.appendChild(makeCell("td", badge(sumOEO, sumTotal), { center: true }));
   sumRow.appendChild(makeCell("td", badge(sumSHub, sumTotal), { center: true }));
-  sumRow.appendChild(makeCell("td", pctBar(sumPct), {}));
   tbody.appendChild(sumRow);
 
   table.appendChild(tbody);
