@@ -5,6 +5,8 @@ author: "Copernicus Land Monitoring Service"
 date: 2026-07-16
 category: non-browsable
 type: dashboard
+execute:
+  echo: false
 format:
   html:
     code-fold: false
@@ -13,9 +15,9 @@ format:
 
 
 ```{ojs}
-// ── Load data from external URL (not from repo) ──
+// ── Load data from the canonical data repo ──
 data = await fetch("https://raw.githubusercontent.com/copernicus-land/clms-cdse-migration-data/main/migration_data.json")
-  .then(r => r.json())
+  .then(r => { if (!r.ok) throw new Error(String(r.status)); return r.json() })
   .catch(e => { console.error("Failed to load data", e); return {groups:[], portfolio:{}, cdse:{}, summary:{}} })
 groups = data.groups
 summary = data.summary
@@ -23,19 +25,36 @@ portfolio = data.portfolio
 cdse = data.cdse
 lastUpdated = data.scraped_at.slice(0,10)
 
-// ── Load daily OData file tracking ──
-odataDaily = await fetch("https://raw.githubusercontent.com/copernicus-land/clms-cdse-migration-data/main/odata_daily.json")
-  .then(r => r.json())
-  .catch(e => { console.error("Failed to load odata_daily", e); return {history: []} })
+// ── OData tracking lives in the main data file (single JSON) ──
+odataDaily = data.odata_tracking || {}
+
+// ── OData deltas, computed client-side from the daily totals history ──
+odataHist = odataDaily.history || []
+odataTotal = odataDaily.total_odata || (odataHist.length ? odataHist[odataHist.length - 1].total : 0)
+odataDailyDelta = odataHist.length >= 2
+  ? odataHist[odataHist.length - 1].total - odataHist[odataHist.length - 2].total
+  : 0
+odataWeeklyBase = {
+  if (odataHist.length === 0) return null
+  const today = odataHist[odataHist.length - 1].date
+  const weekAgo = new Date(new Date(today).getTime() - 7 * 86400000).toISOString().slice(0, 10)
+  const past = odataHist.filter(h => h.date <= weekAgo)
+  return past.length ? past[past.length - 1] : odataHist[0]
+}
+odataWeeklyDelta = odataWeeklyBase ? odataTotal - odataWeeklyBase.total : 0
+odataDaysCovered = odataWeeklyBase && odataHist.length
+  ? Math.max(1, Math.round((new Date(odataHist[odataHist.length - 1].date) - new Date(odataWeeklyBase.date)) / 86400000))
+  : 1
+odataDailyAvg = odataWeeklyDelta ? Math.round(odataWeeklyDelta / odataDaysCovered) : 0
 
 // ── Filter groups ──
 componentOf = d => {
-  if (d.cdse_datasets?.length > 0) return d.cdse_datasets[0].component
-  return d.lp_datasets?.[0]?.component || ""
+  if (d.datasets?.length > 0) return d.datasets[0].component
+  return d.portfolio?.[0]?.component || ""
 }
 groupHasComponent = (g, comp) => {
-  if (g.cdse_datasets?.some(d => d.component === comp)) return true
-  if (g.lp_datasets?.some(d => d.component === comp)) return true
+  if (g.datasets?.some(d => d.component === comp)) return true
+  if (g.portfolio?.some(d => d.component === comp)) return true
   return false
 }
 filtered = groups.filter(d => {
@@ -83,15 +102,29 @@ check = (on) => on
   ? htl.html`<span style="color:#00aa00;font-weight:bold">✓</span>`
   : htl.html`<span style="color:#ccc">✗</span>`
 
-// ── Changes since last week ──
-changes = data.changes_since_last_week || []
+// ── Deltas vs previous run, computed client-side from the embedded snapshot ──
+prevByName = Object.fromEntries((data.previous?.groups || []).map(g => [g.name, g]))
+changes = (data.previous?.groups?.length ? groups : []).map(g => {
+  const old = prevByName[g.name] || {}
+  const oldIds = new Set(old.cdse_dataset_ids || [])
+  const oldStac = new Set(old.stac_ids || [])
+  const oldOeo = new Set(old.openeo_ids || [])
+  const curIds = (g.datasets || []).map(d => d.id)
+  const dS3 = g.s3 - (old.s3 || 0)
+  const dStac = g.stac - (old.stac || 0)
+  const dOeo = g.openeo - (old.openeo || 0)
+  return {
+    name: g.name,
+    s3: dS3, stac: dStac, openeo: dOeo,
+    newly_on_cdse: g.on_cdse > 0 && !(old.on_cdse > 0),
+    new_s3: dS3 > 0 ? curIds.filter(id => !oldIds.has(id)) : [],
+    new_stac: dStac > 0 ? curIds.filter(id => !oldStac.has(id)) : [],
+    new_openeo: dOeo > 0 ? curIds.filter(id => !oldOeo.has(id)) : [],
+  }
+}).filter(d => d.s3 !== 0 || d.stac !== 0 || d.openeo !== 0)
 newGroups = changes.filter(d => d.newly_on_cdse)
 positiveChanges = changes.filter(d => d.s3 > 0 && !d.newly_on_cdse)
-lastWeek = changes.length > 0 ? "since " + data.scraped_at.slice(0,10) : ""
-odataDelta = data.odata_delta || 0
-dailyDelta = data.daily_delta || 0
-weeklyDelta = data.weekly_delta || 0
-odataDailyAvg = data.odata_daily_avg || 0
+lastWeek = changes.length > 0 ? "since " + (data.previous?.scraped_at || data.scraped_at).slice(0,10) : ""
 
 // ── Expand/collapse state, kept outside the DOM so it survives the full
 // table rebuild that happens on every filter or search change ──
@@ -148,8 +181,11 @@ onboardingPlot = {
     container.innerHTML = ""
 
     const data = mode === "daily"
-      ? (odataDaily.history || []).slice().reverse().map(h => ({label: h.date, value: h.delta, color: h.delta >= 0 ? '#e67e22' : '#e74c3c'}))
-      : [{label: "WoY " + getWeekNumber(odataDaily.scraped_at), value: odataDaily.weekly_delta || 0, color: '#e67e22'}]
+      ? odataHist.map((h, i) => {
+          const d = i > 0 ? h.total - odataHist[i - 1].total : 0
+          return {label: h.date, value: d, color: d >= 0 ? '#e67e22' : '#e74c3c'}
+        }).slice(1).reverse()
+      : [{label: "WoY " + getWeekNumber(odataDaily.scraped_at || ""), value: odataWeeklyDelta, color: '#e67e22'}]
 
     const maxVal = Math.max(...data.map(d => Math.abs(d.value)), 1)
 
@@ -230,22 +266,14 @@ ${positiveChanges.length > 0 ? htl.html `
 
 ${changes.length === 0 ? htl.html `<div style="background:#f5f5f5;border:1px solid #ddd;border-radius:6px;padding:12px;margin:12px 0;color:#888">No new CLMS product were onboarded this week.</div>` : ""}
 
-${(odataDaily.weekly_delta || odataDaily.daily_delta || (odataDaily.history || []).length > 0) ? htl.html `
+${(odataWeeklyDelta || odataDailyDelta || odataHist.length > 0) ? htl.html `
 <div style="background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:12px;margin:12px 0">
   <strong>📦 File Level Statitics</strong>
-  ${odataDaily.daily_avg ? htl.html `<div style="margin:4px 0;color:#888;font-size:0.85em">Daily average: ${odataDaily.daily_avg.toLocaleString()} new files/day</div>` : ""}
+  ${odataDailyAvg ? htl.html `<div style="margin:4px 0;color:#888;font-size:0.85em">Daily average: ${odataDailyAvg.toLocaleString()} new files/day</div>` : ""}
   ${onboardingPlot}
 </div>` : ""}
 `
 ```
-
-## Upcoming
-
-> _Details to be provided — placeholder for upcoming CLMS products planned for CDSE ingestion._
-
-Preparing dataset descriptions, expected timelines, and service coverage for the next batch of products to be onboarded.
-
----
 
 ## CLMS Product on CDSE
 
@@ -365,8 +393,8 @@ productGroupsTable = {
       gtr.style.cssText = "border-bottom:1px solid #ddd;cursor:pointer" + (expandedCategories.has(cat.name) ? "" : ";display:none");
 
       const gNameCell = makeCell("td", "", { title: g.name, padding: "4px 6px 4px 24px" });
-      const dsInFilter = (g.cdse_datasets || []).filter(ds => activeComponents.has(ds.component));
-      const lpOffCdse = (g.lp_datasets || []).filter(lp => !lp.on_cdse && activeComponents.has(lp.component));
+      const dsInFilter = (g.datasets || []).filter(ds => activeComponents.has(ds.component));
+      const lpOffCdse = (g.portfolio || []).filter(lp => !lp.on_cdse && activeComponents.has(lp.component));
       const hasDatasets = dsInFilter.length + lpOffCdse.length > 0;
       if (hasDatasets) {
         const gArrow = document.createElement("span");
@@ -468,6 +496,14 @@ productGroupsTable = {
 - [OpenEO](https://openeo.dataspace.copernicus.eu/)
 - [Sentinel Hub](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Data/CLMS.html)
 - [CDSE Documentation](https://documentation.dataspace.copernicus.eu/Data/CopernicusServices/CLMS.html)
+
+## On CDSE soon
+
+> _Details to be provided — placeholder for upcoming CLMS products planned for CDSE ingestion._
+
+Preparing dataset descriptions, expected timelines, and service coverage for the next batch of products to be onboarded.
+
+---
 
 ## Methodology
 
