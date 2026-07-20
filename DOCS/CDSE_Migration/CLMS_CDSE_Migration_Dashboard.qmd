@@ -1,0 +1,349 @@
+---
+title: "CLMS Migration to Copernicus Data Space Ecosystem"
+subtitle: "Simulated Data — 14-Day Timeline"
+author: "Copernicus Land Monitoring Service"
+date: 2026-08-03
+category: non-browsable
+type: dashboard
+---
+
+```{ojs}
+// ── Load data from the simulated branch ──
+data = await fetch("https://raw.githubusercontent.com/copernicus-land/clms-cdse-migration-data/feat/simulated-data/migration_data.json")
+  .then(r => { if (!r.ok) throw new Error(String(r.status)); return r.json() })
+  .catch(e => { console.error("Failed to load data", e); return {groups:[], portfolio:{}, cdse:{}, summary:{}} })
+groups = data.groups
+summary = data.summary
+portfolio = data.portfolio
+cdse = data.cdse
+lastUpdated = data.scraped_at.slice(0,10)
+
+// ── OData deltas from the simulated data ──
+odataDelta = data.odata_delta || 0
+odataWeekly = data.weekly_delta || 0
+odataDailyAvg = data.odata_daily_avg || 0
+
+// ── Filter groups ──
+componentOf = d => {
+  if (d.datasets?.length > 0) return d.datasets[0].component
+  return d.portfolio?.[0]?.component || ""
+}
+groupHasComponent = (g, comp) => {
+  if (g.datasets?.some(d => d.component === comp)) return true
+  if (g.portfolio?.some(d => d.component === comp)) return true
+  return false
+}
+filtered = groups.filter(d => {
+  let matches = false
+  for (const comp of activeComponents) {
+    if (groupHasComponent(d, comp)) { matches = true; break }
+  }
+  if (!matches) return false
+  if (searchTerm && !d.name.toLowerCase().includes(searchTerm.toLowerCase())) return false
+  return true
+})
+
+// ── Aggregate by category ──
+categories = [...new Set(filtered.map(d => d.category).filter(Boolean))].sort()
+
+filteredTotals = ({
+  datasets: d3.sum(filtered, d => d.total),
+  groups: filtered.length
+})
+catStats = categories.map(cat => {
+  const g = filtered.filter(d => d.category === cat)
+  return {
+    name: cat,
+    groups: g,
+    total: d3.sum(g, d => d.total),
+    on_cdse: d3.sum(g, d => d.on_cdse),
+    pct: Math.round(d3.sum(g, d => d.on_cdse) / Math.max(d3.sum(g, d => d.total), 1) * 100),
+    s3: d3.sum(g, d => d.s3),
+    stac: d3.sum(g, d => d.stac),
+    openeo: d3.sum(g, d => d.openeo),
+    shub: d3.sum(g, d => d.shub),
+  }
+})
+
+// ── Helpers ──
+badge = (val, total) => {
+  if (val === 0 && total === 0) return htl.html`<span style="background:#888;color:#fff;padding:1px 6px;border-radius:3px;font-weight:bold">—</span>`
+  const pct = Math.min(val / Math.max(total, 1), 1)
+  const color = pct >= 1 ? "#00aa00" : pct >= 0.75 ? "#66cc00" : pct >= 0.5 ? "#ffcc00" : pct >= 0.25 ? "#ff8800" : "#ff0000"
+  return htl.html`<span style="background:${color};color:#fff;padding:1px 6px;border-radius:3px;font-weight:bold">${val}</span>`
+}
+
+pctBar = (pct) => {
+  const capped = Math.min(pct, 100)
+  const filled = "█".repeat(Math.floor(capped / 5))
+  const empty = "░".repeat(Math.max(0, 20 - Math.floor(capped / 5)))
+  const color = pct >= 100 ? "#00aa00" : pct >= 75 ? "#66cc00" : pct >= 50 ? "#ffcc00" : pct >= 25 ? "#ff8800" : "#ff0000"
+  return htl.html`<span style="color:${color};font-weight:bold">${pct}%</span> <span style="color:#888">${filled}${empty}</span>`
+}
+
+check = (on) => on
+  ? htl.html`<span style="color:#00aa00;font-weight:bold">✓</span>`
+  : htl.html`<span style="color:#ccc">✗</span>`
+
+// ── Deltas vs previous run ──
+prevByName = Object.fromEntries((data.previous?.groups || []).map(g => [g.name, g]))
+changes = (data.previous?.groups?.length ? groups : []).map(g => {
+  const old = prevByName[g.name] || {}
+  const oldIds = new Set(old.cdse_dataset_ids || [])
+  const oldStac = new Set(old.stac_ids || [])
+  const oldOeo = new Set(old.openeo_ids || [])
+  const curIds = (g.datasets || []).map(d => d.id)
+  const dS3 = g.s3 - (old.s3 || 0)
+  const dStac = g.stac - (old.stac || 0)
+  const dOeo = g.openeo - (old.openeo || 0)
+  return {
+    name: g.name,
+    s3: dS3, stac: dStac, openeo: dOeo,
+    newly_on_cdse: g.on_cdse > 0 && !(old.on_cdse > 0),
+    new_s3: dS3 > 0 ? curIds.filter(id => !oldIds.has(id)) : [],
+    new_stac: dStac > 0 ? curIds.filter(id => !oldStac.has(id)) : [],
+    new_openeo: dOeo > 0 ? curIds.filter(id => !oldOeo.has(id)) : [],
+  }
+}).filter(d => d.s3 !== 0 || d.stac !== 0 || d.openeo !== 0)
+newGroups = changes.filter(d => d.newly_on_cdse)
+positiveChanges = changes.filter(d => d.s3 > 0 && !d.newly_on_cdse)
+lastWeek = changes.length > 0 ? "since " + (data.previous?.scraped_at || data.scraped_at).slice(0,10) : ""
+
+// ── Expand/collapse state ──
+expandedCategories = new Set()
+expandedGroups = new Set()
+
+// ── Toggle functions ──
+toggleScript = {
+  window.toggleCategory = function(catName) {
+    const key = catName.replace(/"/g, '&quot;');
+    const groupRows = document.querySelectorAll('tr[data-category="' + key + '"]:not([data-group])');
+    const isExpanded = groupRows.length > 0 && groupRows[0].style.display !== 'none';
+    groupRows.forEach(function(r) { r.style.display = isExpanded ? 'none' : ''; });
+    if (isExpanded) {
+      document.querySelectorAll('tr[data-category="' + key + '"][data-group]').forEach(function(r) { r.style.display = 'none'; });
+      document.querySelectorAll('span[data-group-arrow^="' + key + '::"]').forEach(function(a) { a.textContent = '▶'; });
+      expandedCategories.delete(catName);
+      [...expandedGroups].filter(k => k.startsWith(catName + '::')).forEach(k => expandedGroups.delete(k));
+    } else {
+      expandedCategories.add(catName);
+    }
+    const arrow = document.querySelector('span[data-arrow="' + key + '"]');
+    if (arrow) arrow.textContent = isExpanded ? '▶' : '▼';
+  }
+  window.toggleGroup = function(groupKey) {
+    const key = groupKey.replace(/"/g, '&quot;');
+    const rows = document.querySelectorAll('tr[data-group="' + key + '"]');
+    const isExpanded = rows.length > 0 && rows[0].style.display !== 'none';
+    rows.forEach(function(r) { r.style.display = isExpanded ? 'none' : ''; });
+    if (isExpanded) expandedGroups.delete(groupKey);
+    else expandedGroups.add(groupKey);
+    const arrow = document.querySelector('span[data-group-arrow="' + key + '"]');
+    if (arrow) arrow.textContent = isExpanded ? '▶' : '▼';
+  }
+}
+```
+
+## Migration Statistics
+
+```{ojs}
+html`
+${newGroups.length > 0 ? htl.html `
+<div style="background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;padding:12px;margin:12px 0">
+  <strong>🆕 Newly onboarded products ${lastWeek}</strong>
+  <div style="margin:4px 0"><strong>Newly onboarded:</strong> ${newGroups.map(d => d.name).join(", ")}</div>
+</div>` : ""}
+
+${positiveChanges.length > 0 ? htl.html `
+<div style="background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;padding:12px 12px 4px 12px;margin:12px 0">
+  <strong>📈 Product-level changes ${lastWeek}</strong>
+  ${positiveChanges.map(d => htl.html `<div style="margin:4px 0">${d.name}: <strong>+${d.s3}</strong> S3, <strong>+${d.stac}</strong> STAC, <strong>+${d.openeo}</strong> OpenEO</div>`)}
+</div>` : ""}
+
+${changes.length === 0 ? htl.html `<div style="background:#f5f5f5;border:1px solid #ddd;border-radius:6px;padding:12px;margin:12px 0;color:#888">No changes detected in this period.</div>` : ""}
+
+${odataDelta > 0 ? htl.html `
+<div style="background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:12px;margin:12px 0">
+  <strong>📦 File-level changes</strong>
+  <div style="margin:4px 0"><strong>+${odataDelta.toLocaleString()} files</strong> today</div>
+  <div style="margin:4px 0;color:#888;font-size:0.85em">Weekly: +${odataWeekly.toLocaleString()} · Daily avg: ${odataDailyAvg.toLocaleString()}/day</div>
+</div>` : ""}
+`
+```
+
+## Status Overview
+
+The CLMS portfolio is composed of **{ojs} portfolio.total_datasets** datasets. Of these, the following are available on the CDSE:
+
+| Metric | Value |
+|---|---|
+| CLMS in S3 | {ojs} cdse.total_dataset_ids dataset IDs |
+| CLMS via OData | {ojs} cdse.total_products_odata.toLocaleString() files |
+| CLMS via STAC | {ojs} cdse.total_stac_collections collections |
+| CLMS via OpenEO | {ojs} cdse.total_openeo_collections collections |
+
+## CLMS Products on CDSE
+
+This table shows the full CLMS portfolio with their migration status to the CDSE.
+
+```{ojs}
+// Toggle-button component filter
+viewof activeComponents = {
+  const allComponents = [...new Set(groups.map(d => componentOf(d)).filter(Boolean))].sort()
+  const active = new Set(allComponents)
+
+  const container = document.createElement("div")
+  container.style.cssText = "display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px";
+
+  function render() {
+    container.innerHTML = "";
+    allComponents.forEach(comp => {
+      const isActive = active.has(comp);
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = comp;
+      btn.style.cssText = `padding:6px 14px;border-radius:16px;cursor:pointer;font-size:0.85em;border:1px solid ${isActive ? "#0d6efd" : "#ccc"};background:${isActive ? "#0d6efd" : "#f5f5f5"};color:${isActive ? "#fff" : "#555"}`;
+      btn.addEventListener("click", () => {
+        if (active.has(comp)) active.delete(comp); else active.add(comp);
+        render();
+        activeComponents.value = active;
+        activeComponents.dispatchEvent(new CustomEvent("input"));
+      });
+      container.appendChild(btn);
+    });
+  }
+  render();
+  return container;
+}
+
+// Search
+viewof searchTerm = html`<input type="text" placeholder="🔍 Search product groups..." style="width:100%;padding:8px;border:1px solid #ccc;border-radius:6px;margin-bottom:12px;font-size:0.9em">`
+
+// Build table
+productGroupsTable = {
+  const COLS = 8;
+  const colWidths = ["12.5%", "12.5%", "12.5%", "12.5%", "12.5%", "12.5%", "12.5%", "12.5%"];
+
+  function makeCell(tag, html, opts = {}) {
+    const el = document.createElement(tag);
+    if (html instanceof Node) el.appendChild(html);
+    else el.innerHTML = html;
+    el.style.padding = opts.padding ?? "6px";
+    el.style.whiteSpace = "nowrap";
+    el.style.overflow = "hidden";
+    el.style.textOverflow = "ellipsis";
+    if (opts.center) el.style.textAlign = "center";
+    if (opts.bold) el.style.fontWeight = "bold";
+    if (opts.title) el.title = opts.title;
+    return el;
+  }
+
+  const table = document.createElement("table");
+  table.style.cssText = "width:100%;border-collapse:collapse;font-size:0.8em;table-layout:fixed;display:table";
+
+  const colgroup = document.createElement("colgroup");
+  colWidths.forEach(w => {
+    const col = document.createElement("col");
+    col.style.width = w;
+    colgroup.appendChild(col);
+  });
+  table.appendChild(colgroup);
+
+  // Header
+  const thead = document.createElement("thead");
+  const headerRow = document.createElement("tr");
+  ["Category / Group", "Total", "CDSE", "S3", "STAC", "OpenEO", "S.Hub", "Progress"].forEach(h => {
+    const th = document.createElement("th");
+    th.textContent = h;
+    th.style.cssText = "background:#f1f3f5;padding:8px 6px;text-align:center;font-weight:600;border-bottom:2px solid #dee2e6;white-space:nowrap";
+    headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  const tbody = document.createElement("tbody");
+
+  // Category rows
+  catStats.forEach(cat => {
+    const tr = document.createElement("tr");
+    tr.style.cssText = "background:#f8f9fa;cursor:pointer;font-weight:600";
+    tr.addEventListener("click", () => window.toggleCategory(cat.name));
+
+    const nameCell = makeCell("td", `<span data-arrow="${cat.name}">▶</span> ${cat.name}`, {title: cat.name});
+    tr.appendChild(nameCell);
+    tr.appendChild(makeCell("td", String(cat.total), {center: true}));
+    tr.appendChild(makeCell("td", String(cat.on_cdse), {center: true}));
+    tr.appendChild(makeCell("td", String(cat.s3), {center: true}));
+    tr.appendChild(makeCell("td", String(cat.stac), {center: true}));
+    tr.appendChild(makeCell("td", String(cat.openeo), {center: true}));
+    tr.appendChild(makeCell("td", String(cat.shub), {center: true}));
+    tr.appendChild(makeCell("td", pctBar(cat.pct), {center: true}));
+    tbody.appendChild(tr);
+
+    // Group rows
+    cat.groups.forEach(g => {
+      const gtr = document.createElement("tr");
+      gtr.dataset.category = cat.name;
+      gtr.style.display = "none";
+
+      const gS3 = g.s3 || 0;
+      const gTotal = Math.max(g.total, gS3);
+      const gPct = Math.round(gS3 / Math.max(gTotal, 1) * 100);
+
+      const gNameCell = makeCell("td", `<a href="${g.url || '#'}" target="_blank" style="color:#333;text-decoration:none">${g.name}</a>`, {padding: "6px 6px 6px 24px"});
+      gtr.appendChild(gNameCell);
+      gtr.appendChild(makeCell("td", String(g.total), {center: true}));
+      gtr.appendChild(makeCell("td", badge(g.on_cdse || 0, g.total), {center: true}));
+      gtr.appendChild(makeCell("td", String(gS3), {center: true}));
+      gtr.appendChild(makeCell("td", badge(g.stac || 0, gTotal), {center: true}));
+      gtr.appendChild(makeCell("td", badge(g.openeo || 0, gTotal), {center: true}));
+      gtr.appendChild(makeCell("td", badge(g.shub || 0, gTotal), {center: true}));
+      gtr.appendChild(makeCell("td", pctBar(gPct), {center: true}));
+      tbody.appendChild(gtr);
+    });
+  });
+
+  // Summary row
+  const allCatStats = catStats.reduce((acc, cat) => ({
+    total: (acc.total || 0) + cat.total,
+    on_cdse: (acc.on_cdse || 0) + cat.on_cdse,
+    s3: (acc.s3 || 0) + cat.s3,
+    stac: (acc.stac || 0) + cat.stac,
+    openeo: (acc.openeo || 0) + cat.openeo,
+    shub: (acc.shub || 0) + cat.shub,
+  }), {});
+  const allPct = Math.round(100 * (allCatStats.s3 || 0) / Math.max(allCatStats.total || 0, 1));
+
+  const sumRow = document.createElement("tr");
+  sumRow.style.cssText = "background:#e0e0e0;border-top:2px solid #999;font-weight:bold";
+  const sumName = makeCell("td", "Total", {bold: true});
+  sumName.style.fontStyle = "italic";
+  sumRow.appendChild(sumName);
+  sumRow.appendChild(makeCell("td", String(allCatStats.total), {center: true, bold: true}));
+  sumRow.appendChild(makeCell("td", String(allCatStats.on_cdse), {center: true, bold: true}));
+  sumRow.appendChild(makeCell("td", String(allCatStats.s3), {center: true, bold: true}));
+  sumRow.appendChild(makeCell("td", String(allCatStats.stac), {center: true, bold: true}));
+  sumRow.appendChild(makeCell("td", String(allCatStats.openeo), {center: true, bold: true}));
+  sumRow.appendChild(makeCell("td", String(allCatStats.shub), {center: true, bold: true}));
+  sumRow.appendChild(makeCell("td", pctBar(allPct), {center: true, bold: true}));
+  tbody.appendChild(sumRow);
+
+  table.appendChild(tbody);
+  return table;
+}
+```
+
+## Services
+
+| Service | Endpoint |
+|---|---|
+| CDSE CSV Catalogue | [`csv.dataspace.copernicus.eu/CLMS/`](https://csv.dataspace.copernicus.eu/CLMS/) |
+| CDSE OData API | [`catalogue.dataspace.copernicus.eu/odata/v1/Products`](https://catalogue.dataspace.copernicus.eu/odata/v1/Products?$filter=Collection/Name%20eq%20%27CLMS%27&$count=true&$top=1) |
+| CDSE STAC API | [`stac.dataspace.copernicus.eu/v1/collections`](https://stac.dataspace.copernicus.eu/v1/collections?limit=500) |
+| CDSE OpenEO API | [`openeo.dataspace.copernicus.eu/openeo/1.2/collections`](https://openeo.dataspace.copernicus.eu/openeo/1.2/collections) |
+
+## Methodology
+
+Data is collected from the Copernicus Data Space Ecosystem (CDSE) APIs and cross-referenced with the CLMS portfolio on the [Land Portal](https://land.copernicus.eu). Each CDSE dataset ID is mapped to a Land Portal product group. Service counts (S3, STAC, OpenEO, S.Hub) are collected per dataset ID. The OData count tracks total CLMS product files on CDSE storage.
+
+This dashboard uses **simulated data** covering a 14-day timeline (21 July – 3 August 2026) for testing purposes.
