@@ -21,6 +21,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))  # .github/scripts
 from helpers.json_io import load_json_or_empty
+from helpers.doc_types import element_off
 
 VERSIONS_FILE = ".llm_cache/versions.json"
 
@@ -82,6 +83,10 @@ def main():
         if not bounds:
             continue
         _, end = bounds
+
+        # version-off types keep their own `version:` header, if any; don't touch.
+        if element_off(fm_value(lines, end, "type"), "version"):
+            continue
 
         src = fm_value(lines, end, "original-filename")
         mj = major_from_name(src) if src else None

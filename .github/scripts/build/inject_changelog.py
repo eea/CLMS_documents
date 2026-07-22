@@ -11,6 +11,10 @@ from html.parser import HTMLParser
 pf.elements.RAW_FORMATS.add("typst")
 pf.elements.RAW_FORMATS.add("pdf")
 
+# honour `changelog: false` from doc-types.yml
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from helpers.doc_types import element_off
+
 CHANGE_LOG_PATH = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "../../../.llm_cache/change_logs.json")
 )
@@ -166,6 +170,10 @@ def get_input_file(doc):
 
 def add_changelog(doc):
     """Main filter function that adds changelog to the document"""
+    # changelog-off types (dashboard) get no Change Log
+    if element_off(doc.get_metadata("type"), "changelog"):
+        return doc
+
     current_file = get_input_file(doc)
     if not current_file:
         return doc

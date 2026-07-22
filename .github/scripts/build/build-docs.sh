@@ -127,6 +127,10 @@ cp _site/sitemap.xml.bkp _site/sitemap.xml
 rm -f _site/sitemap.xml.bkp
 mv _site/llms.txt.bkp _site/llms.txt
 
+# Drop .llms.md for llms-off types (dashboard), before the llm sitemap so it
+# falls back to the HTML URL.
+python3 ../.github/scripts/build/strip_llms_sidecars.py . _site
+
 # Remove non-browsable links from sitemap.xml and llms.txt
 python3 ../.github/scripts/build/remove_non_browsable.py _site/sitemap.xml
 python3 ../.github/scripts/build/remove_non_browsable.py --format llms _site/llms.txt
