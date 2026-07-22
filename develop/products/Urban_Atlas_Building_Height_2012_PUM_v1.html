@@ -91,26 +91,6 @@ ul.task-list li input[type="checkbox"] {
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "Building Block Height Model
-
-Digital Surface Model (DSM)
-
-Digital Terrain Model (DTM)
-
-Functional Urban Area (FUA)
-
-False stereo pair images
-
-Urban heat island effect
-
-Land Surface Temperature (LST)
-
-Population density modelling
-
-Semi-Global Matching (SGM)
-
-Building footprint extraction
-",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -228,7 +208,14 @@ Building footprint extraction
   document.addEventListener("DOMContentLoaded", function () {
     // Add Version to the title's metadata
     //
+    // Skip when there's no version (e.g. document-type with version off) so we
+    // don't render an empty "Version" heading, and when the doc has no
+    // title-meta block at all (nothing to append to). Quarto renders an unset
+    // meta key as the placeholder "?meta:version", so treat that as empty too.
+    const raw = `1.0.0`.trim();
+    const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
+    if (!version || !titleMetaEl) return;
     const wrapperDiv = document.createElement("div");
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
