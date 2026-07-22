@@ -5,11 +5,6 @@ author: "Copernicus Land Monitoring Service"
 date: 2026-07-16
 category: non-browsable
 type: dashboard
-execute:
-  echo: false
-format:
-  html:
-    code-fold: false
 ---
 
 
@@ -17,8 +12,11 @@ format:
 ```{ojs}
 // ── Load data from the canonical data repo ──
 data = await fetch("https://raw.githubusercontent.com/copernicus-land/clms-cdse-migration-data/main/migration_data.json")
-  .then(r => { if (!r.ok) throw new Error(String(r.status)); return r.json() })
-  .catch(e => { console.error("Failed to load data", e); return {groups:[], portfolio:{}, cdse:{}, summary:{}} })
+  .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json() })
+  // On failure, return a COMPLETE empty shape (every field the cells below read)
+  // plus `_loadError`, so nothing downstream throws and the dynamic blocks can
+  // show an error section instead of crashing the OJS runtime.
+  .catch(e => { console.error("Failed to load data", e); return {_loadError: String(e && e.message || e), groups:[], portfolio:{}, cdse:{}, summary:{}, scraped_at:"", odata_tracking:{history:[]}, previous:{groups:[]}} })
 groups = data.groups
 summary = data.summary
 portfolio = data.portfolio
@@ -101,6 +99,14 @@ badge = (val, total) => {
 check = (on) => on
   ? htl.html`<span style="color:#00aa00;font-weight:bold">✓</span>`
   : htl.html`<span style="color:#ccc">✗</span>`
+
+// ── Error banner shown in place of the dynamic blocks when the live data
+// load failed. A FUNCTION (not a plain cell) so Quarto doesn't auto-display it;
+// it's only rendered when a gated block calls errorSection(). ──
+errorSection = () => htl.html`<div style="border:1px solid #e0b4b4;background:#fff6f6;border-radius:6px;padding:16px;margin:12px 0;color:#912d2b">
+  <strong>Dashboard data could not be loaded.</strong>
+  <div style="margin-top:6px">The live data source did not respond${data._loadError ? htl.html` (${data._loadError})` : ""}. Please refresh the page or try again later.</div>
+</div>`
 
 // ── Deltas vs previous run, computed client-side from the embedded snapshot ──
 prevByName = Object.fromEntries((data.previous?.groups || []).map(g => [g.name, g]))
@@ -251,7 +257,9 @@ onboardingPlot = {
 ## Migration Statistics
 
 ```{ojs}
-html`
+{
+  if (data._loadError) return errorSection();
+  return html`
 ${newGroups.length > 0 ? htl.html `
 <div style="background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;padding:12px;margin:12px 0">
   <strong>🆕 Products ${lastWeek}</strong>
@@ -272,7 +280,8 @@ ${(odataWeeklyDelta || odataDailyDelta || odataHist.length > 0) ? htl.html `
   ${odataDailyAvg ? htl.html `<div style="margin:4px 0;color:#888;font-size:0.85em">Daily average: ${odataDailyAvg.toLocaleString()} new files/day</div>` : ""}
   ${onboardingPlot}
 </div>` : ""}
-`
+`;
+}
 ```
 
 ## CLMS Product on CDSE
@@ -283,6 +292,7 @@ This table shows the full, currently active CLMS portfolio and each product's mi
 // (multi-select, all enabled by default). Replaces the old single-select
 // dropdown, which only let one component be viewed at a time.
 viewof activeComponents = {
+  if (data._loadError) { const el = document.createElement("span"); el.value = new Set(); return el; }
   const allComponents = [...new Set(groups.map(d => componentOf(d)).filter(Boolean))].sort()
   const active = new Set(allComponents)
 
@@ -312,7 +322,9 @@ viewof activeComponents = {
   return container;
 }
 
-viewof searchTerm = Inputs.text({label: "Search", placeholder: "Product group…", width: 250})
+viewof searchTerm = data._loadError
+  ? Object.assign(document.createElement("span"), { value: "" })
+  : Inputs.text({label: "Search", placeholder: "Product group…", width: 250})
 ```
 
 ```{ojs}
@@ -320,6 +332,7 @@ viewof searchTerm = Inputs.text({label: "Search", placeholder: "Product group…
 // so that column widths defined on <colgroup> are guaranteed to apply to
 // every row, including rows toggled between hidden/visible.
 productGroupsTable = {
+  if (data._loadError) return htl.html``;
   // Category takes the remaining width (~46%) now that Progress is gone
   const colWidths = ["auto", "9%", "9%", "9%", "9%", "9%", "9%"];
 
