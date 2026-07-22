@@ -17,7 +17,8 @@ end
 
 function should_inject_contact(meta)
   -- Opt out with `contact: false` in the frontmatter; otherwise inject.
-  if meta.contact and pandoc.utils.stringify(meta.contact) == "false" then
+  if meta.contact == false
+      or (meta.contact and pandoc.utils.stringify(meta.contact) == "false") then
     return false
   end
   return true
