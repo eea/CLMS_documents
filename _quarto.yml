@@ -14,6 +14,8 @@
 # Render individual documents, not the whole project.
 project:
   type: default
+  pre-render: tools/pre-render-apply-doc-type
+  post-render: tools/post-render-restore-doc-type
   render:
     - DOCS/**/*.qmd
 

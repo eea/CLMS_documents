@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+"""Post-render hook for Quarto: restores .qmd files from .qmd.orig backups.
+
+Companion to tools/pre-render-apply-doc-type.  Scans the project tree for
+.qmd.orig files left by the pre-render hook and restores the originals.
+"""
+
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def main() -> int:
+    # Scan for .qmd.orig files wherever they may be
+    orig_files = sorted(ROOT.rglob("*.qmd.orig"))
+    if not orig_files:
+        print("No .qmd.orig files to restore")
+        return 0
+
+    restored = 0
+    for orig_path in orig_files:
+        qmd_path = orig_path.with_suffix("")  # strip .orig -> .qmd
+        if qmd_path.exists():
+            qmd_path.write_text(orig_path.read_text(encoding="utf-8"))
+            orig_path.unlink()
+            restored += 1
+            rel = qmd_path.relative_to(ROOT)
+            print(f"RESTORED {rel}")
+
+    if restored:
+        print(f"Restored {restored} file(s) from .qmd.orig backup(s)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

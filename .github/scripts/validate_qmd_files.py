@@ -129,6 +129,22 @@ def validate_qmd(file_path: Path) -> List[str]:
     if author is not None and not isinstance(author, (str, list)):
         issues.append("author, if present, must be a string or list of strings")
 
+    # Detect a leaked pre-render mutation: apply_doc_type flattens contact/echo/
+    # code-fold to top-level `false`. If a source qmd carries `type:` together
+    # with any of those, the pre-render hook mutated the file and never
+    # restored it. Refuse the commit so the mutation cannot land in a PR.
+    if metadata.get("type"):
+        leaked = [
+            k for k in ("contact", "echo", "code-fold")
+            if metadata.get(k) is False
+        ]
+        if leaked:
+            issues.append(
+                f"looks like a leaked pre-render mutation "
+                f"(top-level {leaked!r} present with type={metadata['type']!r}); "
+                f"restore from HEAD before committing"
+            )
+
     return issues
 
 

@@ -1,0 +1,279 @@
+#!/usr/bin/env python3
+"""Pre-render hook for Quarto: applies `type:`-specific format settings.
+
+Mirrors .github/scripts/build/strip_unknown_frontmatter.apply_doc_type for
+local preview parity with the CI build.
+
+Tries importing PyYAML for doc-types.yml; hardcodes a fallback matching the
+two types in the canonical file so the script has zero external dependencies.
+
+Safety:
+  - Saves a .qmd.orig backup before mutating the source.
+  - Warns if a stale .qmd.orig is found (crash recovery).
+  - *.qmd.orig is gitignored.
+"""
+
+import json
+import re
+import shutil
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+DOC_TYPES_PATH = ROOT / ".github" / "scripts" / "doc-types.yml"
+DEFAULT_FORMATS = ["html", "typst", "gfm"]
+KNOWN_TOGGLES = {
+    "toc", "keywords", "description", "version", "changelog",
+    "contact", "code", "number-sections", "llms",
+}
+
+# Hardcoded fallback matching .github/scripts/doc-types.yml (single source of truth)
+_FALLBACK_TYPES = {
+    "document": {
+        "elements": {},
+        "formats": list(DEFAULT_FORMATS),
+        "style": {},
+    },
+    "dashboard": {
+        "elements": dict.fromkeys(KNOWN_TOGGLES, False),
+        "formats": ["html"],
+        "style": {"page-layout": "full"},
+    },
+}
+
+
+# -- load types -------------------------------------------------------------
+
+
+def _load_doc_types() -> dict:
+    """Load type configs from doc-types.yml. Returns {name: {elements, formats, style}}.
+
+    Uses PyYAML when available; falls back to hardcoded defaults matching the
+    canonical file when it isn't.
+    """
+    try:
+        import yaml
+        raw = yaml.safe_load(DOC_TYPES_PATH.read_text(encoding="utf-8"))
+        if isinstance(raw, dict) and isinstance(raw.get("types"), list):
+            types = {}
+            for entry in raw["types"]:
+                name = entry["name"]
+                elements = {}
+                for toggle in KNOWN_TOGGLES:
+                    val = entry.get("elements", {}).get(toggle)
+                    if val is False:
+                        elements[toggle] = False
+                types[name] = {
+                    "elements": elements,
+                    "formats": list(entry.get("formats", DEFAULT_FORMATS)),
+                    "style": dict(entry.get("style", {})),
+                }
+            return types
+    except Exception:
+        pass
+
+    return dict(_FALLBACK_TYPES)
+
+
+# -- frontmatter reader (no deps) -------------------------------------------
+
+
+def _read_qmd_fm(qmd_path: Path):
+    """Read .qmd frontmatter; return (dict, body_text).
+
+    Parses the simple key: value format used in CLMS frontmatter.
+    No PyYAML dependency.
+    """
+    content = qmd_path.read_text(encoding="utf-8")
+    m = re.match(r"^---\s*\n(.*?)\n---\s*\n", content, re.DOTALL)
+    if not m:
+        return None, content
+
+    result = {}
+    for line in m.group(1).split("\n"):
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        kv = re.match(r"^([a-zA-Z_][a-zA-Z0-9_-]*)\s*:\s*(.*)", line)
+        if not kv:
+            continue
+        key = kv.group(1)
+        raw_val = kv.group(2).strip()
+        result[key] = _parse_val(raw_val)
+
+    return result, content[m.end():]
+
+
+def _parse_val(raw: str):
+    """Parse a simple YAML scalar."""
+    if not raw:
+        return None
+    if raw.startswith('"') and raw.endswith('"'):
+        return json.loads(raw)
+    if raw.startswith("'") and raw.endswith("'"):
+        return raw[1:-1]
+    if raw.lower() in ("null", "~", "none"):
+        return None
+    if raw.lower() in ("true", "yes", "on"):
+        return True
+    if raw.lower() in ("false", "no", "off"):
+        return False
+    try:
+        return int(raw) if "." not in raw and "e" not in raw.lower() else float(raw)
+    except ValueError:
+        pass
+    return raw
+
+
+def _write_qmd_fm(qmd_path: Path, fm: dict, body: str):
+    """Write dict + body back as YAML frontmatter."""
+    lines = ["---"]
+    for k, v in fm.items():
+        if isinstance(v, dict):
+            parts = ", ".join(f"{sk}: {_fmt_val(sv)}" for sk, sv in v.items())
+            lines.append(f"{k}: {{{parts}}}")
+        else:
+            lines.append(f"{k}: {_fmt_val(v)}")
+    lines.append("---")
+    if body:
+        lines.append(body)
+    qmd_path.write_text("\n".join(lines), encoding="utf-8")
+
+
+def _fmt_val(v):
+    """Serialize a value for YAML output."""
+    if v is None:
+        return "null"
+    if isinstance(v, bool):
+        return "true" if v else "false"
+    if isinstance(v, (int, float)):
+        return str(v)
+    if isinstance(v, str):
+        if any(c in v for c in ":{}[]&*!|>?'\"%@`\n") or not v:
+            return json.dumps(v, ensure_ascii=False)
+        return v
+    return str(v)
+
+
+# -- type application -------------------------------------------------------
+
+
+def _apply_one(qmd_path: Path, type_config: dict) -> list:
+    """Apply type_config to qmd_path's frontmatter in place. Returns change descriptions."""
+    fm, body = _read_qmd_fm(qmd_path)
+    if fm is None:
+        return []
+
+    changes = []
+    els = type_config["elements"]
+    style = type_config["style"]
+    formats = type_config["formats"]
+
+    if "toc" in els:
+        fm["toc"] = False; changes.append("toc: false")
+    if "number-sections" in els:
+        fm["number-sections"] = False; changes.append("number-sections: false")
+    if "code" in els:
+        fm["echo"] = False; changes.append("echo: false")
+    if "contact" in els:
+        fm["contact"] = False; changes.append("contact: false")
+    if "keywords" in els:
+        fm.pop("keywords", None); changes.append("keywords: removed")
+    if "description" in els:
+        fm.pop("description", None); changes.append("description: removed")
+
+    html_opts = dict(style) if style else {}
+    if "code" in els:
+        html_opts["code-fold"] = False
+
+    if formats != DEFAULT_FORMATS or html_opts:
+        fm["format"] = {}
+        for f in formats:
+            fm["format"][f] = dict(html_opts) if f == "html" and html_opts else "default"
+        changes.append(f"format: [{', '.join(fm['format'].keys())}]")
+
+    if not changes:
+        return []
+
+    _write_qmd_fm(qmd_path, fm, body)
+    return changes
+
+
+# -- main -------------------------------------------------------------------
+
+
+def sweep_leftover_backups(root: Path) -> None:
+    """Restore any leftover .qmd.orig from a prior crashed render.
+
+    Runs at the top of main() so a crashed prior render self-heals before
+    we back up and mutate anything again.
+    """
+    for orig in root.rglob("*.qmd.orig"):
+        qmd = orig.with_suffix("")
+        try:
+            qmd.write_text(orig.read_text(encoding="utf-8"))
+            orig.unlink()
+            print(f"[pre-render] recovered leftover: {qmd.relative_to(root)}",
+                  file=sys.stderr)
+        except OSError as e:
+            print(f"[pre-render] WARN: failed to recover {orig}: {e}",
+                  file=sys.stderr)
+
+
+def main() -> int:
+    sweep_leftover_backups(ROOT)
+
+    qmd_files = sys.argv[1:] if len(sys.argv) > 1 else []
+    if not qmd_files:
+        qmd_paths = sorted(ROOT.glob("DOCS/**/*.qmd"))
+        qmd_files = [str(p) for p in qmd_paths if not any(
+            part in p.parts for part in {"_meta", "templates", "theme", "includes"}
+        )]
+
+    types = _load_doc_types()
+    if not types:
+        return 0
+
+    active = 0
+    for qmd_str in qmd_files:
+        qmd_path = Path(qmd_str).resolve()
+        if not qmd_path.exists():
+            continue
+
+        fm, _ = _read_qmd_fm(qmd_path)
+        if fm is None:
+            continue
+
+        doc_type = fm.get("type", "document")
+        if doc_type == "document" or doc_type not in types:
+            continue
+
+        tc = types[doc_type]
+        if not tc["elements"] and tc["formats"] == DEFAULT_FORMATS and not tc["style"]:
+            continue
+
+        orig_path = qmd_path.with_suffix(qmd_path.suffix + ".orig")
+
+        # Crash recovery
+        if orig_path.exists():
+            print(f"WARNING: Recovered stale {orig_path.relative_to(ROOT)} -- "
+                  "previous render may have crashed. Restoring original.",
+                  file=sys.stderr)
+            shutil.copy2(orig_path, qmd_path)
+
+        shutil.copy2(qmd_path, orig_path)
+
+        changes = _apply_one(qmd_path, tc)
+        if changes:
+            print(f"APPLIED {qmd_path.relative_to(ROOT)}: {'; '.join(changes)}")
+            active += 1
+        else:
+            orig_path.unlink(missing_ok=True)
+
+    if active:
+        print(f"Applied type settings to {active} file(s) for render")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
