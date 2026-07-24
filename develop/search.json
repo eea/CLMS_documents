@@ -1729,6 +1729,202 @@
     "text": "9.2 When to use it\nRecover deleted content. You removed a section locally and need it back. Restore the last published version, copy out what you need, then carry on with your current version.\nSomething went wrong in a recent edit. Restore an earlier version (e.g. 2.1.0) and work forward from there rather than trying to untangle the current state.\nResurrect a deleted file. If a file was removed from the project but still exists in the library history, --list-all will find it. Restore brings it back into DOCS/ as if nothing happened."
   },
   {
+    "objectID": "guidelines/filenaming_clms-filename-tree_v1.html",
+    "href": "guidelines/filenaming_clms-filename-tree_v1.html",
+    "title": "CLMS Filename Tree",
+    "section": "",
+    "text": "Contact:"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filename-tree_v1.html#by-product-code",
+    "href": "guidelines/filenaming_clms-filename-tree_v1.html#by-product-code",
+    "title": "CLMS Filename Tree",
+    "section": "1.1 By Product Code",
+    "text": "1.1 By Product Code\nCLMS_\n├── VLCC-                          Vegetated Land Cover Characteristics (upgraded HRL)\n│   ├── GRA_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif\n│   ├── DLT_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif\n│   └── CTY_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif\n│\n├── HRL-                           High Resolution Layers (legacy, not yet upgraded)\n│   ├── TCD_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif\n│   ├── FTY_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif\n│   ├── IMD_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif\n│   ├── IBU_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif\n│   ├── WAW_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif\n│   ├── SWF_S{YYYY}_R5m_E{XXX}N{YYY}_3035_V01-R00.tif\n│   ├── TCD_C{YYYY}-{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif\n│   └── IMD_C{YYYY}-{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif\n│\n├── NVLCC-                         Non-Vegetated Land Cover Characteristics\n│   └── IMCCS_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif\n│\n├── SLF-                           Small Landscape Features\n│   └── SFW_S{YYYY}_R5m_E{XXX}N{YYY}_3035_V01-R01.tif\n│\n├── WSI-                           Water & Snow/Ice\n│   ├── SP-SCD_A{YYYYMMDD}P1Y_R20m_T{ZZ}{GZD}{AA}_V01-R00.tif\n│   ├── SWS-WSM_{YYYYMMDD}T{HHMMSS}_R60m_T{ZZ}{GZD}{AA}_S1B_V01-R00.tif\n│   └── WDS-SSC_{YYYYMMDD}T{HHMMSS}_R60m_T{ZZ}{GZD}{AA}_S1B_V01-R00.tif\n│\n├── EUHYDRO-                       EU Hydro\n│   └── NET_S{YYYY}_R10m_EUROPE_3035_V02-R00.gpkg\n│\n├── UA-                            Urban Atlas\n│   ├── LCU_S{YYYY}_V025ha_{FUA}_3035_V01-R00.gpkg\n│   └── LCU_C{YYYY}-{YYYY}_V025ha_{FUA}_3035_V01-R00.gpkg\n│\n├── CLCPLUS-                       CLC+ Raster\n│   └── LCU_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif\n│\n├── VPP2-                          Vegetation Phenology & Productivity v2\n│   ├── ST-PPI_A{YYYYMMDD}P10D_R10m_T{ZZ}{GZD}{AA}_V01-R00.tif\n│   ├── VPP-SOSD-S1_A{YYYYMMDD}P1Y_R10m_T{ZZ}{GZD}{AA}_V01-R00.tif\n│   ├── GPP-TOTAL_A{YYYYMMDD}P1Y_R10m_T{ZZ}{GZD}{AA}_V01-R00.tif\n│   └── GPP-TOTAL-QFLAG_A{YYYYMMDD}P1Y_R10m_T{ZZ}{GZD}{AA}_V01-R00.tif\n│\n├── CLC-                           Corine Land Cover\n│   └── LCU_S{YYYY}_V25ha_EUROPE_3035_V01-R00.gpkg\n│\n└── EGMS-                          European Ground Motion Service\n    ├── L3-U_T{YYYYMMDD}P{duration}_V100m_E{XXX}N{YYY}_3035_V01-R00.csv\n    ├── L3-EW_T{YYYYMMDD}P{duration}_R100m_E{XXX}N{YYY}_3035_V01-R00.tif\n    ├── L2a-A_T{YYYYMMDD}P{duration}_V20-5m_{Orbit}-{BurstID}-{SubSwath}_V01-R00.csv\n    └── L2b-D_T{YYYYMMDD}P{duration}_V20-5m_{Orbit}-{BurstID}-{SubSwath}_V01-R00.csv"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filename-tree_v1.html#by-temporal-situation",
+    "href": "guidelines/filenaming_clms-filename-tree_v1.html#by-temporal-situation",
+    "title": "CLMS Filename Tree",
+    "section": "1.2 By Temporal Situation",
+    "text": "1.2 By Temporal Situation\n{TEMPORAL}_\n├── {YYYYMMDD}T{HHMMSS}_           Sensing instant    (satellite scene)\n│   └── e.g. 20210217T053159_\n│\n├── A{YYYYMMDD}P{duration}_        Aggregated          (sub-annual composite)\n│   ├── A20240101P10D_             dekadal\n│   ├── A20240101P1M_              monthly\n│   └── A20240101P1Y_              annual NRT\n│\n├── S{YYYY}_                       Status              (single reference year)\n│   └── S2021_\n│\n├── C{YYYY}-{YYYY}_                Change              (change between two Status years)\n│   └── C2018-2021_                3-year change\n│\n└── T{YYYYMMDD}P{duration}_        Timeseries          (multi-year aggregate)\n    └── T20190101P5Y_              5-year timeseries"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filename-tree_v1.html#by-resolution",
+    "href": "guidelines/filenaming_clms-filename-tree_v1.html#by-resolution",
+    "title": "CLMS Filename Tree",
+    "section": "1.3 By Resolution",
+    "text": "1.3 By Resolution\n{RES}_\n├── R{value}[unit]_                     Raster (pixel spacing)\n│   ├── R1m\n│   ├── R5m\n│   ├── R10m\n│   ├── R20m\n│   ├── R60m\n│   ├── R100m\n│   ├── R300m\n│   ├── R1km\n│   └── R20-5m                          irregular grid\n│\n└── V{value}[unit]_                    Vector MMU / point grid\n    ├── V025ha                          vector MMU 0.25ha\n    ├── V25ha                           vector MMU 25ha\n    ├── V100m                           point grid (regular)\n    └── V20-5m                          point grid (irregular)"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filename-tree_v1.html#by-spatial-extent",
+    "href": "guidelines/filenaming_clms-filename-tree_v1.html#by-spatial-extent",
+    "title": "CLMS Filename Tree",
+    "section": "1.4 By Spatial Extent",
+    "text": "1.4 By Spatial Extent\n{EXTENT}_\n├── T{ZZ}{GZD}{AA}_                MGRS               (S2 raster tile)\n│   └── T33UVS_\n│\n├── E{XXX}N{YYY}_                  LAEA 100km         (pan-European grid)\n│   └── E27N48_\n│\n├── {Orbit}-{BurstID}-{SubSwath}_  IW burst           (EGMS InSAR swath)\n│   └── 054-0154-IW1_\n│\n├── {NNN}{CC}C{L}_                 FUA code           (Functional Urban Area)\n│   └── DK004L3_\n│\n├── {CC}_                          Country code       (nation-level vector)\n│   ├── DE_\n│   └── IT_\n│\n├── DU{NNN}_                       Delivery Unit      (large-area tiling)\n│   └── DU001_\n│\n├── EUROPE_                        Continental        (entire European continent)\n│\n├── NORTHERNHEMISPHERE_            Hemispherical      (Northern Hemisphere)\n│\n├── SOUTHERNHEMISPHERE_            Hemispherical      (Southern Hemisphere)\n│\n└── GLOBAL_                        Global             (full Earth coverage)"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filename-tree_v1.html#by-variable-sub-product",
+    "href": "guidelines/filenaming_clms-filename-tree_v1.html#by-variable-sub-product",
+    "title": "CLMS Filename Tree",
+    "section": "1.5 By Variable (Sub-product)",
+    "text": "1.5 By Variable (Sub-product)\nThe variable is hyphen-appended to the product code at position 2: CLMS_{CODE}-{VARIABLE}[-{SUBVARIABLE}]_…\n{CODE}-{VARIABLE}_\n├── {PARAM}                        Single token       (VLCC, NVLCC, SLF, HRL)\n│   ├── GRA, DLT, CTY              (VLCC)\n│   ├── IMCCS, SBCC, SFW, CM       (NVLCC, SLF)\n│   ├── TCD, FTY, IMD, IBU, WAW    (HRL — 10m)\n│   └── SWF                         (HRL — 5m)\n│\n├── {SUB}-{PARAM}                  Two-level          (WSI, VPP2)\n│   ├── SP-SCD\n│   ├── SWS-WSM, WDS-SSC\n│   └── ST-PPI, VPP-SOSD, GPP-TOTAL\n│\n├── {SUB}-{PARAM}-{SEASON}         With season        (VPP2)\n│   ├── VPP-SOSD-S1\n│   └── GPP-SEASONAL-S1\n│\n├── {SUB}[-{PARAM}]-QFLAG          Quality flag       (all products)\n│   ├── ST-PPI-QFLAG               (leaf-level)\n│   ├── VPP-SOSD-QFLAG             (product-level)\n│   └── VPP-QFLAG                  (family-level)\n│\n├── LCU                            Land Cover Land Use status/change   (UA, CLC, CLCPLUS, RZ, …)\n│\n├── L3-U, L3-EW                    EGMS velocity grid  (EGMS L3)\n│\n├── L2a-A, L2a-D, L2b-A, L2b-D    EGMS calibrated     (EGMS L2)\n│\n└── NET, DIR, SUB                  EU Hydro            (EUHYDRO)"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filename-tree_v1.html#full-example-walkthrough",
+    "href": "guidelines/filenaming_clms-filename-tree_v1.html#full-example-walkthrough",
+    "title": "CLMS Filename Tree",
+    "section": "1.6 Full Example Walkthrough",
+    "text": "1.6 Full Example Walkthrough\nCLMS_\n     ├── WSI-SP-SCD_                  Water & Snow/Ice — Snow Cover Duration\n     │   └── A20240101P1Y_            annual composite\n     │       └── R20m_                raster 20m\n     │           └── T38TKL_          MGRS tile\n     │               └── 3035_        EPSG 3035\n     │                   └── V01-R00.tif  version 1, release 0\n     │\n     └── EGMS-L2a-A_                  European Ground Motion — L2a ascending\n         └── T20190101P5Y_            5-year timeseries\n             └── R20-5m_              irregular grid 20x5m\n                 └── 054-0154-IW1_    IW burst\n                     └── V01-R00.tif  version 1, release 0\n\nTree version: draft. Each branch represents a valid structural variant of the CLMS filename convention. See CLMS_Filenaming_Design_Principles.md for the full rules."
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "",
+    "text": "Contact:"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#purpose-and-scope",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#purpose-and-scope",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.1 Purpose and Scope",
+    "text": "1.1 Purpose and Scope\nThese principles govern the filenaming of all new CLMS product deliveries — new products, reprocessings, and new versions of existing products. They describe the target convention; existing files on CDSE under legacy names remain as-is but are non-compliant."
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-1-filename-structure-fields-delimiter-extension",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-1-filename-structure-fields-delimiter-extension",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.2 Principle 1 — Filename Structure: fields, delimiter, extension",
+    "text": "1.2 Principle 1 — Filename Structure: fields, delimiter, extension\nRule: A CLMS filename consists of a stem (base name) and if required (e.g. not folder names) an extension, separated by a period .:\n{stem}.{extension}\nThe stem is composed of fields — descriptive elements separated by underscore _. Each field carries a specific meaning:\nfield1_field2_field3_…_fieldN.ext\nFields may not be empty. A field delimiter may not appear at the beginning or end of a filename, nor twice in a row.\nExtension: The file extension (.tif, .gpkg, .xml) indicates the file format and is not part of the naming convention.\nCompliant: CLMS_VLCC-GRA_S2021_R10m_E27N48_3035_V01-R00.tif\nNon-compliant: _CLMS_VLCC-GRA_… (leading delimiter), CLMS_VLCC-GRA__S2021_… (double delimiter)"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-2-allowed-characters-uppercase-digits-underscore-hyphen",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-2-allowed-characters-uppercase-digits-underscore-hyphen",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.3 Principle 2 — Allowed Characters: uppercase, digits, underscore, hyphen",
+    "text": "1.3 Principle 2 — Allowed Characters: uppercase, digits, underscore, hyphen\nRule: Filenames MUST use only the following ASCII characters:\n\n\n\n\n\n\n\n\nCharacter\nASCII\nUsage\n\n\n\n\nA–Z\n65–90\nUppercase letters only (no lowercase)\n\n\n0–9\n48–57\nDigits\n\n\n_\n95\nField delimiter\n\n\n-\n45\nWithin-field separator\n\n\n\nThe period . (ASCII 46) is reserved exclusively for the file extension separator. Spaces, lowercase letters, and all other special characters are NOT permitted.\nRationale: A restricted character set enables deterministic, case-insensitive parsing across all platforms. Uppercase-only avoids case-sensitivity issues between Linux (case-sensitive) and Windows/macOS (case-insensitive).\nCompliant: CLMS, V01-R00, 054-0154-IW1, R20-5m, VLCC-GRA\nNon-compliant: clms_EGMS, V01_r00, P20x5m, data file.tif"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-3-maximum-filename-length",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-3-maximum-filename-length",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.4 Principle 3 — Maximum Filename Length",
+    "text": "1.4 Principle 3 — Maximum Filename Length\nRule: The complete filename (stem + extension) MUST NOT exceed 255 characters. The fully qualified file name (including path) SHOULD NOT exceed 260 characters.\nRecommendation: Keep filenames under 100 characters to safely accommodate both file name and storage path across all platforms.\nRationale: The 255-character limit is the smallest common denominator across Windows (260 char FQFN), macOS (1024), and Linux (4096). The 100-character recommendation preserves room for deep directory structures."
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-4-delimiter-underscore-_-between-fields-hyphen---within-fields",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-4-delimiter-underscore-_-between-fields-hyphen---within-fields",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.5 Principle 4 — Delimiter: Underscore _ between fields, hyphen - within fields",
+    "text": "1.5 Principle 4 — Delimiter: Underscore _ between fields, hyphen - within fields\nRule: Use _ to separate all top-level fields. The hyphen - is the within-field separator: it joins the variable (and sub-variables) to the product code (VLCC-GRA, WSI-SP-SCD), joins version to release (V01-R00), and appears where a notation itself requires it (e.g., 054-0154-IW1 for IW burst tile identifiers, C2018-2021 for change periods). It is never a cross-field delimiter.\nRationale: Consistent underscore delimiters make tokenisation deterministic across all product families. The hyphen carries all intra-field structure, so splitting on _ always yields the same field count within a product family.\nCompliant:\n\nCLMS_VLCC-GRA_S2021_R10m_E27N48_3035_V01-R00.tif\nCLMS_EGMS-L2a-A_T20190101P5Y_R20-5m_054-0154-IW1_V01-R00.tif (hyphens inside EGMS-L2a-A and 054-0154-IW1 are semantic)\nCLMS_CLCPLUS-LCU_S2023_R10m_E48N37_3035_V01-R00.tif\n\nEdge case: Hyphenated geographic names (e.g., “Bourg-en-Bresse”) is a single token; the hyphen is part of the name, not a delimiter."
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-5-field-order-variable-hyphen-appended-to-the-product-code-token-count-invariant",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-5-field-order-variable-hyphen-appended-to-the-product-code-token-count-invariant",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.6 Principle 5 — Field Order: Variable hyphen-appended to the product code, token count invariant",
+    "text": "1.6 Principle 5 — Field Order: Variable hyphen-appended to the product code, token count invariant\nRule: Fields appear in a fixed order per product family. The variable is not a standalone field: it is hyphen-appended to the product code in position 2 ({CODE}-{VARIABLE}[-{SUBVARIABLE}]). Underscore-separated token count is invariant across a product family — a sub-product identifier is never a separate positional field; it is encoded within the code-variable compound:\n\nCanonical template:\nCLMS_{CODE}-{VARIABLE}[-{SUBVARIABLE}]_{TEMPORAL}_{RES}_{EXTENT}_{EPSG}_{VERSION}-{RELEASE}\n\nSub-products within a family (e.g., SP, SWS, WDS within WSI) extend the compound with a further hyphen (WSI-SP-SCD, WSI-WDS-SSC). This keeps the underscore token count identical for every file in the family.\nRationale: Code and variable together identify what the file is; the remaining fields identify when, where, and which version. Placing the full product identity at position 2 groups all files of a product and its layers together in directory listings, and a parser always knows which position holds which field — no branching logic based on which sub-product happens to be present.\nCompliant:\n\nCLMS_VPP2-ST-PPI_A20240101P10D_R10m_T33UVS_V01-R00.tif\nCLMS_WSI-SP-SCD_A20200901P1Y_R20m_T38TKL_V01-R00.tif\nCLMS_WSI-WDS-SSC_20210217T053159_R60m_T32TNS_S1B_V01-R00.tif (sensing datetime, sub-product in the code-variable compound)"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-6-programme-prefix-clms_-mandatory-no-exceptions",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-6-programme-prefix-clms_-mandatory-no-exceptions",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.7 Principle 6 — Programme Prefix: CLMS_ mandatory, no exceptions",
+    "text": "1.7 Principle 6 — Programme Prefix: CLMS_ mandatory, no exceptions\nRule: Every CLMS product filename MUST begin with CLMS_. No exceptions. No product is exempt. This applies to all new deliveries, reprocessings, and new product versions across the entire CLMS portfolio (EEA, JRC, contractors).\nRationale: The prefix makes programme identity parseable from the filename alone. Any file without CLMS_ is immediately identifiable as non-conformant.\nCompliant:\n\nCLMS_VLCC-GRA_S2021_R10m_E27N48_3035_V01-R00.tif\nCLMS_VPP2-ST-PPI_A20240101P10D_R10m_T33UVS_V01-R00.tif\nCLMS_UA-LCU_S2021_V025ha_DK004L3_3035_V01-R00.gpkg\nCLMS_CLCPLUS-LCU_S2018_R10m_EUROPE_3035_V01-R00.tif\nCLMS_CLC-LCU_S2018_V25ha_EUROPE_3035_V01-R00.gpkg\nCLMS_EGMS-L3-U_T20190101P5Y_R100m_E28N49_3035_V01-R00.tif"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-7-product-code-short-uppercase-registered",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-7-product-code-short-uppercase-registered",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.8 Principle 7 — Product Code: Short, uppercase, registered",
+    "text": "1.8 Principle 7 — Product Code: Short, uppercase, registered\nRule: Product codes must be registered in the CLMS product code registry before schema authoring. Uppercase alphanumeric only. Prefer 4–7 characters. Retain the HR prefix only when it is part of the established acronym.\nCompliant: VLCC, VPP2, WSI, EUHYDRO, CLCPLUS, UA\nNon-compliant: HRVPP2 (redundant HR), VPP-2 (hyphen in code), any unregistered code"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-8-temporal-coverage-format-matches-product-type",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-8-temporal-coverage-format-matches-product-type",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.9 Principle 8 — Temporal Coverage: Format matches product type",
+    "text": "1.9 Principle 8 — Temporal Coverage: Format matches product type\nRule:\n\n\n\n\n\n\n\n\n\nSituation\nFormat\nExamples\nDefinition\n\n\n\n\nSensing instant\n{YYYYMMDD}T{HHMMSS}\n20210217T053159\nSingle acquisition at a specific date+time (e.g. satellite scene). Zero-duration temporal instant. Uses bare ISO 8601 dateTime lexical form — the T separator and fixed-width format make it self-identifying, so no semantic prefix is needed.\n\n\nAggregated\nA{YYYYMMDD}P{duration}\nA20240101P10D, A20240101P1M, A20240101P1Y\nA 2D snapshot where pixel values are derived by compositing, averaging, or selecting from multiple observations over time using a defined algorithm. The temporal dimension is collapsed to a single representative value per pixel; the file is not designed for temporal querying.\n\n\nStatus\nS{YYYY}\nS2021\nA static thematic map or interpreted classification representing a single reference year. The product does not represent a statistical aggregate of repeated measurements; it is the result of a single survey, interpretation, or classification exercise.\n\n\nChange\nC{YYYY}-{YYYY}\nC2018-2021\nA map of transitions or differences between two Status reference years. The two years are the start and end of the change period. The output is a 2D change layer (not a time-series stack).\n\n\nTimeseries\nT{YYYYMMDD}P{duration}\nT20190101P5Y\nA single file containing preserved multi-temporal measurements where the temporal dimension is queryable (e.g. as internal bands, layers, or a time-enabled data cube). Designed for temporal analysis, not as a collapsed 2D snapshot.\n\n\nForecast\nF{YYYYMMDD}P{duration}\n(Reserved)\nReserved/Proposed. For future forecast/modelled products. Not currently in use.\n\n\n\nTemporal reference standard: All temporal formats follow ISO 8601-1:2019 (Date and time — Representations for information interchange). The P{duration} suffix uses the ISO 8601 duration format (P10D, P1M, P1Y). Reference: https://www.iso.org/standard/70907.html\nEdge case: Multi-seasonal products encode the season in the code-variable compound (-S1, -S2), not in the temporal field. This is consistent with external standards (CF Conventions, NASA EOSDIS) which treat season as a data attribute, not a temporal primitive.\nCompliant examples:\n\nCLMS_VPP2-ST-PPI_A20240101P10D_… (aggregated, dekadal)\nCLMS_VLCC-GRA_S2021_… (annual status)\nCLMS_UA-LCU_C2018-2021_… (change between two Status years)\nCLMS_WSI-WDS-SSC_20210217T053159_R60m_T32TNS_S1B_V01-R00.tif (sensing datetime)\nCLMS_EGMS-L3-U_T20190101P5Y_R100m_E28N49_3035_V01-R00.tif (timeseries, multi-year)"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-9-resolution-rvalueunit-for-raster-vvalueunit-for-vector-and-point-grid",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-9-resolution-rvalueunit-for-raster-vvalueunit-for-vector-and-point-grid",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.10 Principle 9 — Resolution: R{value}[unit] for raster, V{value}[unit] for vector and point grid",
+    "text": "1.10 Principle 9 — Resolution: R{value}[unit] for raster, V{value}[unit] for vector and point grid\nRule: Raster and gridded products use R{value}[unit] with no zero-padding: R10m, R1km, R100m. The value is the integer pixel/grid spacing in metres. Irregular grid spacings join both values with a hyphen within the field: R20-5m (e.g., EGMS L2 20×5 m posting).\nThe V prefix covers two cases:\n\nVector minimum mapping units — V{value}ha (e.g., V025ha for Urban Atlas 0.25 ha, V25ha for CLC 25 ha). Sub-1 ha values use a leading zero with no decimal point.\nPoint grid posting spacing — V{value}m for regular grids (e.g., V100m for EGMS L3) or V{value}-{value}m for irregular grids (e.g., V20-5m for EGMS L2 point data)\n\nOnly R and V exist — there is no separate point-grid prefix.\nCompliant: R10m, R1km, R100m, R20-5m, V025ha, V25ha, V100m, V20-5m\nEdge case: Products with no meaningful spatial resolution (e.g., nation-level statistical vector layer) omit the resolution token."
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-10-spatial-extent-identifies-the-area-covered-by-this-specific-file",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-10-spatial-extent-identifies-the-area-covered-by-this-specific-file",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.11 Principle 10 — Spatial Extent: Identifies the area covered by this specific file",
+    "text": "1.11 Principle 10 — Spatial Extent: Identifies the area covered by this specific file\nRule: This field identifies the spatial extent of the individual file — not the overall product coverage. It can be a grid tile, a satellite scene, an administrative boundary, or a continental code:\n\n\n\n\n\n\n\n\nExtent type\nDescription\nExamples\n\n\n\n\nMGRS\nSentinel-2 raster tile\nT33UVS\n\n\nLAEA 100km\nPan-European composite on INSPIRE/ETRS89-LAEA grid\nE27N48\n\n\nIW burst\nEGMS InSAR swath (burst-level)\n054-0154-IW1\n\n\nFUA code\nFunctional Urban Area, city-level vector\nDK004L3\n\n\nCountry code\nNation-level vector\nDE, IT\n\n\nDelivery Unit\nTiling system for large-area products\nDU001\n\n\nContinental\nFull European continent coverage\nEUROPE\n\n\nHemispherical\nGlobal product subset for one hemisphere\nNORTHERNHEMISPHERE, SOUTHERNHEMISPHERE\n\n\nGlobal\nFull global coverage\nGLOBAL\n\n\n\nSpatial extent identifiers are _-separated from adjacent tokens. Never fuse them with EPSG or resolution.\n\nNote: This field describes the extent of the file, not the product. A pan-European product may be delivered as individual MGRS tiles, each with a different spatial extent. Likewise, EUROPE means this specific file covers the entire continent — it does not mean the product is “pan-European” by design.\n\nCompliant:\n\nCLMS_VPP2-ST-PPI_…_T33UVS_… (MGRS tile)\nCLMS_VLCC-GRA_S2021_R10m_E27N48_… (LAEA tile)\nCLMS_CLCPLUS-LCU_S2023_R10m_E48N37_… (LAEA tile)\nCLMS_UA-LCU_S2021_V025ha_DK004L3_… (FUA code)\nCLMS_EGMS-L2a-A_…_054-0154-IW1_… (IW burst)\nCLMS_EUHYDRO-NET_S2026_R10m_EUROPE_… (continental coverage)\nCLMS_WSI-WDS-SSC_20210217T053159_R60m_T32TNS_S1B_V01-R00.tif (MGRS, SAR sensor)"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-11-epsg-code-bare-code-required-for-projected-crs-omit-when-crs-is-implicit",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-11-epsg-code-bare-code-required-for-projected-crs-omit-when-crs-is-implicit",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.12 Principle 11 — EPSG Code: Bare code, required for projected CRS, omit when CRS is implicit",
+    "text": "1.12 Principle 11 — EPSG Code: Bare code, required for projected CRS, omit when CRS is implicit\nRule: Standalone _-separated token containing the bare EPSG code with no zero-padding (3035). Required for products with a projected CRS (e.g., LAEA 100km extents). Omit when the CRS is implicit in the spatial extent system (e.g., MGRS tiles imply UTM, so EPSG is redundant). Also omit for CRS-independent files (metadata XML, archive containers).\nRationale: The bare code is the EPSG identifier exactly as registered (https://epsg.org) — 3035, 4326, 32633 — so the token matches the authority and needs no transformation for lookups. EPSG codes are 4–5 digits; the field is bounded, and the surrounding fixed field order keeps parsing deterministic without artificial padding.\nCompliant:\n\nCLMS_VLCC-GRA_S2021_R10m_E27N48_3035_V01-R00.tif (LAEA tile, EPSG 3035 required)\nCLMS_CLCPLUS-LCU_S2023_R10m_E48N37_3035_V01-R00.tif\nCLMS_VPP2-ST-PPI_A20240101P10D_R10m_T33UVS_V01-R00.tif (MGRS tile — EPSG omitted, CRS implicit)\n\nNon-compliant: 03035 (zero-padded), EPSG3035 (prefixed)"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-12-version-vxx-ryy-single-hyphenated-field",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-12-version-vxx-ryy-single-hyphenated-field",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.13 Principle 12 — Version: V{XX}-R{YY} single hyphenated field",
+    "text": "1.13 Principle 12 — Version: V{XX}-R{YY} single hyphenated field\nRule: A single compound token: V{XX} (major, 2-digit zero-padded), hyphen, R{YY} (release, 2-digit zero-padded). Never use packed V{XXX}.\nCompliant: V01-R00, V01-R01, V02-R00"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-13-variable-hyphenated-composite-appended-to-the-product-code",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-13-variable-hyphenated-composite-appended-to-the-product-code",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.14 Principle 13 — Variable: Hyphenated composite appended to the product code",
+    "text": "1.14 Principle 13 — Variable: Hyphenated composite appended to the product code\nRule: The variable identifies the measured or mapped quantity. It is hyphen-appended to the product code at position 2, forming the product identity compound:\n{CODE}-{PRODUCT_TYPE}[-{PARAMETER}][-{SEASON}][-QFLAG]\n\nPRODUCT_TYPE: layer type code (ST, VPP, GPP, SP, LCU)\nPARAMETER: specific measurement (PPI, SOSD, TOTAL, SCD)\nSEASON: S1 or S2 for multi-seasonal products\nQFLAG: literal suffix for quality flag layers — always last\n\nLCU (Land Cover / Land Use) is the shared variable for all status and change land cover/use products (UA, CLC, CLCPLUS, RZ, …); status vs change is expressed by the temporal field (S{YYYY} vs C{YYYY}-{YYYY}), not by the variable.\nCompliant:\nVPP2-ST-PPI          → VPP2-ST-PPI-QFLAG\nVPP2-VPP-SOSD-S1     → VPP2-VPP-SOSD-S1-QFLAG\nVPP2-GPP-TOTAL       → VPP2-GPP-TOTAL-QFLAG\nWSI-SP-SCD           → WSI-SP-SCD-QFLAG\nUA-LCU / CLC-LCU / CLCPLUS-LCU"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-14-production-date-metadata-only-unless-operationally-required",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-14-production-date-metadata-only-unless-operationally-required",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.15 Principle 14 — Production Date: Metadata-only unless operationally required",
+    "text": "1.15 Principle 14 — Production Date: Metadata-only unless operationally required\nRule: Omit production date from filenames. Include it only when multiple production runs for the same temporal period coexist in the same distribution channel. When present: {YYYYMMDD} as the last token before the extension.\nCompliant: CLMS_EUHYDRO-NET_S2026_R10m_EUROPE_3035_V02-R00_20261015.gpkg"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-15-sensor-token-omit-unless-multi-sensor-discrimination-is-required",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-15-sensor-token-omit-unless-multi-sensor-discrimination-is-required",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.16 Principle 15 — Sensor Token: Omit unless multi-sensor discrimination is required",
+    "text": "1.16 Principle 15 — Sensor Token: Omit unless multi-sensor discrimination is required\nRule: No standalone sensor token in the filename. The sensor is implicit in the product code. Include a sensor token only when the product supports multiple sensor sources distinguishable at file level (e.g., SAR platform identity _S1B_).\nCompliant:\n\nCLMS_WSI-SP-SCD_A20200901P1Y_R20m_T38TKL_V01-R00.tif\nCLMS_WSI-WDS-SSC_20210217T053159_R60m_T32TNS_S1B_V01-R00.tif (S1B sensor token required for SAR discrimination)"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-16-quality-layers-separate-file-hierarchical--qflag-suffix",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-16-quality-layers-separate-file-hierarchical--qflag-suffix",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.17 Principle 16 — Quality Layers: Separate file, hierarchical -QFLAG suffix",
+    "text": "1.17 Principle 16 — Quality Layers: Separate file, hierarchical -QFLAG suffix\nRule: Quality layers are separate files. Same stem as the data layer, with -QFLAG appended to the appropriate hierarchical level of the code-variable compound. No other field may differ between a data file and its quality file.\nThe -QFLAG suffix attaches at the level it applies to:\n\nVPP2-VPP-SOSD-QFLAG — quality applies to the VPP-SOSD product only\nVPP2-VPP-QFLAG — quality applies to all VPP sub-products (SOSD, TOTAL, SEASONAL, etc.)\nVPP2-ST-PPI-QFLAG — quality applies to the PPI measurement only\n\nCompliant:\nCLMS_VPP2-ST-PPI_A20240101P10D_R10m_T33UVS_V01-R00.tif       ← data\nCLMS_VPP2-ST-PPI-QFLAG_A20240101P10D_R10m_T33UVS_V01-R00.tif ← quality"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-17-schema-registration-parseo-schema-before-cdse-onboarding",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principle-17-schema-registration-parseo-schema-before-cdse-onboarding",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.18 Principle 17 — Schema Registration: parsEO schema BEFORE CDSE onboarding",
+    "text": "1.18 Principle 17 — Schema Registration: parsEO schema BEFORE CDSE onboarding\nRule: Every new CLMS product must have a registered product code, a parsEO schema with status: current, and a naming crosswalk before the first CDSE delivery. The schema defines the filename; CDSE filenames are not reverse-engineered into schemas after the fact."
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#what-cannot-be-standardised",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#what-cannot-be-standardised",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.19 What Cannot Be Standardised",
+    "text": "1.19 What Cannot Be Standardised\nSome aspects genuinely differ between product families and should not be forced into a single mould:\n\nRaster vs. vector/point-grid resolution — R10m and V25ha are different physical quantities; V covers both vector MMU (V{value}ha) and point grids (V{value}m)\nPan-European vs. local tile encoding — LAEA grid tiles (E27N48) for pan-European products, FUA codes (DK004L3) for city-level vector — these are incompatible spatial encodings, both valid\nAnnual status vs. scene-level temporal format — S{YYYY} for static maps, {YYYYMMDD}T{HHMMSS} for single acquisitions — the right format depends on the product’s temporal nature\nMulti-resolution families — the set of valid resolution values varies per product; each schema enumerates its own\nProduction date inclusion — reflects operational policy; included when corrections under the same version are expected"
+  },
+  {
+    "objectID": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principles-summary",
+    "href": "guidelines/filenaming_clms-filenaming-design-principles_v1.html#principles-summary",
+    "title": "CLMS Product Filenaming — Design Principles",
+    "section": "1.20 Principles Summary",
+    "text": "1.20 Principles Summary\n\n\n\n\n\n\n\n\n#\nPrinciple\nRule\n\n\n\n\n1\nFilename structure\nFields separated by _, stem.extension\n\n\n2\nAllowed characters\nA–Z, 0–9, _, - only; no lowercase, no spaces\n\n\n3\nMax filename length\n≤255 chars stem+extension, recommend ≤100\n\n\n4\nDelimiter\n_ between fields; - within fields (code-variable compound, version-release, notations)\n\n\n5\nField order\nVariable hyphen-appended to product code at position 2; canonical template defines field sequence\n\n\n6\nPrefix\nCLMS_ mandatory for all products, no exceptions\n\n\n7\nProduct code\nShort, uppercase, registered in code registry\n\n\n8\nTemporal\nA{start}P{duration} (aggregated), S{YYYY} (status), C{YYYY}-{YYYY} (change), T{start}P{duration} (timeseries)\n\n\n9\nResolution\nR{XX}m (raster/grid), V{value}ha (vector MMU), V{value}m (point grid) — hyphen for irregular grids\n\n\n10\nSpatial extent\nMGRS / LAEA / IW burst / FUA / country / DU / EUROPE — identifies the area of the specific file, not the product coverage\n\n\n11\nEPSG\nBare EPSG code, no zero-padding (3035); required for projected CRS, omit when CRS is implicit in the spatial extent\n\n\n12\nVersion\nV{XX}-R{YY} single hyphenated field; no packed V{XXX}\n\n\n13\nVariable\n{CODE}-{TYPE}[-{PARAM}][-{SEASON}][-QFLAG] compound at position 2\n\n\n14\nProduction date\nMetadata-only unless operationally required\n\n\n15\nSensor\nOmit unless multi-sensor discrimination needed\n\n\n16\nQuality\nSeparate file, hierarchical -QFLAG suffix, identical stem\n\n\n17\nRegistration\nparsEO schema before CDSE onboarding\n\n\n\n\nDocument status: Draft for review. Grounded in the parsEO schema registry and VPP2 naming crosswalk."
+  },
+  {
     "objectID": "guidelines/guidelines_setup-guide_v1.html",
     "href": "guidelines/guidelines_setup-guide_v1.html",
     "title": "Setup Guide",
@@ -3693,7 +3889,7 @@
     "href": "guidelines/index.html",
     "title": "Guidelines",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        version\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n\n\n\n\n\n\nTitle\n\n\n\nversion\n\n\n\nDate\n\n\n\n\n\n\n\n\nEditor Guide\n\n\n1.0.0\n\n\nMay 26, 2026\n\n\n\n\n\n\nIT Architecture Principles and Implementation Guidelines\n\n\n1.4.0\n\n\nJun 19, 2025\n\n\n\n\n\n\nSetup Guide\n\n\n1.0.0\n\n\nMay 26, 2026\n\n\n\n\n\n\nNo matching items\n Back to top"
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        version\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n\n\n\n\n\n\nTitle\n\n\n\nversion\n\n\n\nDate\n\n\n\n\n\n\n\n\nCLMS Filename Tree\n\n\n1.0.0\n\n\nJul 24, 2026\n\n\n\n\n\n\nCLMS Product Filenaming — Design Principles\n\n\n1.0.0\n\n\nJul 24, 2026\n\n\n\n\n\n\nEditor Guide\n\n\n1.0.0\n\n\nMay 26, 2026\n\n\n\n\n\n\nIT Architecture Principles and Implementation Guidelines\n\n\n1.4.0\n\n\nJun 19, 2025\n\n\n\n\n\n\nSetup Guide\n\n\n1.0.0\n\n\nMay 26, 2026\n\n\n\n\n\n\nNo matching items\n Back to top"
   },
   {
     "objectID": "products/index.html",
