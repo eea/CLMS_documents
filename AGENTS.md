@@ -21,6 +21,15 @@ There is no application server and no database. The product is rendered static
 content plus AI-generated metadata (intros, keywords, image descriptions,
 changelogs).
 
+## Nature of the work here
+
+This is a **documentation build system**, not a data project. Typical tasks are
+editing `.qmd` prose, adjusting Python pipeline scripts under
+`.github/scripts/`, and diagnosing renders. Do not load data, start language
+runtimes, or fit models unless a task explicitly asks. Prefer plain file tools
+(read / edit / grep) and, when a task truly needs a shell, use `bash` for
+`ruff`, `pytest`, `quarto`, and `git`.
+
 ## Repository map
 
 - `DOCS/<product>/*.qmd` — **the documents** (the content authors edit). Products
@@ -186,6 +195,29 @@ quarto render DOCS/<product>/<doc>_vN.qmd
 A bare `quarto render` does **not** run the qmd-tools rewrites or image-description
 baking that the full build applies — use it for iterating, not for judging final
 PDF quality.
+
+### What happens when a render runs
+
+The project `_quarto.yml` wires two local-preview hooks that make a plain
+`quarto render` produce output resembling the deployed site for any qmd with a
+`type:` field:
+
+- `tools/pre-render-apply-doc-type` — applies the same `apply_doc_type`
+  transformation the CI build uses (from
+  `.github/scripts/build/strip_unknown_frontmatter.py`) so `doc-types.yml`
+  toggles (contact, echo, code-fold, page-layout, format-links, etc.) actually
+  take effect locally. It backs the source up to `<doc>.qmd.orig` before
+  mutating.
+- `tools/post-render-restore-doc-type` — sweeps the tree and restores every
+  `.qmd.orig` it finds after render.
+- If a render crashes and leaves a stray `.qmd.orig` behind, the **next**
+  render's pre-render sweep self-heals it before doing anything else.
+- The PR gate (`validate_qmd_files.py`) also rejects any commit whose qmd shows
+  the CI-normalized fingerprint (top-level `contact` / `echo` / `code-fold: false`
+  together with `type:`), so a leaked mutation cannot land in a PR.
+
+Both hooks are no-ops for any qmd without a `type:` field — the vast majority
+of the repo is unaffected.
 
 The full site build is `bash .github/scripts/build/build-docs.sh`. It is
 **destructive to the working tree** (it does `mv DOCS origin_DOCS`, copies `_meta`
