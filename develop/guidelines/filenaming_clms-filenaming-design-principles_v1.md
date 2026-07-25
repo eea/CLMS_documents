@@ -150,7 +150,7 @@ directory structures.
 **Rule:** Use `_` to separate all top-level fields. The hyphen `-` is
 the **within-field separator**: it joins the variable (and
 sub-variables) to the product code (`VLCC-GRA`, `WSI-SP-SCD`), joins
-version to release (`V01-R00`), and appears where a notation itself
+version to revision (`V01-R00`), and appears where a notation itself
 requires it (e.g., `054-0154-IW1` for IW burst tile identifiers,
 `C2018-2021` for change periods). It is never a cross-field delimiter.
 
@@ -182,7 +182,7 @@ encoded within the code-variable compound:
 
 > **Canonical template:**
 >
->     CLMS_{CODE}-{VARIABLE}[-{SUBVARIABLE}]_{TEMPORAL}_{RES}_{EXTENT}_{EPSG}_{VERSION}-{RELEASE}
+>     CLMS_{CODE}-{VARIABLE}[-{SUBVARIABLE}]_{TEMPORAL}_{RES}_{EXTENT}_{EPSG}_{VERSION}-{REVISION}
 
 Sub-products within a family (e.g., SP, SWS, WDS within WSI) extend the
 compound with a further hyphen (`WSI-SP-SCD`, `WSI-WDS-SSC`). This keeps
@@ -372,7 +372,7 @@ field order keeps parsing deterministic without artificial padding.
 ## Principle 12 — Version: `V{XX}-R{YY}` single hyphenated field
 
 **Rule:** A single compound token: `V{XX}` (major, 2-digit zero-padded),
-hyphen, `R{YY}` (release, 2-digit zero-padded). Never use packed
+hyphen, `R{YY}` (revision, 2-digit zero-padded). Never use packed
 `V{XXX}`.
 
 **Compliant:** `V01-R00`, `V01-R01`, `V02-R00`
@@ -493,7 +493,7 @@ forced into a single mould:
 | 1 | Filename structure | Fields separated by `_`, stem.extension |
 | 2 | Allowed characters | `A–Z`, `0–9`, `_`, `-` only; no lowercase, no spaces |
 | 3 | Max filename length | ≤255 chars stem+extension, recommend ≤100 |
-| 4 | Delimiter | `_` between fields; `-` within fields (code-variable compound, version-release, notations) |
+| 4 | Delimiter | `_` between fields; `-` within fields (code-variable compound, version-revision, notations) |
 | 5 | Field order | Variable hyphen-appended to product code at position 2; canonical template defines field sequence |
 | 6 | Prefix | `CLMS_` mandatory for all products, no exceptions |
 | 7 | Product code | Short, uppercase, registered in code registry |

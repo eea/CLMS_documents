@@ -298,7 +298,7 @@ Denmark<br>
 </section>
 <section id="principle-4-delimiter-underscore-_-between-fields-hyphen---within-fields" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="principle-4-delimiter-underscore-_-between-fields-hyphen---within-fields"><span class="header-section-number">1.5</span> Principle 4 — Delimiter: Underscore <code>_</code> between fields, hyphen <code>-</code> within fields</h2>
-<p><strong>Rule:</strong> Use <code>_</code> to separate all top-level fields. The hyphen <code>-</code> is the <strong>within-field separator</strong>: it joins the variable (and sub-variables) to the product code (<code>VLCC-GRA</code>, <code>WSI-SP-SCD</code>), joins version to release (<code>V01-R00</code>), and appears where a notation itself requires it (e.g., <code>054-0154-IW1</code> for IW burst tile identifiers, <code>C2018-2021</code> for change periods). It is never a cross-field delimiter.</p>
+<p><strong>Rule:</strong> Use <code>_</code> to separate all top-level fields. The hyphen <code>-</code> is the <strong>within-field separator</strong>: it joins the variable (and sub-variables) to the product code (<code>VLCC-GRA</code>, <code>WSI-SP-SCD</code>), joins version to revision (<code>V01-R00</code>), and appears where a notation itself requires it (e.g., <code>054-0154-IW1</code> for IW burst tile identifiers, <code>C2018-2021</code> for change periods). It is never a cross-field delimiter.</p>
 <p><strong>Rationale:</strong> Consistent underscore delimiters make tokenisation deterministic across all product families. The hyphen carries all intra-field structure, so splitting on <code>_</code> always yields the same field count within a product family.</p>
 <p><strong>Compliant:</strong></p>
 <ul>
@@ -314,7 +314,7 @@ Denmark<br>
 <p><strong>Rule:</strong> Fields appear in a fixed order per product family. The variable is <strong>not a standalone field</strong>: it is hyphen-appended to the product code in position 2 (<code>{CODE}-{VARIABLE}[-{SUBVARIABLE}]</code>). Underscore-separated token count is invariant across a product family — a sub-product identifier is never a separate positional field; it is encoded within the code-variable compound:</p>
 <blockquote class="blockquote">
 <p><strong>Canonical template:</strong></p>
-<pre><code>CLMS_{CODE}-{VARIABLE}[-{SUBVARIABLE}]_{TEMPORAL}_{RES}_{EXTENT}_{EPSG}_{VERSION}-{RELEASE}</code></pre>
+<pre><code>CLMS_{CODE}-{VARIABLE}[-{SUBVARIABLE}]_{TEMPORAL}_{RES}_{EXTENT}_{EPSG}_{VERSION}-{REVISION}</code></pre>
 </blockquote>
 <p>Sub-products within a family (e.g., SP, SWS, WDS within WSI) extend the compound with a further hyphen (<code>WSI-SP-SCD</code>, <code>WSI-WDS-SSC</code>). This keeps the underscore token count identical for every file in the family.</p>
 <p><strong>Rationale:</strong> Code and variable together identify <strong>what</strong> the file is; the remaining fields identify <strong>when</strong>, <strong>where</strong>, and <strong>which version</strong>. Placing the full product identity at position 2 groups all files of a product and its layers together in directory listings, and a parser always knows which position holds which field — no branching logic based on which sub-product happens to be present.</p>
@@ -525,7 +525,7 @@ Denmark<br>
 </section>
 <section id="principle-12-version-vxx-ryy-single-hyphenated-field" class="level2" data-number="1.13">
 <h2 data-number="1.13" class="anchored" data-anchor-id="principle-12-version-vxx-ryy-single-hyphenated-field"><span class="header-section-number">1.13</span> Principle 12 — Version: <code>V{XX}-R{YY}</code> single hyphenated field</h2>
-<p><strong>Rule:</strong> A single compound token: <code>V{XX}</code> (major, 2-digit zero-padded), hyphen, <code>R{YY}</code> (release, 2-digit zero-padded). Never use packed <code>V{XXX}</code>.</p>
+<p><strong>Rule:</strong> A single compound token: <code>V{XX}</code> (major, 2-digit zero-padded), hyphen, <code>R{YY}</code> (revision, 2-digit zero-padded). Never use packed <code>V{XXX}</code>.</p>
 <p><strong>Compliant:</strong> <code>V01-R00</code>, <code>V01-R01</code>, <code>V02-R00</code></p>
 <hr>
 </section>
@@ -629,7 +629,7 @@ CLMS_VPP2-ST-PPI-QFLAG_A20240101P10D_R10m_T33UVS_V01-R00.tif ← quality</code><
 <tr class="even">
 <td>4</td>
 <td>Delimiter</td>
-<td><code>_</code> between fields; <code>-</code> within fields (code-variable compound, version-release, notations)</td>
+<td><code>_</code> between fields; <code>-</code> within fields (code-variable compound, version-revision, notations)</td>
 </tr>
 <tr class="odd">
 <td>5</td>

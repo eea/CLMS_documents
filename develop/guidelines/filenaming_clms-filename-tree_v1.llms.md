@@ -25,7 +25,7 @@ Denmark
 
 ------------------------------------------------------------------------
 
-    CLMS_{CODE}-{VARIABLE}[-{SUBVARIABLE}]_{TEMPORAL}_{RES}_{EXTENT}_{EPSG}_{VERSION}-{RELEASE}.ext
+    CLMS_{CODE}-{VARIABLE}[-{SUBVARIABLE}]_{TEMPORAL}_{RES}_{EXTENT}_{EPSG}_{VERSION}-{REVISION}.ext
 
 ## 1.1 By Product Code
 
@@ -192,13 +192,13 @@ Denmark
          │       └── R20m_                raster 20m
          │           └── T38TKL_          MGRS tile
          │               └── 3035_        EPSG 3035
-         │                   └── V01-R00.tif  version 1, release 0
+         │                   └── V01-R00.tif  version 1, revision 0
          │
          └── EGMS-L2a-A_                  European Ground Motion — L2a ascending
              └── T20190101P5Y_            5-year timeseries
                  └── R20-5m_              irregular grid 20x5m
                      └── 054-0154-IW1_    IW burst
-                         └── V01-R00.tif  version 1, release 0
+                         └── V01-R00.tif  version 1, revision 0
 
 ------------------------------------------------------------------------
 
