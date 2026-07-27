@@ -1,114 +1,113 @@
-# MRVPP – Algorithm Theoretical Basis Document (ATBD)
+# Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Algorithm Theoretical Basis Document (ATBD)
 European Environment Agency (EEA)
 2026-06-09
 
-- [<span class="toc-section-number">1</span> DOCUMENT CHANGE
-  LOG](#document-change-log)
-- [<span class="toc-section-number">2</span>
+- [<span class="toc-section-number">1</span>
   Introduction](#introduction)
-  - [<span class="toc-section-number">2.1</span> MR-VPP products
+  - [<span class="toc-section-number">1.1</span> MR-VPP products
     summary](#mr-vpp-products-summary)
-  - [<span class="toc-section-number">2.2</span> Scope and
+  - [<span class="toc-section-number">1.2</span> Scope and
     objectives](#scope-and-objectives)
-  - [<span class="toc-section-number">2.3</span> Document
+  - [<span class="toc-section-number">1.3</span> Document
     structure](#document-structure)
-  - [<span class="toc-section-number">2.4</span> Related
+  - [<span class="toc-section-number">1.4</span> Related
     documents](#related-documents)
-    - [<span class="toc-section-number">2.4.1</span> Applicable
+    - [<span class="toc-section-number">1.4.1</span> Applicable
       documents](#applicable-documents)
-    - [<span class="toc-section-number">2.4.2</span> Reference
+    - [<span class="toc-section-number">1.4.2</span> Reference
       documents](#reference-documents)
-  - [<span class="toc-section-number">2.5</span>
+  - [<span class="toc-section-number">1.5</span>
     Terminology](#terminology)
-    - [<span class="toc-section-number">2.5.1</span> Terms](#terms)
-    - [<span class="toc-section-number">2.5.2</span> Abbreviations and
+    - [<span class="toc-section-number">1.5.1</span> Terms](#terms)
+    - [<span class="toc-section-number">1.5.2</span> Abbreviations and
       acronyms](#abbreviations-and-acronyms)
-- [<span class="toc-section-number">3</span> Input data and plant
+- [<span class="toc-section-number">2</span> Input data and plant
   phenology index for
   MR-VPP](#input-data-and-plant-phenology-index-for-mr-vpp)
-  - [<span class="toc-section-number">3.1</span> Input
+  - [<span class="toc-section-number">2.1</span> Input
     data](#input-data)
-  - [<span class="toc-section-number">3.2</span> Calculation of
+  - [<span class="toc-section-number">2.2</span> Calculation of
     PPI](#calculation-of-ppi)
-  - [<span class="toc-section-number">3.3</span> Calculation of PPI
+  - [<span class="toc-section-number">2.3</span> Calculation of PPI
     Quality flag (QA) values for TIMESAT
     processing](#calculation-of-ppi-quality-flag-qa-values-for-timesat-processing)
-  - [<span class="toc-section-number">3.4</span> Specification of output
+  - [<span class="toc-section-number">2.4</span> Specification of output
     PPI data](#specification-of-output-ppi-data)
-- [<span class="toc-section-number">4</span> The VPP retrieval
+- [<span class="toc-section-number">3</span> The VPP retrieval
   Algorithm](#the-vpp-retrieval-algorithm)
-  - [<span class="toc-section-number">4.1</span> Outline](#outline)
-  - [<span class="toc-section-number">4.2</span> Basic underlying
+  - [<span class="toc-section-number">3.1</span> Outline](#outline)
+  - [<span class="toc-section-number">3.2</span> Basic underlying
     assumptions](#basic-underlying-assumptions)
-  - [<span class="toc-section-number">4.3</span> Related and previous
+  - [<span class="toc-section-number">3.3</span> Related and previous
     applications](#related-and-previous-applications)
-    - [<span class="toc-section-number">4.3.1</span> Time-series
+    - [<span class="toc-section-number">3.3.1</span> Time-series
       smoothing](#time-series-smoothing)
-    - [<span class="toc-section-number">4.3.2</span> Output
+    - [<span class="toc-section-number">3.3.2</span> Output
       product](#output-product)
-    - [<span class="toc-section-number">4.3.3</span> Evaluation of Short
+    - [<span class="toc-section-number">3.3.3</span> Evaluation of Short
       Time-Series Processing for Operational Phenology
       Retrieval](#evaluation-of-short-time-series-processing-for-operational-phenology-retrieval)
-  - [<span class="toc-section-number">4.4</span> Detailed algorithm
+  - [<span class="toc-section-number">3.4</span> Detailed algorithm
     description](#detailed-algorithm-description)
-    - [<span class="toc-section-number">4.4.1</span> Extraction of
+    - [<span class="toc-section-number">3.4.1</span> Extraction of
       phenology and productivity parameters using
       TIMESAT](#extraction-of-phenology-and-productivity-parameters-using-timesat)
-    - [<span class="toc-section-number">4.4.2</span>
+    - [<span class="toc-section-number">3.4.2</span>
       Pre-processing](#pre-processing)
-    - [<span class="toc-section-number">4.4.3</span> PPI fitting to
+    - [<span class="toc-section-number">3.4.3</span> PPI fitting to
       daily data](#ppi-fitting-to-daily-data)
-    - [<span class="toc-section-number">4.4.4</span> Extraction of
+    - [<span class="toc-section-number">3.4.4</span> Extraction of
       phenology and productivity
       parameters](#extraction-of-phenology-and-productivity-parameters)
-    - [<span class="toc-section-number">4.4.5</span> Defining growing
+    - [<span class="toc-section-number">3.4.5</span> Defining growing
       season thresholds](#defining-growing-season-thresholds)
-    - [<span class="toc-section-number">4.4.6</span> Assigning seasons
+    - [<span class="toc-section-number">3.4.6</span> Assigning seasons
       to years](#assigning-seasons-to-years)
-    - [<span class="toc-section-number">4.4.7</span> Defining thresholds
+    - [<span class="toc-section-number">3.4.7</span> Defining thresholds
       for omitting seasons and
       regions](#defining-thresholds-for-omitting-seasons-and-regions)
-    - [<span class="toc-section-number">4.4.8</span> VPP QA](#vpp-qa)
-  - [<span class="toc-section-number">4.5</span> Limitations of the
+    - [<span class="toc-section-number">3.4.8</span> VPP QA](#vpp-qa)
+  - [<span class="toc-section-number">3.5</span> Limitations of the
     algorithm](#limitations-of-the-algorithm)
-  - [<span class="toc-section-number">4.6</span> Risk of failure and
+  - [<span class="toc-section-number">3.6</span> Risk of failure and
     mitigation measures](#risk-of-failure-and-mitigation-measures)
-- [<span class="toc-section-number">5</span> Post processing and file
+- [<span class="toc-section-number">4</span> Post processing and file
   naming](#post-processing-and-file-naming)
-  - [<span class="toc-section-number">5.1</span> Post
+  - [<span class="toc-section-number">4.1</span> Post
     processing](#post-processing)
-  - [<span class="toc-section-number">5.2</span> File
+  - [<span class="toc-section-number">4.2</span> File
     naming](#file-naming)
-- [<span class="toc-section-number">6</span> References](#references)
-- [<span class="toc-section-number">7</span> Appendix](#appendix)
-  - [<span class="toc-section-number">7.1</span> Comparison of TPROD
+- [<span class="toc-section-number">5</span> References](#references)
+- [<span class="toc-section-number">6</span> Appendix](#appendix)
+  - [<span class="toc-section-number">6.1</span> Comparison of TPROD
     using Version 5.0 and
     4.0](#comparison-of-tprod-using-version-50-and-40)
-  - [<span class="toc-section-number">7.2</span> Comparison of MR-VPP
+  - [<span class="toc-section-number">6.2</span> Comparison of MR-VPP
     naming scheme in Version 5.0 and
     4.0](#comparison-of-mr-vpp-naming-scheme-in-version-50-and-40)
-  - [<span class="toc-section-number">7.3</span> Detailed Comparison of
+  - [<span class="toc-section-number">6.3</span> Detailed Comparison of
     2025 MR-VPP V5.0 Issue 2.0 Results from Short and Long Input Time
     Series](#detailed-comparison-of-2025-mr-vpp-v50-issue-20-results-from-short-and-long-input-time-series)
 
-**Disclaimer**
+Reference Document for **Version 5.0 Issue 2.0**
 
-© European Union, Copernicus Land Monitoring Service 2026, European
-Environment Agency (EEA)
+**Lead service providers for production (SC#5 MR-VPP 2025 Extension):**
+Flemish Institute for Technological Research, Belgium (VITO), Lund
+University, Sweden.
 
-Reuse is authorised under the Creative Commons Attribution 4.0
-International (CC BY 4.0) licence. The reuse policy of the European
-Commission is implemented by Commission Decision 2011/833/EU.
+**Produced by:** Hongxiao Jin<sup>1</sup>, Zhanzhang Cai<sup>1</sup>,
+Lars Eklundh<sup>1</sup>, Else Swinnen<sup>2</sup>, Walter
+Horsten<sup>2</sup>, Tim Ng<sup>2</sup>
 
-Where third-party content is identified, separate permission may be
-required.
+<sup>1</sup> Lund University, Lund, Sweden  
+<sup>2</sup> VITO
 
-# DOCUMENT CHANGE LOG
-
-| Issue | Issue date | Pages affected | shouRelevant information |
-|----|----|----|----|
-| 1.0 | 15/09/2025 | All | First issue for product version 5.0 |
-| 2.0 | 09/06/2026 | Multiple | Extension of MR-VPP V5.0 to include year 2025 using short input time series for phenology retrieval; added evaluation of consistency between short-term and full-period processing and discussion of implications for near-real-time LSP production. |
+**Disclaimer:** © European Union, Copernicus Land Monitoring Service
+2026, European Environment Agency (EEA) All Rights Reserved. No parts of
+this document may be photocopied, reproduced, stored in retrieval
+system, or transmitted, in any form or by any means whether electronic,
+mechanical, or otherwise without the prior written permission of the
+European Environment Agency.
 
 # Introduction
 
@@ -375,20 +374,13 @@ This document is structured as follows:
 
 ### Applicable documents
 
-\[AD01\] FRAMEWORK SERVICE CONTRACT EEA/DIS/RO/23/007/LOT 1, 26-06-2024
-
-\[AD02\] EEA.DIS.R0.23.007_RfS_SC3, 3rd specific contract under
-Framework Contract nr. EEA/DIS/R0/23/007/LOT 1, 02-04-2025
-
-\[AD03\] Medium Resolution Vegetation Phenology and Productivity
-(MR-VPP) Monitoring Report, v4.0, 13-05-2024, Framework contract No
-EEA/DIS/R0/22/009/Lot 1
-
-\[AD04\] CGLOPS1_ATBD_LSP300m-V2.0: Algorithm Theoretical Basis Document
-of normalized Land Surface Phenology 300m, version 2.0
-
-\[AD05\] MODIS User Guide V006 and V006.1, MCD43A4 NBAR Product,
-https://www.umb.edu/spectralmass/modis-user-guide-v006-and-v0061/mcd43a4-nbar-product/
+|  |  |
+|----|----|
+| \[AD01\] | FRAMEWORK SERVICE CONTRACT EEA/DIS/RO/23/007/LOT 1, 26-06-2024 |
+| \[AD02\] | EEA.DIS.R0.23.007_RfS_SC3, 3rd specific contract under Framework Contract nr. EEA/DIS/R0/23/007/LOT 1, 02-04-2025 |
+| \[AD03\] | Medium Resolution Vegetation Phenology and Productivity (MR-VPP) Monitoring Report, v4.0, 13-05-2024, Framework contract No EEA/DIS/R0/22/009/Lot 1 |
+| \[AD04\] | CGLOPS1_ATBD_LSP300m-V2.0: Algorithm Theoretical Basis Document of normalized Land Surface Phenology 300m, version 2.0 |
+| \[AD05\] | MODIS User Guide V006 and V006.1, MCD43A4 NBAR Product, https://www.umb.edu/spectralmass/modis-user-guide-v006-and-v0061/mcd43a4-nbar-product/ |
 
 ### Reference documents
 
@@ -762,10 +754,10 @@ management, or disturbances).
 ## Related and previous applications
 
 The CLMS MR-VPP 5.0 is modelled on similar principles as developed for
-the CLMS **High Resolution Vegetation Phenology and Productivity
-(HR-VPP)²**, and CLMS CGLOPS land surface phenology V2.0³. However,
-MODIS provides a 25+ year observation record, and such a long-term
-series is critical for reliable phenology estimation. \[^2\]:
+the CLMS *High Resolution Vegetation Phenology and Productivity
+(HR-VPP)²*, and CLMS CGLOPS land surface phenology V2.0³. However, MODIS
+provides a 25+ year observation record, and such a long-term series is
+critical for reliable phenology estimation. \[^2\]:
 https://land.copernicus.eu/en/products/vegetation?tab=vegetation_phenology_and_productivity_parameters
 \[^3\]:
 https://land.copernicus.eu/en/news/global-land-surface-phenology-2024-product-available
@@ -1185,14 +1177,16 @@ the TIMESAT processing is skipped (BOX 1):
 1.  If the total number of valid observations is too low, less than 3
     points per year on average throughout the entire time series. This
     primarily applies to areas lacking valid observations.
+
 2.  If the first-order PPI differences are minimal, less than 3 points
     per year on average with first-order differences greater than
     1×10⁻⁶. This indicates weak seasonality, making it difficult to
     precisely determine phenological parameters, and mainly occurs with
     sustained evergreen vegetation.
 
-**BOX 1 Pseudo script for omitting seasons and regions**
+    **BOX 1 Pseudo script for omitting seasons and regions**
 
+    ``` bash
     ! Default.
     process = True
     Point_Threshold = 3*number_of_years
@@ -1207,6 +1201,7 @@ the TIMESAT processing is skipped (BOX 1):
 
     Scenario 3
     if count[y > (0.02*peak_value)] < Point_Threshold, process = False
+    ```
 
 3.  If the number of points with PPI values above 2% of the peak value
     is less than 3 points per year on average. This primarily filters
@@ -1477,11 +1472,16 @@ post-processing was applied to PPI time series.
 **BOX 2 Mosaic 23 tiles and reproject into LAEA projection.**
 
 ``` bash
+#!/usr/bin/env bash
+
+set -euo pipefail
+
 ROOT="~/proj/HRVPP2/MRVPP_2024/LSP"     # input tiles root
 OUTDIR="./MRVPP_13VPP_QA"               # output folder
 SEASONS=("season1" "season2")
 YEARS=($(seq 2000 2024))
-PARAMS=("SOSD" "SOSV" "LSLOPE" "EOSD" "EOSV" "RSLOPE" "LENGTH" "MINV" "MAXD" "MAXV" "AMPL" "TPROD" "SPROD" "QA")
+PARAMS=("SOSD" "SOSV" "LSLOPE" "EOSD" "EOSV" "RSLOPE" "LENGTH" "MINV" "MAXD"
+"MAXV" "AMPL" "TPROD" "SPROD" "QA")
 
 # Optional NoData (uncomment & set if known; otherwise VRT inherits per-tile NoData)
 
@@ -1664,8 +1664,7 @@ Note: YYYY for year, e.g. 2000, 2001, …, 2024, 2025.
 - Bolton, D. K., Gray, J. M., Melaas, E. K., Moon, M., Eklundh, L., &
   Friedl, M. A. (2020). Continental-scale land surface phenology from
   harmonized Landsat 8 and Sentinel-2 imagery. *Remote Sensing of
-  Environment, 240*, 111685.
-  https://doi.org/https://doi.org/10.1016/j.rse.2020.111685
+  Environment, 240*, 111685. https://doi.org/10.1016/j.rse.2020.111685
 - Cai, Z., Jönsson, P., Jin, H., & Eklundh, L. (2017). Performance of
   Smoothing Methods for Reconstructing NDVI Time-Series and Estimating
   Vegetation Phenology from MODIS Data. *Remote Sensing, 9*(12), 1271.
@@ -1678,7 +1677,7 @@ Note: YYYY for year, e.g. 2000, 2001, …, 2024, 2025.
 - Chmura, H. E., Kharouba, H. M., Ashander, J., Ehlman, S. M.,
   Rivest, E. B., & Yang, L. H. (2019). The mechanisms of phenology: the
   patterns and processes of phenological shifts. *Ecological Monographs,
-  89*(1), e01337. https://doi.org/https://doi.org/10.1002/ecm.1337
+  89*(1), e01337. https://doi.org/10.1002/ecm.1337
 - Craven, P., & Wahba, G. (1978). Smoothing noisy data with spline
   functions. *Numerische Mathematik, 31*(4), 377-403.
   https://doi.org/10.1007/BF01404567
@@ -1695,7 +1694,7 @@ Note: YYYY for year, e.g. 2000, 2001, …, 2024, 2025.
 - Jin, H., & Eklundh, L. (2014). A physically based vegetation index for
   improved monitoring of plant phenology. *Remote Sensing of
   Environment, 152*(0), 512-525.
-  https://doi.org/doi.org/10.1016/j.rse.2014.07.010
+  https://doi.org/10.1016/j.rse.2014.07.010
 - Jin, H., Vicente-Serrano, S. M., Tian, F., Cai, Z., Conradt, T.,
   Boincean, B., Murphy, C., Farizo, B. A., Grainger, S.,
   López-Moreno, J. I., & Eklundh, L. (2023). Higher vegetation
@@ -1712,7 +1711,7 @@ Note: YYYY for year, e.g. 2000, 2001, …, 2024, 2025.
   https://doi.org/10.1109/Tgrs.2002.802519
 - Jönsson, P., & Eklundh, L. (2004). TIMESAT – a program for analyzing
   time-series of satellite sensor data. *Computers & Geosciences,
-  30*(8), 833-845. <Go to ISI>://WOS:000225367100004
+  30*(8), 833-845.
 - Lieth, H. (1974). *Phenology and Seasonality Modeling (Ecological
   Studies-Analysis and Synthesis Series, Vol 8)*. Springer-Verlag
 - Menenti, M., Azzali, S., Verhoef, W., & van Swol, R. (1993). Mapping
@@ -1722,7 +1721,6 @@ Note: YYYY for year, e.g. 2000, 2001, …, 2024, 2025.
 - Olsson, L., & Eklundh, L. (1994). Fourier-Series for Analysis of
   Temporal Sequences of Satellite Sensor Imagery. *International Journal
   of Remote Sensing, 15*(18), 3735-3741.
-  <Go to ISI>://WOS:A1994PZ44700008
 - Roerink, G. J., Menenti, M., & Verhoef, W. (2000). Reconstructing
   cloudfree NDVI composites using Fourier analysis of time series.
   *International Journal of Remote Sensing, 21*(9), 1911-1917.
@@ -1742,7 +1740,7 @@ Note: YYYY for year, e.g. 2000, 2001, …, 2024, 2025.
   J., & Eklundh, L. (2021). Calibrating vegetation phenology from
   Sentinel-2 using eddy covariance, PhenoCam, and PEP725 networks across
   Europe. *Remote Sensing of Environment, 260*, 112456.
-  https://doi.org/https://doi.org/10.1016/j.rse.2021.112456
+  https://doi.org/10.1016/j.rse.2021.112456
 - Tucker, C. J. (1977). Asymptotic nature of grass canopy spectral
   reflectance. *Applied Optics, 16*(5), 1151-1156.
   https://doi.org/10.1364/AO.16.001151
@@ -1775,11 +1773,8 @@ northern Africa, present in V4.0, are effectively removed in V5.0.
 
 ![Figure 9. Pan-European TPROD (Season 1, 2018) from MR-VPP Versions 4.0
 and 5.0, showing correction of artifacts in desert/barren areas, in
-particular in N.
-Africa.](MRVPP_MRVPP-ATBD_v2-media/img-9b6bf208da4a290a31d1d20e7cd36dd9.png)
-
-1)  MR-VPP version 4.0
-2)  MR-VPP version 5.0
+particular in N. Africa: (a) MR-VPP version 4.0, (b) MR-VPP version
+5.0.](MRVPP_MRVPP-ATBD_v2-media/img-9b6bf208da4a290a31d1d20e7cd36dd9.png)
 
 ## Comparison of MR-VPP naming scheme in Version 5.0 and 4.0
 

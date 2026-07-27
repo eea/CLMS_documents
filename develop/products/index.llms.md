@@ -20,8 +20,8 @@
 | [High Resolution Layer Small Landscape Features 2021 – Product User Manual](../products/High_Resolution_Layer_Small_Landscape_Features_2021_PUM_v1.llms.md) | 1.0.0 | Sep 16, 2025 |
 | [High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical Basis Document](../products/High_Resolution_Layer_Vegetated_Land_Cover_Characteristics_ATBD_v2.llms.md) | 2.1.0 | Jun 27, 2025 |
 | [MAPPING GUIDE FOR A EUROPEAN URBAN ATLAS](../products/products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018.llms.md) | 1.0.0 | Jun 27, 2026 |
-| [MRVPP – Algorithm Theoretical Basis Document (ATBD)](../products/MRVPP_MRVPP-ATBD_v2.llms.md) | 2.0.0 | Jun 9, 2026 |
 | [Mapping Guide for a European Urban Atlas](../products/products_Mapping_Guide_Land%20_Cover_Land_Use_2006.llms.md) | 1.0.0 | Jun 27, 2026 |
+| [Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Algorithm Theoretical Basis Document (ATBD)](../products/MRVPP_MRVPP-ATBD_v2.llms.md) | 2.0.0 | Jun 9, 2026 |
 | [Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Product User Manual (PUM)](../products/MRVPP_MRVPP_PUM_v1.llms.md) | 1.0.0 | Jun 18, 2026 |
 | [N2K 2006-2018 - Product User Manual](../products/N2K_2006-2018_PUM_v1.llms.md) | 1.0.0 | Jun 1, 2021 |
 | [Production of High Resolution Water, Snow and Ice products (Lot 1)](../products/products_Algorithm_theoretical_basis_document_-_High_Resolution_Ice_products_Europe.llms.md) | 1.0.0 | Jan 20, 2026 |

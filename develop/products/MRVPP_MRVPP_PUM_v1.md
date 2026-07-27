@@ -1,5 +1,5 @@
 # Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Product User Manual (PUM)
-
+European Environment Agency (EEA)
 2026-06-18
 
 - [Executive summary](#executive-summary)

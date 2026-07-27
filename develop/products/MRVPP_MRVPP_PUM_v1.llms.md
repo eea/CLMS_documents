@@ -2,6 +2,10 @@
 
 Copernicus Land Monitoring Service
 
+Author
+
+European Environment Agency (EEA)
+
 Published
 
 June 18, 2026
