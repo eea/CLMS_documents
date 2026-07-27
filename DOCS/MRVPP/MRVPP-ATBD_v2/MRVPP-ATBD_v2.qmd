@@ -1,26 +1,21 @@
 ---
-title: 'MRVPP – Algorithm Theoretical Basis Document (ATBD)'
+title: 'Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Algorithm Theoretical Basis Document (ATBD)'
 subtitle: 'Copernicus Land Monitoring Service'
 category: products
 author: 'European Environment Agency (EEA)'
 date: 2026-06-09
-template-version: 1.0.0
 ---
 
-**Disclaimer**
+Reference Document for **Version 5.0 Issue 2.0**
 
-© European Union, Copernicus Land Monitoring Service 2026, European Environment Agency (EEA)
+**Lead service providers for production (SC#5 MR-VPP 2025 Extension):** Flemish Institute for Technological Research, Belgium (VITO), Lund University, Sweden.
 
-Reuse is authorised under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence. The reuse policy of the European Commission is implemented by Commission Decision 2011/833/EU.
+**Produced by:** Hongxiao Jin^1^, Zhanzhang Cai^1^, Lars Eklundh^1^, Else Swinnen^2^, Walter Horsten^2^, Tim Ng^2^
 
-Where third-party content is identified, separate permission may be required.
+^1^ Lund University, Lund, Sweden\
+^2^ VITO
 
-# DOCUMENT CHANGE LOG
-
-| Issue | Issue date   | Pages affected | shouRelevant information                                                                                                                                                                                                                                 |
-|--------------------|-------------------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------|
-| 1.0   | 15/09/2025   | All            | First issue for product version 5.0                                                                                                                                                                                                                      |
-| 2.0   | 09/06/2026   | Multiple       | Extension of MR-VPP V5.0 to include year 2025 using short input time series for phenology retrieval; added evaluation of consistency between short-term and full-period processing and discussion of implications for near-real-time LSP production. |
+**Disclaimer:** © European Union, Copernicus Land Monitoring Service 2026, European Environment Agency (EEA) All Rights Reserved. No parts of this document may be photocopied, reproduced, stored in retrieval system, or transmitted, in any form or by any means whether electronic, mechanical, or otherwise without the prior written permission of the European Environment Agency.
 
 # Introduction
 
@@ -157,24 +152,13 @@ This document is structured as follows:
 
 ### Applicable documents
 
-[AD01]
-FRAMEWORK SERVICE CONTRACT EEA/DIS/RO/23/007/LOT 1, 26-06-2024
-
-[AD02]
-EEA.DIS.R0.23.007_RfS_SC3, 3rd specific contract under Framework Contract nr.
-EEA/DIS/R0/23/007/LOT 1, 02-04-2025
-
-[AD03]
-Medium Resolution Vegetation Phenology and Productivity (MR-VPP) Monitoring
-Report, v4.0, 13-05-2024, Framework contract No EEA/DIS/R0/22/009/Lot 1
-
-[AD04]
-CGLOPS1_ATBD_LSP300m-V2.0: Algorithm Theoretical Basis Document of
-normalized Land Surface Phenology 300m, version 2.0
-
-[AD05]
-MODIS User Guide V006 and V006.1, MCD43A4 NBAR Product,
-https://www.umb.edu/spectralmass/modis-user-guide-v006-and-v0061/mcd43a4-nbar-product/
+|          |                                                                     |
+|----------|---------------------------------------------------------------------|
+| [AD01] | FRAMEWORK SERVICE CONTRACT EEA/DIS/RO/23/007/LOT 1, 26-06-2024 |
+| [AD02] | EEA.DIS.R0.23.007_RfS_SC3, 3rd specific contract under Framework Contract nr. EEA/DIS/R0/23/007/LOT 1, 02-04-2025 |
+| [AD03] | Medium Resolution Vegetation Phenology and Productivity (MR-VPP) Monitoring Report, v4.0, 13-05-2024, Framework contract No EEA/DIS/R0/22/009/Lot 1 |
+| [AD04] | CGLOPS1_ATBD_LSP300m-V2.0: Algorithm Theoretical Basis Document of normalized Land Surface Phenology 300m, version 2.0 |
+| [AD05] | MODIS User Guide V006 and V006.1, MCD43A4 NBAR Product, https://www.umb.edu/spectralmass/modis-user-guide-v006-and-v0061/mcd43a4-nbar-product/ |
 
 ### Reference documents
 
@@ -415,7 +399,7 @@ In this product, phenology is inferred from smoothed seasonal trajectories of ve
 
 ## Related and previous applications
 
-The CLMS MR-VPP 5.0 is modelled on similar principles as developed for the CLMS **High Resolution Vegetation Phenology and Productivity (HR-VPP)²**, and CLMS CGLOPS land surface phenology V2.0³. However, MODIS provides a 25+ year observation record, and such a long-term series is critical for reliable phenology estimation.
+The CLMS MR-VPP 5.0 is modelled on similar principles as developed for the CLMS *High Resolution Vegetation Phenology and Productivity (HR-VPP)²*, and CLMS CGLOPS land surface phenology V2.0³. However, MODIS provides a 25+ year observation record, and such a long-term series is critical for reliable phenology estimation.
 [^2]: https://land.copernicus.eu/en/products/vegetation?tab=vegetation_phenology_and_productivity_parameters
 [^3]: https://land.copernicus.eu/en/news/global-land-surface-phenology-2024-product-available
 
@@ -675,24 +659,24 @@ In three scenarios, the VPP are set to nodata-values (with QA=255) and the TIMES
 1.  If the total number of valid observations is too low, less than 3 points per year on average throughout the entire time series. This primarily applies to areas lacking valid observations.
 2.  If the first-order PPI differences are minimal, less than 3 points per year on average with first-order differences greater than 1×10⁻⁶. This indicates weak seasonality, making it difficult to precisely determine phenological parameters, and mainly occurs with sustained evergreen vegetation.
 
-**BOX 1 Pseudo script for omitting seasons and regions**
+    **BOX 1 Pseudo script for omitting seasons and regions**
 
-```
-! Default.
-process = True
-Point_Threshold = 3*number_of_years
+    ```bash
+    ! Default.
+    process = True
+    Point_Threshold = 3*number_of_years
 
-Scenario 1
-! total_npt: total number of points
-! y: PPI time series of daily interval
-if count[points with weight > 0] < Point_Threshold, process = False
+    Scenario 1
+    ! total_npt: total number of points
+    ! y: PPI time series of daily interval
+    if count[points with weight > 0] < Point_Threshold, process = False
 
-Scenario 2
-if count[diff(y) > 1.d-6] < Point_Threshold, process = False
+    Scenario 2
+    if count[diff(y) > 1.d-6] < Point_Threshold, process = False
 
-Scenario 3
-if count[y > (0.02*peak_value)] < Point_Threshold, process = False
-```
+    Scenario 3
+    if count[y > (0.02*peak_value)] < Point_Threshold, process = False
+    ```
 
 3.  If the number of points with PPI values above 2% of the peak value is less than 3 points per year on average. This primarily filters out inland water bodies with low PPI values occasionally exhibiting few extreme values possibly caused by noise.
 
@@ -833,11 +817,16 @@ The 23 tiles data were mosaicked into a single image per variable to cover the e
 **BOX 2 Mosaic 23 tiles and reproject into LAEA projection.**
 
 ```bash
+#!/usr/bin/env bash
+
+set -euo pipefail
+
 ROOT="~/proj/HRVPP2/MRVPP_2024/LSP"     # input tiles root
 OUTDIR="./MRVPP_13VPP_QA"               # output folder
 SEASONS=("season1" "season2")
 YEARS=($(seq 2000 2024))
-PARAMS=("SOSD" "SOSV" "LSLOPE" "EOSD" "EOSV" "RSLOPE" "LENGTH" "MINV" "MAXD" "MAXV" "AMPL" "TPROD" "SPROD" "QA")
+PARAMS=("SOSD" "SOSV" "LSLOPE" "EOSD" "EOSV" "RSLOPE" "LENGTH" "MINV" "MAXD"
+"MAXV" "AMPL" "TPROD" "SPROD" "QA")
 
 # Optional NoData (uncomment & set if known; otherwise VRT inherits per-tile NoData)
 
@@ -1000,28 +989,28 @@ Note: YYYY for year, e.g. 2000, 2001, ..., 2024, 2025.
 
 *   Abbe, C. (1905). *A first report on the relations between climates and crops*. Government Printing Office.
 *   Atzberger, C., & Eilers, P. H. C. (2011). A time series for monitoring vegetation activity and phenology at 10-daily time steps covering large parts of South America. *International Journal of Digital Earth, 4*(5), 365-386. https://doi.org/10.1080/17538947.2010.505664
-*   Bolton, D. K., Gray, J. M., Melaas, E. K., Moon, M., Eklundh, L., & Friedl, M. A. (2020). Continental-scale land surface phenology from harmonized Landsat 8 and Sentinel-2 imagery. *Remote Sensing of Environment, 240*, 111685. https://doi.org/https://doi.org/10.1016/j.rse.2020.111685
+*   Bolton, D. K., Gray, J. M., Melaas, E. K., Moon, M., Eklundh, L., & Friedl, M. A. (2020). Continental-scale land surface phenology from harmonized Landsat 8 and Sentinel-2 imagery. *Remote Sensing of Environment, 240*, 111685. https://doi.org/10.1016/j.rse.2020.111685
 *   Cai, Z., Jönsson, P., Jin, H., & Eklundh, L. (2017). Performance of Smoothing Methods for Reconstructing NDVI Time-Series and Estimating Vegetation Phenology from MODIS Data. *Remote Sensing, 9*(12), 1271. https://doi.org/10.3390/rs9121271
 *   Chen, J., Jönsson, P., Tamura, M., Gu, Z. H., Matsushita, B., & Eklundh, L. (2004). A simple method for reconstructing a high-quality NDVI time-series data set based on the Savitzky-Golay filter. *Remote Sensing of Environment, 91*(3-4), 332-344. https://doi.org/10.1016/j.rse.2004.03.014
-*   Chmura, H. E., Kharouba, H. M., Ashander, J., Ehlman, S. M., Rivest, E. B., & Yang, L. H. (2019). The mechanisms of phenology: the patterns and processes of phenological shifts. *Ecological Monographs, 89*(1), e01337. https://doi.org/https://doi.org/10.1002/ecm.1337
+*   Chmura, H. E., Kharouba, H. M., Ashander, J., Ehlman, S. M., Rivest, E. B., & Yang, L. H. (2019). The mechanisms of phenology: the patterns and processes of phenological shifts. *Ecological Monographs, 89*(1), e01337. https://doi.org/10.1002/ecm.1337
 *   Craven, P., & Wahba, G. (1978). Smoothing noisy data with spline functions. *Numerische Mathematik, 31*(4), 377-403. https://doi.org/10.1007/BF01404567
 *   Eilers, P. H. C. (2003). A Perfect Smoother. *Analytical Chemistry, 75*(14), 3631-3636. https://doi.org/10.1021/ac034173t
 *   Fisher, J. I., Mustard, J. F., & Vadeboncoeur, M. A. (2006). Green leaf phenology at Landsat resolution: Scaling from the field to the satellite. *Remote Sensing of Environment, 100*(2), 265-279. https://doi.org/10.1016/j.rse.2005.10.022
 *   Gray, J., Sulla-Menashe, D., & Friedl, M. A. (2019). *User guide to collection 6 modis land cover dynamics (MCD12Q2) product*.
 *   Hapke, B. (1993). *Theory of reflectance and emittance spectroscopy*. Cambridge University Press.
-*   Jin, H., & Eklundh, L. (2014). A physically based vegetation index for improved monitoring of plant phenology. *Remote Sensing of Environment, 152*(0), 512-525. https://doi.org/doi.org/10.1016/j.rse.2014.07.010
+*   Jin, H., & Eklundh, L. (2014). A physically based vegetation index for improved monitoring of plant phenology. *Remote Sensing of Environment, 152*(0), 512-525. https://doi.org/10.1016/j.rse.2014.07.010
 *   Jin, H., Vicente-Serrano, S. M., Tian, F., Cai, Z., Conradt, T., Boincean, B., Murphy, C., Farizo, B. A., Grainger, S., López-Moreno, J. I., & Eklundh, L. (2023). Higher vegetation sensitivity to meteorological drought in autumn than spring across European biomes. *Communications Earth & Environment, 4*(1), 299. https://doi.org/10.1038/s43247-023-00960-w
 *   Jönsson, P., Cai, Z., Melaas, E., Friedl, M., & Eklundh, L. (2018). A Method for Robust Estimation of Vegetation Seasonality from Landsat and Sentinel-2 Time Series Data. *Remote Sensing, 10*(4), 635. http://www.mdpi.com/2072-4292/10/4/635
 *   Jönsson, P., & Eklundh, L. (2002). Seasonality extraction by function fitting to time-series of satellite sensor data. *IEEE Transactions on Geoscience and Remote Sensing, 40*(8), 1824-1832. https://doi.org/10.1109/Tgrs.2002.802519
-*   Jönsson, P., & Eklundh, L. (2004). TIMESAT – a program for analyzing time-series of satellite sensor data. *Computers & Geosciences, 30*(8), 833-845. <Go to ISI>://WOS:000225367100004
+*   Jönsson, P., & Eklundh, L. (2004). TIMESAT – a program for analyzing time-series of satellite sensor data. *Computers & Geosciences, 30*(8), 833-845.
 *   Lieth, H. (1974). *Phenology and Seasonality Modeling (Ecological Studies-Analysis and Synthesis Series, Vol 8)*. Springer-Verlag
 *   Menenti, M., Azzali, S., Verhoef, W., & van Swol, R. (1993). Mapping agroecological zones and time lag in vegetation growth by means of Fourier analysis of time series of NDVI images. *Advances in Space Research, 13*, 233-237.
-*   Olsson, L., & Eklundh, L. (1994). Fourier-Series for Analysis of Temporal Sequences of Satellite Sensor Imagery. *International Journal of Remote Sensing, 15*(18), 3735-3741. <Go to ISI>://WOS:A1994PZ44700008
+*   Olsson, L., & Eklundh, L. (1994). Fourier-Series for Analysis of Temporal Sequences of Satellite Sensor Imagery. *International Journal of Remote Sensing, 15*(18), 3735-3741.
 *   Roerink, G. J., Menenti, M., & Verhoef, W. (2000). Reconstructing cloudfree NDVI composites using Fourier analysis of time series. *International Journal of Remote Sensing, 21*(9), 1911-1917. http://www.informaworld.com/10.1080/014311600209814
 *   Schwartz, M. D. (2013). *Phenology: An Integrative Environmental Science (2nd ed.)*. Springer Science+Business Media B.V.
 *   Singh, R. K., Svystun, T., AlDahmash, B., Jönsson, A. M., & Bhalerao, R. P. (2017). Photoperiod- and temperature-mediated control of phenology in trees – a molecular perspective. *New Phytologist, 213*(2), 511-524. https://doi.org/10.1111/nph.14346
 *   Strahler, A. H., Lucht, W., Schaaf, C. B., Tsang, T., Gao, F., Li, X., Muller, J.-P., Lewis, P., & Barnsley, M. J. (1999). *MODIS BRDF/Albedo Product: Algorithm Theoretical Basis Document, Version5.0*. Retrieved from https://lpdaac.usgs.gov/products/modis_products_table/mcd43a4
-*   Tian, F., Cai, Z., Jin, H., Hufkens, K., Scheifinger, H., Tagesson, T., Smets, B., Van Hoolst, R., Bonte, K., Ivits, E., Tong, X., Ardö, J., & Eklundh, L. (2021). Calibrating vegetation phenology from Sentinel-2 using eddy covariance, PhenoCam, and PEP725 networks across Europe. *Remote Sensing of Environment, 260*, 112456. https://doi.org/https://doi.org/10.1016/j.rse.2021.112456
+*   Tian, F., Cai, Z., Jin, H., Hufkens, K., Scheifinger, H., Tagesson, T., Smets, B., Van Hoolst, R., Bonte, K., Ivits, E., Tong, X., Ardö, J., & Eklundh, L. (2021). Calibrating vegetation phenology from Sentinel-2 using eddy covariance, PhenoCam, and PEP725 networks across Europe. *Remote Sensing of Environment, 260*, 112456. https://doi.org/10.1016/j.rse.2021.112456
 *   Tucker, C. J. (1977). Asymptotic nature of grass canopy spectral reflectance. *Applied Optics, 16*(5), 1151-1156. https://doi.org/10.1364/AO.16.001151
 *   White, M. A., De Beurs, K. M., Didan, K., Inouye, D. W., Richardson, A. D., Jensen, O. P., O'Keefe, J., Zhang, G., Nemani, R. R., Van Leeuwen, W. J. D., Brown, J. F., De Wit, A., Schaepman, M., Lin, X., Dettinger, M., Bailey, A. S., Kimball, J., Schwartz, M. D., Baldocchi, D. D., . . . Lauenroth, W. K. (2009). Intercomparison, interpretation, and assessment of spring phenology in North America estimated from remote sensing for 1982-2006. *Global Change Biology, 15*(10), 2335-2359. https://doi.org/10.1111/j.1365-2486.2009.01910.x
 *   Zhang, X., Friedl, M. A., Schaaf, C. B., Strahler, A. H., Hodges, J. C. F., Gao, F., Reed, B. C., & Huete, A. (2003). Monitoring vegetation phenology using MODIS. *Remote Sensing of Environment, 84*(3), 471-475. http://www.sciencedirect.com/science/article/B6V6V-478RS7T-1/2/19c385401eecea8964bca155ac01eb71
@@ -1032,10 +1021,7 @@ Note: YYYY for year, e.g. 2000, 2001, ..., 2024, 2025.
 
 Figure 9 shows maps of the total productivity (TPROD) of season 1 in 2018. The spatial patterns of TPROD closely correlate between the two versions. The highest TPROD values are found in the European southern Alpine forests, followed by progressively lower values in temperate forests and croplands of continental Europe, then in the boreal forests of Northern Europe, and lowest in the northern alpine and sub-Arctic regions. Artificially high TPROD values in barren desert areas of northern Africa, present in V4.0, are effectively removed in V5.0.
 
-![Figure 9. Pan-European TPROD (Season 1, 2018) from MR-VPP Versions 4.0 and 5.0, showing correction of artifacts in desert/barren areas, in particular in N. Africa.](MRVPP-ATBD_v2-media/img-9b6bf208da4a290a31d1d20e7cd36dd9.png)
-
-a) MR-VPP version 4.0
-b) MR-VPP version 5.0
+![Figure 9. Pan-European TPROD (Season 1, 2018) from MR-VPP Versions 4.0 and 5.0, showing correction of artifacts in desert/barren areas, in particular in N. Africa: (a) MR-VPP version 4.0, (b) MR-VPP version 5.0.](MRVPP-ATBD_v2-media/img-9b6bf208da4a290a31d1d20e7cd36dd9.png)
 
 ## Comparison of MR-VPP naming scheme in Version 5.0 and 4.0
 
