@@ -1171,15 +1171,16 @@ observations during three phenological phases:
 Each phase is assessed separately and then combined into an overall
 quality indicator. The general QA determination concept is illustrated
 in Figure 4. The QA layer is encoded as an 8-bit value. As shown in
-Figure
+Figure 5, the lowest six bits describe the quality of the SOS, peak and
+EOS phases, while the two highest bits describe the overall season
+quality.
 
 ![Figure 4. Illustration of VPP parameter quality assurance (QA)
 determination.](MRVPP_MRVPP_PUM_v1-media/img-b5facdd86845d0e68cb56a730c9b2619.png)
+
 ![Figure 5. Conceptual structure of the 8-bit VPP QA
 flag.](MRVPP_MRVPP_PUM_v1-media/img-ec5261ebdf953a8430dfbb279d7b5b46.png)
 
-5, the lowest six bits describe the quality of the SOS, peak and EOS
-phases, while the two highest bits describe the overall season quality.
 For the two-bit phase and overall-quality values, the interpretation is
 given in Table 5
 
@@ -1761,9 +1762,7 @@ values from valid 392 m pixels were aggregated to 0.1° climate grid
 cells using the mean value. The change map shows the difference between
 2025 and 2000 and indicates spatial changes in the cumulative
 productivity component of habitat
-functioning.](MRVPP_MRVPP_PUM_v1-media/img-9219f0d83d9ac0d2730ef0e50765b0c4.png)![Figure
-8: Not present in this
-document](MRVPP_MRVPP_PUM_v1-media/img-9219f0d83d9ac0d2730ef0e50765b0c4.png)
+functioning.](MRVPP_MRVPP_PUM_v1-media/img-9219f0d83d9ac0d2730ef0e50765b0c4.png)
 
 ### Multi-season analysis in croplands and managed grasslands
 
