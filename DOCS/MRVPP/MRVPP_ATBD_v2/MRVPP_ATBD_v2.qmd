@@ -258,7 +258,7 @@ The MR-VPP product is developed from daily 500 m resolution MODIS Nadir Bidirect
 
 The NBAR data are corrected using Ross-Thick-Li-Sparse Reciprocal BRDF model to adjust TOC values as if they were collected from a nadir view at local solar noon time. Although generated daily, each NBAR value is based on a 16-day retrieval window, with the date corresponding to the center of the period (Strahler et al., 1999). This product combines observations from both the *Terra* and *Aqua* satellites, choosing the observation at clear sky conditions from each retrieval cycle.
 
-![Figure 1. MODIS tile layout: 23 tiles covering the EEA-39 extent and Ukraine (h20v03).](MRVPP-ATBD_v2-media/img-ed65a43813c9f8636ab49e9a99041236.png)
+![Figure 1. MODIS tile layout: 23 tiles covering the EEA-39 extent and Ukraine (h20v03).](MRVPP_ATBD_v2-media/img-ed65a43813c9f8636ab49e9a99041236.png)
 
 In total, 23 MODIS tiles are required to cover the entire EEA-39 extent and Ukraine of tile h20v03 (Figure 1). Each tile consists of 2400×2400 pixels, and in total ~12 TB of data were downloaded to LUNARC's COSMOS cluster hosted by Lund University, Sweden. LUNARC operates in partnership with NAISS, the Sweden's largest research infrastructure for high-performance computing (HPC), providing AI, storage, cloud services, and expert support for advanced scientific research in Sweden.
 
@@ -295,7 +295,7 @@ The range of PPI is restricted between -1 and 5 to reduce the noise sensitivity 
 
 The calculation of PPI involves three main steps (Figure 2).
 
-![Figure 2. Processing flowchart for Plant Phenology Index (PPI) calculation](MRVPP-ATBD_v2-media/img-9b74f7681b6cb6837197dad9dc3be062.png)
+![Figure 2. Processing flowchart for Plant Phenology Index (PPI) calculation](MRVPP_ATBD_v2-media/img-9b74f7681b6cb6837197dad9dc3be062.png)
 
 ## Calculation of PPI Quality flag (QA) values for TIMESAT processing
 
@@ -389,7 +389,7 @@ Table 3 shows specifications of the input PPI data used for phenology parameter 
 
 Calculation of MR-VPP products is based on the following steps: (1) Data preparation: downloading of MODIS NBAR data from NASA's data archive center. (2) Generation of the plant phenology index (PPI) from NBAR at 500 m resolution and daily interval. (3) Processing with TIMESAT version 4.2 to derive smooth seasonal trajectories and phenology and productivity parameters (Figure 3).
 
-![Figure 3. Processing overview of VPP and PPI time series, illustrated as a flowchart.](MRVPP-ATBD_v2-media/img-d83e527495e21e29642a0fa3fb6686a7.png)
+![Figure 3. Processing overview of VPP and PPI time series, illustrated as a flowchart.](MRVPP_ATBD_v2-media/img-d83e527495e21e29642a0fa3fb6686a7.png)
 
 For valid land pixels, PPI is computed at daily time step from NBAR. The maximum difference vegetation index (MDVI) values from the entire NBAR time series from 2000 to 2025 are used in the computation. We then process the PPI series in TIMESAT 4.2 to smooth the signal, derive the phenology/productivity metrics, and generate the corresponding QA flags (see Section 3.4).
 
@@ -612,7 +612,7 @@ Detailed comparison methods, spatial examples, scatter plots, metric-level stati
 
 An overview of TIMESAT version 4.2 processing is shown in Figure 4.
 
-![Figure 4. TIMESAT processing overview illustrated as a flowchart.](MRVPP-ATBD_v2-media/img-584e4dfd6ae1178e149b1991921e7e93.png)
+![Figure 4. TIMESAT processing overview illustrated as a flowchart.](MRVPP_ATBD_v2-media/img-584e4dfd6ae1178e149b1991921e7e93.png)
 
 ### Pre-processing
 
@@ -640,7 +640,7 @@ where ω = 2π/n, and n is the number of points, f(t) is the corresponding PPI v
 
 The derivation of VPP metrics from the daily PPI time series follows the approaches used in CGLOPS1 LSP product [AD04], and is similar to those applied in the MCD12Q2 and HLS phenology products (Bolton et al., 2020; Gray et al., 2019). TIMESAT takes the smoothed daily PPI, extracts the metrics, applies quality checks, and assigns seasons to calendar years (Figure 5). In total, thirteen metrics together with per-season quality information are produced for delivery (Table 4).
 
-![Figure 5. TIMESAT module for extracting phenological parameters.](MRVPP-ATBD_v2-media/img-95c01c5f9bd858e2d5cfeb660289d497.png)
+![Figure 5. TIMESAT module for extracting phenological parameters.](MRVPP_ATBD_v2-media/img-95c01c5f9bd858e2d5cfeb660289d497.png)
 
 ### Defining growing season thresholds
 
@@ -650,7 +650,7 @@ TIMESAT locates SOSD and EOSD using relative-amplitude thresholds on the fitted 
 
 Because some seasons cross calendar boundaries, we assign seasons to the year of their peak (e.g., a–A–b to 2018; c–C–d–D–e to 2019 in Figure 6). MR-VPP stores up to two seasons per year: the two with the largest peaks are kept and presented chronologically, so Season 1 can be the minor or the main season depending on timing.
 
-![Figure 6. Illustration of season identification based on coarse-season peaks (A-D) and corresponding loca minima (a-d). Red markers indicate season start and end points.](MRVPP-ATBD_v2-media/img-6bec814ea766febc6cde5d7bfd808050.png)
+![Figure 6. Illustration of season identification based on coarse-season peaks (A-D) and corresponding loca minima (a-d). Red markers indicate season start and end points.](MRVPP_ATBD_v2-media/img-6bec814ea766febc6cde5d7bfd808050.png)
 
 ### Defining thresholds for omitting seasons and regions
 
@@ -684,11 +684,11 @@ In three scenarios, the VPP are set to nodata-values (with QA=255) and the TIMES
 
 VPP Quality Assurance (QA) is assigned based on both the average of PPI-BRDF-weights (defined from the PPI QA in Table 2 and the total number of valid observations in each of the phenological phases: green-up, green peak, and green-down of the growing season. They are defined as the left 20% – left 80%, left 80% – right 80%, and right 80% – right 20% of the season amplitude respectively (Figure 7). The overall QA is determined based on the leverage of the quality of the three phases.
 
-![Figure 7. Illustration of VPP parameter quality assurance (QA) determination.](MRVPP-ATBD_v2-media/img-b1a39741ad3489a9ede924eceb8b60ab.png)
+![Figure 7. Illustration of VPP parameter quality assurance (QA) determination.](MRVPP_ATBD_v2-media/img-b1a39741ad3489a9ede924eceb8b60ab.png)
 
 Eight-bit (1 byte) QA values are generated as specified in Figure 8, and the details of bit values and descriptions are listed in Table 5. The QA flag is written to one output file for each season.
 
-![Figure 8. Structure of the 8-bit quality flags used for phenology retrieval over a season.](MRVPP-ATBD_v2-media/img-07c8b38d2e9c4aa2768a258a1f8e3986.png)
+![Figure 8. Structure of the 8-bit quality flags used for phenology retrieval over a season.](MRVPP_ATBD_v2-media/img-07c8b38d2e9c4aa2768a258a1f8e3986.png)
 
 ::: {.tbl-caption}
 ```{=typst}
@@ -1021,7 +1021,7 @@ Note: YYYY for year, e.g. 2000, 2001, ..., 2024, 2025.
 
 Figure 9 shows maps of the total productivity (TPROD) of season 1 in 2018. The spatial patterns of TPROD closely correlate between the two versions. The highest TPROD values are found in the European southern Alpine forests, followed by progressively lower values in temperate forests and croplands of continental Europe, then in the boreal forests of Northern Europe, and lowest in the northern alpine and sub-Arctic regions. Artificially high TPROD values in barren desert areas of northern Africa, present in V4.0, are effectively removed in V5.0.
 
-![Figure 9. Pan-European TPROD (Season 1, 2018) from MR-VPP Versions 4.0 and 5.0, showing correction of artifacts in desert/barren areas, in particular in N. Africa: (a) MR-VPP version 4.0, (b) MR-VPP version 5.0.](MRVPP-ATBD_v2-media/img-9b6bf208da4a290a31d1d20e7cd36dd9.png)
+![Figure 9. Pan-European TPROD (Season 1, 2018) from MR-VPP Versions 4.0 and 5.0, showing correction of artifacts in desert/barren areas, in particular in N. Africa: (a) MR-VPP version 4.0, (b) MR-VPP version 5.0.](MRVPP_ATBD_v2-media/img-9b6bf208da4a290a31d1d20e7cd36dd9.png)
 
 ## Comparison of MR-VPP naming scheme in Version 5.0 and 4.0
 
@@ -1140,16 +1140,16 @@ Quality assessment (QA) comparison between the long and short time series proces
 Although the long time series processing occasionally generated slightly more valid VPP outputs than the short time series processing, this should not necessarily be interpreted as superior retrieval performance. In situations where observations are sparse within the target temporal window, the absence of phenology retrievals in the short time series processing may correctly reflect insufficient observational support for robust phenology estimation. Under such conditions, increasing retrieval completeness through extended temporal context may risk generating phenological metrics with reduced reliability or interpretability. Therefore, VPP output completeness alone should not be considered the primary criterion for evaluating processing performance; the consistency, robustness, and physical interpretability of the retrieved seasonal signals are more important considerations.
 
 ::: {layout-ncol="1"}
-![](MRVPP-ATBD_v2-media/img-4e7996f2eab8c321fb188c0c010123ef.png)
+![](MRVPP_ATBD_v2-media/img-4e7996f2eab8c321fb188c0c010123ef.png)
 
-![](MRVPP-ATBD_v2-media/img-2c5e4c7e031a5a7b445d1d6e2fae3030.png)
+![](MRVPP_ATBD_v2-media/img-2c5e4c7e031a5a7b445d1d6e2fae3030.png)
 
-![Figure 10. Comparison of representative vegetation phenology and productivity (VPP) metrics derived using long time series inputs and short time series inputs for the 2025 growing season over Europe. Panels show spatial distributions of (a, b) start of season date (SOSD), (c, d) end of season date (EOSD), (e, f) seasonal amplitude (AMPL), and (g, h) total productivity (TPROD) generated from the long time series (2000-2026) and short time series (2024-2026) processing approaches.](MRVPP-ATBD_v2-media/img-7cf817c6c6a0fb7dfba709884fbdfc62.png)
+![Figure 10. Comparison of representative vegetation phenology and productivity (VPP) metrics derived using long time series inputs and short time series inputs for the 2025 growing season over Europe. Panels show spatial distributions of (a, b) start of season date (SOSD), (c, d) end of season date (EOSD), (e, f) seasonal amplitude (AMPL), and (g, h) total productivity (TPROD) generated from the long time series (2000-2026) and short time series (2024-2026) processing approaches.](MRVPP_ATBD_v2-media/img-7cf817c6c6a0fb7dfba709884fbdfc62.png)
 :::
 
-![Figure 11. Density scatter plot comparison between vegetation phenology and productivity (VPP) metrics derived from long time series inputs and short time series inputs for the 2025 growing season 1 over Europe: (a) start of season date (SOSD), (b) end of season date (EOSD), (c) seasonal amplitude (AMPL), and (d) total productivity (TPROD). Hexagon color indicates relative point density normalized to the maximum density. Dashed black lines represent the 1:1 relationship, and red lines indicate robust linear regression fitted after exclusion of extreme outliers using percentile-based filtering. Reported statistics include coefficient of determination (R²), bias, RMSE, MAE, and the proportion of pixels located within a predefined consistency threshold around the 1:1 line.](MRVPP-ATBD_v2-media/img-00fc8e231c1e7e3ed79e717cc61b37f8.png)
+![Figure 11. Density scatter plot comparison between vegetation phenology and productivity (VPP) metrics derived from long time series inputs and short time series inputs for the 2025 growing season 1 over Europe: (a) start of season date (SOSD), (b) end of season date (EOSD), (c) seasonal amplitude (AMPL), and (d) total productivity (TPROD). Hexagon color indicates relative point density normalized to the maximum density. Dashed black lines represent the 1:1 relationship, and red lines indicate robust linear regression fitted after exclusion of extreme outliers using percentile-based filtering. Reported statistics include coefficient of determination (R²), bias, RMSE, MAE, and the proportion of pixels located within a predefined consistency threshold around the 1:1 line.](MRVPP_ATBD_v2-media/img-00fc8e231c1e7e3ed79e717cc61b37f8.png)
 
-![Figure 12. Density scatter plot comparison between vegetation phenology and productivity (VPP) metrics derived from long time series inputs and short time series inputs for the 2025 growing season 2 over Europe: (a) start of season date (SOSD), (b) end of season date (EOSD), (c) seasonal amplitude (AMPL), and (d) total productivity (TPROD). Hexagon color indicates relative point density normalized to the maximum density. Dashed black lines represent the 1:1 relationship, and red lines indicate robust linear regression fitted after exclusion of extreme outliers using percentile-based filtering. Reported statistics include coefficient of determination (R²), bias (VPP_short - VPP_long), RMSE, MAE, and the proportion of pixels located within a predefined consistency threshold around the 1:1 line.](MRVPP-ATBD_v2-media/img-b08a8132b99b9a13639476be6698a2ca.png)
+![Figure 12. Density scatter plot comparison between vegetation phenology and productivity (VPP) metrics derived from long time series inputs and short time series inputs for the 2025 growing season 2 over Europe: (a) start of season date (SOSD), (b) end of season date (EOSD), (c) seasonal amplitude (AMPL), and (d) total productivity (TPROD). Hexagon color indicates relative point density normalized to the maximum density. Dashed black lines represent the 1:1 relationship, and red lines indicate robust linear regression fitted after exclusion of extreme outliers using percentile-based filtering. Reported statistics include coefficient of determination (R²), bias (VPP_short - VPP_long), RMSE, MAE, and the proportion of pixels located within a predefined consistency threshold around the 1:1 line.](MRVPP_ATBD_v2-media/img-b08a8132b99b9a13639476be6698a2ca.png)
 
 ::: {.tbl-caption}
 ```{=typst}
