@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -199,7 +234,65 @@ window.Quarto = {
   <li><a href="#overview-of-delivered-products" id="toc-overview-of-delivered-products" class="nav-link" data-scroll-target="#overview-of-delivered-products"><span class="header-section-number">4.1</span> Overview of delivered products</a></li>
   <li><a href="#spatial-format-and-raster-characteristics" id="toc-spatial-format-and-raster-characteristics" class="nav-link" data-scroll-target="#spatial-format-and-raster-characteristics"><span class="header-section-number">4.2</span> Spatial format and raster characteristics</a></li>
   <li><a href="#ppi-time-series-products-1" id="toc-ppi-time-series-products-1" class="nav-link" data-scroll-target="#ppi-time-series-products-1"><span class="header-section-number">4.3</span> PPI time-series products</a></li>
+  <li><a href="#ppi-quality-layer" id="toc-ppi-quality-layer" class="nav-link" data-scroll-target="#ppi-quality-layer"><span class="header-section-number">4.4</span> PPI quality layer</a></li>
+  <li><a href="#vpp-parameter-products-1" id="toc-vpp-parameter-products-1" class="nav-link" data-scroll-target="#vpp-parameter-products-1"><span class="header-section-number">4.5</span> VPP parameter products</a></li>
+  <li><a href="#interpretation-of-date-parameters" id="toc-interpretation-of-date-parameters" class="nav-link" data-scroll-target="#interpretation-of-date-parameters"><span class="header-section-number">4.6</span> Interpretation of date parameters</a></li>
+  <li><a href="#vpp-quality-assurance-layer" id="toc-vpp-quality-assurance-layer" class="nav-link" data-scroll-target="#vpp-quality-assurance-layer"><span class="header-section-number">4.7</span> VPP quality assurance layer</a></li>
+  <li><a href="#file-naming" id="toc-file-naming" class="nav-link" data-scroll-target="#file-naming"><span class="header-section-number">4.8</span> File naming</a></li>
+  <li><a href="#recommended-use-of-output-layers" id="toc-recommended-use-of-output-layers" class="nav-link" data-scroll-target="#recommended-use-of-output-layers"><span class="header-section-number">4.9</span> Recommended use of output layers</a></li>
   </ul></li>
+  <li><a href="#product-use-quality-filtering-and-interpretation-guidance" id="toc-product-use-quality-filtering-and-interpretation-guidance" class="nav-link" data-scroll-target="#product-use-quality-filtering-and-interpretation-guidance"><span class="header-section-number">5</span> Product use, quality filtering and interpretation guidance</a>
+  <ul class="collapse">
+  <li><a href="#overview-1" id="toc-overview-1" class="nav-link" data-scroll-target="#overview-1"><span class="header-section-number">5.1</span> Overview</a></li>
+  <li><a href="#recommended-general-workflow" id="toc-recommended-general-workflow" class="nav-link" data-scroll-target="#recommended-general-workflow"><span class="header-section-number">5.2</span> Recommended general workflow</a></li>
+  <li><a href="#use-of-vpp-quality-assurance-layers" id="toc-use-of-vpp-quality-assurance-layers" class="nav-link" data-scroll-target="#use-of-vpp-quality-assurance-layers"><span class="header-section-number">5.3</span> Use of VPP quality assurance layers</a></li>
+  <li><a href="#use-of-ppi-quality-assurance-layers" id="toc-use-of-ppi-quality-assurance-layers" class="nav-link" data-scroll-target="#use-of-ppi-quality-assurance-layers"><span class="header-section-number">5.4</span> Use of PPI quality assurance layers</a></li>
+  <li><a href="#data-completeness-and-quality-interpretation" id="toc-data-completeness-and-quality-interpretation" class="nav-link" data-scroll-target="#data-completeness-and-quality-interpretation"><span class="header-section-number">5.5</span> Data completeness and quality interpretation</a></li>
+  <li><a href="#interpretation-of-multiple-growing-seasons" id="toc-interpretation-of-multiple-growing-seasons" class="nav-link" data-scroll-target="#interpretation-of-multiple-growing-seasons"><span class="header-section-number">5.6</span> Interpretation of multiple growing seasons</a></li>
+  <li><a href="#interpretation-of-second-season-products-in-agricultural-and-managed-landscapes" id="toc-interpretation-of-second-season-products-in-agricultural-and-managed-landscapes" class="nav-link" data-scroll-target="#interpretation-of-second-season-products-in-agricultural-and-managed-landscapes"><span class="header-section-number">5.7</span> Interpretation of second-season products in agricultural and managed landscapes</a></li>
+  <li><a href="#seasons-crossing-calendar-years" id="toc-seasons-crossing-calendar-years" class="nav-link" data-scroll-target="#seasons-crossing-calendar-years"><span class="header-section-number">5.8</span> Seasons crossing calendar years</a></li>
+  <li><a href="#apparent-overlap-between-seasons-in-consecutive-years" id="toc-apparent-overlap-between-seasons-in-consecutive-years" class="nav-link" data-scroll-target="#apparent-overlap-between-seasons-in-consecutive-years"><span class="header-section-number">5.9</span> Apparent overlap between seasons in consecutive years</a></li>
+  <li><a href="#interpreting-phenology-timing-parameters" id="toc-interpreting-phenology-timing-parameters" class="nav-link" data-scroll-target="#interpreting-phenology-timing-parameters"><span class="header-section-number">5.10</span> Interpreting phenology timing parameters</a></li>
+  <li><a href="#interpreting-magnitude-and-productivity-parameters" id="toc-interpreting-magnitude-and-productivity-parameters" class="nav-link" data-scroll-target="#interpreting-magnitude-and-productivity-parameters"><span class="header-section-number">5.11</span> Interpreting magnitude and productivity parameters</a></li>
+  <li><a href="#recommended-use-for-time-series-analysis" id="toc-recommended-use-for-time-series-analysis" class="nav-link" data-scroll-target="#recommended-use-for-time-series-analysis"><span class="header-section-number">5.12</span> Recommended use for time-series analysis</a></li>
+  <li><a href="#potential-application-areas" id="toc-potential-application-areas" class="nav-link" data-scroll-target="#potential-application-areas"><span class="header-section-number">5.13</span> Potential application areas</a></li>
+  <li><a href="#example-use-cases" id="toc-example-use-cases" class="nav-link" data-scroll-target="#example-use-cases"><span class="header-section-number">5.14</span> Example use cases</a>
+  <ul class="collapse">
+  <li><a href="#drought-impact-assessment" id="toc-drought-impact-assessment" class="nav-link" data-scroll-target="#drought-impact-assessment"><span class="header-section-number">5.14.1</span> Drought impact assessment</a></li>
+  <li><a href="#monitoring-phenological-shifts-and-changes-in-habitat-functioning-and-functional-biodiversity-at-large-regional-scales" id="toc-monitoring-phenological-shifts-and-changes-in-habitat-functioning-and-functional-biodiversity-at-large-regional-scales" class="nav-link" data-scroll-target="#monitoring-phenological-shifts-and-changes-in-habitat-functioning-and-functional-biodiversity-at-large-regional-scales"><span class="header-section-number">5.14.2</span> Monitoring phenological shifts and changes in habitat functioning and functional biodiversity at large regional scales</a></li>
+  <li><a href="#multi-season-analysis-in-croplands-and-managed-grasslands" id="toc-multi-season-analysis-in-croplands-and-managed-grasslands" class="nav-link" data-scroll-target="#multi-season-analysis-in-croplands-and-managed-grasslands"><span class="header-section-number">5.14.3</span> Multi-season analysis in croplands and managed grasslands</a></li>
+  </ul></li>
+  <li><a href="#practical-recommendations" id="toc-practical-recommendations" class="nav-link" data-scroll-target="#practical-recommendations"><span class="header-section-number">5.15</span> Practical recommendations</a></li>
+  </ul></li>
+  <li><a href="#known-limitations-and-practical-considerations" id="toc-known-limitations-and-practical-considerations" class="nav-link" data-scroll-target="#known-limitations-and-practical-considerations"><span class="header-section-number">6</span> Known limitations and practical considerations</a>
+  <ul class="collapse">
+  <li><a href="#overview-2" id="toc-overview-2" class="nav-link" data-scroll-target="#overview-2"><span class="header-section-number">6.1</span> Overview</a></li>
+  <li><a href="#dependence-on-input-data-quality" id="toc-dependence-on-input-data-quality" class="nav-link" data-scroll-target="#dependence-on-input-data-quality"><span class="header-section-number">6.2</span> Dependence on input data quality</a></li>
+  <li><a href="#ppi-related-limitations" id="toc-ppi-related-limitations" class="nav-link" data-scroll-target="#ppi-related-limitations"><span class="header-section-number">6.3</span> PPI-related limitations</a></li>
+  <li><a href="#sparse-vegetation-and-bright-soil-background" id="toc-sparse-vegetation-and-bright-soil-background" class="nav-link" data-scroll-target="#sparse-vegetation-and-bright-soil-background"><span class="header-section-number">6.4</span> Sparse vegetation and bright soil background</a></li>
+  <li><a href="#weak-seasonality-and-evergreen-vegetation" id="toc-weak-seasonality-and-evergreen-vegetation" class="nav-link" data-scroll-target="#weak-seasonality-and-evergreen-vegetation"><span class="header-section-number">6.5</span> Weak seasonality and evergreen vegetation</a></li>
+  <li><a href="#winter-data-gaps-and-high-latitude-regions" id="toc-winter-data-gaps-and-high-latitude-regions" class="nav-link" data-scroll-target="#winter-data-gaps-and-high-latitude-regions"><span class="header-section-number">6.6</span> Winter data gaps and high-latitude regions</a></li>
+  <li><a href="#interpretation-of-seasons-crossing-calendar-years" id="toc-interpretation-of-seasons-crossing-calendar-years" class="nav-link" data-scroll-target="#interpretation-of-seasons-crossing-calendar-years"><span class="header-section-number">6.7</span> Interpretation of seasons crossing calendar years</a></li>
+  <li><a href="#multiple-seasons-and-second-season-products" id="toc-multiple-seasons-and-second-season-products" class="nav-link" data-scroll-target="#multiple-seasons-and-second-season-products"><span class="header-section-number">6.8</span> Multiple seasons and second-season products</a></li>
+  <li><a href="#limitations-in-managed-agricultural-and-grassland-systems" id="toc-limitations-in-managed-agricultural-and-grassland-systems" class="nav-link" data-scroll-target="#limitations-in-managed-agricultural-and-grassland-systems"><span class="header-section-number">6.9</span> Limitations in managed agricultural and grassland systems</a></li>
+  <li><a href="#temporal-window-effects-in-annual-updates" id="toc-temporal-window-effects-in-annual-updates" class="nav-link" data-scroll-target="#temporal-window-effects-in-annual-updates"><span class="header-section-number">6.10</span> Temporal-window effects in annual updates</a></li>
+  <li><a href="#data-completeness-is-not-sufficient-as-a-quality-criterion" id="toc-data-completeness-is-not-sufficient-as-a-quality-criterion" class="nav-link" data-scroll-target="#data-completeness-is-not-sufficient-as-a-quality-criterion"><span class="header-section-number">6.11</span> Data completeness is not sufficient as a quality criterion</a></li>
+  <li><a href="#spatial-resolution-considerations" id="toc-spatial-resolution-considerations" class="nav-link" data-scroll-target="#spatial-resolution-considerations"><span class="header-section-number">6.12</span> Spatial-resolution considerations</a></li>
+  <li><a href="#practical-recommendations-1" id="toc-practical-recommendations-1" class="nav-link" data-scroll-target="#practical-recommendations-1"><span class="header-section-number">6.13</span> Practical recommendations</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">6.14</span> Summary</a></li>
+  </ul></li>
+  <li><a href="#data-access-storage-terms-of-use-and-product-technical-support" id="toc-data-access-storage-terms-of-use-and-product-technical-support" class="nav-link" data-scroll-target="#data-access-storage-terms-of-use-and-product-technical-support"><span class="header-section-number">7</span> Data access, storage, terms of use and product technical support</a>
+  <ul class="collapse">
+  <li><a href="#overview-3" id="toc-overview-3" class="nav-link" data-scroll-target="#overview-3"><span class="header-section-number">7.1</span> Overview</a></li>
+  <li><a href="#product-ownership-and-terms-of-use" id="toc-product-ownership-and-terms-of-use" class="nav-link" data-scroll-target="#product-ownership-and-terms-of-use"><span class="header-section-number">7.2</span> Product ownership and terms of use</a></li>
+  <li><a href="#citation-and-acknowledgement" id="toc-citation-and-acknowledgement" class="nav-link" data-scroll-target="#citation-and-acknowledgement"><span class="header-section-number">7.3</span> Citation and acknowledgement</a></li>
+  <li><a href="#product-access" id="toc-product-access" class="nav-link" data-scroll-target="#product-access"><span class="header-section-number">7.4</span> Product access</a></li>
+  <li><a href="#product-storage-and-organisation" id="toc-product-storage-and-organisation" class="nav-link" data-scroll-target="#product-storage-and-organisation"><span class="header-section-number">7.5</span> Product storage and organisation</a></li>
+  <li><a href="#product-versioning" id="toc-product-versioning" class="nav-link" data-scroll-target="#product-versioning"><span class="header-section-number">7.6</span> Product versioning</a></li>
+  <li><a href="#product-technical-support" id="toc-product-technical-support" class="nav-link" data-scroll-target="#product-technical-support"><span class="header-section-number">7.7</span> Product technical support</a></li>
+  <li><a href="#user-responsibility" id="toc-user-responsibility" class="nav-link" data-scroll-target="#user-responsibility"><span class="header-section-number">7.8</span> User responsibility</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8</span> References</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="MRVPP_MRVPP_PUM_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -827,8 +920,7 @@ Denmark<br>
 <h2 data-number="4.3" class="anchored" data-anchor-id="ppi-time-series-products-1"><span class="header-section-number">4.3</span> PPI time-series products</h2>
 <p>The PPI time-series products provide regular observations of the Plant Phenology Index. PPI is calculated from MODIS NBAR red and near-infrared reflectance and is designed to respond to seasonal variations in photosynthetically active green leaf area. Although daily PPI input is used for VPP estimation, the delivered PPI archive is provided at a nominal 5-day interval to reduce storage volume. The nominal dates are the 1st, 6th, 11th, 16th, 21st and 26th day of each month, resulting in 72 nominal observations per full year. For the first and last years of the input archive, the number of dates may be lower because the available MODIS input record does not necessarily cover the full calendar year. Each PPI layer is accompanied by a corresponding PPI QA layer for the same date. The PPI QA layer describes the quality of the PPI observation and should be used when analysing the PPI time series directly. The PPI and PPI QA product specifications are summarised in Table 1.</p>
 <div class="tbl-caption">
-<div class="tbl-caption">
-<p>Table 1. Season trajectory product specification, including PPI time-series, and quality assessment (QA) flag. :::</p>
+<p>Table 1. Season trajectory product specification, including PPI time-series, and quality assessment (QA) flag.</p>
 </div>
 <table class="caption-top table">
 <colgroup>
@@ -873,12 +965,12 @@ Denmark<br>
 </tbody>
 </table>
 <p>The physical PPI value is obtained by multiplying the digital value by 0.001. For example, a digital value of 1250 corresponds to a PPI value of 1.25 m² m². The PPI range is limited to -1 to 5 in physical units. Negative values may occur over non-vegetated surfaces, while very high values are truncated to reduce the influence of noise.</p>
+</section>
 <section id="ppi-quality-layer" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="ppi-quality-layer"><span class="header-section-number">4.4</span> PPI quality layer</h2>
 <p>The PPI QA layer provides quality information for each PPI observation. It is derived from MODIS BRDF Albedo quality information for the red and near-infrared bands. In the processing chain, PPI QA values are also used to assign weights during TIMESAT fitting. For user interpretation, lower PPI QA values generally indicate better input quality. The main PPI QA classes are summarised in Table 2.</p>
 <div class="tbl-caption">
-<div class="tbl-caption">
-<p>Table 2. PPI QA values and interpretation. :::</p>
+<p>Table 2. PPI QA values and interpretation.</p>
 </div>
 <table class="caption-top table">
 <colgroup>
@@ -924,8 +1016,7 @@ Denmark<br>
 </table>
 <p>Several high QA values provide additional diagnostic information. These are useful when inspecting the PPI time series or identifying reasons for missing or modified PPI values. The main diagnostic PPI QA values are listed in Table 3.</p>
 <div class="tbl-caption">
-<div class="tbl-caption">
-<p>Table 3. Main diagnostic PPI QA values. :::</p>
+<p>Table 3. Main diagnostic PPI QA values.</p>
 </div>
 <table class="caption-top table">
 <colgroup>
@@ -966,6 +1057,7 @@ Denmark<br>
 </tbody>
 </table>
 <p>For most applications using the PPI time series directly, users should exclude QA values greater than or equal to 254. Depending on the application, users may also choose to exclude poor-quality observations or to apply their own weighting scheme.</p>
+</section>
 <section id="vpp-parameter-products-1" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="vpp-parameter-products-1"><span class="header-section-number">4.5</span> VPP parameter products</h2>
 <p>The VPP parameter products provide annual phenology and productivity information for up to two growing seasons per year. For each valid season, thirteen parameters are provided together with one corresponding VPP QA layer.</p>
@@ -975,8 +1067,7 @@ Denmark<br>
 <h2 data-number="4.6" class="anchored" data-anchor-id="interpretation-of-date-parameters"><span class="header-section-number">4.6</span> Interpretation of date parameters</h2>
 <p>The VPP timing parameters are reported as day-of-year values relative to the year of the seasonal peak. Because seasons may cross calendar-year boundaries, some date values can fall outside the usual range of 1-365 or 1-366. The valid range of SOSD is -365 to 365. A negative SOSD value indicates that the season is assigned to the current year because its maximum occurs in the current year, but the start of the season occurred in the previous calendar year. The valid range of EOSD is 0 to 730. An EOSD value greater than 365 indicates that the season is assigned to the current year because its maximum occurs in the current year, but the end of the season extends into the following calendar year.</p>
 <div class="tbl-caption">
-<div class="tbl-caption">
-<p>Table 4. MR-VPP Version 5.0 Issue 2.0 VPP parameters and auxiliary QA layer. :::</p>
+<p>Table 4. MR-VPP Version 5.0 Issue 2.0 VPP parameters and auxiliary QA layer.</p>
 </div>
 <table class="caption-top table">
 <colgroup>
@@ -1134,6 +1225,7 @@ Denmark<br>
 </tbody>
 </table>
 <p>Users should therefore avoid assuming that all seasonal dates fall strictly within the calendar year. This is particularly important for winter crops, regions with prolonged growing seasons, and cases where the seasonal maximum occurs close to the beginning or end of the year.</p>
+</section>
 <section id="vpp-quality-assurance-layer" class="level2" data-number="4.7">
 <h2 data-number="4.7" class="anchored" data-anchor-id="vpp-quality-assurance-layer"><span class="header-section-number">4.7</span> VPP quality assurance layer</h2>
 <p>A VPP QA layer is provided for each year and season. The QA layer summarises the quality of the phenology retrieval for the corresponding VPP parameters. The VPP QA is based on the quality and number of valid observations during three phenological phases:</p>
@@ -1146,8 +1238,7 @@ Denmark<br>
 <p><img src="MRVPP_MRVPP_PUM_v1-media/img-b5facdd86845d0e68cb56a730c9b2619.png" class="img-fluid" alt="Figure 4. Illustration of VPP parameter quality assurance (QA) determination."> <img src="MRVPP_MRVPP_PUM_v1-media/img-ec5261ebdf953a8430dfbb279d7b5b46.png" class="img-fluid" alt="Figure 5. Conceptual structure of the 8-bit VPP QA flag."></p>
 <p>5, the lowest six bits describe the quality of the SOS, peak and EOS phases, while the two highest bits describe the overall season quality. For the two-bit phase and overall-quality values, the interpretation is given in Table 5</p>
 <div class="tbl-caption">
-<div class="tbl-caption">
-<p>Table 5. Interpretation of two bits quality values :::</p>
+<p>Table 5. Interpretation of two bits quality values</p>
 </div>
 <table class="caption-top table">
 <colgroup>
@@ -1187,8 +1278,7 @@ Denmark<br>
 </table>
 <p>For practical use, the QA layer can also be interpreted using the summary rules in Table 6.</p>
 <div class="tbl-caption">
-<div class="tbl-caption">
-<p>Table 6. Summary interpretation of VPP QA values. :::</p>
+<p>Table 6. Summary interpretation of VPP QA values.</p>
 </div>
 <table class="caption-top table">
 <colgroup>
@@ -1227,6 +1317,7 @@ Denmark<br>
 </tbody>
 </table>
 <p>There is no valid case of QA = 127, corresponding to the bit pattern 01 11 11 11. If all three phases (SOS, peak, and EOS) are classified as poor, the overall quality is also poor, resulting in QA=255, corresponding to 11 11 11 11, the case of all poor estimation or filled data. Users are generally recommended to use QA &lt; 127 as a first-order filter for reliable VPP retrievals. For applications requiring stricter quality control, users may decode the bit structure and apply separate filters to the SOS, peak and EOS phases.</p>
+</section>
 <section id="file-naming" class="level2" data-number="4.8">
 <h2 data-number="4.8" class="anchored" data-anchor-id="file-naming"><span class="header-section-number">4.8</span> File naming</h2>
 <p>MR-VPP Version 5.0 Issue 2.0 uses a simplified file-naming scheme aligned with other CLMS land surface phenology products. The file name identifies the product variable, year, season where applicable, projection and file format. The full filename specification is summarised in Table 7.</p>
@@ -1260,8 +1351,7 @@ Denmark<br>
 <li><code>cog.tif</code> — Cloud Optimised GeoTIFF format</li>
 </ul>
 <div class="tbl-caption">
-<div class="tbl-caption">
-<p>Table 7. Filename specification for MR-VPP Version 5.0 Issue 2.0. :::</p>
+<p>Table 7. Filename specification for MR-VPP Version 5.0 Issue 2.0.</p>
 </div>
 <table class="caption-top table">
 <colgroup>
@@ -1367,9 +1457,11 @@ Denmark<br>
 <li><code>PPI.2025.04.06.laea.cog.tif</code></li>
 <li><code>QA.2025.04.06.laea.cog.tif</code></li>
 </ul>
+</section>
 <section id="recommended-use-of-output-layers" class="level2" data-number="4.9">
 <h2 data-number="4.9" class="anchored" data-anchor-id="recommended-use-of-output-layers"><span class="header-section-number">4.9</span> Recommended use of output layers</h2>
 <p>Users should use the VPP parameter layers together with their corresponding VPP QA layers. For most applications, users are recommended to use QA &lt; 127 as a practical first-order filter for good-quality VPP retrievals. Values greater than 127 indicate poorer-quality retrievals and should be used with caution or excluded, depending on the application. Pixels with QA = 255 represent failed retrievals or no reliable phenology estimation and should be excluded from analysis. For analyses based on the PPI time series, users should use the PPI QA layers to identify poor-quality or unusable observations. PPI observations with QA values greater than or equal to 254 should normally be excluded. Users should also apply consistent masking, grid alignment and quality-filtering rules across years, seasons and parameters. Use the 500 m public product grid consistently across all MR-VPP layers.</p>
+</section>
 </section>
 <section id="product-use-quality-filtering-and-interpretation-guidance" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Product use, quality filtering and interpretation guidance</h1>
@@ -1401,14 +1493,14 @@ Denmark<br>
 <h2 data-number="5.3" class="anchored" data-anchor-id="use-of-vpp-quality-assurance-layers"><span class="header-section-number">5.3</span> Use of VPP quality assurance layers</h2>
 <p>Each VPP season has a corresponding QA layer. The QA layer summarises the reliability of the phenology retrieval for that season and is based on the quality and number of valid PPI observations during three phenological phases: green-up, peak and green-down. The detailed bit structure and interpretation of VPP QA values are described in Chapter 4. Users should always apply the QA layer together with the VPP parameter layers. This is especially important when analysing individual pixels, second seasons, weakly seasonal areas, high-latitude regions, areas with frequent cloud or snow cover, and regions with sparse vegetation. For stricter analyses, users may decode the full 8-bit QA value and apply separate filters to the start-of-season, peak and end-of-season phases. This may be useful when one specific phenological phase is critical. For example, a study focused on end-of-season timing may require good EOS quality, while a productivity study may require reliable retrievals across all three seasonal phases.</p>
 <p>For applications requiring parameter-specific quality screening, users may decode the relevant two-bit QA fields. For example, the SOS quality is stored in bits 0-1 of the VPP QA layer. The following <code>gdal_calc.py</code> command keeps SOSD values where the SOS quality is best (00) or good (01), and assigns -9999 elsewhere:</p>
-<pre><code>gdal_calc.py --overwrite \
---calc "where (bitwise_and(A, 3) &lt;= 1, B, -9999)" \
---format GTiff \
---type Int16 \
---NoDataValue -9999 \
--A ~/QA_2025_season1_cog.tif --A_band 1 \
--B ~/SOSD_2025_season1_cog.tif --B_band 1 \
---outfile ~/SOSD_2025_season1_best_good_QA.tif</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gdal_calc.py</span> <span class="at">--overwrite</span> <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>--calc <span class="st">"where (bitwise_and(A, 3) &lt;= 1, B, -9999)"</span> <span class="dt">\</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>--format GTiff <span class="dt">\</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>--type Int16 <span class="dt">\</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>--NoDataValue <span class="at">-9999</span> <span class="dt">\</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>-A ~/QA_2025_season1_cog.tif <span class="at">--A_band</span> 1 <span class="dt">\</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>-B ~/SOSD_2025_season1_cog.tif <span class="at">--B_band</span> 1 <span class="dt">\</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>--outfile ~/SOSD_2025_season1_best_good_QA.tif</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The same expression can be used in QGIS through <strong>Processing Toolbox</strong> → <strong>GDAL</strong> → <strong>Raster miscellaneous</strong> → <strong>Raster calculator</strong>, using the GDAL numeric syntax:</p>
 <p><code>where (bitwise_and(A, 3) &lt;= 1, B, -9999)</code></p>
 <p>where <strong>A</strong> is the VPP QA layer and <strong>B</strong> is the SOSD layer.</p>
@@ -1769,19 +1861,6 @@ Denmark<br>
 </ul>
 
 
-</section>
-</div>
-</section>
-</div>
-</div>
-</section>
-</div>
-</section>
-</div>
-</div>
-</section>
-</div>
-</section>
 </section>
 
 

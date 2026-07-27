@@ -283,18 +283,6 @@ re-use</td>
 consistency and to enable re-use</td>
 </tr>
 <tr>
-<td
-style="text-align: center; background-color: #70ad47; color: #ffffff; font-weight: bold;">Items</td>
-<td
-style="text-align: center; background-color: #70ad47; color: #ffffff; font-weight: bold;">Version
-5.0 Issue 2.0</td>
-<td
-style="text-align: center; background-color: #70ad47; color: #ffffff; font-weight: bold;">Previous
-implementation</td>
-<td
-style="text-align: center; background-color: #70ad47; color: #ffffff; font-weight: bold;">Comments</td>
-</tr>
-<tr>
 <td style="background-color: #e2efda"><strong>Phenology retrieval
 temporal strategy</strong></td>
 <td style="background-color: #e2efda">Short processing window fully

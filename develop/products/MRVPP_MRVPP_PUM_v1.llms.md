@@ -315,7 +315,7 @@ The MR-VPP products are generated from MODIS data in the original MODIS sinusoid
 
 The PPI time-series products provide regular observations of the Plant Phenology Index. PPI is calculated from MODIS NBAR red and near-infrared reflectance and is designed to respond to seasonal variations in photosynthetically active green leaf area. Although daily PPI input is used for VPP estimation, the delivered PPI archive is provided at a nominal 5-day interval to reduce storage volume. The nominal dates are the 1st, 6th, 11th, 16th, 21st and 26th day of each month, resulting in 72 nominal observations per full year. For the first and last years of the input archive, the number of dates may be lower because the available MODIS input record does not necessarily cover the full calendar year. Each PPI layer is accompanied by a corresponding PPI QA layer for the same date. The PPI QA layer describes the quality of the PPI observation and should be used when analysing the PPI time series directly. The PPI and PPI QA product specifications are summarised in Table 1.
 
-Table 1. Season trajectory product specification, including PPI time-series, and quality assessment (QA) flag. :::
+Table 1. Season trajectory product specification, including PPI time-series, and quality assessment (QA) flag.
 
 | Name | Data type | Scale, offset | Data range | Fill value | Description  | Unit   |
 |------|-----------|---------------|------------|------------|--------------|--------|
@@ -328,7 +328,7 @@ The physical PPI value is obtained by multiplying the digital value by 0.001. Fo
 
 The PPI QA layer provides quality information for each PPI observation. It is derived from MODIS BRDF Albedo quality information for the red and near-infrared bands. In the processing chain, PPI QA values are also used to assign weights during TIMESAT fitting. For user interpretation, lower PPI QA values generally indicate better input quality. The main PPI QA classes are summarised in Table 2.
 
-Table 2. PPI QA values and interpretation. :::
+Table 2. PPI QA values and interpretation.
 
 | QA | PPI quality | Weight in TIMESAT | User guidance |
 |----|----|----|----|
@@ -339,7 +339,7 @@ Table 2. PPI QA values and interpretation. :::
 
 Several high QA values provide additional diagnostic information. These are useful when inspecting the PPI time series or identifying reasons for missing or modified PPI values. The main diagnostic PPI QA values are listed in Table 3.
 
-Table 3. Main diagnostic PPI QA values. :::
+Table 3. Main diagnostic PPI QA values.
 
 | QA value | Meaning                                          |
 |----------|--------------------------------------------------|
@@ -362,7 +362,7 @@ A maximum of two seasons is reported per year. Seasons are assigned to the year 
 
 The VPP timing parameters are reported as day-of-year values relative to the year of the seasonal peak. Because seasons may cross calendar-year boundaries, some date values can fall outside the usual range of 1-365 or 1-366. The valid range of SOSD is -365 to 365. A negative SOSD value indicates that the season is assigned to the current year because its maximum occurs in the current year, but the start of the season occurred in the previous calendar year. The valid range of EOSD is 0 to 730. An EOSD value greater than 365 indicates that the season is assigned to the current year because its maximum occurs in the current year, but the end of the season extends into the following calendar year.
 
-Table 4. MR-VPP Version 5.0 Issue 2.0 VPP parameters and auxiliary QA layer. :::
+Table 4. MR-VPP Version 5.0 Issue 2.0 VPP parameters and auxiliary QA layer.
 
 |  |  |  |  |  |  |  |  |
 |----|----|----|----|----|----|----|----|
@@ -398,7 +398,7 @@ Each phase is assessed separately and then combined into an overall quality indi
 
 5, the lowest six bits describe the quality of the SOS, peak and EOS phases, while the two highest bits describe the overall season quality. For the two-bit phase and overall-quality values, the interpretation is given in Table 5
 
-Table 5. Interpretation of two bits quality values :::
+Table 5. Interpretation of two bits quality values
 
 | Two-bit value | Quality class | Interpretation |
 |---------------|---------------|----------------|
@@ -409,7 +409,7 @@ Table 5. Interpretation of two bits quality values :::
 
 For practical use, the QA layer can also be interpreted using the summary rules in Table 6.
 
-Table 6. Summary interpretation of VPP QA values. :::
+Table 6. Summary interpretation of VPP QA values.
 
 | QA value | Summary quality | Interpretation | Recommended use |
 |----|----|----|----|
@@ -454,7 +454,7 @@ where:
 - `laea` — ETRS89-LAEA Europe projection
 - `cog.tif` — Cloud Optimised GeoTIFF format
 
-Table 7. Filename specification for MR-VPP Version 5.0 Issue 2.0. :::
+Table 7. Filename specification for MR-VPP Version 5.0 Issue 2.0.
 
 | Data | Filename | Description |
 |----|----|----|
@@ -520,14 +520,16 @@ Each VPP season has a corresponding QA layer. The QA layer summarises the reliab
 
 For applications requiring parameter-specific quality screening, users may decode the relevant two-bit QA fields. For example, the SOS quality is stored in bits 0-1 of the VPP QA layer. The following `gdal_calc.py` command keeps SOSD values where the SOS quality is best (00) or good (01), and assigns -9999 elsewhere:
 
-    gdal_calc.py --overwrite \
-    --calc "where (bitwise_and(A, 3) <= 1, B, -9999)" \
-    --format GTiff \
-    --type Int16 \
-    --NoDataValue -9999 \
-    -A ~/QA_2025_season1_cog.tif --A_band 1 \
-    -B ~/SOSD_2025_season1_cog.tif --B_band 1 \
-    --outfile ~/SOSD_2025_season1_best_good_QA.tif
+``` bash
+gdal_calc.py --overwrite \
+--calc "where (bitwise_and(A, 3) <= 1, B, -9999)" \
+--format GTiff \
+--type Int16 \
+--NoDataValue -9999 \
+-A ~/QA_2025_season1_cog.tif --A_band 1 \
+-B ~/SOSD_2025_season1_cog.tif --B_band 1 \
+--outfile ~/SOSD_2025_season1_best_good_QA.tif
+```
 
 The same expression can be used in QGIS through **Processing Toolbox** → **GDAL** → **Raster miscellaneous** → **Raster calculator**, using the GDAL numeric syntax:
 

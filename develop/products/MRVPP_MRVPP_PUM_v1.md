@@ -60,6 +60,118 @@ European Environment Agency (EEA)
     raster characteristics](#spatial-format-and-raster-characteristics)
   - [<span class="toc-section-number">4.3</span> PPI time-series
     products](#ppi-time-series-products-1)
+  - [<span class="toc-section-number">4.4</span> PPI quality
+    layer](#ppi-quality-layer)
+  - [<span class="toc-section-number">4.5</span> VPP parameter
+    products](#vpp-parameter-products-1)
+  - [<span class="toc-section-number">4.6</span> Interpretation of date
+    parameters](#interpretation-of-date-parameters)
+  - [<span class="toc-section-number">4.7</span> VPP quality assurance
+    layer](#vpp-quality-assurance-layer)
+  - [<span class="toc-section-number">4.8</span> File
+    naming](#file-naming)
+  - [<span class="toc-section-number">4.9</span> Recommended use of
+    output layers](#recommended-use-of-output-layers)
+- [<span class="toc-section-number">5</span> Product use, quality
+  filtering and interpretation
+  guidance](#product-use-quality-filtering-and-interpretation-guidance)
+  - [<span class="toc-section-number">5.1</span> Overview](#overview-1)
+  - [<span class="toc-section-number">5.2</span> Recommended general
+    workflow](#recommended-general-workflow)
+  - [<span class="toc-section-number">5.3</span> Use of VPP quality
+    assurance layers](#use-of-vpp-quality-assurance-layers)
+  - [<span class="toc-section-number">5.4</span> Use of PPI quality
+    assurance layers](#use-of-ppi-quality-assurance-layers)
+  - [<span class="toc-section-number">5.5</span> Data completeness and
+    quality
+    interpretation](#data-completeness-and-quality-interpretation)
+  - [<span class="toc-section-number">5.6</span> Interpretation of
+    multiple growing
+    seasons](#interpretation-of-multiple-growing-seasons)
+  - [<span class="toc-section-number">5.7</span> Interpretation of
+    second-season products in agricultural and managed
+    landscapes](#interpretation-of-second-season-products-in-agricultural-and-managed-landscapes)
+  - [<span class="toc-section-number">5.8</span> Seasons crossing
+    calendar years](#seasons-crossing-calendar-years)
+  - [<span class="toc-section-number">5.9</span> Apparent overlap
+    between seasons in consecutive
+    years](#apparent-overlap-between-seasons-in-consecutive-years)
+  - [<span class="toc-section-number">5.10</span> Interpreting phenology
+    timing parameters](#interpreting-phenology-timing-parameters)
+  - [<span class="toc-section-number">5.11</span> Interpreting magnitude
+    and productivity
+    parameters](#interpreting-magnitude-and-productivity-parameters)
+  - [<span class="toc-section-number">5.12</span> Recommended use for
+    time-series analysis](#recommended-use-for-time-series-analysis)
+  - [<span class="toc-section-number">5.13</span> Potential application
+    areas](#potential-application-areas)
+  - [<span class="toc-section-number">5.14</span> Example use
+    cases](#example-use-cases)
+    - [<span class="toc-section-number">5.14.1</span> Drought impact
+      assessment](#drought-impact-assessment)
+    - [<span class="toc-section-number">5.14.2</span> Monitoring
+      phenological shifts and changes in habitat functioning and
+      functional biodiversity at large regional
+      scales](#monitoring-phenological-shifts-and-changes-in-habitat-functioning-and-functional-biodiversity-at-large-regional-scales)
+    - [<span class="toc-section-number">5.14.3</span> Multi-season
+      analysis in croplands and managed
+      grasslands](#multi-season-analysis-in-croplands-and-managed-grasslands)
+  - [<span class="toc-section-number">5.15</span> Practical
+    recommendations](#practical-recommendations)
+- [<span class="toc-section-number">6</span> Known limitations and
+  practical
+  considerations](#known-limitations-and-practical-considerations)
+  - [<span class="toc-section-number">6.1</span> Overview](#overview-2)
+  - [<span class="toc-section-number">6.2</span> Dependence on input
+    data quality](#dependence-on-input-data-quality)
+  - [<span class="toc-section-number">6.3</span> PPI-related
+    limitations](#ppi-related-limitations)
+  - [<span class="toc-section-number">6.4</span> Sparse vegetation and
+    bright soil
+    background](#sparse-vegetation-and-bright-soil-background)
+  - [<span class="toc-section-number">6.5</span> Weak seasonality and
+    evergreen vegetation](#weak-seasonality-and-evergreen-vegetation)
+  - [<span class="toc-section-number">6.6</span> Winter data gaps and
+    high-latitude regions](#winter-data-gaps-and-high-latitude-regions)
+  - [<span class="toc-section-number">6.7</span> Interpretation of
+    seasons crossing calendar
+    years](#interpretation-of-seasons-crossing-calendar-years)
+  - [<span class="toc-section-number">6.8</span> Multiple seasons and
+    second-season
+    products](#multiple-seasons-and-second-season-products)
+  - [<span class="toc-section-number">6.9</span> Limitations in managed
+    agricultural and grassland
+    systems](#limitations-in-managed-agricultural-and-grassland-systems)
+  - [<span class="toc-section-number">6.10</span> Temporal-window
+    effects in annual
+    updates](#temporal-window-effects-in-annual-updates)
+  - [<span class="toc-section-number">6.11</span> Data completeness is
+    not sufficient as a quality
+    criterion](#data-completeness-is-not-sufficient-as-a-quality-criterion)
+  - [<span class="toc-section-number">6.12</span> Spatial-resolution
+    considerations](#spatial-resolution-considerations)
+  - [<span class="toc-section-number">6.13</span> Practical
+    recommendations](#practical-recommendations-1)
+  - [<span class="toc-section-number">6.14</span> Summary](#summary)
+- [<span class="toc-section-number">7</span> Data access, storage, terms
+  of use and product technical
+  support](#data-access-storage-terms-of-use-and-product-technical-support)
+  - [<span class="toc-section-number">7.1</span> Overview](#overview-3)
+  - [<span class="toc-section-number">7.2</span> Product ownership and
+    terms of use](#product-ownership-and-terms-of-use)
+  - [<span class="toc-section-number">7.3</span> Citation and
+    acknowledgement](#citation-and-acknowledgement)
+  - [<span class="toc-section-number">7.4</span> Product
+    access](#product-access)
+  - [<span class="toc-section-number">7.5</span> Product storage and
+    organisation](#product-storage-and-organisation)
+  - [<span class="toc-section-number">7.6</span> Product
+    versioning](#product-versioning)
+  - [<span class="toc-section-number">7.7</span> Product technical
+    support](#product-technical-support)
+  - [<span class="toc-section-number">7.8</span> User
+    responsibility](#user-responsibility)
+- [<span class="toc-section-number">8</span> References](#references)
 
 Reference Document for **Version 5.0 Issue 2.0**
 
@@ -777,10 +889,8 @@ Table 1.
 
 <div class="tbl-caption">
 
-<div class="tbl-caption">
-
 Table 1. Season trajectory product specification, including PPI
-time-series, and quality assessment (QA) flag. :::
+time-series, and quality assessment (QA) flag.
 
 </div>
 
@@ -806,9 +916,7 @@ PPI QA classes are summarised in Table 2.
 
 <div class="tbl-caption">
 
-<div class="tbl-caption">
-
-Table 2. PPI QA values and interpretation. :::
+Table 2. PPI QA values and interpretation.
 
 </div>
 
@@ -826,9 +934,7 @@ are listed in Table 3.
 
 <div class="tbl-caption">
 
-<div class="tbl-caption">
-
-Table 3. Main diagnostic PPI QA values. :::
+Table 3. Main diagnostic PPI QA values.
 
 </div>
 
@@ -881,10 +987,8 @@ of the season extends into the following calendar year.
 
 <div class="tbl-caption">
 
-<div class="tbl-caption">
-
 Table 4. MR-VPP Version 5.0 Issue 2.0 VPP parameters and auxiliary QA
-layer. :::
+layer.
 
 </div>
 
@@ -1081,9 +1185,7 @@ given in Table 5
 
 <div class="tbl-caption">
 
-<div class="tbl-caption">
-
-Table 5. Interpretation of two bits quality values :::
+Table 5. Interpretation of two bits quality values
 
 </div>
 
@@ -1099,9 +1201,7 @@ summary rules in Table 6.
 
 <div class="tbl-caption">
 
-<div class="tbl-caption">
-
-Table 6. Summary interpretation of VPP QA values. :::
+Table 6. Summary interpretation of VPP QA values.
 
 </div>
 
@@ -1162,9 +1262,7 @@ where:
 
 <div class="tbl-caption">
 
-<div class="tbl-caption">
-
-Table 7. Filename specification for MR-VPP Version 5.0 Issue 2.0. :::
+Table 7. Filename specification for MR-VPP Version 5.0 Issue 2.0.
 
 </div>
 
@@ -1279,14 +1377,16 @@ is stored in bits 0-1 of the VPP QA layer. The following `gdal_calc.py`
 command keeps SOSD values where the SOS quality is best (00) or good
 (01), and assigns -9999 elsewhere:
 
-    gdal_calc.py --overwrite \
-    --calc "where (bitwise_and(A, 3) <= 1, B, -9999)" \
-    --format GTiff \
-    --type Int16 \
-    --NoDataValue -9999 \
-    -A ~/QA_2025_season1_cog.tif --A_band 1 \
-    -B ~/SOSD_2025_season1_cog.tif --B_band 1 \
-    --outfile ~/SOSD_2025_season1_best_good_QA.tif
+``` bash
+gdal_calc.py --overwrite \
+--calc "where (bitwise_and(A, 3) <= 1, B, -9999)" \
+--format GTiff \
+--type Int16 \
+--NoDataValue -9999 \
+-A ~/QA_2025_season1_cog.tif --A_band 1 \
+-B ~/SOSD_2025_season1_cog.tif --B_band 1 \
+--outfile ~/SOSD_2025_season1_best_good_QA.tif
+```
 
 The same expression can be used in QGIS through **Processing Toolbox** →
 **GDAL** → **Raster miscellaneous** → **Raster calculator**, using the
@@ -2171,20 +2271,6 @@ format, quality filtering, interpretation and known limitations.
   interpretation, and assessment of spring phenology in North America
   estimated from remote sensing for 1982–2006. Global Change Biology,
   15, 2335-2359. https://doi.org/10.1111/j.1365-2486.2009.01910.x
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
 
 [^1]: https://www.eea.europa.eu/en/analysis/maps-and-charts/drought-impact-on-ecosystems-in-data-viewers
 
