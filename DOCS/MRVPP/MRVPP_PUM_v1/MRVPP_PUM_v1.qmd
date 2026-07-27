@@ -301,6 +301,7 @@ The PPI time-series products provide regular observations of the Plant Phenology
 #set text(size: 9pt, fill: rgb("#3E6893"))
 ```
 Table 1. Season trajectory product specification, including PPI time-series, and quality assessment (QA) flag.
+
 :::
 
 | Name | Data type | Scale, offset | Data range  | Fill value | Description  | Unit   |
@@ -319,6 +320,7 @@ The PPI QA layer provides quality information for each PPI observation. It is de
 #set text(size: 9pt, fill: rgb("#3E6893"))
 ```
 Table 2. PPI QA values and interpretation.
+
 :::
 
 | QA | PPI quality | Weight in TIMESAT | User guidance |
@@ -335,6 +337,7 @@ Several high QA values provide additional diagnostic information. These are usef
 #set text(size: 9pt, fill: rgb("#3E6893"))
 ```
 Table 3. Main diagnostic PPI QA values.
+
 :::
 
 | QA value | Meaning                                          |
@@ -363,6 +366,7 @@ The VPP timing parameters are reported as day-of-year values relative to the yea
 #set text(size: 9pt, fill: rgb("#3E6893"))
 ```
 Table 4. MR-VPP Version 5.0 Issue 2.0 VPP parameters and auxiliary QA layer.
+
 :::
 
 ```{=html}
@@ -542,6 +546,7 @@ Each phase is assessed separately and then combined into an overall quality indi
 #set text(size: 9pt, fill: rgb("#3E6893"))
 ```
 Table 5. Interpretation of two bits quality values
+
 :::
 
 | Two-bit value | Quality class | Interpretation |
@@ -558,6 +563,7 @@ For practical use, the QA layer can also be interpreted using the summary rules 
 #set text(size: 9pt, fill: rgb("#3E6893"))
 ```
 Table 6. Summary interpretation of VPP QA values.
+
 :::
 
 | QA value | Summary quality | Interpretation | Recommended use |
@@ -608,7 +614,9 @@ where:
 #set text(size: 9pt, fill: rgb("#3E6893"))
 ```
 Table 7. Filename specification for MR-VPP Version 5.0 Issue 2.0.
+
 :::
+
 | Data | Filename | Description |
 |-----------------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | 13 VPP metrics | SOSD_YYYY\_\<s1 or s2\>\_cog.tif | Day of start-of-season |
@@ -673,7 +681,7 @@ Each VPP season has a corresponding QA layer. The QA layer summarises the reliab
 
 For applications requiring parameter-specific quality screening, users may decode the relevant two-bit QA fields. For example, the SOS quality is stored in bits 0-1 of the VPP QA layer. The following `gdal_calc.py` command keeps SOSD values where the SOS quality is best (00) or good (01), and assigns -9999 elsewhere:
 
-```         
+```bash
 gdal_calc.py --overwrite \
 --calc "where (bitwise_and(A, 3) <= 1, B, -9999)" \
 --format GTiff \
