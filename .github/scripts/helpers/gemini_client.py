@@ -32,7 +32,7 @@ def get_client() -> "genai.Client":
 # ---------------------------------------------------------------------------
 # Model & rate-limit constants  (Gemini 2.5 Flash – tier 1)
 # ---------------------------------------------------------------------------
-MODEL_NAME = "gemini-2.5-flash"
+MODEL_NAME = "gemini-2.5-flash-001"
 
 RPM_LIMIT = 995  # Requests per minute
 TPM_LIMIT = 750_000  # Tokens per minute
