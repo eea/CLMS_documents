@@ -2,6 +2,8 @@
 
 Copernicus Land Monitoring Service - Technical Library
 
+This document establishes the design principles for filename conventions governing all new product deliveries within the Copernicus Land Monitoring Service (CLMS). It provides comprehensive guidelines for scientists, data engineers, and regulators involved in product generation and data management. The scope covers the structure, allowed characters, maximum length, and specific field definitions for CLMS filenames, including product code, temporal coverage, spatial resolution, and versioning. These principles ensure consistent, machine-parseable, and unambiguous identification of CLMS products, facilitating efficient data discovery, integration, and archival across platforms like the CDSE product catalogue and parsEO schema registry.
+
 Author
 
 European Environment Agency (EEA)
@@ -9,6 +11,10 @@ European Environment Agency (EEA)
 Published
 
 July 24, 2026
+
+Keywords
+
+CLMS product filenaming principles, Geodata naming standards, ParsEO schema registry, Temporal coverage formats, Spatial resolution encoding, EPSG code, Product versioning, Quality layer identification, Copernicus Land Monitoring Service, CDSE product catalogue, ISO 8601 temporal formats, Filename structure
 
   
 **Contact:**

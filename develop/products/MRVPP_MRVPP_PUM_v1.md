@@ -277,12 +277,32 @@ communities. The product also supports comparison with previous MR-VPP
 releases, annual product updates and preparation for the transition
 towards Sentinel-3 OLCI-based MR-VPP production.
 
-![Figure 1. Examples of TIMESAT-derived phenology and productivity
-parameters. (a) start of season, (b) end of season, (c) length of
-season, (d) minimum value, (e) time of maximum, (f) maximum value, (g)
-amplitude, (h) seasonal productivity, and (h+i) total productivity.
-Source:
-https://web.nateko.lu.se/timesat/timesat.asp.](MRVPP_MRVPP_PUM_v1-media/img-72efb44e1dfa69faac1d13f39bea722c.png)
+<img
+src="MRVPP_MRVPP_PUM_v1-media/img-72efb44e1dfa69faac1d13f39bea722c.png"
+data-fig-alt="A line chart illustrating the derivation of TIMESAT parameters from a time series of data. The Y-axis is labelled &#39;Data&#39; and shows values from 0 to over 160. The X-axis is labelled &#39;Time&#39; and ranges from approximately 12 to 61 units. The chart displays two data series: a noisy blue line representing the raw data and a smooth red line representing the fitted curve, likely obtained using TIMESAT software. Several key parameters are annotated on the chart: `e` marks the peak value of the smoothed red curve. `f` indicates the maximum data value achieved (peak value) relative to the X-axis. `g` represents the amplitude, defined as the difference between the peak value and the base level during the trough of the cycle. Points `a` and `b` on the smoothed red curve define the start and end of a specific period or phenological phase. `c` measures the duration of this phase, spanning horizontally between the vertical lines dropped from points `a` and `b`. `d` denotes a baseline data value, approximately 90 units on the Y-axis. The shaded area `h` (dark grey) represents the integral of the smoothed curve above the baseline `d` during the duration `c`. The shaded area `i` (light grey) represents the integral of the baseline `d` over the same duration `c`. The text &#39;TIMESAT parameters&#39; is present in the bottom left, indicating the purpose of the diagram. A Creative Commons (cc) icon is visible in the bottom right corner."
+alt="Figure 1. Examples of TIMESAT-derived phenology and productivity parameters. (a) start of season, (b) end of season, (c) length of season, (d) minimum value, (e) time of maximum, (f) maximum value, (g) amplitude, (h) seasonal productivity, and (h+i) total productivity. Source: https://web.nateko.lu.se/timesat/timesat.asp." />
+
+A line chart illustrating the derivation of TIMESAT parameters from a
+time series of data. The Y-axis is labelled “Data” and shows values from
+0 to over 160. The X-axis is labelled “Time” and ranges from
+approximately 12 to 61 units. The chart displays two data series: a
+noisy blue line representing the raw data and a smooth red line
+representing the fitted curve, likely obtained using TIMESAT software.
+Several key parameters are annotated on the chart: `e` marks the peak
+value of the smoothed red curve. `f` indicates the maximum data value
+achieved (peak value) relative to the X-axis. `g` represents the
+amplitude, defined as the difference between the peak value and the base
+level during the trough of the cycle. Points `a` and `b` on the smoothed
+red curve define the start and end of a specific period or phenological
+phase. `c` measures the duration of this phase, spanning horizontally
+between the vertical lines dropped from points `a` and `b`. `d` denotes
+a baseline data value, approximately 90 units on the Y-axis. The shaded
+area `h` (dark grey) represents the integral of the smoothed curve above
+the baseline `d` during the duration `c`. The shaded area `i` (light
+grey) represents the integral of the baseline `d` over the same duration
+`c`. The text “TIMESAT parameters” is present in the bottom left,
+indicating the purpose of the diagram. A Creative Commons (cc) icon is
+visible in the bottom right corner.
 
 # List of Acronyms
 
@@ -447,16 +467,48 @@ smoothed seasonal trajectories and derive vegetation phenology and
 productivity parameters (Jönsson et al., 2004; Jönsson & Eklundh, 2002).
 The product suite consists of two main product groups (Figure 2):
 
-![Figure 2. Product structure of MR-VPP Version 5.0 Issue 2.0. The
-product suite is generated from MODIS Collection 6.1 MCD43A4 NBAR data
-and associated MCD43A2 quality and geometry information. PPI is
-calculated from red and near-infrared NBAR reflectance, quality-weighted
-using MCD43A2 information, and processed with TIMESAT Version 4.2 to
-generate smoothed seasonal trajectories. The delivered products include
-5-day PPI time-series products with PPI QA, and annual VPP parameter
-products with VPP QA for up to two growing seasons per year over the
-EEA-39 region and
-Ukraine.](MRVPP_MRVPP_PUM_v1-media/img-8dd2854b2170c7518ac857ca3cbb7327.png)
+<img
+src="MRVPP_MRVPP_PUM_v1-media/img-8dd2854b2170c7518ac857ca3cbb7327.png"
+data-fig-alt="This process flow diagram illustrates the generation of the MR-VPP (Vegetation Phenology and Productivity) product suite outputs for the 2000–2025 period, providing spatially consistent vegetation phenology and productivity information for the EEA-39 region and Ukraine. The workflow consists of three main stages: Input data, Processing concept, and MR-VPP product suite outputs. **1. Input data:** * **MODIS MCD43A4 Collection 6.1:** Provides Nadir BRDF-Adjusted Reflectance (NBAR) data, including Red and Near-Infrared (NIR) reflectance over time. * **MODIS MCD43A2 Collection 6.1:** Provides Bidirectional Reflectance Distribution Function (BRDF), Albedo quality, and geometry information. * **Input archive:** Daily Moderate Resolution Imaging Spectroradiometer (MODIS) source data, used for VPP estimation, spans from February 2000 to April 2026. **2. Processing concept:** * **PPI calculation:** The Plant Phenology Index (PPI) is calculated, derived from MODIS Red and NIR NBAR data. * **PPI quality weighting:** PPI data is weighted using quality information from the MODIS MCD43A2 product. * **TIMESAT v4.2 smoothing:** Raw PPI trajectories are smoothed using the TIMESAT v4.2 algorithm to produce smoothed seasonal PPI trajectories, illustrated with an example over monthly periods (JFMAMJJASOND). * **Phenology and productivity retrieval:** This step retrieves phenology and productivity parameters, capable of identifying up to two growing seasons per year. **3. MR-VPP product suite outputs (2000–2025):** * **A) Seasonal trajectories (ST):** * Outputs include Plant Phenology Index (PPI) and PPI Quality Assurance (QA). * Delivered at a nominal 5-day interval. * A regular archive is maintained for visual inspection and time-series analysis. * **B) Annual VPP products:** * Consist of 13 VPP parameters plus VPP QA. * Annual outputs are generated for the period 2000–2025. * Can account for up to two growing seasons per year (Season 1 and Season 2), as shown by example curves over the JFMAMJJASOND period. * The 13 VPP parameters include: SOSD, EOSD, MAXD, LENGTH, SOSV, EOSV, MAXV, MINV, AMPL, TPROD, SPROD, LSLOPE, RSLOPE. * These products summarise timing, magnitude, and seasonal productivity."
+alt="Figure 2. Product structure of MR-VPP Version 5.0 Issue 2.0. The product suite is generated from MODIS Collection 6.1 MCD43A4 NBAR data and associated MCD43A2 quality and geometry information. PPI is calculated from red and near-infrared NBAR reflectance, quality-weighted using MCD43A2 information, and processed with TIMESAT Version 4.2 to generate smoothed seasonal trajectories. The delivered products include 5-day PPI time-series products with PPI QA, and annual VPP parameter products with VPP QA for up to two growing seasons per year over the EEA-39 region and Ukraine." />
+
+This process flow diagram illustrates the generation of the MR-VPP
+(Vegetation Phenology and Productivity) product suite outputs for the
+2000–2025 period, providing spatially consistent vegetation phenology
+and productivity information for the EEA-39 region and Ukraine.
+
+The workflow consists of three main stages: Input data, Processing
+concept, and MR-VPP product suite outputs.
+
+**1. Input data:** \* **MODIS MCD43A4 Collection 6.1:** Provides Nadir
+BRDF-Adjusted Reflectance (NBAR) data, including Red and Near-Infrared
+(NIR) reflectance over time. \* **MODIS MCD43A2 Collection 6.1:**
+Provides Bidirectional Reflectance Distribution Function (BRDF), Albedo
+quality, and geometry information. \* **Input archive:** Daily Moderate
+Resolution Imaging Spectroradiometer (MODIS) source data, used for VPP
+estimation, spans from February 2000 to April 2026.
+
+**2. Processing concept:** \* **PPI calculation:** The Plant Phenology
+Index (PPI) is calculated, derived from MODIS Red and NIR NBAR data. \*
+**PPI quality weighting:** PPI data is weighted using quality
+information from the MODIS MCD43A2 product. \* **TIMESAT v4.2
+smoothing:** Raw PPI trajectories are smoothed using the TIMESAT v4.2
+algorithm to produce smoothed seasonal PPI trajectories, illustrated
+with an example over monthly periods (JFMAMJJASOND). \* **Phenology and
+productivity retrieval:** This step retrieves phenology and productivity
+parameters, capable of identifying up to two growing seasons per year.
+
+**3. MR-VPP product suite outputs (2000–2025):** \* **A) Seasonal
+trajectories (ST):** \* Outputs include Plant Phenology Index (PPI) and
+PPI Quality Assurance (QA). \* Delivered at a nominal 5-day interval. \*
+A regular archive is maintained for visual inspection and time-series
+analysis. \* **B) Annual VPP products:** \* Consist of 13 VPP parameters
+plus VPP QA. \* Annual outputs are generated for the period 2000–2025.
+\* Can account for up to two growing seasons per year (Season 1 and
+Season 2), as shown by example curves over the JFMAMJJASOND period. \*
+The 13 VPP parameters include: SOSD, EOSD, MAXD, LENGTH, SOSV, EOSV,
+MAXV, MINV, AMPL, TPROD, SPROD, LSLOPE, RSLOPE. \* These products
+summarise timing, magnitude, and seasonal productivity.
 
 - the Plant Phenology Index (PPI) time series and corresponding PPI
   quality assurance layers, provided at a nominal 5-day interval;
@@ -724,14 +776,36 @@ illustrated in Figure 3, where the season from a-A-b is assigned to
 2018, while the seasons associated with peaks C and D are assigned to
 2019.
 
-![Figure 3. Illustration of growing-season identification and year
-assignment. Coarse-season peaks are indicated by A-D, and the
-corresponding local minima by a-e. Red markers indicate the start and
-end points of the detected growing seasons. Seasons are assigned to the
-year of their maximum-of-season date; for example, the season a-A-b is
-assigned to 2018, while the seasons associated with peaks C and D are
-assigned to
-2019.](MRVPP_MRVPP_PUM_v1-media/img-e327e97c5ca0229593c063986753a343.png)
+<img
+src="MRVPP_MRVPP_PUM_v1-media/img-e327e97c5ca0229593c063986753a343.png"
+data-fig-alt="This line chart displays the temporal evolution of Scaled PPI (Phenological Phase Index) values, fitted with a cubic spline, from 2018-01-01 to 2020-01-01. The Y-axis represents &#39;Scaled PPI (x10000)&#39; ranging from 0 to 10000. The X-axis represents time in ISO 8601 date format. The black line indicates the &#39;Cubic spline fit&#39;, and red circles mark the &#39;Start/End of season&#39;. The chart shows two distinct phenological cycles. The first cycle, during 2018, begins around 2018-03-01 (first red circle) with a Scaled PPI of approximately 1900, peaks at point A with a value of approximately 7000 around 2018-05-01, and ends around 2018-07-01 (second red circle) with a value of approximately 1200. Following this, there is a lower activity period (labeled &#39;a&#39; before the peak, &#39;b&#39; after, and a subsequent smaller peak B around 1200). The second cycle, during 2019, shows a period of very low activity (labeled &#39;c&#39;) around early 2019. It then begins around 2019-04-01 (third red circle) with a Scaled PPI of approximately 2200. This cycle exhibits a bimodal pattern, with a primary peak C reaching approximately 8800 around 2019-06-01, followed by a trough &#39;d&#39; at approximately 6000 around 2019-08-01, and a secondary peak D at approximately 8200 around 2019-10-01. The season concludes around 2019-12-01 (fourth red circle) with a Scaled PPI value of approximately 1300. The overall Scaled PPI values in 2019 are generally higher than in 2018, indicating potentially higher or prolonged vegetation activity."
+alt="Figure 3. Illustration of growing-season identification and year assignment. Coarse-season peaks are indicated by A-D, and the corresponding local minima by a-e. Red markers indicate the start and end points of the detected growing seasons. Seasons are assigned to the year of their maximum-of-season date; for example, the season a-A-b is assigned to 2018, while the seasons associated with peaks C and D are assigned to 2019." />
+
+This line chart displays the temporal evolution of Scaled PPI
+(Phenological Phase Index) values, fitted with a cubic spline, from
+2018-01-01 to 2020-01-01. The Y-axis represents “Scaled PPI (x10000)”
+ranging from 0 to 10000. The X-axis represents time in ISO 8601 date
+format. The black line indicates the “Cubic spline fit”, and red circles
+mark the “Start/End of season”.
+
+The chart shows two distinct phenological cycles. The first cycle,
+during 2018, begins around 2018-03-01 (first red circle) with a Scaled
+PPI of approximately 1900, peaks at point A with a value of
+approximately 7000 around 2018-05-01, and ends around 2018-07-01 (second
+red circle) with a value of approximately 1200. Following this, there is
+a lower activity period (labeled ‘a’ before the peak, ‘b’ after, and a
+subsequent smaller peak B around 1200).
+
+The second cycle, during 2019, shows a period of very low activity
+(labeled ‘c’) around early 2019. It then begins around 2019-04-01 (third
+red circle) with a Scaled PPI of approximately 2200. This cycle exhibits
+a bimodal pattern, with a primary peak C reaching approximately 8800
+around 2019-06-01, followed by a trough ‘d’ at approximately 6000 around
+2019-08-01, and a secondary peak D at approximately 8200 around
+2019-10-01. The season concludes around 2019-12-01 (fourth red circle)
+with a Scaled PPI value of approximately 1300. The overall Scaled PPI
+values in 2019 are generally higher than in 2018, indicating potentially
+higher or prolonged vegetation activity.
 
 When more than two seasonal cycles are detected within the same year,
 the two largest seasons are retained. The retained seasons are then
@@ -1175,11 +1249,63 @@ Figure 5, the lowest six bits describe the quality of the SOS, peak and
 EOS phases, while the two highest bits describe the overall season
 quality.
 
-![Figure 4. Illustration of VPP parameter quality assurance (QA)
-determination.](MRVPP_MRVPP_PUM_v1-media/img-b5facdd86845d0e68cb56a730c9b2619.png)
+<img
+src="MRVPP_MRVPP_PUM_v1-media/img-b5facdd86845d0e68cb56a730c9b2619.png"
+data-fig-alt="A line chart showing the Plant Phenology Indicator (PPI) over time, spanning from late 2018/early 2019 to early 2020. The Y-axis represents PPI values, ranging from 0 to 2.0. The X-axis represents time, marked with &#39;2019&#39; and &#39;2020&#39;. The chart displays multiple data series: * &#39;Raw data&#39; are shown as small open white circles across the entire period. * &#39;Clear-sky land observations&#39; are shown as solid black circles, typically clustered around the seasonal trajectory. * A &#39;Seasonal trajectory&#39; is depicted by a thick red line, representing a smoothed curve of phenological development. * Three distinct phenological phases are indicated by shaded background regions: &#39;Green up&#39; (light green), &#39;Green peak&#39; (darker green), and &#39;Green down&#39; (orange). The chart illustrates two seasonal cycles. The first cycle shows a &#39;Green down&#39; phase in early 2019, with PPI values decreasing from approximately 0.8 to 0.2. The second, more prominent cycle starts around mid-2019. This cycle begins with a &#39;Green up&#39; phase where PPI values rise from approximately 0.2 to 0.9. It then transitions into a &#39;Green peak&#39; phase, where PPI reaches its maximum around 1.4 near the end of 2019. Finally, a &#39;Green down&#39; phase extends into early 2020, with PPI values decreasing from approximately 1.2 to 0.2. Clear-sky land observations are concentrated along the seasonal trajectory, particularly during the green-up and green peak phases of the main growing season, representing valid observations for VPP (Vegetation Productivity Parameter) quality assurance."
+alt="Figure 4. Illustration of VPP parameter quality assurance (QA) determination." />
 
-![Figure 5. Conceptual structure of the 8-bit VPP QA
-flag.](MRVPP_MRVPP_PUM_v1-media/img-ec5261ebdf953a8430dfbb279d7b5b46.png)
+A line chart showing the Plant Phenology Indicator (PPI) over time,
+spanning from late 2018/early 2019 to early 2020. The Y-axis represents
+PPI values, ranging from 0 to 2.0. The X-axis represents time, marked
+with “2019” and “2020”.
+
+The chart displays multiple data series: \* “Raw data” are shown as
+small open white circles across the entire period. \* “Clear-sky land
+observations” are shown as solid black circles, typically clustered
+around the seasonal trajectory. \* A “Seasonal trajectory” is depicted
+by a thick red line, representing a smoothed curve of phenological
+development. \* Three distinct phenological phases are indicated by
+shaded background regions: “Green up” (light green), “Green peak”
+(darker green), and “Green down” (orange).
+
+The chart illustrates two seasonal cycles. The first cycle shows a
+“Green down” phase in early 2019, with PPI values decreasing from
+approximately 0.8 to 0.2. The second, more prominent cycle starts around
+mid-2019. This cycle begins with a “Green up” phase where PPI values
+rise from approximately 0.2 to 0.9. It then transitions into a “Green
+peak” phase, where PPI reaches its maximum around 1.4 near the end of
+2019. Finally, a “Green down” phase extends into early 2020, with PPI
+values decreasing from approximately 1.2 to 0.2. Clear-sky land
+observations are concentrated along the seasonal trajectory,
+particularly during the green-up and green peak phases of the main
+growing season, representing valid observations for VPP (Vegetation
+Productivity Parameter) quality assurance.
+
+<img
+src="MRVPP_MRVPP_PUM_v1-media/img-ec5261ebdf953a8430dfbb279d7b5b46.png"
+data-fig-alt="This is a bitmask encoding diagram illustrating the structure and interpretation of an 8-bit Quality Assurance (QA) layer for VPP (Vegetation Phenology and Productivity) parameters. The 8 bits, indexed from 7 (most significant) to 0 (least significant), are grouped into four 2-bit segments, each representing a specific quality aspect: 1. **Bits 7 and 6**: Encode &#39;Overall quality&#39;. 2. **Bits 5 and 4**: Encode &#39;EOS quality&#39; (End of Season). 3. **Bits 3 and 2**: Encode &#39;Peak quality&#39;. 4. **Bits 1 and 0**: Encode &#39;SOS quality&#39; (Start of Season). Each 2-bit segment is interpreted using a common mapping: * `00` corresponds to &#39;Best&#39; quality. * `01` corresponds to &#39;Good&#39; quality. * `10` corresponds to &#39;Fair&#39; quality. * `11` corresponds to &#39;Poor&#39; quality. An example is provided: a QA value of `00010100` (decimal 20) indicates an &#39;overall best phenology retrieval,&#39; with &#39;best quality for SOS, good quality for peak and EOS estimations.&#39; Breaking down the example: * Bits 7-6 (`00`) decode to &#39;Best&#39; for Overall quality. * Bits 5-4 (`01`) decode to &#39;Good&#39; for EOS quality. * Bits 3-2 (`01`) decode to &#39;Good&#39; for Peak quality. * Bits 1-0 (`00`) decode to &#39;Best&#39; for SOS quality."
+alt="Figure 5. Conceptual structure of the 8-bit VPP QA flag." />
+
+This is a bitmask encoding diagram illustrating the structure and
+interpretation of an 8-bit Quality Assurance (QA) layer for VPP
+(Vegetation Phenology and Productivity) parameters. The 8 bits, indexed
+from 7 (most significant) to 0 (least significant), are grouped into
+four 2-bit segments, each representing a specific quality aspect: 1.
+**Bits 7 and 6**: Encode “Overall quality”. 2. **Bits 5 and 4**: Encode
+“EOS quality” (End of Season). 3. **Bits 3 and 2**: Encode “Peak
+quality”. 4. **Bits 1 and 0**: Encode “SOS quality” (Start of Season).
+
+Each 2-bit segment is interpreted using a common mapping: \* `00`
+corresponds to “Best” quality. \* `01` corresponds to “Good” quality. \*
+`10` corresponds to “Fair” quality. \* `11` corresponds to “Poor”
+quality.
+
+An example is provided: a QA value of `00010100` (decimal 20) indicates
+an “overall best phenology retrieval,” with “best quality for SOS, good
+quality for peak and EOS estimations.” Breaking down the example: \*
+Bits 7-6 (`00`) decode to “Best” for Overall quality. \* Bits 5-4 (`01`)
+decode to “Good” for EOS quality. \* Bits 3-2 (`01`) decode to “Good”
+for Peak quality. \* Bits 1-0 (`00`) decode to “Best” for SOS quality.
 
 For the two-bit phase and overall-quality values, the interpretation is
 given in Table 5
@@ -1710,10 +1836,42 @@ drought studies using MR-VPP. A recommended workflow is:
     VPD, soil-moisture or drought- index data and with information on
     land cover, irrigation and disturbance history.
 
-![Figure 6. Using TPROD to assess the 2018 Northern Europe drought
-impacts in agriculture, using reference year 2017. Drought data are from
-the Lund University Global Drought Dataset (LUGD)
-https://zenodo.org/records/18985819](MRVPP_MRVPP_PUM_v1-media/img-1d7ec6d66874d329e63ebd0d2fda4fe4.png)
+<img
+src="MRVPP_MRVPP_PUM_v1-media/img-1d7ec6d66874d329e63ebd0d2fda4fe4.png"
+data-fig-alt="This image displays two choropleth maps of Europe, both including parts of North Africa, illustrating drought conditions and their impact in 2018. A north arrow and a 0 to 1,000 km scale bar are present on both maps. The left map, titled &#39;2018 N. Europe drought SPEI03 2018 July&#39;, shows the Standardised Precipitation-Evapotranspiration Index (SPEI03) for July 2018. The colour scale ranges from red, indicating severe drought (SPEI3 value -3), through light yellow (SPEI3 value 0, normal conditions), to light green (SPEI3 value 3, wet conditions). Large parts of Central and Northern Europe, including the United Kingdom, Ireland, France, Germany, Poland, the Baltic states, and southern Scandinavia, are depicted in red and orange, indicating widespread drought conditions (SPEI3 values around -3 to -1). In contrast, the Iberian Peninsula, Italy, the Balkan region, and parts of North Africa show normal to wetter conditions (yellow to light green, SPEI3 values 0 to 3). The right map, titled &#39;2018 N. Europe drought impact vs. 2017 in TPROD&#39;, shows the anomaly in Total Productivity (TPROD) for 2018 compared to 2017. The legend &#39;TPROD2018-17&#39; indicates this difference. The colour scale ranges from red (value -50), representing a significant decrease in productivity, through light yellow (value 0, no change), to light blue (value 50), indicating a significant increase in productivity. This map reveals a strong correlation with the drought map, showing substantial negative productivity anomalies (red/dark red, values around -50 to -25) across the same areas of Central and Northern Europe (e.g., UK, France, Germany, Poland, Baltic states, southern Sweden). Conversely, areas of Spain, Portugal, Italy, and southeastern Europe display positive productivity anomalies (blue/light blue, values around 25 to 50), indicating increased vegetation productivity in 2018 compared to 2017 in those regions."
+alt="Figure 6. Using TPROD to assess the 2018 Northern Europe drought impacts in agriculture, using reference year 2017. Drought data are from the Lund University Global Drought Dataset (LUGD) https://zenodo.org/records/18985819" />
+
+This image displays two choropleth maps of Europe, both including parts
+of North Africa, illustrating drought conditions and their impact in
+2018. A north arrow and a 0 to 1,000 km scale bar are present on both
+maps.
+
+The left map, titled “2018 N. Europe drought SPEI03 2018 July”, shows
+the Standardised Precipitation-Evapotranspiration Index (SPEI03) for
+July 2018. The colour scale ranges from red, indicating severe drought
+(SPEI3 value -3), through light yellow (SPEI3 value 0, normal
+conditions), to light green (SPEI3 value 3, wet conditions). Large parts
+of Central and Northern Europe, including the United Kingdom, Ireland,
+France, Germany, Poland, the Baltic states, and southern Scandinavia,
+are depicted in red and orange, indicating widespread drought conditions
+(SPEI3 values around -3 to -1). In contrast, the Iberian Peninsula,
+Italy, the Balkan region, and parts of North Africa show normal to
+wetter conditions (yellow to light green, SPEI3 values 0 to 3).
+
+The right map, titled “2018 N. Europe drought impact vs. 2017 in TPROD”,
+shows the anomaly in Total Productivity (TPROD) for 2018 compared to
+2017. The legend “TPROD2018-17” indicates this difference. The colour
+scale ranges from red (value -50), representing a significant decrease
+in productivity, through light yellow (value 0, no change), to light
+blue (value 50), indicating a significant increase in productivity. This
+map reveals a strong correlation with the drought map, showing
+substantial negative productivity anomalies (red/dark red, values around
+-50 to -25) across the same areas of Central and Northern Europe (e.g.,
+UK, France, Germany, Poland, Baltic states, southern Sweden).
+Conversely, areas of Spain, Portugal, Italy, and southeastern Europe
+display positive productivity anomalies (blue/light blue, values around
+25 to 50), indicating increased vegetation productivity in 2018 compared
+to 2017 in those regions.
 
 ### Monitoring phenological shifts and changes in habitat functioning and functional biodiversity at large regional scales
 
@@ -1756,13 +1914,31 @@ biodiversity, habitat or field observations would be required to assess
 the ecological implications for species richness, functional diversity
 or habitat condition.
 
-![Figure 7. Demonstration of a productivity-based Dynamic Habitat Index
-component derived from MR-VPP TPROD season 1 for 2000 and 2025. TPROD
-values from valid 392 m pixels were aggregated to 0.1° climate grid
-cells using the mean value. The change map shows the difference between
-2025 and 2000 and indicates spatial changes in the cumulative
-productivity component of habitat
-functioning.](MRVPP_MRVPP_PUM_v1-media/img-9219f0d83d9ac0d2730ef0e50765b0c4.png)
+<img
+src="MRVPP_MRVPP_PUM_v1-media/img-9219f0d83d9ac0d2730ef0e50765b0c4.png"
+data-fig-alt="Two choropleth maps display the mean Total Productivity (TPROD) in m²·m⁻²·day across Europe and parts of North Africa, aggregated at a 0.1 degree grid resolution. The map on the left shows &#39;Mean TPROD 2000 s1&#39; (for the year 2000, season 1), and the map on the right shows &#39;Mean TPROD 2025 s1&#39; (for the year 2025, season 1). Both maps use an identical colour scale ranging from 10 m²·m⁻²·day (brown) to 210 m²·m⁻²·day (teal), indicating lower to higher productivity respectively. A compass rose indicates North, and a scale bar shows distances of 0, 500, and 1,000 km. In both 2000 and 2025, areas of high TPROD (teal green) are concentrated across Central and Eastern Europe, extending into the British Isles. Lower TPROD (brown) is consistently observed in Scandinavia, the Iberian Peninsula, Mediterranean coastal regions, and North Africa. A comparison between the two maps suggests a general trend of reduced TPROD in 2025 compared to 2000 across several regions. Specifically, parts of Eastern Europe, the Balkan Peninsula, and Southern Europe show a noticeable shift towards lower productivity (more brown hues) in the 2025 projection, indicating potential environmental changes or drought impacts."
+alt="Figure 7. Demonstration of a productivity-based Dynamic Habitat Index component derived from MR-VPP TPROD season 1 for 2000 and 2025. TPROD values from valid 392 m pixels were aggregated to 0.1° climate grid cells using the mean value. The change map shows the difference between 2025 and 2000 and indicates spatial changes in the cumulative productivity component of habitat functioning." />
+
+Two choropleth maps display the mean Total Productivity (TPROD) in
+m²·m⁻²·day across Europe and parts of North Africa, aggregated at a 0.1
+degree grid resolution. The map on the left shows “Mean TPROD 2000 s1”
+(for the year 2000, season 1), and the map on the right shows “Mean
+TPROD 2025 s1” (for the year 2025, season 1). Both maps use an identical
+colour scale ranging from 10 m²·m⁻²·day (brown) to 210 m²·m⁻²·day
+(teal), indicating lower to higher productivity respectively. A compass
+rose indicates North, and a scale bar shows distances of 0, 500, and
+1,000 km.
+
+In both 2000 and 2025, areas of high TPROD (teal green) are concentrated
+across Central and Eastern Europe, extending into the British Isles.
+Lower TPROD (brown) is consistently observed in Scandinavia, the Iberian
+Peninsula, Mediterranean coastal regions, and North Africa. A comparison
+between the two maps suggests a general trend of reduced TPROD in 2025
+compared to 2000 across several regions. Specifically, parts of Eastern
+Europe, the Balkan Peninsula, and Southern Europe show a noticeable
+shift towards lower productivity (more brown hues) in the 2025
+projection, indicating potential environmental changes or drought
+impacts.
 
 ### Multi-season analysis in croplands and managed grasslands
 

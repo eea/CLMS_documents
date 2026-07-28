@@ -2,6 +2,8 @@
 
 Copernicus Land Monitoring Service - Technical Library
 
+This document serves as a comprehensive visual guide to the Copernicus Land Monitoring Service (CLMS) filename convention, outlining the standardised structure for all CLMS land monitoring products. It meticulously details each component of the filename, including product codes, temporal indicators, spatial resolution, geographic extent, and specific product variables. Designed for scientists, regulators, and data engineers, this guide facilitates quick understanding of the naming logic, ensuring efficient data identification and access within the CLMS data infrastructure. It includes illustrative examples from various product families, such as High Resolution Layers and European Ground Motion Service data.
+
 Author
 
 European Environment Agency (EEA)
@@ -9,6 +11,10 @@ European Environment Agency (EEA)
 Published
 
 July 24, 2026
+
+Keywords
+
+CLMS filename convention, product naming structure, spatial resolution, temporal coverage, geographic extent, product variable, versioning scheme, High Resolution Layers (HRL), European Ground Motion Service (EGMS), CORINE Land Cover (CLC), Urban Atlas, land cover characteristics
 
   
 **Contact:**

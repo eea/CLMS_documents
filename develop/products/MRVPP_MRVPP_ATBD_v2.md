@@ -509,9 +509,23 @@ center of the period (Strahler et al., 1999). This product combines
 observations from both the *Terra* and *Aqua* satellites, choosing the
 observation at clear sky conditions from each retrieval cycle.
 
-![Figure 1. MODIS tile layout: 23 tiles covering the EEA-39 extent and
-Ukraine
-(h20v03).](MRVPP_MRVPP_ATBD_v2-media/img-ed65a43813c9f8636ab49e9a99041236.png)
+<img
+src="MRVPP_MRVPP_ATBD_v2-media/img-ed65a43813c9f8636ab49e9a99041236.png"
+data-fig-alt="The map displays a geographic tiling scheme overlaid on a satellite imagery base map of Europe and its adjacent regions, including the North Atlantic, Arctic, North Africa, and the Middle East. Land areas are shown with natural colours (green for vegetation, white for ice, brown for desert), and water bodies are dark blue. A grid of red lines defines individual tiles, each uniquely labelled with light blue alphanumeric codes such as `h15v05`, `h16v02`, `h17v03`, `h18v04`, `h19v04`, `h20v05`, and `h21v04`. A grey outline highlights the extent of land masses within the mapped area. The map includes a north arrow in the top-left corner and a scale bar indicating distances from 0 to 2,000 km in increments of 500 km. The Coordinate Reference System (CRS) is specified as `ETRS89-extended / LAEA Europe (EPSG:3035)`."
+alt="Figure 1. MODIS tile layout: 23 tiles covering the EEA-39 extent and Ukraine (h20v03)." />
+
+The map displays a geographic tiling scheme overlaid on a satellite
+imagery base map of Europe and its adjacent regions, including the North
+Atlantic, Arctic, North Africa, and the Middle East. Land areas are
+shown with natural colours (green for vegetation, white for ice, brown
+for desert), and water bodies are dark blue. A grid of red lines defines
+individual tiles, each uniquely labelled with light blue alphanumeric
+codes such as `h15v05`, `h16v02`, `h17v03`, `h18v04`, `h19v04`,
+`h20v05`, and `h21v04`. A grey outline highlights the extent of land
+masses within the mapped area. The map includes a north arrow in the
+top-left corner and a scale bar indicating distances from 0 to 2,000 km
+in increments of 500 km. The Coordinate Reference System (CRS) is
+specified as `ETRS89-extended / LAEA Europe (EPSG:3035)`.
 
 In total, 23 MODIS tiles are required to cover the entire EEA-39 extent
 and Ukraine of tile h20v03 (Figure 1). Each tile consists of 2400×2400
@@ -591,8 +605,26 @@ compared with that using Version 4.0.
 
 The calculation of PPI involves three main steps (Figure 2).
 
-![Figure 2. Processing flowchart for Plant Phenology Index (PPI)
-calculation](MRVPP_MRVPP_ATBD_v2-media/img-9b74f7681b6cb6837197dad9dc3be062.png)
+<img
+src="MRVPP_MRVPP_ATBD_v2-media/img-9b74f7681b6cb6837197dad9dc3be062.png"
+data-fig-alt="This diagram illustrates the computational workflow for determining the Plant Photosynthetic Index (PPI). The process involves multiple parallel and sequential calculation steps, originating from two primary inputs: 1. The &#39;Daily MODIS NBAR product&#39; serves as an input for the &#39;Compute DVI&#39; (Difference Vegetation Index) step, which is calculated using Equation 2. The output of this DVI computation is then used in two subsequent steps. 2. The DVI output from step 1 is used to &#39;Compute MDVI&#39; (temporal potential maximum DVI). 3. In parallel, an input derived from &#39;Compute diffuse radiation frac. Eq. 5&#39; is used to &#39;Compute QE&#39; (quantum efficiency) using Equation 4. 4. The QE output from step 3 is subsequently used to &#39;Compute K&#39; (light extinction coefficient) using Equation 3. 5. Finally, all intermediate computations converge to &#39;Compute PPI&#39; (Plant Photosynthetic Index) using Equation 1. This final step directly integrates the outputs from the DVI computation, the MDVI computation, and the K computation."
+alt="Figure 2. Processing flowchart for Plant Phenology Index (PPI) calculation" />
+
+This diagram illustrates the computational workflow for determining the
+Plant Photosynthetic Index (PPI). The process involves multiple parallel
+and sequential calculation steps, originating from two primary
+inputs: 1. The “Daily MODIS NBAR product” serves as an input for the
+“Compute DVI” (Difference Vegetation Index) step, which is calculated
+using Equation 2. The output of this DVI computation is then used in two
+subsequent steps. 2. The DVI output from step 1 is used to “Compute
+MDVI” (temporal potential maximum DVI). 3. In parallel, an input derived
+from “Compute diffuse radiation frac. Eq. 5” is used to “Compute QE”
+(quantum efficiency) using Equation 4. 4. The QE output from step 3 is
+subsequently used to “Compute K” (light extinction coefficient) using
+Equation 3. 5. Finally, all intermediate computations converge to
+“Compute PPI” (Plant Photosynthetic Index) using Equation 1. This final
+step directly integrates the outputs from the DVI computation, the MDVI
+computation, and the K computation.
 
 ## Calculation of PPI Quality flag (QA) values for TIMESAT processing
 
@@ -714,9 +746,40 @@ center. (2) Generation of the plant phenology index (PPI) from NBAR at
 4.2 to derive smooth seasonal trajectories and phenology and
 productivity parameters (Figure 3).
 
-![Figure 3. Processing overview of VPP and PPI time series, illustrated
-as a
-flowchart.](MRVPP_MRVPP_ATBD_v2-media/img-d83e527495e21e29642a0fa3fb6686a7.png)
+<img
+src="MRVPP_MRVPP_ATBD_v2-media/img-d83e527495e21e29642a0fa3fb6686a7.png"
+data-fig-alt="This process flow diagram illustrates the algorithm for retrieving Vegetation Phenology Products (VPP). The workflow is divided into three main sections: MODIS NBAR product, Vegetation index, and TIMESAT processing. The process begins with the **MODIS NBAR product** inputs: 1. Nadir Bidirectional Reflectance Distribution Function Adjusted Reflectance (NBAR) from MCD43A4. 2. Data quality and Solar Zenith Angle (SZA) from MCD43A2. These inputs are used in the **Vegetation index** stage: 3. Compute per-pixel Modified Normalised Difference Vegetation Index (MDVI). 4. Compute daily Plant Phenology Index (PPI) and its associated data flag. Following the vegetation index computation, a decision point checks for **sufficient valid data**: 5. IF &#39;Sufficient valid data?&#39; is &#39;Yes&#39;, THEN the process continues to **TIMESAT** pre-processing. 6. IF &#39;Sufficient valid data?&#39; is &#39;No&#39;, THEN the process concludes by outputting &#39;5-daily PPI and Quality Assurance (QA) for archiving&#39;. For the &#39;Yes&#39; path, the **TIMESAT** processing involves: 7. TIMESAT Pre-processing, which includes dummy years and assignment of weights. 8. This step then branches into two parallel fitting processes: a. Sinusoidal function fitting to determine the season number. b. Cubic spline fitting. 9. Both fitting processes converge to a second decision point: &#39;Phenology present?&#39;. a. IF &#39;Phenology present?&#39; is &#39;Yes&#39;, THEN the output is &#39;Annual phenology parameters and QA&#39;. b. IF &#39;Phenology present?&#39; is &#39;No&#39;, THEN the output is &#39;Missing data / no phenology estimation (QA=255)&#39;."
+alt="Figure 3. Processing overview of VPP and PPI time series, illustrated as a flowchart." />
+
+This process flow diagram illustrates the algorithm for retrieving
+Vegetation Phenology Products (VPP). The workflow is divided into three
+main sections: MODIS NBAR product, Vegetation index, and TIMESAT
+processing.
+
+The process begins with the **MODIS NBAR product** inputs: 1. Nadir
+Bidirectional Reflectance Distribution Function Adjusted Reflectance
+(NBAR) from MCD43A4. 2. Data quality and Solar Zenith Angle (SZA) from
+MCD43A2.
+
+These inputs are used in the **Vegetation index** stage: 3. Compute
+per-pixel Modified Normalised Difference Vegetation Index (MDVI). 4.
+Compute daily Plant Phenology Index (PPI) and its associated data flag.
+
+Following the vegetation index computation, a decision point checks for
+**sufficient valid data**: 5. IF “Sufficient valid data?” is “Yes”, THEN
+the process continues to **TIMESAT** pre-processing. 6. IF “Sufficient
+valid data?” is “No”, THEN the process concludes by outputting “5-daily
+PPI and Quality Assurance (QA) for archiving”.
+
+For the “Yes” path, the **TIMESAT** processing involves: 7. TIMESAT
+Pre-processing, which includes dummy years and assignment of weights. 8.
+This step then branches into two parallel fitting processes: a.
+Sinusoidal function fitting to determine the season number. b. Cubic
+spline fitting. 9. Both fitting processes converge to a second decision
+point: “Phenology present?”. a. IF “Phenology present?” is “Yes”, THEN
+the output is “Annual phenology parameters and QA”. b. IF “Phenology
+present?” is “No”, THEN the output is “Missing data / no phenology
+estimation (QA=255)”.
 
 For valid land pixels, PPI is computed at daily time step from NBAR. The
 maximum difference vegetation index (MDVI) values from the entire NBAR
@@ -1067,8 +1130,24 @@ metric-level statistics, and QA analyses are provided in Appendix 6.3.
 
 An overview of TIMESAT version 4.2 processing is shown in Figure 4.
 
-![Figure 4. TIMESAT processing overview illustrated as a
-flowchart.](MRVPP_MRVPP_ATBD_v2-media/img-584e4dfd6ae1178e149b1991921e7e93.png)
+<img
+src="MRVPP_MRVPP_ATBD_v2-media/img-584e4dfd6ae1178e149b1991921e7e93.png"
+data-fig-alt="This is a data processing workflow diagram illustrating the extraction of Vegetation Phenology and Productivity (VPP) parameters. The process involves three main sequential steps: 1. **Pre-processing**: This step takes `Phenology Primary Indicator (PPI) time series`, associated `Quality flags`, and `Sensing dates` as inputs. It is also influenced by `Settings`. 2. **Data smoothing**: The output from `Pre-processing` is fed into the `Data smoothing` step. 3. **VPP parameter extraction**: The smoothed data is then used to perform `VPP parameter extraction`. The `VPP parameter extraction` step generates two outputs: `Seasonal VPP` (likely phenology metrics such as Start-Of-Season Date (SOSD) and End-Of-Season Date (EOSD)) and `VPP quality flags` (Quality Assurance (QA) information associated with the VPP parameters)."
+alt="Figure 4. TIMESAT processing overview illustrated as a flowchart." />
+
+This is a data processing workflow diagram illustrating the extraction
+of Vegetation Phenology and Productivity (VPP) parameters. The process
+involves three main sequential steps: 1. **Pre-processing**: This step
+takes `Phenology Primary Indicator (PPI) time series`, associated
+`Quality flags`, and `Sensing dates` as inputs. It is also influenced by
+`Settings`. 2. **Data smoothing**: The output from `Pre-processing` is
+fed into the `Data smoothing` step. 3. **VPP parameter extraction**: The
+smoothed data is then used to perform `VPP parameter extraction`.
+
+The `VPP parameter extraction` step generates two outputs:
+`Seasonal VPP` (likely phenology metrics such as Start-Of-Season Date
+(SOSD) and End-Of-Season Date (EOSD)) and `VPP quality flags` (Quality
+Assurance (QA) information associated with the VPP parameters).
 
 ### Pre-processing
 
@@ -1134,8 +1213,31 @@ metrics, applies quality checks, and assigns seasons to calendar years
 (Figure 5). In total, thirteen metrics together with per-season quality
 information are produced for delivery (Table 4).
 
-![Figure 5. TIMESAT module for extracting phenological
-parameters.](MRVPP_MRVPP_ATBD_v2-media/img-95c01c5f9bd858e2d5cfeb660289d497.png)
+<img
+src="MRVPP_MRVPP_ATBD_v2-media/img-95c01c5f9bd858e2d5cfeb660289d497.png"
+data-fig-alt="This diagram illustrates the TIMESAT version 4.2 processing overview as a flowchart. The process begins with &#39;Daily PPI seasonal trajectories&#39; (Plant Phenology Index time-series data) as input. The main processing path follows these steps: 1. **Daily PPI seasonal trajectories** are used to &#39;Find all potential seasons&#39;. 2. From these seasons, the system proceeds to &#39;Extract VPP parameters&#39; (Vegetation Phenology Parameters). 3. The extracted VPP parameters are then subjected to a decision step: &#39;Check if VPP parameters within limits&#39;. * **IF** VPP parameters are **not** within limits (&#39;No&#39; branch), **THEN** VPP is set to &#39;NoData&#39; and the Quality Assurance (QA) value is set to &#39;255&#39; (indicating the data was processed but no season was found). This is an end state for that particular VPP. * **IF** VPP parameters **are** within limits (&#39;Yes&#39; branch), **THEN** the process continues to &#39;Assign seasons to years&#39;, resulting in &#39;VPP parameters&#39;. In parallel, a &#39;Setting&#39; input feeds into &#39;Raw PPI time series&#39;. Both the &#39;VPP parameters&#39; (from the main processing path) and the &#39;Raw PPI time series&#39; are then used to &#39;Estimate Quality&#39;. This &#39;Estimate Quality&#39; step produces &#39;VPP parameters Quality&#39;."
+alt="Figure 5. TIMESAT module for extracting phenological parameters." />
+
+This diagram illustrates the TIMESAT version 4.2 processing overview as
+a flowchart. The process begins with “Daily PPI seasonal trajectories”
+(Plant Phenology Index time-series data) as input.
+
+The main processing path follows these steps: 1. **Daily PPI seasonal
+trajectories** are used to “Find all potential seasons”. 2. From these
+seasons, the system proceeds to “Extract VPP parameters” (Vegetation
+Phenology Parameters). 3. The extracted VPP parameters are then
+subjected to a decision step: “Check if VPP parameters within limits”.
+\* **IF** VPP parameters are **not** within limits (“No” branch),
+**THEN** VPP is set to “NoData” and the Quality Assurance (QA) value is
+set to “255” (indicating the data was processed but no season was
+found). This is an end state for that particular VPP. \* **IF** VPP
+parameters **are** within limits (“Yes” branch), **THEN** the process
+continues to “Assign seasons to years”, resulting in “VPP parameters”.
+
+In parallel, a “Setting” input feeds into “Raw PPI time series”. Both
+the “VPP parameters” (from the main processing path) and the “Raw PPI
+time series” are then used to “Estimate Quality”. This “Estimate
+Quality” step produces “VPP parameters Quality”.
 
 ### Defining growing season thresholds
 
@@ -1152,10 +1254,49 @@ MR-VPP stores up to two seasons per year: the two with the largest peaks
 are kept and presented chronologically, so Season 1 can be the minor or
 the main season depending on timing.
 
-![Figure 6. Illustration of season identification based on coarse-season
-peaks (A-D) and corresponding loca minima (a-d). Red markers indicate
-season start and end
-points.](MRVPP_MRVPP_ATBD_v2-media/img-6bec814ea766febc6cde5d7bfd808050.png)
+<img
+src="MRVPP_MRVPP_ATBD_v2-media/img-6bec814ea766febc6cde5d7bfd808050.png"
+data-fig-alt="Line chart illustrating the temporal variation of Scaled Plant Phenology Index (PPI) from 2018-01-01 to 2020-01-01. The Y-axis represents Scaled PPI (value x 10000), ranging from 0 to 10000. The X-axis represents time, with major labels at 2018-01-01, 2019-01-01, and 2020-01-01. The black line represents the &#39;Cubic spline fit&#39; to the PPI time series, and red dots indicate the &#39;Start/End of season&#39;. The chart shows two main growing seasons: 1. **2018 Season:** * Period &#39;a&#39; (early 2018) shows low PPI values. * A season starts around mid-April 2018 (approximately Scaled PPI 1800). * Peak &#39;A&#39; occurs around June 2018, reaching a Scaled PPI value of approximately 7200. * The season ends around early August 2018 (approximately Scaled PPI 1300). * Period &#39;b&#39; shows a trough, with a small peak &#39;B&#39; around November 2018 reaching approximately Scaled PPI 1200. 2. **2019 Season:** * Period &#39;c&#39; (early 2019) shows low PPI values, with a minimum around February 2019. * A new season starts around mid-April 2019 (approximately Scaled PPI 2100). * This season exhibits a double peak structure: * Peak &#39;C&#39; occurs around June 2019, reaching approximately Scaled PPI 8800. * This is followed by a trough &#39;d&#39; around September 2019 (approximately Scaled PPI 6000). * Peak &#39;D&#39; occurs around October 2019, reaching approximately Scaled PPI 8200. * The season ends around early December 2019 (approximately Scaled PPI 1300). Overall, the 2019 growing season shows higher peak Scaled PPI values compared to the 2018 season, with peak C being the highest observed value. The red dots effectively delineate periods of significant vegetative activity."
+alt="Figure 6. Illustration of season identification based on coarse-season peaks (A-D) and corresponding loca minima (a-d). Red markers indicate season start and end points." />
+
+Line chart illustrating the temporal variation of Scaled Plant Phenology
+Index (PPI) from 2018-01-01 to 2020-01-01. The Y-axis represents Scaled
+PPI (value x 10000), ranging from 0 to 10000. The X-axis represents
+time, with major labels at 2018-01-01, 2019-01-01, and 2020-01-01.
+
+The black line represents the “Cubic spline fit” to the PPI time series,
+and red dots indicate the “Start/End of season”. The chart shows two
+main growing seasons:
+
+1.  **2018 Season:**
+    - Period ‘a’ (early 2018) shows low PPI values.
+    - A season starts around mid-April 2018 (approximately Scaled PPI
+      1800).
+    - Peak ‘A’ occurs around June 2018, reaching a Scaled PPI value of
+      approximately 7200.
+    - The season ends around early August 2018 (approximately Scaled PPI
+      1300).
+    - Period ‘b’ shows a trough, with a small peak ‘B’ around November
+      2018 reaching approximately Scaled PPI 1200.
+2.  **2019 Season:**
+    - Period ‘c’ (early 2019) shows low PPI values, with a minimum
+      around February 2019.
+    - A new season starts around mid-April 2019 (approximately Scaled
+      PPI 2100).
+    - This season exhibits a double peak structure:
+      - Peak ‘C’ occurs around June 2019, reaching approximately Scaled
+        PPI 8800.
+      - This is followed by a trough ‘d’ around September 2019
+        (approximately Scaled PPI 6000).
+      - Peak ‘D’ occurs around October 2019, reaching approximately
+        Scaled PPI 8200.
+    - The season ends around early December 2019 (approximately Scaled
+      PPI 1300).
+
+Overall, the 2019 growing season shows higher peak Scaled PPI values
+compared to the 2018 season, with peak C being the highest observed
+value. The red dots effectively delineate periods of significant
+vegetative activity.
 
 ### Defining thresholds for omitting seasons and regions
 
@@ -1207,16 +1348,66 @@ defined as the left 20% – left 80%, left 80% – right 80%, and right 80%
 QA is determined based on the leverage of the quality of the three
 phases.
 
-![Figure 7. Illustration of VPP parameter quality assurance (QA)
-determination.](MRVPP_MRVPP_ATBD_v2-media/img-b1a39741ad3489a9ede924eceb8b60ab.png)
+<img
+src="MRVPP_MRVPP_ATBD_v2-media/img-b1a39741ad3489a9ede924eceb8b60ab.png"
+data-fig-alt="Line chart illustrating the temporal evolution of the Phenological Phase Index (PPI) from late 2018 through early 2020. The Y-axis represents PPI values, ranging from 0 to 2.0. The X-axis represents time in years, labelled &#39;2019&#39; and &#39;2020&#39;, showing data from approximately late 2018 to early 2020. The chart displays three data series: * &#39;Raw data&#39; (open circles) * &#39;Clear-sky land observation&#39; (solid black circles) * &#39;Seasonal trajectory&#39; (red line) Coloured background areas delineate phenological phases: * &#39;Green up&#39; (green shaded area) * &#39;Green peak&#39; (orange-red shaded area) * &#39;Green down&#39; (yellow-orange shaded area) Two distinct seasonal cycles are visible. The first, shorter cycle occurs in late 2018 to early 2019, primarily showing a &#39;Green down&#39; phase where PPI values decrease from approximately 0.8 to near 0. The second, more prominent cycle starts in mid-2019, showing a &#39;Green up&#39; phase where PPI rises from near 0 to above 1.0, followed by a &#39;Green peak&#39; phase reaching maximum values around 1.3 to 1.4, and then a &#39;Green down&#39; phase where PPI decreases back towards 0 by late 2019. The &#39;Seasonal trajectory&#39; (red line) is a smoothed curve that fits the &#39;Clear-sky land observation&#39; data, particularly during the active growing seasons, representing the phenological cycle. Raw data points show more scatter, especially when PPI values are low."
+alt="Figure 7. Illustration of VPP parameter quality assurance (QA) determination." />
+
+Line chart illustrating the temporal evolution of the Phenological Phase
+Index (PPI) from late 2018 through early 2020. The Y-axis represents PPI
+values, ranging from 0 to 2.0. The X-axis represents time in years,
+labelled “2019” and “2020”, showing data from approximately late 2018 to
+early 2020.
+
+The chart displays three data series: \* “Raw data” (open circles) \*
+“Clear-sky land observation” (solid black circles) \* “Seasonal
+trajectory” (red line)
+
+Coloured background areas delineate phenological phases: \* “Green up”
+(green shaded area) \* “Green peak” (orange-red shaded area) \* “Green
+down” (yellow-orange shaded area)
+
+Two distinct seasonal cycles are visible. The first, shorter cycle
+occurs in late 2018 to early 2019, primarily showing a “Green down”
+phase where PPI values decrease from approximately 0.8 to near 0. The
+second, more prominent cycle starts in mid-2019, showing a “Green up”
+phase where PPI rises from near 0 to above 1.0, followed by a “Green
+peak” phase reaching maximum values around 1.3 to 1.4, and then a “Green
+down” phase where PPI decreases back towards 0 by late 2019. The
+“Seasonal trajectory” (red line) is a smoothed curve that fits the
+“Clear-sky land observation” data, particularly during the active
+growing seasons, representing the phenological cycle. Raw data points
+show more scatter, especially when PPI values are low.
 
 Eight-bit (1 byte) QA values are generated as specified in Figure 8, and
 the details of bit values and descriptions are listed in Table 5. The QA
 flag is written to one output file for each season.
 
-![Figure 8. Structure of the 8-bit quality flags used for phenology
-retrieval over a
-season.](MRVPP_MRVPP_ATBD_v2-media/img-07c8b38d2e9c4aa2768a258a1f8e3986.png)
+<img
+src="MRVPP_MRVPP_ATBD_v2-media/img-07c8b38d2e9c4aa2768a258a1f8e3986.png"
+data-fig-alt="This bitmask diagram illustrates the structure and interpretation of an 8-bit Quality Assurance (QA) value for Vegetation Phenology and Productivity (VPP) parameters. The 8-bit value, ranging from Bit 7 (most significant) to Bit 0 (least significant), is segmented into four 2-bit fields, each assigned to a specific quality aspect. The mapping of bit pairs to quality levels is: * `00` = Best * `01` = Good * `10` = Fair * `11` = Poor The 8-bit value is structured as follows: * **Bits 7 and 6 (red section)** represent &#39;Overall quality&#39;. * **Bits 5 and 4 (orange section)** represent &#39;EOS quality&#39; (End of Season quality). * **Bits 3 and 2 (green section)** represent &#39;Peak quality&#39;. * **Bits 1 and 0 (light green section)** represent &#39;SOS quality&#39; (Start of Season quality). An example QA value `00010100` (decimal 20) is provided. This value is interpreted to mean &#39;an overall best phenology retrieval, with best quality for SOS (00), good quality for peak (01) and EOS (01) estimations.&#39;"
+alt="Figure 8. Structure of the 8-bit quality flags used for phenology retrieval over a season." />
+
+This bitmask diagram illustrates the structure and interpretation of an
+8-bit Quality Assurance (QA) value for Vegetation Phenology and
+Productivity (VPP) parameters. The 8-bit value, ranging from Bit 7 (most
+significant) to Bit 0 (least significant), is segmented into four 2-bit
+fields, each assigned to a specific quality aspect.
+
+The mapping of bit pairs to quality levels is: \* `00` = Best \* `01` =
+Good \* `10` = Fair \* `11` = Poor
+
+The 8-bit value is structured as follows: \* **Bits 7 and 6 (red
+section)** represent “Overall quality”. \* **Bits 5 and 4 (orange
+section)** represent “EOS quality” (End of Season quality). \* **Bits 3
+and 2 (green section)** represent “Peak quality”. \* **Bits 1 and 0
+(light green section)** represent “SOS quality” (Start of Season
+quality).
+
+An example QA value `00010100` (decimal 20) is provided. This value is
+interpreted to mean “an overall best phenology retrieval, with best
+quality for SOS (00), good quality for peak (01) and EOS (01)
+estimations.”
 
 <div class="tbl-caption">
 
@@ -1759,10 +1950,39 @@ of Northern Europe, and lowest in the northern alpine and sub-Arctic
 regions. Artificially high TPROD values in barren desert areas of
 northern Africa, present in V4.0, are effectively removed in V5.0.
 
-![Figure 9. Pan-European TPROD (Season 1, 2018) from MR-VPP Versions 4.0
-and 5.0, showing correction of artifacts in desert/barren areas, in
-particular in N. Africa: (a) MR-VPP version 4.0, (b) MR-VPP version
-5.0.](MRVPP_MRVPP_ATBD_v2-media/img-9b6bf208da4a290a31d1d20e7cd36dd9.png)
+<img
+src="MRVPP_MRVPP_ATBD_v2-media/img-9b6bf208da4a290a31d1d20e7cd36dd9.png"
+data-fig-alt="Two choropleth maps of Europe, including parts of North Africa and Western Asia, are presented side-by-side, depicting the spatial distribution of a vegetation-related metric with the unit `m²m².day`. Both maps share the same colour legend and scale, indicating the value of the metric: * Dark Red: 0 * Brownish-Red: 30 * Orange-Brown: 60 * Light Orange: 90 * Pale Yellow: 120 * Pale Green: 150 * Light Green: 180 * Medium Green: 210 * Darker Green: 240 * Teal: 270 * Dark Teal: 300 * Dark Blue: &gt;330 Higher values (green and blue) represent higher levels of the metric, while lower values (red and orange) represent lower levels. Both maps use the coordinate reference system (CRS) ETRS89-extended / LAEA Europe (EPSG:3035). A scale bar at the bottom of each map indicates distances from 0 to 1,000 km, with increments at 250, 500, and 750 km. A north arrow is present in the top-left corner of each map. The **left map** shows widespread moderate to high values (green shades) across Central Europe, the British Isles, and parts of Scandinavia, indicating robust vegetation activity. The **right map**, in comparison, shows a noticeable decrease in the metric across large parts of continental Europe, including Central and Eastern Europe, the Iberian Peninsula, and the British Isles, with these areas predominantly coloured in orange and reddish tones (lower values). High values (green and blue) persist in mountainous regions like the Alps and in northern Scandinavia in both maps. The difference between the two maps suggests a temporal variation, possibly representing different seasons, phenological stages, or years, impacting vegetation vigour across the continent."
+alt="Figure 9. Pan-European TPROD (Season 1, 2018) from MR-VPP Versions 4.0 and 5.0, showing correction of artifacts in desert/barren areas, in particular in N. Africa: (a) MR-VPP version 4.0, (b) MR-VPP version 5.0." />
+
+Two choropleth maps of Europe, including parts of North Africa and
+Western Asia, are presented side-by-side, depicting the spatial
+distribution of a vegetation-related metric with the unit `m²m².day`.
+Both maps share the same colour legend and scale, indicating the value
+of the metric: \* Dark Red: 0 \* Brownish-Red: 30 \* Orange-Brown: 60 \*
+Light Orange: 90 \* Pale Yellow: 120 \* Pale Green: 150 \* Light Green:
+180 \* Medium Green: 210 \* Darker Green: 240 \* Teal: 270 \* Dark Teal:
+300 \* Dark Blue: \>330
+
+Higher values (green and blue) represent higher levels of the metric,
+while lower values (red and orange) represent lower levels. Both maps
+use the coordinate reference system (CRS) ETRS89-extended / LAEA Europe
+(EPSG:3035). A scale bar at the bottom of each map indicates distances
+from 0 to 1,000 km, with increments at 250, 500, and 750 km. A north
+arrow is present in the top-left corner of each map.
+
+The **left map** shows widespread moderate to high values (green shades)
+across Central Europe, the British Isles, and parts of Scandinavia,
+indicating robust vegetation activity. The **right map**, in comparison,
+shows a noticeable decrease in the metric across large parts of
+continental Europe, including Central and Eastern Europe, the Iberian
+Peninsula, and the British Isles, with these areas predominantly
+coloured in orange and reddish tones (lower values). High values (green
+and blue) persist in mountainous regions like the Alps and in northern
+Scandinavia in both maps. The difference between the two maps suggests a
+temporal variation, possibly representing different seasons,
+phenological stages, or years, impacting vegetation vigour across the
+continent.
 
 ## Comparison of MR-VPP naming scheme in Version 5.0 and 4.0
 
@@ -1988,33 +2208,89 @@ seasonal signals are more important considerations.
 
 </div>
 
-![Figure 11. Density scatter plot comparison between vegetation
-phenology and productivity (VPP) metrics derived from long time series
-inputs and short time series inputs for the 2025 growing season 1 over
-Europe: (a) start of season date (SOSD), (b) end of season date (EOSD),
-(c) seasonal amplitude (AMPL), and (d) total productivity (TPROD).
-Hexagon color indicates relative point density normalized to the maximum
-density. Dashed black lines represent the 1:1 relationship, and red
-lines indicate robust linear regression fitted after exclusion of
-extreme outliers using percentile-based filtering. Reported statistics
-include coefficient of determination (R²), bias, RMSE, MAE, and the
-proportion of pixels located within a predefined consistency threshold
-around the 1:1
-line.](MRVPP_MRVPP_ATBD_v2-media/img-00fc8e231c1e7e3ed79e717cc61b37f8.png)
+<img
+src="MRVPP_MRVPP_ATBD_v2-media/img-00fc8e231c1e7e3ed79e717cc61b37f8.png"
+data-fig-alt="Four density scatter plots display the comparison of Vegetation Phenology and Productivity (VPP) metrics derived from short versus long MODIS PPI input time series for the 2025 season 1. Each plot is based on N = 500,000 paired pixels. The x-axis represents values from the long input time series (MODIS PPI from 2000-02-24 to 2026-04-19), and the y-axis represents values from the short input time series (MODIS PPI from 2024-01-01 to 2026-04-19). A color bar on the right of each subplot indicates relative density on a logarithmic scale from 10^0 to 10^2, with darker blue signifying higher point density (maximum value of 100). Each plot includes a dashed black &#39;1:1 line&#39; and a solid red &#39;Regression&#39; line. The four plots are: 1. **Start Of Season Day (SOSD) 2025 season 1:** X-axis (SOSD long time series) and Y-axis (SOSD short time series) range from -100 to 200. Statistics: R² = 0.969; Regression equation y = 0.993x + 0.65; Bias = -0.08; RMSE = 8.18; MAE = 0.42. 99.5% of points are on the 1:1 line. 2. **End Of Season Day (EOSD) 2025 season 1:** X-axis (EOSD long time series) and Y-axis (EOSD short time series) range from 0 to 450. Statistics: R² = 0.968; Regression equation y = 0.988x + 2.81; Bias = -0.14; RMSE = 11.44; MAE = 0.83. 99.1% of points are on the 1:1 line. 3. **Amplitude (AMPL) 2025 season 1:** X-axis (AMPL long time series) and Y-axis (AMPL short time series) range from 0 to 5. Statistics: R² = 0.997; Regression equation y = 0.998x + 0.00; Bias = -0.00; RMSE = 0.04; MAE = 0.00. 99.7% of points are on the 1:1 line. 4. **Total Productivity (TPROD) 2025 season 1:** X-axis (TPROD long time series) and Y-axis (TPROD short time series) range from 0 to 350. Statistics: R² = 0.992; Regression equation y = 0.996x + 0.46; Bias = -0.02; RMSE = 5.94; MAE = 0.27. 99.5% of points are on the 1:1 line. Overall, the plots demonstrate very high consistency between the short and long time series processing approaches for all four VPP metrics, characterized by R² values ranging from 0.968 to 0.997, regression lines closely aligned with the 1:1 line, and a high percentage of data points near the 1:1 line."
+alt="Figure 11. Density scatter plot comparison between vegetation phenology and productivity (VPP) metrics derived from long time series inputs and short time series inputs for the 2025 growing season 1 over Europe: (a) start of season date (SOSD), (b) end of season date (EOSD), (c) seasonal amplitude (AMPL), and (d) total productivity (TPROD). Hexagon color indicates relative point density normalized to the maximum density. Dashed black lines represent the 1:1 relationship, and red lines indicate robust linear regression fitted after exclusion of extreme outliers using percentile-based filtering. Reported statistics include coefficient of determination (R²), bias, RMSE, MAE, and the proportion of pixels located within a predefined consistency threshold around the 1:1 line." />
 
-![Figure 12. Density scatter plot comparison between vegetation
-phenology and productivity (VPP) metrics derived from long time series
-inputs and short time series inputs for the 2025 growing season 2 over
-Europe: (a) start of season date (SOSD), (b) end of season date (EOSD),
-(c) seasonal amplitude (AMPL), and (d) total productivity (TPROD).
-Hexagon color indicates relative point density normalized to the maximum
-density. Dashed black lines represent the 1:1 relationship, and red
-lines indicate robust linear regression fitted after exclusion of
-extreme outliers using percentile-based filtering. Reported statistics
-include coefficient of determination (R²), bias (VPP_short - VPP_long),
-RMSE, MAE, and the proportion of pixels located within a predefined
-consistency threshold around the 1:1
-line.](MRVPP_MRVPP_ATBD_v2-media/img-b08a8132b99b9a13639476be6698a2ca.png)
+Four density scatter plots display the comparison of Vegetation
+Phenology and Productivity (VPP) metrics derived from short versus long
+MODIS PPI input time series for the 2025 season 1. Each plot is based on
+N = 500,000 paired pixels. The x-axis represents values from the long
+input time series (MODIS PPI from 2000-02-24 to 2026-04-19), and the
+y-axis represents values from the short input time series (MODIS PPI
+from 2024-01-01 to 2026-04-19). A color bar on the right of each subplot
+indicates relative density on a logarithmic scale from 10^0 to 10^2,
+with darker blue signifying higher point density (maximum value of 100).
+Each plot includes a dashed black “1:1 line” and a solid red
+“Regression” line.
+
+The four plots are: 1. **Start Of Season Day (SOSD) 2025 season 1:**
+X-axis (SOSD long time series) and Y-axis (SOSD short time series) range
+from -100 to 200. Statistics: R² = 0.969; Regression equation y =
+0.993x + 0.65; Bias = -0.08; RMSE = 8.18; MAE = 0.42. 99.5% of points
+are on the 1:1 line. 2. **End Of Season Day (EOSD) 2025 season 1:**
+X-axis (EOSD long time series) and Y-axis (EOSD short time series) range
+from 0 to 450. Statistics: R² = 0.968; Regression equation y = 0.988x +
+2.81; Bias = -0.14; RMSE = 11.44; MAE = 0.83. 99.1% of points are on the
+1:1 line. 3. **Amplitude (AMPL) 2025 season 1:** X-axis (AMPL long time
+series) and Y-axis (AMPL short time series) range from 0 to 5.
+Statistics: R² = 0.997; Regression equation y = 0.998x + 0.00; Bias =
+-0.00; RMSE = 0.04; MAE = 0.00. 99.7% of points are on the 1:1 line. 4.
+**Total Productivity (TPROD) 2025 season 1:** X-axis (TPROD long time
+series) and Y-axis (TPROD short time series) range from 0 to 350.
+Statistics: R² = 0.992; Regression equation y = 0.996x + 0.46; Bias =
+-0.02; RMSE = 5.94; MAE = 0.27. 99.5% of points are on the 1:1 line.
+
+Overall, the plots demonstrate very high consistency between the short
+and long time series processing approaches for all four VPP metrics,
+characterized by R² values ranging from 0.968 to 0.997, regression lines
+closely aligned with the 1:1 line, and a high percentage of data points
+near the 1:1 line.
+
+<img
+src="MRVPP_MRVPP_ATBD_v2-media/img-b08a8132b99b9a13639476be6698a2ca.png"
+data-fig-alt="This image presents four density scatter plots (a, b, c, d) comparing Vegetation Phenology and Productivity (VPP) metrics derived from short and long input time series for 2025, season 2. Each plot displays data for N = 66,599 valid paired pixels. The x-axis represents values from the long time series, and the y-axis represents values from the short time series. A dashed black line indicates the 1:1 agreement, and a solid red line shows the regression fit. A vertical colour bar on the right of each subplot indicates relative density, ranging from 10^0 (light blue) to 10^2 (dark blue), with a maximum relative density of 100. Subplot (a) shows the Start Of Season Day (SOSD): - X-axis: SOSD long time series, ranging approximately from 100 to 350. - Y-axis: SOSD short time series, ranging approximately from 100 to 350. - Statistics: R² = 0.975, regression equation y = 0.992x + 2.00, Bias = -0.09, RMSE = 9.59, MAE = 0.85, with 97.9% of points on the 1:1 line. Subplot (b) shows the End Of Season Day (EOSD): - X-axis: EOSD long time series, ranging approximately from 200 to 650. - Y-axis: EOSD short time series, ranging approximately from 200 to 650. - Statistics: R² = 0.910, regression equation y = 0.971x + 15.83, Bias = 4.97, RMSE = 33.25, MAE = 7.63, with 93.4% of points on the 1:1 line. Subplot (c) shows the Amplitude (AMPL): - X-axis: AMPL long time series, ranging from 0 to 5. - Y-axis: AMPL short time series, ranging from 0 to 5. - Statistics: R² = 0.997, regression equation y = 0.999x + 0.01, Bias = 0.01, RMSE = 0.05, MAE = 0.01, with 96.7% of points on the 1:1 line. Subplot (d) shows the Total Productivity (TPROD): - X-axis: TPROD long time series, ranging from 0 to 350. - Y-axis: TPROD short time series, ranging from 0 to 350. - Statistics: R² = 0.974, regression equation y = 0.991x + 2.10, Bias = 1.44, RMSE = 10.90, MAE = 1.98, with 95.5% of points on the 1:1 line. The plots demonstrate strong consistency between the short and long time series processing approaches for all four VPP metrics, with high R² values and a large percentage of data points close to the 1:1 line, particularly for AMPL which shows the highest agreement."
+alt="Figure 12. Density scatter plot comparison between vegetation phenology and productivity (VPP) metrics derived from long time series inputs and short time series inputs for the 2025 growing season 2 over Europe: (a) start of season date (SOSD), (b) end of season date (EOSD), (c) seasonal amplitude (AMPL), and (d) total productivity (TPROD). Hexagon color indicates relative point density normalized to the maximum density. Dashed black lines represent the 1:1 relationship, and red lines indicate robust linear regression fitted after exclusion of extreme outliers using percentile-based filtering. Reported statistics include coefficient of determination (R²), bias (VPP_short - VPP_long), RMSE, MAE, and the proportion of pixels located within a predefined consistency threshold around the 1:1 line." />
+
+This image presents four density scatter plots (a, b, c, d) comparing
+Vegetation Phenology and Productivity (VPP) metrics derived from short
+and long input time series for 2025, season 2. Each plot displays data
+for N = 66,599 valid paired pixels. The x-axis represents values from
+the long time series, and the y-axis represents values from the short
+time series. A dashed black line indicates the 1:1 agreement, and a
+solid red line shows the regression fit. A vertical colour bar on the
+right of each subplot indicates relative density, ranging from 10^0
+(light blue) to 10^2 (dark blue), with a maximum relative density of
+100.
+
+Subplot (a) shows the Start Of Season Day (SOSD): - X-axis: SOSD long
+time series, ranging approximately from 100 to 350. - Y-axis: SOSD short
+time series, ranging approximately from 100 to 350. - Statistics: R² =
+0.975, regression equation y = 0.992x + 2.00, Bias = -0.09, RMSE = 9.59,
+MAE = 0.85, with 97.9% of points on the 1:1 line.
+
+Subplot (b) shows the End Of Season Day (EOSD): - X-axis: EOSD long time
+series, ranging approximately from 200 to 650. - Y-axis: EOSD short time
+series, ranging approximately from 200 to 650. - Statistics: R² = 0.910,
+regression equation y = 0.971x + 15.83, Bias = 4.97, RMSE = 33.25, MAE =
+7.63, with 93.4% of points on the 1:1 line.
+
+Subplot (c) shows the Amplitude (AMPL): - X-axis: AMPL long time series,
+ranging from 0 to 5. - Y-axis: AMPL short time series, ranging from 0 to
+5. - Statistics: R² = 0.997, regression equation y = 0.999x + 0.01, Bias
+= 0.01, RMSE = 0.05, MAE = 0.01, with 96.7% of points on the 1:1 line.
+
+Subplot (d) shows the Total Productivity (TPROD): - X-axis: TPROD long
+time series, ranging from 0 to 350. - Y-axis: TPROD short time series,
+ranging from 0 to 350. - Statistics: R² = 0.974, regression equation y =
+0.991x + 2.10, Bias = 1.44, RMSE = 10.90, MAE = 1.98, with 95.5% of
+points on the 1:1 line.
+
+The plots demonstrate strong consistency between the short and long time
+series processing approaches for all four VPP metrics, with high R²
+values and a large percentage of data points close to the 1:1 line,
+particularly for AMPL which shows the highest agreement.
 
 <div class="tbl-caption">
 
