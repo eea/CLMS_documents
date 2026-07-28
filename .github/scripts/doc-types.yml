@@ -1,0 +1,48 @@
+# Single source of truth for DOCS document *types*.
+# A document's `type:` frontmatter field selects one of these; the
+# build then keeps/omits elements and picks output formats accordingly.
+# Read via helpers/doc_types.py by:
+#   - validate_qmd_files.py        (allowed values for `type:`)
+#   - build/strip_unknown_frontmatter.py  (applies element toggles + formats)
+#   - build/fill_version.py        (skips versioning when version is off)
+#   - build/strip_llms_sidecars.py (deletes .llms.md when llms is off)
+#
+# Add / edit types ONLY here. Fields per entry:
+#   name      (required) value authors put in `type:`; lowercase kebab-case.
+#   elements  (optional) on/off toggles; any omitted toggle defaults to TRUE (on).
+#             Known toggles: toc, keywords, description, version, changelog,
+#             contact, code, number-sections, llms.
+#   formats   (optional, default [html, typst, gfm]) output formats to render.
+#   style     (optional) extra keys merged into the HTML format block (e.g. page-layout, css).
+#
+# `document` is the library default and MUST exist. Because every toggle's ON
+# state equals the pipeline's existing default, the `document` type is a no-op:
+# a doc with no `type:` renders exactly as before this feature existed.
+types:
+  - name: document              # the library default — restates every default explicitly
+    elements:
+      toc: true
+      keywords: true
+      description: true
+      version: true
+      changelog: true
+      contact: true
+      code: true
+      number-sections: true
+      llms: true
+    formats: [html, typst, gfm]
+
+  - name: dashboard             # interactive OJS pages (e.g. CDSE migration dashboard)
+    elements:
+      toc: false
+      keywords: false
+      description: false
+      version: false
+      changelog: false
+      contact: false
+      code: false
+      number-sections: false
+      llms: false
+    formats: [html]
+    style:
+      page-layout: full

@@ -55,7 +55,7 @@ RUN arch=$(dpkg --print-architecture) && \
 #                 files.upload(file=), see gemini_client.py)
 # tiktoken     -> token counting for the LLM rate limiter
 RUN pip install --no-cache-dir --break-system-packages \
-    panflute PyYAML google-genai==2.6.0 tiktoken==0.13.0 && \
+    panflute>=2.3.1 PyYAML google-genai==2.6.0 tiktoken==0.13.0 && \
     python3 -m pip cache purge 2>/dev/null || true && \
     rm -rf /root/.cache /tmp/* /var/tmp/*
 

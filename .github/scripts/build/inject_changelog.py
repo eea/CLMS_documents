@@ -1,10 +1,19 @@
 #!/usr/bin/env python3
+# ruff: noqa: E402
+import panflute as pf
 import os
 import json
 import sys
 import re
 from html.parser import HTMLParser
-import panflute as pf
+
+# Monkeypatch RAW_FORMATS to bypass strict obsolete panflute validators
+pf.elements.RAW_FORMATS.add("typst")
+pf.elements.RAW_FORMATS.add("pdf")
+
+# honour `changelog: false` from doc-types.yml
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from helpers.doc_types import element_off
 
 CHANGE_LOG_PATH = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "../../../.llm_cache/change_logs.json")
@@ -161,6 +170,10 @@ def get_input_file(doc):
 
 def add_changelog(doc):
     """Main filter function that adds changelog to the document"""
+    # changelog-off types (dashboard) get no Change Log
+    if element_off(doc.get_metadata("type"), "changelog"):
+        return doc
+
     current_file = get_input_file(doc)
     if not current_file:
         return doc
@@ -199,24 +212,15 @@ def add_changelog(doc):
 
                 # Render a <ul> summary as a real BulletList so it survives in
                 # every output format; otherwise fall back to plain text.
-                if sanitized_summary.startswith("<ul>"):
-                    list_items = re.findall(
-                        r"<li>(.*?)</li>", sanitized_summary, re.DOTALL
-                    )
-                    if list_items:
-                        list_items_elements = []
-                        for item in list_items:
-                            clean_item = re.sub(r"<[^>]+>", "", item).strip()
-                            # ListItem expects a list of Block elements
-                            list_item = pf.ListItem(pf.Plain(pf.Str(clean_item)))
-                            list_items_elements.append(list_item)
-                        bullet_list = pf.BulletList(*list_items_elements)
-                        summary_cell = pf.TableCell(bullet_list)
+                if "<li>" in sanitized_summary:
+                    items = re.findall(r"<li>(.*?)</li>", sanitized_summary, re.DOTALL)
+                    if items:
+                        bulleted = "\n".join(f"• {re.sub(r'<[^>]+>', '', x).strip()}" for x in items)
+                        summary_cell = pf.TableCell(pf.Plain(pf.Str(bulleted)))
                     else:
-                        clean_summary = re.sub(r"<[^>]+>", "", sanitized_summary)
-                        summary_cell = pf.TableCell(pf.Plain(pf.Str(clean_summary)))
+                        summary_cell = pf.TableCell(pf.Plain(pf.Str(re.sub(r'<[^>]+>', '', sanitized_summary).strip())))
                 else:
-                    summary_cell = pf.TableCell(pf.Plain(pf.Str(sanitized_summary)))
+                    summary_cell = pf.TableCell(pf.Plain(pf.Str(re.sub(r'<[^>]+>', '', sanitized_summary).strip())))
 
                 row = pf.TableRow(date_cell, version_cell, summary_cell)
                 body_rows.append(row)

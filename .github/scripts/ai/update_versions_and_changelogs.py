@@ -861,6 +861,8 @@ def analyze_version_bumps_and_changelogs_batch(file_diffs):
 
 def calculate_new_version(current_version, bump_type, major_from_filename):
     """Calculate new version based on bump type"""
+    # First published version is 1.0.0, so a _v0 filename floors to major 1.
+    major_from_filename = max(major_from_filename, 1)
     try:
         parts = current_version.split(".")
         major = int(parts[0])
@@ -946,7 +948,7 @@ def initialize_first_release(all_files):
             print(f"[ERROR] {filepath}: {e}")
             continue
 
-        initial_version = f"{major_version}.0.0"
+        initial_version = f"{max(major_version, 1)}.0.0"
 
         update_qmd_version_only(filepath, initial_version)
 
@@ -1072,7 +1074,7 @@ def main():
         file_info[filepath] = {
             "major_version": major_version,
             "current_version": versions_metadata.get(filepath, {}).get(
-                "current_version", f"{major_version}.0.0"
+                "current_version", f"{max(major_version, 1)}.0.0"
             ),
         }
 

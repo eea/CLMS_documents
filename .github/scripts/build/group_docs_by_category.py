@@ -2,6 +2,7 @@ import os
 import shutil
 import json
 import secrets
+import sys
 from pathlib import Path
 import yaml
 
@@ -13,18 +14,14 @@ EXCLUDED_DOCS_DIRS = {
     ".quarto",
 }
 
-# Category to directory mapping
-# Multiple categories can map to the same directory
-CATEGORY_TO_DIRECTORY_MAP = {
-    "guidelines": "guidelines",
-    "products": "products",
-}
-
 
 # Change working directory to root of the repository
 script_dir = Path(__file__).parent
 root_dir = script_dir / "../../../"
 os.chdir(root_dir.resolve())
+
+sys.path.insert(0, str(script_dir.parent.resolve()))
+from helpers.categories import directory_for, non_browsable_names  # noqa: E402
 
 # Non-browsable doc mapping file
 NON_BROWSABLE_MAP_PATH = Path(".github/non_browsable_doc_map.json")
@@ -67,13 +64,7 @@ def add_secret_mapping(mappings, source, base, url):
 
 
 def get_directory_for_category(category):
-    if not category:
-        return "uncategorized"
-
-    if category in CATEGORY_TO_DIRECTORY_MAP:
-        return CATEGORY_TO_DIRECTORY_MAP[category]
-
-    return category
+    return directory_for(category)
 
 
 def read_qmd_frontmatter(file_path):
@@ -168,7 +159,7 @@ def group_qmd_files_by_category(source_dir="origin_DOCS", target_dir="DOCS"):
         rel_source = str(qmd_file.relative_to(source_path))
         project_name = qmd_file.parts[1] if len(qmd_file.parts) > 2 else ""
 
-        if category == "non-browsable":
+        if category in non_browsable_names():
             nb_dir = target_path / "non-browsable"
             nb_dir.mkdir(exist_ok=True)
             mapping = get_secret_mapping_for_source(secret_mappings, rel_source)

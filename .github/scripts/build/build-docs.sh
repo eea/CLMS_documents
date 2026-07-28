@@ -31,6 +31,11 @@ step() {
   _STEP_PREV=$now; _STEP_NAME="$*"
 }
 
+# Snapshot the pristine source before the build mutates it, so a local build is
+# easy to undo. After testing, restore your working tree with:
+#   rm -rf DOCS origin_DOCS && mv source_DOCS DOCS
+rm -rf source_DOCS && cp -rp DOCS source_DOCS
+
 # Apply cached intros/keywords before the rename - the cache is keyed by original path.
 echo "Injecting cached intros & keywords (no API)..."
 python3 .github/scripts/build/apply_cached_intros.py DOCS
@@ -73,6 +78,13 @@ python3 ../.github/scripts/build/fill_version.py .
 echo "Balancing table column widths..."
 python3 ../.github/scripts/qmd-tools/fix_table_colwidths.py .
 
+# Promote bare "Table N:"/"Figure N:" captions (left as plain text by the
+# converters) into .tbl-caption divs / image alt text, so they render as styled
+# captions instead of body text. Runs after the grid->pipe conversion above so a
+# caption next to a (now pipe) table is recognised. Build-copy only; idempotent.
+echo "Promoting bare table/figure captions..."
+python3 ../.github/scripts/qmd-tools/promote_bare_captions.py .
+
 # Bake image descriptions into the qmd source now, so the render doesn't re-hash
 # every image once per format (see the script). This was a Lua filter.
 echo "Baking image descriptions into qmd source..."
@@ -83,9 +95,12 @@ python3 ../.github/scripts/build/inject_image_descriptions.py .
 cp _quarto-no-headers.yml _quarto.yml
 
 step "[3/6] Rendering all documents (HTML + Typst PDF + gfm) in one pass..."
-# Render every format in the config - html (site), typst (PDFs), gfm
-# (the .llms.md sidecars). One pass over the files instead of one per format.
+# # Temporary move out of docs before render to avoid Jupyter engine selections crashes
+# echo "	 [BUILD BYPASS] Temporarily moving Ice products out of the build context..."
+# mv products/products_Algorithm_theoretical_basis_document_-_High_Resolution_Ice_products_Europe.qmd ../origin_DOCS/
 quarto_render --no-clean
+# echo "	 [BUILD BYPASS] Restoring Ice products..."
+# mv ../origin_DOCS/products_Algorithm_theoretical_basis_document_-_High_Resolution_Ice_products_Europe.qmd products/
 
 # Back up sitemap.xml and llms.txt - the index.qmd renders below regenerate
 # them, and we want to keep the values from this first render.
@@ -99,8 +114,10 @@ python3 ../.github/scripts/build/generate_index_all.py
 step "[5/6] Rendering index.qmd files..."
 mv _quarto.yml _quarto_not_used.yml
 mv _quarto-index.yml _quarto.yml
+# Serial (-P1): parallel renders raced on shared _site files (sitemap/search/
+# listings) and intermittently failed the whole build with xargs exit 123.
 find ./ -type f -name index.qmd -print0 | \
-  xargs -0 -P4 -I{} \
+  xargs -0 -P1 -I{} \
   bash -c 'quarto render "$1" --profile index --to html --no-clean --quiet 2>&1 | grep -v -e "Unknown meta key .* specified in a metadata Shortcode" -e "^Output created:"; exit ${PIPESTATUS[0]}' _ {}
 mv _quarto.yml _quarto-index.yml
 cp _quarto_not_used.yml _quarto.yml && rm _quarto_not_used.yml
@@ -109,6 +126,10 @@ cp _quarto_not_used.yml _quarto.yml && rm _quarto_not_used.yml
 cp _site/sitemap.xml.bkp _site/sitemap.xml
 rm -f _site/sitemap.xml.bkp
 mv _site/llms.txt.bkp _site/llms.txt
+
+# Drop .llms.md for llms-off types (dashboard), before the llm sitemap so it
+# falls back to the HTML URL.
+python3 ../.github/scripts/build/strip_llms_sidecars.py . _site
 
 # Remove non-browsable links from sitemap.xml and llms.txt
 python3 ../.github/scripts/build/remove_non_browsable.py _site/sitemap.xml
