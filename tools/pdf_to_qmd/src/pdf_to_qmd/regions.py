@@ -10,6 +10,7 @@ bboxes are PDF points, top-left origin (PyMuPDF page space), as (x0, y0, x1, y1)
 import hashlib
 import json
 import logging
+import re
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
@@ -25,6 +26,8 @@ DEFAULT_FIGURE_DPI = 300
 _REFINE_PAD_PT = 4.0       # padding added around the snapped ink bbox, in points
 _REFINE_OVERLAP = 0.30     # min (intersection / rect-area) to treat a graphic as part of the figure
 _MIN_GRAPHIC_PT = 3.0      # ignore rects thinner than this (page rules, underlines)
+_CAPTION_SLIVER_PT = 12.0  # band below the snapped bbox to scan for a bled-in caption
+_CAPTION_RE = re.compile(r"^(?:Figure|Table)\s+\d+\s*[:.]", re.IGNORECASE)
 
 
 @dataclass
@@ -91,7 +94,54 @@ def refine_bbox(page, bbox: tuple, pad: float = _REFINE_PAD_PT) -> tuple:
     snapped = fitz.Rect(
         snapped.x0 - pad, snapped.y0 - pad, snapped.x1 + pad, snapped.y1 + pad
     ) & page.rect
+
+    snapped = _trim_caption_sliver(page, snapped, pad)
     return tuple(snapped)
+
+
+def _trim_caption_sliver(page, snapped, pad: float):
+    """Clip the bottom edge if a figure/table caption has bled into the band just
+    below the snapped bbox.
+
+    Caption text is rendered as text, not graphics, so it's invisible to the
+    graphics-union snap above. If the coarse detector box extended a few points
+    past the true figure edge, the padding can be just enough to catch the top
+    sliver of the caption line below. Scan a narrow band (_CAPTION_SLIVER_PT) for
+    a text block starting with "Figure N:" / "Table N:" and, if found, pull y1 up
+    to just above it.
+    """
+    band = fitz.Rect(
+        snapped.x0, snapped.y1, snapped.x1, snapped.y1 + _CAPTION_SLIVER_PT
+    ) & page.rect
+    if band.is_empty:
+        return snapped
+
+    try:
+        blocks = page.get_text("dict").get("blocks", [])
+    except Exception:
+        return snapped
+
+    caption_y0 = None
+    for block in blocks:
+        if block.get("type", -1) != 0:   # 0 = text block
+            continue
+        bx0, by0, bx1, by1 = block.get("bbox", (0, 0, 0, 0))
+        block_rect = fitz.Rect(bx0, by0, bx1, by1)
+        if (block_rect & band).is_empty:
+            continue
+        lines_text = []
+        for line in block.get("lines", []):
+            lines_text.append("".join(s.get("text", "") for s in line.get("spans", [])))
+        text = " ".join(lines_text).strip()
+        if _CAPTION_RE.match(text):
+            if caption_y0 is None or by0 < caption_y0:
+                caption_y0 = by0
+
+    if caption_y0 is None:
+        return snapped
+
+    new_y1 = max(snapped.y0, caption_y0 - pad)
+    return fitz.Rect(snapped.x0, snapped.y0, snapped.x1, new_y1)
 
 
 def render_region(page, bbox: tuple, dpi: int = DEFAULT_FIGURE_DPI) -> bytes:
