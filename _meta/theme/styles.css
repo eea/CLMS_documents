@@ -1,3 +1,26 @@
+/* Self-hosted Lato (matches the Typst PDF body font; no third-party request) */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/lato-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/lato-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/lato-400-italic.woff2') format('woff2');
+}
+
 html {
   font-family: 'Lato', sans-serif;
   font-size: 18px;
@@ -11,22 +34,46 @@ html {
  div.block {}
  div.paragraph {}
 
+/* Fluid heading sizes: scale down on small screens, up to the original
+   sizes on desktop. The clamp max equals the previous fixed size, so the
+   desktop look is unchanged (each hits its max by ~850-900px viewport);
+   only mobile/tablet shrinks, keeping headings proportional to the screen. */
 h1 {
-  font-size: 2.7rem;
+  font-size: clamp(1.9rem, 1.2rem + 3.2vw, 2.7rem);
   font-weight: 400;
   color: #273B4B;
 }
 
 h2 {
   color: #273B4B;
-  font-size: 2rem;
+  font-size: clamp(1.45rem, 1.05rem + 1.9vw, 2rem);
   font-weight: 400;
 }
 
 h3 {
   color: #273B4B;
-  font-size: 1.4rem;
+  font-size: clamp(1.15rem, 0.95rem + 1vw, 1.4rem);
   font-weight: 400;
+}
+
+/* Continue the scale below h3 so deep headings stay distinct — h4 was almost
+   the same size as h3 (1.25 vs 1.4rem). Sizes step down while weight steps up,
+   so the smaller levels still read clearly as headings. Colours left as-is. */
+h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+h6 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .subtitle.lead {
@@ -66,7 +113,8 @@ a:hover {
   border-color: #7C8921;
 }
 
-figcaption {
+figcaption,
+.tbl-caption {
   font-size: 9pt;
   color: #2A5B8E;
 }
@@ -74,6 +122,10 @@ figcaption {
  table {
   border-collapse: collapse;
   width: 100%;
+  /* Wide tables scroll within their own box instead of overflowing the page */
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
 }
 
 th, td {
@@ -85,6 +137,29 @@ th, td {
 
 th {
   background-color: #f2f2f2 !important;
+}
+
+/* Images always centered horizontally. :only-child targets standalone images
+   (alone in their paragraph) so inline images in text are left untouched. */
+#quarto-document-content figure,
+#quarto-document-content .quarto-figure {
+  text-align: center;
+}
+
+#quarto-document-content figure img,
+#quarto-document-content p > img:only-child {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Change Log table always fills the text width. Overrides the generic
+   display:block scroll rule above (which shrinks narrow tables to content);
+   its content is prose, so table layout won't overflow the page. */
+#change-log table {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .header-image {
@@ -156,6 +231,101 @@ th {
 
 .navbar .aa-Autocomplete .aa-Form {
   width: 256px;
+}
+
+/* Cap text line-length on wide screens (keeps the full-width layout, just
+   stops paragraphs from stretching edge-to-edge on large monitors). */
+@media (min-width: 1400px) {
+  main#quarto-document-content {
+    max-width: 1200px;
+  }
+}
+
+/* Mobile: floating button that reveals the right-hand section TOC, which the
+   full-width layout otherwise hides on small screens. JS lives in
+   includes/toc-mobile.html; colours reuse the existing navbar green. */
+.toc-mobile-btn {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  /* Use the full screen width. Quarto keeps a multi-column grid here and
+     reserves a right-hand TOC track even though the sidebar in it is
+     display:none below 992px -> that empty track is the blank right half.
+     Make the content span every grid column so nothing is left empty.
+     (display:block also flattens the grid; grid-column is the belt-and-braces
+     fix in case the grid persists.) */
+  #quarto-content.page-columns {
+    display: block;
+  }
+
+  #quarto-content.page-columns > main.content {
+    grid-column: 1 / -1 !important;
+    width: 100%;
+    max-width: 100%;
+    /* Flattening the grid drops Quarto's gutter columns, so add our own
+       breathing room or text runs to the screen edge. */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .toc-mobile-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 1080;
+    padding: 0.55rem 0.8rem;
+    border: none;
+    border-radius: 2rem;
+    background: #a0b128;
+    color: #fff;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+
+  body.toc-mobile-open #quarto-margin-sidebar {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1075;
+    width: min(85vw, 320px);
+    margin: 0;
+    padding: 3.5rem 1rem 1rem;
+    background: #fff;
+    overflow-y: auto;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.25);
+  }
+
+  /* The TOC nav and its title are themselves display:none below 992px
+     (separate from the container) - reveal them when the panel is open,
+     otherwise the panel shows empty. */
+  body.toc-mobile-open #quarto-margin-sidebar nav[role="doc-toc"],
+  body.toc-mobile-open #quarto-margin-sidebar #toc-title {
+    display: block !important;
+  }
+
+  /* Bigger text + roomier tap targets in the open mobile TOC panel. */
+  body.toc-mobile-open #quarto-margin-sidebar #toc-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  body.toc-mobile-open #quarto-margin-sidebar nav[role="doc-toc"] a {
+    display: block;
+    padding: 0.55rem 0.4rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  body.toc-mobile-open #quarto-margin-sidebar nav[role="doc-toc"] ul {
+    padding-left: 0.75rem;
+  }
 }
 
 

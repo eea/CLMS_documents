@@ -24,6 +24,7 @@ SCRIPTS_ROOT = SCRIPT_DIR.parent  # .github/scripts
 sys.path.insert(0, str(SCRIPTS_ROOT))
 
 from helpers.qmd_utils import read_qmd_frontmatter, write_qmd_frontmatter  # noqa: E402
+from helpers.doc_types import config_for, DEFAULT_FORMATS  # noqa: E402
 
 
 ALLOWLIST = {
@@ -36,6 +37,9 @@ ALLOWLIST = {
     "version",
     "keywords",
     "original-filename",
+    # Kept (not stripped) so fill_version / inject_changelog / strip_llms can
+    # read it downstream.
+    "type",
 }
 
 EXCLUDED_DIRS = {"templates", "theme", "includes", "_meta", "_site", ".quarto"}
@@ -46,6 +50,48 @@ def is_excluded(qmd_path: Path, source_root: Path) -> bool:
     return any(part in EXCLUDED_DIRS for part in rel_parts)
 
 
+def apply_doc_type(fm: dict) -> None:
+    """Apply the type config to `fm` in place.
+
+    Only OFF toggles do anything (ON == the default), so an untyped doc is
+    untouched. The frontmatter toggles are done here; version/changelog/llms are
+    handled later by fill_version / inject_changelog / strip_llms_sidecars, which
+    read `type` themselves.
+    """
+    cfg = config_for(fm.get("type"))
+    els = cfg["elements"]
+
+    # OFF actions only (ON == existing default == leave frontmatter untouched).
+    if els["toc"] is False:
+        fm["toc"] = False
+    if els["number-sections"] is False:
+        fm["number-sections"] = False
+    if els["code"] is False:
+        fm["echo"] = False  # hides code source; Quarto tags the cell .hidden
+    if els["contact"] is False:
+        fm["contact"] = False  # honoured by filters/inject_contact_info.lua
+    if els["keywords"] is False:
+        fm.pop("keywords", None)  # no project-level keywords default to leak now
+    if els["description"] is False:
+        fm.pop("description", None)
+
+    # style keys + code-fold off when code is off (project defaults it on, which
+    # would leave fold triangles on hidden cells).
+    html_opts = dict(cfg["style"])
+    if els["code"] is False:
+        html_opts["code-fold"] = False
+
+    # A doc `format:` block replaces the project's whole format list (Quarto's
+    # one non-merging key), so only write it when we're restricting formats or
+    # setting html options — never for the default.
+    formats = cfg["formats"]
+    if formats != DEFAULT_FORMATS or html_opts:
+        fm["format"] = {
+            f: (dict(html_opts) if f == "html" and html_opts else "default")
+            for f in formats
+        }
+
+
 def strip_one(qmd_path: Path) -> tuple[bool, list[str]]:
     """Return (changed, dropped_field_names)."""
     yaml_data, lines = read_qmd_frontmatter(qmd_path)
@@ -53,10 +99,12 @@ def strip_one(qmd_path: Path) -> tuple[bool, list[str]]:
         return False, []
 
     dropped = sorted(k for k in yaml_data.keys() if k not in ALLOWLIST)
-    if not dropped:
+    cleaned = {k: v for k, v in yaml_data.items() if k in ALLOWLIST}
+    apply_doc_type(cleaned)
+
+    if cleaned == yaml_data:  # nothing dropped and no type deviations -> no-op
         return False, []
 
-    cleaned = {k: v for k, v in yaml_data.items() if k in ALLOWLIST}
     write_qmd_frontmatter(qmd_path, cleaned, lines)
     return True, dropped
 

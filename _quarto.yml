@@ -1,0 +1,49 @@
+# ── LOCAL PREVIEW CONFIG — not used by CI ──────────────────────────────────
+# Lets RStudio's "Render" button (or `quarto render DOCS/<product>/<doc>.qmd`)
+# apply CLMS styling to a document in place, without running the full build.
+#
+# NOT the build config. build-docs.sh renders inside DOCS/ using its own
+# DOCS/_quarto.yml (copied from _meta/_quarto-no-headers.yml), which shadows this
+# root file — so this does NOT affect the CI build or the published site.
+#
+# STYLING ONLY. Build-injected metadata does NOT appear here: the changelog,
+# the version row, AI intros/keywords/description, and image alt-text are added
+# by the pipeline, not by this preview. What you see is your content + the CLMS
+# theme + the standard contact block — not the final published artifact.
+#
+# Render individual documents, not the whole project.
+project:
+  type: default
+  render:
+    - DOCS/**/*.qmd
+
+format:
+  html:
+    css:
+      - _meta/theme/main.css
+      - _meta/theme/styles.css
+    toc: true
+    toc-title: "Index"
+    toc-depth: 3
+    number-sections: true
+    filters:
+      - .github/scripts/filters/inject_contact_info.lua
+
+  # PDF via Typst, using the CLMS template (renders its own contact block).
+  typst:
+    template-partials:
+      - _meta/theme/typst/typst-template.typ
+      - _meta/theme/typst/typst-show.typ
+    toc-title: "Table of contents"
+    section-numbering: 1.1.1
+    papersize: a4
+    margin:
+      x: 2.54cm
+      top: 2.54cm
+      bottom: 3.35cm
+    fontsize: 10pt
+
+format-links:
+  - html
+  - format: typst
+    text: PDF

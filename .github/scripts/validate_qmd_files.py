@@ -33,11 +33,18 @@ script_dir = Path(__file__).parent
 root_dir = (script_dir / "../..").resolve()
 os.chdir(root_dir)
 
+sys.path.insert(0, str(script_dir))
+from helpers.categories import allowed_names  # noqa: E402
+from helpers.doc_types import allowed_names as allowed_doc_types  # noqa: E402
+
 
 DOCS_DIR = "DOCS"
 EXCLUDED_DOCS_DIRS = {"templates", "theme", "includes", "_meta"}
 
-ALLOWED_CATEGORIES = {"guidelines", "products", "uncategorized", "non-browsable"}
+# Allowed categories are the single source of truth in .github/scripts/categories.yml
+ALLOWED_CATEGORIES = allowed_names()
+# valid `type:` values come from doc-types.yml
+ALLOWED_DOC_TYPES = allowed_doc_types()
 REQUIRED_FIELDS = ("title", "subtitle", "category", "date")
 DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
@@ -93,6 +100,12 @@ def validate_qmd(file_path: Path) -> List[str]:
     if category is not None and category not in ALLOWED_CATEGORIES:
         issues.append(
             f"invalid category {category!r}; allowed: {sorted(ALLOWED_CATEGORIES)}"
+        )
+
+    doc_type = metadata.get("type")
+    if doc_type is not None and doc_type not in ALLOWED_DOC_TYPES:
+        issues.append(
+            f"invalid type {doc_type!r}; allowed: {sorted(ALLOWED_DOC_TYPES)}"
         )
 
     date_v = metadata.get("date")

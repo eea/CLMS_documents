@@ -15,8 +15,9 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 SCRIPTS_ROOT = SCRIPT_DIR.parent
 sys.path.insert(0, str(SCRIPTS_ROOT))
 
-from helpers.qmd_utils import find_qmd_files  # noqa: E402
+from helpers.qmd_utils import find_qmd_files, read_qmd_frontmatter  # noqa: E402
 from helpers.file_updater import apply_all_updates  # noqa: E402
+from helpers.doc_types import element_off  # noqa: E402
 
 ROOT_DIR = (SCRIPT_DIR / "../../..").resolve()
 CACHE_DIR = (ROOT_DIR / ".llm_cache").resolve()
@@ -51,6 +52,20 @@ def main() -> int:
     if not qmd_files:
         print(f"[apply_cached_intros] no .qmd files under {input_dir}")
         return 0
+
+    # Skip types that take neither intro nor keywords (dashboard) so nothing is
+    # injected, not even into the origin_DOCS copy. They come as one bundle,
+    # hence the "both off" check — split it if a type ever wants only one.
+    def _wants_intro(qmd: Path) -> bool:
+        fm, _ = read_qmd_frontmatter(qmd)
+        dtype = fm.get("type")
+        return not (element_off(dtype, "keywords") and element_off(dtype, "description"))
+
+    kept = {q for q in qmd_files if _wants_intro(q)}
+    skipped = len(qmd_files) - len(kept)
+    if skipped:
+        print(f"[apply_cached_intros] skipping {skipped} file(s) whose type omits intros/keywords")
+    qmd_files = kept
 
     stats = apply_all_updates(
         qmd_files,

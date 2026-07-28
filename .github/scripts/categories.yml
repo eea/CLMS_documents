@@ -1,0 +1,22 @@
+# Single source of truth for DOCS document categories.
+# Add / remove / edit categories ONLY here — read via helpers/categories.py by:
+#   - validate_qmd_files.py      (allowed values for the `category:` field)
+#   - group_docs_by_category.py  (output-directory routing + non-browsable branch)
+#
+# Fields per entry:
+#   name       (required) the value authors put in `category:` frontmatter; also the output folder.
+#              Must be lowercase kebab-case ([a-z][a-z0-9-]*) and must NOT collide with a managed
+#              directory (_meta, assets, _site, .quarto, templates, theme, includes).
+#   browsable  (optional, default TRUE) set `false` only to hide a category; omit otherwise.
+#   directory  (optional) output folder, ONLY if it must differ from `name` (none do today).
+#
+# NOTE (scope): today the `browsable:false` flag is honoured by group_docs_by_category.py only.
+# generate_index_all.py and remove_non_browsable.py still key on the literal name "non-browsable".
+# Adding a NEW browsable:false category therefore also needs those scripts updated (a follow-up).
+categories:
+  - name: guidelines
+  - name: products
+  - name: reports          # reserved for future use
+  - name: uncategorized
+  - name: non-browsable
+    browsable: false
