@@ -277,7 +277,11 @@ including existing SWF layers, but also includes new products:
   about crops location and areas where geometrical rules are applied
   differently to derive valid SWF.
 
+<div class="tbl-caption">
+
 Table 1: SWF key features through the years
+
+</div>
 
 | Product reference year | 2015 | 2018 | 2021 |
 |----|----|----|----|
@@ -585,7 +589,11 @@ No height differentiation (trees vs. scrubs/bushes) is applied.
 Elements to be included or excluded in Small Woody Features 2021 are
 summarised in Table 2.
 
+<div class="tbl-caption">
+
 Table 2: Thematic definition of SWF 2021
+
+</div>
 
 | Elements included in small woody features | Elements excluded from small woody features |
 |----|----|
@@ -792,7 +800,11 @@ reached/exceed the 80% producer’s and user’s target
 
 ##### Woody Vegetation Layer 5m raster
 
+<div class="tbl-caption">
+
 Table 3: Woody Vegetation Layer 5m raster
+
+</div>
 
 | Field | Content description |
 |----|----|
@@ -815,7 +827,11 @@ Table 3: Woody Vegetation Layer 5m raster
 
 ##### Small Woody Features 5m raster
 
+<div class="tbl-caption">
+
 Table 4: Small Woody Features 5m raster
+
+</div>
 
 | Field | Content description |
 |----|----|
@@ -840,7 +856,11 @@ Table 4: Small Woody Features 5m raster
 
 ##### Small Woody Features 100m raster
 
+<div class="tbl-caption">
+
 Table 5: Small Woody Features 100m raster
+
+</div>
 
 | Field | Content description |
 |----|----|
@@ -863,7 +883,11 @@ Table 5: Small Woody Features 100m raster
 
 ##### Small Woody Features change raster
 
+<div class="tbl-caption">
+
 Table 6: Small Woody Features change raster
+
+</div>
 
 | Field | Content description |
 |----|----|
@@ -888,7 +912,11 @@ Table 6: Small Woody Features change raster
 
 ##### Parent scene identification layer
 
+<div class="tbl-caption">
+
 Table 7: Parent scene identification layer
+
+</div>
 
 | Field | Content description |
 |----|----|
@@ -913,7 +941,11 @@ Table 7: Parent scene identification layer
 
 ##### Woody Vegetation confidence layer
 
+<div class="tbl-caption">
+
 Table 8: Woody Vegetation confidence layer
+
+</div>
 
 | Field | Content description |
 |----|----|
@@ -936,7 +968,11 @@ Table 8: Woody Vegetation confidence layer
 
 ##### Forest Mask
 
+<div class="tbl-caption">
+
 Table 9: Forest Mask
+
+</div>
 
 | Field | Content description |
 |----|----|
@@ -959,7 +995,11 @@ Table 9: Forest Mask
 
 ##### Crop Mask
 
+<div class="tbl-caption">
+
 Table 10: Crop Mask
+
+</div>
 
 | Field | Content description |
 |----|----|
@@ -982,7 +1022,11 @@ Table 10: Crop Mask
 
 ##### Urban Mask
 
+<div class="tbl-caption">
+
 Table 11: Urban Mask
+
+</div>
 
 | Field | Content description |
 |----|----|
@@ -1345,7 +1389,11 @@ List of abbreviations & acronyms
 
 # Annexes
 
+<div class="tbl-caption">
+
 Table 12: Attribute table of the PSIL
+
+</div>
 
 | Field | Description | Sample |
 |----|----|----|

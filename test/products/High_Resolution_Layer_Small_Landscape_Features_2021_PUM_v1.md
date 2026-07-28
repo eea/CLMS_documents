@@ -280,7 +280,11 @@ including existing SWF layers, but also includes new products:
   about crops location and areas where geometrical rules are applied
   differently to derive valid SWF.
 
+<div class="tbl-caption">
+
 Table 1: SWF key features through the years
+
+</div>
 
 | Product reference year | 2015 | 2018 | 2021 |
 |----|----|----|----|
@@ -428,12 +432,59 @@ data which is spatially refined with Copernicus High Resolution Layers
 
 <div id="fig-figure1">
 
-![](High_Resolution_Layer_Small_Landscape_Features_2021_PUM_v1-media/img-3a19d0780acfafe464786f6a2f981693595afb0d.png)
+<img
+src="High_Resolution_Layer_Small_Landscape_Features_2021_PUM_v1-media/img-3a19d0780acfafe464786f6a2f981693595afb0d.png"
+data-fig-alt="Four choropleth maps depict the percentage share of Agricultural Area (AA) covered by Linear Features (LF), likely referring to small woody elements, across European regions. Each map displays this metric at a different NUTS (Nomenclature of Territorial Units for Statistics) administrative level, from NUTS level 0 (country level) to NUTS level 3 (most granular). Country borders are outlined in red across all maps. The colour gradient from light green to dark green indicates increasing percentages, with &#39;No Data&#39; areas shown in pink on NUTS levels 2 and 3 maps. 1. **Share of AA covered by LF at NUTS level 0**: * Legend ranges: 0.24 - 1.09%, 1.09 - 1.93%, 1.93 - 3.53%, 3.53 - 6.25%, 6.25 - 9.41%. * Displays broad country-level patterns, showing higher shares in Central European countries. 2. **Share of AA covered by LF at NUTS level 1**: * Legend ranges: 0.2 - 1.8%, 1.8 - 2.9%, 2.9 - 4.3%, 4.3 - 6.5%, 6.5 - 9.4%. * Provides more regional detail within countries, but overall patterns are similar to NUTS level 0. 3. **Share of AA covered by LF at NUTS level 2**: * Legend ranges: No Data (pink), 0 - 1.3%, 1.3 - 2.5%, 2.5 - 3.8%, 3.8 - 5.5%, 5.5 - 9.5%. * Shows finer regional variations, with some areas in Ireland marked as &#39;No Data&#39;. 4. **Share of AA covered by LF at NUTS level 3**: * Legend ranges: No Data (pink), 0 - 2%, 2 - 3.4%, 3.4 - 5%, 5 - 7.6%, 7.6 - 12.2%. * Presents the most granular spatial distribution, revealing significant intra-country variability and the highest percentage range (up to 12.2%). Parts of Ireland and other isolated regions show &#39;No Data&#39;. Across all NUTS levels, regions in Central and Eastern Europe, including parts of France, Germany, Poland, Czechia, and Austria, generally exhibit a higher share of Agricultural Area covered by Linear Features (darker green), indicating a greater prevalence of these woody elements in agricultural landscapes. Conversely, Northern European countries (e.g., Scandinavia) and Southern European coastal areas tend to show lower shares (lighter green). The increasing granularity from NUTS level 0 to NUTS level 3 highlights the heterogeneous distribution of linear features within agricultural areas across Europe."
+alt="Four choropleth maps depict the percentage share of Agricultural Area (AA) covered by Linear Features (LF), likely referring to small woody elements, across European regions. Each map displays this metric at a different NUTS (Nomenclature of Territorial Units for Statistics) administrative level, from NUTS level 0 (country level) to NUTS level 3 (most granular). Country borders are outlined in red across all maps. The colour gradient from light green to dark green indicates increasing percentages, with &#39;No Data&#39; areas shown in pink on NUTS levels 2 and 3 maps. 1. **Share of AA covered by LF at NUTS level 0**: * Legend ranges: 0.24 - 1.09%, 1.09 - 1.93%, 1.93 - 3.53%, 3.53 - 6.25%, 6.25 - 9.41%. * Displays broad country-level patterns, showing higher shares in Central European countries. 2. **Share of AA covered by LF at NUTS level 1**: * Legend ranges: 0.2 - 1.8%, 1.8 - 2.9%, 2.9 - 4.3%, 4.3 - 6.5%, 6.5 - 9.4%. * Provides more regional detail within countries, but overall patterns are similar to NUTS level 0. 3. **Share of AA covered by LF at NUTS level 2**: * Legend ranges: No Data (pink), 0 - 1.3%, 1.3 - 2.5%, 2.5 - 3.8%, 3.8 - 5.5%, 5.5 - 9.5%. * Shows finer regional variations, with some areas in Ireland marked as &#39;No Data&#39;. 4. **Share of AA covered by LF at NUTS level 3**: * Legend ranges: No Data (pink), 0 - 2%, 2 - 3.4%, 3.4 - 5%, 5 - 7.6%, 7.6 - 12.2%. * Presents the most granular spatial distribution, revealing significant intra-country variability and the highest percentage range (up to 12.2%). Parts of Ireland and other isolated regions show &#39;No Data&#39;. Across all NUTS levels, regions in Central and Eastern Europe, including parts of France, Germany, Poland, Czechia, and Austria, generally exhibit a higher share of Agricultural Area covered by Linear Features (darker green), indicating a greater prevalence of these woody elements in agricultural landscapes. Conversely, Northern European countries (e.g., Scandinavia) and Southern European coastal areas tend to show lower shares (lighter green). The increasing granularity from NUTS level 0 to NUTS level 3 highlights the heterogeneous distribution of linear features within agricultural areas across Europe." />
 
 Figure 1: Share of agricultural area (AA) covered with woody landscape
 features at different NUTS levels based on SWF 2015 (Kleeschulte, 2020)
 
 </div>
+
+Four choropleth maps depict the percentage share of Agricultural Area
+(AA) covered by Linear Features (LF), likely referring to small woody
+elements, across European regions. Each map displays this metric at a
+different NUTS (Nomenclature of Territorial Units for Statistics)
+administrative level, from NUTS level 0 (country level) to NUTS level 3
+(most granular). Country borders are outlined in red across all maps.
+
+The colour gradient from light green to dark green indicates increasing
+percentages, with “No Data” areas shown in pink on NUTS levels 2 and 3
+maps.
+
+1.  **Share of AA covered by LF at NUTS level 0**:
+    - Legend ranges: 0.24 - 1.09%, 1.09 - 1.93%, 1.93 - 3.53%, 3.53 -
+      6.25%, 6.25 - 9.41%.
+    - Displays broad country-level patterns, showing higher shares in
+      Central European countries.
+2.  **Share of AA covered by LF at NUTS level 1**:
+    - Legend ranges: 0.2 - 1.8%, 1.8 - 2.9%, 2.9 - 4.3%, 4.3 - 6.5%,
+      6.5 - 9.4%.
+    - Provides more regional detail within countries, but overall
+      patterns are similar to NUTS level 0.
+3.  **Share of AA covered by LF at NUTS level 2**:
+    - Legend ranges: No Data (pink), 0 - 1.3%, 1.3 - 2.5%, 2.5 - 3.8%,
+      3.8 - 5.5%, 5.5 - 9.5%.
+    - Shows finer regional variations, with some areas in Ireland marked
+      as “No Data”.
+4.  **Share of AA covered by LF at NUTS level 3**:
+    - Legend ranges: No Data (pink), 0 - 2%, 2 - 3.4%, 3.4 - 5%, 5 -
+      7.6%, 7.6 - 12.2%.
+    - Presents the most granular spatial distribution, revealing
+      significant intra-country variability and the highest percentage
+      range (up to 12.2%). Parts of Ireland and other isolated regions
+      show “No Data”.
+
+Across all NUTS levels, regions in Central and Eastern Europe, including
+parts of France, Germany, Poland, Czechia, and Austria, generally
+exhibit a higher share of Agricultural Area covered by Linear Features
+(darker green), indicating a greater prevalence of these woody elements
+in agricultural landscapes. Conversely, Northern European countries
+(e.g., Scandinavia) and Southern European coastal areas tend to show
+lower shares (lighter green). The increasing granularity from NUTS level
+0 to NUTS level 3 highlights the heterogeneous distribution of linear
+features within agricultural areas across Europe.
 
 # Product description
 
@@ -469,8 +520,33 @@ Furthermore, other ancillary data and reference data are provided:
 
 - Reference data used for internal quality control
 
-![Figure 2: HRL SLF 2021 product
-suite](High_Resolution_Layer_Small_Landscape_Features_2021_PUM_v1-media/img-5d37127d1ef51bc6f9ef04c1e338203de056620f.png)
+<img
+src="High_Resolution_Layer_Small_Landscape_Features_2021_PUM_v1-media/img-5d37127d1ef51bc6f9ef04c1e338203de056620f.png"
+data-fig-alt="This diagram illustrates the hierarchical structure of the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Small Linear Features (SLF) 2021 product suite. The suite is organised into four main categories: Status Layer, Change Layer, Auxiliary Layers, and Reference Data. The Status Layer contains five components: Woody Vegetation Layer (WVL) at 5m spatial resolution, Small Woody Features (SWF) at 5m spatial resolution (raster), Small Woody Features (SWF) in vector format, Street Tree Layer in vector format, and SWF Density at 100m spatial resolution (raster). The Change Layer includes one component: Small Woody Features (SWF) Change, covering the 2018-2021 period at 100m spatial resolution. The Auxiliary Layers category comprises four components: Parent Scene Identification Layer (PSIL) in vector format, Woody Vegetation Layer (WVL) Confidence Layer at 5m spatial resolution, Forest Mask 2021 at 5m spatial resolution, and Crop Mask 2021 at 5m spatial resolution. The Reference Data category contains two components: Training Data and Validation Data."
+alt="Figure 2: HRL SLF 2021 product suite" />
+
+This diagram illustrates the hierarchical structure of the Copernicus
+Land Monitoring Service (CLMS) High Resolution Layer (HRL) Small Linear
+Features (SLF) 2021 product suite. The suite is organised into four main
+categories: Status Layer, Change Layer, Auxiliary Layers, and Reference
+Data.
+
+The Status Layer contains five components: Woody Vegetation Layer (WVL)
+at 5m spatial resolution, Small Woody Features (SWF) at 5m spatial
+resolution (raster), Small Woody Features (SWF) in vector format, Street
+Tree Layer in vector format, and SWF Density at 100m spatial resolution
+(raster).
+
+The Change Layer includes one component: Small Woody Features (SWF)
+Change, covering the 2018-2021 period at 100m spatial resolution.
+
+The Auxiliary Layers category comprises four components: Parent Scene
+Identification Layer (PSIL) in vector format, Woody Vegetation Layer
+(WVL) Confidence Layer at 5m spatial resolution, Forest Mask 2021 at 5m
+spatial resolution, and Crop Mask 2021 at 5m spatial resolution.
+
+The Reference Data category contains two components: Training Data and
+Validation Data.
 
 All layers are distributed in tiles corresponding to 100km LAEA grid
 cells.
@@ -514,7 +590,11 @@ No height differentiation (trees vs. scrubs/bushes) is applied.
 Elements to be included or excluded in Small Woody Features 2021 are
 summarised in Table 2.
 
+<div class="tbl-caption">
+
 Table 2: Thematic definition of SWF 2021
+
+</div>
 
 | Elements included in small woody features | Elements excluded from small woody features |
 |----|----|
@@ -1384,7 +1464,11 @@ Monitoring Service website (https://land.copernicus.eu/)
 
 # Annexes
 
+<div class="tbl-caption">
+
 Table 3: Attribute table of the PSIL
+
+</div>
 
 | Field | Description | Sample |
 |----|----|----|

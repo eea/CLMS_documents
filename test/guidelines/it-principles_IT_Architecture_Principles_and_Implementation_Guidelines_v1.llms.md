@@ -10,7 +10,7 @@ European Environment Agency (EEA)
 
 Published
 
-December 4, 2025
+June 19, 2025
 
 Keywords
 

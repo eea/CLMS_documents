@@ -6,7 +6,7 @@ This document serves as the Algorithm Theoretical Basis Document for the Europea
 
 Published
 
-December 3, 2025
+August 7, 2025
 
 Keywords
 

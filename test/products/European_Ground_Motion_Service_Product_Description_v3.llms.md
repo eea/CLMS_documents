@@ -6,7 +6,7 @@ This document provides a comprehensive description of the European Ground Motion
 
 Published
 
-December 3, 2025
+August 7, 2025
 
 Keywords
 

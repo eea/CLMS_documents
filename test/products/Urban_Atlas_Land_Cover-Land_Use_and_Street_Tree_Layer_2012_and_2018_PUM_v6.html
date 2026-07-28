@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-12-03">
+<meta name="dcterms.date" content="2020-01-01">
 <meta name="keywords" content="Functional Urban Area (FUA), Land Use / Land Cover (LU/LC), Street Tree Layer (STL), Digital Height Model (DHM), Imperviousness Degree (IMD), Minimum Mapping Unit (MMU), Change detection, ETRS89 Lambert Azimuthal Equal Area (LAEA), Geometric adaptation of navigation data, Overall classification accuracy">
 <meta name="description" content="This document serves as a comprehensive mapping guide for service providers involved in the Copernicus Urban Atlas project, specifically for the 2012 and 2018 reference years. It details the methodology for generating standardised land use and land cover (LU/LC) maps, including additional information layers such as the Street Tree Layer (STL) and Digital Height Model (DHM). The guide aims to ensure congruent product attributes, common nomenclature, consistent product appearance, and comparable product quality across Functional Urban Areas (FUAs) within the EU, EFTA, Western Balkans, the UK, and Turkey.">
 
@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-ccd9cb9b1c9bdf1eabc4708995bd1808.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-81606b2d085324eee7eb30ab52c42792.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
     "@type": "ScholarlyArticle",
     "headline": "Urban Atlas Land Cover/Land Use and Street Tree Layer 2012 and 2018 - Product User Manual",
     "description": "This document serves as a comprehensive mapping guide for service providers involved in the Copernicus Urban Atlas project, specifically for the 2012 and 2018 reference years. It details the methodology for generating standardised land use and land cover (LU/LC) maps, including additional information layers such as the Street Tree Layer (STL) and Digital Height Model (DHM). The guide aims to ensure congruent product attributes, common nomenclature, consistent product appearance, and comparable product quality across Functional Urban Areas (FUAs) within the EU, EFTA, Western Balkans, the UK, and Turkey.",
-    "datePublished": "December 3, 2025",
+    "datePublished": "January 1, 2020",
     "author": {
       "@type": "Person",
       "name": "?meta:author"
@@ -91,26 +91,6 @@ ul.task-list li input[type="checkbox"] {
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "Functional Urban Area (FUA)
-
-Land Use / Land Cover (LU/LC)
-
-Street Tree Layer (STL)
-
-Digital Height Model (DHM)
-
-Imperviousness Degree (IMD)
-
-Minimum Mapping Unit (MMU)
-
-Change detection
-
-ETRS89 Lambert Azimuthal Equal Area (LAEA)
-
-Geometric adaptation of navigation data
-
-Overall classification accuracy
-",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -215,7 +195,14 @@ Overall classification accuracy
   document.addEventListener("DOMContentLoaded", function () {
     // Add Version to the title's metadata
     //
+    // Skip when there's no version (e.g. document-type with version off) so we
+    // don't render an empty "Version" heading, and when the doc has no
+    // title-meta block at all (nothing to append to). Quarto renders an unset
+    // meta key as the placeholder "?meta:version", so treat that as empty too.
+    const raw = `6.3.0`.trim();
+    const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
+    if (!version || !titleMetaEl) return;
     const wrapperDiv = document.createElement("div");
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
@@ -246,7 +233,7 @@ Overall classification accuracy
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 3, 2025</p>
+      <p class="date">January 1, 2020</p>
     </div>
   </div>
   
@@ -3016,6 +3003,30 @@ Denmark<br>
 <p>Most of the parcels contain individual cultivation areas with fruits or vegetables, as well as a shed for tools and shelter<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<!-- Mobile-only "Contents" button that reveals the section TOC, which the
+     full-width HTML layout hides on small screens. Styling is in
+     theme/styles.css (.toc-mobile-btn / body.toc-mobile-open). -->
+<script>
+(function () {
+  var toc = document.getElementById('TOC');
+  if (!toc) return; // no section TOC on this page (e.g. listings) -> no button
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toc-mobile-btn';
+  btn.setAttribute('aria-label', 'Toggle table of contents');
+  btn.innerHTML = '☰ Contents';
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('toc-mobile-open');
+  });
+  document.body.appendChild(btn);
+
+  // Tapping a TOC link closes the panel.
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a')) document.body.classList.remove('toc-mobile-open');
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

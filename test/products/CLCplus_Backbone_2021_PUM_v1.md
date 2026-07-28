@@ -1,6 +1,6 @@
 # CLCplus Backbone 2021 - Product User Manual
 Copernicus Land Monitoring Service
-2025-12-03
+2025-06-12
 
 - [<span class="toc-section-number">1</span> Executive
   Summary](#executive-summary)
@@ -952,7 +952,8 @@ assessing the correctness of the extent in the Raster Product.
 <img
 src="CLCplus_Backbone_2021_PUM_v1-media/img-349277b02736665865c69655a9a0243f9074b8d4.png"
 style="width:6.27in"
-data-fig-alt="This composite illustration demonstrates the Copernicus Land Monitoring Service (CLMS) CLC+ Backbone (BB) Raster Product decision tree approach for evaluating area thresholds for mixed land cover types, using an example of olive groves in Castile-La Mancha, Spain. The upper-left panel displays a CLC+ Backbone Raster Product map, showing land cover classification with a legend: 1. Sealed (red) 2. Coniferous (dark green) 3. Broadleaved deciduous (light green) 4. Broadleaved evergreen (darker green) 5. Shrubs (brown) 6. Perm. Herb (Permanent Herbaceous, pale yellow) 7. Periodically Herb (Periodically Herbaceous, white) 8. Lichens and mosses (purple) 9. Sparsely vegetated (grey) 10. Water (blue) 11. Perm. Snow and Ice (Permanent Snow and Ice, cyan) The map highlights significant areas of Water (blue), Sealed (red), and Sparsely vegetated (grey) land cover. The upper-right panel shows a Sentinel-2 (S-2) seasonal composite false-colour satellite image of the same area. Three specific locations are marked with white numbered boxes: Area 1 (a lighter blue patch), Area 2 (a lighter blue patch along a darker river), and Area 3 (a large, lighter-toned patch). The lower section presents three Normalised Difference Vegetation Index (NDVI) line charts, labelled 1, 2, and 3, corresponding to the areas identified in the S-2 composite. Each chart plots NDVI values (Y-axis, ranging from approximately -0.8 to 0.4) over time (X-axis, from 2017-05 to 2020-09). Two data series are shown: &#39;Index_orig&#39; (grey dots representing raw NDVI data) and &#39;Index_interp&#39; (a blue line representing interpolated NDVI data). A blue shaded vertical rectangle from 2018-01 to 2019-01 highlights a one-year period in each chart. * **Chart 1 (Area 1)**: Shows annual NDVI cycles, generally ranging between -0.4 and 0.2, with clear seasonal peaks in the spring/summer months. * **Chart 2 (Area 2)**: Displays more pronounced annual NDVI cycles, with peaks reaching up to approximately 0.2 and troughs around -0.6, indicating stronger seasonal vegetation changes. * **Chart 3 (Area 3)**: Exhibits generally lower NDVI values, mostly between -0.6 and 0.2, with less pronounced seasonal peaks compared to Chart 2, consistent with sparsely vegetated or bare soil areas, such as olive groves where understory vegetation is suppressed." />
+data-fig-alt="This composite illustration demonstrates the Copernicus Land Monitoring Service (CLMS) CLC+ Backbone (BB) Raster Product decision tree approach for evaluating area thresholds for mixed land cover types, using an example of olive groves in Castile-La Mancha, Spain. The upper-left panel displays a CLC+ Backbone Raster Product map, showing land cover classification with a legend: 1. Sealed (red) 2. Coniferous (dark green) 3. Broadleaved deciduous (light green) 4. Broadleaved evergreen (darker green) 5. Shrubs (brown) 6. Perm. Herb (Permanent Herbaceous, pale yellow) 7. Periodically Herb (Periodically Herbaceous, white) 8. Lichens and mosses (purple) 9. Sparsely vegetated (grey) 10. Water (blue) 11. Perm. Snow and Ice (Permanent Snow and Ice, cyan) The map highlights significant areas of Water (blue), Sealed (red), and Sparsely vegetated (grey) land cover. The upper-right panel shows a Sentinel-2 (S-2) seasonal composite false-colour satellite image of the same area. Three specific locations are marked with white numbered boxes: Area 1 (a lighter blue patch), Area 2 (a lighter blue patch along a darker river), and Area 3 (a large, lighter-toned patch). The lower section presents three Normalised Difference Vegetation Index (NDVI) line charts, labelled 1, 2, and 3, corresponding to the areas identified in the S-2 composite. Each chart plots NDVI values (Y-axis, ranging from approximately -0.8 to 0.4) over time (X-axis, from 2017-05 to 2020-09). Two data series are shown: &#39;Index_orig&#39; (grey dots representing raw NDVI data) and &#39;Index_interp&#39; (a blue line representing interpolated NDVI data). A blue shaded vertical rectangle from 2018-01 to 2019-01 highlights a one-year period in each chart. * **Chart 1 (Area 1)**: Shows annual NDVI cycles, generally ranging between -0.4 and 0.2, with clear seasonal peaks in the spring/summer months. * **Chart 2 (Area 2)**: Displays more pronounced annual NDVI cycles, with peaks reaching up to approximately 0.2 and troughs around -0.6, indicating stronger seasonal vegetation changes. * **Chart 3 (Area 3)**: Exhibits generally lower NDVI values, mostly between -0.6 and 0.2, with less pronounced seasonal peaks compared to Chart 2, consistent with sparsely vegetated or bare soil areas, such as olive groves where understory vegetation is suppressed."
+alt="Figure 9: Example of the mapping of ephemeral classes in the CLC+ BB Raster Product. Water is mapped according to its spatio-temporal coverage during the reference year 2021. In the given example from the 2018 production, areas which are more than 50% of the observations covered by water (i.e. NDVI typically below 0), are correctly mapped as Water. Areas with shorter water coverage show an NDVI slightly above 0 for most of the time in this example and are correctly mapped as Sparsely- and Non-vegetated." />
 
 This composite illustration demonstrates the Copernicus Land Monitoring
 Service (CLMS) CLC+ Backbone (BB) Raster Product decision tree approach
@@ -992,15 +993,6 @@ generally lower NDVI values, mostly between -0.6 and 0.2, with less
 pronounced seasonal peaks compared to Chart 2, consistent with sparsely
 vegetated or bare soil areas, such as olive groves where understory
 vegetation is suppressed.
-
-Figure 9: Example of the mapping of ephemeral classes in the CLC+ BB
-Raster Product. Water is mapped according to its spatio-temporal
-coverage during the reference year 2021. In the given example from the
-2018 production, areas which are more than 50% of the observations
-covered by water (i.e. NDVI typically below 0), are correctly mapped as
-Water. Areas with shorter water coverage show an NDVI slightly above 0
-for most of the time in this example and are correctly mapped as
-Sparsely- and Non-vegetated.
 
 <img
 src="CLCplus_Backbone_2021_PUM_v1-media/img-e86685f85d5413260b54cd186872dedeb9fac63a.png"
@@ -1540,8 +1532,12 @@ documented in the Raster Post-processing Layer
 class="quarto-xref">Section 3.3.3</a>) delivered with the EEA-38 Raster
 Product.
 
+<div class="tbl-caption">
+
 Table 1: Overview of usage of auxiliary datasets during the
 post-processing routine
+
+</div>
 
 | Auxiliary dataset | Pseudo code | Explanation |
 |----|----|----|
@@ -2093,8 +2089,12 @@ explicitly provided.
 An overview of the sampled areas and the distribution of samples per
 class for the Raster Product are provided in Table 2 and Table 3.
 
+<div class="tbl-caption">
+
 Table 2: Overview of the validated areas (zones) of the CLC+ BB Raster
 Product 2021
+
+</div>
 
 | Zone | Acronym | Country | Coverage ( Entirely / Partially / not at all) |
 |----|----|----|----|
@@ -2122,8 +2122,12 @@ Product 2021
 | Z22 | LV-LT-EE | Latvia- Lithuania-Estonia | Entirely |
 | Z23 | DOM | French overseas departments | Entirely |
 
+<div class="tbl-caption">
+
 Table 3: Distribution of sampling units in each CLC+ BB Raster 2021
 class
+
+</div>
 
 | Code | CLC+ BB Raster Product- Description | 2021 area (sq.km) | Area fraction | Samples distribution |
 |----|----|----|----|----|
@@ -2260,14 +2264,22 @@ Raster Product, the minimum overall accuracy for the products is 90% and
 the minimum individual class accuracy should not be lower than 85%
 (i.e. omission errors and commission errors less than 15%).
 
+<div class="tbl-caption">
+
 Table 4: General requirement: Accuracy thresholds
+
+</div>
 
 | Overall accuracy               | \> 90 % | 85 - 90 % | \< 85%  |
 |--------------------------------|---------|-----------|---------|
 | Per Land cover class           | \> 85 % | 80 - 85 % | \< 80 % |
 | Omission and commission errors | \<15%   | 15-20%    | \>20%   |
 
+<div class="tbl-caption">
+
 Table 5: Calculated accuracy parameters determined for the validation
+
+</div>
 
 | ACCURACY PARAMETER            | ABBREVIATION |
 |-------------------------------|--------------|
@@ -2280,7 +2292,11 @@ Table 5: Calculated accuracy parameters determined for the validation
 | USER ACCURACY                 | UA           |
 | USER ACCURACY UNCERTAINTY     | ΔUA          |
 
+<div class="tbl-caption">
+
 Table 6: List of CLC+ BB Raster Product classes
+
+</div>
 
 <img src="CLCplus_Backbone_2021_PUM_v1-media/table6.png"
 style="width:3.75in"
@@ -2339,9 +2355,13 @@ The detailed analysis for the CLC+ BB validation exercise in 2021 per
 reporting zone (producer, user and overall accuracies per zones) are
 provided in the Annex of this User Manual.
 
+<div class="tbl-caption">
+
 Table 7: Overall accuracy for the validation analysis and confidence
 interval (95%) for the Raster Product 2021 (EEA-38) per country or group
 of countries in comparison to the 2018 results
+
+</div>
 
 |  |  | Overall accuracy CLC+BB-2018 RASTER PRODUCT | Overall accuracy CLC+BB-2018 RASTER PRODUCT | Overall accuracy CLC+BB-2021 RASTER PRODUCT | Overall accuracy CLC+BB-2021 RASTER PRODUCT |
 |----|----|----|----|----|----|
@@ -2383,9 +2403,13 @@ validation in particular because of the limited spectral-temporal
 separability and reference data. Nevertheless, those classes
 representation could be improved compared to the 2018 product.
 
+<div class="tbl-caption">
+
 Table 8: Area-weighted per class Producer’s and User’s Accuracies of the
 CLC+ Backbone Raster Product 2021 (EEA-38) in comparison to the 2018
 results
+
+</div>
 
 <img src="CLCplus_Backbone_2021_PUM_v1-media/table8.png"
 style="width:6.27in"
@@ -2446,7 +2470,11 @@ Table 9 shows the raw confusion matrix for the validation of the CLC+ BB
 2021 Raster Product. It shows the number of samples evaluated per class
 and gives an impression which classes show confusions to which extent.
 
+<div class="tbl-caption">
+
 Table 9: Raw confusion matrix, showing the number of samples by class
+
+</div>
 
 <img src="CLCplus_Backbone_2021_PUM_v1-media/table9.png"
 style="width:6.27in"

@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-12-03">
+<meta name="dcterms.date" content="2025-08-07">
 <meta name="keywords" content="InSAR displacement data, Satellite line-of-sight, GNSS time-series data, Absolute displacement measurements, Vertical displacement component, East-West displacement component, ETRS89-LAEA projection, Sentinel-1 burst segmentation, Temporal coherence, Amplitude Dispersion Index">
 <meta name="description" content="This document provides a comprehensive description of the European Ground Motion Service (EGMS) products, which are essential for understanding and utilising the service effectively. It details the specifications, formats, attribute tables, and metadata associated with the EGMS products, including the Basic, Calibrated, and Ortho datasets. The document also clarifies InSAR-specific definitions, product map projections, user downloading procedures, and ancillary datasets used in EGMS production, ensuring users can fully leverage the service’s capabilities for ground motion analysis and monitoring.">
 
@@ -80,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-ccd9cb9b1c9bdf1eabc4708995bd1808.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-81606b2d085324eee7eb30ab52c42792.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -113,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "@type": "ScholarlyArticle",
     "headline": "European Ground Motion Service (EGMS) - Product Description and Format Specification",
     "description": "This document provides a comprehensive description of the European Ground Motion Service (EGMS) products, which are essential for understanding and utilising the service effectively. It details the specifications, formats, attribute tables, and metadata associated with the EGMS products, including the Basic, Calibrated, and Ortho datasets. The document also clarifies InSAR-specific definitions, product map projections, user downloading procedures, and ancillary datasets used in EGMS production, ensuring users can fully leverage the service’s capabilities for ground motion analysis and monitoring.",
-    "datePublished": "December 3, 2025",
+    "datePublished": "August 7, 2025",
     "author": {
       "@type": "Person",
       "name": "?meta:author"
@@ -126,26 +126,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "InSAR displacement data
-
-Satellite line-of-sight
-
-GNSS time-series data
-
-Absolute displacement measurements
-
-Vertical displacement component
-
-East-West displacement component
-
-ETRS89-LAEA projection
-
-Sentinel-1 burst segmentation
-
-Temporal coherence
-
-Amplitude Dispersion Index
-",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -270,7 +250,14 @@ window.Quarto = {
   document.addEventListener("DOMContentLoaded", function () {
     // Add Version to the title's metadata
     //
+    // Skip when there's no version (e.g. document-type with version off) so we
+    // don't render an empty "Version" heading, and when the doc has no
+    // title-meta block at all (nothing to append to). Quarto renders an unset
+    // meta key as the placeholder "?meta:version", so treat that as empty too.
+    const raw = `3.0.0`.trim();
+    const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
+    if (!version || !titleMetaEl) return;
     const wrapperDiv = document.createElement("div");
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
@@ -301,7 +288,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 3, 2025</p>
+      <p class="date">August 7, 2025</p>
     </div>
   </div>
   
@@ -2190,6 +2177,30 @@ Denmark<br>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<!-- Mobile-only "Contents" button that reveals the section TOC, which the
+     full-width HTML layout hides on small screens. Styling is in
+     theme/styles.css (.toc-mobile-btn / body.toc-mobile-open). -->
+<script>
+(function () {
+  var toc = document.getElementById('TOC');
+  if (!toc) return; // no section TOC on this page (e.g. listings) -> no button
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toc-mobile-btn';
+  btn.setAttribute('aria-label', 'Toggle table of contents');
+  btn.innerHTML = '☰ Contents';
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('toc-mobile-open');
+  });
+  document.body.appendChild(btn);
+
+  // Tapping a TOC link closes the panel.
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a')) document.body.classList.remove('toc-mobile-open');
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

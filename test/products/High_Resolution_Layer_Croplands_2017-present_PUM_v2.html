@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Copernicus Land Monitoring Service">
-<meta name="dcterms.date" content="2025-12-03">
+<meta name="dcterms.date" content="2025-11-03">
 <meta name="keywords" content="High Resolution Layer Croplands, Copernicus Land Monitoring Service, Crop Types layer, Cropping Patterns layers, Sentinel-2 imagery, agricultural practices mapping, Base Vegetation Layer, fAPAR timeseries, Accuracy assessment, Cloud-Optimized GeoTIFF">
 <meta name="description" content="This Product User Manual (PUM) serves as a comprehensive guide for users of the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands products, covering the period from 2017 to the present. It details the characteristics, production methodologies, and quality assessment of the annual HRL Croplands provision. The manual provides essential information on product usage, including nomenclature, spatial resolution, file formats, and terms of use, enabling effective application of these geospatial datasets. The technical focus includes the crop type classification, cropping patterns and accuracy assessment.">
 
@@ -46,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-ccd9cb9b1c9bdf1eabc4708995bd1808.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-81606b2d085324eee7eb30ab52c42792.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
     "@type": "ScholarlyArticle",
     "headline": "High Resolution Layer Croplands 2017-present - Product User Manual",
     "description": "This Product User Manual (PUM) serves as a comprehensive guide for users of the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands products, covering the period from 2017 to the present. It details the characteristics, production methodologies, and quality assessment of the annual HRL Croplands provision. The manual provides essential information on product usage, including nomenclature, spatial resolution, file formats, and terms of use, enabling effective application of these geospatial datasets. The technical focus includes the crop type classification, cropping patterns and accuracy assessment.",
-    "datePublished": "December 3, 2025",
+    "datePublished": "November 3, 2025",
     "author": {
       "@type": "Person",
       "name": "Copernicus Land Monitoring Service
@@ -93,26 +93,6 @@ ul.task-list li input[type="checkbox"] {
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "High Resolution Layer Croplands
-
-Copernicus Land Monitoring Service
-
-Crop Types layer
-
-Cropping Patterns layers
-
-Sentinel-2 imagery
-
-agricultural practices mapping
-
-Base Vegetation Layer
-
-fAPAR timeseries
-
-Accuracy assessment
-
-Cloud-Optimized GeoTIFF
-",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -237,7 +217,14 @@ window.Quarto = {
   document.addEventListener("DOMContentLoaded", function () {
     // Add Version to the title's metadata
     //
+    // Skip when there's no version (e.g. document-type with version off) so we
+    // don't render an empty "Version" heading, and when the doc has no
+    // title-meta block at all (nothing to append to). Quarto renders an unset
+    // meta key as the placeholder "?meta:version", so treat that as empty too.
+    const raw = `2.3.0`.trim();
+    const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
+    if (!version || !titleMetaEl) return;
     const wrapperDiv = document.createElement("div");
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
@@ -274,7 +261,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 3, 2025</p>
+      <p class="date">November 3, 2025</p>
     </div>
   </div>
   
@@ -3318,6 +3305,30 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 <li id="fn5"><p>S2-PDGS-MPC-DQR Issue: 66 Date: 02/08/2021<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<!-- Mobile-only "Contents" button that reveals the section TOC, which the
+     full-width HTML layout hides on small screens. Styling is in
+     theme/styles.css (.toc-mobile-btn / body.toc-mobile-open). -->
+<script>
+(function () {
+  var toc = document.getElementById('TOC');
+  if (!toc) return; // no section TOC on this page (e.g. listings) -> no button
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toc-mobile-btn';
+  btn.setAttribute('aria-label', 'Toggle table of contents');
+  btn.innerHTML = '☰ Contents';
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('toc-mobile-open');
+  });
+  document.body.appendChild(btn);
+
+  // Tapping a TOC link closes the panel.
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a')) document.body.classList.remove('toc-mobile-open');
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
