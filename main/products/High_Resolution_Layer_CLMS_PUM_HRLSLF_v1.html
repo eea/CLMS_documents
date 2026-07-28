@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3e4b792c78aaba79123027d3b782d07b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-81606b2d085324eee7eb30ab52c42792.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -91,26 +91,6 @@ ul.task-list li input[type="checkbox"] {
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "High Resolution Layer
-
-Small Landscape Features
-
-Woody Vegetation Layer
-
-Change Detection
-
-Street Tree Layer
-
-Sentinel-2 imagery
-
-Very High Resolution imagery
-
-Forest Mask
-
-Crop Mask
-
-LAEA projection
-",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -221,7 +201,14 @@ LAEA projection
   document.addEventListener("DOMContentLoaded", function () {
     // Add Version to the title's metadata
     //
+    // Skip when there's no version (e.g. document-type with version off) so we
+    // don't render an empty "Version" heading, and when the doc has no
+    // title-meta block at all (nothing to append to). Quarto renders an unset
+    // meta key as the placeholder "?meta:version", so treat that as empty too.
+    const raw = `1.1.0`.trim();
+    const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
+    if (!version || !titleMetaEl) return;
     const wrapperDiv = document.createElement("div");
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
@@ -347,7 +334,9 @@ Denmark<br>
 <li><p>Street Tree Layer (STL): part of the Urban Atlas suite, this layer aims at mapping woody vegetation within artificial areas of Urban Atlas Functional Urban Areas (FUA).</p></li>
 <li><p>Crop Mask: Derived from HRL NVLCC, this layer provides information about crops location and areas where geometrical rules are applied differently to derive valid SWF.</p></li>
 </ul>
+<div class="tbl-caption">
 <p>Table 1: SWF key features through the years</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 29%">
@@ -484,7 +473,9 @@ Figure&nbsp;2: HRL SLF 2021 product suite
 </ul>
 <p>No height differentiation (trees vs.&nbsp;scrubs/bushes) is applied.</p>
 <p>Elements to be included or excluded in Small Woody Features 2021 are summarised in Table 2.</p>
+<div class="tbl-caption">
 <p>Table 2: Thematic definition of SWF 2021</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 46%">
@@ -721,7 +712,9 @@ Figure&nbsp;2: HRL SLF 2021 product suite
 </section>
 <section id="woody-vegetation-layer-5m-raster" class="level5" data-number="7.3.1.0.3">
 <h5 data-number="7.3.1.0.3" class="anchored" data-anchor-id="woody-vegetation-layer-5m-raster"><span class="header-section-number">7.3.1.0.3</span> Woody Vegetation Layer 5m raster</h5>
+<div class="tbl-caption">
 <p>Table 3: Woody Vegetation Layer 5m raster</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 37%">
@@ -803,7 +796,9 @@ Figure&nbsp;2: HRL SLF 2021 product suite
 </section>
 <section id="small-woody-features-5m-raster" class="level5" data-number="7.3.1.0.4">
 <h5 data-number="7.3.1.0.4" class="anchored" data-anchor-id="small-woody-features-5m-raster"><span class="header-section-number">7.3.1.0.4</span> Small Woody Features 5m raster</h5>
+<div class="tbl-caption">
 <p>Table 4: Small Woody Features 5m raster</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 35%">
@@ -888,7 +883,9 @@ Figure&nbsp;2: HRL SLF 2021 product suite
 <h3 data-number="7.3.2" class="anchored" data-anchor-id="aggregated-layers"><span class="header-section-number">7.3.2</span> Aggregated Layers</h3>
 <section id="small-woody-features-100m-raster" class="level5" data-number="7.3.2.0.1">
 <h5 data-number="7.3.2.0.1" class="anchored" data-anchor-id="small-woody-features-100m-raster"><span class="header-section-number">7.3.2.0.1</span> Small Woody Features 100m raster</h5>
+<div class="tbl-caption">
 <p>Table 5: Small Woody Features 100m raster</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 36%">
@@ -970,7 +967,9 @@ Figure&nbsp;2: HRL SLF 2021 product suite
 </section>
 <section id="small-woody-features-change-raster" class="level5" data-number="7.3.2.0.2">
 <h5 data-number="7.3.2.0.2" class="anchored" data-anchor-id="small-woody-features-change-raster"><span class="header-section-number">7.3.2.0.2</span> Small Woody Features change raster</h5>
+<div class="tbl-caption">
 <p>Table 6: Small Woody Features change raster</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -1055,7 +1054,9 @@ Figure&nbsp;2: HRL SLF 2021 product suite
 <h3 data-number="7.3.3" class="anchored" data-anchor-id="auxiliary-layers-1"><span class="header-section-number">7.3.3</span> Auxiliary Layers</h3>
 <section id="parent-scene-identification-layer" class="level5" data-number="7.3.3.0.1">
 <h5 data-number="7.3.3.0.1" class="anchored" data-anchor-id="parent-scene-identification-layer"><span class="header-section-number">7.3.3.0.1</span> Parent scene identification layer</h5>
+<div class="tbl-caption">
 <p>Table 7: Parent scene identification layer</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 46%">
@@ -1145,7 +1146,9 @@ Figure&nbsp;2: HRL SLF 2021 product suite
 </section>
 <section id="woody-vegetation-confidence-layer" class="level5" data-number="7.3.3.0.2">
 <h5 data-number="7.3.3.0.2" class="anchored" data-anchor-id="woody-vegetation-confidence-layer"><span class="header-section-number">7.3.3.0.2</span> Woody Vegetation confidence layer</h5>
+<div class="tbl-caption">
 <p>Table 8: Woody Vegetation confidence layer</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 37%">
@@ -1227,7 +1230,9 @@ Figure&nbsp;2: HRL SLF 2021 product suite
 </section>
 <section id="forest-mask-1" class="level5" data-number="7.3.3.0.3">
 <h5 data-number="7.3.3.0.3" class="anchored" data-anchor-id="forest-mask-1"><span class="header-section-number">7.3.3.0.3</span> Forest Mask</h5>
+<div class="tbl-caption">
 <p>Table 9: Forest Mask</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 37%">
@@ -1309,7 +1314,9 @@ Figure&nbsp;2: HRL SLF 2021 product suite
 </section>
 <section id="crop-mask-1" class="level5" data-number="7.3.3.0.4">
 <h5 data-number="7.3.3.0.4" class="anchored" data-anchor-id="crop-mask-1"><span class="header-section-number">7.3.3.0.4</span> Crop Mask</h5>
+<div class="tbl-caption">
 <p>Table 10: Crop Mask</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 37%">
@@ -1391,7 +1398,9 @@ Figure&nbsp;2: HRL SLF 2021 product suite
 </section>
 <section id="urban-mask" class="level5" data-number="7.3.3.0.5">
 <h5 data-number="7.3.3.0.5" class="anchored" data-anchor-id="urban-mask"><span class="header-section-number">7.3.3.0.5</span> Urban Mask</h5>
+<div class="tbl-caption">
 <p>Table 11: Urban Mask</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 44%">
@@ -1901,7 +1910,9 @@ Figure&nbsp;2: HRL SLF 2021 product suite
 </section>
 <section id="annexes" class="level1" data-number="11">
 <h1 data-number="11"><span class="header-section-number">11</span> Annexes</h1>
+<div class="tbl-caption">
 <p>Table 12: Attribute table of the PSIL</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 19%">
@@ -2092,6 +2103,30 @@ Figure&nbsp;2: HRL SLF 2021 product suite
 <li id="fn6"><p><a href="https://land.copernicus.eu/en/contact-service-helpdesk">Copernicus Land Monitoring Service – Service desk</a><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<!-- Mobile-only "Contents" button that reveals the section TOC, which the
+     full-width HTML layout hides on small screens. Styling is in
+     theme/styles.css (.toc-mobile-btn / body.toc-mobile-open). -->
+<script>
+(function () {
+  var toc = document.getElementById('TOC');
+  if (!toc) return; // no section TOC on this page (e.g. listings) -> no button
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toc-mobile-btn';
+  btn.setAttribute('aria-label', 'Toggle table of contents');
+  btn.innerHTML = '☰ Contents';
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('toc-mobile-open');
+  });
+  document.body.appendChild(btn);
+
+  // Tapping a TOC link closes the panel.
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a')) document.body.classList.remove('toc-mobile-open');
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

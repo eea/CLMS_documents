@@ -6726,7 +6726,11 @@ Applicable Documents
 
 # 7 Change Log
 
-[TABLE]
+| Date | Version | Summary |
+|----|----|----|
+| 2026-06-03 | 1.2.2 | • Standardised YAML frontmatter formatting and reordered fields. • Added explicit width attributes to numerous images for consistent rendering. • Improved table formatting across various sections. • Corrected the '\`+/-\`' symbol to '\`±\`' for consistency. • Removed obsolete page breaks throughout the document. • Cleaned up unused references in the 'Applicable Documents' section. |
+| 2026-02-10 | 1.2.1 | Document maintenance updates to include '2012-2018' in the file name and title for consistency. |
+| 2025-12-02 | 1.2.0 | Initial release |
 
 Back to top
 

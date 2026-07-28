@@ -5963,7 +5963,10 @@ During the 2018 Riparian Zones mapping some Level 4 classes have been merged to 
 
 # 10 Change Log
 
-[TABLE]
+| Date | Version | Summary |
+|----|----|----|
+| 2026-06-03 | 1.5.2 | • Standardised YAML frontmatter formatting and reordered fields. • Added explicit width attributes to numerous images for consistent rendering. • Improved table formatting across various sections. • Removed obsolete page breaks throughout the document. |
+| 2026-02-10 | 1.5.1 | Document maintenance updates to include '2012-2018' in the file name and title for consistency. Image paths updated to reflect the new file name structure. |
 
 Back to top
 

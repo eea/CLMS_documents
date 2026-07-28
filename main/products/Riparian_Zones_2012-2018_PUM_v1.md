@@ -681,7 +681,11 @@ Zones product.
 | **Minimum Mapping Width** | 10 m |
 | **Thematic/Positional Accuracy** | Overall thematic accuracy demanded is \>85% considering the relative occurrence of the LC/LU classes for status layers of reference years 2012 and 2018 and \>80 % for change layer 2012-2018. Positional accuracy is defined as \<5 m. |
 
-*Table 1: LC/LU 2012/2018 specifications*
+<div class="tbl-caption">
+
+Table 1: LC/LU 2012/2018 specifications
+
+</div>
 
 | **Coordinate Reference System** |  |
 |----|----|
@@ -696,6 +700,12 @@ Zones product.
 | Vector |  |
 | **Delivery Format** |  |
 | Esri Shapefile Format (\*.SHP) |  |
+
+<div class="tbl-caption">
+
+Table 2: LU/LC 2012/2018 shapefile attribute definition
+
+</div>
 
 <table data-quarto-postprocess="true">
 <thead>
@@ -865,8 +875,6 @@ according to INSPIRE metadata standards in XML format</td>
 </tr>
 </tbody>
 </table>
-
-*Table 2: LU/LC 2012/2018 shapefile attribute definition*
 
 ### Product File Nomenclature
 
@@ -1113,6 +1121,12 @@ The PSIL contains the following specifications shown in Table 4.
 
   
 
+<div class="tbl-caption">
+
+Table 4: PSIL 2012 shapefile attribute definition
+
+</div>
+
 |  | **Class Coding / Attribution** |  |  |  |
 |----|----|----|----|----|
 | **Field** | **Description** | **Definition ArcGIS** | **Definition QGIS** | **Value(s)** |
@@ -1130,9 +1144,13 @@ The PSIL contains the following specifications shown in Table 4.
 | \[Shape_Leng\] | Total length of the polygon perimeter, in the units used by the feature class’ coordinate system | Double, Precision 0, Scale 0 |  |  |
 | \[Shape_Area\] | The area of each polygon in the dataset | Double, Precision 0, Scale 0 |  |  |
 
-*Table 4: PSIL 2012 shapefile attribute definition*
-
   
+
+<div class="tbl-caption">
+
+Table 5: PSIL 2018 shapefile attribute definition
+
+</div>
 
 |  | **Class Coding / Attribution** |  |  |  |
 |----|----|----|----|----|
@@ -1149,9 +1167,13 @@ The PSIL contains the following specifications shown in Table 4.
 | \[ProdName\] | Identifier of the specific product | String, Length 10 | String, Length 10 | RZ2018 |
 | \[DeliveryID\] | Identifier of the Delivery Unit | String, Length 10 | String, Length 10 | Prod_ID |
 
-*Table 5: PSIL 2018 shapefile attribute definition*
-
   
+
+<div class="tbl-caption">
+
+Table 6: List of allowed \[Sensor\] entries
+
+</div>
 
 | **Entry for \[Sensor\]** | **Description**                |
 |--------------------------|--------------------------------|
@@ -1173,8 +1195,6 @@ The PSIL contains the following specifications shown in Table 4.
 | DM02                     | Deimos-02                      |
 | TR00                     | TripleSat                      |
 | S2A/B                    | Nominal Sentinel 2 Acquisition |
-
-*Table 6: List of allowed \[Sensor\] entries*
 
 # Product methodology and workflow
 
@@ -2476,6 +2496,12 @@ data-fig-alt="This is an abstract graphic illustrating the concept of a &#39;spl
 style="width:1.38in"
 data-fig-alt="This conceptual illustration depicts a &#39;new established feature with splitted change&#39; as it relates to Minimum Mapping Unit (MMU) rules in land cover mapping. The diagram shows three irregularly shaped, light beige polygons with thin red outlines, arranged in an overlapping, pinwheel-like pattern. In the central area where these three larger polygons overlap, a smaller, white equilateral triangle with a thin black outline is visible. This visual arrangement illustrates a scenario where a small feature, such as an industrial area that was below the MMU in a previous reference year (e.g., 2012), combines with new land cover changes in a neighbouring area (e.g., urban area changing to industrial area in 2018). The diagram represents how the cumulative area of these interacting features can then exceed the MMU, forming a &#39;complex change area&#39; that becomes mappable." /><br>Source: Esri ArcGIS 10.2 Help |
 
+<div class="tbl-caption">
+
+Table 10: LC/LU relevant Quality Control Steps
+
+</div>
+
 | No. | Check | Description | Purpose | Example |
 |----|----|----|----|----|
 | 1 | Multipart | Check separates features into singlepart features s | Assurance that all delivered data is inglepart data. | <img src="Riparian_Zones_2012-2018_PUM_v1-media/image30.jpeg"
@@ -2508,8 +2534,6 @@ data-fig-alt="This diagram illustrates the process of merging two adjacent polyg
 style="width:2.21in"
 data-fig-alt="This image displays the parameters defining a Projected Coordinate System (CRS). The system is identified as ETRS_1989_LAEA, which stands for European Terrestrial Reference System 1989, Lambert Azimuthal Equal Area. The Projection type is Lambert_Azimuthal_Equal_Area. The system uses a `false_easting` value of 4321000.00000000 and a `false_northing` value of 3210000.00000000. The `central_meridian` is set to 10.00000000, and the `latitude_of_origin` is 52.00000000. The Linear Unit used for measurements is Meter." /> |
 | 18 | Metadata check | Check of INSPIRE conform metadata description | Assure INSPIRE conformity of associated metadata XML files | https://inspire.ec.europa.eu/validator/ or the most recent and accurate one |
-
-*Table 10: LC/LU relevant Quality Control Steps*
 
 In addition to the internal quality control performed by the Service
 providers in charge of production, the EEA performed an external
@@ -2851,6 +2875,12 @@ landscapes,” *Journal of Environmental Management,* vol. 249, November
 
 # Annexes
 
+<div class="tbl-caption">
+
+Table 11: Riparian Zones Delivery Units
+
+</div>
+
 | **Riparian Zones Delivery Units** |  |  |  |
 |----|----|----|----|
 | **No.** | **DU ID** | **Catchment Name(s) per Unit** | **RZ AoI Str. 2-9 \[km²\]** |
@@ -2898,8 +2928,6 @@ landscapes,” *Journal of Environmental Management,* vol. 249, November
 | 42 | DU042A | Iceland | 7.527,65 |
 | 43 | DU043A | Rhone and Coastal Mediterranean | 21.910,16 |
 | **Total area** |  |  | **805.177,34** |
-
-*Table 11: Riparian Zones Delivery Units*
 
 [^1]: contribute to climate change mitigation and adaptation, as well as
     sustainable energy; foster sustainable development and efficient

@@ -9,7 +9,6 @@
 | [CLCplus Backbone 2021 - Product User Manual](../products/CLCplus_Backbone_2021_PUM_v1.llms.md) | 1.2.2 | Jun 12, 2025 |
 | [CLCplus Backbone 2023 - Algorith Theoretical Basis Document](../products/CLCplus_Backbone_2023_ATBD_v1.llms.md) | 1.2.2 | Apr 1, 2025 |
 | [CLCplus Backbone 2023 – Product User Manual](../products/CLCplus_Backbone_2023_PUM_v1.llms.md) | 1.3.1 | Apr 1, 2025 |
-| [CLMS → CDSE Migration Status](../products/CDSE_Migration_CLMS_CDSE_Migration_Status.llms.md) | weekly | Jul 14, 2026 |
 | [Coastal Zones Monitoring 2012-2018 - Nomenclature Guideline](../products/Coastal_Zones_2012-2018_Nomenclature_Guideline_v1.llms.md) | 1.2.2 | Feb 15, 2021 |
 | [European Ground Motion Service (EGMS) - Algorithm Theoretical Basis Document](../products/European_Ground_Motion_Service_Algorithm_Theoretical_Basis_Document_v4.llms.md) | 4.0.1 | Aug 7, 2025 |
 | [European Ground Motion Service (EGMS) - GNSS calibration data](../products/European_Ground_Motion_Service_GNSS_Calibration_Data_v1.llms.md) | 1.0.1 | Apr 15, 2023 |
@@ -19,6 +18,8 @@
 | [High Resolution Layer Small Landscape Features 2021 – Product User Manual](../products/High_Resolution_Layer_Small_Landscape_Features_2021_PUM_v1.llms.md) | 1.0.0 | Apr 9, 2026 |
 | [High Resolution Layer Small Landscape Features 2021 – Product User Manual (PUM)](../products/High_Resolution_Layer_CLMS_PUM_HRLSLF_v1.llms.md) | 1.1.0 | Nov 4, 2025 |
 | [High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical Basis Document](../products/High_Resolution_Layer_Vegetated_Land_Cover_Characteristics_ATBD_v2.llms.md) | 2.2.1 | Jun 27, 2025 |
+| [Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Algorithm Theoretical Basis Document (ATBD)](../products/MRVPP_MRVPP_ATBD_v2.llms.md) | 2.2.0 | Jun 9, 2026 |
+| [Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Product User Manual (PUM)](../products/MRVPP_MRVPP_PUM_v1.llms.md) | 1.2.0 | Jun 18, 2026 |
 | [N2K 2006-2018 - Product User Manual](../products/N2K_2006-2018_PUM_v1.llms.md) | 1.0.2 | Jun 1, 2021 |
 | [Riparian Zones 2012-2018 - Nomenclature Guideline](../products/Riparian_Zones_2012-2018_Nomenclature_Guideline_v1.llms.md) | 1.5.2 | Dec 14, 2021 |
 | [Riparian Zones LC/LU and change 2012-2018 - Product User Manual](../products/Riparian_Zones_2012-2018_PUM_v1.llms.md) | 1.0.2 | Aug 1, 2023 |

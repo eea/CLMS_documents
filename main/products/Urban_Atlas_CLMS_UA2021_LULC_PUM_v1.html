@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3e4b792c78aaba79123027d3b782d07b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-81606b2d085324eee7eb30ab52c42792.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -91,26 +91,6 @@ ul.task-list li input[type="checkbox"] {
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "Copernicus Urban Atlas
-
-Land Use Land Cover
-
-Functional Urban Areas
-
-Very High Resolution imagery
-
-Sentinel-2 time series
-
-Change detection methodology
-
-Minimum Mapping Unit
-
-Green Urban Areas
-
-ETRS89 LAEA projection
-
-Local Climate Zones
-",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -215,7 +195,14 @@ Local Climate Zones
   document.addEventListener("DOMContentLoaded", function () {
     // Add Version to the title's metadata
     //
+    // Skip when there's no version (e.g. document-type with version off) so we
+    // don't render an empty "Version" heading, and when the doc has no
+    // title-meta block at all (nothing to append to). Quarto renders an unset
+    // meta key as the placeholder "?meta:version", so treat that as empty too.
+    const raw = `1.0.2`.trim();
+    const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
+    if (!version || !titleMetaEl) return;
     const wrapperDiv = document.createElement("div");
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
@@ -935,7 +922,9 @@ Figure&nbsp;4: Exception rule for the minimum mapping width
 <section id="ancillary-and-other-data" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="ancillary-and-other-data"><span class="header-section-number">8.2</span> Ancillary and other data</h2>
 <p>Several ancillary datasets were used to collect landcover information for the reference year 2021, which were then used for calibration and training of the classification models and/or for deriving additional layers used for masking purposes. The list of the datasets and their use is presented in the table below.</p>
+<div class="tbl-caption">
 <p>Table 1: Ancillary datasets used for UA 2021 production</p>
+</div>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1393,7 +1382,9 @@ Figure&nbsp;8: Examples of the public, private and unknown classes in Iasi, Roma
 </ol>
 <p>Four hierarchical levels are defined in the nomenclature for artificial surfaces (class 1) while only two are defined for the non-artificial ones (classes 2-5). The table below shows the LC/LU nomenclature providing class codes and descriptions and any information or ancillary data source useful for the product generation in addition to EO data.</p>
 <p>A decision matric below illustrate the rules followed to apply LC/LU nomenclature to each identified feature.</p>
+<div class="tbl-caption">
 <p>Table 2: UA LC/LU nomenclature (in bold, classes used in the products, without any further subdivision)</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 19%">
@@ -2163,6 +2154,30 @@ Figure&nbsp;8: Examples of the public, private and unknown classes in Iasi, Roma
 <li id="fn4"><p><a href="https://land.copernicus.eu/en/contact-service-helpdesk">Copernicus Land Monitoring Service – Service desk</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<!-- Mobile-only "Contents" button that reveals the section TOC, which the
+     full-width HTML layout hides on small screens. Styling is in
+     theme/styles.css (.toc-mobile-btn / body.toc-mobile-open). -->
+<script>
+(function () {
+  var toc = document.getElementById('TOC');
+  if (!toc) return; // no section TOC on this page (e.g. listings) -> no button
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toc-mobile-btn';
+  btn.setAttribute('aria-label', 'Toggle table of contents');
+  btn.innerHTML = '☰ Contents';
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('toc-mobile-open');
+  });
+  document.body.appendChild(btn);
+
+  // Tapping a TOC link closes the panel.
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a')) document.body.classList.remove('toc-mobile-open');
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

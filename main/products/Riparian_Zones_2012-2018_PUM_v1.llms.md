@@ -209,9 +209,11 @@ The table below summarises the technical specification of the Riparian Zones pro
 
 [TABLE]
 
-*Table 1: LC/LU 2012/2018 specifications*
+Table 1: LC/LU 2012/2018 specifications
 
 [TABLE]
+
+Table 2: LU/LC 2012/2018 shapefile attribute definition
 
 | **Class Coding / Attribution** |  |  |  | **Applicable Products** |
 |----|----|----|----|----|
@@ -237,8 +239,6 @@ The table below summarises the technical specification of the Riparian Zones pro
 | \[CHANGECODE\] | Change Class code of Level 4 for LC/LU 2018 & 2012 | String, Length 11 | 1111_1111 to 10000_10000 | Change |
 | \[AREA_HA\] | Area in hectare \[ha\] | Double | 0.001 to 1.8E308 | Status, Change |
 | **Metadata:** ISO TC 211 compliant according to INSPIRE metadata standards in XML format |  |  |  |  |
-
-*Table 2: LU/LC 2012/2018 shapefile attribute definition*
 
 ### 5.1.1 Product File Nomenclature
 
@@ -346,6 +346,8 @@ The PSIL contains the following specifications shown in Table 4.
 
   
 
+Table 4: PSIL 2012 shapefile attribute definition
+
 |  | **Class Coding / Attribution** |  |  |  |
 |----|----|----|----|----|
 | **Field** | **Description** | **Definition ArcGIS** | **Definition QGIS** | **Value(s)** |
@@ -363,9 +365,9 @@ The PSIL contains the following specifications shown in Table 4.
 | \[Shape_Leng\] | Total length of the polygon perimeter, in the units used by the feature class’ coordinate system | Double, Precision 0, Scale 0 |  |  |
 | \[Shape_Area\] | The area of each polygon in the dataset | Double, Precision 0, Scale 0 |  |  |
 
-*Table 4: PSIL 2012 shapefile attribute definition*
-
   
+
+Table 5: PSIL 2018 shapefile attribute definition
 
 |  | **Class Coding / Attribution** |  |  |  |
 |----|----|----|----|----|
@@ -382,9 +384,9 @@ The PSIL contains the following specifications shown in Table 4.
 | \[ProdName\] | Identifier of the specific product | String, Length 10 | String, Length 10 | RZ2018 |
 | \[DeliveryID\] | Identifier of the Delivery Unit | String, Length 10 | String, Length 10 | Prod_ID |
 
-*Table 5: PSIL 2018 shapefile attribute definition*
-
   
+
+Table 6: List of allowed \[Sensor\] entries
 
 | **Entry for \[Sensor\]** | **Description**                |
 |--------------------------|--------------------------------|
@@ -406,8 +408,6 @@ The PSIL contains the following specifications shown in Table 4.
 | DM02                     | Deimos-02                      |
 | TR00                     | TripleSat                      |
 | S2A/B                    | Nominal Sentinel 2 Acquisition |
-
-*Table 6: List of allowed \[Sensor\] entries*
 
 # 6 Product methodology and workflow
 
@@ -885,9 +885,9 @@ The LC/LU product is subject to a permanent Quality Control by experienced image
 
 [TABLE]
 
-[TABLE]
+Table 10: LC/LU relevant Quality Control Steps
 
-*Table 10: LC/LU relevant Quality Control Steps*
+[TABLE]
 
 In addition to the internal quality control performed by the Service providers in charge of production, the EEA performed an external thematic validation available at [Microsoft Word - CLMS_RZ_LCLU_Validation_Report_SC04_1_3.docx (copernicus.eu)](https://land.copernicus.eu/user-corner/technical-library/riparian_zones_validation_report_2018_partial).
 
@@ -1060,6 +1060,8 @@ Product technical support is provided by the product custodian through Copernicu
 
 # 11 Annexes
 
+Table 11: Riparian Zones Delivery Units
+
 | **Riparian Zones Delivery Units** |  |  |  |
 |----|----|----|----|
 | **No.** | **DU ID** | **Catchment Name(s) per Unit** | **RZ AoI Str. 2-9 \[km²\]** |
@@ -1108,11 +1110,12 @@ Product technical support is provided by the product custodian through Copernicu
 | 43 | DU043A | Rhone and Coastal Mediterranean | 21.910,16 |
 | **Total area** |  |  | **805.177,34** |
 
-*Table 11: Riparian Zones Delivery Units*
-
 # 12 Change Log
 
-[TABLE]
+| Date | Version | Summary |
+|----|----|----|
+| 2026-06-03 | 1.0.2 | • Standardised YAML frontmatter formatting and reordered fields. • Added explicit width attributes to numerous images for consistent rendering. • Improved table formatting across various sections. • Corrected the '\`+/-\`' symbol to '\`±\`' for consistency. • Added explicit column width definitions to various tables. • Removed obsolete page breaks throughout the document. |
+| 2026-02-10 | 1.0.1 | Document maintenance updates to include '2012-2018' in the file name and title for consistency. Image paths updated to reflect the new file name structure. |
 
 Back to top
 

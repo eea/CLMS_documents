@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3e4b792c78aaba79123027d3b782d07b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-81606b2d085324eee7eb30ab52c42792.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -91,26 +91,6 @@ ul.task-list li input[type="checkbox"] {
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "Natura 2000 sites
-
-Land Cover/Land Use
-
-Very High Resolution imagery
-
-Minimum Mapping Unit
-
-visual image interpretation
-
-ESRI file geodatabase
-
-ETRS89 Lambert Azimuthal Equal Area
-
-thematic classification accuracy
-
-change detection
-
-MAES ecosystem types
-",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -207,7 +187,14 @@ MAES ecosystem types
   document.addEventListener("DOMContentLoaded", function () {
     // Add Version to the title's metadata
     //
+    // Skip when there's no version (e.g. document-type with version off) so we
+    // don't render an empty "Version" heading, and when the doc has no
+    // title-meta block at all (nothing to append to). Quarto renders an unset
+    // meta key as the placeholder "?meta:version", so treat that as empty too.
+    const raw = `1.0.2`.trim();
+    const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
+    if (!version || !titleMetaEl) return;
     const wrapperDiv = document.createElement("div");
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
@@ -3741,13 +3728,11 @@ Denmark<br>
 <tr class="odd">
 <td>2026-06-03</td>
 <td>1.0.2</td>
-<td><ul>
-<li>Standardised YAML frontmatter formatting and reordered fields.</li>
-<li>Added explicit width attributes to numerous images for consistent rendering.</li>
-<li>Improved table formatting across various sections and added explicit column width definitions.</li>
-<li>Corrected the '`+/-`' symbol to '`±`' for consistency.</li>
-<li>Removed obsolete page breaks throughout the document.</li>
-</ul></td>
+<td>• Standardised YAML frontmatter formatting and reordered fields.
+• Added explicit width attributes to numerous images for consistent rendering.
+• Improved table formatting across various sections and added explicit column width definitions.
+• Corrected the '`+/-`' symbol to '`±`' for consistency.
+• Removed obsolete page breaks throughout the document.</td>
 </tr>
 <tr class="even">
 <td>2026-02-10</td>
@@ -3771,6 +3756,30 @@ Denmark<br>
 <li id="fn2"><p>Performed by the Service provider after production and before delivery to the EEA<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<!-- Mobile-only "Contents" button that reveals the section TOC, which the
+     full-width HTML layout hides on small screens. Styling is in
+     theme/styles.css (.toc-mobile-btn / body.toc-mobile-open). -->
+<script>
+(function () {
+  var toc = document.getElementById('TOC');
+  if (!toc) return; // no section TOC on this page (e.g. listings) -> no button
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toc-mobile-btn';
+  btn.setAttribute('aria-label', 'Toggle table of contents');
+  btn.innerHTML = '☰ Contents';
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('toc-mobile-open');
+  });
+  document.body.appendChild(btn);
+
+  // Tapping a TOC link closes the panel.
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a')) document.body.classList.remove('toc-mobile-open');
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

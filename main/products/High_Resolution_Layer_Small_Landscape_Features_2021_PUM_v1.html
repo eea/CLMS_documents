@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3e4b792c78aaba79123027d3b782d07b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-81606b2d085324eee7eb30ab52c42792.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -91,26 +91,6 @@ ul.task-list li input[type="checkbox"] {
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "Small Landscape Features
-
-Woody Vegetation Layer
-
-Change detection
-
-Copernicus Land Monitoring Service
-
-High Resolution Layer
-
-Remote sensing
-
-Environmental monitoring
-
-Landscape management
-
-Sentinel-2 data
-
-Urban Atlas
-",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -223,7 +203,14 @@ Urban Atlas
   document.addEventListener("DOMContentLoaded", function () {
     // Add Version to the title's metadata
     //
+    // Skip when there's no version (e.g. document-type with version off) so we
+    // don't render an empty "Version" heading, and when the doc has no
+    // title-meta block at all (nothing to append to). Quarto renders an unset
+    // meta key as the placeholder "?meta:version", so treat that as empty too.
+    const raw = `1.0.0`.trim();
+    const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
+    if (!version || !titleMetaEl) return;
     const wrapperDiv = document.createElement("div");
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
@@ -348,7 +335,9 @@ Denmark<br>
 <li><p>Street Tree Layer (STL): previously part of the Urban Atlas suite, this layer aims at mapping woody vegetation within artificial areas of Urban Atlas Functional Urban Areas (FUA)</p></li>
 <li><p>Crop Mask: Derived from HRL NVLCC, this layer provides information about crops location and areas where geometrical rules are applied differently to derive valid SWF.</p></li>
 </ul>
+<div class="tbl-caption">
 <p>Table 1: SWF key features through the years</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 23%">
@@ -482,7 +471,9 @@ Figure&nbsp;1: Share of agricultural area (AA) covered with woody landscape feat
 </ul>
 <p>No height differentiation (trees vs.&nbsp;scrubs/bushes) is applied.</p>
 <p>Elements to be included or excluded in Small Woody Features 2021 are summarised in Table 2.</p>
+<div class="tbl-caption">
 <p>Table 2: Thematic definition of SWF 2021</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 46%">
@@ -1266,7 +1257,9 @@ Figure&nbsp;1: Share of agricultural area (AA) covered with woody landscape feat
 </section>
 <section id="sec-annexes" class="level1" data-number="12">
 <h1 data-number="12"><span class="header-section-number">12</span> Annexes</h1>
+<div class="tbl-caption">
 <p>Table 3: Attribute table of the PSIL</p>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 19%">
@@ -1453,6 +1446,30 @@ Figure&nbsp;1: Share of agricultural area (AA) covered with woody landscape feat
 <li id="fn6"><p><a href="https://land.copernicus.eu/en/contact-service-helpdesk">Copernicus Land Monitoring Service – Service desk</a><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<!-- Mobile-only "Contents" button that reveals the section TOC, which the
+     full-width HTML layout hides on small screens. Styling is in
+     theme/styles.css (.toc-mobile-btn / body.toc-mobile-open). -->
+<script>
+(function () {
+  var toc = document.getElementById('TOC');
+  if (!toc) return; // no section TOC on this page (e.g. listings) -> no button
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toc-mobile-btn';
+  btn.setAttribute('aria-label', 'Toggle table of contents');
+  btn.innerHTML = '☰ Contents';
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('toc-mobile-open');
+  });
+  document.body.appendChild(btn);
+
+  // Tapping a TOC link closes the panel.
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a')) document.body.classList.remove('toc-mobile-open');
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

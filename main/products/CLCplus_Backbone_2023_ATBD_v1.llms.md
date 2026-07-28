@@ -502,7 +502,11 @@ More information on the products can be found on the Copernicus Land Monitoring 
 
 # 9 Change Log
 
-[TABLE]
+| Date | Version | Summary |
+|----|----|----|
+| 2026-06-03 | 1.2.2 | • Corrected markdown escaping for asterisks in file format descriptions • Added explicit width attributes for all embedded images • Standardised YAML frontmatter keys and formatting • Improved table header rendering for consistency |
+| 2026-02-10 | 1.2.1 | Document maintenance updates to the file name. |
+| 2025-12-02 | 1.2.0 | Initial release |
 
 Back to top
 

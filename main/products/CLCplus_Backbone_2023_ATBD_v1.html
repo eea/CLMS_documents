@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3e4b792c78aaba79123027d3b782d07b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-81606b2d085324eee7eb30ab52c42792.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -91,26 +91,6 @@ ul.task-list li input[type="checkbox"] {
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "Algorithm Theoretical Basis
-
-Land cover classification
-
-Sentinel-2 data
-
-Time series analysis
-
-Temporal Convolutional Neural Network
-
-Deep learning
-
-Bilateral filtering
-
-Interannual calibration
-
-Remote sensing
-
-Geospatial analysis
-",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -234,7 +214,14 @@ window.Quarto = {
   document.addEventListener("DOMContentLoaded", function () {
     // Add Version to the title's metadata
     //
+    // Skip when there's no version (e.g. document-type with version off) so we
+    // don't render an empty "Version" heading, and when the doc has no
+    // title-meta block at all (nothing to append to). Quarto renders an unset
+    // meta key as the placeholder "?meta:version", so treat that as empty too.
+    const raw = `1.2.2`.trim();
+    const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
+    if (!version || !titleMetaEl) return;
     const wrapperDiv = document.createElement("div");
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
@@ -888,12 +875,10 @@ M^{max}_{meas}=\sqrt[2]{2}=1.414...
 <tr class="odd">
 <td>2026-06-03</td>
 <td>1.2.2</td>
-<td><ul>
-<li>Corrected markdown escaping for asterisks in file format descriptions</li>
-<li>Added explicit width attributes for all embedded images</li>
-<li>Standardised YAML frontmatter keys and formatting</li>
-<li>Improved table header rendering for consistency</li>
-</ul></td>
+<td>• Corrected markdown escaping for asterisks in file format descriptions
+• Added explicit width attributes for all embedded images
+• Standardised YAML frontmatter keys and formatting
+• Improved table header rendering for consistency</td>
 </tr>
 <tr class="even">
 <td>2026-02-10</td>
@@ -917,6 +902,30 @@ M^{max}_{meas}=\sqrt[2]{2}=1.414...
 <li id="fn2"><p>This issue has been described in S2 MPC - Level-2A Algorithm Theoretical Basis Document (Ref. S2-PDGS-MPC-ATBDL2A; https://step.esa.int/thirdparties/sen2cor/2.10.0/docs/S2-PDGS-MPC-L2A-ATBD-V2.10.0.pdf)<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<!-- Mobile-only "Contents" button that reveals the section TOC, which the
+     full-width HTML layout hides on small screens. Styling is in
+     theme/styles.css (.toc-mobile-btn / body.toc-mobile-open). -->
+<script>
+(function () {
+  var toc = document.getElementById('TOC');
+  if (!toc) return; // no section TOC on this page (e.g. listings) -> no button
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toc-mobile-btn';
+  btn.setAttribute('aria-label', 'Toggle table of contents');
+  btn.innerHTML = '☰ Contents';
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('toc-mobile-open');
+  });
+  document.body.appendChild(btn);
+
+  // Tapping a TOC link closes the panel.
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a')) document.body.classList.remove('toc-mobile-open');
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

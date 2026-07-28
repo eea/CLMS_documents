@@ -793,7 +793,10 @@ Estimated_Acc_And_Std = [EstimatedAcceleration EstimatedSTD_Acc]
 
 # 13 Change Log
 
-[TABLE]
+| Date | Version | Summary |
+|----|----|----|
+| 2026-06-03 | 3.0.1 | • Standardised YAML frontmatter formatting and reordered fields. • Added explicit width attributes to numerous images for consistent rendering. • Improved table formatting across various sections and added explicit column width definitions. • Corrected the '\`+/-\`' symbol to '\`±\`' for consistency. • Escaped asterisks in file naming convention examples. • Removed obsolete page breaks throughout the document. |
+| 2025-12-03 | 3.0.0 | Initial release |
 
 Back to top
 

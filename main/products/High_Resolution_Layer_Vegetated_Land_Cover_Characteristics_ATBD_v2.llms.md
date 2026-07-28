@@ -1194,7 +1194,11 @@ The Tree Cover Presence Change is defined with a Minimum Mapping Unit (MMU) of 1
 
 # 8 Change Log
 
-[TABLE]
+| Date | Version | Summary |
+|----|----|----|
+| 2026-06-03 | 2.2.1 | • Standardised YAML frontmatter formatting and reordered fields. • Added explicit width attributes to numerous images for consistent rendering. • Improved table formatting across various sections and added new footnotes. • Corrected the '\`+/-\`' symbol to '\`±\`' for consistency. • Refined the description of the Forest Type (FTY) layer, adding details about GDALSieve and GDALFillNodata. • Removed obsolete page breaks. |
+| 2026-02-10 | 2.2.0 | • Revised executive summary for clarity and conciseness. • Updated the description of the Base Vegetation Layer. • Added clarifications on handling TCD artefacts. • Minor edits to wording in various sections. |
+| 2025-12-02 | 2.1.0 | Initial release |
 
 Back to top
 

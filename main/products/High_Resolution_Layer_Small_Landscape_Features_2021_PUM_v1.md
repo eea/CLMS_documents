@@ -280,7 +280,11 @@ including existing SWF layers, but also includes new products:
   about crops location and areas where geometrical rules are applied
   differently to derive valid SWF.
 
+<div class="tbl-caption">
+
 Table 1: SWF key features through the years
+
+</div>
 
 | Product reference year | 2015 | 2018 | 2021 |
 |----|----|----|----|
@@ -514,7 +518,11 @@ No height differentiation (trees vs. scrubs/bushes) is applied.
 Elements to be included or excluded in Small Woody Features 2021 are
 summarised in Table 2.
 
+<div class="tbl-caption">
+
 Table 2: Thematic definition of SWF 2021
+
+</div>
 
 | Elements included in small woody features | Elements excluded from small woody features |
 |----|----|
@@ -1384,7 +1392,11 @@ Monitoring Service website (https://land.copernicus.eu/)
 
 # Annexes
 
+<div class="tbl-caption">
+
 Table 3: Attribute table of the PSIL
+
+</div>
 
 | Field | Description | Sample |
 |----|----|----|

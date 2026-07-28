@@ -81,7 +81,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3e4b792c78aaba79123027d3b782d07b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-81606b2d085324eee7eb30ab52c42792.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -128,30 +128,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
       }
     },
-    "keywords": "CLMS Technical Library
-
-Quarto documentation
-
-Markdown authoring
-
-Git subtree integration
-
-Document publishing workflow
-
-Versioning strategy
-
-RStudio editing environment
-
-ATBD templates
-
-PUM templates
-
-YAML header configuration
-
-Local document previewing
-
-Release path management
-",
     "articleSection": "General",
     "isAccessibleForFree": "true",
     "license": "",
@@ -245,7 +221,14 @@ Release path management
   document.addEventListener("DOMContentLoaded", function () {
     // Add Version to the title's metadata
     //
+    // Skip when there's no version (e.g. document-type with version off) so we
+    // don't render an empty "Version" heading, and when the doc has no
+    // title-meta block at all (nothing to append to). Quarto renders an unset
+    // meta key as the placeholder "?meta:version", so treat that as empty too.
+    const raw = `1.2.0`.trim();
+    const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
+    if (!version || !titleMetaEl) return;
     const wrapperDiv = document.createElement("div");
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
@@ -629,23 +612,19 @@ Tip
 <tr class="odd">
 <td>2026-06-03</td>
 <td>1.2.0</td>
-<td><ul>
-<li>Major restructuring and rewrite of the manual to focus on practical editing aspects for the CLMS Technical Library.</li>
-<li>Updated document title to 'Editor Guide' and revised its description.</li>
-<li>Removed extensive sections on Quarto and Markdown basics, software installation, detailed rendering, and troubleshooting.</li>
-<li>Added new simplified sections on document lifecycle, publishing flow, folder and file structure, naming conventions, versioning, and restoring previous versions.</li>
-<li>Updated the document date.</li>
-</ul></td>
+<td>• Major restructuring and rewrite of the manual to focus on practical editing aspects for the CLMS Technical Library.
+• Updated document title to 'Editor Guide' and revised its description.
+• Removed extensive sections on Quarto and Markdown basics, software installation, detailed rendering, and troubleshooting.
+• Added new simplified sections on document lifecycle, publishing flow, folder and file structure, naming conventions, versioning, and restoring previous versions.
+• Updated the document date.</td>
 </tr>
 <tr class="even">
 <td>2026-02-10</td>
 <td>1.1.0</td>
-<td><ul>
-<li>Extended explanation for `git docs-restore` functionality.</li>
-<li>Added major version upgrade process explanation.</li>
-<li>Added more precise instructions.</li>
-<li>Minor edits to wording in various sections.</li>
-</ul></td>
+<td>• Extended explanation for `git docs-restore` functionality.
+• Added major version upgrade process explanation.
+• Added more precise instructions.
+• Minor edits to wording in various sections.</td>
 </tr>
 <tr class="odd">
 <td>2025-12-03</td>
@@ -657,6 +636,30 @@ Tip
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<!-- Mobile-only "Contents" button that reveals the section TOC, which the
+     full-width HTML layout hides on small screens. Styling is in
+     theme/styles.css (.toc-mobile-btn / body.toc-mobile-open). -->
+<script>
+(function () {
+  var toc = document.getElementById('TOC');
+  if (!toc) return; // no section TOC on this page (e.g. listings) -> no button
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toc-mobile-btn';
+  btn.setAttribute('aria-label', 'Toggle table of contents');
+  btn.innerHTML = '☰ Contents';
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('toc-mobile-open');
+  });
+  document.body.appendChild(btn);
+
+  // Tapping a TOC link closes the panel.
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a')) document.body.classList.remove('toc-mobile-open');
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

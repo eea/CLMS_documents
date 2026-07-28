@@ -490,7 +490,10 @@ In conclusion, we can produce a few main recommendations that should be taken up
 
 # 6 Change Log
 
-[TABLE]
+| Date | Version | Summary |
+|----|----|----|
+| 2026-06-03 | 1.0.1 | • Updated URL encoding for a reference link in the introduction • Applied consistent width formatting to all embedded images • Removed an unnecessary page break instruction • Minor updates to section anchor IDs for consistency |
+| 2025-12-03 | 1.0.0 | Initial release |
 
 Back to top
 

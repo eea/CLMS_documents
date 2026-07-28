@@ -1499,7 +1499,10 @@ UA 2018 STL FIELD DESCRIPTION {.caption-top .table}
 
 # 7 Change Log
 
-[TABLE]
+| Date | Version | Summary |
+|----|----|----|
+| 2026-06-03 | 6.3.1 | • Corrected 'plus/minus' signs to '±' for positional accuracy • Updated image formatting to include explicit width attributes • Improved table header formatting for better rendering • Removed unnecessary pagebreak shortcodes • Clarified wording in a LU/LC nomenclature table from 'data / field check' to 'data or field check' |
+| 2025-12-02 | 6.3.0 | Initial release |
 
 Back to top
 

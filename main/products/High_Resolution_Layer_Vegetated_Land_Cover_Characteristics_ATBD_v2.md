@@ -395,8 +395,12 @@ processing.
 The rules summarized in Table 1 are processed hierarchically so that
 latter rules overwrite the result of a previous rule for the same pixel:
 
+<div class="tbl-caption">
+
 Table 1: Overview of post-processing rules for the derivation of the
 harmonized annual BVLs.
+
+</div>
 
 | Rule \# | Rule | Purpose |
 |----|----|----|
@@ -2075,8 +2079,12 @@ an “MLP classification head” (Multi-Layer Perceptron classification
 head). 5. The final **Pixel-based output** consists of the “Crop type
 label & confidence”.
 
+<div class="tbl-caption">
+
 Table 3: Overview of the used training points per dataset and year for
 the CTY model training
+
+</div>
 
 | Country/Region           | Years                  | Number training points |
 |--------------------------|------------------------|------------------------|
@@ -2679,8 +2687,12 @@ The expert rules for season labelling are described below:
 If no main season is detected for a specific field in a certain
 reference year also no secondary crop season information is provided.
 
+<div class="tbl-caption">
+
 Table 4: Expert rules with seasonal limits for season delineation based
 on emergence and harvest input.
+
+</div>
 
 | Type season | Zone | Sub-seasonality | Emergence period | Harvest period |
 |----|----|----|----|----|
@@ -2693,8 +2705,12 @@ on emergence and harvest input.
 | Secondary season | 2 | Before main season | (01/01\_{()})(/03\_{(y e a r)}) | (01/01\_{()})(/03\_{(y e a r)}) |
 | Secondary season | 2 | After main season | 1 (5/06\_{()}/03\_{(+1)}) | 1 (5/06\_{()}/03\_{(+1)}) |
 
+<div class="tbl-caption">
+
 Table 5: Translation of Metzger environmental zones into a zone used
 with the same season delineation limits.
+
+</div>
 
 | Environmental zone (Metzger) | Zone |
 |------------------------------|------|

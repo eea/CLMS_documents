@@ -151,7 +151,11 @@ The present section describes in detail the methodology applied for the
 production of all the HRL SLF 2021 layers, including the change layer
 2018-2021.
 
+<div class="tbl-caption">
+
 Table 1: Overview table of methodology
+
+</div>
 
 | Category Title | Description/Details |
 |----|----|
@@ -272,7 +276,11 @@ training of the classification models and/or for deriving additional
 layers used for masking purposes. The list of the datasets and their use
 is presented in the table below.
 
+<div class="tbl-caption">
+
 Table 2: Ancillary datasets used for HRL SLF production
+
+</div>
 
 | Source | Use | Reference |
 |----|----|----|
@@ -654,7 +662,11 @@ without any clipping.
 The key layers generated from the Sentinel-2 preprocessing that directly
 serve as input for the deep learning algorithm are the following:
 
+<div class="tbl-caption">
+
 Table 3: Parameters for S2 time series analysis
+
+</div>
 
 | Parameter Name | Bands | Total number of layers |
 |----|----|----|
@@ -875,7 +887,11 @@ overview, the following steps are applied:
 The primary goal of these steps was to derive properties that are needed
 for the application of the specifications summarized in Table 4 below:
 
+<div class="tbl-caption">
+
 Table 4: Geometric specifications of SWF
+
+</div>
 
 |             | Linear Structures | Patchy Structures         |
 |-------------|-------------------|---------------------------|

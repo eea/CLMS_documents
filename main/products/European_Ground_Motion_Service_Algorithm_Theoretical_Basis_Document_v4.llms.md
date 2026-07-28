@@ -1530,7 +1530,10 @@ L3 products are derived from L2b products following the rationale and the approa
 
 # 12 Change Log
 
-[TABLE]
+| Date | Version | Summary |
+|----|----|----|
+| 2026-06-03 | 4.0.1 | • Standardised YAML frontmatter formatting and reordered fields. • Added explicit width attributes to numerous images for consistent rendering. • Improved table formatting across various sections. • Corrected the '\`+/-\`' symbol to '\`±\`' for consistency. • Escaped square brackets in '\[Optional\]:' notations. • Removed obsolete page breaks throughout the document. |
+| 2025-12-03 | 4.0.0 | Initial release |
 
 Back to top
 
