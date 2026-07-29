@@ -130,14 +130,7 @@ header .sub { color: var(--text-dim); font-size: 13px; margin-left: auto; }
 <div class="main">
   <!-- Sidebar -->
   <div class="sidebar">
-    <h3>API Connection</h3>
-    <div class="form-row">
-      <label>API URL</label>
-      <input id="api-url" value="" placeholder="empty (same origin) or http://host:8000">
-    </div>
-    <button class="btn btn-sm btn-primary" onclick="connectAPI()">Connect</button>
-
-    <h3 style="margin-top:8px">Schema Family</h3>
+    <h3>Schema Family</h3>
     <select id="family-select" onchange="onFamilyChange()" disabled>
       <option value="">— Select —</option>
     </select>
@@ -554,7 +547,20 @@ function copyText(elId) {
 
 // Auto-connect on load
 document.addEventListener('DOMContentLoaded', () => {
-  connectAPI();
+  API_BASE = '';
+  const dot = document.getElementById('conn-dot');
+  dot.className = 'conn-dot pending';
+  apiJSON('/api/health')
+    .then(d => {
+      dot.className = 'conn-dot ok';
+      document.getElementById('conn-text').textContent = 'Connected';
+      document.getElementById('api-version').textContent = 'v' + (d.version || '?');
+      loadFamilies();
+    })
+    .catch(e => {
+      dot.className = 'conn-dot ko';
+      document.getElementById('conn-text').textContent = 'Connection failed';
+    });
 });
 </script>
 </body>
