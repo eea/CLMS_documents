@@ -1,21 +1,221 @@
 ---
-title: "ParsEO Dashboard"
-subtitle: "CLMS Filename Builder &amp; Schema Tool"
-category: tools
-date: '2026-07-29'
-description: "Interactive web tool for building, parsing, and validating CLMS filenames using the parsEO API."
+title: "parsEO — CLMS Filename Builder"
+subtitle: "Assemble, parse & validate CLMS filenames"
+author: "European Environment Agency (EEA)"
+date: 2026-07-29
+category: non-browsable
+type: dashboard
+format:
+  html:
+    toc: false
+    page-layout: full
+    smooth-scroll: true
 ---
 
-The parsEO dashboard lets you build CLMS filenames by clicking through schema fields, parse existing filenames, and validate schema JSON files — all powered by the parsEO API.
 
-[Open the Dashboard &rarr;](dashboard.html)
 
-> The dashboard connects to `parseo.mattiuzzi.com` for API calls. Make sure you have network access to it.
+```{ojs}
+// ── parsEO API base ──
+const API = "https://parseo.mattiuzzi.com";
 
-### Features
+// ── State ──
+const families = view(Inputs.select(new Map(), {label: "Family", value: ""}));
+const versions = Mutable([]);
+const currentVersion = Mutable("");
+const fieldValues = Mutable({});
+const selectedFamily = Mutable("");
+const familySchemas = Mutable({});
 
-- **Clickable chip-tree** — build filenames by selecting values pill-by-pill
-- **Live preview** — see the assembled filename update instantly
-- **Parse** — paste a filename and get its parsed fields
-- **Validate** — paste a schema JSON and run validation checks
-- **Schema browser** — explore all parsEO schema families and versions
+// ── Load families on startup ──
+const familiesData = await fetch(API + "/api/families")
+  .then(r => r.ok ? r.json() : {families: []})
+  .catch(() => ({families: []}));
+
+// Update family selector
+families.value = new Map(
+  familiesData.families.sort().map(f => [f, f])
+);
+families.dispatchEvent(new Event("input"));
+
+// ── When family changes, load versions ──
+async function onFamilyChange(family) {
+  if (!family) return;
+  selectedFamily.value = family;
+  const data = await fetch(`${API}/api/families/${family}/versions`)
+    .then(r => r.ok ? r.json() : {versions: []})
+    .catch(() => ({versions: []}));
+  versions.value = data.versions || [];
+  currentVersion.value = versions.value.length ? versions.value[versions.value.length - 1] : "";
+  
+  // Load schema for latest version
+  if (currentVersion.value) {
+    const schema = await fetch(`${API}/api/families/${family}/schemas/${currentVersion.value}`)
+      .then(r => r.ok ? r.json() : null)
+      .catch(() => null);
+    if (schema) {
+      familySchemas.value = schema;
+      // Auto-fill single-enum fields
+      const fv = {};
+      for (const [name, def] of Object.entries(schema.fields || {})) {
+        if (def.enum && def.enum.length === 1) fv[name] = def.enum[0];
+        if (name === "programme") fv[name] = "CLMS";
+        if (name === "extension") fv[name] = "tif";
+      }
+      fieldValues.value = fv;
+    }
+  }
+}
+
+// ── Version selector ──
+const versionPicker = versions.value.length > 0
+  ? Inputs.select(versions.value, {label: "Version", value: currentVersion.value})
+  : html`<span style="color:var(--muted)">No versions</span>`;
+
+if (versionPicker.tagName === "SELECT") {
+  versionPicker.addEventListener("input", async () => {
+    currentVersion.value = versionPicker.value;
+    const schema = await fetch(`${API}/api/families/${selectedFamily.value}/schemas/${currentVersion.value}`)
+      .then(r => r.ok ? r.json() : null)
+      .catch(() => null);
+    if (schema) familySchemas.value = schema;
+  });
+}
+
+// ── Assemble filename ──
+async function assemble(fields) {
+  if (!fields || Object.keys(fields).length === 0) return "";
+  const data = await fetch(API + "/api/assemble", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({family: selectedFamily.value, version: currentVersion.value, fields})
+  }).then(r => r.ok ? r.json() : null).catch(() => null);
+  return data?.filename || "";
+}
+
+// ── Render field chips ──
+function renderField(name, def, values, onSelect) {
+  const label = name.replace(/_/g, " ");
+  const current = values[name] || "";
+  let el;
+  
+  if (def.enum && def.enum.length <= 30) {
+    // Chips mode
+    el = html`<div style="margin:4px 0">
+      <div style="font-size:11px;color:var(--muted);margin-bottom:3px;text-transform:uppercase;letter-spacing:.3px">
+        ${label}${current ? html` <span style="color:var(--theme-primary, #5b8def);font-weight:600">· ${current}</span>` : ""}
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:4px">
+        ${def.enum.map(v => html`<button style="
+          padding:3px 10px;border:1px solid var(--border,#2e3148);border-radius:14px;
+          background:${v === current ? "var(--theme-primary,#5b8def)" : "var(--bg2,#242736)"};
+          color:${v === current ? "#fff" : "var(--text,#e4e6f0)"};
+          cursor:pointer;font-size:12px;transition:all .1s;font-family:inherit"
+          onclick=${() => onSelect(name, v)}>${v}</button>`)}
+      </div>
+    </div>`;
+  } else {
+    // Input mode
+    el = html`<div style="margin:4px 0">
+      <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px">${label}</label>
+      <input style="
+        width:100%;padding:6px 10px;background:var(--bg2,#242736);border:1px solid var(--border,#2e3148);
+        border-radius:6px;color:var(--text,#e4e6f0);font-size:13px;font-family:inherit;margin-top:2px"
+        value=${current} placeholder=${def.pattern ? "regex: " + def.pattern.slice(0,30) : label}
+        oninput=${(e) => onSelect(name, e.target.value)}>
+    </div>`;
+  }
+  return el;
+}
+
+// ── Parse tab ──
+async function doParse(fn) {
+  if (!fn) return "Enter a filename.";
+  const data = await fetch(API + "/api/parse", {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({filename: fn})
+  }).then(r => r.ok ? r.json() : null).catch(() => null);
+  if (!data?.parsed) return "Parse failed.";
+  return html`<pre style="font-size:12px;line-height:1.5">${JSON.stringify(data.parsed, null, 2)}</pre>`;
+}
+
+// ── Validate tab ──
+async function doValidate(json) {
+  let schema;
+  try { schema = JSON.parse(json); } catch(e) { return html`<div style="color:var(--red)">Invalid JSON: ${e.message}</div>`; }
+  const data = await fetch(API + "/api/validate", {
+    method: "POST", headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({schema})
+  }).then(r => r.ok ? r.json() : null).catch(() => null);
+  if (!data) return "Validation failed.";
+  return html`<div>
+    ${data.valid
+      ? html`<div style="color:var(--green);font-weight:600">\u2713 Valid (${data.errors.length} errors, ${data.warnings.length} warnings)</div>`
+      : html`<div style="color:var(--red);font-weight:600">\u2717 Invalid</div>`}
+    ${data.errors.map(e => html`<div style="color:var(--red);font-size:12px;padding:4px 0">\u00b7 ${e}</div>`)}
+    ${data.warnings.map(w => html`<div style="color:var(--orange);font-size:12px;padding:4px 0">\u00b7 ${w}</div>`)}
+  </div>`;
+}
+```
+
+## Filename Builder
+
+<div class="grid">
+  <div class="g-col-4">
+    <div style="background:var(--bg2,#1a1d27);border:1px solid var(--border,#2e3148);border-radius:8px;padding:16px">
+      ${families}
+      ${versionPicker}
+      <hr style="border-color:var(--border,#2e3148);margin:12px 0">
+      <div id="field-chips">
+        ${familySchemas.value?.fields ? Object.entries(familySchemas.value.fields).map(([name, def]) => {
+          if (name === "extension") return null;
+          return renderField(name, def, fieldValues.value, (n, v) => {
+            fieldValues.value = {...fieldValues.value, [n]: v};
+            assemble(fieldValues.value).then(fn => {
+              const el = document.getElementById("filename-preview");
+              if (el) el.textContent = fn || "\u2014";
+            });
+          });
+        }) : html`<span style="color:var(--muted);font-size:13px">Select a family first.</span>`}
+      </div>
+    </div>
+  </div>
+  <div class="g-col-8">
+    <div style="background:var(--bg2,#1a1d27);border:1px solid var(--border,#2e3148);border-radius:8px;padding:20px;margin-bottom:16px">
+      <div style="font-size:10px;text-transform:uppercase;color:var(--muted);letter-spacing:.5px;margin-bottom:6px">Assembled Filename</div>
+      <div id="filename-preview" style="font-family:var(--mono,monospace);font-size:15px;word-break:break-all;color:var(--text,#e4e6f0);min-height:30px">\u2014</div>
+      ${familySchemas.value?.examples ? html`
+        <div style="margin-top:12px;font-size:10px;text-transform:uppercase;color:var(--muted);letter-spacing:.5px;margin-bottom:4px">Examples</div>
+        ${familySchemas.value.examples.slice(0,3).map(ex => html`<div style="font-family:var(--mono,monospace);font-size:12px;color:var(--muted);padding:2px 0">${ex}</div>`)}
+      ` : ""}
+    </div>
+
+    <div style="display:flex;gap:16px;flex-wrap:wrap">
+      <div style="flex:1;min-width:300px;background:var(--bg2,#1a1d27);border:1px solid var(--border,#2e3148);border-radius:8px;padding:16px">
+        <div style="font-size:11px;text-transform:uppercase;color:var(--muted);letter-spacing:.3px;margin-bottom:8px">Parse a Filename</div>
+        <input id="parse-input" style="width:100%;padding:6px 10px;background:var(--bg,#0f1117);border:1px solid var(--border,#2e3148);border-radius:6px;color:var(--text);font-family:var(--mono,monospace);font-size:12px;margin-bottom:8px" placeholder="CLMS_HRLVLCC_GRA_S2021_R10m_E27N48_03035_V01_R00.tif">
+        <button style="padding:6px 16px;background:var(--theme-primary,#5b8def);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:13px" onclick=${() => {
+          const inp = document.getElementById("parse-input");
+          doParse(inp.value).then(r => {
+            const el = document.getElementById("parse-result");
+            if (el) el.replaceChildren(r);
+          });
+        }}>Parse</button>
+        <div id="parse-result" style="margin-top:8px;min-height:40px"></div>
+      </div>
+
+      <div style="flex:1;min-width:300px;background:var(--bg2,#1a1d27);border:1px solid var(--border,#2e3148);border-radius:8px;padding:16px">
+        <div style="font-size:11px;text-transform:uppercase;color:var(--muted);letter-spacing:.3px;margin-bottom:8px">Validate a Schema</div>
+        <textarea id="validate-input" style="width:100%;min-height:120px;padding:8px;background:var(--bg,#0f1117);border:1px solid var(--border,#2e3148);border-radius:6px;color:var(--text);font-family:var(--mono,monospace);font-size:11px;margin-bottom:8px;resize:vertical" placeholder='{"$schema":"...","schema_id":"copernicus:clms:...",...}'></textarea>
+        <button style="padding:6px 16px;background:var(--theme-primary,#5b8def);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:13px" onclick=${() => {
+          const inp = document.getElementById("validate-input");
+          doValidate(inp.value).then(r => {
+            const el = document.getElementById("validate-result");
+            if (el) el.replaceChildren(r);
+          });
+        }}>Validate</button>
+        <div id="validate-result" style="margin-top:8px;min-height:40px"></div>
+      </div>
+    </div>
+  </div>
+</div>
+```
