@@ -6,6 +6,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Fonts: the OFL families the Typst template falls through to (Lato, JetBrains
 #   Mono, Carlito for Calibri, Liberation Sans for Arial, DejaVu mono).
 # python-is-python3: the workflows invoke bare `python`.
+# openssh-client: deploy-docs checks out with ssh-key so its commit-back pushes
+#   go as the deploy key, which the branch rulesets can bypass.
 # unzip: required by `quarto install chrome-headless-shell` (below) to extract.
 # rsync: github-pages-deploy-action shells out to it to sync the build.
 # lib* : runtime deps for chrome-headless-shell, which Quarto uses to
@@ -13,6 +15,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
     wget \
     git \
+    openssh-client \
     bash \
     ca-certificates \
     python3 \

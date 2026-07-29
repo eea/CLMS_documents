@@ -31,6 +31,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
         with:
+          # Commits back to a protected branch below. Rulesets can't bypass
+          # github-actions[bot], but they can bypass deploy keys, so push as
+          # the key over SSH.
+          ssh-key: ${{ secrets.CI_DEPLOY_KEY }}
           # develop/test only diff HEAD^..HEAD, so a shallow clone is enough
           fetch-depth: ${{ (github.ref_name == 'main' || startsWith(github.ref, 'refs/heads/test-')) && '0' || '50' }}
           fetch-tags: true
