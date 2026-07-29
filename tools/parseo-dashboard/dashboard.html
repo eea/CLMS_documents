@@ -103,6 +103,29 @@ header .sub { color: var(--text-dim); font-size: 13px; margin-left: auto; }
 }
 .schema-tag:hover { background: var(--accent); color: #fff; }
 .schema-tag.active { background: var(--accent); color: #fff; }
+/* Field tree */
+.field-tree { display: flex; flex-direction: column; gap: 10px; }
+.field-row { padding: 6px 0; border-top: 1px solid var(--border); transition: opacity .15s; }
+.field-row:first-child { border-top: none; padding-top: 0; }
+.field-row.disabled { opacity: .35; pointer-events: none; }
+.field-row-label {
+  font-size: 10.5px; font-weight: 600; color: var(--text-dim); text-transform: uppercase;
+  letter-spacing: .3px; margin-bottom: 5px; display: flex; gap: 6px; align-items: baseline;
+}
+.field-row-label .val { color: var(--accent); text-transform: none; font-family: var(--font); font-weight: 500; }
+.chip-row { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip {
+  padding: 3px 9px; background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 12px; font-size: 11px; cursor: pointer; font-family: var(--font);
+  color: var(--text); transition: all .15s; line-height: 1.5;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.chip.selected { background: var(--accent); border-color: var(--accent); color: #fff; }
+.chip-input {
+  width: 100%; background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+  padding: 5px 9px; border-radius: 5px; font-size: 12px; font-family: var(--font); outline: none;
+}
+.chip-input:focus { border-color: var(--accent); }
 /* Validation */
 .val-item { padding: 8px 12px; border-radius: 4px; margin-bottom: 4px; font-size: 12px; border-left: 3px solid; }
 .val-pass { background: rgba(63,185,127,.1); border-left-color: var(--green); color: var(--green); }
@@ -141,9 +164,8 @@ header .sub { color: var(--text-dim); font-size: 13px; margin-left: auto; }
     </div>
 
     <div id="schema-fields" style="display:none;margin-top:8px">
-      <h3>Fields</h3>
-      <div id="field-inputs"></div>
-      <button class="btn btn-sm btn-success" style="margin-top:8px;width:100%" onclick="assembleFilename()">Assemble Filename</button>
+      <h3>Build Filename</h3>
+      <div id="field-tree" class="field-tree"></div>
     </div>
   </div>
 
@@ -210,6 +232,8 @@ let currentFamily = '';
 let currentVersion = '';
 let currentSchema = null;
 let assembleDebounce = null;
+let fieldValues = {};
+let fieldTreeOrder = [];
 
 // Safe HTML escaping
 function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
@@ -322,73 +346,130 @@ function selectVersion(version, el) {
 }
 
 function buildFieldInputs(schema) {
-  const container = document.getElementById('field-inputs');
+  const container = document.getElementById('field-tree');
   const fields = schema.fields || {};
   container.innerHTML = '';
   document.getElementById('schema-fields').style.display = 'block';
+  fieldValues = {};
 
   const template = schema.template || '';
-  // Extract field order from template
   const fieldOrder = [...template.matchAll(/\{(\w+)\}/g)].map(m => m[1]);
   const seen = new Set();
+  fieldTreeOrder = [];
 
   for (const f of fieldOrder) {
     if (f === 'extension' || seen.has(f)) continue;
     seen.add(f);
-    const def = fields[f];
-    if (!def) continue;
-    addFieldInput(container, f, def);
+    if (!fields[f]) continue;
+    fieldTreeOrder.push(f);
   }
-
-  // Add any remaining fields not in template
-  for (const [name, def] of Object.entries(fields)) {
-    if (seen.has(name)) continue;
-    if (name === 'extension') continue;
+  for (const name of Object.keys(fields)) {
+    if (seen.has(name) || name === 'extension') continue;
     seen.add(name);
-    addFieldInput(container, name, def);
+    fieldTreeOrder.push(name);
+  }
+  if (fields.extension) fieldTreeOrder.push('extension');
+
+  // Pre-fill obvious single-enum / default fields so downstream rows unlock immediately
+  for (const name of fieldTreeOrder) {
+    const def = fields[name];
+    if (def.enum && def.enum.length === 1) fieldValues[name] = def.enum[0];
+  }
+  const defaults = { programme: 'CLMS', type: 'R', epsg_code: '03035', variant: 'S2' };
+  for (const [name, val] of Object.entries(defaults)) {
+    if (fields[name] && !fieldValues[name] && !fields[name].enum) fieldValues[name] = val;
   }
 
-  // Extension
-  if (fields.extension) {
-    addFieldInput(container, 'extension', fields.extension);
+  renderFieldTree(schema);
+  assembleFilename();
+}
+
+function renderFieldTree(schema) {
+  const container = document.getElementById('field-tree');
+  const fields = schema.fields || {};
+  container.innerHTML = '';
+
+  for (const name of fieldTreeOrder) {
+    const def = fields[name];
+    if (!def) continue;
+    container.appendChild(buildFieldRow(name, def));
   }
 }
 
-function addFieldInput(container, name, def) {
-  const div = document.createElement('div');
-  div.className = 'form-row';
-  const label = document.createElement('label');
-  label.textContent = name.replace(/_/g, ' ');
-  div.appendChild(label);
+function buildFieldRow(name, def) {
+  const row = document.createElement('div');
+  row.className = 'field-row';
+  row.dataset.fieldName = name;
 
-  let input;
-  if (def.enum && def.enum.length <= 20) {
-    input = document.createElement('select');
-    input.innerHTML = '<option value="">— Select —</option>';
+  const label = document.createElement('div');
+  label.className = 'field-row-label';
+  const labelText = document.createElement('span');
+  labelText.textContent = name.replace(/_/g, ' ');
+  label.appendChild(labelText);
+  if (fieldValues[name]) {
+    const valSpan = document.createElement('span');
+    valSpan.className = 'val';
+    valSpan.textContent = fieldValues[name];
+    label.appendChild(valSpan);
+  }
+  row.appendChild(label);
+
+  if (def.enum && def.enum.length > 0 && def.enum.length <= 40) {
+    const chipRow = document.createElement('div');
+    chipRow.className = 'chip-row';
     for (const v of def.enum) {
-      input.innerHTML += `<option value="${v}">${v}</option>`;
+      const chip = document.createElement('span');
+      chip.className = 'chip' + (fieldValues[name] === v ? ' selected' : '');
+      chip.textContent = v;
+      chip.onclick = () => onChipClick(name, v);
+      chipRow.appendChild(chip);
     }
-  } else if (def.enum && def.enum.length > 20) {
-    input = document.createElement('input');
-    input.placeholder = def.enum.slice(0, 5).join(', ') + '…';
-    if (def.enum.length === 1) input.value = def.enum[0];
+    row.appendChild(chipRow);
   } else {
-    input = document.createElement('input');
-    if (def.pattern) {
-      input.placeholder = 'regex: ' + def.pattern.slice(0, 30);
+    const input = document.createElement('input');
+    input.className = 'chip-input';
+    input.value = fieldValues[name] || '';
+    if (def.enum && def.enum.length > 40) {
+      input.placeholder = def.enum.slice(0, 5).join(', ') + '…';
+    } else if (def.pattern) {
+      input.placeholder = 'regex: ' + def.pattern.slice(0, 40);
     }
-    // Default values for common fields
-    if (name === 'programme') input.value = 'CLMS';
-    if (name === 'type') input.value = 'R';
-    if (name === 'epsg_code') input.value = '03035';
-    if (name === 'variant') input.value = 'S2';
+    input.oninput = () => onChipClick(name, input.value.trim(), true);
+    row.appendChild(input);
   }
-  input.dataset.fieldName = name;
-  input.onchange = () => assembleFilename();
-  input.oninput = () => assembleFilename();
-  div.appendChild(input);
-  container.appendChild(div);
+
+  return row;
 }
+
+function onChipClick(name, value, isTextInput) {
+  if (fieldValues[name] === value) {
+    // toggle off (chip only)
+    if (!isTextInput) delete fieldValues[name];
+  } else if (value === '') {
+    delete fieldValues[name];
+  } else {
+    fieldValues[name] = value;
+  }
+  if (!isTextInput) renderFieldTree(currentSchema);
+  else {
+    // just refresh the label val marker without rebuilding the input (keeps focus)
+    const row = document.querySelector(`.field-row[data-field-name="${CSS.escape(name)}"] .field-row-label`);
+    if (row) {
+      row.innerHTML = '';
+      const labelText = document.createElement('span');
+      labelText.textContent = name.replace(/_/g, ' ');
+      row.appendChild(labelText);
+      if (fieldValues[name]) {
+        const valSpan = document.createElement('span');
+        valSpan.className = 'val';
+        valSpan.textContent = fieldValues[name];
+        row.appendChild(valSpan);
+      }
+    }
+  }
+  assembleFilename();
+}
+
 
 function assembleFilename() {
   // Debounce: wait 300ms after last input before firing
@@ -400,14 +481,7 @@ function _doAssemble() {
   const preview = document.getElementById('filename-preview');
   if (!currentSchema) return;
 
-  const fields = {};
-  const inputs = document.querySelectorAll('#field-inputs input, #field-inputs select');
-  for (const el of inputs) {
-    const name = el.dataset.fieldName;
-    if (!name) continue;
-    const val = el.value.trim();
-    if (val) fields[name] = val;
-  }
+  const fields = { ...fieldValues };
 
   // Add programme from enum if not set
   if (!fields.programme && currentSchema.fields?.programme?.enum?.length === 1) {
