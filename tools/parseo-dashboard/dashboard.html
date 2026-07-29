@@ -133,7 +133,7 @@ header .sub { color: var(--text-dim); font-size: 13px; margin-left: auto; }
     <h3>API Connection</h3>
     <div class="form-row">
       <label>API URL</label>
-      <input id="api-url" value="/api" placeholder="/api">
+      <input id="api-url" value="" placeholder="empty (same origin) or http://host:8000">
     </div>
     <button class="btn btn-sm btn-primary" onclick="connectAPI()">Connect</button>
 
@@ -554,7 +554,6 @@ function copyText(elId) {
 
 // Auto-connect on load
 document.addEventListener('DOMContentLoaded', () => {
-  // Try localhost first, then nucleus
   connectAPI();
 });
 </script>
