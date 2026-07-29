@@ -381,19 +381,21 @@ Tip
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"HRL Forest"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"High Resolution Layer - Forest Type"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2026-01-27"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">product-name</span><span class="kw">:</span><span class="at"> </span><span class="st">"HRL Forest"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">category</span><span class="kw">:</span><span class="at"> products</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2026-01-27"</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><code>title</code> - short product name, appears as the document title</li>
 <li><code>subtitle</code> - full product name or document type description</li>
+<li><code>category</code> - one of <code>products</code>, <code>guidelines</code>, <code>reports</code>, <code>uncategorized</code>, <code>non-browsable</code></li>
 <li><code>date</code> - publication or last-updated date in ISO format</li>
-<li><code>product-name</code> - used internally for metadata and indexing</li>
 </ul>
 </section>
 <section id="optional-fields" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="optional-fields"><span class="header-section-number">3.2</span> Optional fields</h2>
 <ul>
+<li><code>type</code> - how the document is built. Leave it out for ordinary documents. Set <code>type: dashboard</code> for an interactive page: it renders to HTML only - no PDF, no table of contents, no version or changelog. New types are added by a Technical Library owner.</li>
+<li><code>product-name</code> - used internally for metadata and indexing</li>
 <li><code>template-version</code> - records which template version was used as the starting point. Set automatically when copying a template; don’t edit it manually.</li>
 </ul>
 </section>

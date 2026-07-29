@@ -94,18 +94,20 @@ If you copied a template, the header is pre-filled - just update `title`, `subti
 ---
 title: "HRL Forest"
 subtitle: "High Resolution Layer - Forest Type"
+category: products
 date: "2026-01-27"
-product-name: "HRL Forest"
 ---
 ```
 
 - `title` - short product name, appears as the document title
 - `subtitle` - full product name or document type description
+- `category` - one of `products`, `guidelines`, `reports`, `uncategorized`, `non-browsable`
 - `date` - publication or last-updated date in ISO format
-- `product-name` - used internally for metadata and indexing
 
 ## 3.2 Optional fields
 
+- `type` - how the document is built. Leave it out for ordinary documents. Set `type: dashboard` for an interactive page: it renders to HTML only - no PDF, no table of contents, no version or changelog. New types are added by a Technical Library owner.
+- `product-name` - used internally for metadata and indexing
 - `template-version` - records which template version was used as the starting point. Set automatically when copying a template; don’t edit it manually.
 
 ## 3.3 System-managed fields
