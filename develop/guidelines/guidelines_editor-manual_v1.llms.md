@@ -2,6 +2,8 @@
 
 Copernicus Land Monitoring Service - Technical Library
 
+This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, and publishing, explaining the integration of project repositories with the central library via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the `develop` branch, and restoring previous document versions, ensuring consistent and efficient documentation practices for all contributors.
+
 Author
 
 European Environment Agency (EEA)
@@ -9,6 +11,10 @@ European Environment Agency (EEA)
 Published
 
 May 26, 2026
+
+Keywords
+
+CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning, RStudio integration
 
   
 **Contact:**

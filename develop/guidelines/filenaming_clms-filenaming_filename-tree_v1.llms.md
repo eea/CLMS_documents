@@ -1,34 +1,39 @@
-# CLMS Filename Tree
+# CLMS Product Filenaming - Filename Tree
+
+Copernicus Land Monitoring Service - Technical Library
+
+This document presents the “Filename Tree” for Copernicus Land Monitoring Service (CLMS) products, offering a structured, visual guide to all valid filename variants. It serves as a practical reference for understanding and constructing CLMS product filenames, detailing the hierarchical options for each field. The tree systematically illustrates choices for product codes, temporal coverage, spatial resolution, geographic extent, and product variables, supported by concrete examples. Designed to complement the CLMS Filenaming Design Principles, this guide facilitates accurate data identification and ensures consistency across the CLMS data catalogue.
+
+Author
+
 European Environment Agency (EEA)
-2026-07-24
 
-- [<span class="toc-section-number">1</span> CLMS Filename
-  Tree](#clms-filename-tree)
-  - [<span class="toc-section-number">1.1</span> By Product
-    Code](#by-product-code)
-  - [<span class="toc-section-number">1.2</span> By Temporal
-    Situation](#by-temporal-situation)
-  - [<span class="toc-section-number">1.3</span> By
-    Resolution](#by-resolution)
-  - [<span class="toc-section-number">1.4</span> By Spatial
-    Extent](#by-spatial-extent)
-  - [<span class="toc-section-number">1.5</span> By Variable
-    (Sub-product)](#by-variable-sub-product)
-  - [<span class="toc-section-number">1.6</span> Full Example
-    Walkthrough](#full-example-walkthrough)
+Published
 
-# CLMS Filename Tree
+July 24, 2026
 
-*A visual navigation of all possible CLMS filename variants. Each level
-shows the options for that field. All structural variants are shown, but
-the lists of variables, tiles, dates & values are exemplary — not
-exhaustive.*
+Keywords
+
+CLMS filenaming conventions, product naming taxonomy, filename structure, temporal coverage formats, spatial resolution types, geographic extent identifiers, product variable codes, data catalogue schema, MGRS tiling system, LAEA 100km grid, functional urban areas, Copernicus Land Monitoring Service
+
+  
+**Contact:**
+
+European Environment Agency (EEA)  
+Kongens Nytorv 6  
+1050 Copenhagen K  
+Denmark  
+[**https://land.copernicus.eu/**](https://land.copernicus.eu/)
+
+# 1 CLMS Product Filenaming - Filename Tree
+
+*A visual navigation of all possible CLMS filename variants. Each level shows the options for that field. All structural variants are shown, but the lists of variables, tiles, dates & values are exemplary - not exhaustive.*
 
 ------------------------------------------------------------------------
 
     CLMS_{CODE}-{VARIABLE}[-{SUBVARIABLE}]_{TEMPORAL}_{RES}_{EXTENT}_{EPSG}_{VERSION}-{REVISION}.ext
 
-## By Product Code
+## 1.1 By Product Code
 
     CLMS_
     ├── VLCC-                          Vegetated Land Cover Characteristics (upgraded HRL)
@@ -82,7 +87,7 @@ exhaustive.*
         ├── L2a-A_T{YYYYMMDD}P{duration}_V20-5m_{Orbit}-{BurstID}-{SubSwath}_V01-R00.csv
         └── L2b-D_T{YYYYMMDD}P{duration}_V20-5m_{Orbit}-{BurstID}-{SubSwath}_V01-R00.csv
 
-## By Temporal Situation
+## 1.2 By Temporal Situation
 
     {TEMPORAL}_
     ├── {YYYYMMDD}T{HHMMSS}_           Sensing instant    (satellite scene)
@@ -102,7 +107,7 @@ exhaustive.*
     └── T{YYYYMMDD}P{duration}_        Timeseries          (multi-year aggregate)
         └── T20190101P5Y_              5-year timeseries
 
-## By Resolution
+## 1.3 By Resolution
 
     {RES}_
     ├── R{value}[unit]_                     Raster (pixel spacing)
@@ -122,7 +127,7 @@ exhaustive.*
         ├── V100m                           point grid (regular)
         └── V20-5m                          point grid (irregular)
 
-## By Spatial Extent
+## 1.4 By Spatial Extent
 
     {EXTENT}_
     ├── T{ZZ}{GZD}{AA}_                MGRS               (S2 raster tile)
@@ -152,17 +157,16 @@ exhaustive.*
     │
     └── GLOBAL_                        Global             (full Earth coverage)
 
-## By Variable (Sub-product)
+## 1.5 By Variable (Sub-product)
 
-*The variable is hyphen-appended to the product code at position 2:*
-`CLMS_{CODE}-{VARIABLE}[-{SUBVARIABLE}]_…`
+*The variable is hyphen-appended to the product code at position 2:* `CLMS_{CODE}-{VARIABLE}[-{SUBVARIABLE}]_…`
 
     {CODE}-{VARIABLE}_
     ├── {PARAM}                        Single token       (VLCC, NVLCC, SLF, HRL)
     │   ├── GRA, DLT, CTY              (VLCC)
     │   ├── IMCCS, SBCC, SFW, CM       (NVLCC, SLF)
-    │   ├── TCD, FTY, IMD, IBU, WAW    (HRL — 10m)
-    │   └── SWF                         (HRL — 5m)
+    │   ├── TCD, FTY, IMD, IBU, WAW    (HRL - 10m)
+    │   └── SWF                         (HRL - 5m)
     │
     ├── {SUB}-{PARAM}                  Two-level          (WSI, VPP2)
     │   ├── SP-SCD
@@ -186,17 +190,17 @@ exhaustive.*
     │
     └── NET, DIR, SUB                  EU Hydro            (EUHYDRO)
 
-## Full Example Walkthrough
+## 1.6 Full Example Walkthrough
 
     CLMS_
-         ├── WSI-SP-SCD_                  Water & Snow/Ice — Snow Cover Duration
+         ├── WSI-SP-SCD_                  Water & Snow/Ice - Snow Cover Duration
          │   └── A20240101P1Y_            annual composite
          │       └── R20m_                raster 20m
          │           └── T38TKL_          MGRS tile
          │               └── 3035_        EPSG 3035
          │                   └── V01-R00.tif  version 1, revision 0
          │
-         └── EGMS-L2a-A_                  European Ground Motion — L2a ascending
+         └── EGMS-L2a-A_                  European Ground Motion - L2a ascending
              └── T20190101P5Y_            5-year timeseries
                  └── R20-5m_              irregular grid 20x5m
                      └── 054-0154-IW1_    IW burst
@@ -204,6 +208,10 @@ exhaustive.*
 
 ------------------------------------------------------------------------
 
-*Tree version: draft. Each branch represents a valid structural variant
-of the CLMS filename convention. See
-CLMS_Filenaming_Design_Principles.md for the full rules.*
+*Tree version: draft. Each branch represents a valid structural variant of the CLMS filename convention. See CLMS_Filenaming_Design_Principles.md for the full rules.*
+
+Back to top
+
+## Reuse
+
+EUPL (\>= 1.2)

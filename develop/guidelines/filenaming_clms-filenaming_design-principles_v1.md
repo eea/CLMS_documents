@@ -1,68 +1,68 @@
-# CLMS Product Filenaming — Design Principles
+# CLMS Product Filenaming - Design Principles
 European Environment Agency (EEA)
 2026-07-24
 
-- [<span class="toc-section-number">1</span> CLMS Product Filenaming —
-  Design Principles](#clms-product-filenaming--design-principles)
+- [<span class="toc-section-number">1</span> CLMS Product Filenaming -
+  Design Principles](#clms-product-filenaming---design-principles)
   - [<span class="toc-section-number">1.1</span> Purpose and
     Scope](#purpose-and-scope)
-  - [<span class="toc-section-number">1.2</span> Principle 1 — Filename
+  - [<span class="toc-section-number">1.2</span> Principle 1 - Filename
     Structure: fields, delimiter,
-    extension](#principle-1--filename-structure-fields-delimiter-extension)
-  - [<span class="toc-section-number">1.3</span> Principle 2 — Allowed
+    extension](#principle-1---filename-structure-fields-delimiter-extension)
+  - [<span class="toc-section-number">1.3</span> Principle 2 - Allowed
     Characters: uppercase, digits, underscore,
-    hyphen](#principle-2--allowed-characters-uppercase-digits-underscore-hyphen)
-  - [<span class="toc-section-number">1.4</span> Principle 3 — Maximum
-    Filename Length](#principle-3--maximum-filename-length)
-  - [<span class="toc-section-number">1.5</span> Principle 4 —
+    hyphen](#principle-2---allowed-characters-uppercase-digits-underscore-hyphen)
+  - [<span class="toc-section-number">1.4</span> Principle 3 - Maximum
+    Filename Length](#principle-3---maximum-filename-length)
+  - [<span class="toc-section-number">1.5</span> Principle 4 -
     Delimiter: Underscore `_` between fields, hyphen `-` within
-    fields](#principle-4--delimiter-underscore-_-between-fields-hyphen---within-fields)
-  - [<span class="toc-section-number">1.6</span> Principle 5 — Field
+    fields](#principle-4---delimiter-underscore-_-between-fields-hyphen---within-fields)
+  - [<span class="toc-section-number">1.6</span> Principle 5 - Field
     Order: Variable hyphen-appended to the product code, token count
-    invariant](#principle-5--field-order-variable-hyphen-appended-to-the-product-code-token-count-invariant)
-  - [<span class="toc-section-number">1.7</span> Principle 6 — Programme
+    invariant](#principle-5---field-order-variable-hyphen-appended-to-the-product-code-token-count-invariant)
+  - [<span class="toc-section-number">1.7</span> Principle 6 - Programme
     Prefix: `CLMS_` mandatory, no
-    exceptions](#principle-6--programme-prefix-clms_-mandatory-no-exceptions)
-  - [<span class="toc-section-number">1.8</span> Principle 7 — Product
+    exceptions](#principle-6---programme-prefix-clms_-mandatory-no-exceptions)
+  - [<span class="toc-section-number">1.8</span> Principle 7 - Product
     Code: Short, uppercase,
-    registered](#principle-7--product-code-short-uppercase-registered)
-  - [<span class="toc-section-number">1.9</span> Principle 8 — Temporal
+    registered](#principle-7---product-code-short-uppercase-registered)
+  - [<span class="toc-section-number">1.9</span> Principle 8 - Temporal
     Coverage: Format matches product
-    type](#principle-8--temporal-coverage-format-matches-product-type)
-  - [<span class="toc-section-number">1.10</span> Principle 9 —
+    type](#principle-8---temporal-coverage-format-matches-product-type)
+  - [<span class="toc-section-number">1.10</span> Principle 9 -
     Resolution: `R{value}[unit]` for raster, `V{value}[unit]` for vector
     and point
-    grid](#principle-9--resolution-rvalueunit-for-raster-vvalueunit-for-vector-and-point-grid)
-  - [<span class="toc-section-number">1.11</span> Principle 10 — Spatial
+    grid](#principle-9---resolution-rvalueunit-for-raster-vvalueunit-for-vector-and-point-grid)
+  - [<span class="toc-section-number">1.11</span> Principle 10 - Spatial
     Extent: Identifies the area covered by this specific
-    file](#principle-10--spatial-extent-identifies-the-area-covered-by-this-specific-file)
-  - [<span class="toc-section-number">1.12</span> Principle 11 — EPSG
+    file](#principle-10---spatial-extent-identifies-the-area-covered-by-this-specific-file)
+  - [<span class="toc-section-number">1.12</span> Principle 11 - EPSG
     Code: Bare code, required for projected CRS, omit when CRS is
-    implicit](#principle-11--epsg-code-bare-code-required-for-projected-crs-omit-when-crs-is-implicit)
-  - [<span class="toc-section-number">1.13</span> Principle 12 —
+    implicit](#principle-11---epsg-code-bare-code-required-for-projected-crs-omit-when-crs-is-implicit)
+  - [<span class="toc-section-number">1.13</span> Principle 12 -
     Version: `V{XX}-R{YY}` single hyphenated
-    field](#principle-12--version-vxx-ryy-single-hyphenated-field)
-  - [<span class="toc-section-number">1.14</span> Principle 13 —
+    field](#principle-12---version-vxx-ryy-single-hyphenated-field)
+  - [<span class="toc-section-number">1.14</span> Principle 13 -
     Variable: Hyphenated composite appended to the product
-    code](#principle-13--variable-hyphenated-composite-appended-to-the-product-code)
-  - [<span class="toc-section-number">1.15</span> Principle 14 —
+    code](#principle-13---variable-hyphenated-composite-appended-to-the-product-code)
+  - [<span class="toc-section-number">1.15</span> Principle 14 -
     Production Date: Metadata-only unless operationally
-    required](#principle-14--production-date-metadata-only-unless-operationally-required)
-  - [<span class="toc-section-number">1.16</span> Principle 15 — Sensor
+    required](#principle-14---production-date-metadata-only-unless-operationally-required)
+  - [<span class="toc-section-number">1.16</span> Principle 15 - Sensor
     Token: Omit unless multi-sensor discrimination is
-    required](#principle-15--sensor-token-omit-unless-multi-sensor-discrimination-is-required)
-  - [<span class="toc-section-number">1.17</span> Principle 16 — Quality
+    required](#principle-15---sensor-token-omit-unless-multi-sensor-discrimination-is-required)
+  - [<span class="toc-section-number">1.17</span> Principle 16 - Quality
     Layers: Separate file, hierarchical `-QFLAG`
-    suffix](#principle-16--quality-layers-separate-file-hierarchical--qflag-suffix)
-  - [<span class="toc-section-number">1.18</span> Principle 17 — Schema
+    suffix](#principle-16---quality-layers-separate-file-hierarchical--qflag-suffix)
+  - [<span class="toc-section-number">1.18</span> Principle 17 - Schema
     Registration: parsEO schema BEFORE CDSE
-    onboarding](#principle-17--schema-registration-parseo-schema-before-cdse-onboarding)
+    onboarding](#principle-17---schema-registration-parseo-schema-before-cdse-onboarding)
   - [<span class="toc-section-number">1.19</span> What Cannot Be
     Standardised](#what-cannot-be-standardised)
   - [<span class="toc-section-number">1.20</span> Principles
     Summary](#principles-summary)
 
-# CLMS Product Filenaming — Design Principles
+# CLMS Product Filenaming - Design Principles
 
 *Grounded in the parsEO schema registry, CDSE product catalogue, and
 current filenaming conventions.*
@@ -72,20 +72,20 @@ current filenaming conventions.*
 ## Purpose and Scope
 
 These principles govern the filenaming of **all new CLMS product
-deliveries** — new products, reprocessings, and new versions of existing
+deliveries** - new products, reprocessings, and new versions of existing
 products. They describe the target convention; existing files on CDSE
 under legacy names remain as-is but are non-compliant.
 
 ------------------------------------------------------------------------
 
-## Principle 1 — Filename Structure: fields, delimiter, extension
+## Principle 1 - Filename Structure: fields, delimiter, extension
 
 **Rule:** A CLMS filename consists of a stem (base name) and if required
 (e.g. not folder names) an extension, separated by a period `.`:
 
     {stem}.{extension}
 
-The stem is composed of **fields** — descriptive elements separated by
+The stem is composed of **fields** - descriptive elements separated by
 underscore `_`. Each field carries a specific meaning:
 
     field1_field2_field3_…_fieldN.ext
@@ -103,7 +103,7 @@ format and is not part of the naming convention.
 
 ------------------------------------------------------------------------
 
-## Principle 2 — Allowed Characters: uppercase, digits, underscore, hyphen
+## Principle 2 - Allowed Characters: uppercase, digits, underscore, hyphen
 
 **Rule:** Filenames MUST use only the following ASCII characters:
 
@@ -129,7 +129,7 @@ case-sensitivity issues between Linux (case-sensitive) and Windows/macOS
 
 ------------------------------------------------------------------------
 
-## Principle 3 — Maximum Filename Length
+## Principle 3 - Maximum Filename Length
 
 **Rule:** The complete filename (stem + extension) MUST NOT exceed 255
 characters. The fully qualified file name (including path) SHOULD NOT
@@ -145,7 +145,7 @@ directory structures.
 
 ------------------------------------------------------------------------
 
-## Principle 4 — Delimiter: Underscore `_` between fields, hyphen `-` within fields
+## Principle 4 - Delimiter: Underscore `_` between fields, hyphen `-` within fields
 
 **Rule:** Use `_` to separate all top-level fields. The hyphen `-` is
 the **within-field separator**: it joins the variable (and
@@ -171,12 +171,12 @@ a single token; the hyphen is part of the name, not a delimiter.
 
 ------------------------------------------------------------------------
 
-## Principle 5 — Field Order: Variable hyphen-appended to the product code, token count invariant
+## Principle 5 - Field Order: Variable hyphen-appended to the product code, token count invariant
 
 **Rule:** Fields appear in a fixed order per product family. The
 variable is **not a standalone field**: it is hyphen-appended to the
 product code in position 2 (`{CODE}-{VARIABLE}[-{SUBVARIABLE}]`).
-Underscore-separated token count is invariant across a product family —
+Underscore-separated token count is invariant across a product family -
 a sub-product identifier is never a separate positional field; it is
 encoded within the code-variable compound:
 
@@ -192,7 +192,7 @@ the underscore token count identical for every file in the family.
 the remaining fields identify **when**, **where**, and **which
 version**. Placing the full product identity at position 2 groups all
 files of a product and its layers together in directory listings, and a
-parser always knows which position holds which field — no branching
+parser always knows which position holds which field - no branching
 logic based on which sub-product happens to be present.
 
 **Compliant:**
@@ -204,7 +204,7 @@ logic based on which sub-product happens to be present.
 
 ------------------------------------------------------------------------
 
-## Principle 6 — Programme Prefix: `CLMS_` mandatory, no exceptions
+## Principle 6 - Programme Prefix: `CLMS_` mandatory, no exceptions
 
 **Rule:** Every CLMS product filename MUST begin with `CLMS_`. No
 exceptions. No product is exempt. This applies to all new deliveries,
@@ -226,7 +226,7 @@ non-conformant.
 
 ------------------------------------------------------------------------
 
-## Principle 7 — Product Code: Short, uppercase, registered
+## Principle 7 - Product Code: Short, uppercase, registered
 
 **Rule:** Product codes must be registered in the CLMS product code
 registry before schema authoring. Uppercase alphanumeric only. Prefer
@@ -240,13 +240,13 @@ any unregistered code
 
 ------------------------------------------------------------------------
 
-## Principle 8 — Temporal Coverage: Format matches product type
+## Principle 8 - Temporal Coverage: Format matches product type
 
 **Rule:**
 
 | Situation | Format | Examples | Definition |
 |----|----|----|----|
-| Sensing instant | `{YYYYMMDD}T{HHMMSS}` | `20210217T053159` | Single acquisition at a specific date+time (e.g. satellite scene). Zero-duration temporal instant. Uses bare ISO 8601 `dateTime` lexical form — the `T` separator and fixed-width format make it self-identifying, so no semantic prefix is needed. |
+| Sensing instant | `{YYYYMMDD}T{HHMMSS}` | `20210217T053159` | Single acquisition at a specific date+time (e.g. satellite scene). Zero-duration temporal instant. Uses bare ISO 8601 `dateTime` lexical form - the `T` separator and fixed-width format make it self-identifying, so no semantic prefix is needed. |
 | Aggregated | `A{YYYYMMDD}P{duration}` | `A20240101P10D`, `A20240101P1M`, `A20240101P1Y` | A 2D snapshot where pixel values are derived by **compositing, averaging, or selecting** from multiple observations over time using a defined algorithm. The temporal dimension is **collapsed** to a single representative value per pixel; the file is not designed for temporal querying. |
 | Status | `S{YYYY}` | `S2021` | A static thematic map or interpreted classification representing a single reference year. The product does **not** represent a statistical aggregate of repeated measurements; it is the result of a single survey, interpretation, or classification exercise. |
 | Change | `C{YYYY}-{YYYY}` | `C2018-2021` | A map of transitions or differences between two Status reference years. The two years are the start and end of the change period. The output is a 2D change layer (not a time-series stack). |
@@ -254,7 +254,7 @@ any unregistered code
 | Forecast | `F{YYYYMMDD}P{duration}` | *(Reserved)* | **Reserved/Proposed.** For future forecast/modelled products. Not currently in use. |
 
 **Temporal reference standard:** All temporal formats follow **ISO
-8601-1:2019** (Date and time — Representations for information
+8601-1:2019** (Date and time - Representations for information
 interchange). The `P{duration}` suffix uses the ISO 8601 duration format
 (`P10D`, `P1M`, `P1Y`). Reference:
 https://www.iso.org/standard/70907.html
@@ -276,7 +276,7 @@ which treat season as a data attribute, not a temporal primitive.
 
 ------------------------------------------------------------------------
 
-## Principle 9 — Resolution: `R{value}[unit]` for raster, `V{value}[unit]` for vector and point grid
+## Principle 9 - Resolution: `R{value}[unit]` for raster, `V{value}[unit]` for vector and point grid
 
 **Rule:** Raster and gridded products use `R{value}[unit]` with no
 zero-padding: `R10m`, `R1km`, `R100m`. The value is the integer
@@ -285,14 +285,14 @@ with a hyphen within the field: `R20-5m` (e.g., EGMS L2 20×5 m posting).
 
 The `V` prefix covers two cases:
 
-- **Vector minimum mapping units** — `V{value}ha` (e.g., `V025ha` for
+- **Vector minimum mapping units** - `V{value}ha` (e.g., `V025ha` for
   Urban Atlas 0.25 ha, `V25ha` for CLC 25 ha). Sub-1 ha values use a
   leading zero with no decimal point.
-- **Point grid posting spacing** — `V{value}m` for regular grids (e.g.,
+- **Point grid posting spacing** - `V{value}m` for regular grids (e.g.,
   `V100m` for EGMS L3) or `V{value}-{value}m` for irregular grids (e.g.,
   `V20-5m` for EGMS L2 point data)
 
-Only `R` and `V` exist — there is no separate point-grid prefix.
+Only `R` and `V` exist - there is no separate point-grid prefix.
 
 **Compliant:** `R10m`, `R1km`, `R100m`, `R20-5m`, `V025ha`, `V25ha`,
 `V100m`, `V20-5m`
@@ -302,10 +302,10 @@ nation-level statistical vector layer) omit the resolution token.
 
 ------------------------------------------------------------------------
 
-## Principle 10 — Spatial Extent: Identifies the area covered by this specific file
+## Principle 10 - Spatial Extent: Identifies the area covered by this specific file
 
 **Rule:** This field identifies the spatial extent of the individual
-file — not the overall product coverage. It can be a grid tile, a
+file - not the overall product coverage. It can be a grid tile, a
 satellite scene, an administrative boundary, or a continental code:
 
 | Extent type | Description | Examples |
@@ -326,7 +326,7 @@ fuse them with EPSG or resolution.
 > **Note:** This field describes the extent of the **file**, not the
 > product. A pan-European product may be delivered as individual MGRS
 > tiles, each with a different spatial extent. Likewise, `EUROPE` means
-> this specific file covers the entire continent — it does not mean the
+> this specific file covers the entire continent - it does not mean the
 > product is “pan-European” by design.
 
 **Compliant:**
@@ -342,7 +342,7 @@ fuse them with EPSG or resolution.
 
 ------------------------------------------------------------------------
 
-## Principle 11 — EPSG Code: Bare code, required for projected CRS, omit when CRS is implicit
+## Principle 11 - EPSG Code: Bare code, required for projected CRS, omit when CRS is implicit
 
 **Rule:** Standalone `_`-separated token containing the bare EPSG code
 with **no zero-padding** (`3035`). Required for products with a
@@ -352,7 +352,7 @@ redundant). Also omit for CRS-independent files (metadata XML, archive
 containers).
 
 **Rationale:** The bare code is the EPSG identifier exactly as
-registered (https://epsg.org) — `3035`, `4326`, `32633` — so the token
+registered (https://epsg.org) - `3035`, `4326`, `32633` - so the token
 matches the authority and needs no transformation for lookups. EPSG
 codes are 4–5 digits; the field is bounded, and the surrounding fixed
 field order keeps parsing deterministic without artificial padding.
@@ -362,14 +362,14 @@ field order keeps parsing deterministic without artificial padding.
 - `CLMS_VLCC-GRA_S2021_R10m_E27N48_3035_V01-R00.tif` (LAEA tile, EPSG
   3035 required)
 - `CLMS_CLCPLUS-LCU_S2023_R10m_E48N37_3035_V01-R00.tif`
-- `CLMS_VPP2-ST-PPI_A20240101P10D_R10m_T33UVS_V01-R00.tif` (MGRS tile —
+- `CLMS_VPP2-ST-PPI_A20240101P10D_R10m_T33UVS_V01-R00.tif` (MGRS tile -
   EPSG omitted, CRS implicit)
 
 **Non-compliant:** `03035` (zero-padded), `EPSG3035` (prefixed)
 
 ------------------------------------------------------------------------
 
-## Principle 12 — Version: `V{XX}-R{YY}` single hyphenated field
+## Principle 12 - Version: `V{XX}-R{YY}` single hyphenated field
 
 **Rule:** A single compound token: `V{XX}` (major, 2-digit zero-padded),
 hyphen, `R{YY}` (revision, 2-digit zero-padded). Never use packed
@@ -379,7 +379,7 @@ hyphen, `R{YY}` (revision, 2-digit zero-padded). Never use packed
 
 ------------------------------------------------------------------------
 
-## Principle 13 — Variable: Hyphenated composite appended to the product code
+## Principle 13 - Variable: Hyphenated composite appended to the product code
 
 **Rule:** The variable identifies the measured or mapped quantity. It is
 hyphen-appended to the product code at position 2, forming the product
@@ -390,7 +390,7 @@ identity compound:
 - `PRODUCT_TYPE`: layer type code (`ST`, `VPP`, `GPP`, `SP`, `LCU`)
 - `PARAMETER`: specific measurement (`PPI`, `SOSD`, `TOTAL`, `SCD`)
 - `SEASON`: `S1` or `S2` for multi-seasonal products
-- `QFLAG`: literal suffix for quality flag layers — always last
+- `QFLAG`: literal suffix for quality flag layers - always last
 
 `LCU` (Land Cover / Land Use) is the shared variable for all status and
 change land cover/use products (UA, CLC, CLCPLUS, RZ, …); status vs
@@ -407,7 +407,7 @@ change is expressed by the temporal field (`S{YYYY}` vs
 
 ------------------------------------------------------------------------
 
-## Principle 14 — Production Date: Metadata-only unless operationally required
+## Principle 14 - Production Date: Metadata-only unless operationally required
 
 **Rule:** Omit production date from filenames. Include it only when
 multiple production runs for the same temporal period coexist in the
@@ -419,7 +419,7 @@ before the extension.
 
 ------------------------------------------------------------------------
 
-## Principle 15 — Sensor Token: Omit unless multi-sensor discrimination is required
+## Principle 15 - Sensor Token: Omit unless multi-sensor discrimination is required
 
 **Rule:** No standalone sensor token in the filename. The sensor is
 implicit in the product code. Include a sensor token only when the
@@ -434,7 +434,7 @@ product supports multiple sensor sources distinguishable at file level
 
 ------------------------------------------------------------------------
 
-## Principle 16 — Quality Layers: Separate file, hierarchical `-QFLAG` suffix
+## Principle 16 - Quality Layers: Separate file, hierarchical `-QFLAG` suffix
 
 **Rule:** Quality layers are separate files. Same stem as the data
 layer, with `-QFLAG` appended to the appropriate hierarchical level of
@@ -443,10 +443,10 @@ file and its quality file.
 
 The `-QFLAG` suffix attaches at the level it applies to:
 
-- `VPP2-VPP-SOSD-QFLAG` — quality applies to the VPP-SOSD product only
-- `VPP2-VPP-QFLAG` — quality applies to all VPP sub-products (SOSD,
+- `VPP2-VPP-SOSD-QFLAG` - quality applies to the VPP-SOSD product only
+- `VPP2-VPP-QFLAG` - quality applies to all VPP sub-products (SOSD,
   TOTAL, SEASONAL, etc.)
-- `VPP2-ST-PPI-QFLAG` — quality applies to the PPI measurement only
+- `VPP2-ST-PPI-QFLAG` - quality applies to the PPI measurement only
 
 **Compliant:**
 
@@ -455,7 +455,7 @@ The `-QFLAG` suffix attaches at the level it applies to:
 
 ------------------------------------------------------------------------
 
-## Principle 17 — Schema Registration: parsEO schema BEFORE CDSE onboarding
+## Principle 17 - Schema Registration: parsEO schema BEFORE CDSE onboarding
 
 **Rule:** Every new CLMS product must have a registered product code, a
 parsEO schema with `status: current`, and a naming crosswalk before the
@@ -469,19 +469,19 @@ not reverse-engineered into schemas after the fact.
 Some aspects genuinely differ between product families and should not be
 forced into a single mould:
 
-1.  **Raster vs. vector/point-grid resolution** — `R10m` and `V25ha` are
+1.  **Raster vs. vector/point-grid resolution** - `R10m` and `V25ha` are
     different physical quantities; `V` covers both vector MMU
     (`V{value}ha`) and point grids (`V{value}m`)
-2.  **Pan-European vs. local tile encoding** — LAEA grid tiles
+2.  **Pan-European vs. local tile encoding** - LAEA grid tiles
     (`E27N48`) for pan-European products, FUA codes (`DK004L3`) for
-    city-level vector — these are incompatible spatial encodings, both
+    city-level vector - these are incompatible spatial encodings, both
     valid
-3.  **Annual status vs. scene-level temporal format** — `S{YYYY}` for
-    static maps, `{YYYYMMDD}T{HHMMSS}` for single acquisitions — the
+3.  **Annual status vs. scene-level temporal format** - `S{YYYY}` for
+    static maps, `{YYYYMMDD}T{HHMMSS}` for single acquisitions - the
     right format depends on the product’s temporal nature
-4.  **Multi-resolution families** — the set of valid resolution values
+4.  **Multi-resolution families** - the set of valid resolution values
     varies per product; each schema enumerates its own
-5.  **Production date inclusion** — reflects operational policy;
+5.  **Production date inclusion** - reflects operational policy;
     included when corrections under the same version are expected
 
 ------------------------------------------------------------------------
@@ -498,8 +498,8 @@ forced into a single mould:
 | 6 | Prefix | `CLMS_` mandatory for all products, no exceptions |
 | 7 | Product code | Short, uppercase, registered in code registry |
 | 8 | Temporal | `A{start}P{duration}` (aggregated), `S{YYYY}` (status), `C{YYYY}-{YYYY}` (change), `T{start}P{duration}` (timeseries) |
-| 9 | Resolution | `R{XX}m` (raster/grid), `V{value}ha` (vector MMU), `V{value}m` (point grid) — hyphen for irregular grids |
-| 10 | Spatial extent | MGRS / LAEA / IW burst / FUA / country / DU / EUROPE — identifies the area of the specific file, not the product coverage |
+| 9 | Resolution | `R{XX}m` (raster/grid), `V{value}ha` (vector MMU), `V{value}m` (point grid) - hyphen for irregular grids |
+| 10 | Spatial extent | MGRS / LAEA / IW burst / FUA / country / DU / EUROPE - identifies the area of the specific file, not the product coverage |
 | 11 | EPSG | Bare EPSG code, no zero-padding (`3035`); required for projected CRS, omit when CRS is implicit in the spatial extent |
 | 12 | Version | `V{XX}-R{YY}` single hyphenated field; no packed `V{XXX}` |
 | 13 | Variable | `{CODE}-{TYPE}[-{PARAM}][-{SEASON}][-QFLAG]` compound at position 2 |
