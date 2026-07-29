@@ -1,0 +1,6 @@
+# Pin the rule set instead of inheriting ruff's defaults. 0.16.0 widened them
+# (pyupgrade and friends) and turned CI red without a line of code changing.
+# These four are what the scripts have always been linted against: pyflakes
+# plus the pycodestyle checks that catch real errors rather than formatting.
+[lint]
+select = ["E4", "E7", "E9", "F"]

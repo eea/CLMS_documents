@@ -58,7 +58,8 @@ jobs:
           echo "🔍 Running ruff..."
           pip install --quiet ruff
           # Lint every .py under .github/scripts/ - fails the job on any issue.
-          # Style-only (no auto-fix). ruff defaults cover pyflakes + pycodestyle.
+          # Style-only (no auto-fix). Rules come from ruff.toml, not ruff's
+          # defaults, which move between releases.
           ruff check .github/scripts/
           echo "✅ ruff passed"
 
