@@ -133,7 +133,7 @@ header .sub { color: var(--text-dim); font-size: 13px; margin-left: auto; }
     <h3>API Connection</h3>
     <div class="form-row">
       <label>API URL</label>
-      <input id="api-url" value="http://nucleus:8000" placeholder="http://nucleus:8000">
+      <input id="api-url" value="/api" placeholder="/api">
     </div>
     <button class="btn btn-sm btn-primary" onclick="connectAPI()">Connect</button>
 
@@ -216,6 +216,18 @@ let API_BASE = '';
 let currentFamily = '';
 let currentVersion = '';
 let currentSchema = null;
+let assembleDebounce = null;
+
+// Safe HTML escaping
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// Fetch helper that checks response.ok before parsing JSON
+function apiJSON(url, opts) {
+  return fetch(url, opts).then(r => {
+    if (!r.ok) return r.json().then(d => Promise.reject(d.detail || r.statusText));
+    return r.json();
+  });
+}
 
 function connectAPI() {
   API_BASE = document.getElementById('api-url').value.replace(/\/+$/, '');
@@ -225,8 +237,7 @@ function connectAPI() {
   dot.className = 'conn-dot pending';
   text.textContent = 'Connecting…';
 
-  fetch(API_BASE + '/api/health')
-    .then(r => r.json())
+  apiJSON(API_BASE + '/api/health')
     .then(d => {
       dot.className = 'conn-dot ok';
       text.textContent = 'Connected';
@@ -244,14 +255,13 @@ function loadFamilies() {
   sel.disabled = true;
   sel.innerHTML = '<option value="">Loading…</option>';
 
-  fetch(API_BASE + '/api/families')
-    .then(r => r.json())
+  apiJSON(API_BASE + '/api/families')
     .then(d => {
       sel.innerHTML = '<option value="">— Select family —</option>';
       // Sort families
       const families = (d.families || []).sort();
       for (const f of families) {
-        sel.innerHTML += `<option value="${f}">${f.toUpperCase()}</option>`;
+        sel.innerHTML += `<option value="${esc(f)}">${esc(f.toUpperCase())}</option>`;
       }
       sel.disabled = false;
     })
@@ -274,8 +284,7 @@ function onFamilyChange() {
   const vlist = document.getElementById('version-list');
   vlist.innerHTML = '<span class="spinner"></span>';
 
-  fetch(API_BASE + '/api/families/' + encodeURIComponent(family) + '/versions')
-    .then(r => r.json())
+  apiJSON(API_BASE + '/api/families/' + encodeURIComponent(family) + '/versions')
     .then(d => {
       const versions = d.versions || [];
       if (versions.length === 0) {
@@ -389,6 +398,12 @@ function addFieldInput(container, name, def) {
 }
 
 function assembleFilename() {
+  // Debounce: wait 300ms after last input before firing
+  if (assembleDebounce) clearTimeout(assembleDebounce);
+  assembleDebounce = setTimeout(() => _doAssemble(), 300);
+}
+
+function _doAssemble() {
   const preview = document.getElementById('filename-preview');
   if (!currentSchema) return;
 
@@ -413,7 +428,7 @@ function assembleFilename() {
 
   preview.textContent = 'Assembling…';
 
-  fetch(API_BASE + '/api/assemble', {
+  apiJSON(API_BASE + '/api/assemble', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -422,7 +437,6 @@ function assembleFilename() {
       fields: fields
     })
   })
-    .then(r => r.json())
     .then(d => {
       if (d.filename) {
         preview.textContent = d.filename;
@@ -473,12 +487,11 @@ function parseFilename() {
   if (!fn) { result.textContent = 'Enter a filename to parse.'; return; }
 
   result.textContent = 'Parsing…';
-  fetch(API_BASE + '/api/parse', {
+  apiJSON(API_BASE + '/api/parse', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ filename: fn })
   })
-    .then(r => r.json())
     .then(d => {
       if (d.parsed) {
         result.textContent = JSON.stringify(d.parsed, null, 2);
@@ -500,12 +513,11 @@ function validateSchema() {
 
   results.innerHTML = '<span class="spinner"></span> Validating…';
 
-  fetch(API_BASE + '/api/validate', {
+  apiJSON(API_BASE + '/api/validate', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ schema: schema })
   })
-    .then(r => r.json())
     .then(d => {
       let html = '';
       if (d.errors && d.errors.length) {
