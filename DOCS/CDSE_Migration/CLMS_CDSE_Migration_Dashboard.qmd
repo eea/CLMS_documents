@@ -176,11 +176,17 @@ onboardingPlot = {
   const plotHeight = 170
   let mode = "weekly"
 
-  function getWeekNumber(dateStr) {
-    const d = new Date(dateStr)
-    const start = new Date(d.getFullYear(), 0, 1)
-    const days = Math.floor((d - start) / 86400000)
-    return Math.ceil((days + start.getDay() + 1) / 7)
+  // ISO-8601 week key, e.g. "2026-W31". The Thursday of a week decides its
+  // week-year, which is why the year comes from the shifted date and not from
+  // the input: a week straddling New Year then keys to one year, not two, and
+  // plain string sort stays chronological across the boundary.
+  function isoWeekKey(dateStr) {
+    const d = new Date(dateStr + "T00:00:00Z")
+    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7))   // Mon=1..Sun=7
+    const year = d.getUTCFullYear()
+    const jan1 = Date.UTC(year, 0, 1)
+    const week = Math.ceil(((d - jan1) / 86400000 + 1) / 7)
+    return year + "-W" + String(week).padStart(2, "0")
   }
 
   function buildChart(container) {
@@ -201,8 +207,7 @@ onboardingPlot = {
           }).slice(1)
           const weekly = {}
           for (const d of deltas) {
-            // Year-prefixed so the sort stays correct across a year boundary
-            const key = d.date.slice(0, 4) + "-W" + String(getWeekNumber(d.date)).padStart(2, "0")
+            const key = isoWeekKey(d.date)
             if (!weekly[key]) weekly[key] = {label: key, value: 0}
             weekly[key].value += d.value
           }
@@ -212,7 +217,10 @@ onboardingPlot = {
             .map(d => ({...d, color: d.value >= 0 ? '#e67e22' : '#e74c3c'}))
         })()
 
-    const maxVal = Math.max(...data.map(d => Math.abs(d.value)), 1)
+    // Signed domain: the scale has to cover the losses as well as the gains.
+    const hiVal = Math.max(...data.map(d => d.value), 0)
+    const loVal = Math.min(...data.map(d => d.value), 0)
+    const range = Math.max(hiVal - loVal, 1)
 
     // `data` is newest-first; vertical bars read left-to-right in time, so plot
     // a chronological copy rather than reordering the builders above.
@@ -227,21 +235,24 @@ onboardingPlot = {
       : l.slice(8, 10) + "-" + l.slice(5, 7)
     const signed = (v) => (v >= 0 ? "+" : "\u2212") + Math.abs(v).toLocaleString()
 
-    // Round the scale up to a whole number of readable steps, so ticks land on
-    // values worth reading. Bars are scaled to this same top, which is what keeps
-    // their heights consistent with the gridlines.
-    const rawStep = maxVal / 4
+    // Round the scale out to whole steps, so ticks land on values worth reading.
+    // Bars are scaled to this same domain, which is what keeps their heights
+    // consistent with the gridlines.
+    const rawStep = range / 4
     const mag = Math.pow(10, Math.floor(Math.log10(rawStep)))
     const norm = rawStep / mag
     const step = Math.max(1, Math.round((norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 5 ? 5 : 10) * mag))
-    const top = Math.max(Math.ceil(maxVal / step) * step, step)
+    // With no losses in the window `bot` is 0 and this is an ordinary 0..top
+    // scale; a loss pushes the floor down instead of being folded into the top.
+    const bot = Math.floor(loVal / step) * step
+    const top = Math.max(Math.ceil(hiVal / step) * step, bot + step)
+    const span = top - bot
     const ticks = []
-    for (let v = 0; v <= top; v += step) ticks.push(v)
+    for (let v = bot; v <= top; v += step) ticks.push(v)
 
-    // Height of a value above the baseline. plotHeight is the bar area; the value
-    // band sits above it, so bars keep the same height whichever way the numbers
-    // are drawn.
-    const yOf = (v) => v / top * plotHeight
+    // Pixels above the bottom of the plot band for a given value.
+    const yOf = (v) => (v - bot) / span * plotHeight
+    const zeroY = yOf(0)
 
     const chartRow = document.createElement("div")
     chartRow.style.cssText = "display:flex"
@@ -265,30 +276,32 @@ onboardingPlot = {
     const grid = document.createElement("div")
     grid.style.cssText = `position:absolute;left:0;right:0;bottom:0;height:${plotHeight}px;pointer-events:none`
     ticks.forEach(v => {
-      // Zero needs no line; the plot's own bottom border is the baseline.
-      if (v === 0) return
+      // The lowest tick needs no line; the plot's own bottom border draws it.
+      if (v === bot) return
       const line = document.createElement("div")
-      line.style.cssText = `position:absolute;left:0;right:0;bottom:${yOf(v)}px;border-top:1px solid #eee`
+      // Zero is what the bars grow from, so it reads darker than the rest.
+      line.style.cssText = `position:absolute;left:0;right:0;bottom:${yOf(v)}px;border-top:1px solid ${v === 0 ? "#ccc" : "#eee"}`
       grid.appendChild(line)
     })
     plotWrap.appendChild(grid)
 
     // position:relative lifts the bars above the absolutely-placed gridlines
     const plot = document.createElement("div")
-    plot.style.cssText = "position:relative;display:flex;align-items:flex-end;gap:3px;height:100%"
+    plot.style.cssText = "position:relative;display:flex;gap:3px;height:100%"
 
     chrono.forEach(d => {
       const col = document.createElement("div")
-      col.style.cssText = "flex:1 1 0;min-width:8px;height:100%;display:flex;flex-direction:column"
+      col.style.cssText = "flex:1 1 0;min-width:8px;height:100%;position:relative"
       col.title = d.label + ": " + signed(d.value)
 
-      const barArea = document.createElement("div")
-      barArea.style.cssText = "flex:1;display:flex;align-items:flex-end"
+      // Gains grow up from the zero line, losses hang below it, so a drop can
+      // never be read as a rise. Small floor keeps a zero delta visible as a tick.
+      const barH = Math.max(Math.abs(d.value) / span * plotHeight, 1)
       const bar = document.createElement("div")
-      // Small floor keeps a zero-delta day visible as a baseline tick
-      bar.style.cssText = `width:100%;height:${Math.max(Math.abs(d.value) / top * 100, 0.5)}%;background:${d.color};border-radius:2px 2px 0 0`
-      barArea.appendChild(bar)
-      col.appendChild(barArea)
+      bar.style.cssText = `position:absolute;left:0;right:0;height:${barH}px;background:${d.color};` + (d.value >= 0
+        ? `bottom:${zeroY}px;border-radius:2px 2px 0 0`
+        : `top:${plotHeight - zeroY}px;border-radius:0 0 2px 2px`)
+      col.appendChild(bar)
 
       plot.appendChild(col)
     })
