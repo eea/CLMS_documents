@@ -55,7 +55,7 @@ Denmark
     │   └── IMCCS_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
     │
     ├── SLF-                           Small Landscape Features
-    │   └── SWF_S{YYYY}_R5m_E{XXX}N{YYY}_3035_V01-R01.tif
+    │   └── SFW_S{YYYY}_R5m_E{XXX}N{YYY}_3035_V01-R01.tif
     │
     ├── WSI-                           Water & Snow/Ice
     │   ├── SP-SCD_A{YYYYMMDD}P1Y_R20m_T{ZZ}{GZD}{AA}_V01-R00.tif
@@ -164,7 +164,7 @@ Denmark
     {CODE}-{VARIABLE}_
     ├── {PARAM}                        Single token       (VLCC, NVLCC, SLF, HRL)
     │   ├── GRA, DLT, CTY              (VLCC)
-    │   ├── IMCCS, SBCC, SWF, CM       (NVLCC, SLF)
+    │   ├── IMCCS, SBCC, SFW, CM       (NVLCC, SLF)
     │   ├── TCD, FTY, IMD, IBU, WAW    (HRL - 10m)
     │   └── SWF                         (HRL - 5m)
     │
