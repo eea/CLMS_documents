@@ -173,51 +173,159 @@ toggleScript = {
 // ── Onboarding history plot ──
 
 onboardingPlot = {
-  const barHeight = 28
-  let mode = "daily"
+  const plotHeight = 170
+  let mode = "weekly"
 
-  function getWeekNumber(dateStr) {
-    const d = new Date(dateStr)
-    const start = new Date(d.getFullYear(), 0, 1)
-    const days = Math.floor((d - start) / 86400000)
-    return Math.ceil((days + start.getDay() + 1) / 7)
+  // ISO-8601 week key, e.g. "2026-W31". The Thursday of a week decides its
+  // week-year, which is why the year comes from the shifted date and not from
+  // the input: a week straddling New Year then keys to one year, not two, and
+  // plain string sort stays chronological across the boundary.
+  function isoWeekKey(dateStr) {
+    const d = new Date(dateStr + "T00:00:00Z")
+    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7))   // Mon=1..Sun=7
+    const year = d.getUTCFullYear()
+    const jan1 = Date.UTC(year, 0, 1)
+    const week = Math.ceil(((d - jan1) / 86400000 + 1) / 7)
+    return year + "-W" + String(week).padStart(2, "0")
   }
 
   function buildChart(container) {
     container.innerHTML = ""
 
+    // Weekly mode sums the daily deltas per ISO week so each week gets its own
+    // bar; reading odataWeeklyDelta directly yielded one bar for the whole
+    // trailing period.
     const data = mode === "daily"
       ? odataHist.map((h, i) => {
           const d = i > 0 ? h.total - odataHist[i - 1].total : 0
           return {label: h.date, value: d, color: d >= 0 ? '#e67e22' : '#e74c3c'}
         }).slice(1).reverse()
-      : [{label: "WoY " + getWeekNumber(odataDaily.scraped_at || ""), value: odataWeeklyDelta, color: '#e67e22'}]
+      : (() => {
+          const deltas = odataHist.map((h, i) => {
+            const d = i > 0 ? h.total - odataHist[i - 1].total : 0
+            return {date: h.date, value: d}
+          }).slice(1)
+          const weekly = {}
+          for (const d of deltas) {
+            const key = isoWeekKey(d.date)
+            if (!weekly[key]) weekly[key] = {label: key, value: 0}
+            weekly[key].value += d.value
+          }
+          return Object.values(weekly)
+            .sort((a, b) => a.label.localeCompare(b.label))
+            .reverse()
+            .map(d => ({...d, color: d.value >= 0 ? '#e67e22' : '#e74c3c'}))
+        })()
 
-    const maxVal = Math.max(...data.map(d => Math.abs(d.value)), 1)
+    // Signed domain: the scale has to cover the losses as well as the gains.
+    const hiVal = Math.max(...data.map(d => d.value), 0)
+    const loVal = Math.min(...data.map(d => d.value), 0)
+    const range = Math.max(hiVal - loVal, 1)
 
-    data.forEach(d => {
-      const pct = Math.abs(d.value) / maxVal
-      const row = document.createElement("div")
-      row.style.cssText = "display:flex;align-items:center;margin:2px 0;font-size:0.85em"
+    // `data` is newest-first; vertical bars read left-to-right in time, so plot
+    // a chronological copy rather than reordering the builders above.
+    const chrono = data.slice().reverse()
 
-      const label = document.createElement("span")
-      label.textContent = d.label
-      label.style.cssText = "width:100px;text-align:right;padding-right:8px;color:#555;flex-shrink:0"
-      row.appendChild(label)
+    // Tooltip carries the exact value — no need for labels on the bars themselves.
+    const yAxisW = 46
+    // Daily labels are day-first: "2026-07-21" -> "21-07". Weekly keys already
+    // carry their own form: "2026-W31" -> "W31".
+    const shortLabel = (l) => l.includes("-W")
+      ? l.slice(5)
+      : l.slice(8, 10) + "-" + l.slice(5, 7)
+    const signed = (v) => (v >= 0 ? "+" : "\u2212") + Math.abs(v).toLocaleString()
 
-      const track = document.createElement("div")
-      track.style.cssText = `height:${barHeight}px;flex:1;display:flex;align-items:center`
+    // Round the scale out to whole steps, so ticks land on values worth reading.
+    // Bars are scaled to this same domain, which is what keeps their heights
+    // consistent with the gridlines.
+    const rawStep = range / 4
+    const mag = Math.pow(10, Math.floor(Math.log10(rawStep)))
+    const norm = rawStep / mag
+    const step = Math.max(1, Math.round((norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 5 ? 5 : 10) * mag))
+    // With no losses in the window `bot` is 0 and this is an ordinary 0..top
+    // scale; a loss pushes the floor down instead of being folded into the top.
+    const bot = Math.floor(loVal / step) * step
+    const top = Math.max(Math.ceil(hiVal / step) * step, bot + step)
+    const span = top - bot
+    const ticks = []
+    for (let v = bot; v <= top; v += step) ticks.push(v)
 
-      const fill = document.createElement("div")
-      fill.style.cssText = `height:${barHeight - 4}px;width:${Math.max(pct * 100, 2)}%;background:${d.color};border-radius:3px;display:flex;align-items:center;padding-left:6px;min-width:fit-content`
-      fill.textContent = (d.value >= 0 ? "+" : "") + Math.abs(d.value).toLocaleString()
-      fill.style.color = "#fff"
-      fill.style.fontSize = "0.85em"
-      fill.style.fontWeight = "bold"
-      track.appendChild(fill)
-      row.appendChild(track)
-      container.appendChild(row)
+    // Pixels above the bottom of the plot band for a given value.
+    const yOf = (v) => (v - bot) / span * plotHeight
+    const zeroY = yOf(0)
+
+    const chartRow = document.createElement("div")
+    chartRow.style.cssText = "display:flex"
+
+    // ── y axis ──
+    const yAxis = document.createElement("div")
+    yAxis.style.cssText = `width:${yAxisW}px;flex-shrink:0;position:relative;height:${plotHeight}px`
+    ticks.forEach(v => {
+      const t = document.createElement("div")
+      t.textContent = v.toLocaleString()
+      // translateY(50%) centres the text on its gridline
+      t.style.cssText = `position:absolute;right:6px;bottom:${yOf(v)}px;transform:translateY(50%);font-size:0.62em;color:#555;white-space:nowrap`
+      yAxis.appendChild(t)
     })
+    chartRow.appendChild(yAxis)
+
+    // ── plot area: gridlines behind, bars in front ──
+    const plotWrap = document.createElement("div")
+    plotWrap.style.cssText = `flex:1;position:relative;height:${plotHeight}px;border-bottom:1px solid #ccc`
+
+    const grid = document.createElement("div")
+    grid.style.cssText = `position:absolute;left:0;right:0;bottom:0;height:${plotHeight}px;pointer-events:none`
+    ticks.forEach(v => {
+      // The lowest tick needs no line; the plot's own bottom border draws it.
+      if (v === bot) return
+      const line = document.createElement("div")
+      // Zero is what the bars grow from, so it reads darker than the rest.
+      line.style.cssText = `position:absolute;left:0;right:0;bottom:${yOf(v)}px;border-top:1px solid ${v === 0 ? "#ccc" : "#eee"}`
+      grid.appendChild(line)
+    })
+    plotWrap.appendChild(grid)
+
+    // position:relative lifts the bars above the absolutely-placed gridlines
+    const plot = document.createElement("div")
+    plot.style.cssText = "position:relative;display:flex;gap:3px;height:100%"
+
+    chrono.forEach(d => {
+      const col = document.createElement("div")
+      col.style.cssText = "flex:1 1 0;min-width:8px;height:100%;position:relative"
+      col.title = d.label + ": " + signed(d.value)
+
+      // Gains grow up from the zero line, losses hang below it, so a drop can
+      // never be read as a rise. Small floor keeps a zero delta visible as a tick.
+      const barH = Math.max(Math.abs(d.value) / span * plotHeight, 1)
+      const bar = document.createElement("div")
+      bar.style.cssText = `position:absolute;left:0;right:0;height:${barH}px;background:${d.color};` + (d.value >= 0
+        ? `bottom:${zeroY}px;border-radius:2px 2px 0 0`
+        : `top:${plotHeight - zeroY}px;border-radius:0 0 2px 2px`)
+      col.appendChild(bar)
+
+      plot.appendChild(col)
+    })
+    plotWrap.appendChild(plot)
+    chartRow.appendChild(plotWrap)
+    container.appendChild(chartRow)
+
+    // Tick labels are anchored at each cell's centre with the transform origin at
+    // the text's top-right corner, so rotating -60deg sweeps the text down and to
+    // the left, keeping it below the axis. Rotating about `top center` (as before)
+    // swept it upwards into the bars. The left margin matches the y axis so the
+    // labels stay aligned with their columns.
+    const axis = document.createElement("div")
+    axis.style.cssText = `display:flex;gap:3px;height:44px;margin-left:${yAxisW}px`
+    chrono.forEach(d => {
+      const cell = document.createElement("div")
+      cell.style.cssText = "flex:1 1 0;min-width:8px;position:relative"
+      const t = document.createElement("span")
+      t.textContent = shortLabel(d.label)
+      t.style.cssText = "position:absolute;top:3px;right:50%;text-align:right;font-size:0.62em;color:#555;white-space:nowrap;transform:rotate(-60deg);transform-origin:top right"
+      cell.appendChild(t)
+      axis.appendChild(cell)
+    })
+    container.appendChild(axis)
 
     // Radio buttons below the chart
     const controls = document.createElement("div")
