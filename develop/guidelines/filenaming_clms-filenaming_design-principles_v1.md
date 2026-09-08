@@ -312,7 +312,7 @@ satellite scene, an administrative boundary, or a continental code:
 |----|----|----|
 | MGRS | Sentinel-2 raster tile | `T33UVS` |
 | LAEA 100km | Pan-European composite on INSPIRE/ETRS89-LAEA grid | `E27N48` |
-| IW burst | EGMS InSAR swath (burst-level) | `054-0154-IW1` |
+| IW burst | Sentinel-1 swath (burst-level) | `054-0154-IW1` |
 | FUA code | Functional Urban Area, city-level vector | `DK004L3` |
 | Country code | Nation-level vector | `DE`, `IT` |
 | Delivery Unit | Tiling system for large-area products | `DU001` |

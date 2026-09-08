@@ -131,7 +131,7 @@ exhaustive.*
     ├── E{XXX}N{YYY}_                  LAEA 100km         (pan-European grid)
     │   └── E27N48_
     │
-    ├── {Orbit}-{BurstID}-{SubSwath}_  IW burst           (EGMS InSAR swath)
+    ├── {Orbit}-{BurstID}-{SubSwath}_  IW burst           (Sentinel-1 swath)
     │   └── 054-0154-IW1_
     │
     ├── {NNN}{CC}C{L}_                 FUA code           (Functional Urban Area)
@@ -180,7 +180,7 @@ exhaustive.*
     │
     ├── LCU                            Land Cover Land Use status/change   (UA, CLC, CLCPLUS, RZ, …)
     │
-    ├── L3-U, L3-EW                    EGMS velocity grid  (EGMS L3)
+    ├── L3-U, L3-EW                    EGMS velocity components (EGMS Ortho – L3)
     │
     └── L2a-A, L2a-D, L2b-A, L2b-D    EGMS calibrated     (EGMS L2)
 
