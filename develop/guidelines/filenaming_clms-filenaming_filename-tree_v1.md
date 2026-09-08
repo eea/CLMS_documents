@@ -162,7 +162,7 @@ exhaustive.*
     │   ├── GRA, DLT, CTY              (VLCC)
     │   ├── IMCCS, SBCC, SFW, CM       (NVLCC, SLF)
     │   ├── TCD, FTY, IMD, IBU, WAW    (HRL - 10m)
-    │   └── SWF                         (HRL - 5m)
+    │   └── SWF                        (HRL - 5m)
     │
     ├── {SUB}-{PARAM}                  Two-level          (WSI, VPP2)
     │   ├── SP-SCD
@@ -182,9 +182,7 @@ exhaustive.*
     │
     ├── L3-U, L3-EW                    EGMS velocity grid  (EGMS L3)
     │
-    ├── L2a-A, L2a-D, L2b-A, L2b-D    EGMS calibrated     (EGMS L2)
-    │
-    └── NET, DIR, SUB                  EU Hydro            (EUHYDRO)
+    └── L2a-A, L2a-D, L2b-A, L2b-D    EGMS calibrated     (EGMS L2)
 
 ## Full Example Walkthrough
 

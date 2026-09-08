@@ -222,7 +222,7 @@ Spatial extent identifiers are `_`-separated from adjacent tokens. Never fuse th
 - `CLMS_CLCPLUS-LCU_S2023_R10m_E48N37_…` (LAEA tile)
 - `CLMS_UA-LCU_S2021_V025ha_DK004L3_…` (FUA code)
 - `CLMS_EGMS-L2a-A_…_054-0154-IW1_…` (IW burst)
-- `CLMS_EUHYDRO-NET_S2026_R10m_EUROPE_…` (continental coverage)
+- `CLMS_EUHYDRO-NET-LINE_EUROPE_…` (continental coverage)
 - `CLMS_WSI-WDS-SSC_20210217T053159_R60m_T32TNS_S1B_V01-R00.tif` (MGRS, SAR sensor)
 
 ------------------------------------------------------------------------
@@ -278,7 +278,7 @@ Spatial extent identifiers are `_`-separated from adjacent tokens. Never fuse th
 
 **Rule:** Omit production date from filenames. Include it only when multiple production runs for the same temporal period coexist in the same distribution channel. When present: `{YYYYMMDD}` as the last token before the extension.
 
-**Compliant:** `CLMS_EUHYDRO-NET_S2026_R10m_EUROPE_3035_V02-R00_20261015.gpkg`
+**Compliant:** `CLMS_EUHYDRO-NET-LINE_EUROPE_3035_V02-R00_20261015.gpkg`
 
 ------------------------------------------------------------------------
 
