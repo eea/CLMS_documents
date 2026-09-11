@@ -388,7 +388,7 @@ surrounding context.
 <img
 src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image2.jpg"
 style="width:5.35in"
-data-fig-alt="| CODE | Legend code | |---|---| | yyyy | Reference year (e.g. 2006, 2012 or 2018) | This table defines the code `yyyy` as a representation for a &#39;Reference year&#39; within technical documentation, providing examples such as 2006, 2012, and 2018." />
+data-fig-alt="/ CODE / Legend code / /---/---/ / yyyy / Reference year (e.g. 2006, 2012 or 2018) / This table defines the code `yyyy` as a representation for a &#39;Reference year&#39; within technical documentation, providing examples such as 2006, 2012, and 2018." />
 
 | CODE | Legend code                              |
 |------|------------------------------------------|

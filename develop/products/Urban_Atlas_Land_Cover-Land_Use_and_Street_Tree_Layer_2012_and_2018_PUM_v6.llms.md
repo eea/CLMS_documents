@@ -167,7 +167,7 @@ ESRI ArcGIS compatible or open source OGC-standard vector format with polygon to
 
 Example provided of the number for UA class 1.1.2.1
 
-![\| CODE \| Legend code \| \|---\|---\| \| yyyy \| Reference year (e.g. 2006, 2012 or 2018) \| This table defines the code \`yyyy\` as a representation for a 'Reference year' within technical documentation, providing examples such as 2006, 2012, and 2018.](Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image2.jpg)
+![/ CODE / Legend code / /---/---/ / yyyy / Reference year (e.g. 2006, 2012 or 2018) / This table defines the code \`yyyy\` as a representation for a 'Reference year' within technical documentation, providing examples such as 2006, 2012, and 2018.](Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image2.jpg)
 
 Column data format:
 
