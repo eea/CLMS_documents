@@ -90,6 +90,12 @@ python3 ../.github/scripts/qmd-tools/promote_bare_captions.py .
 echo "Baking image descriptions into qmd source..."
 python3 ../.github/scripts/build/inject_image_descriptions.py .
 
+# Re-pad grid-table rows that the rewrites above (media-dir rename, fig-alt)
+# pushed off their column borders - Pandoc mis-parses those and Typst fails
+# with "unexpected comma". Must stay the last qmd rewrite before render.
+echo "Realigning grid tables..."
+python3 ../.github/scripts/qmd-tools/realign_grid_tables.py .
+
 # Render with the no-headers config. The with-headers variant is still on
 # disk but nothing activates it anymore.
 cp _quarto-no-headers.yml _quarto.yml
