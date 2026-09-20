@@ -519,7 +519,7 @@ resulting from a forest cut, the rule applied is the following:
   site, etc.).
 
 <img
-src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image21.png"
+src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image21.jpg"
 style="width:6.27in"
 data-fig-alt="This map illustrates Land Use / Land Cover (LULC) changes in the FR010L2 Montpellier area of France between 2012 and 2018, using Copernicus Urban Atlas data. The image is divided into three main sections: &#39;Urban Atlas 2012&#39;, &#39;Urban Atlas 2018&#39;, and &#39;Changes between 2012 and 2018&#39;. A scale bar is present indicating 0, 0.5, and 1 km, along with a north arrow. The &#39;Urban Atlas 2012&#39; section displays a false-colour infrared satellite image (Image source: Spot5 - 13/08/2011) and its corresponding LULC map. On the 2012 LULC map, classes include: urban fabric (dark red), industrial/commercial/transport units (purple), agricultural areas (light yellow), forests/semi-natural areas (dark green), water bodies (light blue), roads/railways (grey), green urban areas (brownish), and sport/leisure facilities (pinkish). The &#39;Urban Atlas 2018&#39; section displays a false-colour infrared satellite image (Image source: Pléiades 1B - 06/08/2018) and its corresponding LULC map. Compared to 2012, the 2018 imagery and LULC map show a prominent new linear feature, likely a major transport corridor, extending through what was previously agricultural land, appearing as a dark grey area. The &#39;Changes between 2012 and 2018&#39; section specifically highlights the transformations using the following legend: * Dark red: &#39;Urban expansion from agricultural areas&#39; * Red: &#39;Urban expansion from natural areas&#39; * Purple: &#39;Internal urban changes&#39; * Orange: &#39;Urban conversion to agriculture&#39; The map of changes indicates significant urban expansion, predominantly from agricultural areas (dark red), concentrated along the newly developed linear transport infrastructure. Smaller, dispersed patches of urban expansion from natural areas (red) and internal urban changes (purple) are also visible. &#39;Urban conversion to agriculture&#39; (orange) appears to be a very minor change in this specific geographical view."
 alt="Change Dynamics over FR010L2 Montpellier (2012-2018)" />
@@ -605,7 +605,7 @@ database.
   misclassification.</span>  
 
 <img
-src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image24.png"
+src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image24.jpg"
 style="width:3.57in"
 data-fig-alt="A spatial map illustrating the distribution of features labelled &#39;S T L before post processing&#39; and an area marked as &#39;Border effect&#39;. The map shows a white background with irregular patches and linear elements rendered in dark green, representing the &#39;S T L before post processing&#39; features. These features are denser on the left side of the map. An irregularly shaped polygon outlined in red, located in the upper-central part of the map, highlights an area designated as a &#39;Border effect&#39;. This red-outlined area also contains green &#39;S T L&#39; features, which appear to be less dense or more fragmented compared to the dense concentration on the far left. The legend on the right indicates: a solid dark green square for &#39;S T L before post processing&#39; and a red outlined square for &#39;Border effect&#39;. The map does not include a scale bar, compass, or explicit reference year, but the surrounding context refers to the European Urban Atlas." />
 
@@ -907,7 +907,7 @@ of linear structures, they can be mapped smaller than 10 m over a
 distance up to 50 m (see figure below).
 
 <img
-src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image36.png"
+src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image36.jpg"
 style="width:6.27in"
 data-fig-alt="This diagram illustrates a mapping rule for a linear feature with varying width and a maximum length. The feature is bounded by two black lines on a light yellow background. At its widest points, indicated by vertical double-headed arrows on the left and right, the feature has a width of 10 m. The central portion of the feature narrows significantly. A horizontal double-headed arrow below the feature indicates a length of &#39;≤ 50 m&#39;, encompassing the section from where the feature begins to narrow to where it regains its 10 m width. This geometric configuration is labelled as &#39;Mapped as 1.2.2.3&#39;, suggesting a classification code within a land cover mapping system like CORINE Land Cover (CLC)." />
 

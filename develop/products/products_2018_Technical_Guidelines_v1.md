@@ -432,7 +432,7 @@ funding” means: these countries might implement CLC2018 under a scheme
 different than Copernicus, similarly to CLC2012.
 
 <img
-src="products_2018_Technical_Guidelines_v1-media/img-6b9fe11652f5588ae3846e4cecbc8e5a.png"
+src="products_2018_Technical_Guidelines_v1-media/img-6b9fe11652f5588ae3846e4cecbc8e5a.jpg"
 data-fig-alt="This choropleth map illustrates the participation status of European countries and surrounding regions in the CORINE Land Cover (CLC) 2018 programme, based on data from October 2017. The map covers Europe, including Iceland, the United Kingdom, and parts of North Africa and the Middle East, with insets for the Canary Islands, Azores Islands, and Madeira Islands. A latitude/longitude grid is shown, ranging from 20°W to 60°E longitude and 30°N to 60°N latitude. A scale bar indicates distances up to 1500 km. The legend defines four categories: * **Green**: &#39;Participating country&#39;. This includes most of Western, Central, and Northern Europe, such as Iceland, Ireland, the United Kingdom, France, Germany, Spain, Portugal, Italy, Austria, Belgium, Netherlands, Luxembourg, Czech Republic, Slovakia, Poland, Hungary, Slovenia, Croatia, Bulgaria, Romania, Greece, Finland, Sweden, Norway, and Estonia. Liechtenstein is covered by Austria. * **Blue**: &#39;Participation pending&#39;. These are mainly countries in the Balkans (Albania, Bosnia and Herzegovina, Montenegro, Former Yugoslav Republic of Macedonia, Serbia), Switzerland, Cyprus, and Turkey. According to the context, Albania, Bosnia and Herzegovina, Montenegro, Former Yugoslav Republic of Macedonia, and Serbia are &#39;not eligible for Copernicus funding&#39;, while Switzerland and Turkey are &#39;not eligible for Copernicus funding&#39; but Turkey will &#39;provide national funding&#39;. Cyprus had &#39;no reply yet&#39;. * **Red**: &#39;Not participating&#39;. This includes Denmark, Latvia, and Malta (Luxembourg is not highlighted in red on the map but stated in the context as &#39;will not submit offer&#39;). Denmark and Latvia are explicitly listed in the context as &#39;will not submit offer&#39;, while Malta is listed as &#39;✓&#39; in the context but red on the map. * **Grey**: &#39;Out of CLC coverage&#39;. This applies to Russia, Belarus, Ukraine, and countries in North Africa and the Middle East, indicating they are outside the primary geographic scope of the CLC programme. The map shows widespread participation in Western and Central Europe, with areas of pending participation predominantly in Southern and Eastern Europe, and a few instances of non-participation in Northern Europe."
 alt="Figure 1 Countries participating in CLC2018 (Status October 2017)" />
 
@@ -703,7 +703,7 @@ processes, as shown in the schematic diagram below extracted from ESA’s
 website
 
 <img
-src="products_2018_Technical_Guidelines_v1-media/img-e8d7d0bd146b18bf757abb4c4a5f77d5.png"
+src="products_2018_Technical_Guidelines_v1-media/img-e8d7d0bd146b18bf757abb4c4a5f77d5.jpg"
 data-fig-alt="This diagram illustrates the user access and data download workflow for the Copernicus Coordinated Data Access System (CDS). The process consists of three main stages: 1. **ON LINE REGISTRATION**: Eligible users register online to the Copernicus Coordinated Data Access System (CDS) via the Copernicus User&#39;s Personal Area. This step generates Single Sign On (SSO) credentials. 2. Following successful registration and validation, users can pursue two parallel paths using their SSO credentials on the Copernicus User&#39;s Personal Area: * **ORDERING**: Users with relevant assigned quota can place standard or emergency on-demand data requests. * **SUBSCRIPTION**: Users can subscribe directly to authorised datasets. 3. **DATA DOWNLOAD**: Once subscriptions or orders are implemented, the requested data can be downloaded. This is done either via FTPS from the CDS online archive or via the Copernicus Client GCL, logging in with SSO credentials." />
 
 This diagram illustrates the user access and data download workflow for
@@ -743,7 +743,7 @@ spatial resolution imagery at global scale and with a high revisit
 frequency (Table 8) \[17\].
 
 ![Figure 3: MSI Spectral-Bands versus Spatial Resolution
-\[17\].](products_2018_Technical_Guidelines_v1-media/img-c4d619539a45e1edf7d072402fcc0b91.png)
+\[17\].](products_2018_Technical_Guidelines_v1-media/img-c4d619539a45e1edf7d072402fcc0b91.jpg)
 
 <div class="tbl-caption">
 
@@ -1546,7 +1546,7 @@ Text box 4.
 > See more in Ch. 4.3.1 /Real change
 
 <img
-src="products_2018_Technical_Guidelines_v1-media/img-365b05a88bfd09a5c8ca4936e3f6a5ca.png"
+src="products_2018_Technical_Guidelines_v1-media/img-365b05a88bfd09a5c8ca4936e3f6a5ca.jpg"
 data-fig-alt="This diagram illustrates the process for delineating and coding land cover changes between CLC2012 and CLC2018 in the Copernicus Land Monitoring Service (CLMS) CLC-Change database. The process is shown in three sequential steps, accompanied by an initial contextual map: 1. **Contextual Map (left):** An area of land cover is displayed with various coloured polygons representing different CLC classes, including red, yellow, light green, dark green, orange, brown, and purple. An arrow points to a light yellow polygon in the upper left, which is the focus of the change detection. 2. **Step 1 (top right):** The CLC2012 polygon (light yellow) that contains the visually detected change is identified and &#39;taken over into the CLC-Change database&#39;. 3. **Step 2 (middle right):** A photointerpreter manually outlines the exact area of land cover change within the CLC2012 polygon, indicated by a dashed brown line within the light yellow polygon. 4. **Step 3 (bottom right):** The portion of the original CLC2012 polygon that did not change (&#39;no-change area&#39;) is deleted. The outlined change area is isolated, becomes a new polygon (shown here in solid purple), and is assigned a CLC change code pair (211-121). This code indicates a change from &#39;211 - Arable land (non-irrigated)&#39; in 2012 to &#39;121 - Industrial or commercial units&#39; in 2018." />
 
 This diagram illustrates the process for delineating and coding land
@@ -1670,7 +1670,7 @@ a change is mapped in the same location.
     overlap each other.
 
 <img
-src="products_2018_Technical_Guidelines_v1-media/img-16233752be1816ca6a5e1edaf3e27a0e.png"
+src="products_2018_Technical_Guidelines_v1-media/img-16233752be1816ca6a5e1edaf3e27a0e.jpg"
 data-fig-alt="This image displays two side-by-side false-colour satellite imagery snippets, illustrating the process of land cover change detection and mapping updates, likely for the Copernicus Land Monitoring Service (CLMS) CORINE Land Cover (CLC) products. The left panel shows existing land cover polygons delineated by yellow lines on a pixelated satellite image background. The right panel shows the same area, with an additional polygon outlined in magenta, which represents a newly mapped land cover change or a correction. A small black circle with a yellow outline is located within the magenta polygon, indicating a specific point of interest or a potential error identified during revision. The background satellite imagery exhibits variations in shades of red, green, blue, and brown, characteristic of false-colour composites used for vegetation and land feature interpretation. This visual demonstrates the &#39;CLC2012 revision&#39; process for identifying and correcting &#39;systematic mistakes&#39; or &#39;random mistakes&#39; during &#39;CLC2018 mapping.&#39;"
 alt="Figure 5 Mistake: Narrow channel between change outlines (right side, magenta) and CLC status layer outlines (yellow)" />
 
@@ -1691,7 +1691,7 @@ the “CLC2012 revision” process for identifying and correcting
 “systematic mistakes” or “random mistakes” during “CLC2018 mapping.”
 
 <img
-src="products_2018_Technical_Guidelines_v1-media/img-d1ab3a86f9f60dbadafe5f4011772ab4.png"
+src="products_2018_Technical_Guidelines_v1-media/img-d1ab3a86f9f60dbadafe5f4011772ab4.jpg"
 data-fig-alt="This composite map illustrates the identification of Land Cover / Land Use (LULC) changes and errors during the Copernicus Land Monitoring Service (CLMS) CORINE Land Cover (CLC) 2018 mapping process, referencing CLC2012. Both panels display false-colour satellite imagery with overlaid CLC polygons. The left panel shows initial CLC polygons outlined in yellow, with CORINE Land Cover codes: &#39;243&#39; (Complex cultivation patterns), &#39;211&#39; (Arable land), and &#39;312&#39; (Coniferous forest). This represents the CLC2012 baseline. The right panel shows the same area but includes new magenta outlines, indicating revised polygon boundaries and identified changes. A yellow dot and a red dot mark locations identified as &#39;mistakes&#39;. A specific area previously classified as &#39;211&#39; (Arable land) is now encompassed by a magenta outline and labelled &#39;211---142&#39;, indicating a change from &#39;Arable land&#39; (211) to &#39;Land principally occupied by agriculture, with significant areas of natural vegetation&#39; (142). This demonstrates the revision of CLC2012 data and the detection of LULC changes for CLC2018."
 alt="Figure 6 Mistake: Change outlines (right side, magenta) not matching CLC status layer outlines (yellow)" />
 
@@ -3301,7 +3301,7 @@ any additional questions related to CLC2018 technical quality screening
 service please contact tomas.soukup@gisat.cz.
 
 <img
-src="products_2018_Technical_Guidelines_v1-media/img-ef931b28a24c52a543477e253622de74.png"
+src="products_2018_Technical_Guidelines_v1-media/img-ef931b28a24c52a543477e253622de74.jpg"
 data-fig-alt="This image is a screenshot of a web browser displaying the login page for the &#39;CLC QC TOOL&#39; (CORINE Land Cover Quality Control Tool), accessible via the URL &#39;clcqc.gisat.cz&#39;. The main page title is &#39;CLC QC TOOL&#39;, with a &#39;Help&#39; link in the top right. The page features a three-column layout, with the rightmost column (orange background) containing a login form. This form includes input fields for &#39;Login:&#39; and &#39;Password:&#39;, a &#39;Submit&#39; button, and a &#39;Generate new password&#39; link. The bottom section of the page provides attribution text: &#39;Developed by ETC SIA under framework partnership agreement with EEA with funding by the European Union.&#39; Below this are logos for &#39;ETC SIA&#39;, &#39;European Environment Agency (EEA)&#39;, &#39;European Commission&#39;, &#39;Copernicus Land Monitoring Service (CLMS)&#39;, and &#39;gisat&#39;. A copyright notice reads &#39;© Gisat 2014&#39;."
 alt="Figure 28 CLC QC Tool home page - http://clcqc.gisat.cz" />
 
@@ -3607,7 +3607,7 @@ national teams*. Framework Service Contract EEA/MDI/14/010 LOT 2
 
 <!-- figures detected in Phase 1 but not placed by the converter
      (review and place manually if any is a real figure):
-       FIG_3: Figure 3: MSI Spectral-Bands versus Spatial Resolution [17]. -> products_2018_Technical_Guidelines_v1-media/img-c4d619539a45e1edf7d072402fcc0b91.png
+       FIG_3: Figure 3: MSI Spectral-Bands versus Spatial Resolution [17]. -> products_2018_Technical_Guidelines_v1-media/img-c4d619539a45e1edf7d072402fcc0b91.jpg
 -->
 
 [^1]: In case of a complex change polygon, size less than 5 ha is also

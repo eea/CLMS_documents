@@ -132,7 +132,7 @@ TABLE 2: PRODUCT ACCURACIES
 - Minimum mapping width (MinMW) between 2 objects for distinct mapping of 10 m
 - Maximum mapping width (MaxMW) between 2 objects for mapping together 10 m Exception of minimum width 10 m of a mapping unit: to maintain continuity of linear structures, they can be mapped smaller than 10 m over a distance of up to 50 m (see figure).
 
-![](products_Mapping_Guide_Land%20_Cover_Land_Use_2006-media/img-f0e713afc4bdbbad6464470739d4e152.png)
+![](products_Mapping_Guide_Land%20_Cover_Land_Use_2006-media/img-f0e713afc4bdbbad6464470739d4e152.jpg)
 
 ### 4.2.10 PRIORITY RULES
 
@@ -148,11 +148,11 @@ Mapping scale on screen 1: 5 000
 
 ## 4.3 VISUAL EXAMPLES FOR RANDOM DISTRIBUTIONS
 
-![](products_Mapping_Guide_Land%20_Cover_Land_Use_2006-media/img-41f4eecd787b46f771f5b0bfe605dc34.png)
+![](products_Mapping_Guide_Land%20_Cover_Land_Use_2006-media/img-41f4eecd787b46f771f5b0bfe605dc34.jpg)
 
 Random distribution of the forest trees coverage (A, C) and regular distribution (B).
 
-![](products_Mapping_Guide_Land%20_Cover_Land_Use_2006-media/img-c79e8b90561cffd68c6d73c52a75098e.png)
+![](products_Mapping_Guide_Land%20_Cover_Land_Use_2006-media/img-c79e8b90561cffd68c6d73c52a75098e.jpg)
 
 ## 4.4 LEGEND TABLE
 
@@ -609,7 +609,7 @@ The general procedure for the road buffering is as follows:
 
 Post-processing will be implemented according to service provider’s production chain.
 
-![](products_Mapping_Guide_Land%20_Cover_Land_Use_2006-media/img-8df3ec061ad32bb3927a9b6f657b00b8.png)
+![](products_Mapping_Guide_Land%20_Cover_Land_Use_2006-media/img-8df3ec061ad32bb3927a9b6f657b00b8.jpg)
 
 FIGURE 1: EXAMPLE OF THE “LOOK & FEEL” OF THE FINAL URBAN ATLAS PRODUCT FOR BRUSSELS.
 

@@ -3544,7 +3544,7 @@ Surrounding the delineated shipyard are additional areas of red-coloured
 vegetation and other grey-toned urban or industrial land covers.
 
 <img
-src="Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image75.png"
+src="Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image75.jpg"
 style="width:4.5in"
 data-fig-alt="An aerial or satellite map displays a coastal industrial area, likely a port facility, bordered by a large body of dark blue water. The main industrial landmass is delineated by a bright green polygon, with small red dots marking its vertices. Within this polygon, numerous buildings are visible, characterised by white, grey, brown, and reddish roofs, indicative of various industrial or commercial structures. A long, narrow bridge or causeway connects the industrial area to an adjacent, densely built-up urban area visible on the right side of the image. Buildings in this urban area appear in red and yellow tones, suggesting a false-colour rendering. A large, grey vessel, possibly a cargo ship or barge, is present in the water near the bridge. No scale bar, compass orientation, legend, or data source/reference year is provided."
 alt="Delineation of a shipyard in Pula (Croatia). SPOT-7 (2 m) (1/2/3 Band Combination). Date: 2017-07-26. Source: Airbus DS Geo SA (2018)" />
@@ -12161,7 +12161,7 @@ classification.
 **Appearance**:
 
 <img
-src="Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image348.png"
+src="Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image348.jpg"
 style="width:6.27in"
 data-fig-alt="This is a false-color satellite image depicting a coastal landscape. Healthy vegetation, including forests and agricultural fields, appears in shades of bright to dark red, indicating high reflectance in the Near-Infrared spectrum. Residential areas and urban infrastructure, characterized by buildings and roads, are visible as darker, mottled regions embedded within the vegetated areas. A distinct white to light grey band outlines the coastline, suggesting exposed rocky cliffs or sandy beaches. The ocean or sea appears in dark blue, with lighter blue and greenish hues in the shallower coastal waters, indicative of bathymetry, submerged features like seagrass, or sediment. The image shows a detailed view, allowing individual buildings, field patterns, and coastal erosion features to be discerned."
 alt="Cliffs at the British coastline near Fairlight (UK). SuperView-1 (2m) (1/2/3). Date: 2018-09-02. Source: Airbus DS Geo SA (2018)" />

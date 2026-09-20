@@ -669,7 +669,7 @@ are transferred to the **HER** layer if occurring in the designated
 overlap class.
 
 <img
-src="products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-0f4778c79e1edff8abc04229a8f348b7.png"
+src="products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-0f4778c79e1edff8abc04229a8f348b7.jpg"
 data-fig-alt="This is a workflow diagram outlining the processing for the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) vegetated land cover characteristics. The process begins with the &#39;Base Vegetation Layer Service,&#39; which classifies initial land cover into &#39;Herbaceous,&#39; &#39;Cropland,&#39; and &#39;Tree Cover.&#39; Within this service, specific overlap areas are identified: &#39;Overlap Herbaceous – Tree Cover (Tree Cover Density (TCD) 1-10%),&#39; &#39;Overlap Herbaceous-Cropland (e.g. Fodder crops),&#39; and &#39;Overlap Tree Cover-Cropland (Tree crops).&#39; From the &#39;Base Vegetation Layer Service,&#39; data is distributed: 1. &#39;Herbaceous&#39; areas, considering &#39;Max. extent &amp; probabilities,&#39; are processed by &#39;Grassland Product Services.&#39; 2. &#39;Cropland&#39; areas, considering &#39;Max. extent,&#39; are processed by &#39;Cropland Product Services.&#39; 3. &#39;Tree Cover&#39; areas, considering &#39;Max. extent &amp; probabilities,&#39; are processed by &#39;Forest Product Services.&#39; A feedback loop exists where &#39;Fodder crops&#39; data from &#39;Cropland Product Services&#39; is fed into &#39;Grassland Product Services.&#39; The final outputs from each product service are: - **Grassland Product Services** generate products such as &#39;Herbaceous Cover (10m),&#39; &#39;Grassland (10m, 100m),&#39; &#39;Grassland Change (20m, Minimum Mapping Unit (MMU) 1ha),&#39; and &#39;Grassland Mowing Events (10m, MMU 0.25ha).&#39; - **Cropland Product Services** generate products such as &#39;Crop Types (10m, MMU 0.25 ha),&#39; &#39;Cropping patterns (10m, MMU 0.25 ha),&#39; &#39;Main Crops, Bare Soil, Secondary Crops,&#39; &#39;Fallow Land,&#39; and &#39;Annual Crop Characteristics.&#39; - **Forest Product Services** generate products such as &#39;Dominant Leaf Type (10m),&#39; &#39;Tree Cover Density (10m, 100m),&#39; &#39;Forest Type (10m, 100m),&#39; and &#39;Forest Change (20m, MMU 1ha).&#39;"
 alt="Figure 5-2: High-level overview of the relationship between the Base Vegetation Layer and the subsequent production of Grasslands, Croplands and Tree Cover &amp; Forests products" />
 
@@ -735,7 +735,7 @@ confirmed by the **Dominant Leaf Type (DLT)** layer pictured in Figure
 6-2.
 
 <img
-src="products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-b6cee66e1f97a8f74fee6b06fd496b1a.png"
+src="products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-b6cee66e1f97a8f74fee6b06fd496b1a.jpg"
 data-fig-alt="The image displays a comparison of optical satellite imagery with a derived classified map illustrating tree cover changes over time. It consists of three panels: The top-left panel shows an earlier temporal snapshot of the landscape, characterised by dense tree cover, a central, elongated water body (likely a reservoir or river), and a network of tracks or unpaved roads. The bottom-left panel shows a later temporal snapshot of the same landscape. A red circle highlights an area where previous dense tree cover has visibly been removed or significantly thinned. A yellow circle highlights another area which appears to show some regrowth or new vegetation cover compared to the top image. The right-hand panel presents a classified map of tree cover change, derived from the comparison of the two satellite images. The legend defines four classes: * White (class 0): unchanged no tree cover * Green (class 1): new tree cover (a small green square is visible in the legend, but no discernible green pixels appear on the map within this displayed area) * Red (class 2): loss of tree cover * Grey (class 10): unchanged tree cover The classified map clearly delineates significant areas of tree cover loss (red), aligning with the area highlighted by the red circle in the bottom-left satellite image. Extensive areas of unchanged tree cover are depicted in grey, and unchanged non-tree covered areas (including the water body and some open land) are shown in white. All three panels share a common scale bar, ranging from 0 m to 2000 m, with increments at 400 m, 800 m, 1200 m, 1600 m, and 2000 m. This visual demonstrates the process of deriving Tree Cover &amp; Forests layers as part of Copernicus Land Monitoring Service (CLMS) products, by analyzing changes in basic vegetation layers (BVL)."
 alt="Figure 6-1: Right: Tree Cover Presence Change documenting tree cover loss areas between 2018-2021 in Harz mountains, Germany. Left side shows S2 scenes (top left: 2018, bottom left: 2021) with clearly visible clear cut sides (yellow circle) and dead trees (red circle), caused by drought and bark beetle infestation" />
 
@@ -767,7 +767,7 @@ of Copernicus Land Monitoring Service (CLMS) products, by analyzing
 changes in basic vegetation layers (BVL).
 
 <img
-src="products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-c4134578fe123095b3b93fc0761ceac5.png"
+src="products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-c4134578fe123095b3b93fc0761ceac5.jpg"
 data-fig-alt="These four choropleth maps display annual tree cover classifications for an undisclosed geographic region, likely a forested area with a central water body, over the period 2018 to 2021. Each map panel is labelled with its respective year: 2018 (top-left), 2019 (top-right), 2020 (bottom-left), and 2021 (bottom-right). The legend, consistent across all maps, uses three colour classes: * White: 0: no tree cover * Light green: 1: Broadleaved trees * Dark green: 2: Coniferous trees A prominent white area, representing &#39;no tree cover&#39; or a water body, runs through the lower-central portion of all maps. From 2018 to 2020, the spatial distribution of broadleaved and coniferous trees remains relatively stable. However, the 2021 map shows a substantial increase in &#39;no tree cover&#39; areas (white) across the landscape, particularly in the upper and right sections, indicating a significant reduction in overall tree cover compared to the preceding years. This change suggests extensive land cover modification, such as deforestation or other disturbances, occurred by 2021."
 alt="Figure 6-2: DLT time series showing the gradual decrease of coniferous tree cover from 2018 to 2021" />
 
@@ -874,7 +874,7 @@ layer (**DLT**) of 2018 and 2021. It includes 6 thematic classes,
 thereof 4 change classes.
 
 <img
-src="products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-e00db7d8be8efd95fe018590f9af1505.png"
+src="products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-e00db7d8be8efd95fe018590f9af1505.jpg"
 data-fig-alt="Choropleth map of Europe illustrating the spatial coverage of land monitoring data, categorized by two geographical scopes: EU27 and EEA38. The map features a base layer of European country outlines in grey, overlaid with a grid of squares. The legend indicates: * Green outlined squares: &#39;Included in EU27 coverage&#39;. This covers the 27 EU Member States (e.g., France, Germany, Italy, Spain, Poland, Ireland, Portugal, Greece, etc.) and their associated islands like the Canary Islands, Madeira, and Azores. * Blue outlined squares: &#39;Included only in EEA38 coverage&#39;. These squares extend the coverage to non-EU Member States that are part of the European Environment Agency (EEA38) network, including Norway, Iceland, the United Kingdom, Switzerland, and Turkey, as well as the Western Balkan countries (e.g., Albania, Bosnia and Herzegovina, Montenegro, North Macedonia, Serbia). The map shows that the EU27 coverage forms a contiguous block over the majority of continental Europe. The EEA38 coverage expands this to include northern Scandinavia, the British Isles, Iceland, Switzerland, and a significant portion of Southeast Europe and Anatolia. A horizontal scale bar at the bottom right indicates distances from 0 km to 1600 km, marked at 400 km intervals."
 alt="Figure 7-1: LAEA tile layout including distinction between tiles to cover EU27 and EEA38." />
 
@@ -1624,7 +1624,7 @@ and **Grasslands** products (2 000 in the tree cover change strata, 2
 samples (Primary Sampling Units) across **EEA38**.
 
 ![Figure 8-1: Spatial distribution of 14.000 Primary Sampling
-Units.](products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-57f7154abeb6dd64f49c32c542bdf0ae.png)
+Units.](products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-57f7154abeb6dd64f49c32c542bdf0ae.jpg)
 
 ## Response Design
 
@@ -1680,7 +1680,7 @@ SSUs are labelled”no tree”, the initial sample unit gets the reference
 Forests reference layers. Red dot: initial sample; white dot: secondary
 sample unit; green outline: area around the initial sample that is used
 to derived product
-statistics.](products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-20b8f339d0da250fe8db5d7560f29558.png)
+statistics.](products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-20b8f339d0da250fe8db5d7560f29558.jpg)
 
 To compare these reference information with the layers, an extraction is
 performed over the SSU extent (green outline in Figure 8-2): the average
@@ -1814,11 +1814,11 @@ when compared to full EEA38.
 
 ![Figure 8-3: HRL TCD 2018, 2021 and 2022 scatterplots and correlations
 at EU27
-level](products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-69c9c36476c8043f3056cf7e7f38b273.png)
+level](products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-69c9c36476c8043f3056cf7e7f38b273.jpg)
 
 ![Figure 8-4: HRL TCD 2018, 2021 and 2022 scatterplots and correlations
 at EEA38
-level](products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-02a37e3012417618f24d3b4e2dda719a.png)
+level](products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-02a37e3012417618f24d3b4e2dda719a.jpg)
 
 <div style="font-size: 9pt">
 <p style="text-align:center; font-weight:bold">Table 8-2: HRL TCD validation results at EU27 level</p>
@@ -2287,7 +2287,7 @@ errors in the DLT for an area Terceira island, Portugal. Shown are a)
 the DLT 2022 b) an overlay of the DLT 2022 on top of the VHR IMAGE 2021
 and c) a zoom of the latter and the pixels with commission errors marked
 in
-yellow.](products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-12034a22ccd045adae7e34f8be9157be.png)
+yellow.](products_Product_User_Manual_-_Tree_Cover_and_Forests_2018-present-media/img-12034a22ccd045adae7e34f8be9157be.jpg)
 
 <div style="font-size: 8pt">
 <p style="text-align:center; font-weight:bold">Table 8-4: DLT validation results at EU27 level</p>

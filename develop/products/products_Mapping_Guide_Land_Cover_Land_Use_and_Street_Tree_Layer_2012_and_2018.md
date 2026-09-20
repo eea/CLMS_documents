@@ -339,7 +339,7 @@ The table provided in Annex 5.3 gives a more detailed description of the
 product specifications.
 
 <img
-src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-1dc23269e02e090ac8cb927512ce84fb.png"
+src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-1dc23269e02e090ac8cb927512ce84fb.jpg"
 data-fig-alt="A high-resolution land use / land cover (LULC) map showing the spatial distribution of various classes within a functional urban area, specifically Brussels, Belgium, for the year 2012. The map is coloured according to a detailed legend with 26 categories. The legend classifies land cover into several main groups: * **Urban Fabric:** * 11100: Continuous Urban fabric (Ground Level (G.L.) &gt; 80%) - Dark brown/maroon * 11210: Discontinuous Dense Urban Fabric (G.L.: 50% - 80%) - Red * 11220: Discontinuous Medium Density Urban Fabric (G.L.: 30% - 50%) - Salmon pink * 11230: Discontinuous Low Density Urban Fabric (G.L.: 10% - 30%) - Light pink/lavender * 11240: Discontinuous very low density urban fabric (G.L. &lt; 10%) - Very pale pink * 11300: Isolated Structures - Light brown * **Other land use:** * 12100: Industrial, commercial, public, military and private units - Purple * 12210: Fast transit roads and associated land - Dark grey * 12220: Other roads and associated land - Medium grey * 12230: Railways and associated land - Light grey * 12300: Port areas - Aqua blue * 12400: Airports - Muted yellow-brown * 13100: Mineral extraction and dump sites - Light olive green/brown * 13300: Construction sites - Reddish-brown * 13400: Land without current use - Light yellowish-cream * **Green Urban Areas:** * 14100: Green urban areas - Bright green * 14200: Sports and leisure facilities - Lime green * **Agriculture:** * 21000: Arable land (annual crops) - Light yellow * 22000: Permanent crops - Orange-yellow * 23000: Pastures - Yellow * 24000: Complex and mixed cultivation patterns - Pale orange/peach * 25000: Orchards - Dark orange/brown * **Forest and semi-natural areas:** * 31000: Forests - Dark green * 32000: Herbaceous vegetation associations - Lighter bright green * 33000: Open spaces with little or no vegetations - Pale green * **Water:** * 40000: Wetlands - Pale blue/aqua * 50000: Water - Darker blue The map shows a densely urbanized core (dark red, red, salmon pink) in the central and upper-left portions, characterized by a fine network of roads (grey lines) and interspersed with green urban areas (bright green) and industrial/commercial units (purple). A prominent river (dark blue) flows through the urban fabric. Towards the lower-right, the map transitions into large contiguous areas of forests (dark green) and agricultural lands (various shades of yellow and orange), with pockets of less dense urban fabric. The scale bar indicates distances of 0, 0.5, 1, and 2 kms. A North arrow is present."
 alt="Figure 1: Example of the “look &amp; feel” of the final Urban Atlas 2012 product for Brussels" />
 
@@ -785,7 +785,7 @@ resulting from a forest cut, the rule applied is the following:
   site, etc.).
 
 <img
-src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-2dbe78f68ac45400c957af22167cae64.png"
+src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-2dbe78f68ac45400c957af22167cae64.jpg"
 data-fig-alt="This image displays a multi-panel map illustrating Urban Atlas land use/land cover (LULC) and its changes for the Functional Urban Area (FUA) of FR010L2 Montpellier, France, between 2012 and 2018. A scale bar indicates distances of 0, 0.5, and 1 km, and a North arrow is present. The image is composed of three main sections: 1. **Urban Atlas 2012:** Features an Earth Observation (EO) satellite image (Source: Spot5, 13/08/2011) and a corresponding LULC classification map for 2012. The LULC map uses various colours to represent different land covers, including urban fabric (dark red for continuous, lighter red for discontinuous), industrial/commercial/public facilities (purple), agricultural areas (yellow), forests and semi-natural areas (dark green), green urban areas (light green), water bodies (light blue), and transport infrastructure like roads (grey lines) and rail (darker grey). 2. **Urban Atlas 2018:** Features an EO satellite image (Source: Pléiades 1B, 06/08/2018) and a corresponding LULC classification map for 2018, showing the same area and LULC classification scheme as 2012, reflecting changes over the period. 3. **Changes between 2012 and 2018:** This final map explicitly highlights the areas where land cover changes occurred, using a specific legend: * Dark reddish brown: &#39;Urban expansion from agricultural areas&#39; * Red: &#39;Urban expansion from natural areas&#39; * Purple: &#39;Internal urban changes&#39; * Orange: &#39;Urban conversion to agriculture&#39; The change map reveals significant urban expansion, primarily from agricultural areas (dark reddish brown), visible as large polygons predominantly in the central-east and south-eastern parts of the mapped area. Smaller, distributed areas of urban expansion from natural areas (red) and internal urban changes (purple) are also present. Localized urban conversion to agriculture (orange) is shown but appears less widespread. The visual comparison between the 2012 and 2018 LULC maps and the explicit change map demonstrates the spatial dynamics of urban growth and land take around Montpellier over this six-year period."
 alt="Figure 2: Change Dynamics over FR010L2 Montpellier (2012-2018)" />
 
@@ -839,7 +839,7 @@ be included). The following specific rules have to be applied:
   included in STL (see figures below).
 
 <img
-src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-17197ed61c87c8d86b492fbf61020fbe.png"
+src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-17197ed61c87c8d86b492fbf61020fbe.jpg"
 data-fig-alt="This conceptual diagram illustrates a spatial feature with specific geometric dimensions, likely a linear land cover element subject to mapping rules. The feature maintains a width of 10 m at its wider sections, indicated by vertical double-headed arrows on the left and right. In its central part, the feature narrows significantly. A horizontal double-headed arrow below this constricted section indicates that its length is less than 10 m. This diagram represents a criterion or rule for how features are defined or generalized based on minimum mapping width or length." />
 
 This conceptual diagram illustrates a spatial feature with specific
@@ -853,7 +853,7 @@ or rule for how features are defined or generalized based on minimum
 mapping width or length.
 
 <img
-src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-61b0cd297fcd85abb551a6587141745f.png"
+src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-61b0cd297fcd85abb551a6587141745f.jpg"
 data-fig-alt="This diagram illustrates a spatial mapping rule for linear features in land cover classification. It depicts two land cover polygons: a dominant red area and a narrower green area constrained between sections of the red area. A yellow rectangular outline highlights a segment of this green linear feature. Blue arrows, originating from the red polygons and pointing towards the centre of the green strip within the yellow outline, are labelled &#39;&lt; 10 m&#39;. This indicates that the width of this green linear feature is less than 10 metres. A black line runs through the centre of the highlighted green segment. This conceptual rule suggests that linear land cover features, such as those processed by the Copernicus Land Monitoring Service (CLMS) with specific Minimum Mapping Unit (MMU) requirements, may be subject to special handling or classification if their width falls below a specified threshold, such as 10 metres." />
 
 This diagram illustrates a spatial mapping rule for linear features in
@@ -877,7 +877,7 @@ classification if their width falls below a specified threshold, such as
   implemented for correcting this misclassification.
 
 <img
-src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-6f79ea57b8e994e430ca363d721a84fc.png"
+src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-6f79ea57b8e994e430ca363d721a84fc.jpg"
 data-fig-alt="A spatial distribution map illustrating green polygons representing &#39;S T L before post processing&#39; and a red-bordered polygon indicating a &#39;Border effect&#39;. The map shows numerous disconnected green polygons, which appear to be urban fabric or specific land cover features, distributed across the mapped area. A large, irregularly shaped red polygon in the upper-left quadrant highlights a zone labeled &#39;Border effect&#39;, where the green &#39;S T L&#39; features are sparse or absent within its boundary, suggesting a data anomaly or processing boundary issue. No scale bar, compass, or explicit geographic location is provided. The map refers to data prior to post-processing, in the context of land use/land cover (LULC) mapping, likely from the Copernicus Land Monitoring Service (CLMS) Urban Atlas product generation." />
 
 A spatial distribution map illustrating green polygons representing “S T
@@ -901,7 +901,7 @@ infrastructures may be excluded from the mask, but this is not an issue
 knowing that trees are very rare in such areas.
 
 <img
-src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-7037e87e357e988710e3459b91f1ca9c.png"
+src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-7037e87e357e988710e3459b91f1ca9c.jpg"
 data-fig-alt="This diagram illustrates Land Use / Land Cover (LU/LC) mapping conventions for artificial areas and transport infrastructure, differentiating treatment based on feature width. 1. **Rule for narrow roads:** If a road has a width less than 50 metres and intersects an artificial area (red hatched) and an adjacent land cover (green hatched), the mask outline for the artificial area is extended to &#39;go straight and cut the road,&#39; integrating the narrow road segment into the artificial area. 2. **Rule for wide railways:** If a feature, specifically railways (dark grey polygon labelled &#39;RAILWAYS&#39;), has a width greater than 50 metres and borders an artificial area (red hatched) and another land cover type (purple hatched), then &#39;The mask outline exclude the railways from the artificial area.&#39; This indicates that wide railways are maintained as a distinct land cover class and are not merged with adjacent artificial areas." />
 
 This diagram illustrates Land Use / Land Cover (LU/LC) mapping
@@ -926,7 +926,7 @@ STL patches do not cover roads (codes 12210 and 12220) or railways (code
 - The STL layer contains trees (STL = 1) or No data (STL= 99).
 
 <img
-src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-a4c6113318fce1f08375b73fa863bf46.png"
+src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-a4c6113318fce1f08375b73fa863bf46.jpg"
 data-fig-alt="This two-panel image illustrates the derivation of the Street Tree Layer (STL) from Very High Resolution (VHR) imagery, likely for the FR010L2 Montpellier area between 2012 and 2018. The left panel shows VHR reference imagery, presented as a false-color composite, where vegetation (trees) appears in red/magenta tones against a cyan/teal background representing urban artificial surfaces and infrastructure. A prominent linear feature, possibly a highway or major road with a bridge, runs horizontally across the upper middle of this panel. The right panel displays the corresponding extracted Street Tree Layer (STL) as irregular green polygons with black outlines on a white background. These green polygons spatially align with the vegetation patches visible in the VHR imagery, demonstrating the application of rules for the Street Tree Layer, specifically the inclusion of units smaller than the 10 m Minimum Mapping Width (MinMW) to maintain continuity in the derived layer."
 alt="Figure 3: Comparison between VHR2018 scene (left) and STL2018 product (right)" />
 
@@ -1015,7 +1015,7 @@ buildings, vegetation and other objects.
 nDSM = DSM - DTM
 
 <img
-src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-f20962ff27b485107889fe2a828f75da.png"
+src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-f20962ff27b485107889fe2a828f75da.jpg"
 data-fig-alt="This conceptual diagram illustrates the difference and relationship between a Digital Surface Model (DSM), a Digital Terrain Model (DTM), and a Normalised Digital Surface Model (NDSM). The diagram is composed of two main visual sections. The upper section shows an undulating ground surface (solid black line) with two houses and one tree positioned on it. - A red dashed line, labeled &#39;DTM&#39;, closely follows the undulating ground surface, indicating the elevation of the bare earth or terrain. - A blue dashed line, labeled &#39;DSM&#39;, follows the top surfaces of the objects (roofs of houses, canopy of the tree) and the bare earth where no objects are present, representing the elevation of all surface features including terrain and objects. The lower section illustrates the derivation of the NDSM. - A formula is provided: &#39;NDSM = DSM - DTM&#39;. - Below a flat black reference line representing a zero-height ground level (DTM = 0), an orange dashed line, labeled &#39;NDSM&#39;, outlines only the objects (houses and tree) from their base to their highest point. This indicates that the NDSM represents the height of objects above the bare earth."
 alt="Figure 4: DSM computation principle (http://www.stadtentwicklung.berlin.de/umwelt/umweltatlas/ed610_03.htm)" />
 
@@ -1060,7 +1060,7 @@ In a last refinement step the accuracy specifications are checked and if
 necessary, heights are adapted.
 
 <img
-src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-afe5c3e7c1b2c16e6099e7db6419f3b1.png"
+src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-afe5c3e7c1b2c16e6099e7db6419f3b1.jpg"
 data-fig-alt="A choropleth map displays the spatial distribution of urban built-up features within the administrative boundaries of Vienna, Austria. The red outline indicates the city limits of Vienna. Areas shaded in purple represent identified non-ground features, primarily buildings and urban infrastructure, likely derived from Digital Surface Model (DSM) processing for building block heights. White areas represent ground features, water bodies, or other non-built-up land covers. The map shows a dense concentration of purple features in the central and western parts of the city, with a major river (likely the Danube) and a parallel canal visible as prominent white linear features running through the central-eastern part. Scattered white areas within the urban fabric likely correspond to parks or open spaces. The map includes a scale bar at the bottom, indicating distances from 0 km to 10 km."
 alt="Figure 5: Coverage of Vienna core area with relevant UA 2012 built-up classes" />
 
@@ -1099,7 +1099,7 @@ and a template for the delivery report is created for each DU and stored
 in the respective folder.
 
 <img
-src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-3345b23c19716fbcab68fe7a918d0588.png"
+src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-3345b23c19716fbcab68fe7a918d0588.jpg"
 data-fig-alt="This choropleth map displays a normalized Digital Surface Model (nDSM) showing building block heights for an urban area, consistent with the Digital Surface Model (DSM) computation principle, likely from Berlin. The map depicts a dense urban landscape bisected by a winding river, with heights colour-coded according to a legend: * Blue: ]-∞; 0] metres, representing water bodies and ground level. * Light Green: ]0; 10] metres. * Yellow: ]10; 20] metres. * Orange: ]20; 30] metres. * Red: ]30; ∞[ metres, indicating the highest structures. The river and surrounding unbuilt areas are primarily blue. Buildings are clearly visible, with large portions of the urban blocks colored yellow (10-20 metres) and orange (20-30 metres), representing common building heights. Several distinct structures, especially in denser urban clusters and along the river, are highlighted in red, indicating heights exceeding 30 metres. Smaller patches of light green (0-10 metres) are interspersed throughout, suggesting lower structures or vegetation. The original source for the DSM computation principle is referenced as http://www.stadtentwicklung.berlin.de/umwelt/umweltatlas/ed610_03.htm."
 alt="Figure 6: Final Digital Height Model (height values in m)" />
 
@@ -1178,7 +1178,7 @@ structures, they can be mapped smaller than 10 m over a distance up to
 50 m (see figure below).
 
 <img
-src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-d1d01f105af50da89c6ffdee9125055b.png"
+src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-d1d01f105af50da89c6ffdee9125055b.jpg"
 data-fig-alt="This diagram illustrates a mapping rule for a linear land cover feature, such as a road or railway, specifically for CORINE Land Cover (CLC) class 1.2.2.3. The feature is initially 10 m wide. It then narrows in a central segment, but the total length of this narrowed segment is specified as less than or equal to 50 m (≤ 50 m). After this constriction, the feature widens again to 10 m. The diagram indicates that such a feature, despite its temporary narrowing within the specified length threshold, is consistently &#39;Mapped as 1.2.2.3&#39;. This implies that short constrictions in linear features are tolerated without reclassifying the feature into separate polygons, adhering to the given spatial dimensions and land cover classification rules." />
 
 This diagram illustrates a mapping rule for a linear land cover feature,
@@ -1613,7 +1613,7 @@ The final LULC classification outcomes are: “1. Artificial Surfaces”,
 Wetland”, and “5. Water”.
 
 <img
-src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-a26c16438139af540449688942f98111.png"
+src="products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-a26c16438139af540449688942f98111.jpg"
 data-fig-alt="This diagram is an Urban Atlas Land Use / Land Cover (LULC) classification decision matrix for &#39;1. Artificial Surfaces&#39;, showing a hierarchical breakdown of thematic classes. The classification process integrates &#39;Ref. Data&#39;, &#39;Additional data req.&#39;, &#39;Sat. Image TK COTS navigation data&#39;, and High Resolution Layer (HRL) Imperviousness Density (IMD) sealing data. The main categories under &#39;1. Artificial Surfaces&#39; are: 1. **Urban areas with dominant residential use or inner-city areas with central business district and residential use** lead to &#39;1.1 Urban Fabric&#39;. This is further subdivided into: * &#39;1.1.1 Continuous Urban Fabric&#39; * &#39;1.1.2 Discontinuous Urban Fabric&#39;, which is further classified by Sealing Level (S.L.): &#39;1.1.2.1 (S.L. 50% - 80%)&#39;, &#39;1.1.2.2 (S.L. 30% - 50%)&#39;, &#39;1.1.2.3 (S.L. 10% - 30%)&#39;, and &#39;1.1.2.4 (S.L. 0% - 10%)&#39;. HRL IMD sealing data is used for these distinctions. * &#39;1.1.3 Isolated Structures&#39; 2. **Industrial, commercial, public, military and private units or transport units are predominant** lead to &#39;1.2 Industrial, commercial, public, military, private and transports units&#39;. This category includes: * &#39;1.2.1 Industrial, commercial, public, military and private units&#39; * &#39;1.2.2 Road and rail network and associated land&#39;, which is further classified into: &#39;1.2.2.1 Fast transit roads and associated land&#39;, &#39;1.2.2.2 Other roads and associated land&#39;, and &#39;1.2.2.3 Railways and associated land&#39;. * &#39;1.2.3 Port areas&#39; * &#39;1.2.4 Airports&#39; 3. **Strong human influence on soil surface, buildings not dominant** lead to &#39;1.3 Mine, dump and construction site&#39;. This comprises: * &#39;1.3.1 Mineral extraction and dump sites&#39; * &#39;1.3.3 Construction sites&#39; * &#39;1.3.4 Land without current use&#39; 4. **Leisure and recreation use dominates** lead to &#39;1.4 Artificial non agricultural vegetated areas&#39;. This includes: * &#39;1.4.1 Green urban areas&#39; * &#39;1.4.2 Sports and leisure facilities&#39;"
 alt="Figure 8: Urban Atlas Decision Matrix for Artificial Surfaces" />
 
@@ -2993,7 +2993,7 @@ acknowledged.
 
 <!-- figures detected in Phase 1 but not placed by the converter
      (review and place manually if any is a real figure):
-       FIG_1: (no caption) -> products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-4ea544c46887e900e546473436c5d3dc.png
+       FIG_1: (no caption) -> products_Mapping_Guide_Land_Cover_Land_Use_and_Street_Tree_Layer_2012_and_2018-media/img-4ea544c46887e900e546473436c5d3dc.jpg
 -->
 
 [^1]: Allotment gardens are complexes of a few up to hundreds of land

@@ -24,6 +24,7 @@
 | [Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Algorithm Theoretical Basis Document (ATBD)](../products/MRVPP_MRVPP_ATBD_v2.llms.md) | 2.0.0 | Jun 9, 2026 |
 | [Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Product User Manual (PUM)](../products/MRVPP_MRVPP_PUM_v1.llms.md) | 1.0.0 | Jun 18, 2026 |
 | [N2K 2006-2018 - Product User Manual](../products/N2K_2006-2018_PUM_v1.llms.md) | 1.0.0 | Jun 1, 2021 |
+| [NOMENCLATURE and MAPPING GUIDELINE](../products/Protected_Areas_PA21_Description_MappingFeatures_Guideline_v3.llms.md) | 3.0.0 | Sep 18, 2026 |
 | [Production of High Resolution Water, Snow and Ice products (Lot 1)](../products/products_Algorithm_theoretical_basis_document_-_High_Resolution_Ice_products_Europe.llms.md) | 1.0.0 | Jan 20, 2026 |
 | [Production of High Resolution Water, Snow and Ice products (Lot 1)](../products/products_Product_User_Manual_-_High_Resolution_Water_Products_Europe.llms.md) | 1.0.0 | Dec 23, 2025 |
 | [Riparian Zones 2012-2018 - Nomenclature Guideline](../products/Riparian_Zones_2012-2018_Nomenclature_Guideline_v1.llms.md) | 1.5.0 | Dec 14, 2021 |
