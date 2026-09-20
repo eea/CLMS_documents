@@ -1656,7 +1656,7 @@ Objects located within the AoI of the riparian zone:
   resulting segments are smaller than the MMU, to preserve the network.
   However, features \<0,1 ha will be generalised, see Figure 9.</span>  
 
-<img src="Riparian_Zones_2012-2018_PUM_v1-media/image16.jpg"
+<img src="Riparian_Zones_2012-2018_PUM_v1-media/image16.png"
 style="width:6.27in"
 data-fig-alt="Conceptual diagram illustrating a Minimum Mapping Unit (MMU) exception rule for objects located at the border of a riparian zone (RZ). The diagram shows a blue horizontal feature labelled &#39;River&#39;, representing the riparian zone. This river is intersected by two vertical white features labelled &#39;Roads&#39;. A red oval highlights the segment of the &#39;River&#39; located between the two &#39;Roads&#39;, which is explicitly labelled &#39;Area &lt; 0,5 ha&#39;. This diagram demonstrates a scenario where a feature, specifically a segment of the river, has an area smaller than the standard 0.5 hectare Minimum Mapping Unit (MMU) but would still be mapped due to its location within a riparian zone, subject to specific mapping exception criteria."
 alt="Figure 9: MMU exception of linear elements" />
