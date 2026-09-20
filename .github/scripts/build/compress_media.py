@@ -36,7 +36,7 @@ build that died:
     .png files that had already been converted.
 
 Second run is a no-op - what it converted is .jpg and no longer matches.
-Images with an alpha channel are left alone.
+Images that actually use transparency are left alone.
 
     python3 .github/scripts/build/compress_media.py . --dry-run
     python3 .github/scripts/build/compress_media.py . -q 92
@@ -71,18 +71,34 @@ def identify(path, fmt):
     return out.stdout.strip() if out.returncode == 0 else ""
 
 
-def has_alpha(path):
-    # %A is true for any alpha channel, even a fully opaque one. Over-cautious,
-    # but it's a handful of files.
-    return identify(path, "%A").lower() == "true"
+def is_transparent(path):
+    """True only if the image actually uses transparency.
+
+    Not %A: it answers True/False on ImageMagick 6 but reports the alpha *type*
+    on 7, so the check silently passed everything in the build container and
+    135 transparent images were flattened to black on the live site.
+    %[channels] and %[opaque] read the same on both.
+
+    An alpha channel that is fully opaque is not transparency - those convert
+    to JPEG with no visible change, and there are ~350 of them.
+    """
+    if not identify(path, "%[channels]").lower().endswith("a"):
+        return False
+    return identify(path, "%[opaque]").lower() != "true"
 
 
 def convert_to_jpeg(src, dest, quality):
     # "jpg:" prefix, not just the extension: ImageMagick falls back to the INPUT
     # format when it doesn't recognise the extension, which would quietly turn
     # this into a PNG re-encode.
+    #
+    # -background white -alpha remove: JPEG has no alpha, and left to itself
+    # ImageMagick composites onto black. Anything that slips past
+    # is_transparent() then lands on a white page as a black box. Explicit here
+    # so a detection failure degrades to invisible rather than glaring.
     subprocess.run(
-        ["convert", str(src), "-quality", str(quality), "-strip", f"jpg:{dest}"],
+        ["convert", str(src), "-background", "white", "-alpha", "remove",
+         "-alpha", "off", "-quality", str(quality), "-strip", f"jpg:{dest}"],
         check=True, capture_output=True,
     )
 
@@ -191,7 +207,7 @@ def main():
         size = src.stat().st_size
         before += size
 
-        if has_alpha(src):
+        if is_transparent(src):
             skipped_alpha += 1
             after += size
             continue
@@ -238,7 +254,7 @@ def main():
     prefix = "[dry-run] would convert" if args.dry_run else "converted"
     print(f"{prefix} {len(converted)} image(s) at JPEG q{args.quality}")
     if skipped_alpha:
-        print(f"  kept as PNG (alpha channel): {skipped_alpha}")
+        print(f"  kept as PNG (uses transparency): {skipped_alpha}")
     if skipped_bigger:
         print(f"  kept as PNG (JPEG was larger): {skipped_bigger}")
     if skipped_collision:
