@@ -10,6 +10,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 #   go as the deploy key, which the branch rulesets can bypass.
 # unzip: required by `quarto install chrome-headless-shell` (below) to extract.
 # rsync: github-pages-deploy-action shells out to it to sync the build.
+# imagemagick: build-docs.sh re-encodes media as JPEG for the rendered outputs
+#   (compress_media.py). Without it a 500MB+ PDF gets rejected by the gh-pages
+#   push, which caps files at 100MB.
 # lib* : runtime deps for chrome-headless-shell, which Quarto uses to
 #   rasterize mermaid/dot diagrams during the Typst PDF render.
 RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
@@ -23,6 +26,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-reco
     python-is-python3 \
     unzip \
     rsync \
+    imagemagick \
     fonts-dejavu-core \
     fonts-lato \
     fonts-jetbrains-mono \

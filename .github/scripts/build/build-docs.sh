@@ -106,6 +106,14 @@ python3 ../.github/scripts/qmd-tools/promote_bare_captions.py .
 echo "Baking image descriptions into qmd source..."
 python3 ../.github/scripts/build/inject_image_descriptions.py .
 
+# Re-encode media as JPEG for the rendered outputs. Build copy only - DOCS/ in
+# git and origin_DOCS/ here keep the lossless originals; only what ships to
+# gh-pages is compressed. Must run AFTER the image descriptions above (they are
+# keyed by image md5, so re-encoding first would miss every lookup) and before
+# the realign below. ~0.03s an image, so there is nothing worth caching.
+echo "Compressing media for rendered output..."
+python3 ../.github/scripts/build/compress_media.py . -q 92
+
 # Re-pad grid-table rows that the rewrites above (media-dir rename, fig-alt)
 # pushed off their column borders - Pandoc mis-parses those and Typst fails
 # with "unexpected comma". Must stay the last qmd rewrite before render.
