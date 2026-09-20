@@ -19,7 +19,12 @@ jobs:
           echo "🔍 Validating PR from '$GITHUB_HEAD_REF' to '$GITHUB_BASE_REF'..."
           ALLOWED=false
 
+          # review/* is a partial develop batch: a branch cut from test carrying
+          # only the content chosen for this release. Same direction as
+          # develop -> test, just a subset of it.
           if [[ "$GITHUB_BASE_REF" == "test" && "$GITHUB_HEAD_REF" == "develop" ]]; then
+            ALLOWED=true
+          elif [[ "$GITHUB_BASE_REF" == "test" && "$GITHUB_HEAD_REF" == review/* ]]; then
             ALLOWED=true
           elif [[ "$GITHUB_BASE_REF" == "main" && "$GITHUB_HEAD_REF" == "test" ]]; then
             ALLOWED=true
@@ -28,6 +33,7 @@ jobs:
           if [[ "$ALLOWED" != "true" ]]; then
             echo "❌ Invalid PR direction. Only allow:"
             echo "   develop → test"
+            echo "   review/* → test  (partial batch cut from test)"
             echo "   test → main"
             exit 1
           fi

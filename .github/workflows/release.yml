@@ -18,6 +18,10 @@ jobs:
       - name: Checkout source (release target)
         uses: actions/checkout@v6
         with:
+          # @semantic-release/git pushes the release commit back to main, which
+          # the ruleset blocks for github-actions[bot]. Push as the deploy key
+          # instead; GITHUB_TOKEN below still covers the API calls.
+          ssh-key: ${{ secrets.CI_DEPLOY_KEY }}
           fetch-depth: 0
           ref: ${{ github.event.workflow_run.head_branch }}
 

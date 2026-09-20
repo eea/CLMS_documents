@@ -36,6 +36,22 @@ step() {
 #   rm -rf DOCS origin_DOCS && mv source_DOCS DOCS
 rm -rf source_DOCS && cp -rp DOCS source_DOCS
 
+# BUILD_ONLY=<substring>: prune the build copy to the matching .qmd(s) so the
+# full workflow runs end-to-end on one document. Source stays in source_DOCS.
+# url_mapping.json is restored on exit - a one-doc run would prune every other
+# doc's entry as "missing".
+if [ -n "$BUILD_ONLY" ]; then
+  # Absolute paths: the script cd's into DOCS/ before the trap fires.
+  _UM="$PWD/url_mapping.json"
+  cp "$_UM" "$_UM.bkp" 2>/dev/null || true
+  trap 'mv -f "$_UM.bkp" "$_UM" 2>/dev/null || true' EXIT
+  find DOCS -name '*.qmd' ! -path "*$BUILD_ONLY*" -delete
+  n=$(find DOCS -name '*.qmd' | wc -l)
+  [ "$n" -gt 0 ] || { echo "ERROR: BUILD_ONLY=$BUILD_ONLY matched no .qmd" >&2; exit 1; }
+  find DOCS -mindepth 1 -type d -empty -delete
+  echo "BUILD_ONLY=$BUILD_ONLY -> building $n document(s)"
+fi
+
 # Apply cached intros/keywords before the rename - the cache is keyed by original path.
 echo "Injecting cached intros & keywords (no API)..."
 python3 .github/scripts/build/apply_cached_intros.py DOCS
@@ -89,6 +105,20 @@ python3 ../.github/scripts/qmd-tools/promote_bare_captions.py .
 # every image once per format (see the script). This was a Lua filter.
 echo "Baking image descriptions into qmd source..."
 python3 ../.github/scripts/build/inject_image_descriptions.py .
+
+# Re-encode media as JPEG for the rendered outputs. Build copy only - DOCS/ in
+# git and origin_DOCS/ here keep the lossless originals; only what ships to
+# gh-pages is compressed. Must run AFTER the image descriptions above (they are
+# keyed by image md5, so re-encoding first would miss every lookup) and before
+# the realign below. ~0.03s an image, so there is nothing worth caching.
+echo "Compressing media for rendered output..."
+python3 ../.github/scripts/build/compress_media.py . -q 92
+
+# Re-pad grid-table rows that the rewrites above (media-dir rename, fig-alt)
+# pushed off their column borders - Pandoc mis-parses those and Typst fails
+# with "unexpected comma". Must stay the last qmd rewrite before render.
+echo "Realigning grid tables..."
+python3 ../.github/scripts/qmd-tools/realign_grid_tables.py .
 
 # Render with the no-headers config. The with-headers variant is still on
 # disk but nothing activates it anymore.

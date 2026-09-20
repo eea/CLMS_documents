@@ -69,8 +69,9 @@ def resolve_image_path(src, qmd_path):
 
 
 def alt_value(desc):
-    """Collapse to one line and drop double quotes (they'd close the attr)."""
-    return " ".join(desc.split()).replace('"', "'")
+    """Collapse to one line; drop double quotes (they'd close the attr) and
+    pipes (they'd split the cell when the image sits in a table row)."""
+    return " ".join(desc.split()).replace('"', "'").replace("|", "/")
 
 
 def is_block_level(text, start, end):
