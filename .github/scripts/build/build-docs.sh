@@ -36,6 +36,22 @@ step() {
 #   rm -rf DOCS origin_DOCS && mv source_DOCS DOCS
 rm -rf source_DOCS && cp -rp DOCS source_DOCS
 
+# BUILD_ONLY=<substring>: prune the build copy to the matching .qmd(s) so the
+# full workflow runs end-to-end on one document. Source stays in source_DOCS.
+# url_mapping.json is restored on exit - a one-doc run would prune every other
+# doc's entry as "missing".
+if [ -n "$BUILD_ONLY" ]; then
+  # Absolute paths: the script cd's into DOCS/ before the trap fires.
+  _UM="$PWD/url_mapping.json"
+  cp "$_UM" "$_UM.bkp" 2>/dev/null || true
+  trap 'mv -f "$_UM.bkp" "$_UM" 2>/dev/null || true' EXIT
+  find DOCS -name '*.qmd' ! -path "*$BUILD_ONLY*" -delete
+  n=$(find DOCS -name '*.qmd' | wc -l)
+  [ "$n" -gt 0 ] || { echo "ERROR: BUILD_ONLY=$BUILD_ONLY matched no .qmd" >&2; exit 1; }
+  find DOCS -mindepth 1 -type d -empty -delete
+  echo "BUILD_ONLY=$BUILD_ONLY -> building $n document(s)"
+fi
+
 # Apply cached intros/keywords before the rename - the cache is keyed by original path.
 echo "Injecting cached intros & keywords (no API)..."
 python3 .github/scripts/build/apply_cached_intros.py DOCS
