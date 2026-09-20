@@ -1525,7 +1525,7 @@ Object delineation, is performed as follows:
 - <span custom-style="NormalLine">Delineation shall be angular and not
   round</span>  
 
-<img src="Riparian_Zones_2012-2018_PUM_v1-media/image11.jpg"
+<img src="Riparian_Zones_2012-2018_PUM_v1-media/image11.png"
 style="width:6.27in"
 data-fig-alt="This comparative map illustrates the difference between incorrect (left, marked with a red &#39;X&#39;) and correct (right, marked with a green checkmark) land cover/land use (LCLU) classification and delineation, demonstrating the integration of Urban Atlas (UA) data into the Riparian Zones (RZ) project. The background imagery is in false-colour infrared, showing active vegetation as reddish-pink and water bodies as dark blue. The &#39;incorrect&#39; mapping (left) displays two dark blue water bodies and surrounding land cover polygons. The upper water body is labelled &#39;341&#39;, and the lower, larger water body is also within a broader polygon associated with the &#39;341&#39; code, but its boundary is smoothed and inaccurate. Yellow arrows highlight the imprecise polygon boundaries where the edges do not accurately follow the features visible in the underlying imagery, such as the water&#39;s edge and subtle transitions to surrounding land cover. Other land cover polygons are labelled &#39;421&#39; (top-right of the upper water body and surrounding the lower water body), &#39;1211&#39; (a narrow strip above the lower water body), and &#39;211&#39; (bottom-right). The &#39;correct&#39; mapping (right) shows refined polygon boundaries that precisely match the visible features on the underlying imagery. The water bodies are now distinct entities and are classified with more specific Riparian Zones nomenclature codes: &#39;9311&#39; for the upper water body and &#39;9313&#39; for the lower, larger, more geometrically regular water body. The land parcel that was part of the &#39;341&#39; polygon in the incorrect map (adjacent to the upper water body) now stands as a distinct polygon retaining the &#39;341&#39; label, separate from the water body. The other land cover polygons (&#39;421&#39;, &#39;1211&#39;, &#39;211&#39;) also have their boundaries adjusted to accommodate the precise water body delineation, showcasing improved geometric accuracy and the use of RZ-specific classification codes."
 alt="Figure 6: Delineation avoiding smooth lines" />
@@ -1620,7 +1620,7 @@ Objects located at the border of the riparian zone:
   COMMENT attribute <u>*“Area size exception (inside RZ_AoI / outside UA
   Urban centre)”*</u>, see Figure 8.</span>  
 
-<img src="Riparian_Zones_2012-2018_PUM_v1-media/image15.jpg"
+<img src="Riparian_Zones_2012-2018_PUM_v1-media/image15.png"
 style="width:3.42in"
 data-fig-alt="This image displays a segment of Very High Resolution (VHR) Earth Observation (EO) imagery, likely in false colour infrared, showing different land cover types. A reddish area, possibly representing dense vegetation or active agriculture, contrasts with a greenish area. Black lines delineate distinct land cover objects or polygons on top of the imagery. A yellow arrow points to a vertex where several of these delineation boundaries converge. The number &#39;1112&#39; is visible near this vertex, likely serving as an object identifier or land cover class code. One of the delineated polygons is labelled with an &#39;Area 0.28 ha&#39; (hectares). This image illustrates the visual interpretation and object delineation process used in Copernicus Land Monitoring Service (CLMS) products such as CORINE Land Cover (CLC+)."
 alt="Figure 8: MMU exception at RZ border" />
@@ -1711,7 +1711,7 @@ mapping; these are presented in the chapter *Change mapping.*
   8.1.2.0); the MMW may fall below the limit of 10 m, over a distance of
   up to 100 m.</span>  
 
-<img src="Riparian_Zones_2012-2018_PUM_v1-media/image18.jpg"
+<img src="Riparian_Zones_2012-2018_PUM_v1-media/image18.png"
 style="width:5.65in"
 data-fig-alt="This illustrative diagram explains a Minimum Mapping Unit (MMU) exception rule for linear features within the Copernicus Land Monitoring Service (CLMS). It depicts a linear feature, such as a road, railway, or river, which maintains a width of 10 m in its wider sections but narrows down in a central segment. The diagram indicates that if the length of this narrowed segment is less than or equal to 50 m (≤ 50 m), the entire feature, including the constricted part, is mapped as a continuous object. The feature is assigned the classification code 1.2.2.0, signifying that it is preserved as a single entity rather than being generalized or split into multiple polygons due to the local reduction in width. This exception rule helps maintain the representation of network connectivity."
 alt="Figure 11: MMW exception" />
@@ -2039,7 +2039,7 @@ surrounding object.
 
   
 
-<img src="Riparian_Zones_2012-2018_PUM_v1-media/image21.jpg"
+<img src="Riparian_Zones_2012-2018_PUM_v1-media/image21.png"
 style="width:6.27in"
 data-fig-alt="This diagram illustrates the process of mapping and interpreting complex Land Cover Change (LCC) between two reference years, 2012 and 2018, using four panels: &#39;Image 2012&#39;, &#39;Image 2018&#39;, &#39;Interpretation 2012&#39;, and &#39;Interpretation 2018&#39;. 1. **Image 2012**: Shows the initial land cover state with a light green area representing class 4.2.1.0 (Grassland) and a red area representing class 1.1.1.1 (Continuous urban fabric). An irregular orange polygon, labeled 2.2.2.0 (Permanent crops), is situated near the boundary of the 4.2.1.0 and 1.1.1.1 areas. 2. **Image 2018**: Depicts the observed land cover changes. The 2.2.2.0 polygon from 2012 has transformed into two distinct areas: an orange polygon labeled 2.2.1.0 (Arable land) with an area of 0.45 ha, and a purple polygon labeled 1.1.2.0 (Industrial, commercial and transport units) also with an area of 0.45 ha. These new polygons partially overlap the original 4.2.1.0 and 1.1.1.1 areas. 3. **Interpretation 2012**: Presents a refined view of the 2012 land cover. The irregular orange polygon from the &#39;Image 2012&#39; panel is now depicted as two separate, slightly overlapping polygons, both classified as 2.2.2.0. The background areas remain 4.2.1.0 and 1.1.1.1. 4. **Interpretation 2018**: Shows the consolidated and reclassified outcome of the complex changes observed between 2012 and 2018. A larger polygon, outlined in black and labeled 1.1.1.1 (Continuous urban fabric), now encompasses the areas that were 2.2.1.0 and 1.1.2.0 in &#39;Image 2018&#39;, extending into the original 4.2.1.0 area. Additionally, a new polygon, outlined in black and labeled 4.2.1.0 (Grassland), is delineated from the original light green 4.2.1.0 area, showing an adjustment of its boundary relative to the expanded urban fabric. This sequence illustrates how multiple smaller Land Cover / Land Use (LULC) changes can be interpreted and consolidated into broader classes, consistent with the rules for complex changes in the Copernicus Land Monitoring Service (CLMS)."
 alt="Figure 14: An Olive grove (2.2.2.0) changed into Vineyards, fruit trees and berry plantations (2.2.1.0) and Industrial, commercial and military units (1.1.2.0), but because the areas are &lt;0,5 ha, they are merged with the neighbouring objects." />
@@ -2244,7 +2244,7 @@ Figure 18).
 
   
 
-<img src="Riparian_Zones_2012-2018_PUM_v1-media/image24.jpg"
+<img src="Riparian_Zones_2012-2018_PUM_v1-media/image24.png"
 style="width:6.27in"
 data-fig-alt="This diagram illustrates the detection of a land cover change event between 2012 and 2018, comparing the observation from raw imagery (&#39;IMAGE&#39;) with the derived Riparian Zones (RZ) product. The diagram depicts a green background area labelled &#39;4.2.x&#39;, representing a specific land cover class. Adjacent to and partially within this area is a red &#39;L&#39;-shaped area labelled &#39;1.1.1&#39;, representing another land cover class, likely an artificial surface based on common CORINE Land Cover (CLC) nomenclature. 1. **IMAGE 2012:** Shows an initial state where the &#39;L&#39;-shaped red area (class 1.1.1) is present. A rectangular area of interest, outlined in black, is within the green &#39;4.2.x&#39; area. 2. **IMAGE 2018:** Shows that the rectangular area of interest has changed from green &#39;4.2.x&#39; to red &#39;1.1.1&#39;, indicating an expansion of the &#39;1.1.1&#39; class. 3. **RZ 2012:** Presents the state for the Riparian Zones product in 2012, mirroring the IMAGE 2012, with the &#39;L&#39;-shaped red area (class 1.1.1) and the rectangular area of interest classified as green &#39;4.2.x&#39;. 4. **RZ 2018:** Shows the Riparian Zones product in 2018 also reflecting the change, with the rectangular area of interest now classified as red &#39;1.1.1&#39;, consistent with the change observed in the raw imagery. The diagram visually represents a land cover change where an area initially belonging to class &#39;4.2.x&#39; converts to class &#39;1.1.1&#39; in both the base imagery and the Riparian Zones product, demonstrating how such a change is accounted for in land monitoring."
 alt="Figure 17: Simple change" />
@@ -2280,7 +2280,7 @@ grassland (4.2.x) from 2012.
 
   
 
-<img src="Riparian_Zones_2012-2018_PUM_v1-media/image25.jpg"
+<img src="Riparian_Zones_2012-2018_PUM_v1-media/image25.png"
 style="width:6.27in"
 data-fig-alt="This conceptual diagram illustrates a land cover change scenario showing the decrease in area of an Olive grove (2.2.2) and its mapping within Riparian Zones (RZ) products between 2012 and 2018. The diagram comprises four panels: &#39;IMAGE 2012&#39;, &#39;IMAGE 2018&#39;, &#39;RZ 2012&#39;, and &#39;RZ 2018&#39;. In all panels, the green areas represent the &#39;Natural &amp; semi-natural grassland (4.2.x)&#39; class, and the yellow L"
 alt="Figure 18: Simple change" />
@@ -2352,7 +2352,7 @@ generalisation (see Figure 20).
 
   
 
-<img src="Riparian_Zones_2012-2018_PUM_v1-media/image27.jpg"
+<img src="Riparian_Zones_2012-2018_PUM_v1-media/image27.png"
 style="width:6.27in"
 data-fig-alt="This diagram illustrates a &#39;Simple change&#39; scenario, showing how a land cover feature decreasing below the Minimum Mapping Unit (MMU) affects its mapping in the Copernicus Land Monitoring Service (CLMS) Riparian Zones (RZ) product between 2012 and 2018. The diagram consists of four panels: 1. **IMAGE 2012:** Displays a red background, labelled as land cover class &#39;1.1.1&#39; (Urban fabric), containing a green rectangular feature of 0.7 hectares. 2. **IMAGE 2018:** Displays the same red background (Class 1.1.1), but the green rectangular feature has shrunk to 0.4 hectares. 3. **RZ 2012:** Shows the Riparian Zones product mapping for 2012, with a red background (Class 1.1.1) and a green rectangular feature labelled &#39;1.4&#39;, corresponding to the 0.7 ha feature from IMAGE 2012. 4. **RZ 2018:** Shows the Riparian Zones product mapping for 2018. The green rectangular feature is no longer depicted as a distinct entity. Instead, its former boundary is outlined, and the entire area is now classified as the surrounding &#39;1.1.1&#39; (Urban fabric) land cover class. This illustrates that the feature, having decreased to 0.4 ha, has fallen below the 0.5 ha Minimum Mapping Unit for changes, leading to its generalization and absorption into the dominant surrounding class in the Riparian Zones product."
 alt="Figure 20: Generalisation (disappearing polygon)" />
@@ -2427,7 +2427,7 @@ mapped.
 
   
 
-<img src="Riparian_Zones_2012-2018_PUM_v1-media/image29.jpg"
+<img src="Riparian_Zones_2012-2018_PUM_v1-media/image29.png"
 style="width:6.27in"
 data-fig-alt="Conceptual diagram illustrating the generalisation rule for integrating small land cover changes into adjacent larger changes within the Copernicus Land Monitoring Service (CLMS) Riparian Zones (RZ) product between 2012 and 2018. The process is shown in four stages: 1. **IMAGE 2012:** Depicts a reference image from 2012 showing an area predominantly classified as 1.1.1 (Urban fabric), containing a small, unclassified purple polygon with an area less than 0.5 hectares (&lt; 0.5 ha). 2. **IMAGE 2018:** Shows the same area in a reference image from 2018, where the original small polygon has transformed into two adjacent new purple polygons. The combined area of these new polygons is greater than 0.5 hectares (&gt; 0.5 ha). The surrounding area remains 1.1.1. 3. **RZ 2012:** Represents the Riparian Zones (RZ) product for 2012. Due to the Minimum Mapping Unit (MMU) rule for changes, the initial small polygon (&lt; 0.5 ha) from IMAGE 2012 is not mapped as a distinct feature; the area remains classified as 1.1.1. Two black-bordered boxes within the 1.1.1 area conceptually outline the regions that will undergo future change, implying a &#39;Splitted change&#39; handling procedure for the RZ 2018 product. 4. **RZ 2018:** Represents the Riparian Zones (RZ) product for 2018. The area corresponding to the two new polygons in IMAGE 2018 is now mapped as a single polygon of class 1.1.3, which has an area greater than 0.5 ha. This illustrates that a small change (e.g., a 0.3 ha water surface from context) which is below the MMU for changes is integrated into an adjacent, sufficiently large change (e.g., a 0.8 ha construction site, mapped as 1.1.3 in the product) rather than being omitted from the product. The surrounding area remains 1.1.1."
 alt="Figure 22: New established feature with splitted change" />

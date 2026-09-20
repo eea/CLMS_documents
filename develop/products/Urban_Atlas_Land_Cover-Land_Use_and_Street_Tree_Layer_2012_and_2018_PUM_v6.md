@@ -605,7 +605,7 @@ database.
   misclassification.</span>  
 
 <img
-src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image24.jpg"
+src="Urban_Atlas_Land_Cover-Land_Use_and_Street_Tree_Layer_2012_and_2018_PUM_v6-media/image24.png"
 style="width:3.57in"
 data-fig-alt="A spatial map illustrating the distribution of features labelled &#39;S T L before post processing&#39; and an area marked as &#39;Border effect&#39;. The map shows a white background with irregular patches and linear elements rendered in dark green, representing the &#39;S T L before post processing&#39; features. These features are denser on the left side of the map. An irregularly shaped polygon outlined in red, located in the upper-central part of the map, highlights an area designated as a &#39;Border effect&#39;. This red-outlined area also contains green &#39;S T L&#39; features, which appear to be less dense or more fragmented compared to the dense concentration on the far left. The legend on the right indicates: a solid dark green square for &#39;S T L before post processing&#39; and a red outlined square for &#39;Border effect&#39;. The map does not include a scale bar, compass, or explicit reference year, but the surrounding context refers to the European Urban Atlas." />
 
