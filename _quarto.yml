@@ -42,6 +42,11 @@ format:
       top: 2.54cm
       bottom: 3.35cm
     fontsize: 10pt
+    # Word-converted docs carry `_Ref…` links whose anchors don't survive into
+    # Typst; one unresolvable label aborts the whole compile. Same guard the
+    # build applies via _meta/includes/default-no-headers.yml.
+    filters:
+      - .github/scripts/filters/safe_internal_links.lua
 
 format-links:
   - html

@@ -14,6 +14,21 @@ jobs:
       contents: write
 
     steps:
+      # Write access is org-wide, so "someone approved it" isn't good enough.
+      # The ruleset does the real check; this just fails faster and says who.
+      # Keep in sync with CODEOWNERS.
+      - name: Reject approvals from outside the allowlist
+        env:
+          REVIEWER: ${{ github.event.review.user.login }}
+        run: |
+          case "$REVIEWER" in
+            mckeea|MatMatt)
+              echo "Approval by $REVIEWER accepted." ;;
+            *)
+              echo "::error::$REVIEWER is not permitted to trigger auto-merge."
+              exit 1 ;;
+          esac
+
       - name: Checkout
         uses: actions/checkout@v6
 
