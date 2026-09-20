@@ -74,17 +74,21 @@ def identify(path, fmt):
 def is_transparent(path):
     """True only if the image actually uses transparency.
 
-    Not %A: it answers True/False on ImageMagick 6 but reports the alpha *type*
-    on 7, so the check silently passed everything in the build container and
-    135 transparent images were flattened to black on the live site.
-    %[channels] and %[opaque] read the same on both.
+    %[opaque] is the one field that reads the same on the ImageMagick 6 most
+    workstations have and the 7.1 in the build container (Debian trixie). Two
+    fields that do NOT, each of which shipped a bug:
 
-    An alpha channel that is fully opaque is not transparency - those convert
-    to JPEG with no visible change, and there are ~350 of them.
+        field          IM 6.9.11   IM 7.1.1
+        %A             True        Blend        <- flattened 135 images to black
+        %[channels]    srgba       srgba 5.0    <- a trailing "a" test fails
+
+    An alpha channel that is fully opaque is not transparency: ~350 images
+    carry one and convert to JPEG with no visible change.
+
+    If identify fails outright this returns False and the image is converted -
+    the right way to fail, because convert_to_jpeg flattens onto white.
     """
-    if not identify(path, "%[channels]").lower().endswith("a"):
-        return False
-    return identify(path, "%[opaque]").lower() != "true"
+    return identify(path, "%[opaque]").lower() == "false"
 
 
 def convert_to_jpeg(src, dest, quality):
