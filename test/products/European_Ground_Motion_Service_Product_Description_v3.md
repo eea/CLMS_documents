@@ -196,7 +196,7 @@ An outline of each follow:
 <img
 src="European_Ground_Motion_Service_Product_Description_v3-media/image3.png"
 style="width:6.27in"
-data-fig-alt="A geographic information system (GIS) view of Persistent Scatterer Interferometry (PSI) measurement points overlaid on a satellite imagery background, depicting a forested, hilly landscape with lakes, likely in northeastern France based on the coordinates (48.34° N, 6.22° E). The main map displays numerous coloured points, predominantly green with some yellow, representing ground motion measurements. A &#39;Legend&#39; window shows that &#39;Limits are in mm/year&#39;, with a colour gradient from light blue (-20 mm/year) through green to dark red (20 mm/year), indicating mean velocity. A slider for transparency is set to 100%, and point size is 2.5 pixels. The displayed data uses a &#39;Medium (-20 to 20)&#39; range. A &#39;Data&#39; pop-up table details attributes for a specific PSI point (Point ID: 0x2b84474898024, Dataset: TREA-ORR2-L2A-088A-v1): | Name | Value | |:----------------|:---------------| | LATITUDE | 48.34320700 | | LONGITUDE | 6.22853301 | | HEIGHT | 340.19935617 | | Dataset | TREA-ORR2-L2A-088A-v1 | | Point ID | 0x2b84474898024 | | Track | 88 | | Mode | 1 | | Burst | 286 | | Line | 275 | | Pixel | 36 | | latitude | 48.34320831 | | longitude | 6.22853279 | | easting | 4041441.25000000 | | northing | 2810445.25000000 | | height | 340.20001221 | | height_wgs84 | 388.29998779 | | pixel | 36 | | line | 275 | | mean_velocity | -7.40000010 | | mean_velocity_std | 0.10000000 | A &#39;Plot of 1 point&#39; chart displays the cumulative displacement for the selected point (Point ID: 0x2b84474898024, Position: 48.343208 N 6.228533 E 340.20 m). The chart shows: * Y-axis: Displacement (mm), ranging from -80 to 20 mm. * X-axis: Measurement date, from 20150208 (February 8, 2015) to 20200816 (August 16, 2020). * Data points (red circles) indicate a continuous downward trend in displacement, starting near 0 mm in mid-2015 and reaching approximately -40 mm by mid-2020, suggesting subsidence. A thin red line represents a linear fit to these points. * The mean velocity is -7.40 mm/year, with a coherence of 0.69. * Incidence angle is 36.56°, Track angle is -8.28°, and Azimuth angle is 81.72°. * Two compass diagrams show the Up/Down (U/D) and North/South/East/West (N/S/E/W) observation geometries."
+data-fig-alt="A geographic information system (GIS) view of Persistent Scatterer Interferometry (PSI) measurement points overlaid on a satellite imagery background, depicting a forested, hilly landscape with lakes, likely in northeastern France based on the coordinates (48.34° N, 6.22° E). The main map displays numerous coloured points, predominantly green with some yellow, representing ground motion measurements. A &#39;Legend&#39; window shows that &#39;Limits are in mm/year&#39;, with a colour gradient from light blue (-20 mm/year) through green to dark red (20 mm/year), indicating mean velocity. A slider for transparency is set to 100%, and point size is 2.5 pixels. The displayed data uses a &#39;Medium (-20 to 20)&#39; range. A &#39;Data&#39; pop-up table details attributes for a specific PSI point (Point ID: 0x2b84474898024, Dataset: TREA-ORR2-L2A-088A-v1): / Name / Value / /:----------------/:---------------/ / LATITUDE / 48.34320700 / / LONGITUDE / 6.22853301 / / HEIGHT / 340.19935617 / / Dataset / TREA-ORR2-L2A-088A-v1 / / Point ID / 0x2b84474898024 / / Track / 88 / / Mode / 1 / / Burst / 286 / / Line / 275 / / Pixel / 36 / / latitude / 48.34320831 / / longitude / 6.22853279 / / easting / 4041441.25000000 / / northing / 2810445.25000000 / / height / 340.20001221 / / height_wgs84 / 388.29998779 / / pixel / 36 / / line / 275 / / mean_velocity / -7.40000010 / / mean_velocity_std / 0.10000000 / A &#39;Plot of 1 point&#39; chart displays the cumulative displacement for the selected point (Point ID: 0x2b84474898024, Position: 48.343208 N 6.228533 E 340.20 m). The chart shows: * Y-axis: Displacement (mm), ranging from -80 to 20 mm. * X-axis: Measurement date, from 20150208 (February 8, 2015) to 20200816 (August 16, 2020). * Data points (red circles) indicate a continuous downward trend in displacement, starting near 0 mm in mid-2015 and reaching approximately -40 mm by mid-2020, suggesting subsidence. A thin red line represents a linear fit to these points. * The mean velocity is -7.40 mm/year, with a coherence of 0.69. * Incidence angle is 36.56°, Track angle is -8.28°, and Azimuth angle is 81.72°. * Two compass diagrams show the Up/Down (U/D) and North/South/East/West (N/S/E/W) observation geometries."
 alt="Figure 1 EGMS Basic (L2a) product. Provided as a 2D, colour-coded by average velocity, map. Displacement data provided in the satellite line-of-sight, and in radar geometry, with annotated geolocalisation and quality measures per measurement point. A time series plot is associated with each point." />
 
 A geographic information system (GIS) view of Persistent Scatterer
@@ -291,7 +291,7 @@ referenced against the GNSS-derived datum, but a local InSAR MP.
 <img
 src="European_Ground_Motion_Service_Product_Description_v3-media/image4.png"
 style="width:6.27in"
-data-fig-alt="This map displays Interferometric Synthetic Aperture Radar (InSAR) displacement data from the Copernicus Land Monitoring Service (CLMS) EGMS Basic (L2a) product, specifically &#39;TREA-ORR2-L3-UP-v1&#39;. The background is a satellite image showing a forested, mountainous area. Numerous green, yellow, and orange points represent InSAR measurement points, colour-coded by average velocity. A white circle highlights a selected measurement point. An embedded &#39;Data&#39; table on the top left provides specific attributes for the selected point: | Name | Value | |---|---| | LATITUDE | 47.89235200 | | LONGITUDE | 6.76182800 | | HEIGHT | 544.40005493 | | Dataset | TREA-ORR2-L3-UP-v1 | | Point ID | 0x2b8444d5b045f | | Track | 88 | | Mode | 1 | | Burst | 276 | | Line | 694 | | Pixel | 1119 | | latitude | 47.89235306 | | longitude | 6.76182795 | | height | 544.40002441 | | mean_velocity | -0.6999999 | | rmse | 1.1000002 | | temporal_coherence | 0.9499999 | | pixel | 1119 | | line | 694 | | incidence_angle | 0 | | track_angle | 0 | | los_east | 0 | An embedded chart titled &#39;Plot of 1 point&#39; on the top right shows the time series of displacement for the selected point (ID: 0x2b8444d5b045f). The Y-axis represents &#39;Displacement mm&#39; ranging from -10 to 10 mm, and the X-axis represents &#39;Measurement date&#39; from 20151124 to 20200922. The chart displays green data points that fluctuate around 0 mm displacement, generally staying between -2.5 mm and 2.5 mm. Key annotations include: Dataset TREA-ORR2-L3-UP-v1, Position 47.892353 N 6.761828 E 544.40 m, Mean velocity -0.70 mm, Coherence 0.95, Incidence angle 0.00°, Track angle 0.00°, and Azimuth angle 90.00°. Two compass rose diagrams illustrate incidence and azimuth angles. A &#39;Legend&#39; window on the bottom left defines the colour coding for average velocity across all datasets. The colour bar ranges from red (-20 mm/year) to blue (20 mm/year). Controls are provided for opacity (100%), point size (2.5 pixels), and range selection (&#39;Medium (-20 to 20)&#39;). The &#39;InSAR default&#39; rainbow colour palette (red, orange, yellow, green, blue, purple) is also visible. The map points are predominantly green, indicating velocities close to 0 mm/year."
+data-fig-alt="This map displays Interferometric Synthetic Aperture Radar (InSAR) displacement data from the Copernicus Land Monitoring Service (CLMS) EGMS Basic (L2a) product, specifically &#39;TREA-ORR2-L3-UP-v1&#39;. The background is a satellite image showing a forested, mountainous area. Numerous green, yellow, and orange points represent InSAR measurement points, colour-coded by average velocity. A white circle highlights a selected measurement point. An embedded &#39;Data&#39; table on the top left provides specific attributes for the selected point: / Name / Value / /---/---/ / LATITUDE / 47.89235200 / / LONGITUDE / 6.76182800 / / HEIGHT / 544.40005493 / / Dataset / TREA-ORR2-L3-UP-v1 / / Point ID / 0x2b8444d5b045f / / Track / 88 / / Mode / 1 / / Burst / 276 / / Line / 694 / / Pixel / 1119 / / latitude / 47.89235306 / / longitude / 6.76182795 / / height / 544.40002441 / / mean_velocity / -0.6999999 / / rmse / 1.1000002 / / temporal_coherence / 0.9499999 / / pixel / 1119 / / line / 694 / / incidence_angle / 0 / / track_angle / 0 / / los_east / 0 / An embedded chart titled &#39;Plot of 1 point&#39; on the top right shows the time series of displacement for the selected point (ID: 0x2b8444d5b045f). The Y-axis represents &#39;Displacement mm&#39; ranging from -10 to 10 mm, and the X-axis represents &#39;Measurement date&#39; from 20151124 to 20200922. The chart displays green data points that fluctuate around 0 mm displacement, generally staying between -2.5 mm and 2.5 mm. Key annotations include: Dataset TREA-ORR2-L3-UP-v1, Position 47.892353 N 6.761828 E 544.40 m, Mean velocity -0.70 mm, Coherence 0.95, Incidence angle 0.00°, Track angle 0.00°, and Azimuth angle 90.00°. Two compass rose diagrams illustrate incidence and azimuth angles. A &#39;Legend&#39; window on the bottom left defines the colour coding for average velocity across all datasets. The colour bar ranges from red (-20 mm/year) to blue (20 mm/year). Controls are provided for opacity (100%), point size (2.5 pixels), and range selection (&#39;Medium (-20 to 20)&#39;). The &#39;InSAR default&#39; rainbow colour palette (red, orange, yellow, green, blue, purple) is also visible. The map points are predominantly green, indicating velocities close to 0 mm/year."
 alt="Figure 2 EGMS Ortho product. Absolute, vertical displacement. The gridded nature of the data is clearly visible." />
 
 This map displays Interferometric Synthetic Aperture Radar (InSAR)
@@ -437,18 +437,16 @@ decomposition of both geometries.
 
 ## EGMS Basic product specifications
 
-<table style="width:100%;">
+<table>
 <caption>Table 1 EGMS Basic product specifications</caption>
 <colgroup>
 <col style="width: 6%" />
-<col style="width: 92%" />
-<col style="width: 0%" />
+<col style="width: 93%" />
 </colgroup>
 <thead>
 <tr>
 <th style="text-align: left;">ITEM</th>
 <th style="text-align: left;">Specification</th>
-<th></th>
 </tr>
 </thead>
 <tbody>
@@ -456,17 +454,15 @@ decomposition of both geometries.
 <td style="text-align: left;">Tiling</td>
 <td style="text-align: left;">Original burst segmentation of the
 reference image.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Reference system</td>
 <td style="text-align: left;">ETRS89-LAEA.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">File name convention</td>
-<td colspan="2" style="text-align: left;">Data from each burst are
-contained in single CSV format file the name of which is in the format
+<td style="text-align: left;">Data from each burst are contained in
+single CSV format file the name of which is in the format
 EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_*c*.csv
 (e.g., EGMS_L2a_088_0282_IW2_VV_2018_2022_1.zip), where</td>
 </tr>
@@ -477,7 +473,6 @@ EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>b
 <li><p><em>yyyy</em> - Progressive index for the burst inside the
 track</p></li>
 </ul></td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;"></td>
@@ -485,7 +480,6 @@ track</p></li>
 <li><p><em>z</em> - The swath the burst belongs to</p></li>
 <li><p><em>ww</em> - Polarization</p></li>
 </ul></td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;"></td>
@@ -495,7 +489,6 @@ which data are included</p></li>
 <li><p><em>bbbb</em> - Last nominal year of the years’ time range in
 which data are included</p></li>
 </ul></td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;"></td>
@@ -504,25 +497,22 @@ which data are included</p></li>
 </ul>
 <p>Further details on the file naming convention can be found in section
 11.2.</p></td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">Deliverables belonging to the Baseline or
 to the First update follow the same naming convention with the exception
 of the suffix _xxxx_yyyy_z, which is not applied.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Format</td>
 <td style="text-align: left;">Vector point.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Header information</td>
-<td colspan="2" style="text-align: left;">For each CSV data file there
-is a header file in XML format, the name of which is a copy of the name
-of the relative data file (e.g.,
+<td style="text-align: left;">For each CSV data file there is a header
+file in XML format, the name of which is a copy of the name of the
+relative data file (e.g.,
 EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_*c*.xml).
 The header file contains metadata useful to identify the origins of each
 product and to allow reproducibility. The structure of the header file
@@ -533,7 +523,6 @@ can be found in section 11.1.</td>
 <td style="text-align: left;"><ul>
 <li>Baseline - From February 2015 to December 2020</li>
 </ul></td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;"></td>
@@ -543,54 +532,45 @@ can be found in section 11.1.</td>
 <li><p>2<sup>nd</sup> Update - From January 2018 to December
 2022</p></li>
 </ul></td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><ul>
 <li>3<sup>rd</sup> Update - From January 2019 to December 2023</li>
 </ul></td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Spatial resolution</td>
 <td style="text-align: left;">PS full resolution (single pixel of
 Sentinel-1 constellation products in Interferometric Wide Swath. Namely,
 5 x 20 m), DS better than 100 m.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Temporal resolution</td>
 <td style="text-align: left;">12 days till October 2016 and 6 days from
 October 2016 onward.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">3D geolocation accuracy</td>
 <td style="text-align: left;">Better than 10m.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Mean velocity resolution</td>
 <td style="text-align: left;">Better than 1 mm/year.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Mean velocity STD</td>
 <td style="text-align: left;">0.7 mm/year (1 σ) for MP with coherence
 greater than 0.7.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Displacement STD</td>
 <td style="text-align: left;">4 mm (1 σ).</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">MP density</td>
 <td style="text-align: left;">CLC18-1.1.1 ‘Continuous Urban Fabric’:
 &gt;= 5,000 MP/km<sup>2</sup>.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;"></td>
@@ -599,25 +579,22 @@ Fabric’ and 1.2 ‘Industrial, Commercial, and Transport Units’:
 &gt;=1,000 MP/km<sup>2</sup>.</p>
 <p>CLC18-3.3 ‘Open Spaces with Little or no Vegetation’: &gt;=100
 MP/km<sup>2</sup>.</p></td>
-<td></td>
 </tr>
 </tbody>
 </table>
 
 ## EGMS Calibrated product specifications
 
-<table style="width:100%;">
+<table>
 <caption>Table 2 EGMS Calibrated product specifications</caption>
 <colgroup>
 <col style="width: 6%" />
-<col style="width: 92%" />
-<col style="width: 0%" />
+<col style="width: 93%" />
 </colgroup>
 <thead>
 <tr>
 <th style="text-align: left;">ITEM</th>
 <th style="text-align: left;">Specification</th>
-<th></th>
 </tr>
 </thead>
 <tbody>
@@ -625,17 +602,15 @@ MP/km<sup>2</sup>.</p></td>
 <td style="text-align: left;">Tiling</td>
 <td style="text-align: left;">Original burst segmentation of the
 reference image.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Reference system</td>
 <td style="text-align: left;">ETRS89-LAEA.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">File name convention</td>
-<td colspan="2" style="text-align: left;">Data from each burst are
-contained in single CSV format file the name of which is in the format
+<td style="text-align: left;">Data from each burst are contained in
+single CSV format file the name of which is in the format
 EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_*c*.csv
 (e.g., EGMS_L2a_088_0282_IW2_VV_2018_2022_1.zip), where</td>
 </tr>
@@ -646,7 +621,6 @@ EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>b
 <li><p><em>yyyy</em> - Progressive index for the burst inside the
 track</p></li>
 </ul></td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;"></td>
@@ -654,7 +628,6 @@ track</p></li>
 <li><p><em>z</em> - The swath the burst belongs to</p></li>
 <li><p><em>ww</em> - Polarization</p></li>
 </ul></td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;"></td>
@@ -664,7 +637,6 @@ which data are included</p></li>
 <li><p><em>bbbb</em> - Last nominal year of the years’ time range in
 which data are included</p></li>
 </ul></td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;"></td>
@@ -673,25 +645,22 @@ which data are included</p></li>
 </ul>
 <p>Further details on the file naming convention can be found in section
 11.2.</p></td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">Deliverables belonging to the Baseline or
 to the First update follow the same naming convention with the exception
 of the suffix _xxxx_yyyy_z, which is not applied.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Format</td>
 <td style="text-align: left;">Vector point.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Header information</td>
-<td colspan="2" style="text-align: left;">For each CSV data file there
-is a header file in XML format, the name of which is a copy of the name
-of the relative data file (e.g.,
+<td style="text-align: left;">For each CSV data file there is a header
+file in XML format, the name of which is a copy of the name of the
+relative data file (e.g.,
 EGMS_L2a_<em>xxx</em>_<em>yyyy</em>_IW<em>z</em>_<em>ww</em>_<em>aaaa</em>_<em>bbbb</em>_*c*.xml).
 The header file contains metadata useful to identify the origins of each
 product and to allow reproducibility. The structure of the header file
@@ -702,7 +671,6 @@ can be found in section 11.1.</td>
 <td style="text-align: left;"><ul>
 <li>Baseline - From February 2015 to December 2020</li>
 </ul></td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;"></td>
@@ -712,54 +680,45 @@ can be found in section 11.1.</td>
 <li><p>2<sup>nd</sup> Update - From January 2018 to December
 2022</p></li>
 </ul></td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"><ul>
 <li>3<sup>rd</sup> Update - From January 2019 to December 2023</li>
 </ul></td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Spatial resolution</td>
 <td style="text-align: left;">PS full resolution (single pixel of
 Sentinel-1 constellation products in Interferometric Wide Swath. Namely,
 5 x 20 m), DS better than 100 m.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Temporal resolution</td>
 <td style="text-align: left;">12 days till October 2016 and 6 days from
 October 2016 onward.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">3D geolocation accuracy</td>
 <td style="text-align: left;">Better than 10 m.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Mean velocity resolution</td>
 <td style="text-align: left;">Better than 1 mm/year.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Mean velocity STD</td>
 <td style="text-align: left;">0.7 mm/year (1 σ) for MP with coherence
 greater than 0.7.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">Displacement STD</td>
 <td style="text-align: left;">8 mm (1 σ).</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;">MP density</td>
 <td style="text-align: left;">CLC18-1.1.1 ‘Continuous Urban Fabric’:
 &gt;= 5,000 MP/km<sup>2</sup>.</td>
-<td></td>
 </tr>
 <tr>
 <td style="text-align: left;"></td>
@@ -768,7 +727,6 @@ Fabric’ and 1.2 ‘Industrial, Commercial, and Transport Units’:
 &gt;=1,000 MP/km<sup>2</sup>.</p>
 <p>CLC18-3.3- ‘Open Spaces with Little or no Vegetation’: &gt;=100
 MP/km<sup>2</sup>.</p></td>
-<td></td>
 </tr>
 </tbody>
 </table>

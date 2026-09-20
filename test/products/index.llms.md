@@ -15,10 +15,11 @@
 | [European Ground Motion Service (EGMS) - Product Description and Format Specification](../products/European_Ground_Motion_Service_Product_Description_v3.llms.md) | 3.0.0 | Aug 7, 2025 |
 | [High Resolution Layer Croplands 2017-present - Product User Manual](../products/High_Resolution_Layer_Croplands_2017-present_PUM_v2.llms.md) | 2.3.0 | Nov 3, 2025 |
 | [High Resolution Layer Small Landscape Features 2021 – Algorithm Theoretical Basis Document (ATBD)](../products/High_Resolution_Layer_CLMS_ATBD_HRLSLF_v1.llms.md) | 1.0.0 | Nov 20, 2025 |
-| [High Resolution Layer Small Landscape Features 2021 – Product User Manual](../products/High_Resolution_Layer_Small_Landscape_Features_2021_PUM_v1.llms.md) | 1.0.0 | Apr 9, 2026 |
+| [High Resolution Layer Small Landscape Features 2021 – Product User Manual](../products/High_Resolution_Layer_Small_Landscape_Features_2021_PUM_v1.llms.md) | 1.0.0 | Sep 16, 2025 |
 | [High Resolution Layer Small Landscape Features 2021 – Product User Manual (PUM)](../products/High_Resolution_Layer_CLMS_PUM_HRLSLF_v1.llms.md) | 1.0.0 | Nov 4, 2025 |
 | [High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical Basis Document](../products/High_Resolution_Layer_Vegetated_Land_Cover_Characteristics_ATBD_v2.llms.md) | 2.1.0 | Jun 27, 2025 |
 | [N2K 2006-2018 - Product User Manual](../products/N2K_2006-2018_PUM_v1.llms.md) | 1.0.0 | Jun 1, 2021 |
+| [NOMENCLATURE and MAPPING GUIDELINE](../products/Protected_Areas_PA21_Description_MappingFeatures_Guideline_v3.llms.md) | 3.0.0 | Sep 18, 2026 |
 | [Riparian Zones 2012-2018 - Nomenclature Guideline](../products/Riparian_Zones_2012-2018_Nomenclature_Guideline_v1.llms.md) | 1.5.0 | Dec 14, 2021 |
 | [Riparian Zones LC/LU and change 2012-2018 - Product User Manual](../products/Riparian_Zones_2012-2018_PUM_v1.llms.md) | 1.0.0 | Aug 1, 2023 |
 | [Urban Atlas 2021 – Algorithm Theoretical Basis Document](../products/Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1.llms.md) | 1.0.0 | Feb 5, 2026 |
