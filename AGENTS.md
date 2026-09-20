@@ -103,6 +103,12 @@ Other essentials:
 
 ## Guardrails — what NOT to do
 
+**Suggest first, implement only when asked.** A request for options, ideas,
+opinions, or a discussion ("suggest", "what are the options", "how would you",
+"what do you think", "can we") is answered with **words only — no file edits**.
+Write code only when the ask is explicitly to build, implement, add, fix, change,
+or apply something. When in doubt, present the options and stop; the user picks.
+
 **Never weaken a check to make your change pass.** Do not edit
 `.github/scripts/categories.yml`, `validate_qmd_files.py`,
 `strip_unknown_frontmatter.py`, other pipeline scripts, `.github/workflows/`, or
