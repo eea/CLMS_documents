@@ -7,6 +7,7 @@ on:
 jobs:
   auto-merge:
     if: github.event.review.state == 'approved' &&
+      github.event.pull_request.draft == false &&
       (github.event.pull_request.base.ref == 'test' || github.event.pull_request.base.ref == 'main')
     runs-on: ubuntu-latest
     permissions:
@@ -135,3 +136,16 @@ jobs:
           fi
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
+
+      # review/<date> is a throwaway assembly branch - its content is now on
+      # test. essential-guardrails blocks deletion on develop/test/main only, so
+      # review/* deletes cleanly. Only reached if the merge above succeeded.
+      - name: Delete the merged review branch
+        if: startsWith(github.event.pull_request.head.ref, 'review/')
+        run: |
+          gh api -X DELETE \
+            "repos/${{ github.repository }}/git/refs/heads/$HEAD_REF" \
+            && echo "🧹 Deleted $HEAD_REF"
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}

@@ -1,11 +1,13 @@
 name: Validate Pull Request
 
-# Direction check. Re-runs on events that can change base/head. Skips
-# synchronize - head-only pushes can't change direction, just add noise.
+# Direction check. Re-runs on events that can change base/head.
 
 on:
   pull_request:
-    types: [opened, edited, reopened]
+    # synchronize IS needed: validate_merge_origin is a required check and
+    # required checks are per-SHA. The review/* assembly force-pushes a new
+    # head SHA, so the check must re-run or the PR can never merge.
+    types: [opened, edited, reopened, synchronize, ready_for_review]
     branches:
       - test
       - main
@@ -21,6 +23,11 @@ jobs:
 
           if [[ "$GITHUB_BASE_REF" == "test" && "$GITHUB_HEAD_REF" == "develop" ]]; then
             ALLOWED=true
+          # review/* is a partial develop batch: a branch cut from test carrying
+          # only the content chosen for this release. Same direction as
+          # develop -> test, just a subset of it.
+          elif [[ "$GITHUB_BASE_REF" == "test" && "$GITHUB_HEAD_REF" == review/* ]]; then
+            ALLOWED=true
           elif [[ "$GITHUB_BASE_REF" == "main" && "$GITHUB_HEAD_REF" == "test" ]]; then
             ALLOWED=true
           fi
@@ -28,6 +35,7 @@ jobs:
           if [[ "$ALLOWED" != "true" ]]; then
             echo "❌ Invalid PR direction. Only allow:"
             echo "   develop → test"
+            echo "   review/* → test  (partial batch cut from test)"
             echo "   test → main"
             exit 1
           fi

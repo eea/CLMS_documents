@@ -1,0 +1,87 @@
+name: Reconcile Review PR
+
+# Turns the ticks in a review/<date> draft PR body into the branch itself.
+#
+# Only fires on ready_for_review — never on `edited` — so the summary comment
+# this workflow posts cannot retrigger it. Ticked more boxes after clicking
+# Ready? Convert back to draft and click Ready for review again.
+#
+# The force-push uses GH_PAT, not GITHUB_TOKEN: a GITHUB_TOKEN push does not
+# trigger workflows, and validate_merge_origin is a required check that must
+# land on the assembled SHA (validate-pull-request.yml listens for synchronize).
+
+on:
+  pull_request:
+    types: [ready_for_review]
+    branches: [test]
+
+jobs:
+  reconcile:
+    if: startsWith(github.event.pull_request.head.ref, 'review/')
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Parse the checklist
+        id: selection
+        run: |
+          set -euo pipefail
+          gh pr view "$PR_NUMBER" --json body -q .body > /tmp/pr_body.md
+          python3 .github/scripts/build_review_checklist.py --parse \
+            < /tmp/pr_body.md > /tmp/selection.json
+
+          documents=$(jq '.documents | length' /tmp/selection.json)
+          pipeline=$(jq -r '.pipeline' /tmp/selection.json)
+          echo "documents=$documents" >> "$GITHUB_OUTPUT"
+          echo "pipeline=$pipeline" >> "$GITHUB_OUTPUT"
+          echo "Selected: $documents document(s), pipeline=$pipeline"
+          jq -r '.documents[]' /tmp/selection.json
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+
+      - name: Return to draft if nothing is selected
+        if: steps.selection.outputs.documents == '0' && steps.selection.outputs.pipeline != 'true'
+        run: |
+          gh pr ready "$PR_NUMBER" --undo
+          gh pr comment "$PR_NUMBER" --body \
+            "⚠️ Nothing is ticked, so there is nothing to assemble — back to draft. Tick at least one document (or the pipeline block) and click **Ready for review** again."
+          echo "::error::Empty selection — PR returned to draft."
+          exit 1
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+
+      - name: Re-assemble the branch
+        run: |
+          set -euo pipefail
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          python3 .github/scripts/assemble_review_branch.py \
+            --date "${HEAD_REF#review/}" \
+            --selection-file /tmp/selection.json \
+            --push
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+
+      - name: Summarise what was assembled
+        run: |
+          documents="${{ steps.selection.outputs.documents }}"
+          if [[ "${{ steps.selection.outputs.pipeline }}" == "true" ]]; then
+            pipeline="included"
+          else
+            pipeline="excluded"
+          fi
+          gh pr comment "$PR_NUMBER" --body \
+            "🔧 Assembled: ${documents} document(s), pipeline ${pipeline}. The diff above is exactly what will land on \`test\`."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
