@@ -51,16 +51,22 @@ class Assembled(NamedTuple):
 
 
 def git(*args: str, repo: str | Path = ".", check: bool = True) -> str:
-    """Run git in *repo* and return stdout stripped."""
+    """Run git in *repo* and return stdout stripped.
+
+    On failure, raise with git's own stderr, so CI shows the reason and not
+    just a traceback. The argument list is shortened: a restore chunk passes
+    up to 500 paths.
+    """
     result = subprocess.run(
-        ["git", *args],
-        cwd=str(repo),
-        check=check,
-        capture_output=True,
-        text=True,
+        ["git", *args], cwd=str(repo), capture_output=True, text=True
     )
-    if check and result.returncode != 0:  # pragma: no cover - check raises first
-        raise RuntimeError(result.stderr)
+    if check and result.returncode != 0:
+        shown = " ".join(["git", *args[:6]])
+        if len(args) > 6:
+            shown += f" ... (+{len(args) - 6} more args)"
+        raise RuntimeError(
+            f"{shown} failed with exit {result.returncode}:\n{result.stderr.strip()}"
+        )
     return result.stdout.strip()
 
 
@@ -95,33 +101,9 @@ def all_documents(changed: list[str]) -> list[str]:
     return [p for p in changed if DOC_RE.match(p)]
 
 
-def is_shared_state(path: str) -> bool:
-    """Files merged key-by-key, never synced wholesale."""
-    if path in (f"{LLM_CACHE_DIR}/versions.json", NON_BROWSABLE_MAP):
-        return True
-    return path.startswith(".version-history/") and path.endswith("/versions.json")
-
-
-def orphan_paths(changed: list[str]) -> list[str]:
-    """Per-document state owned by no document in the diff.
-
-    `test` accumulates media folders and `.llm_cache` entries whose .qmd was
-    renamed away generations ago (e.g. CLCplus_Core_*-media, superseded twice).
-    develop has already cleaned them up, but no tickable document owns them, so
-    without this they could never be promoted and test would stay stale forever
-    — and `--all` would not reproduce develop's tree.
-
-    They ride with the pipeline block: having no document, "everything else" is
-    the only honest home for them.
-    """
-    owned = set()
-    for qmd in all_documents(changed):
-        owned.update(owned_paths(qmd, changed))
-    return [
-        p
-        for p in changed
-        if not is_pipeline_path(p) and not is_shared_state(p) and p not in owned
-    ]
+def tree_paths(repo: str | Path, ref: str) -> set[str]:
+    """Every file path in *ref*'s tree. Trees only, so it's cheap in a blobless clone."""
+    return set(git("ls-tree", "-r", "--name-only", ref, repo=repo).splitlines())
 
 
 def sync(repo: str | Path, develop_ref: str, paths: list[str]) -> None:
@@ -273,10 +255,14 @@ def assemble(
     to_sync: list[str] = []
     if pipeline:
         to_sync.extend(p for p in changed if is_pipeline_path(p))
-        to_sync.extend(orphan_paths(changed))
     for qmd in selection:
         to_sync.extend(owned_paths(qmd, changed))
-    to_sync = sorted(set(to_sync))
+    # The three-dot diff lists everything develop changed since the merge base,
+    # including paths test has since matched on its own. A path absent on BOTH
+    # tips is already in the desired state, and `git restore` aborts the whole
+    # chunk on a pathspec that matches nothing in the index or the source.
+    present = tree_paths(repo, test_ref) | tree_paths(repo, develop_ref)
+    to_sync = sorted(p for p in set(to_sync) if p in present)
 
     if dry_run:
         for path in to_sync:
