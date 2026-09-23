@@ -6,9 +6,11 @@ name: Reconcile Review PR
 # this workflow posts cannot retrigger it. Ticked more boxes after clicking
 # Ready? Convert back to draft and click Ready for review again.
 #
-# The force-push uses GH_PAT, not GITHUB_TOKEN: a GITHUB_TOKEN push does not
-# trigger workflows, and validate_merge_origin is a required check that must
-# land on the assembled SHA (validate-pull-request.yml listens for synchronize).
+# The force-push goes through CI_DEPLOY_KEY, not GITHUB_TOKEN: a GITHUB_TOKEN
+# push does not trigger workflows (so the three required checks would never
+# land on the assembled SHA) and is refused when the batch touches
+# .github/workflows/*. A deploy-key push fires `synchronize` normally. It also
+# means the last pusher is not a person, so either CODEOWNER can approve.
 
 on:
   pull_request:
@@ -21,14 +23,14 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
-      contents: write
+      contents: read
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-          token: ${{ secrets.GH_PAT }}
+          ssh-key: ${{ secrets.CI_DEPLOY_KEY }}
 
       - name: Parse the checklist
         id: selection
@@ -57,7 +59,7 @@ jobs:
           echo "::error::Empty selection — PR returned to draft."
           exit 1
         env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
 
       - name: Re-assemble the branch

@@ -33,17 +33,18 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
-      contents: write
+      contents: read
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-          # Selective mode pushes review/<date>. A GITHUB_TOKEN push does not
-          # trigger workflows, so the three required checks would never run and
-          # the PR could never merge. Persist the PAT's credentials instead.
-          token: ${{ secrets.GH_PAT }}
+          # Selective mode pushes review/<date> through the deploy key: a
+          # GITHUB_TOKEN push is refused when the batch touches
+          # .github/workflows/*, and would not trigger the required checks.
+          # Empty key (full mode) = the plain default checkout.
+          ssh-key: ${{ inputs.mode == 'selective' && secrets.CI_DEPLOY_KEY || '' }}
 
       - name: Guard — ensure deploy-docs is not still running on develop
         run: |
@@ -163,4 +164,4 @@ jobs:
           echo "🚀 Selective draft PR opened: $url"
           echo "   Untick what should wait, then click Ready for review."
         env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
