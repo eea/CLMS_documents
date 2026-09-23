@@ -176,11 +176,10 @@ def _merge_keyed_json(repo: Path, develop_ref: str, rel: str, keys: list[str]) -
         return False
     path = repo / rel
     path.parent.mkdir(parents=True, exist_ok=True)
-    # sort_keys matches update_versions_and_changelogs.py:350-360, so the file
-    # stays byte-stable and assembly is idempotent.
-    path.write_text(
-        json.dumps(target, indent=2, sort_keys=True) + "\n", encoding="utf-8"
-    )
+    # Byte-for-byte the pipeline's format (update_versions_and_changelogs.py:
+    # json.dump indent=2, sort_keys, NO trailing newline). Any drift shows up as
+    # end-of-file noise in the PR diff and churns on the next deploy-docs run.
+    path.write_text(json.dumps(target, indent=2, sort_keys=True), encoding="utf-8")
     return True
 
 
@@ -222,8 +221,10 @@ def _merge_non_browsable_map(repo: Path, develop_ref: str, selection: list[str])
         return False
     payload = dict(target) or dict(develop_data)
     payload["mappings"] = mappings
+    # Same format as group_docs_by_category.save_secret_map: indent=2, key order
+    # kept, no trailing newline.
     (repo / NON_BROWSABLE_MAP).write_text(
-        json.dumps(payload, indent=2) + "\n", encoding="utf-8"
+        json.dumps(payload, indent=2), encoding="utf-8"
     )
     return True
 

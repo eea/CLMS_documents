@@ -40,6 +40,10 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          # Full history of commits/trees (the test...develop diff needs the
+          # merge base) but no historical file contents; blobs are fetched on
+          # demand. Skips ~3.5 GiB of old media versions.
+          filter: blob:none
           # Selective mode pushes review/<date> through the deploy key: a
           # GITHUB_TOKEN push is refused when the batch touches
           # .github/workflows/*, and would not trigger the required checks.

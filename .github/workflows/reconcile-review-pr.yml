@@ -30,6 +30,8 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          # Commits/trees only; file contents fetched on demand (see open-review-pr.yml).
+          filter: blob:none
           ssh-key: ${{ secrets.CI_DEPLOY_KEY }}
 
       - name: Parse the checklist
