@@ -1,0 +1,634 @@
+---
+title: "CLMS Migration to Copernicus Data Space Ecosystem"
+subtitle: "Status Update"
+author: "Copernicus Land Monitoring Service"
+date: 2026-07-16
+category: non-browsable
+type: dashboard
+---
+
+
+
+```{ojs}
+// ── Load data from the canonical data repo ──
+data = await fetch("https://raw.githubusercontent.com/copernicus-land/clms-cdse-migration-data/main/migration_data.json")
+  .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json() })
+  // On failure, return a COMPLETE empty shape (every field the cells below read)
+  // plus `_loadError`, so nothing downstream throws and the dynamic blocks can
+  // show an error section instead of crashing the OJS runtime.
+  .catch(e => { console.error("Failed to load data", e); return {_loadError: String(e && e.message || e), groups:[], portfolio:{}, cdse:{}, summary:{}, scraped_at:"", odata_tracking:{history:[]}, previous:{groups:[]}} })
+groups = data.groups
+summary = data.summary
+portfolio = data.portfolio
+cdse = data.cdse
+lastUpdated = data.scraped_at.slice(0,10)
+
+// ── OData tracking lives in the main data file (single JSON) ──
+odataDaily = data.odata_tracking || {}
+
+// ── OData deltas, computed client-side from the daily totals history ──
+odataHist = odataDaily.history || []
+odataTotal = odataDaily.total_odata || (odataHist.length ? odataHist[odataHist.length - 1].total : 0)
+odataDailyDelta = odataHist.length >= 2
+  ? odataHist[odataHist.length - 1].total - odataHist[odataHist.length - 2].total
+  : 0
+odataWeeklyBase = {
+  if (odataHist.length === 0) return null
+  const today = odataHist[odataHist.length - 1].date
+  const weekAgo = new Date(new Date(today).getTime() - 7 * 86400000).toISOString().slice(0, 10)
+  const past = odataHist.filter(h => h.date <= weekAgo)
+  return past.length ? past[past.length - 1] : odataHist[0]
+}
+odataWeeklyDelta = odataWeeklyBase ? odataTotal - odataWeeklyBase.total : 0
+odataDaysCovered = odataWeeklyBase && odataHist.length
+  ? Math.max(1, Math.round((new Date(odataHist[odataHist.length - 1].date) - new Date(odataWeeklyBase.date)) / 86400000))
+  : 1
+odataDailyAvg = odataWeeklyDelta ? Math.round(odataWeeklyDelta / odataDaysCovered) : 0
+
+// ── Filter groups ──
+componentOf = d => {
+  if (d.datasets?.length > 0) return d.datasets[0].component
+  return d.portfolio?.[0]?.component || ""
+}
+groupHasComponent = (g, comp) => {
+  if (g.datasets?.some(d => d.component === comp)) return true
+  if (g.portfolio?.some(d => d.component === comp)) return true
+  return false
+}
+filtered = groups.filter(d => {
+  let matches = false
+  for (const comp of activeComponents) {
+    if (groupHasComponent(d, comp)) { matches = true; break }
+  }
+  if (!matches) return false
+  if (searchTerm && !d.name.toLowerCase().includes(searchTerm.toLowerCase())) return false
+  return true
+})
+
+// ── Aggregate by category ──
+categories = [...new Set(filtered.map(d => d.category).filter(Boolean))].sort()
+
+// ── Totals reflecting the current filter selection ──
+filteredTotals = ({
+  datasets: d3.sum(filtered, d => d.total),
+  groups: filtered.length
+})
+catStats = categories.map(cat => {
+  const g = filtered.filter(d => d.category === cat)
+  return {
+    name: cat,
+    groups: g,
+    total: d3.sum(g, d => d.total),
+    on_cdse: d3.sum(g, d => d.on_cdse),
+    pct: Math.round(d3.sum(g, d => d.on_cdse) / Math.max(d3.sum(g, d => d.total), 1) * 100),
+    s3: d3.sum(g, d => d.s3),
+    stac: d3.sum(g, d => d.stac),
+    openeo: d3.sum(g, d => d.openeo),
+    shub: d3.sum(g, d => d.shub),
+  }
+})
+
+// ── Helpers ──
+badge = (val, total) => {
+  if (val === 0 && total === 0) return htl.html`<span style="background:#888;color:#fff;padding:1px 6px;border-radius:3px;font-weight:bold">—</span>`
+  const pct = Math.min(val / Math.max(total, 1), 1)
+  const color = pct >= 1 ? "#00aa00" : pct >= 0.75 ? "#66cc00" : pct >= 0.5 ? "#ffcc00" : pct >= 0.25 ? "#ff8800" : "#ff0000"
+  return htl.html`<span style="background:${color};color:#fff;padding:1px 6px;border-radius:3px;font-weight:bold">${val}</span>`
+}
+
+check = (on) => on
+  ? htl.html`<span style="color:#00aa00;font-weight:bold">✓</span>`
+  : htl.html`<span style="color:#ccc">✗</span>`
+
+// ── Error banner shown in place of the dynamic blocks when the live data
+// load failed. A FUNCTION (not a plain cell) so Quarto doesn't auto-display it;
+// it's only rendered when a gated block calls errorSection(). ──
+errorSection = () => htl.html`<div style="border:1px solid #e0b4b4;background:#fff6f6;border-radius:6px;padding:16px;margin:12px 0;color:#912d2b">
+  <strong>Dashboard data could not be loaded.</strong>
+  <div style="margin-top:6px">The live data source did not respond${data._loadError ? htl.html` (${data._loadError})` : ""}. Please refresh the page or try again later.</div>
+</div>`
+
+// ── Deltas vs previous run, computed client-side from the embedded snapshot ──
+prevByName = Object.fromEntries((data.previous?.groups || []).map(g => [g.name, g]))
+changes = (data.previous?.groups?.length ? groups : []).map(g => {
+  const old = prevByName[g.name] || {}
+  const oldIds = new Set(old.cdse_dataset_ids || [])
+  const oldStac = new Set(old.stac_ids || [])
+  const oldOeo = new Set(old.openeo_ids || [])
+  const curIds = (g.datasets || []).map(d => d.id)
+  const dS3 = g.s3 - (old.s3 || 0)
+  const dStac = g.stac - (old.stac || 0)
+  const dOeo = g.openeo - (old.openeo || 0)
+  return {
+    name: g.name,
+    s3: dS3, stac: dStac, openeo: dOeo,
+    newly_on_cdse: g.on_cdse > 0 && !(old.on_cdse > 0),
+    new_s3: dS3 > 0 ? curIds.filter(id => !oldIds.has(id)) : [],
+    new_stac: dStac > 0 ? curIds.filter(id => !oldStac.has(id)) : [],
+    new_openeo: dOeo > 0 ? curIds.filter(id => !oldOeo.has(id)) : [],
+  }
+}).filter(d => d.s3 !== 0 || d.stac !== 0 || d.openeo !== 0)
+newGroups = changes.filter(d => d.newly_on_cdse)
+positiveChanges = changes.filter(d => d.s3 > 0 && !d.newly_on_cdse)
+lastWeek = changes.length > 0 ? "since " + (data.previous?.scraped_at || data.scraped_at).slice(0,10) : ""
+
+// ── Expand/collapse state, kept outside the DOM so it survives the full
+// table rebuild that happens on every filter or search change ──
+expandedCategories = new Set()
+expandedGroups = new Set()
+
+// ── Toggle functions for expand/collapse (plain DOM, no OJS reactivity) ──
+toggleScript = {
+  window.toggleCategory = function(catName) {
+    const key = catName.replace(/"/g, '&quot;');
+    const groupRows = document.querySelectorAll('tr[data-category="' + key + '"]:not([data-group])');
+    const isExpanded = groupRows.length > 0 && groupRows[0].style.display !== 'none';
+    groupRows.forEach(function(r) { r.style.display = isExpanded ? 'none' : ''; });
+    if (isExpanded) {
+      // Collapsing the category also collapses any open dataset rows within it
+      document.querySelectorAll('tr[data-category="' + key + '"][data-group]').forEach(function(r) { r.style.display = 'none'; });
+      document.querySelectorAll('span[data-group-arrow^="' + key + '::"]').forEach(function(a) { a.textContent = '▶'; });
+      expandedCategories.delete(catName);
+      [...expandedGroups].filter(k => k.startsWith(catName + '::')).forEach(k => expandedGroups.delete(k));
+    } else {
+      expandedCategories.add(catName);
+    }
+    const arrow = document.querySelector('span[data-arrow="' + key + '"]');
+    if (arrow) arrow.textContent = isExpanded ? '▶' : '▼';
+  }
+  window.toggleGroup = function(groupKey) {
+    const key = groupKey.replace(/"/g, '&quot;');
+    const rows = document.querySelectorAll('tr[data-group="' + key + '"]');
+    const isExpanded = rows.length > 0 && rows[0].style.display !== 'none';
+    rows.forEach(function(r) { r.style.display = isExpanded ? 'none' : ''; });
+    if (isExpanded) expandedGroups.delete(groupKey);
+    else expandedGroups.add(groupKey);
+    const arrow = document.querySelector('span[data-group-arrow="' + key + '"]');
+    if (arrow) arrow.textContent = isExpanded ? '▶' : '▼';
+  }
+}
+```
+
+```{ojs}
+// ── Onboarding history plot ──
+
+onboardingPlot = {
+  const plotHeight = 170
+  let mode = "weekly"
+
+  // ISO-8601 week key, e.g. "2026-W31". The Thursday of a week decides its
+  // week-year, which is why the year comes from the shifted date and not from
+  // the input: a week straddling New Year then keys to one year, not two, and
+  // plain string sort stays chronological across the boundary.
+  function isoWeekKey(dateStr) {
+    const d = new Date(dateStr + "T00:00:00Z")
+    d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7))   // Mon=1..Sun=7
+    const year = d.getUTCFullYear()
+    const jan1 = Date.UTC(year, 0, 1)
+    const week = Math.ceil(((d - jan1) / 86400000 + 1) / 7)
+    return year + "-W" + String(week).padStart(2, "0")
+  }
+
+  function buildChart(container) {
+    container.innerHTML = ""
+
+    // Weekly mode sums the daily deltas per ISO week so each week gets its own
+    // bar; reading odataWeeklyDelta directly yielded one bar for the whole
+    // trailing period.
+    const data = mode === "daily"
+      ? odataHist.map((h, i) => {
+          const d = i > 0 ? h.total - odataHist[i - 1].total : 0
+          return {label: h.date, value: d, color: d >= 0 ? '#e67e22' : '#e74c3c'}
+        }).slice(1).reverse()
+      : (() => {
+          const deltas = odataHist.map((h, i) => {
+            const d = i > 0 ? h.total - odataHist[i - 1].total : 0
+            return {date: h.date, value: d}
+          }).slice(1)
+          const weekly = {}
+          for (const d of deltas) {
+            const key = isoWeekKey(d.date)
+            if (!weekly[key]) weekly[key] = {label: key, value: 0}
+            weekly[key].value += d.value
+          }
+          return Object.values(weekly)
+            .sort((a, b) => a.label.localeCompare(b.label))
+            .reverse()
+            .map(d => ({...d, color: d.value >= 0 ? '#e67e22' : '#e74c3c'}))
+        })()
+
+    // Signed domain: the scale has to cover the losses as well as the gains.
+    const hiVal = Math.max(...data.map(d => d.value), 0)
+    const loVal = Math.min(...data.map(d => d.value), 0)
+    const range = Math.max(hiVal - loVal, 1)
+
+    // `data` is newest-first; vertical bars read left-to-right in time, so plot
+    // a chronological copy rather than reordering the builders above.
+    const chrono = data.slice().reverse()
+
+    // Tooltip carries the exact value — no need for labels on the bars themselves.
+    const yAxisW = 46
+    // Daily labels are day-first: "2026-07-21" -> "21-07". Weekly keys already
+    // carry their own form: "2026-W31" -> "W31".
+    const shortLabel = (l) => l.includes("-W")
+      ? l.slice(5)
+      : l.slice(8, 10) + "-" + l.slice(5, 7)
+    const signed = (v) => (v >= 0 ? "+" : "\u2212") + Math.abs(v).toLocaleString()
+
+    // Round the scale out to whole steps, so ticks land on values worth reading.
+    // Bars are scaled to this same domain, which is what keeps their heights
+    // consistent with the gridlines.
+    const rawStep = range / 4
+    const mag = Math.pow(10, Math.floor(Math.log10(rawStep)))
+    const norm = rawStep / mag
+    const step = Math.max(1, Math.round((norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 5 ? 5 : 10) * mag))
+    // With no losses in the window `bot` is 0 and this is an ordinary 0..top
+    // scale; a loss pushes the floor down instead of being folded into the top.
+    const bot = Math.floor(loVal / step) * step
+    const top = Math.max(Math.ceil(hiVal / step) * step, bot + step)
+    const span = top - bot
+    const ticks = []
+    for (let v = bot; v <= top; v += step) ticks.push(v)
+
+    // Pixels above the bottom of the plot band for a given value.
+    const yOf = (v) => (v - bot) / span * plotHeight
+    const zeroY = yOf(0)
+
+    const chartRow = document.createElement("div")
+    chartRow.style.cssText = "display:flex"
+
+    // ── y axis ──
+    const yAxis = document.createElement("div")
+    yAxis.style.cssText = `width:${yAxisW}px;flex-shrink:0;position:relative;height:${plotHeight}px`
+    ticks.forEach(v => {
+      const t = document.createElement("div")
+      t.textContent = v.toLocaleString()
+      // translateY(50%) centres the text on its gridline
+      t.style.cssText = `position:absolute;right:6px;bottom:${yOf(v)}px;transform:translateY(50%);font-size:0.62em;color:#555;white-space:nowrap`
+      yAxis.appendChild(t)
+    })
+    chartRow.appendChild(yAxis)
+
+    // ── plot area: gridlines behind, bars in front ──
+    const plotWrap = document.createElement("div")
+    plotWrap.style.cssText = `flex:1;position:relative;height:${plotHeight}px;border-bottom:1px solid #ccc`
+
+    const grid = document.createElement("div")
+    grid.style.cssText = `position:absolute;left:0;right:0;bottom:0;height:${plotHeight}px;pointer-events:none`
+    ticks.forEach(v => {
+      // The lowest tick needs no line; the plot's own bottom border draws it.
+      if (v === bot) return
+      const line = document.createElement("div")
+      // Zero is what the bars grow from, so it reads darker than the rest.
+      line.style.cssText = `position:absolute;left:0;right:0;bottom:${yOf(v)}px;border-top:1px solid ${v === 0 ? "#ccc" : "#eee"}`
+      grid.appendChild(line)
+    })
+    plotWrap.appendChild(grid)
+
+    // position:relative lifts the bars above the absolutely-placed gridlines
+    const plot = document.createElement("div")
+    plot.style.cssText = "position:relative;display:flex;gap:3px;height:100%"
+
+    chrono.forEach(d => {
+      const col = document.createElement("div")
+      col.style.cssText = "flex:1 1 0;min-width:8px;height:100%;position:relative"
+      col.title = d.label + ": " + signed(d.value)
+
+      // Gains grow up from the zero line, losses hang below it, so a drop can
+      // never be read as a rise. Small floor keeps a zero delta visible as a tick.
+      const barH = Math.max(Math.abs(d.value) / span * plotHeight, 1)
+      const bar = document.createElement("div")
+      bar.style.cssText = `position:absolute;left:0;right:0;height:${barH}px;background:${d.color};` + (d.value >= 0
+        ? `bottom:${zeroY}px;border-radius:2px 2px 0 0`
+        : `top:${plotHeight - zeroY}px;border-radius:0 0 2px 2px`)
+      col.appendChild(bar)
+
+      plot.appendChild(col)
+    })
+    plotWrap.appendChild(plot)
+    chartRow.appendChild(plotWrap)
+    container.appendChild(chartRow)
+
+    // Tick labels are anchored at each cell's centre with the transform origin at
+    // the text's top-right corner, so rotating -60deg sweeps the text down and to
+    // the left, keeping it below the axis. Rotating about `top center` (as before)
+    // swept it upwards into the bars. The left margin matches the y axis so the
+    // labels stay aligned with their columns.
+    const axis = document.createElement("div")
+    axis.style.cssText = `display:flex;gap:3px;height:44px;margin-left:${yAxisW}px`
+    chrono.forEach(d => {
+      const cell = document.createElement("div")
+      cell.style.cssText = "flex:1 1 0;min-width:8px;position:relative"
+      const t = document.createElement("span")
+      t.textContent = shortLabel(d.label)
+      t.style.cssText = "position:absolute;top:3px;right:50%;text-align:right;font-size:0.62em;color:#555;white-space:nowrap;transform:rotate(-60deg);transform-origin:top right"
+      cell.appendChild(t)
+      axis.appendChild(cell)
+    })
+    container.appendChild(axis)
+
+    // Radio buttons below the chart
+    const controls = document.createElement("div")
+    controls.style.cssText = "display:flex;gap:16px;margin-top:8px;align-items:center"
+
+    ;["daily", "weekly"].forEach(m => {
+      const lbl = document.createElement("label")
+      lbl.style.cssText = "display:flex;align-items:center;gap:4px;font-size:0.85em;cursor:pointer;color:#555"
+
+      const radio = document.createElement("input")
+      radio.type = "radio"
+      radio.name = "onboardingMode"
+      radio.value = m
+      radio.checked = m === mode
+      radio.style.cursor = "pointer"
+
+      radio.addEventListener("change", () => {
+        mode = m
+        buildChart(container)
+      })
+
+      lbl.appendChild(radio)
+      lbl.append(m)
+      controls.appendChild(lbl)
+    })
+
+    container.appendChild(controls)
+  }
+
+  const container = document.createElement("div")
+  container.style.marginTop = "8px"
+  buildChart(container)
+  return container
+}
+```
+
+## Migration Statistics
+
+```{ojs}
+{
+  if (data._loadError) return errorSection();
+  return html`
+${newGroups.length > 0 ? htl.html `
+<div style="background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;padding:12px;margin:12px 0">
+  <strong>🆕 Products ${lastWeek}</strong>
+  <div style="margin:4px 0"><strong>Newly onboarded:</strong> ${newGroups.map(d => d.name).join(", ")}</div>
+</div>` : ""}
+
+${positiveChanges.length > 0 ? htl.html `
+<div style="background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;padding:12px 12px 4px 12px;margin:12px 0">
+  <strong>📈 Products ${lastWeek}</strong>
+  ${positiveChanges.map(d => htl.html `<div style="margin:4px 0">${d.name}: <strong>+${d.s3}</strong> S3, <strong>+${d.stac}</strong> STAC, <strong>+${d.openeo}</strong> OpenEO</div>`)}
+</div>` : ""}
+
+${changes.length === 0 ? htl.html `<div style="background:#f5f5f5;border:1px solid #ddd;border-radius:6px;padding:12px;margin:12px 0;color:#888">No new CLMS product were onboarded this week.</div>` : ""}
+
+${(odataWeeklyDelta || odataDailyDelta || odataHist.length > 0) ? htl.html `
+<div style="background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:12px;margin:12px 0">
+  <strong>📦 File Level Statitics</strong>
+  ${odataDailyAvg ? htl.html `<div style="margin:4px 0;color:#888;font-size:0.85em">Daily average: ${odataDailyAvg.toLocaleString()} new files/day</div>` : ""}
+  ${onboardingPlot}
+</div>` : ""}
+`;
+}
+```
+
+## CLMS Product on CDSE
+
+This table shows the full, currently active CLMS portfolio and each product's migration status to the CDSE.
+```{ojs}
+// Toggle-button style filter: click a component to enable/disable it
+// (multi-select, all enabled by default). Replaces the old single-select
+// dropdown, which only let one component be viewed at a time.
+viewof activeComponents = {
+  if (data._loadError) { const el = document.createElement("span"); el.value = new Set(); return el; }
+  const allComponents = [...new Set(groups.map(d => componentOf(d)).filter(Boolean))].sort()
+  const active = new Set(allComponents)
+
+  const container = document.createElement("div")
+  container.style.cssText = "display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px";
+
+  function render() {
+    container.innerHTML = "";
+    allComponents.forEach(comp => {
+      const isActive = active.has(comp);
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = comp;
+      btn.style.cssText = `padding:6px 14px;border-radius:16px;cursor:pointer;font-size:0.85em;border:1px solid ${isActive ? "#0d6efd" : "#ccc"};background:${isActive ? "#0d6efd" : "#f5f5f5"};color:${isActive ? "#fff" : "#555"}`;
+      btn.addEventListener("click", () => {
+        if (active.has(comp)) active.delete(comp);
+        else active.add(comp);
+        render();
+        container.value = new Set(active);
+        container.dispatchEvent(new CustomEvent("input"));
+      });
+      container.appendChild(btn);
+    });
+  }
+  render();
+  container.value = new Set(active);
+  return container;
+}
+
+viewof searchTerm = data._loadError
+  ? Object.assign(document.createElement("span"), { value: "" })
+  : Inputs.text({label: "Search", placeholder: "Product group…", width: 250})
+```
+
+```{ojs}
+// ── Build the table via plain DOM APIs ──
+// so that column widths defined on <colgroup> are guaranteed to apply to
+// every row, including rows toggled between hidden/visible.
+productGroupsTable = {
+  if (data._loadError) return htl.html``;
+  // Category takes the remaining width (~46%) now that Progress is gone
+  const colWidths = ["auto", "9%", "9%", "9%", "9%", "9%", "9%"];
+
+  function makeCell(tag, html, opts = {}) {
+    const el = document.createElement(tag);
+    if (html instanceof Node) el.appendChild(html);
+    else el.innerHTML = html;
+    el.style.padding = opts.padding ?? "6px";
+    el.style.whiteSpace = "nowrap";
+    el.style.overflow = "hidden";
+    el.style.textOverflow = "ellipsis";
+    if (opts.center) el.style.textAlign = "center";
+    if (opts.bold) el.style.fontWeight = "bold";
+    if (opts.title) el.title = opts.title;
+    if (opts.style) el.style.cssText += ";" + opts.style;
+    return el;
+  }
+
+  const wrap = document.createElement("div");
+
+  const table = document.createElement("table");
+  table.style.cssText = "width:100%;border-collapse:collapse;font-size:0.8em;table-layout:fixed";
+
+  const colgroup = document.createElement("colgroup");
+  colWidths.forEach(w => {
+    const col = document.createElement("col");
+    col.style.width = w;
+    colgroup.appendChild(col);
+  });
+  table.appendChild(colgroup);
+
+  const thead = document.createElement("thead");
+  const headRow = document.createElement("tr");
+  headRow.style.cssText = "background:#f0f0f0;text-align:left";
+  ["Category", "Total", "CDSE", "S3", "STAC", "OpenEO", "S.Hub"].forEach((label, i) => {
+    const th = makeCell("th", label, { center: i > 0, padding: "6px" });
+    th.style.borderBottom = "2px solid #ddd";
+    headRow.appendChild(th);
+  });
+  thead.appendChild(headRow);
+  table.appendChild(thead);
+
+  const tbody = document.createElement("tbody");
+
+  catStats.forEach(cat => {
+    const tr = document.createElement("tr");
+    tr.style.cssText = "background:#f5f5f5;border-bottom:1px solid #ccc;cursor:pointer";
+
+    const nameCell = makeCell("td", "", { bold: true, title: cat.name });
+    const arrow = document.createElement("span");
+    arrow.dataset.arrow = cat.name;
+    arrow.textContent = expandedCategories.has(cat.name) ? "▼" : "▶";
+    nameCell.appendChild(arrow);
+    nameCell.append(" " + cat.name);
+    tr.appendChild(nameCell);
+
+    tr.appendChild(makeCell("td", String(cat.total), { center: true, bold: true }));
+    tr.appendChild(makeCell("td", String(cat.on_cdse), { center: true, bold: true }));
+    tr.appendChild(makeCell("td", badge(cat.s3, cat.total), { center: true }));
+    tr.appendChild(makeCell("td", badge(cat.stac, cat.total), { center: true }));
+    tr.appendChild(makeCell("td", badge(cat.openeo, cat.total), { center: true }));
+    tr.appendChild(makeCell("td", badge(cat.shub, cat.total), { center: true }));
+
+    tr.addEventListener("click", () => window.toggleCategory(cat.name));
+    tbody.appendChild(tr);
+
+    cat.groups.forEach(g => {
+      const groupKey = cat.name + "::" + g.name;
+      const gtr = document.createElement("tr");
+      gtr.dataset.category = cat.name;
+      gtr.style.cssText = "border-bottom:1px solid #ddd;cursor:pointer" + (expandedCategories.has(cat.name) ? "" : ";display:none");
+
+      const gNameCell = makeCell("td", "", { title: g.name, padding: "4px 6px 4px 24px" });
+      const dsInFilter = (g.datasets || []).filter(ds => activeComponents.has(ds.component));
+      const lpOffCdse = (g.portfolio || []).filter(lp => !lp.on_cdse && activeComponents.has(lp.component));
+      const hasDatasets = dsInFilter.length + lpOffCdse.length > 0;
+      if (hasDatasets) {
+        const gArrow = document.createElement("span");
+        gArrow.dataset.groupArrow = groupKey;
+        gArrow.textContent = expandedGroups.has(groupKey) ? "▼" : "▶";
+        gArrow.style.marginRight = "4px";
+        gNameCell.appendChild(gArrow);
+      }
+      const link = document.createElement("a");
+      link.href = g.url;
+      link.target = "_blank";
+      link.textContent = g.name;
+      link.addEventListener("click", (e) => e.stopPropagation());
+      gNameCell.appendChild(link);
+      gtr.appendChild(gNameCell);
+
+      gtr.appendChild(makeCell("td", String(g.total), { center: true, bold: true, padding: "4px 6px" }));
+      gtr.appendChild(makeCell("td", String(g.on_cdse), { center: true, bold: true, padding: "4px 6px" }));
+      gtr.appendChild(makeCell("td", badge(g.s3, g.total), { center: true, padding: "4px 6px" }));
+      gtr.appendChild(makeCell("td", badge(g.stac, g.total), { center: true, padding: "4px 6px" }));
+      gtr.appendChild(makeCell("td", badge(g.openeo, g.total), { center: true, padding: "4px 6px" }));
+      gtr.appendChild(makeCell("td", badge(g.shub, g.total), { center: true, padding: "4px 6px" }));
+
+      if (hasDatasets) {
+        gtr.addEventListener("click", () => window.toggleGroup(groupKey));
+      }
+      tbody.appendChild(gtr);
+
+      dsInFilter.forEach(ds => {
+        const dtr = document.createElement("tr");
+        dtr.dataset.category = cat.name;
+        dtr.dataset.group = groupKey;
+        dtr.style.cssText = "border-bottom:1px solid #eee;background:#fafafa" + (expandedGroups.has(groupKey) ? "" : ";display:none");
+
+        dtr.appendChild(makeCell("td", ds.id, { padding: "3px 6px 3px 44px", title: ds.id }));
+        dtr.appendChild(makeCell("td", "", { padding: "3px 6px" }));
+        dtr.appendChild(makeCell("td", "", { padding: "3px 6px" }));
+        dtr.appendChild(makeCell("td", check(ds.s3), { center: true, padding: "3px 6px" }));
+        dtr.appendChild(makeCell("td", check(ds.stac), { center: true, padding: "3px 6px" }));
+        dtr.appendChild(makeCell("td", check(ds.openeo), { center: true, padding: "3px 6px" }));
+        dtr.appendChild(makeCell("td", check(ds.shub), { center: true, padding: "3px 6px" }));
+
+        tbody.appendChild(dtr);
+      });
+
+      lpOffCdse.forEach(lp => {
+        const dtr = document.createElement("tr");
+        dtr.dataset.category = cat.name;
+        dtr.dataset.group = groupKey;
+        dtr.style.cssText = "border-bottom:1px solid #eee;background:#fafafa" + (expandedGroups.has(groupKey) ? "" : ";display:none");
+
+        dtr.appendChild(makeCell("td", lp.title, { padding: "3px 6px 3px 44px", title: lp.title, style: "color:#999;font-style:italic" }));
+        dtr.appendChild(makeCell("td", "", { padding: "3px 6px" }));
+        dtr.appendChild(makeCell("td", "", { padding: "3px 6px" }));
+        dtr.appendChild(makeCell("td", "—", { center: true, padding: "3px 6px", style: "color:#ccc" }));
+        dtr.appendChild(makeCell("td", "—", { center: true, padding: "3px 6px", style: "color:#ccc" }));
+        dtr.appendChild(makeCell("td", "—", { center: true, padding: "3px 6px", style: "color:#ccc" }));
+        dtr.appendChild(makeCell("td", "—", { center: true, padding: "3px 6px", style: "color:#ccc" }));
+
+        tbody.appendChild(dtr);
+      });
+    });
+  });
+
+  // ── Summary row (col sums over the currently filtered groups) ──
+  const sumRow = document.createElement("tr");
+  sumRow.style.cssText = "background:#e0e0e0;border-top:2px solid #999;font-weight:bold";
+  const sumName = makeCell("td", "Total", { bold: true });
+  sumName.style.fontStyle = "italic";
+  sumRow.appendChild(sumName);
+
+  const sumTotal = d3.sum(catStats, d => d.total);
+  const sumCDSE = d3.sum(catStats, d => d.on_cdse);
+  const sumS3 = d3.sum(catStats, d => d.s3);
+  const sumSTAC = d3.sum(catStats, d => d.stac);
+  const sumOEO = d3.sum(catStats, d => d.openeo);
+  const sumSHub = d3.sum(catStats, d => d.shub);
+
+  sumRow.appendChild(makeCell("td", String(sumTotal), { center: true, bold: true }));
+  sumRow.appendChild(makeCell("td", String(sumCDSE), { center: true, bold: true }));
+  sumRow.appendChild(makeCell("td", badge(sumS3, sumTotal), { center: true }));
+  sumRow.appendChild(makeCell("td", badge(sumSTAC, sumTotal), { center: true }));
+  sumRow.appendChild(makeCell("td", badge(sumOEO, sumTotal), { center: true }));
+  sumRow.appendChild(makeCell("td", badge(sumSHub, sumTotal), { center: true }));
+  tbody.appendChild(sumRow);
+
+  table.appendChild(tbody);
+  wrap.appendChild(table);
+  return wrap;
+}
+
+```
+
+## On CDSE soon
+
+> _Details to be provided — placeholder for upcoming CLMS products planned for CDSE ingestion._
+
+Preparing dataset descriptions, expected timelines, and service coverage for the next batch of products to be onboarded.
+
+## Services
+
+- [S3 CSV Catalogue](https://csv.dataspace.copernicus.eu/CLMS/)
+- [OData API](https://catalogue.dataspace.copernicus.eu/odata/v1/)
+- [STAC Browser](https://browser.stac.dataspace.copernicus.eu/)
+- [OpenEO](https://openeo.dataspace.copernicus.eu/)
+- [Sentinel Hub](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Data/CLMS.html)
+- [CDSE Documentation](https://documentation.dataspace.copernicus.eu/Data/CopernicusServices/CLMS.html)
+
+## Methodology
+
+Per-service counts are matched by:
+
+- **S3**: Direct catalogue count per product type
+- **STAC**: Fuzz-matched by checking if CDSE dataset ID (minus `_cog`/`_nc` suffix) appears in STAC collection IDs
+- **OpenEO**: Matched by constructing `CLMS_{id.upper()}` convention
+- **Sentinel Hub**: Estimated from S3 availability
