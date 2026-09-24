@@ -10,6 +10,7 @@ Allowlist (matches the PR-time validator in validate_qmd_files.py):
   - tool-managed: version (set by ai/update_versions_and_changelogs.py),
     keywords (set by ai/tasks/generate_intros.py), original-filename (set by
     the technical-library scripts)
+  - licence override: license + license-url (defaults in _meta/includes)
 
 Anything else (toc/toc-depth/toc-title, deprecated fields, typos, external-
 project metadata) gets dropped silently.
@@ -40,6 +41,11 @@ ALLOWLIST = {
     # Kept (not stripped) so fill_version / inject_changelog / strip_llms can
     # read it downstream.
     "type",
+    # Per-document licence override. Both are needed: `license` drives Quarto's
+    # HTML appendix, `license-url` the json-ld block. Defaults live in
+    # _meta/includes/default*.yml; the PR-time validator requires the pair.
+    "license",
+    "license-url",
 }
 
 EXCLUDED_DIRS = {"templates", "theme", "includes", "_meta", "_site", ".quarto"}
