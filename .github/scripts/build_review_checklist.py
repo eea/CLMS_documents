@@ -1,14 +1,9 @@
 #!/usr/bin/env python3
-"""Build the selective-promotion checklist for a review PR body, and parse it back.
+"""Build the review PR checklist from a test...develop diff, and parse it back.
 
-`build()` turns a `test...develop` diff into a tickable markdown checklist;
-`parse()` turns a (possibly human-edited) PR body back into a selection. They
-are inverses: parse(build(paths)) returns the .qmd subset of paths.
-
-Documents are grouped under `### <Product>` using the RAW directory name, so
-heading + stem reconstructs `DOCS/<Product>/<stem>.qmd` exactly. (Unlike
-generate_commit_message.sh, which formats the name for humans and cannot
-round-trip.)
+parse(build(paths)) returns the .qmd paths, so keep the two in sync. Product
+headings use the raw directory name, so heading + stem gives back
+`DOCS/<product>/<stem>.qmd`.
 
 CLI:
     git diff --name-only origin/test...origin/develop | %(prog)s --build
@@ -30,8 +25,7 @@ END = "<!-- review-selection:end -->"
 PIPELINE_MARKER = "<!--pipeline-->"
 REMOVED_SUFFIX = " (removed)"
 
-# Per-document state, carried by the document that owns it (see
-# assemble_review_branch.py), never by the pipeline block.
+# Per-document state: goes with its document, never with the pipeline block.
 PER_DOC_STATE_EXACT = {
     ".llm_cache/versions.json",
     ".github/non_browsable_doc_map.json",
@@ -43,10 +37,10 @@ PER_DOC_STATE_PREFIXES = (
 
 
 def is_pipeline_path(path: str) -> bool:
-    """True if *path* belongs to the indivisible pipeline block.
+    """True if *path* belongs to the pipeline block.
 
-    `.llm_cache/images/` rides along: it is content-addressed by image MD5 and
-    shared across documents, so carrying it is harmless and saves Gemini spend.
+    `.llm_cache/images/` goes with the pipeline: entries are keyed by image hash
+    and shared between documents, so carrying them is safe and saves Gemini calls.
     """
     if path.startswith("DOCS/"):
         return False
@@ -75,7 +69,7 @@ def build(changed_paths, deleted=()) -> str:
         "Everything ticked below goes to the test site. Untick what isn't ready yet; it'll stay on develop.",
         "Then click **Ready for review**.",
         "",
-        # Blank line above matters: `---` right under text makes it a heading.
+        # Keep the blank line above, or GitHub turns the text into a heading.
         "---",
         START,
     ]

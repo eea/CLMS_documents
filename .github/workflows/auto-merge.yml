@@ -13,7 +13,7 @@ jobs:
     permissions:
       pull-requests: write
       contents: write
-      actions: write  # dispatch deploy-docs after a GITHUB_TOKEN merge into test
+      actions: write  # to dispatch deploy-docs
 
     steps:
       # Write access is org-wide, so "someone approved it" isn't good enough.
@@ -134,21 +134,18 @@ jobs:
             gh pr merge ${{ github.event.pull_request.number }} \
               --squash \
               --body "${{ steps.commit_body.outputs.body }}"
-            # A GITHUB_TOKEN merge does not trigger deploy-docs' push event;
-            # workflow_dispatch is the documented exception, so start it here.
+            # A GITHUB_TOKEN merge fires no push event; dispatch still works.
             gh workflow run deploy-docs.yml --ref test
             echo "🚀 Dispatched deploy-docs on test"
           fi
         env:
-          # ->test: GITHUB_TOKEN (build is dispatched above).
-          # ->main: still GH_PAT, so the merge push triggers deploy-docs and,
-          #         through workflow_run, release.yml. Not yet proven to work
-          #         with a dispatched deploy-docs.
+          # test: GITHUB_TOKEN, deploy-docs is dispatched above.
+          # main: GH_PAT, so the push starts deploy-docs and then release.yml
+          #       (workflow_run). Not tried with a dispatched build yet.
           GH_TOKEN: ${{ github.event.pull_request.base.ref == 'main' && secrets.GH_PAT || secrets.GITHUB_TOKEN }}
 
-      # review/<date> is a throwaway assembly branch - its content is now on
-      # test. essential-guardrails blocks deletion on develop/test/main only, so
-      # review/* deletes cleanly. Only reached if the merge above succeeded.
+      # review/* is done once merged. essential-guardrails only protects
+      # develop/test/main. Skipped if the merge failed.
       - name: Delete the merged review branch
         if: startsWith(github.event.pull_request.head.ref, 'review/')
         run: |

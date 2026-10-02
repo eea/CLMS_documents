@@ -4,9 +4,8 @@ name: Validate Pull Request
 
 on:
   pull_request:
-    # synchronize IS needed: validate_merge_origin is a required check and
-    # required checks are per-SHA. The review/* assembly force-pushes a new
-    # head SHA, so the check must re-run or the PR can never merge.
+    # synchronize: required checks are per commit, and the review/* rebuild
+    # force-pushes. Without it the PR can never merge.
     types: [opened, edited, reopened, synchronize, ready_for_review]
     branches:
       - test
@@ -23,9 +22,7 @@ jobs:
 
           if [[ "$GITHUB_BASE_REF" == "test" && "$GITHUB_HEAD_REF" == "develop" ]]; then
             ALLOWED=true
-          # review/* is a partial develop batch: a branch cut from test carrying
-          # only the content chosen for this release. Same direction as
-          # develop -> test, just a subset of it.
+          # review/* is test plus part of develop, so same direction.
           elif [[ "$GITHUB_BASE_REF" == "test" && "$GITHUB_HEAD_REF" == review/* ]]; then
             ALLOWED=true
           elif [[ "$GITHUB_BASE_REF" == "main" && "$GITHUB_HEAD_REF" == "test" ]]; then

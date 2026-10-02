@@ -4,11 +4,10 @@ name: Open Pre-Release Review PR
 # deploy-docs has finished on develop, or the PR misses the latest cache commits.
 #
 # Two modes:
-#   full      - promote all of develop: gh pr create --base test --head develop.
-#   selective - assemble review/<date> (everything selected) and open a DRAFT PR
-#               whose body is a tickable checklist. Untick what isn't ready, then
-#               click Ready for review; reconcile-review-pr.yml rebuilds the
-#               branch to match the ticks.
+#   full      - PR from develop straight into test.
+#   selective - build review/<date> with everything and open it as a draft PR
+#               with a checklist. Ready for review runs reconcile-review-pr.yml,
+#               which rebuilds the branch from the ticks.
 #
 # Title uses chore(docs): on purpose - chore is a no-bump type, so this PR
 # can't drive a semantic-release bump (bumps happen at the test->main step).
@@ -40,14 +39,10 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-          # Full history of commits/trees (the test...develop diff needs the
-          # merge base) but no historical file contents; blobs are fetched on
-          # demand. Skips ~3.5 GiB of old media versions.
+          # History for the merge base, without ~3.5 GiB of old media.
           filter: blob:none
-          # Selective mode pushes review/<date> through the deploy key: a
-          # GITHUB_TOKEN push is refused when the batch touches
-          # .github/workflows/*, and would not trigger the required checks.
-          # Empty key (full mode) = the plain default checkout.
+          # Selective mode pushes with the deploy key: a GITHUB_TOKEN push can't
+          # touch .github/workflows/* and doesn't trigger the required checks.
           ssh-key: ${{ inputs.mode == 'selective' && secrets.CI_DEPLOY_KEY || '' }}
 
       - name: Guard — ensure deploy-docs is not still running on develop
@@ -71,8 +66,7 @@ jobs:
       - name: Check for existing PR
         id: check
         run: |
-          # Either promotion shape counts as "already in flight": a full
-          # develop->test PR, or a selective review/<date> one.
+          # An open develop or review/* PR means a promotion is already running.
           existing=$(gh pr list \
             --base test \
             --state open \
@@ -153,9 +147,8 @@ jobs:
           body=$(python3 .github/scripts/build_review_checklist.py \
             --build --deleted-from /tmp/deleted.txt < /tmp/changed.txt)
 
-          # Assemble with everything selected: a PR's head branch cannot be
-          # changed after creation, so review/<date> must already differ from
-          # test. Ready for review re-assembles it to match the ticks.
+          # Start with everything: the PR needs a branch that differs from test,
+          # and its head can't be changed later.
           python3 .github/scripts/assemble_review_branch.py \
             --date "$today" --all --push
 

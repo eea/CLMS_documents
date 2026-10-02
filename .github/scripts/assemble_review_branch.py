@@ -1,23 +1,15 @@
 #!/usr/bin/env python3
-"""Assemble a review/<date> branch: `test` plus exactly the selected content.
+"""Build review/<date>: test plus the selected content from develop.
 
-Called twice with different selections — everything at PR creation, the ticked
-boxes on Ready for review — so the full-batch case is continuously exercised and
-there is no second mechanism to keep correct.
+Runs with everything selected when the PR opens, and with the ticked boxes on
+Ready for review, so both cases share one code path.
 
-Every path is synced with ONE command:
+Paths are copied with `git restore --source=<develop> --staged --worktree`.
+It runs in no-overlay mode, so files missing on develop get deleted too, which
+covers deletions and case-renamed media. Don't swap it for
+`git checkout <ref> -- <path>`: that only adds files and leaves stale ones behind.
 
-    git restore --source=<develop> --staged --worktree -- <path>
-
-`git restore` defaults to **no-overlay** mode: tracked files absent from
---source are REMOVED to match it exactly. So adds, edits and deletions are the
-same operation, a promoted deletion needs no special case, and a media file that
-was case-renamed on develop cannot survive as a stale sibling (the failure
-332477ed cleaned up by hand). `git checkout <ref> -- <path>` is overlay mode —
-a union that "never removes files" — and would reintroduce exactly that bug.
-
-Shared state files are merged key-by-key, never synced wholesale, so an unticked
-document keeps `test`'s values.
+Shared state files are merged per key, so unticked documents keep test's values.
 
 CLI:
     %(prog)s --date 2026-09-21 --all
@@ -51,11 +43,10 @@ class Assembled(NamedTuple):
 
 
 def git(*args: str, repo: str | Path = ".", check: bool = True) -> str:
-    """Run git in *repo* and return stdout stripped.
+    """Run git in *repo*, return stripped stdout.
 
-    On failure, raise with git's own stderr, so CI shows the reason and not
-    just a traceback. The argument list is shortened: a restore chunk passes
-    up to 500 paths.
+    Raises with git's stderr so CI shows the actual error. Args are cut short
+    in the message, since a restore chunk can pass 500 paths.
     """
     result = subprocess.run(
         ["git", *args], cwd=str(repo), capture_output=True, text=True
@@ -71,7 +62,7 @@ def git(*args: str, repo: str | Path = ".", check: bool = True) -> str:
 
 
 def llm_cache_path(qmd: str) -> str:
-    """`.llm_cache` key for a document — mirrors helpers/file_updater.py:13-16."""
+    """`.llm_cache` entry for a document (same naming as helpers/file_updater.py)."""
     return f"{LLM_CACHE_DIR}/{'__'.join(Path(qmd).parts)}.json"
 
 
@@ -102,15 +93,15 @@ def all_documents(changed: list[str]) -> list[str]:
 
 
 def tree_paths(repo: str | Path, ref: str) -> set[str]:
-    """Every file path in *ref*'s tree. Trees only, so it's cheap in a blobless clone."""
+    """All file paths in *ref*. Reads trees only, so it's cheap in a blobless clone."""
     return set(git("ls-tree", "-r", "--name-only", ref, repo=repo).splitlines())
 
 
 def sync(repo: str | Path, develop_ref: str, paths: list[str]) -> None:
-    """Mirror *paths* from develop into index+worktree (no-overlay)."""
+    """Copy *paths* from develop into the index and worktree."""
     if not paths:
         return
-    # Batched, but chunked so a huge selection cannot blow the arg limit.
+    # Chunked to stay under the arg length limit.
     for i in range(0, len(paths), 500):
         git(
             "restore",
@@ -158,20 +149,18 @@ def _merge_keyed_json(repo: Path, develop_ref: str, rel: str, keys: list[str]) -
         return False
     path = repo / rel
     path.parent.mkdir(parents=True, exist_ok=True)
-    # Byte-for-byte the pipeline's format (update_versions_and_changelogs.py:
-    # json.dump indent=2, sort_keys, NO trailing newline). Any drift shows up as
-    # end-of-file noise in the PR diff and churns on the next deploy-docs run.
+    # Same format as update_versions_and_changelogs.py (indent=2, sort_keys, no
+    # trailing newline), otherwise the PR diff gets end-of-file noise.
     path.write_text(json.dumps(target, indent=2, sort_keys=True), encoding="utf-8")
     return True
 
 
 def _merge_non_browsable_map(repo: Path, develop_ref: str, selection: list[str]) -> bool:
-    """Carry each selected document's secret-URL entry.
+    """Copy each selected document's secret-URL entry.
 
-    Entries are a LIST under "mappings", keyed by `source` = the path relative
-    to DOCS/ (group_docs_by_category.py:159), not the repo-relative path used by
-    the other shared files. A missing entry self-heals into a NEW random URL, so
-    dropping one silently rotates that document's obfuscated URL.
+    Entries are a list under "mappings", keyed by `source` (path relative to
+    DOCS/, unlike the other shared files). A missing entry gets a new random
+    URL on the next build, so dropping one quietly changes that document's URL.
     """
     develop_data = _json_at_ref(repo, develop_ref, NON_BROWSABLE_MAP)
     target = load_json_or_empty(repo / NON_BROWSABLE_MAP, label=NON_BROWSABLE_MAP)
@@ -203,8 +192,7 @@ def _merge_non_browsable_map(repo: Path, develop_ref: str, selection: list[str])
         return False
     payload = dict(target) or dict(develop_data)
     payload["mappings"] = mappings
-    # Same format as group_docs_by_category.save_secret_map: indent=2, key order
-    # kept, no trailing newline.
+    # Same format as group_docs_by_category.save_secret_map.
     (repo / NON_BROWSABLE_MAP).write_text(
         json.dumps(payload, indent=2), encoding="utf-8"
     )
@@ -257,10 +245,9 @@ def assemble(
         to_sync.extend(p for p in changed if is_pipeline_path(p))
     for qmd in selection:
         to_sync.extend(owned_paths(qmd, changed))
-    # The three-dot diff lists everything develop changed since the merge base,
-    # including paths test has since matched on its own. A path absent on BOTH
-    # tips is already in the desired state, and `git restore` aborts the whole
-    # chunk on a pathspec that matches nothing in the index or the source.
+    # The three-dot diff also lists paths test has caught up with since the
+    # merge base. Drop the ones missing on both sides: git restore fails the
+    # whole chunk on a pathspec that matches nothing.
     present = tree_paths(repo, test_ref) | tree_paths(repo, develop_ref)
     to_sync = sorted(p for p in set(to_sync) if p in present)
 
