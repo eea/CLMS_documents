@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d9a9c0a1f4282c796189f885521bd269.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e61c58a189a320d32fae22d22cdd4792.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -185,6 +185,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#annex-2-description-of-lclu-thematic-classes" id="toc-annex-2-description-of-lclu-thematic-classes" class="nav-link" data-scroll-target="#annex-2-description-of-lclu-thematic-classes"><span class="header-section-number">12</span> Annex 2 Description of LC/LU thematic classes</a></li>
   <li><a href="#document-history" id="toc-document-history" class="nav-link" data-scroll-target="#document-history"><span class="header-section-number">13</span> Document history</a></li>
   <li><a href="#applicable-documents" id="toc-applicable-documents" class="nav-link" data-scroll-target="#applicable-documents"><span class="header-section-number">14</span> Applicable documents</a></li>
+  <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">15</span> Change Log</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Urban_Atlas_CLMS_UA2021_LULC_PUM_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -198,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `1.0.0`.trim();
+    const raw = `1.0.2`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -206,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.0.0</p>
+          <p>1.0.2</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -2107,6 +2108,40 @@ Figure&nbsp;8: Examples of the public, private and unknown classes in Iasi, Roma
 </table>
 
 
+</section>
+<section id="change-log" class="level1" data-number="15">
+<h1 data-number="15"><span class="header-section-number">15</span> Change Log</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Version</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2026-06-03</td>
+<td>1.0.2</td>
+<td>Standardised YAML frontmatter keys and formatting. Improved table header rendering and added explicit width attributes for images throughout the document for consistent display.</td>
+</tr>
+<tr class="even">
+<td>2026-03-31</td>
+<td>1.0.1</td>
+<td>Updated date format in YAML frontmatter to ISO 8601 (YYYY-MM-DD) for consistency and improved machine readability.</td>
+</tr>
+<tr class="odd">
+<td>2026-02-10</td>
+<td>1.0.0</td>
+<td>Initial release</td>
+</tr>
+</tbody>
+</table>
 </section>
 
 

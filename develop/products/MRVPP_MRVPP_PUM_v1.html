@@ -8,8 +8,8 @@
 
 <meta name="author" content="European Environment Agency (EEA)">
 <meta name="dcterms.date" content="2026-06-18">
-<meta name="keywords" content="Product User Manual (PUM), Medium-Resolution Vegetation Phenology and Productivity (MR-VPP), Plant Phenology Index (PPI) time series, Vegetation Phenology and Productivity (VPP) parameters, Quality Assurance (QA) layers, Product interpretation guidance, Data access and formats, Known product limitations, MODIS Nadir BRDF-Adjusted Reflectance (NBAR), Pan-European land monitoring, Vegetation seasonal dynamics, Ecosystem productivity assessment">
-<meta name="description" content="This Product User Manual offers comprehensive guidance for the Copernicus Land Monitoring Service’s Medium-Resolution Vegetation Phenology and Productivity (MR-VPP) product suite, Version 5.0 Issue 2.0. It provides essential information for accessing, interpreting, and applying these pan-European land monitoring products, covering the 2000-2025 period at 500m spatial resolution. The document details the Plant Phenology Index (PPI) time-series and Vegetation Phenology and Productivity (VPP) parameters, alongside critical quality assurance layers and data formats. It assists scientists, regulators, and data engineers in understanding product content, limitations, and best practices for assessing vegetation seasonal dynamics and ecosystem productivity.">
+<meta name="keywords" content="Medium-Resolution Vegetation Phenology and Productivity (MR-VPP), Plant Phenology Index (PPI) time series, Vegetation phenology parameters, Seasonal productivity metrics, Product user manual, Quality assurance layers, MODIS Nadir BRDF-Adjusted Reflectance, TIMESAT processing chain, Pan-European data products, Data interpretation guidance, Climate impact assessment, Short-window phenology processing">
+<meta name="description" content="This Product User Manual offers practical guidance for engaging with the Copernicus Land Monitoring Service’s Medium-Resolution Vegetation Phenology and Productivity (MR-VPP) Version 5.0 Issue 2.0 products. It details the product suite, encompassing Plant Phenology Index (PPI) time series and annual Vegetation Phenology and Productivity (VPP) parameters covering 2000-2025 across the pan-European domain. The document outlines input data, processing concepts, output formats, quality assurance layers, and recommended applications. It further assists users in interpreting phenological and productivity metrics, addressing known limitations, and leveraging product enhancements, including the 2025 data extension and short time-series processing evaluation.">
 
 <title>Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Product User Manual (PUM) – Technical Library</title>
 <style>
@@ -81,7 +81,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d9a9c0a1f4282c796189f885521bd269.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e61c58a189a320d32fae22d22cdd4792.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -113,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Product User Manual (PUM)",
-    "description": "This Product User Manual offers comprehensive guidance for the Copernicus Land Monitoring Service’s Medium-Resolution Vegetation Phenology and Productivity (MR-VPP) product suite, Version 5.0 Issue 2.0. It provides essential information for accessing, interpreting, and applying these pan-European land monitoring products, covering the 2000-2025 period at 500m spatial resolution. The document details the Plant Phenology Index (PPI) time-series and Vegetation Phenology and Productivity (VPP) parameters, alongside critical quality assurance layers and data formats. It assists scientists, regulators, and data engineers in understanding product content, limitations, and best practices for assessing vegetation seasonal dynamics and ecosystem productivity.",
+    "description": "This Product User Manual offers practical guidance for engaging with the Copernicus Land Monitoring Service’s Medium-Resolution Vegetation Phenology and Productivity (MR-VPP) Version 5.0 Issue 2.0 products. It details the product suite, encompassing Plant Phenology Index (PPI) time series and annual Vegetation Phenology and Productivity (VPP) parameters covering 2000-2025 across the pan-European domain. The document outlines input data, processing concepts, output formats, quality assurance layers, and recommended applications. It further assists users in interpreting phenological and productivity metrics, addressing known limitations, and leveraging product enhancements, including the 2025 data extension and short time-series processing evaluation.",
     "datePublished": "June 18, 2026",
     "author": {
       "@type": "Person",
@@ -295,6 +295,7 @@ window.Quarto = {
   <li><a href="#user-responsibility" id="toc-user-responsibility" class="nav-link" data-scroll-target="#user-responsibility"><span class="header-section-number">7.8</span> User responsibility</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8</span> References</a></li>
+  <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">9</span> Change Log</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="MRVPP_MRVPP_PUM_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -308,7 +309,7 @@ window.Quarto = {
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `1.0.0`.trim();
+    const raw = `1.2.0`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -316,7 +317,7 @@ window.Quarto = {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.0.0</p>
+          <p>1.2.0</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -331,7 +332,7 @@ window.Quarto = {
 
 <div>
   <div class="description">
-    This Product User Manual offers comprehensive guidance for the Copernicus Land Monitoring Service’s Medium-Resolution Vegetation Phenology and Productivity (MR-VPP) product suite, Version 5.0 Issue 2.0. It provides essential information for accessing, interpreting, and applying these pan-European land monitoring products, covering the 2000-2025 period at 500m spatial resolution. The document details the Plant Phenology Index (PPI) time-series and Vegetation Phenology and Productivity (VPP) parameters, alongside critical quality assurance layers and data formats. It assists scientists, regulators, and data engineers in understanding product content, limitations, and best practices for assessing vegetation seasonal dynamics and ecosystem productivity.
+    This Product User Manual offers practical guidance for engaging with the Copernicus Land Monitoring Service’s Medium-Resolution Vegetation Phenology and Productivity (MR-VPP) Version 5.0 Issue 2.0 products. It details the product suite, encompassing Plant Phenology Index (PPI) time series and annual Vegetation Phenology and Productivity (VPP) parameters covering 2000-2025 across the pan-European domain. The document outlines input data, processing concepts, output formats, quality assurance layers, and recommended applications. It further assists users in interpreting phenological and productivity metrics, addressing known limitations, and leveraging product enhancements, including the 2025 data extension and short time-series processing evaluation.
   </div>
 </div>
 
@@ -359,7 +360,7 @@ window.Quarto = {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>Product User Manual (PUM), Medium-Resolution Vegetation Phenology and Productivity (MR-VPP), Plant Phenology Index (PPI) time series, Vegetation Phenology and Productivity (VPP) parameters, Quality Assurance (QA) layers, Product interpretation guidance, Data access and formats, Known product limitations, MODIS Nadir BRDF-Adjusted Reflectance (NBAR), Pan-European land monitoring, Vegetation seasonal dynamics, Ecosystem productivity assessment</p>
+    <p>Medium-Resolution Vegetation Phenology and Productivity (MR-VPP), Plant Phenology Index (PPI) time series, Vegetation phenology parameters, Seasonal productivity metrics, Product user manual, Quality assurance layers, MODIS Nadir BRDF-Adjusted Reflectance, TIMESAT processing chain, Pan-European data products, Data interpretation guidance, Climate impact assessment, Short-window phenology processing</p>
   </div>
 </div>
 
@@ -1890,6 +1891,44 @@ Denmark<br>
 </ul>
 
 
+</section>
+<section id="change-log" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Change Log</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Version</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2026-07-28</td>
+<td>1.2.0</td>
+<td>• Added a new Product User Manual (PUM) for MR-VPP Version 5.0 Issue 2.0.
+• Provided comprehensive guidance on product content, input data, and processing concepts.
+• Detailed output parameters for Plant Phenology Index (PPI) and Vegetation Phenology and Productivity (VPP), including quality layers and file naming.
+• Included extensive recommendations for product use, quality filtering, and interpretation guidance for various scenarios.
+• Summarised known limitations and practical considerations for optimal product application.</td>
+</tr>
+<tr class="even">
+<td>2026-07-28</td>
+<td>1.1.0</td>
+<td>• New Product User Manual for MR-VPP Version 5.0 Issue 2.0.
+• Offers practical guidance on product content, input, processing, and output.
+• Describes PPI time-series and VPP parameter products.
+• Explains quality layers, file naming, and application areas.
+• Includes details on short-window processing and 2025 product extension.
+• Provides workflow, quality filtering, and multi-season interpretation guidance.</td>
+</tr>
+</tbody>
+</table>
 </section>
 
 

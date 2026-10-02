@@ -1470,6 +1470,14 @@ In cases over the sea or within large forest masses, and for small areas, it may
 |---------|----------------------------------------------------------------|
 | AD-1    | Urban Atlas 2021 – Algorithm Theoretical Basis Document (ATBD) |
 
+# 15 Change Log
+
+| Date | Version | Summary |
+|----|----|----|
+| 2026-06-03 | 1.0.2 | Standardised YAML frontmatter keys and formatting. Improved table header rendering and added explicit width attributes for images throughout the document for consistent display. |
+| 2026-03-31 | 1.0.1 | Updated date format in YAML frontmatter to ISO 8601 (YYYY-MM-DD) for consistency and improved machine readability. |
+| 2026-02-10 | 1.0.0 | Initial release |
+
 Back to top
 
 ## Footnotes

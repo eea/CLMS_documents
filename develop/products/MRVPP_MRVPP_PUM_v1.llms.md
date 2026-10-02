@@ -2,7 +2,7 @@
 
 Copernicus Land Monitoring Service
 
-This Product User Manual offers comprehensive guidance for the Copernicus Land Monitoring Service’s Medium-Resolution Vegetation Phenology and Productivity (MR-VPP) product suite, Version 5.0 Issue 2.0. It provides essential information for accessing, interpreting, and applying these pan-European land monitoring products, covering the 2000-2025 period at 500m spatial resolution. The document details the Plant Phenology Index (PPI) time-series and Vegetation Phenology and Productivity (VPP) parameters, alongside critical quality assurance layers and data formats. It assists scientists, regulators, and data engineers in understanding product content, limitations, and best practices for assessing vegetation seasonal dynamics and ecosystem productivity.
+This Product User Manual offers practical guidance for engaging with the Copernicus Land Monitoring Service’s Medium-Resolution Vegetation Phenology and Productivity (MR-VPP) Version 5.0 Issue 2.0 products. It details the product suite, encompassing Plant Phenology Index (PPI) time series and annual Vegetation Phenology and Productivity (VPP) parameters covering 2000-2025 across the pan-European domain. The document outlines input data, processing concepts, output formats, quality assurance layers, and recommended applications. It further assists users in interpreting phenological and productivity metrics, addressing known limitations, and leveraging product enhancements, including the 2025 data extension and short time-series processing evaluation.
 
 Author
 
@@ -14,7 +14,7 @@ June 18, 2026
 
 Keywords
 
-Product User Manual (PUM), Medium-Resolution Vegetation Phenology and Productivity (MR-VPP), Plant Phenology Index (PPI) time series, Vegetation Phenology and Productivity (VPP) parameters, Quality Assurance (QA) layers, Product interpretation guidance, Data access and formats, Known product limitations, MODIS Nadir BRDF-Adjusted Reflectance (NBAR), Pan-European land monitoring, Vegetation seasonal dynamics, Ecosystem productivity assessment
+Medium-Resolution Vegetation Phenology and Productivity (MR-VPP), Plant Phenology Index (PPI) time series, Vegetation phenology parameters, Seasonal productivity metrics, Product user manual, Quality assurance layers, MODIS Nadir BRDF-Adjusted Reflectance, TIMESAT processing chain, Pan-European data products, Data interpretation guidance, Climate impact assessment, Short-window phenology processing
 
   
 **Contact:**
@@ -913,6 +913,13 @@ Users should consult Chapters 4-6 for detailed guidance on product format, quali
 - Schaaf, C. B., Gao, F., Strahler, A. H., Lucht, W., Li, X., Tsang, T., Strugnell, N. C., Zhang, X., Jin, Y., Muller, J. P., Lewis, P., Barnsley, M., Hobson, P., Disney, M., Roberts, G., Dunderdale, M., Doll, C., d’Entremont, R. P., Hu, B., . . . Roy, D. (2002). First operational BRDF, albedo nadir reflectance products from MODIS. Remote Sensing of Environment, 83, 135-148. https://doi.org/10.1016/S0034-4257(02)00091-3
 
 - White, M. A., De Beurs, K. M., Didan, K., Inouye, D. W., Richardson, A. D., Jensen, O. P., O’Keefe, J., Zhang, G., Nemani, R. R., Van Leeuwen, W. J. D., Brown, J. F., De Wit, A., Schaepman, M., Lin, X., Dettinger, M., Bailey, A. S., Kimball, J., Schwartz, M. D., Baldocchi, D. D., . . . Lauenroth, W. K. (2009). Intercomparison, interpretation, and assessment of spring phenology in North America estimated from remote sensing for 1982–2006. Global Change Biology, 15, 2335-2359. https://doi.org/10.1111/j.1365-2486.2009.01910.x
+
+# 9 Change Log
+
+| Date | Version | Summary |
+|----|----|----|
+| 2026-07-28 | 1.2.0 | • Added a new Product User Manual (PUM) for MR-VPP Version 5.0 Issue 2.0. • Provided comprehensive guidance on product content, input data, and processing concepts. • Detailed output parameters for Plant Phenology Index (PPI) and Vegetation Phenology and Productivity (VPP), including quality layers and file naming. • Included extensive recommendations for product use, quality filtering, and interpretation guidance for various scenarios. • Summarised known limitations and practical considerations for optimal product application. |
+| 2026-07-28 | 1.1.0 | • New Product User Manual for MR-VPP Version 5.0 Issue 2.0. • Offers practical guidance on product content, input, processing, and output. • Describes PPI time-series and VPP parameter products. • Explains quality layers, file naming, and application areas. • Includes details on short-window processing and 2025 product extension. • Provides workflow, quality filtering, and multi-season interpretation guidance. |
 
 Back to top
 

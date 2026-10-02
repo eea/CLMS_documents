@@ -2,7 +2,7 @@
 
 Copernicus Land Monitoring Service
 
-This Algorithm Theoretical Basis Document details the scientific foundations and algorithmic implementation for the Copernicus Land Monitoring Service’s Medium-Resolution Vegetation Phenology and Productivity (MR-VPP) product suite, Version 5.0 Issue 2.0. It rigorously describes the physical and mathematical basis used to generate annual phenology and productivity parameters from MODIS Nadir BRDF-Adjusted Reflectance data at 500m spatial resolution across Europe for 2000-2025. Key enhancements include improved Plant Phenology Index calculation, robust time-series smoothing using TIMESAT, advanced quality assurance, and a critical evaluation of short time-series processing for operational updates, addressing previous limitations like false seasonality in bright soil areas.
+This Algorithm Theoretical Basis Document (ATBD) comprehensively details the scientific and algorithmic foundations underpinning the Copernicus Land Monitoring Service’s Medium-Resolution Vegetation Phenology and Productivity (MR-VPP) product suite, Version 5.0 Issue 2.0. Covering the pan-European domain for 2000-2025, it explains the generation of annual phenology and productivity parameters from daily MODIS Nadir BRDF-Adjusted Reflectance (NBAR) data. Key aspects include the Plant Phenology Index (PPI) calculation, time-series smoothing using TIMESAT with cubic spline fitting, and robust quality assurance. The document also assesses the feasibility of short time-series processing for efficient operational updates, highlighting significant methodological improvements over previous versions.
 
 Author
 
@@ -14,7 +14,7 @@ June 9, 2026
 
 Keywords
 
-Medium-Resolution Vegetation Phenology and Productivity (MR-VPP), Algorithm Theoretical Basis Document (ATBD), Plant Phenology Index (PPI), MODIS Nadir BRDF-Adjusted Reflectance (NBAR), TIMESAT processing, Phenological parameters, Productivity parameters, Quality Assurance (QA) flags, Short time-series processing evaluation, Cubic spline smoothing, Pan-European land monitoring, Vegetation seasonal dynamics
+Medium-Resolution Vegetation Phenology and Productivity (MR-VPP), Plant Phenology Index (PPI), MODIS Nadir BRDF-Adjusted Reflectance, TIMESAT algorithm, Vegetation phenology parameters, Seasonal productivity metrics, Cubic spline fitting, Quality assurance flags, Pan-European land monitoring, Short time-series processing, Phenology artifact correction, Long-term time series analysis
 
   
 **Contact:**
@@ -641,6 +641,13 @@ Table 9. Summary of quality assessment (QA) comparison between vegetation phenol
 |----|----|----|----|----|----|
 | Season 1 | 4.4×10⁷ | 96.47 | 96.32 | 0.29 | 0.14 |
 | Season 2 | 6.6×10⁴ | 91.34 | 90.96 | 0.03 | 0.10 |
+
+# 7 Change Log
+
+| Date | Version | Summary |
+|----|----|----|
+| 2026-07-28 | 2.2.0 | • Added a new Algorithm Theoretical Basis Document (ATBD) for MR-VPP Version 5.0 Issue 2.0. • Documented significant product improvements from Version 4.0, including daily input data and extended time series. • Detailed enhanced Plant Phenology Index (PPI) calculation with artifact handling and updated quality flags. • Described the upgraded TIMESAT version, harmonised output formats, and new naming scheme. • Included an evaluation of short time-series processing for operational phenology retrieval. |
+| 2026-07-28 | 2.1.0 | • New Algorithm Theoretical Basis Document for MR-VPP Version 5.0 Issue 2.0. • Extends product coverage to the year 2025. • Details algorithmic improvements: daily inputs, enhanced PPI, updated QA flags. • Describes upgraded TIMESAT version and harmonised output formats. • Introduces artifact correction for bright desert/barren regions. • Includes evaluation of short time-series processing for operational updates. |
 
 Back to top
 

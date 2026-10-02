@@ -324,9 +324,12 @@ The IT solutions of the CLMS program shall ensure system integrity against vario
 
 # 5 Change Log
 
-| Date       | Version | Summary         |
-|------------|---------|-----------------|
-| 2025-12-02 | 1.4.0   | Initial release |
+| Date | Version | Summary |
+|----|----|----|
+| 2026-06-03 | 1.4.3 | Updated the internal document version number in the frontmatter. Standardised YAML metadata formatting for consistency and improved table header styling. |
+| 2026-02-10 | 1.4.2 | Document maintenance updates. |
+| 2025-12-04 | 1.4.1 | Removed test data that was incorrectly added to the introduction section. |
+| 2025-12-02 | 1.4.0 | Initial release |
 
 Back to top
 

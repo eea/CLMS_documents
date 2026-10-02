@@ -3799,9 +3799,10 @@ Denmark
 
 # 1 Change Log
 
-| Date       | Version | Summary         |
-|------------|---------|-----------------|
-| 2025-12-03 | 1.0.0   | Initial release |
+| Date | Version | Summary |
+|----|----|----|
+| 2026-06-03 | 1.0.1 | Standardised YAML frontmatter keys and formatting for consistency across documents. |
+| 2025-12-03 | 1.0.0 | Initial release |
 
 Back to top
 
