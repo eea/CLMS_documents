@@ -118,7 +118,7 @@ jobs:
         if: steps.check.outputs.exists == 'false' && steps.diff_check.outputs.ahead != '0' && inputs.mode == 'full'
         run: |
           today=$(date +%Y-%m-%d)
-          title="chore(docs): pre-release batch ${today}"
+          title="chore(docs): Technical Library pre-release ${today}"
           body=$(printf '%s\n' \
             '## Pre-release review' \
             '' \
@@ -163,7 +163,7 @@ jobs:
             --base test \
             --head "review/${today}" \
             --draft \
-            --title "chore(docs): pre-release batch ${today}" \
+            --title "chore(docs): Technical Library pre-release ${today}" \
             --body "$body")
           echo "🚀 Selective draft PR opened: $url"
           echo "   Untick what should wait, then click Ready for review."

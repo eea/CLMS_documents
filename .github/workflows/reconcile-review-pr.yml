@@ -57,7 +57,7 @@ jobs:
         run: |
           gh pr ready "$PR_NUMBER" --undo
           gh pr comment "$PR_NUMBER" --body \
-            "⚠️ Nothing is ticked, so there is nothing to assemble — back to draft. Tick at least one document (or the pipeline block) and click **Ready for review** again."
+            "⚠️ Nothing ticked, so the PR is back to draft. Tick at least one item and click **Ready for review** again."
           echo "::error::Empty selection — PR returned to draft."
           exit 1
         env:
@@ -79,13 +79,13 @@ jobs:
       - name: Summarise what was assembled
         run: |
           documents="${{ steps.selection.outputs.documents }}"
+          noun=$([[ "$documents" == "1" ]] && echo document || echo documents)
+          summary="**${documents} ${noun}**"
           if [[ "${{ steps.selection.outputs.pipeline }}" == "true" ]]; then
-            pipeline="included"
-          else
-            pipeline="excluded"
+            summary+=" + pipeline"
           fi
           gh pr comment "$PR_NUMBER" --body \
-            "🔧 Assembled: ${documents} document(s), pipeline ${pipeline}. The diff above is exactly what will land on \`test\`."
+            "✅ Rebuilt: ${summary}. Check **Files changed**, then approve."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}

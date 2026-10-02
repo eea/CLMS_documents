@@ -30,10 +30,6 @@ END = "<!-- review-selection:end -->"
 PIPELINE_MARKER = "<!--pipeline-->"
 REMOVED_SUFFIX = " (removed)"
 
-# The pipeline block can span hundreds of files; listing every area makes the
-# checkbox line unreadable in GitHub's renderer.
-MAX_AREAS_SHOWN = 6
-
 # Per-document state, carried by the document that owns it (see
 # assemble_review_branch.py), never by the pipeline block.
 PER_DOC_STATE_EXACT = {
@@ -59,14 +55,6 @@ def is_pipeline_path(path: str) -> bool:
     return not path.startswith(PER_DOC_STATE_PREFIXES)
 
 
-def _area(path: str) -> str:
-    """Human-readable area for a pipeline file: its parent dir, max 2 deep."""
-    if "/" not in path:
-        return path
-    parts = path.rsplit("/", 1)[0].split("/")
-    return "/".join(parts[:2]) + "/"
-
-
 def build(changed_paths, deleted=()) -> str:
     """Render the checklist body. *deleted* marks paths gone on develop."""
     deleted = set(deleted)
@@ -82,27 +70,22 @@ def build(changed_paths, deleted=()) -> str:
             pipeline_files.append(path)
 
     lines = [
-        "## Select content for this batch",
+        "## 📚 CLMS Technical Library — pre-release",
         "",
-        "Untick anything that should wait for a later batch, then click",
-        "**Ready for review** to build the branch.",
+        "Everything ticked below goes to the test site. Untick what isn't ready yet; it'll stay on develop.",
+        "Then click **Ready for review**.",
         "",
-        "Ticked more boxes after clicking Ready? Convert back to draft and click",
-        "Ready for review again — the branch is reassembled from scratch each time.",
-        "",
+        # Blank line above matters: `---` right under text makes it a heading.
+        "---",
         START,
     ]
 
     if pipeline_files:
-        all_areas = sorted({_area(p) for p in pipeline_files})
-        shown = ", ".join(f"`{a}`" for a in all_areas[:MAX_AREAS_SHOWN])
-        if len(all_areas) > MAX_AREAS_SHOWN:
-            shown += f" +{len(all_areas) - MAX_AREAS_SHOWN} more"
         count = len(pipeline_files)
         noun = "file" if count == 1 else "files"
         lines.append(
             f"- [x] {PIPELINE_MARKER} Pipeline, workflows & templates "
-            f"({shown} — {count} {noun})"
+            f"({count} {noun}). Leave ticked unless a developer says otherwise."
         )
 
     for product in sorted(products):
@@ -111,7 +94,17 @@ def build(changed_paths, deleted=()) -> str:
         for stem, removed in sorted(products[product]):
             lines.append(f"- [x] {stem}{REMOVED_SUFFIX if removed else ''}")
 
-    lines.append(END)
+    lines += [END, "", "---", ""]
+    if any(removed for docs in products.values() for _, removed in docs):
+        lines += [
+            "<sub>(removed) means it was deleted on develop. "
+            "Leave it ticked to delete it from test too.</sub>",
+            "",
+        ]
+    lines.append(
+        "<sub>Changed your mind after clicking Ready for review? "
+        "Convert to draft first, otherwise new ticks won't count.</sub>"
+    )
     return "\n".join(lines)
 
 
