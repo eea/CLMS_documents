@@ -4,10 +4,6 @@ date: '2025-06-27'
 subtitle: Copernicus Land Monitoring Service
 title: High Resolution Layer Vegetated Land Cover Characteristics - Algorithm Theoretical
   Basis Document
-toc: true
-toc-depth: 3
-toc-title: Content
-version: 2.1
 ---
 
 # Executive summary
@@ -183,7 +179,7 @@ It is worth mentioning that the derived delineation of non-forest tree cover are
 
 ![Figure 4: High-level flow chart of the production workflow for the Tree Cover & Forests products FADSL, FTY and aggregated products at 100m.](Vegetated_Land_Cover_Characteristics_ATBD_v2-media/img-ca3af50470b86f297c48a5a7e3b6625919df0077.png){width="5.05in"}
 
-In a first step an intermediate tree cover mask product is derived through spatial intersection of the two primary status layers **TCD** (≥ 10-100%) and \***DLT**, where areas under agricultural use and in urban context as provided by the **FADSL** are excluded. To ensure consistency with the specified Minimum Mapping Unit (MMU) of 0.5 hectares (equivalent to 50 pixels), the resulting tree cover mask is refined using the GDALSieve[^1] operation. This operation removes small patches below the MMU and fills in small gaps. The output is used to create an initial version of the Forest Type product, that is still missing information in areas, which were filled and marked as tree cover during the sieving process. Furthermore, an ancillary mask is created by mapping these specific pixels with no data values. The GDALFillNodata[^2] function is used to assign values to the pixel shown in the ancillary mask by using an inverse distance weighting algorithm to fill NoData areas based on the values of surrounding pixels. In the last formatting step those interpolated areas and the initial Forest Type version are combined to form the final Forest Type product, which is finally aligned to the processing extent as given in the official Boundary Layer (EEA, 2023).
+### Forest Type (FTY)
 
 The **Forest Type (FTY)** layer implements forest maps largely following the definition provided by the Food and Agriculture Organization (FAO), as specified in the terms and definitions of the *Global Forest Resources Assessment (FRA) Working Paper 1 (FAO, 2012)*. The 10m FTY product is computed by applying the FAO´s definition, however, for EEA-specific purposes, it explicitly includes tree cover in traditional agroforestry systems, such as Dehesa and Montado, which are typically excluded under standard FAO criteria.
 
