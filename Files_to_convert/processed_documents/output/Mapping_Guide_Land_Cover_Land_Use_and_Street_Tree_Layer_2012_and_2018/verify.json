@@ -1,0 +1,87 @@
+{
+  "overall": "warn",
+  "checks": [
+    {
+      "name": "frontmatter",
+      "status": "ok",
+      "summary": "all required fields present",
+      "metric": null,
+      "findings": []
+    },
+    {
+      "name": "structural_counts",
+      "status": "warn",
+      "summary": "figures 12/13; tables 22 in .qmd (~26 source region(s), rough \u2014 see table_coverage)",
+      "metric": null,
+      "findings": [
+        {
+          "message": "13 figures detected but 12 image refs in .qmd",
+          "severity": "warn",
+          "location": "figures"
+        }
+      ]
+    },
+    {
+      "name": "figure_placement",
+      "status": "warn",
+      "summary": "12/13 detected figures placed, 1 unreferenced",
+      "metric": 92.3,
+      "findings": [
+        {
+          "message": "detected figure FIG_1 not placed in the .qmd",
+          "severity": "warn",
+          "location": ""
+        }
+      ]
+    },
+    {
+      "name": "text_coverage",
+      "status": "warn",
+      "summary": "text coverage 99.6% (938/942 sentences; 4 missing)",
+      "metric": 99.6,
+      "findings": [
+        {
+          "message": "missing: EXECUTIVE  S U M M A R Y  .",
+          "severity": "warn",
+          "location": ""
+        },
+        {
+          "message": "missing: height of all objects above the earth\u2019s surface, i.e.",
+          "severity": "warn",
+          "location": ""
+        },
+        {
+          "message": "missing: Sports fields (also outside the settlement area).",
+          "severity": "warn",
+          "location": ""
+        },
+        {
+          "message": "missing: Most of the parcels contain individual cultivation areas with fruits or vegetables, as well as a shed for tools and shel",
+          "severity": "warn",
+          "location": ""
+        }
+      ]
+    },
+    {
+      "name": "table_coverage",
+      "status": "ok",
+      "summary": "26 source table(s); weighted word coverage 99.4% (simple avg 98.4%)",
+      "metric": 99.4,
+      "findings": []
+    },
+    {
+      "name": "oversized_tables",
+      "status": "ok",
+      "summary": "no oversized source tables",
+      "metric": null,
+      "findings": []
+    },
+    {
+      "name": "wide_table_legibility",
+      "status": "ok",
+      "summary": "no tables shrunk below 8pt",
+      "metric": null,
+      "findings": []
+    }
+  ]
+}

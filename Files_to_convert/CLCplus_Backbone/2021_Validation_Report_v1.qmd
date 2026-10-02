@@ -1,0 +1,1024 @@
+---
+title: "TITLE"
+subtitle: "SUBTITLE"
+date: "2025--14"
+version: 1.5
+
+category: products
+
+toc: true
+toc-title: "Content"
+toc-depth: 3
+
+#### REMOVE THE SECTION BELOW BEFORE PUBLISHING 
+format:
+  html:
+    css: ../theme/styles.css
+    code-fold: true 
+    self-contained: false
+    embed-resources: true
+  docx:
+    toc-location: before-body
+    toc-pagebreak: true
+    data: false
+    reference-doc: ../theme/template-guideline.docx
+#### 
+---
+
+![img](2021_Validation_Report_v1-media/img-1cfaf601ce84f7a8d82f48a35875327ef62b9f72.png)
+
+![img](2021_Validation_Report_v1-media/img-7fbb1ad86924fc96787d46423ac18b04478ad58c.png)
+
+![img](2021_Validation_Report_v1-media/img-9b694edf77df647f4ddeac717d4ba70f749bad0f.png)
+
+Validation Report - CLCplus Backbone 2021
+
+ESTABLISHMENT AND MAINTENANCE OF A  CROSS-CUTTING VALIDATION  FRAMEWORK FOR AND VALIDATION OF  COPERNICUS LAND MONITORING SERVICE PRODUCTS 
+
+![img](2021_Validation_Report_v1-media/img-816ae14a9e5532c0edef8fbcd94698eb242a5e97.png)
+
+Date: 26/03/2025
+
+Doc. Version: 1.2
+
+Content ID: D7-2
+
+Contents
+
+|Contents.....................................................................................................................................|... 2|
+|--|--|
+|Executive Summary....................................................................................................................|... 4|
+|1   Introduction ........................................................................................................................|... 5|
+|2   Product Description ............................................................................................................|... 6|
+|3 Validation Methodology and Analysis................................................................................|... 8|
+|3.1    Thematic accuracy ....................................................................................................|... 8|
+|3.1.1   Sampling Design ...................................................................................................|... 8|
+|3.1.2    Response Design...................................................................................................|. 11|
+|3.1.3   Accuracy Assessment ...........................................................................................|. 14|
+|3.2     Usability ....................................................................................................................|. 16|
+|4   Results.................................................................................................................................|. 18|
+|4.1    Thematic Accuracy....................................................................................................|. 18|
+|4.1.1   EEA38....................................................................................................................|. 18|
+|4.1.2   BGR .......................................................................................................................|. 24|
+|4.2     Usability ....................................................................................................................|. 34|
+|5 Conclusions and Recommendations...................................................................................|. 35|
+|5.1    Thematic Accuracy....................................................................................................|. 35|
+|5.2     Usability ....................................................................................................................|. 37|
+|6   References ..........................................................................................................................|. 38|
+|List of abbreviations...................................................................................................................|. 40|
+
+
+# List of Figures
+
+Figure 1: CLCplus BB Raster Product 2021 for the EEA-38 area (Source EEA). ............................. 7
+
+Figure 2: Schematic example of sampling design: selection of validation area (orange squares),
+
+selected sampling locations (blue) within validation area (white outline) and sampling units
+
+(yellow) populated with existing reference information. ............................................................. 9
+
+Figure 3: Sample units for the validation of CLCplus BB 2021. Central sampling point (white cross)
+
+and surrounding sample units (yellow) including the main North-Eastern sample unit (dashed
+
+line).............................................................................................................................................. 12
+
+Figure 4: Standard GIS layout for interpretation of CLCplus BB sample units. Customised attribute  entry form (right) and multiple maps views with reference or supportive layers (left)............. 13
+
+Figure 5: Example of well classified small urban structures and surrounding landscape in  Germany...................................................................................................................................... 20
+
+Figure 6: Example of confusion between sealed areas and herbaceous vegetation in fragmented  urban settlements in Bulgaria..................................................................................................... 20
+
+Figure 7: Good mapping example of adjacent broadleaved and coniferous forest areas and
+
+Figure 8: Example of confusion in complex situation of woody vegetation, low-growing woody  vegetation and permanent herbaceous in Finland..................................................................... 21
+
+Figure 9: Example of confusion in complex situation of woody vegetation, low-growing woody  vegetation and permanent herbaceous in Spain........................................................................ 22
+
+Figure 10: Example of confusion in complex situation of lichens and mosses, low-growing woody  vegetation and permanent herbaceous in Finland..................................................................... 22
+
+Figure 11: Example of difficulties to differentiate low-growing woody vegetation from  broadleaved forests in Spain....................................................................................................... 36
+
+Figure 12: Example of structurally identical looking ground cover but different CLCplus BB 2021  classes (low-growing woody vegetation vs. broadleaved forest) in Guadeloupe. ..................... 36
+
+# List of Tables
+
+Table 1: CLMS product elements validated .................................................................................. 6
+
+Table 2: CLCplus BB 2021 raster product characteristics (Copernicus Land Monitoring Service,  2022) ............................................................................................................................................. 6
+
+Table 3: Validation areas per Biogeographical Region in EEA38................................................... 9
+
+Ta
+
+le 4: Sample units per 
+
+## Table 5: Reference (r) and supportive data (s) used for the validation of CLCplus BB 2021 ...... 13
+
+Table 6: Possible causes for implausibility of CAPI blind results................................................. 14
+
+Table 7: Overall thematic accuracy results at EEA38 level ......................................................... 18
+
+Table 8: Thematic accuracy results at EEA38 per CLCplus BB class............................................ 19
+
+## Table 9: Unweighted confusion matrix (sample counts) for plausibility approach at EEA38..... 23
+
+Table 10: Overall Accuracy per BGR............................................................................................ 24
+
+Table 11: Class accuracies per BGR - Plausibility approach ........................................................ 24
+
+Table 12: Unweighted confusion matrix (sample counts) per BGR - plausibility approach........ 28
+
+# Executive Summary
+
+This report presents the validation results for the Copernicus Land Monitoring Service (CLMS)  raster product CLCplus Backbone (CLCplus BB) 2021. It comprises a raster inventory layer  displaying the predominant land cover class out of 11 basic categories for the reference year  2021. The work was conducted under the framework service contract No EEA/DIS/R0/23/010. 
+
+Thematic accuracy was assessed in a statistically sound approach using available reference and supportive data at different reporting units. It showed that at
+
+• EEA 38: Results are good but fall short of the target >90% at the EEA38 reporting level with blind validation at 78.9% (0.6% Margin of Error) and plausibility validation at 85.3% (0.5% Margin of Error). Classes such as low-growing woody plants (5), lichens and mosses (8) and non- and sparsely-vegetated (9) showed significant improvement during plausibility checks.
+
+• BGR reporting: there are some regional differences. The Arctic (ARC) region is the only  one to achieve >90% accuracy (90.1%), lowest accuracy is observed in the Tropical (TRO)  region (73.3%). The Mediterranean (MED) and Tropical (TRO) regions show significant  challenges distinguishing low-growing woody plants (5), permanent herbaceous (6) and  periodically herbaceous areas (7).
+
+The CLMS Portal shows a good level of accessibility and usability, satisfying the essential user requirements for data access, multi-format availability, and protocol standards. It is recommended that optional metadata elements be included to facilitate more sophisticated chatbot interaction. To enhance usability and reproducibility in future product data releases, selected optional metadata elements could be refined.
+
+Based on an analysis of product manuals and production-internal verification, a product  requirements assessment was conducted based on the use case “Facilitation of independent  assessments and the modelling of carbon pool dynamics according to LULUCF regulation”.
+
+A review of the documentation confirmed the availability of a comprehensive and detailed Product User Manual (PUM), which covers all necessary features. In future PUM releases there are a few areas that could benefit from improvement and the newly developed CLMS PUM template and guidance could be employed to ensure that the CLMS product documentation is consistently presented to users.
+
+NOTE:
+
+This report is intended to serve as the primary source for the information on thematic accuracy and selected usability aspects of CLCplus Backbone 2021 and contains the results from an  independent, post-hoc assessment. A previous assessment of thematic accuracy that served  production quality control (‘internal validation’) is presented within the Product User Manual of CLCplus Backbone 2021 (v1.2). Differences between the two assessments that result from different study designs, sample interpretation, the reference data considered as well as  reporting levels and metrics are acknowledged but not further analysed here.
+
+# 1 Introduction
+
+This report informs about the validation assessments and their results obtained for the CORINE  Land Cover plus Backbone (CLCplus BB) raster product 2021. The validation was conducted  under the framework service contract No EEA/DIS/R0/23/010. The CLMS validation framework  defines the validation methods applicable to the different CLMS products in a way to maximise  synergies, yet also allow adaptations needed to product specific characteristics. Generally, the  validation framework addresses the different validation elements referred to in the  ISO19157:2023 standard, titled "Geographic information -- Data quality," to investigate the  CLMS product quality within the CLMS validation framework:
+
+• Completeness: The presence and absence of features, their attributes, and relationships.
+
+• Logical consistency: The degree of adherence to logical rules of data structure,  attribution, and relationships (e.g., topological consistency).
+
+• Positional accuracy: The accuracy of the position of features.
+
+• Temporal accuracy: The accuracy of temporal attributes and the relationships of  features with time.
+
+• Thematic accuracy: The accuracy of attribute values and classifications.
+
+In addition to the ISO19157 quality elements:
+
+• Usability: Checks assess the alignment of the product and metadata with FAIR (Findability, Accessibility, Interoperability, and Reusability) principles, as well as the quality and completeness of product documentation. Additionally, product specifications are evaluated against requirements derived from the specific use case: "Facilitating independent assessments and modelling carbon pool dynamics according to LULUCF regulation".
+
+Completeness, logical consistency and positional accuracy are tested and validated as part of  the CLMS production and delivery phase, mainly via the CLMS QC Tool (CLMS QC Tool, 2025) and  are not replicated here. Temporal accuracy checks are only applied to CLMS product layers,  where the relationships of product features to time are an implicit product criterion and are not  applied to the CLCplus BB 2021 raster product.
+
+# 2 Product Description
+
+CORINE Land Cover plus Backbone (CLCplus BB) is a detailed pan-European wall-to-wall Land  Cover (LC) inventory layer. It is part of the CLCplus product suite. This validation report covers  the CLCplus BB product generated for the reference years 2021 (Table 1). The product provides,  as a 10m spatial resolution raster layer, 11 encoded LC classes according to a predefined product  specification (Table 2). 
+
+Table 1: CLMS product elements validated
+
+|Product Name|Acronym|Version|Date Provided / Published|
+|--|--|--|--|
+|CLCplus-Backbone Raster|CLCplus BB 2021|V1_1|21.06.2024 (Publication)|
+
+
+Table 2: CLCplus BB 2021 raster product characteristics (Copernicus Land Monitoring Service, 2022)
+
+|Product Name|Product Name|Acronym|Product family|
+|--|--|--|--|
+|CLCplus Backbone Raster Product 10m|CLCplus Backbone Raster Product 10m|CLCplus BB 2021|CLMS_CLCplus|
+|Summary:|CLCplus Backbone is a spatially detailed, large scale, EO-based land cover inventory. The CLCplus Backbone Raster Product is a 10m pixel-based land cover map based on Sentinel time series from October 2020 to March 2022 and auxiliary features. For each pixel it shows the dominant land cover among the 11 basic land cover classes.|CLCplus Backbone is a spatially detailed, large scale, EO-based land cover inventory. The CLCplus Backbone Raster Product is a 10m pixel-based land cover map based on Sentinel time series from October 2020 to March 2022 and auxiliary features. For each pixel it shows the dominant land cover among the 11 basic land cover classes.|CLCplus Backbone is a spatially detailed, large scale, EO-based land cover inventory. The CLCplus Backbone Raster Product is a 10m pixel-based land cover map based on Sentinel time series from October 2020 to March 2022 and auxiliary features. For each pixel it shows the dominant land cover among the 11 basic land cover classes.|
+|Reference year:|2021|2021|2021|
+|Geometric resolution|Pixel resolution 10m x 10m, fully conform with the EEA reference grid|Pixel resolution 10m x 10m, fully conform with the EEA reference grid|Pixel resolution 10m x 10m, fully conform with the EEA reference grid|
+|Coordinate Reference System:|European ETRS89 LAEA projection / for French DOMs WGS84 and the respective UTM zone|European ETRS89 LAEA projection / for French DOMs WGS84 and the respective UTM zone|European ETRS89 LAEA projection / for French DOMs WGS84 and the respective UTM zone|
+|Coverage:|5.749.035 km² (covering the full EEA-38)|5.749.035 km² (covering the full EEA-38)|5.749.035 km² (covering the full EEA-38)|
+|Geometric accuracy (positioning scale):|Equals Sentinel-2 positional accuracy in 2021 (< 11m at 95.5 % confidence level)|Equals Sentinel-2 positional accuracy in 2021 (< 11m at 95.5 % confidence level)|Equals Sentinel-2 positional accuracy in 2021 (< 11m at 95.5 % confidence level)|
+|Thematic accuracy:|90 % overall accuracy, not more than 15 % omission errors and 15 % commission errors per class (the amount of omission and commission errors for particular difficult classes such as Low-growing woody plants and Lichens and Moses might regionally exceed those thresholds)|90 % overall accuracy, not more than 15 % omission errors and 15 % commission errors per class (the amount of omission and commission errors for particular difficult classes such as Low-growing woody plants and Lichens and Moses might regionally exceed those thresholds)|90 % overall accuracy, not more than 15 % omission errors and 15 % commission errors per class (the amount of omission and commission errors for particular difficult classes such as Low-growing woody plants and Lichens and Moses might regionally exceed those thresholds)|
+|Data type:|8bit unsigned raster with LZW compression|8bit unsigned raster with LZW compression|8bit unsigned raster with LZW compression|
+|Minimum Mapping Unit (MMU):|Pixel-based (no MMU)|Pixel-based (no MMU)|Pixel-based (no MMU)|
+|Raster        coding (thematic     pixel values)|1: Sealed 2: Woody – needle leaved trees3: Woody – Broadleaved deciduous trees4: Woody – Broadleaved evergreen trees5: Low-growing woody plants (bushes, shrubs)6: Permanent herbaceous7: Periodically herbaceous8: Lichens and mosses9: Non- and sparsely-vegetated10: Water11: Snow and ice253: Coastal seawater buffer254: Outside area 255: No data|1: Sealed 2: Woody – needle leaved trees3: Woody – Broadleaved deciduous trees4: Woody – Broadleaved evergreen trees5: Low-growing woody plants (bushes, shrubs)6: Permanent herbaceous7: Periodically herbaceous8: Lichens and mosses9: Non- and sparsely-vegetated10: Water11: Snow and ice253: Coastal seawater buffer254: Outside area 255: No data|1: Sealed 2: Woody – needle leaved trees3: Woody – Broadleaved deciduous trees4: Woody – Broadleaved evergreen trees5: Low-growing woody plants (bushes, shrubs)6: Permanent herbaceous7: Periodically herbaceous8: Lichens and mosses9: Non- and sparsely-vegetated10: Water11: Snow and ice253: Coastal seawater buffer254: Outside area 255: No data|
+|Metadata:|XML metadata files according to INSPIRE metadata standards|XML metadata files according to INSPIRE metadata standards|XML metadata files according to INSPIRE metadata standards|
+|Delivery format:|GeoTIFF incl. pyramids and INSPIRE-compliant metadata in XML format|GeoTIFF incl. pyramids and INSPIRE-compliant metadata in XML format|GeoTIFF incl. pyramids and INSPIRE-compliant metadata in XML format|
+
+
+![img](2021_Validation_Report_v1-media/img-6931cb1f6aefa55a00d3b4bdb17eda876d52c70f.png)
+
+Figure 1: CLCplus BB Raster Product 2021 for the EEA-38 area (Source EEA).
+
+# 3 Validation Methodology and Analysis
+
+The following chapters describe the specific methods to check the thematic accuracy and  usability for the CLCplus BB product 2021.
+
+## 3.1 Thematic accuracy
+
+The CLMS validation approach for thematic accuracy compares the CLMS products with  validation data in a sample-based approach, following established scientific practices (Congalton & Green, 2008; Olofsson et al., 2014; Stehman & Foody, 2019). The validation data is assumed  to be more accurate than the product data. The level of agreement between validation and  product data defines the thematic accuracy. The accuracy estimation methodology consists of  three major components, explained in more detail in the following chapters: Sampling Design,  Response Design and Accuracy Assessment.
+
+### 3.1.1 Sampling Design
+
+The sampling design involves the protocol for selecting the sample and determining the number  of sample units. The sample is chosen using a probability approach, ensuring each element has  a calculable chance of selection (sampling weights). This approach allows for extrapolation of  accuracy from the sample to the entire study area. Stratification is used to effectively allocate  samples to classes of interest or rare classes that might otherwise be underrepresented.  Knowing the sampling probability (weights) is crucial to account for unequal probabilities and  prevent bias in accuracy estimation. The sampling design for the validation of thematic  accuracy for the CLMS product consists of two elements (Figure 2):
+
+• Validation Areas: representing the smallest reporting unit and seamlessly covering  EEA38 territory as defined by the Copernicus EEA38 boundary layer (EEA, 2023b)
+
+• Sampling Frame: 2x2 km grid points covering all validation areas
+
+The validation areas are primarily defined by NUTS2 administrative units, which provide  comprehensive and scalable coverage for the validation process. They are aligned with the CLMS  production extent, including a buffer around the terrestrial territory. The validation areas are  stratified by the Biogeographical Regions (BGR) dataset by the EEA (EEA, 2016) It contains the  official delineations used in the Habitats Directive (92/43/EEC) and for the EMERALD Network  set up under the Convention on the Conservation of European Wildlife and Natural Habitats  (Bern Convention). Each validation area is assigned to the BGR where most of the territory  overlaps. During the generation of the validation areas, smaller NUTS2 units with fewer than  500 sample grid points were aggregated, and larger NUTS2 units were split to better align with  the boundaries of the BGR.
+
+The sampling frame is represented by points along a 2x2 km-spaced grid aligned with the  Copernicus grid (EEA, 2024) and LUCAS Master frame grid (Ballin et al., 2018). It was spatially  enlarged to cover EEA38. Each point of the grid is stratified by the CLCplus Backbone raster  product 2018 (EEA, 2023a) into 11 classes, with the pixel northeast of the point used as a  reference class for stratification. The points define the position of the sample unit. The final  sample units for the accuracy assessment are then selected using both validation areas and  sampling frame. 
+
+![img](2021_Validation_Report_v1-media/img-e49ff4b502921c3c1f6625cff5c3e343e3ffaac6.png)
+
+Figure 2: Schematic example of sampling design: selection of validation area (orange  squares), selected sampling locations (blue) within validation area (white outline) and sampling units (yellow) populated with existing reference information.
+
+The validation areas are selected from each BGR stratum using a random selection process,  whereby larger validation areas are more likely to be selected. A minimum of one validation area  per BGR is required, with an approximately proportional allocation of the remaining areas. Depending on the applied reporting level different numbers of validation areas are selected for  the standard CLMS cross-cutting validations. For the EEA38 wide assessment of CLCplus BB2021,  38 validation areas are randomly selected from each biogeographic region representing  approximately 19% of EEA38 territory.
+
+Table 3: Validation areas per Biogeographical Region in EEA38
+
+|Biogeographical Region|EEA38|EEA38|
+|--|--|--|
+|Biogeographical Region|Total validation areas|Selected validation areas|
+|Alpine (ALP)|21|3|
+|Anatolian (ANA)|11|2|
+|Arctic (ARC)|1|1|
+|Atlantic (ATL)|42|6|
+|Black Sea (BLS)|6|2|
+|Boreal (BOR)|17|3|
+|Continental (CON)|102|10|
+|Macaronesia (MAC)|2|1|
+|Mediterranean (MED)|60|6|
+|Pannonian (PAN)|10|2|
+|Steppic (STE)|1|1|
+|Tropical (TRO)|3|1|
+|Total|276|38|
+
+
+Sample points are then drawn from the sampling frame within the selected validation areas. The points are selected using a random stratified approach from each CLCplus BB 2018 strata. The number of sample units is determined based on two key considerations:
+
+• Minimum number of sample units for accuracy reporting: A sufficient number of sample  units is needed to report accuracy across all thematic classes at both the validation area  and BGR levels. The number of sample units is guided by the product accuracy  requirements and corresponding margin of error (MoE) of ±5% at a 95% confidence  interval. The underlying sample size calculation is presented in ((Olofsson et al., 2014) and uses expected user’s accuracy \(p\) a and targeted MoE \(d\), to estimate the required  number of sample units per class \(n_{h}\). The z-score \(z\) is set to 1.96 for a 95% confidence  interval.
+
+\[n_{h}=\frac{z^{2}p(1-p)}{d^{2}}\]
+
+• Based on the assumption of a product per class user’s accuracy (UA) of 85% and a target MoE of the UA of 5%, this would then require 200 sample units per class. The objective is to have a minimum number of sample units per class at the BGR level. For each selected validation area there should be a minimum of 30 samples per class. However, fewer samples may be acceptable for rare classes that are not well-covered in some BGRs or validation areas. For some classes, the selected sample size is thus below 200 per BGR because there are not enough sample units available within the standard 2x2 km sampling frame. 
+
+• A maximum number of sample units per validation area was defined, ranging from 500  to 800, depending on the number of validation areas per BGR. Larger BGRs were  allocated fewer sample units per validation area, while smaller BGRs with fewer  validation areas received more. Once the minimum number of sample units per  validation area is met, the remaining units up to the maximum number are allocated  proportionally. This approach targets enough sample units for all thematic classes across  all reporting levels, while maintaining a representative character by allocating a part of  the sample units proportionally.
+
+• Shared sampling design: The overall CLMS validation framework foresees that one sample can be used for different CLMS products (cross-cutting efficiency). To achieve  this, a sufficient number of sample units must be allocated across different thematic  domains. The CLCplus BB 2018 classes are used as the strata for guiding this allocation  since its thematic classes cover most land cover types. To ensure adequate  representation of rare classes, more sample units are included than typically required  to achieve statistical robustness.
+
+Sample weights are calculated for each sample unit combining the selection probabilities of the  first stage and second stage sampling. The weights provide the information how many sample  units each point represents in the total population of all possible sample points. It considers the  different selection probabilities in both sampling phases and compensates for unequal number  of samples per strata.
+
+This general cross-cutting sampling approach foresees using the same validation areas and  sample units for the validation of different CLMS products and reference years. Validation areas  are not considered fixed but may be adjusted or changed in the course of later validation activities in order to consider the availability of existing and upcoming reference data, align with  changing CLMS product extent or to better cover specific CLMS product classes.
+
+Adjustments are needed to this general sampling approach for the CLCplus BB 2021 validation to ensure independence of validation data from production data. The LUCAS 2018 survey data  has been used extensively in the production of CLCplus BB 2021 (Copernicus Land Monitoring  Service, 2024), but is also an important reference data source for this CLMS validation.  Therefore, to maintain independence from the training data, any point in the sampling frame grid that coincided with LUCAS 2018-point locations has been replaced using the following  procedure:
+
+• Shift the points 1 km north. If the point remains within the same LC, it is kept in its new  position. 
+
+• If the point does not remain in the same strata, shift the point 1 km east from the original position. If the point is within the same CLCplus BB 2018 strata, it is kept in its new  position. If not, shift the point back to the northern position and accept the different  strata.
+
+This procedure ensures the independence of validation data by avoiding bias from using training  data and maintains an approximate share of the same LC strata. Around 26% of the sample  points selected were shifted spatially.
+
+The targeted sample size of 200 sample units is achieved for all thematic classes at the EEA38  level, except for the snow and ice class (11) (Table 4). For some BGR, there are thematic classes  with lower sample unit numbers, due to their limited occurrence, e.g. sparse vegetation (9) in  the Pannonian region (PAN), broadleaved evergreen trees (4) in the Black Sea region (BLS), or  sealed areas (1) in the Arctic region (ARC).
+
+Table 4: Sample units per CLCplus BB 2021 class and Biogeographic Region at EEA38
+
+||1|2|3|4|5|6|7|8|9|10|11|Total|
+|--|--|--|--|--|--|--|--|--|--|--|--|--|
+|ALP|108|437|412||196|522|185|74|278|89|78|2379|
+|ANA|132|158|161|10|160|402|233||188|55||1499|
+|ARC|46|27|57||96|155|9|87|107|97|100|781|
+|ATL|275|304|515|188|382|1136|596||219|243||3858|
+|BLS|95|142|362|11|138|267|276||110|72||1473|
+|BOR|232|428|294||205|374|265|93|208|147||2246|
+|CON|379|602|971||213|1052|1355||101|306||4979|
+|MAC|39|50|16|93|66|102|26||26|77||495|
+|MED|225|361|444|607|797|906|680||240|228||4488|
+|PAN|165|164|231||152|248|394||30|104||1488|
+|STE|86|87|118||92|125|179||35|78||800|
+|TRO|58|||205|52|140|25||8|99||587|
+|Total|1840|2760|3581|1114|2549|5429|4223|254|1550|1595|178|25073|
+
+
+### 3.1.2 Response Design
+
+The response design describes all steps to collect validation data at the sample sites and  compare it with the product to be validated. It includes deciding on an appropriate type of sample unit and the protocol for collecting or preparing reference data to create a 1:1 spatial, thematic, and temporal match with the product data.
+
+The sample unit for CLCplus BB 2021 consists of 4 pixels representing an area of 20x20 meters around the central sampling point (Figure 3). The north-eastern (NE) pixel is used as the main sample unit for land cover (LC) interpretation. Additionally, it is recorded if the other three units also belong to the NE-recorded LC. This enables further analyses, such as LC homogeneity assessments over the enlarged sample unit. In analogy to the CLCplus BB production process, a pixel is classified into a LC class if that class covers more than 50% of the pixel. If no single LC class exceeds 50%, a relative majority is used, as detailed in the decision tree applied during the CLCplus BB 2018 production (Copernicus Land Monitoring Service, 2024).
+
+![img](2021_Validation_Report_v1-media/img-7e785566c35ae5a730b47368b149f2babe290cbf.png)
+
+Figure 3: Sample units for the validation of CLCplus BB 2021. Central sampling point (white  cross) and surrounding sample units (yellow) including the main North-Eastern sample unit  (dashed line)
+
+In the standard approach, validation data is created by classifying samples according to the  thematic classes of the products being validated. This process involves utilizing existing and  suitable reference datasets. Sample units are inspected or visually interpreted using ComputerAssisted Photointerpretation (CAPI) and existing high-quality reference and supporting data (Table 5). The reference data serve as the primary source for visual interpretation, providing  high-quality reference information from the same year. Supportive data, on the other hand,  offer additional context or information to aid the decision-making process. Reference data from  different years can be used to confirm stable classes/quantities from logical rules or to track and  confirm change between CLMS product releases. E.g. Orthophotos showing needle leaved forest  in pre-product dates and needle leaved forest in post-product years, imply that the same  forested land cover was also present in the CLMS product reference year. The checks and  interpretation of the sample units are conducted in a Geographic Information System (GIS),  employing dedicated data entry forms that incorporate a range of features including dropdown menus, checkboxes, comment text fields and the capacity for structured and guided data entry  (Figure 4). 
+
+![img](2021_Validation_Report_v1-media/img-cfd6550e442a110b1dd7650e898a9c57ef95fa13.png)
+
+Figure 4: Standard GIS layout for interpretation of CLCplus BB sample units. Customised  attribute entry form (right) and multiple maps views with reference or supportive layers (left).
+
+To address possible discrepancies in temporal, thematic, or spatial comparability with validation  data, two approaches are applied for validation:
+
+• Initial Blind Approach: At this stage, validation data is created independently of the  product. The interpreter is unaware of the CLMS product value or the sample strata to  which it belongs during the classification process, ensuring an unbiased comparison.  Alternatively, reference data from different sources can be compared directly to the  map. This approach helps to maintain the objectivity of the validation process.
+
+• Plausibility Approach: In this phase, "not matching" sample units are reviewed again  with knowledge of the CLMS product value. This review helps identify and rectify  discrepancies due to factors such as border cases, ambiguous class definitions, or  different minimum mapping units or issuesrelated to positional shift between reference  and map data (Table 6).
+
+This approach results in two validation datasets, one from the initial blind approach and another  after the plausibility review, thereby reducing errors in sample unit classification. The workflow  ensures that the plausibility review is conducted only after the blind approach has been  completed, and it is performed by a different operator, further enhancing the objectivity and  accuracy of the validation process.
+
+Table 5: Reference (r) and supportive data (s) used for the validation of CLCplus BB 2021
+
+|Coverage|Use|Product name|Reference type|Reference year|Access mode|Provider|
+|--|--|--|--|--|--|--|
+|EEA39|r|EEA39_VHR_2018|Orthoimagery|2018|WMS / WMTS|EEA/CLMS|
+|EEA39|s|EEA39_VHR_2021|Orthoimagery|2021|WMS / WMTS|EEA/CLMS|
+|Global|s|Bing maps|Orthoimagery|unknown|WMS / WMTS|Bing|
+|Global|s|Google Maps|Orthoimagery|unknown|WMS / WMTS|Google|
+|EU22+UK|s|LUCAS 2009|Field data / PI|2009|Download|Eurostat|
+|EU26+UK|s|LUCAS 2012|Field data / PI|2012|Download|Eurostat|
+|EU27|s|LUCAS 2022 Copernicus Polygons|Field data|2022|Download|Eurostat|
+|EU27|s|LUCAS 2022|Field data / PI|2022|Download|Eurostat|
+|EU27+UK|r|LUCAS 2015|Field data / PI|2015|Download|Eurostat|
+|EU27+UK|s|LUCAS Master Strata|PI|<2017|Download|Eurostat|
+|National / regional|s|EuroCrops IACS data|IACS / LPIS|2019-2022|Download|EuroCrops|
+|National / regional|s|Orthoimagery, Aerial photos|Orthoimagery|Most recent|WMS / WMTS or Download|Various|
+|National / regional|r|Orthoimagery, Aerial photos|Orthoimagery|2021|WMS / WMTS or Download|Various|
+|National/ regional|s|Additional IACS / LPIS data not covered by EuroCrops|IACS / LPIS|2021|Download|Various|
+|National/ regional|s|Land Cover / Land Use or Vegetation Maps from different Regions, incl. French DOM|Land Cover Map|Most recent available|WMS / WMTS or Download|Various|
+
+
+Table 6: Possible causes for implausibility of CAPI blind results
+
+|Cause for blind CAPI not plausible|Explanation|
+|--|--|
+|Border case|Mixed pixels commonly found in transition zones between land cover types. Determining the precise coverage of a LC class is difficult. In such cases, the sample unit is classification "in favour" of the map.|
+|Qualitatively limited reference data|The limitations of the reference data prevent an unambiguous classification. These limitations can be due to shift, tilt, shadow, low resolution, or partial missing data.|
+|Difficult class elements for photointerpretation|LC difference cannot be directly interpreted. For example, the height of the woody plants distinguished CLCplus BB class 2/3/4 vs. 5. This attribute cannot be clearly determined from 2D image data. For the class 9 vs. 11, the duration of ice coverage in the course of the reference year is important and needs a time-series image interpretation.|
+|Error in blind approach|Incorrect interpretation during blind approach.|
+|Other/unclear|All other cases. Requires explanatory comment.|
+
+
+### 3.1.3 Accuracy Assessment
+
+The product’s thematic accuracy is assessed by comparing the validation data and the product  map data using a statistical approach, with the results presented in a confusion matrix. Sample  weights are used to compensate for the unbalanced selection probabilities of individual sample  units in the stratified sampling approach. Several accuracy measures are calculated to assess  the thematic accuracy of the CLMS product. These reporting measures include:
+
+• User’s Accuracy (per product class, UA): Indicates the probability that a sample unit classified as a certain class in the product actually belongs to that class on the ground. 
+
+• Producer’s Accuracy (per product class, PA): Indicates the probability that a sample unit  belonging to a certain class on the ground is correctly classified in the product. 
+
+• Overall Accuracy (OA): Indicates the proportion of correctly classified sample units across all classes. 
+
+• Margin of Error (MoE): The margin of error, representing the standard deviation at a  95% confidence level, is calculated for user’s accuracy, producer’s accuracy, and overall  accuracy. This provides an estimate of the uncertainty associated with the accuracy  measures.
+
+\[M o E=z\,x\,S E\]
+
+\(S E\) is the Standard Error of the accuracy estimate, and \(z\) is the z-score corresponding to  the desired confidence level, approximately 1.96 for 95% confidence level. 
+
+• F1 Score (per product class 𝑖): The F1 Score is a harmonic mean of user’s accuracy and producer’s accuracy for each product class. It provides a single measure of accuracy that balances the trade-off between both accuracies.
+
+\[F1\,S c o r e=2\,\mathrm{x}\frac{U A_{i}\,\mathrm{x}\,P A_{i}}{U A_{i}+P A_{i}}\]
+
+Since the CLMS validation framework uses the same sample units for different CLMS products the strata and the mapped classes are not the same and standard stratified estimators (Olofsson et al., 2014) are not suitable for calculation of overall, user’s and producer's accuracy. Instead indicator functions and stratified estimators described by Stehman (2014) are used to calculate accuracies and their variances. The indicator functions are used to account for that sample units are selected from strata different than the map classes. Indicator function for overall accuracy is defined as:
+
+\[y_{u}={\binom{1\;\;i f\,u n i t\,u\,i s\,c l a s s i f i e d\,c o r r e c t l y}{0\,i f\,u n i t\,u\,i s\,c l a s s i f i e d\,i n c o r r e c t l y}}\]
+
+Overall accuracy is then calculated as a sample mean using a stratified estimator from Stehman  (2014):
+
+\[\widehat{Y}=\sum_{h=1}^{H}N_{h}^{*}\;\overline{{y}}_{h}/\,N\]
+
+Where
+
+\[\overline{{y}}_{h}=\sum_{u\in h}y_{u}/n_{h}^{*}\]
+
+is the sample mean of the \(y_{u}\) values in stratum \(h\), \(u\in h\) indicates that sample unit \(u\) was selected  from stratum \(h\) and \(H\) denotes the number of strata. \(N\) is the number of all possible units in the  sample frame (population), \(N_{h}^{*}\) is the number of possible units and \(n_{h}^{*}\) the selected sample units  in stratum \(h\). An estimator for the variance of \(\widehat{\overline{{Y}}}\) is provided in Stehman (2014) Equitation 25 and  26.
+
+User’s accuracy and producer’s accuracy require different indicator functions for \(y_{u}\,a n d x_{u}\).
+
+For user’s accuracy:
+
+\[y_{u}={\left\{\begin{array}{l l}{1\,i f\,u n i t\,u\,i s\,c l a s s i f i e d\,c o r r e c t l y\,a n d\,i s\,m a p\,c l a s s\,k}\\ {0\qquad\qquad\qquad\,o t h e r w i s e}\end{array}\right.}\]
+
+and
+
+\[x_{u}=\left\{\begin{array}{l}{{i f\,u n i t\,u\,i s\,m a p\,c l a s s\,k}}\\ {{0\qquad o t h e r w i s e}}\end{array}\right.\]
+
+for producer’s accuracy:
+
+\[y_{u}={\Big\{}_{0}^{1\,i f\,u n i t\,u\,i s\,c l a s s i f i e d\,c o r r e c t l y\,a n d\,h a s\,c l a s s\,k\,i n\,t h e\,v a l i d a t i o n\,d a t a}\]
+
+and
+
+\[x_{u}=\ \left\{\begin{array}{c}{{i\,f\,u n i t\,u\,h a s\,c l a s s\,k\,i n\,t h e\,v a l i d a t i o n\,d a t a}}\\ {{0\,o t h e r w i s e}}\end{array}\right.\]
+
+User’s and producer’s accuracies are then calculated using a combined ratio estimator Stehman  (2014) Equitation 27:
+
+\[\hat{R}=\frac{\sum_{h=1}^{H}N_{h}^{*}\overline{{y}}_{h}}{\sum_{h=1}^{H}N_{h}^{*}\overline{{x}}_{h}}\]
+
+where \(\overline{{y}}_{\mathrm{h}}\) and \(\overline{{x}}_{\mathrm{h}}\) are the sample means of \(y_{u}\) and \(x_{u}\) in the stratum \(h\). The variance estimator for \(\hat{R}\) is provided in Stehman (2014) Equitation 28.
+
+In addition to accuracy metrics based on the weighted confusion matrix, unweighted confusion  matrices with raw sample unit counts are provided. These offer insights into inter-class  confusion, especially for rare classes with low sample weights and where the actual performance  may not be well reflected in the weighted result. To avoid confusion with the statistical correct  weighted accuracy metrics, the producer’s and user’s accuracy based on the unweighted  confusion matrix are labelled additionally as "Unweighted" and calculated as:
+
+\[\begin{array}{c}{{\mathit{U n w e i g h t e d\,U A}=\displaystyle\frac{{\mathit{N u m b e r\,o f\,s a m p l e\,\,u n i t s\,c o r r e c t l y\,c l a s s i f i e d\,a n d\,w i t h\,m a p\,c l a s s\,k}}}{{\mathit{T o t a l\,n u m b e r\,o f\,s a m p l e\,u n i t s\,c l a s s i f i e d\,a s\,m a p\,c l a s s\,k}}}}\\ {{\mathit{U n w e i g h t e d\,P A}\,=\,\displaystyle\frac{{\mathit{N u m b e r\,o f\,s a m p l e\,\,u n i t s\,c o r r e c t l y\,c l a s s i f i e d\,a n d\,w i t h\,v a l i d a t i o n\,c l a s s\,k}}}{{\mathit{T o t a l\,n u m b e r\,o f\,s a m p l e\,u n i t s\,w i t h\,v a l i d a t i o n\,d a t a\,c l a s s\,k}}}}\end{array}\]
+
+## 3.2 Usability
+
+The following usability assessment are done using the CLCplus BB 2021 product:
+
+• Product and metadata accessibility and alignment with FAIR principles.
+
+• Checking product compliance with generic product requirements for the potential use case “Facilitation of independent assessments and the modelling of carbon pool dynamics according to LULUCF regulation”.
+
+• Assessment of the CLMS Portal's accessibility using various methods and tools to evaluate different aspects.
+
+• Documentation & metadata completeness: Review of Product User Manuals (PUM) and  Algorithm Theoretical Basis Document (ATBD).
+
+To ensure the CLCplus BB 2021 product metadata and datasets comply with FAIR principles, evaluations are conducted using a Digital Object Identifier (DOI) or permanent Uniform  Resource Locator (URL) with three specific tools: FAIR Enough (FAIR Enough, 2022), FAIRchecker (FAIR-Checker, 2024) and F-UJI (F-UJI, 2024). These tools often identify overlapping  issues, but their comparative outputs help emphasize different FAIR principles such as  Findability, Accessibility, Interoperability, and Reusability. This analysis helps pinpoint areas for  improvement, listing non-compliant criteria and suggesting potential solutions. The assessment  of the CLMS Portal emphasizes evaluating accessibility to ensure that users can easily access and  interact with CLMS products through the Portal. This assessment, focusing on performance and user interaction, is conducted post-publication using a variety of methods and tools. These tools check compliance with web accessibility standards, analyse user navigation, evaluate user experiences during login, verify content format availability, measure response times, and ensure the use of open, standardized protocols. The assessment also includes testing across different browsers and devices to test consistent performance and responsiveness.
+
+The product requirements check whether the product specifications align with a specific use  case. The process begins by identifying the use case and its specific requirements, such as  temporal and spatial resolution, thematic accuracy, and data accessibility. These requirements  are organized in a product requirements check table and evaluated against the product  documentation and metadata as published on the CLMS Portal. Compliance observations are  recorded, along with any identified gaps where the product does not fully meet user  expectations or where the source data used does not allow compliance to be confirmed.
+
+The document review approach enhances the ATBD and PUM of the CLMS product by  assessing various criteria against standards and best practices for quality, format, and depth. In this case, no ATBD was provided, and the review was therefore limited to the PUM. It ensures  logical content structure, clear language, and high-quality visuals. The review, from preliminary  drafts to final versions, uses tables to systematize and standardize evaluations, incorporating a  scoring system and targeted checks. If the documents predate specific templates, certain  assessments are omitted. The process is documented in detail, providing a comprehensive  record of the evaluations and areas for improvement.
+
+# 4 Results
+
+## 4.1 Thematic Accuracy
+
+The thematic accuracy results are described at the two reporting levels: EEA38 and Biogeographical regions (BGR).
+
+### 4.1.1 EEA38
+
+The thematic accuracy evaluation shows an overall accuracy of the CLCplus BB 2021 raster layer  of 85.3% (0.5% Margin of Error) for the plausibility approach and 78.9 % (0.6%) for the blind  validation approach (Table 7). The validation results here is therefore lower than the published  internal verification results of 93.7% (0.3%) (Copernicus Land Monitoring Service, 2022). The  targeted overall accuracy of the CLCplus BB raster of >90% could thus not be confirmed.
+
+Table 7: Overall thematic accuracy results at EEA38 level
+
+|Method|Overall Accuracy [%]|Margin of Error [%]|
+|--|--|--|
+|Blind validation approach|78.9%|0.6%|
+|Plausibility validation approach|85.3%|0.5%|
+
+
+Accuracies improve during the plausibility checks, with more classes approaching or exceeding  the requested 85% class accuracy (Table 8). The class-specific accuracies of the periodically  herbaceous class (7), water (10) and snow and ice (11) have user’s or producer’s accuracies  higher than the required 85% in the blind validation results. Especially, low-growing woody  plants (5), lichens and mosses (8) and non- and sparsely-vegetated (9) improved considerably  during the plausibility checks. The higher user’s accuracy (UA) compared to producer’s accuracy  (PA) for the classes periodically herbaceous (7), lichens and mosses (8) and non- and sparselyvegetated (9) indicate that those classes are underestimated in the CLCplus product. The lower  PA indicates that the number of missed pixels in these classes is higher than the number of  falsely classified pixels in the map. The MoE is below the targeted 5% for all classes except  lichens and mosses (8) and snow and ice (11), which relates to the combination of lower  accuracy and lower number of sample units.
+
+The confusion matrix shows the number of samples per  class (Table 9). It provides more information on the main  class confusions identified during the plausibility analysis.  The green diagonal line indicates the matches between  CLMS product and validation sample. One unexpected  confusion is between sealed (1) and permanent herbaceous  areas (6). The very high producer’s accuracy (unweighted) of  89.9% is in contrast to the lower user’s accuracy of 73.8%.  There are many areas where well classified small urban  structures and surrounding landscape are very well captured  (Figure 5). However, visual data checks showed, that this  reported confusion of often caused by fragmented urban  settlements or linear infrastructures like roads, which are  difficult to capture at 10m spatial resolution and the strong  spectral response from sealed surfaces (Figure 6). There are 
+
+CLCplus BB product classes
+
+1: Sealed 
+
+2: Woody – needle leaved trees 
+
+3: Woody – Broadleaved deciduous  trees 
+
+4: Woody – Broadleaved evergreen  trees 
+
+5: Low-growing woody plants  (bushes, shrubs) 
+
+6: Permanent herbaceous 
+
+7: Periodically herbaceous 
+
+8: Lichens and mosses 
+
+9: Non- and sparsely-vegetated 
+
+10: Water 
+
+11: Snow and ice
+
+good examples of differentiation between small adjacent areas of broadleaved and coniferous  forest, and the transition to herbaceous areas (Figure 7). Still, high confusion occurs among some vegetation-related classes. Low growing woody plants (5) show confusion with larger growing  deciduous trees (3) and permanent herbaceous areas (6) (Figure 8 and Figure 9). Sparse  vegetation (9) also contributes to misclassifications with sealed (1) and permanent herbaceous  (6). Permanent herbaceous (6) has confusion with all other classes, except snow and ice (11).  Lichens and mosses (8) are especially confused with permanent herbaceous vegetation (6) and  non- and sparsely-vegetated (9) areas. Lichens and mosses often grow in complex patterns with  rocks, grasses, dwarf shrubs, difficult to assess using satellite image pixels and is often even  difficult to map without further ancillary information from very high resolution images (Figure  10). Other classes like water (10) and snow and ice (11) have very high classification accuracy,  showing minimal confusion.
+
+Table 8: Thematic accuracy results at EEA38 per CLCplus BB class
+
+||Blind Validation approach|Blind Validation approach|Blind Validation approach|Blind Validation approach|Blind Validation approach|Plausibility validation approach|Plausibility validation approach|Plausibility validation approach|Plausibility validation approach|Plausibility validation approach|
+|--|--|--|--|--|--|--|--|--|--|--|
+|Product Class|UA [%]|MoE [%]|PA [%]|MoE [%]|F1 Score [%]|UA [%]|MoE [%]|PA [%]|MoE [%]|F1 Score [%]|
+|1|71.6|2.6|75.2|3.6|73.4|75.2|2.4|79.7|3.5|77.4|
+|2|84.3|1.9|84.5|1.3|84.4|88.2|1.7|88.1|1.2|88.2|
+|3|79.3|1.5|83.5|1.4|81.4|83.7|1.4|87.7|1.2|85.7|
+|4|58.3|3.1|71.1|2.8|64.1|83.1|2.5|85.9|2.0|84.5|
+|5|65.3|2.3|53.4|1.9|58.8|76.4|1.8|73.4|2.2|74.9|
+|6|72.9|1.3|82.0|1.0|77.2|79.7|1.2|86.2|0.9|82.8|
+|7|93.8|0.8|83.3|1.2|88.2|94.6|0.7|84.8|1.2|89.5|
+|8|57.2|9.5|30.9|7.2|40.1|81.9|8.7|46.3|9.2|59.1|
+|9|70.1|2.9|50.6|3.0|58.8|80.4|2.3|65.3|3.4|72.0|
+|10|98.3|0.6|95.5|1.6|96.9|98.4|1.1|95.6|1.6|96.9|
+|11|96.5|1.9|92.0|7.5|94.2|98.4|1.7|96.5|3.0|97.4|
+
+
+Green =Higher than CLMS product target accuracies, Yellow = within 5% of target accuracy, Red = MoE >5%
+
+![img](2021_Validation_Report_v1-media/img-bc11032c8ae1de2cd0c5c19e055a016f401af81f.png)
+
+Figure 5: Example of well classified small urban structures and surrounding landscape in  Germany.
+
+![img](2021_Validation_Report_v1-media/img-09e917294500a832d1f5478459326a547c238065.png)
+
+Figure 6: Example of confusion between sealed areas and herbaceous vegetation in  fragmented urban settlements in Bulgaria.
+
+![img](2021_Validation_Report_v1-media/img-f074affacb5e9f429fe081744737374c4b338941.png)
+
+Figure 7: Good mapping example of adjacent broadleaved and coniferous forest areas and  transition to herbaceous areas in Finland.
+
+![img](2021_Validation_Report_v1-media/img-2f46990d79385e37b26429ea9628400d853f09e5.png)
+
+Figure 8: Example of confusion in complex situation of woody vegetation, low-growing woody  vegetation and permanent herbaceous in Finland.
+
+![img](2021_Validation_Report_v1-media/img-5264a88116ccb5f0f01ac98fab81042d93f281a6.png)
+
+Figure 9: Example of confusion in complex situation of woody vegetation, low-growing woody  vegetation and permanent herbaceous in Spain.
+
+![img](2021_Validation_Report_v1-media/img-0a65a6eee9bc49a1c8af2551861d06a15e07b035.png)
+
+Figure 10: Example of confusion in complex situation of lichens and mosses, low-growing  woody vegetation and permanent herbaceous in Finland.
+
+Table 9: Unweighted confusion matrix (sample counts) for plausibility approach at EEA38
+
+||||Validation data|Validation data|Validation data|Validation data|Validation data|Validation data|Validation data|Validation data|Validation data|Validation data|Validation data|||
+|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
+||||1|2|3|4|5|6|7|8|9|10|11|Total|User’s Accuracy Unweight.|
+|1202BBsulpCLC|1|Sealed|1,357|12|46|9|21|262|20|0|107|6|0|1,840|73.8%|
+|1202BBsulpCLC|2|Woody – needle leaved trees|5|2,397|141|11|60|113|1|1|31|0|0|2,760|86.8%|
+|1202BBsulpCLC|3|Woody – Broadleaved deciduous trees|13|210|3,017|6|103|199|16|0|15|2|0|3,581|84.3%|
+|1202BBsulpCLC|4|Woody – Broadleaved evergreen trees|7|9|13|925|40|90|14|0|15|1|0|1,114|83.0%|
+|1202BBsulpCLC|5|Low-growing woody plants (bushes, shrubs)|12|92|178|52|1,720|386|44|6|54|5|0|2,549|67.5%|
+|1202BBsulpCLC|6|Permanent herbaceous|59|51|164|84|188|4,178|544|41|101|19|0|5,429|77.0%|
+|1202BBsulpCLC|7|Periodically herbaceous|9|0|19|14|17|157|3,960|0|44|3|0|4,223|93.8%|
+|1202BBsulpCLC|8|Lichens and mosses|0|4|0|0|4|12|0|220|14|0|0|254|86.6%|
+|1202BBsulpCLC|9|Non- and sparsely-vegetated|46|14|10|4|75|156|65|17|1,127|29|7|1,550|72.7%|
+|1202BBsulpCLC|10|Water|1|1|6|0|2|14|1|0|10|1,560|0|1,595|97.8%|
+|1202BBsulpCLC|11|Snow and ice|0|0|0|0|0|0|0|0|7|0|171|178|96.1%|
+|||Total|1,509|2,790|3,594|1,105|2,230|5,567|4,665|285|1,525|1,625|178|25,073||
+|||Producer’s Accuracy Unweighted|89.9%|85.9%|83.9%|83.7%|77.1%|75.0%|84.9%|77.2%|73.9%|96.0%|96.1%||82.3%|
+
+
+### 4.1.2 BGR
+
+The Overall Accuracy (OA) per BGR shows regional variation (Table 10). Accuracies >90% were  achieved in the plausibility approach for the Arctic region (ARC). Most of the other BGRS are  slightly below 90%, with the regions ANA, BOR, MED and TRO lower than 85%. TRO has the  lowest accuracy of 73.3%. The Margin of Error (MoE) is below 5% for all BGRs, which indicates  robust accuracy estimates. 
+
+The accuracies per class (Table 11) show a similar picture at BGR level as for the EEA38. The F1  Score for sealed (1) is below 70% for five of the twelve BGRs (ALP, ANA, ARC, BLS, TRO) with high  MoE. Low-growing woody plants (5) is below 50% within six BGRs, all with a MoE >5%. The rare  class lichens and mosses (8) occurs in three BGRs, which F1 Scores between 37.6 and 78.7%.  Water (10), snow and ice (11) and woody – needle leaved trees (2) have the highest accuracies  reaching values >90%. The regions ATL and CON have very good accuracy results (up to 93.1%  F1 score) for the majority of the classes occurring in these regions, only low-growing woody  plants (5) and non- and sparsely-vegetated (9) are below 80% for both UA and PA. Within the  TRO region, only water (10) is exceeding a F1 score of 85%. Periodically herbaceous areas (7) are  well detected in most of the BGRs with an F1 score > 85%, except in BOR, MAC, MED and TRO.
+
+The confusion matrix with sample counts (Table 12) shows similar class confusions in the BGRs  as already observed at EEA38 level. Noteworthy is the high number of sample units identified as  sealed (1) in the validation data that were correctly classified as sealed in most BGRs. The  unweighted producer’s accuracy for this class exceeds 90% in most BGR (Table 12) and is  considerable higher than the weighted producer's accuracy (Table 11). This difference is due to  the confusion with classes that have much higher sampling weights, particularly the large  permanent herbaceous class (6). Confusion between low-growing woody plants (5), permanent  herbaceous (6) and periodically herbaceous (7) is evident in several regions (PAN, CON, STEP  and MED) indicating the difficulty to distinguish between these classes.
+
+Table 10: Overall Accuracy per BGR
+
+||Blind|Blind|Plausibility|Plausibility|
+|--|--|--|--|--|
+|Biogeographic Region|Overall Accuracy [%]|Margin of Error [%]|Overall Accuracy [%]|Margin of Error [%]|
+|Alpine (ALP)|80.4|1.8|85.2|1.6|
+|Anatolian (ANA)|78.5|2.7|84.3|2.4|
+|Arctic (ARC)|81.8|3.9|90.1|2.8|
+|Atlantic (ATL)|78.9|1.4|86.2|1.2|
+|Black Sea (BLS)|84.5|2.0|84.6|2.0|
+|Boreal (BOR)|81.6|1.9|83.6|1.8|
+|Continental (CON)|86.2|1.0|86.6|1.0|
+|Macaronesia (MAC)|56.4|4.9|85.9|3.9|
+|Mediterranean (MED)|66.4|1.4|80.8|1.2|
+|Pannonian (PAN)|85.3|1.6|89.7|1.5|
+|Steppic (STE)|85.4|2.1|85.4|2.1|
+|Tropical (TRO)|74.3|3.1|73.3|3.2|
+
+
+Green = 90% or higher, Yellow = 85-89.9% 
+
+Table 11: Class accuracies per BGR - Plausibility approach
+
+|BGR|Class|Name|UA [%]|MoE [%]|PA [%]|MoE [%]|F1 Score [%]|
+|--|--|--|--|--|--|--|--|
+|ALP|1|Sealed|71.3|12.6|57.3|17.0|63.6|
+|ALP|2|Woody – needle leaved trees|91.6|2.6|93.2|1.9|92.4|
+|ALP|3|Woody – Broadleaved deciduous trees|85.3|3.3|93.8|2.6|89.4|
+|ALP|4|Woody – Broadleaved evergreen trees||||||
+|ALP|5|Low-growing woody plants (bushes, shrubs)|56.8|9.4|34.4|6.5|42.8|
+|ALP|6|Permanent herbaceous|81.8|3.5|86.7|2.5|84.2|
+|ALP|7|Periodically herbaceous|91.7|3.8|81.5|9.9|86.3|
+|ALP|8|Lichens and mosses|89.2|6.8|23.8|6.2|37.6|
+|ALP|9|Non- and sparsely-vegetated|80.3|5.5|86.9|5.3|83.5|
+|ALP|10|Water|95.1|5.2|95.3|7.4|95.2|
+|ALP|11|Snow and ice|94.1|3.8|92.6|8.4|93.4|
+|ANA|1|Sealed|78.9|6.5|58.4|26.4|67.1|
+|ANA|2|Woody – needle leaved trees|86.3|5.3|88.7|6.0|87.5|
+|ANA|3|Woody – Broadleaved deciduous trees|70.5|6.7|64.5|15.5|67.4|
+|ANA|4|Woody – Broadleaved evergreen trees|20.0|22.8|61.6|49.7|30.2|
+|ANA|5|Low-growing woody plants (bushes, shrubs)|64.5|8.9|53.2|14.2|58.3|
+|ANA|6|Permanent herbaceous|82.3|3.8|93.6|1.5|87.6|
+|ANA|7|Periodically herbaceous|96.3|2.7|81.2|4.7|88.1|
+|ANA|8|Lichens and mosses||||||
+|ANA|9|Non- and sparsely-vegetated|77.0|6.3|67.1|8.6|71.7|
+|ANA|10|Water|96.3|6.1|71.0|17.1|81.7|
+|ANA|11|Snow and ice||||||
+|ARC|1|Sealed|73.9|0.0|27.1|38.1|39.7|
+|ARC|2|Woody – needle leaved trees|74.1|0.0|73.2|9.1|73.7|
+|ARC|3|Woody – Broadleaved deciduous trees|73.7|8.6|96.7|3.4|83.6|
+|ARC|4|Woody – Broadleaved evergreen trees||||||
+|ARC|5|Low-growing woody plants (bushes, shrubs)|90.9|4.3|32.7|17.4|48.1|
+|ARC|6|Permanent herbaceous|84.6|6.8|97.8|2.4|90.8|
+|ARC|7|Periodically herbaceous|88.9|0.0|100.0|0.0|94.1|
+|ARC|8|Lichens and mosses|78.4|13.2|79.1|12.7|78.7|
+|ARC|9|Non- and sparsely-vegetated|99.3|0.8|93.2|4.0|96.1|
+|ARC|10|Water|59.5|11.1|100.0|0.0|74.6|
+|ARC|11|Snow and ice|99.0|1.9|97.1|3.2|98.0|
+|ATL|1|Sealed|75.8|5.3|87.4|5.5|81.2|
+|ATL|2|Woody – needle leaved trees|83.2|4.4|89.1|4.2|86.1|
+|ATL|3|Woody – Broadleaved deciduous trees|89.5|2.7|85.8|2.7|87.6|
+|ATL|4|Woody – Broadleaved evergreen trees|92.4|3.6|81.5|7.0|86.6|
+|ATL|5|Low-growing woody plants (bushes, shrubs)|90.4|3.3|68.0|4.5|77.6|
+|ATL|6|Permanent herbaceous|83.7|2.1|93.4|1.3|88.3|
+|ATL|7|Periodically herbaceous|96.1|1.6|87.7|2.6|91.7|
+|ATL|8|Lichens and mosses||||||
+|ATL|9|Non- and sparsely-vegetated|74.2|7.0|60.1|10.6|66.5|
+|ATL|10|Water|98.4|1.6|89.9|6.5|92.9|
+|ATL|11|Snow and ice||||||
+|BLS|1|Sealed|74.9|9.1|61.0|16.0|67.2|
+|BLS|2|Woody – needle leaved trees|79.2|6.8|89.7|4.8|84.1|
+|BLS|3|Woody – Broadleaved deciduous trees|87.8|3.3|92.5|2.3|90.1|
+|BLS|4|Woody – Broadleaved evergreen trees||||||
+|BLS|5|Low-growing woody plants (bushes, shrubs)|61.3|7.5|56.5|12.6|58.8|
+|BLS|6|Permanent herbaceous|75.1|5.2|78.3|4.5|76.7|
+|7|Periodically herbaceous|96.0|2.3|87.4|3.2|91.5|
+|8|Lichens and mosses||||||
+|9|Non- and sparsely-vegetated|85.7|6.1|32.4|9.3|47.1|
+|10|Water|97.2|3.9|99.6|0.6|98.3|
+|11|Snow and ice||||||
+|BOR|1|Sealed|64.9|6.8|76.0|17.7|70.0|
+|BOR|2|Woody – needle leaved trees|89.3|3.0|88.5|1.9|88.9|
+|BOR|3|Woody – Broadleaved deciduous trees|66.1|5.8|81.2|5.4|72.9|
+|BOR|4|Woody – Broadleaved evergreen trees||||||
+|BOR|5|Low-growing woody plants (bushes, shrubs)|33.7|6.4|30.4|12.5|32.0|
+|BOR|6|Permanent herbaceous|77.4|4.3|80.7|4.1|79.0|
+|BOR|7|Periodically herbaceous|91.9|3.4|74.6|5.5|82.3|
+|BOR|8|Lichens and mosses|86.0|6.5|39.1|25.8|53.8|
+|BOR|9|Non- and sparsely-vegetated|59.3|4.7|24.7|10.2|34.9|
+|BOR|10|Water|99.5|0.6|98.6|1.8|99.1|
+|BOR|11|Snow and ice||||||
+|CON|1|Sealed|75.9|4.5|85.4|6.0|80.3|
+|CON|2|Woody – needle leaved trees|86.2|2.9|85.5|2.9|85.8|
+|CON|3|Woody – Broadleaved deciduous trees|89.5|1.9|89.7|1.6|89.6|
+|CON|4|Woody – Broadleaved evergreen trees||||||
+|CON|5|Low-growing woody plants (bushes, shrubs)|52.2|7.4|31.0|7.0|38.9|
+|CON|6|Permanent herbaceous|78.3|2.5|89.9|1.6|83.7|
+|CON|7|Periodically herbaceous|97.0|0.9|87.6|1.7|92.0|
+|CON|8|Lichens and mosses||||||
+|CON|9|Non- and sparsely-vegetated|54.7|12.0|24.8|8.5|34.1|
+|CON|10|Water|95.2|1.2|92.3|5.4|93.1|
+|CON|11|Snow and ice||||||
+|MAC|1|Sealed|79.3|5.5|76.1|7.1|77.7|
+|MAC|2|Woody – needle leaved trees|86.3|3.7|84.8|4.1|85.5|
+|MAC|3|Woody – Broadleaved deciduous trees|77.4|4.1|85.9|3.3|81.4|
+|MAC|4|Woody – Broadleaved evergreen trees|81.2|3.1|89.1|2.5|85.0|
+|MAC|5|Low-growing woody plants (bushes, shrubs)|80.8|2.4|86.0|2.2|83.3|
+|MAC|6|Permanent herbaceous|79.1|2.6|75.6|2.3|77.3|
+|MAC|7|Periodically herbaceous|86.7|2.6|81.0|3.1|83.8|
+|MAC|8|Lichens and mosses||||||
+|MAC|9|Non- and sparsely-vegetated|73.4|5.9|52.8|5.6|61.4|
+|MAC|10|Water|73.6|3.4|93.7|5.1|82.5|
+|MAC|11|Snow and ice||||||
+|MED|1|Sealed|87.2|8.8|64.8|17.3|74.3|
+|MED|2|Woody – needle leaved trees|88.4|13.8|91.7|8.6|90.0|
+|MED|3|Woody – Broadleaved deciduous trees|68.8|19.6|91.7|12.7|78.6|
+|MED|4|Woody – Broadleaved evergreen trees|76.0|8.7|99.3|1.1|86.1|
+|MED|5|Low-growing woody plants (bushes, shrubs)|98.5|2.4|68.3|12.0|80.6|
+|MED|6|Permanent herbaceous|82.6|7.4|86.1|6.1|84.3|
+|MED|7|Periodically herbaceous|70.9|24.2|41.2|16.6|52.1|
+|MED|8|Lichens and mosses||||||
+|MED|9|Non- and sparsely-vegetated|76.0|14.4|83.8|16.0|79.7|
+|MED|10|Water|100|0.0|100|0.0|100|
+|MED|11|Snow and ice||||||
+|PAN|1|Sealed|73.7|7.2|88.4|9.4|80.4|
+|PAN|2|Woody – needle leaved trees|85.3|5.9|82.3|10.0|83.8|
+|3|Woody – Broadleaved deciduous trees|91.1|3.8|88.5|3.1|89.8|
+|4|Woody – Broadleaved evergreen trees||||||
+|5|Low-growing woody plants (bushes, shrubs)|49.5|7.7|67.2|14.1|57.0|
+|6|Permanent herbaceous|74.8|5.5|85.9|3.6|79.9|
+|7|Periodically herbaceous|98.5|1.1|93.5|1.6|96.0|
+|8|Lichens and mosses||||||
+|9|Non- and sparsely-vegetated|42.1|15.3|22.2|16.0|29.1|
+|10|Water|96.3|3.1|97.0|2.9|96.6|
+|11|Snow and ice||||||
+|STE|1|Sealed|70.9|4.3|78.1|22.0|74.4|
+|STE|2|Woody – needle leaved trees|94.3|3.5|85.5|14.1|89.7|
+|STE|3|Woody – Broadleaved deciduous trees|89.6|5.3|89.5|3.7|89.5|
+|STE|4|Woody – Broadleaved evergreen trees||||||
+|STE|5|Low-growing woody plants (bushes, shrubs)|23.9|7.2|36.6|15.7|28.9|
+|STE|6|Permanent herbaceous|59.6|8.4|80.7|5.5|68.6|
+|STE|7|Periodically herbaceous|99.0|1.3|88.6|2.6|93.5|
+|STE|8|Lichens and mosses||||||
+|STE|9|Non- and sparsely-vegetated|45.7|0.0|28.9|19.4|35.4|
+|STE|10|Water|98.7|2.0|83.1|13.7|90.2|
+|STE|11|Snow and ice||||||
+|TRO|1|Sealed|63.8|12.4|75.0|12.0|68.9|
+|TRO|2|Woody – needle leaved trees||||||
+|TRO|3|Woody – Broadleaved deciduous trees||||||
+|TRO|4|Woody – Broadleaved evergreen trees|89.9|4.1|74.8|3.5|81.7|
+|TRO|5|Low-growing woody plants (bushes, shrubs)|11.7|8.8|53.6|31.8|19.2|
+|TRO|6|Permanent herbaceous|59.3|7.9|70.6|7.6|64.5|
+|TRO|7|Periodically herbaceous|62.5|18.6|50.0|18.0|55.6|
+|TRO|8|Lichens and mosses||||||
+|TRO|9|Non- and sparsely-vegetated|31.4|30.2|28.9|24.3|30.1|
+|TRO|10|Water|87.9|6.3|96.5|4.7|92.0|
+|TRO|11|Snow and ice||||||
+
+
+Green = 85% or higher, Yellow = 80-84.9%, Red = MoE >5%
+
+Table 12: Unweighted confusion matrix (sample counts) per BGR - plausibility approach
+
+||||Validation data|Validation data|Validation data|Validation data|Validation data|Validation data|Validation data|Validation data|Validation data|Validation data|Validation data|||
+|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
+||||1|2|3|4|5|6|7|8|9|10|11|Total|User’s Accuracy Unweighted|
+|ALP|1|Sealed|84|1|3||2|18||||||108|77.8%|
+|ALP|2|Woody – needle leaved trees|2|391|7||12|23|||2|||437|89.5%|
+|ALP|3|Woody – Broadleaved deciduous trees|1|37|339||14|20|1|||||412|82.3%|
+|ALP|4|Woody – Broadleaved evergreen trees||||||||||||||
+|ALP|5|Low-growing woody plants (bushes, shrubs)|1|9|7||119|55||1|4|||196|60.7%|
+|ALP|6|Permanent herbaceous|5|7|10||26|423|14|24|12|1||522|81.0%|
+|ALP|7|Periodically herbaceous|2||1||1|12|167||2|||185|90.3%|
+|ALP|8|Lichens and mosses||2||||4||66|2|||74|89.2%|
+|ALP|9|Non- and sparsely-vegetated|1|4|||7|22||13|226|1|4|278|81.3%|
+|ALP|10|Water|||2|||1|||1|85||89|95.5%|
+|ALP|11|Snow and ice|||||||||6||72|78|92.3%|
+|ALP||Total|96|451|369||181|578|182|104|255|87|76|2,379||
+|ALP||Producer’s Accuracy Unweighted|87.5%|86.7%|91.9%||65.7%|73.2%|91.8%|63.5%|88.6%|97.7%|94.7%||82.9%|
+|||||||||||||||||
+|ANA|1|Sealed|104||4||1|13|1||9|||132|78.8%|
+|ANA|2|Woody – needle leaved trees||137|1||3|15|||2|||158|86.7%|
+|ANA|3|Woody – Broadleaved deciduous trees|1|5|114||9|23|5||3|1||161|70.8%|
+|ANA|4|Woody – Broadleaved evergreen trees|||1|2||6|1|||||10|20.0%|
+|ANA|5|Low-growing woody plants (bushes, shrubs)||6|7|1|106|31|||9|||160|66.3%|
+|ANA|6|Permanent herbaceous|2||7||9|326|36||21|1||402|81.1%|
+|ANA|7|Periodically herbaceous|1|||||8|224|||||233|96.1%|
+|ANA|8|Lichens and mosses||||||||||||||
+|ANA|9|Non- and sparsely-vegetated||1|||2|24|8||145|8||188|77.1%|
+|ANA|10|Water||||||1|||1|53||55|96.4%|
+|ANA|11|Snow and ice||||||||||||||
+|ANA||Total|108|149|134|3|130|447|275||190|63||1,499||
+|ANA||Producer’s Accuracy Unweighted|96.3%|91.9%|85.1%|66.7%|81.5%|72.9%|81.5%||76.3%|84.1%|||80.8%|
+|ARC|1|Sealed|34|1||||8|||3|||46|73.9%|
+|ARC|2|Woody – needle leaved trees||20|1||5|1||||||27|74.1%|
+|ARC|3|Woody – Broadleaved deciduous trees|||42||13|1|||1|||57|73.7%|
+|ARC|4|Woody – Broadleaved evergreen trees||||||||||||||
+|ARC|5|Low-growing woody plants (bushes, shrubs)|||||87|9||||||96|90.6%|
+|ARC|6|Permanent herbaceous|2|5|1||17|113||13|4|||155|72.9%|
+|ARC|7|Periodically herbaceous||||||1|8|||||9|88.9%|
+|ARC|8|Lichens and mosses|||||1|3||74|9|||87|85.1%|
+|ARC|9|Non- and sparsely-vegetated|||||||||104||3|107|97.2%|
+|ARC|10|Water|||||||||2|95||97|97.9%|
+|ARC|11|Snow and ice|||||||||1||99|100|99.0%|
+|ARC||Total|36|26|44||123|136|8|87|124|95|102|781||
+|ARC||Producer’s Accuracy Unweighted|94.4%|76.9%|95.5%||70.7%|83.1%|100%|85.1%|83.9%|100%|97.1%||81.3%|
+|||||||||||||||||
+|ATL|1|Sealed|212||8||6|38|3||7|1||275|77.1%|
+|ATL|2|Woody – needle leaved trees|2|254|19|7|10|7|||5|||304|83.6%|
+|ATL|3|Woody – Broadleaved deciduous trees|3|9|460||14|26|1||2|||515|89.3%|
+|ATL|4|Woody – Broadleaved evergreen trees||3|1|173|8|3||||||188|92.0%|
+|ATL|5|Low-growing woody plants (bushes, shrubs)|1|5|9|5|336|21|1||4|||382|88.0%|
+|ATL|6|Permanent herbaceous|10|7|46|11|51|925|71||8|7||1,136|81.4%|
+|ATL|7|Periodically herbaceous|||4||1|19|571||1|||596|95.8%|
+|ATL|8|Lichens and mosses||||||||||||||
+|ATL|9|Non- and sparsely-vegetated|8|1|||30|6|4|1|164|5||219|74.9%|
+|ATL|10|Water||||||2|||1|240||243|98.8%|
+|ATL|11|Snow and ice||||||||||||||
+|ATL||Total|236|279|547|196|456|1,047|651|1|192|253||3,858||
+|ATL||Producer’s Accuracy Unweighted|89.8%|91.0%|84.1%|88.3%|73.7%|88.3%|87.7%|0.0%|85.4%|94.9%|||86.4%|
+|BLS|1|Sealed|68||4|||10|||13|||95|71.6%|
+|BLS|2|Woody – needle leaved trees|1|112|17|||11|||1|||142|78.9%|
+|BLS|3|Woody – Broadleaved deciduous trees|2|12|319||6|20|2||1|||362|88.1%|
+|BLS|4|Woody – Broadleaved evergreen trees||1|8||1|1||||||11|0.0%|
+|BLS|5|Low-growing woody plants (bushes, shrubs)||3|22||83|25|3||2|||138|60.1%|
+|BLS|6|Permanent herbaceous|4||5||8|194|40||16|||267|72.7%|
+|BLS|7|Periodically herbaceous|2||||1|7|265||1|||276|96.0%|
+|BLS|8|Lichens and mosses||||||||||||||
+|BLS|9|Non- and sparsely-vegetated|1|||||14|||94|1||110|85.5%|
+|BLS|10|Water||||||1|||2|69||72|95.8%|
+|BLS|11|Snow and ice||||||||||||||
+|BLS||Total|78|128|375||99|283|310||130|70||1,473||
+|BLS||Producer’s Accuracy Unweighted|87.2%|87.5%|85.1%||83.8%|68.6%|85.5%||72.3%|98.6%|||81.7%|
+|||||||||||||||||
+|BOR|1|Sealed|135|6|7||5|48|2||28|1||232|58.2%|
+|BOR|2|Woody – needle leaved trees||378|16||2|21|1|1|9|||428|88.3%|
+|BOR|3|Woody – Broadleaved deciduous trees|1|67|201||6|17|1|||1||294|68.4%|
+|BOR|4|Woody – Broadleaved evergreen trees||||||||||||||
+|BOR|5|Low-growing woody plants (bushes, shrubs)|1|39|15||98|43||5|4|||205|47.8%|
+|BOR|6|Permanent herbaceous|3|15|15||8|280|44|4|4|1||374|74.9%|
+|BOR|7|Periodically herbaceous||||||32|232||1|||265|87.5%|
+|BOR|8|Lichens and mosses||2|||3|5||80|3|||93|86.0%|
+|BOR|9|Non- and sparsely-vegetated|3|8|4||4|31|30|3|120|5||208|57.7%|
+|BOR|10|Water||||||2|||2|143||147|97.3%|
+|BOR|11|Snow and ice||||||||||||||
+|BOR||Total|143|515|258||126|479|310|93|171|151||2,246||
+|BOR||Producer’s Accuracy Unweighted|94.4%|73.4%|77.9%||77.8%|58.5%|74.8%|86.0%|70.2%|94.7%|||74.2%|
+|CON|1|Sealed|285|1|8||5|56|6||15|3||379|75.2%|
+|CON|2|Woody – needle leaved trees||519|55||3|18|||7|||602|86.2%|
+|CON|3|Woody – Broadleaved deciduous trees|4|56|869||10|29|3|||||971|89.5%|
+|CON|4|Woody – Broadleaved evergreen trees||||||||||||||
+|CON|5|Low-growing woody plants (bushes, shrubs)|2|12|43||97|47|7||1|4||213|45.5%|
+|CON|6|Permanent herbaceous|9|9|43||27|801|154||6|3||1,052|76.1%|
+|CON|7|Periodically herbaceous|||7||2|32|1,312||2|||1,355|96.8%|
+|CON|8|Lichens and mosses||||||||||||||
+|CON|9|Non- and sparsely-vegetated|15||6||2|20|6||50|2||101|49.5%|
+|CON|10|Water|1||2||1|3|||1|298||306|97.4%|
+|CON|11|Snow and ice||||||||||||||
+|CON||Total|316|597|1,033||147|1,006|1,488||82|310||4,979||
+|CON||Producer’s Accuracy Unweighted|90.2%|86.9%|84.1%||66.0%|79.6%|88.2%||61.0%|96.1%|||85.0%|
+|||||||||||||||||
+|MAC|1|Sealed|34||||1|2|1||1|||39|87.2%|
+|MAC|2|Woody – needle leaved trees||47||1|1|1||||||50|94.0%|
+|MAC|3|Woody – Broadleaved deciduous trees|||11||1|4||||||16|68.8%|
+|MAC|4|Woody – Broadleaved evergreen trees|1|3||71|6|10|1||1|||93|76.3%|
+|MAC|5|Low-growing woody plants (bushes, shrubs)|||||65|1||||||66|98.5%|
+|MAC|6|Permanent herbaceous|4||||4|79|15|||||102|77.5%|
+|MAC|7|Periodically herbaceous|||1|||2|22||1|||26|84.6%|
+|MAC|8|Lichens and mosses||||||||||||||
+|MAC|9|Non- and sparsely-vegetated|4||||2|1|||19|||26|73.1%|
+|MAC|10|Water||||||||||77||77|100%|
+|MAC|11|Snow and ice||||||||||||||
+|MAC||Total|43|50|12|72|80|100|39||22|77||495||
+|MAC||Producer’s Accuracy Unweighted|79.1%|94.0%|91.7%|98.6%|81.3%|79.0%|56.4%||86.4%|100%|||85.9%|
+|MED|1|Sealed|177|2|3|2||24|1||15|1||225|78.7%|
+|MED|2|Woody – needle leaved trees||313|6|3|24|12|||3|||361|86.7%|
+|MED|3|Woody – Broadleaved deciduous trees|1|15|346|6|22|45|2||7|||444|77.9%|
+|MED|4|Woody – Broadleaved evergreen trees|5|2|3|495|21|55|12||14|||607|81.5%|
+|MED|5|Low-growing woody plants (bushes, shrubs)|2|15|19|13|628|80|11||29|||797|78.8%|
+|MED|6|Permanent herbaceous|12|6|21|33|29|694|83||25|3||906|76.6%|
+|MED|7|Periodically herbaceous|3||5|7|12|35|581||35|2||680|85.4%|
+|MED|8|Lichens and mosses||||||||||||||
+|MED|9|Non- and sparsely-vegetated|8|||2|22|24|9||173|2||240|72.1%|
+|MED|10|Water||1|1||1||1|||224||228|98.2%|
+|MED|11|Snow and ice||||||||||||||
+|MED||Total|208|354|404|561|759|969|700||301|232||4,488||
+|MED||Producer’s Accuracy Unweighted|85.1%|88.4%|85.6%|88.2%|82.7%|71.6%|83.0%||57.5%|96.6%|||80.9%|
+|||||||||||||||||
+|PAN|1|Sealed|125|1|7||1|28|1||2|||165|75.8%|
+|PAN|2|Woody – needle leaved trees||144|14|||4|||2|||164|87.8%|
+|PAN|3|Woody – Broadleaved deciduous trees||6|211||4|8|1||1|||231|91.3%|
+|PAN|4|Woody – Broadleaved evergreen trees||||||||||||||
+|PAN|5|Low-growing woody plants (bushes, shrubs)|1|3|32||73|28|13||1|1||152|48.0%|
+|PAN|6|Permanent herbaceous|3|1|12||4|188|38||2|||248|75.8%|
+|PAN|7|Periodically herbaceous|||1|||5|387||1|||394|98.2%|
+|PAN|8|Lichens and mosses||||||||||||||
+|PAN|9|Non- and sparsely-vegetated|3||||3|3|6||13|2||30|43.3%|
+|PAN|10|Water||||||4||||100||104|96.2%|
+|PAN|11|Snow and ice||||||||||||||
+|PAN||Total|132|155|277||85|268|446||22|103||1,488||
+|PAN||Producer’s Accuracy Unweighted|94.7%|92.9%|76.2%||85.9%|70.0%|86.8%||59.1%|97.1%|||83.4%|
+|STE|1|Sealed|61||2|||11|5||7|||86|70.9%|
+|STE|2|Woody – needle leaved trees||82|5|||||||||87|94.3%|
+|STE|3|Woody – Broadleaved deciduous trees||3|105||4|6||||||118|89.0%|
+|STE|4|Woody – Broadleaved evergreen trees||||||||||||||
+|STE|5|Low-growing woody plants (bushes, shrubs)|2||24||22|35|9|||||92|23.9%|
+|STE|6|Permanent herbaceous|1|1|4||5|74|34||3|3||125|59.2%|
+|STE|7|Periodically herbaceous||||||2|176|||1||179|98.3%|
+|STE|8|Lichens and mosses||||||||||||||
+|STE|9|Non- and sparsely-vegetated|1||||3|11|2||16|2||35|45.7%|
+|STE|10|Water|||1|||||||77||78|98.7%|
+|STE|11|Snow and ice||||||||||||||
+|STE||Total|65|86|141||34|139|226||26|83||800||
+|STE||Producer’s Accuracy Unweighted|93.8%|95.3%|74.5%||64.7%|53.2%|77.9%||61.5%|92.8%|||76.6%|
+|||||||||||||||||
+|TRO|1|Sealed|38|||7||6|||7|||58|65.5%|
+|TRO|2|Woody – needle leaved trees||||||||||||||
+|TRO|3|Woody – Broadleaved deciduous trees||||||||||||||
+|TRO|4|Woody – Broadleaved evergreen trees|1|||184|4|15||||1||205|89.8%|
+|TRO|5|Low-growing woody plants (bushes, shrubs)|2|||33|6|11||||||52|11.5%|
+|TRO|6|Permanent herbaceous|4|||40||81|15|||||140|57.9%|
+|TRO|7|Periodically herbaceous|1|||7||2|15|||||25|60.0%|
+|TRO|8|Lichens and mosses||||||||||||||
+|TRO|9|Non- and sparsely-vegetated|2|||2|||||3|1||8|37.5%|
+|TRO|10|Water||||||||||99||99|100%|
+|TRO|11|Snow and ice||||||||||||||
+|TRO||Total|48|||273|10|115|30||10|101||587||
+|TRO||Producer’s Accuracy Unweighted|79.2%|||67.4%|60.0%|70.4%|50.0%||30.0%|98.0%|||72.6%|
+
+
+## 4.2 Usability
+
+The evaluation of the CLCplus BB 2021 dataset’s alignment with FAIR principles was assessed  using various automated tools. The dataset was tested using FAIR Enough, FAIR-checker, and FUJI, with scores expressed as percentages of a maximum of 100%. The results were as follows:  FAIR Enough data at 59.09%, FAIR Enough metadata at 81.25%, FAIR-checker at 70.83%, and FUJI at 77%. The evaluation highlighted strengths and identified improvement areas to enhance  FAIR compliance. For Findability, the adoption of globally recognized Persistent Identifiers and  the use of interoperable ontologies for metadata are recommended. To improve Reusability,  adding comprehensive data descriptors, recognized licenses, and formal provenance  information is advised. For Accessibility, standardizing and enhancing data access information  and URLs in metadata will support compliance.
+
+The Annex 4 to the Tender Specifications (EEA, 2023) does not specifically define user  requirements but includes information for the use case “Facilitation of independent  assessments and the modelling of carbon pool dynamics according to LULUCF regulation”. This  generic product requirements check evaluates the product’s alignment with this use case. Key  requirements assessed include spatial and thematic accuracy, timely updates, and alignment  with LULUCF categories. The assessment involves comparing the product attributes against the  specified requirements using references such as product manuals and validation reports. It  reveals that the CLCplus BB 2021 meets most of the needs assessed like spatial resolution and  data accessibility but noted that temporal coverage is partially aligned. The source data used  shows limitations that prevent a full assessment of product attributes against the specified  requirements.
+
+The CLMS Portal underwent thorough testing to assess its functionality, accessibility,  performance, and usability. Accessibility was evaluated using tools like WAVE and Lighthouse,  which highlighted strong compliance with web standards and identified areas for improvement  in performance and navigation. User journey mapping and cross-browser compatibility checks  ensured a reliable user experience across various devices and browsers. The tests revealed the  portal's strong accessibility with notable compliance, although performance optimizations  were suggested. Secure and open access options for data downloads were confirmed through  user authentication tests. The content is broadly accessible in multiple formats, ensuring  usability across different platforms. Overall, the portal meets critical web and data access  standards, ensuring a functional and user-friendly environment.
+
+The documentation review for the CLCplus BB ATBD 2021 was not conducted as the document  was unavailable on the CLMS Portal. Conversely, the CLCplus BB PUM 2021 is accessible,  published on 12.06.2024. The review of the PUM did not consider the proposed PUM template,  which came after its publication and outlines a structure for future documentation.
+
+The PUM underwent a detailed evaluation based on a 23-item checklist assessing criteria like accuracy, consistency, completeness, and up-to-dateness. Overall, the PUM scored well, reflecting a well-structured approach. However, it highlighted areas for improvement, especially in referencing external standards, use case articulation, and formatting consistency. Specific issues included the need for clearer formatting adjustments, more detailed standard references, and consecutive numbering for pages and annexes. Additionally, the document's sections on product quality and use cases were noted as needing enhancement to better meet user needs and improve clarity and usability.
+
+# 5 Conclusions and Recommendations
+
+## 5.1 Thematic Accuracy
+
+The new CLMS validation framework methods and tools are used for the first time to validate  the CLCplus BB raster product for 2021. The validation areas defined within the framework are  applied to generate validation data for CLCplus BB in a synergistic blind and plausibility  approach. Thematic accuracies are calculated in the new CLMS Validation System Environment  (VSE) software. Thematic accuracy is assessed using a statistically sound methodology,  leveraging available reference and supportive data across different reporting units. It was  essential that usage of LUCAS data in the CLMS productions was recorded (including LUCAS  sample locations used) and provided to the validation process to enable independent validation  uptake of this data. Due to the heavy usage of LUCAS 2018 in the CLCplus production process,  any point in the sampling frame that was part of the LUCAS 2018 survey has been replaced.  Future validations efforts could be minimised if LUCAS reference data is not used in the CLCplus  Backbone production.
+
+The VHR image data 2021 is used in the visual validation process. It provides VHR multispectral  products (with an spatial pixel resolution from 2 to 4 meters) for the CLMS reference years 2021.  Especially for regions without aerial orthophoto imagery this data set is the prime image  reference. However, due to the applicable spatial resolution it has limitations for the analysis of land cover class relevant features. For some regions higher resolution data (<2m) could support  the validation process, especially for regions with poor or no access to digital aerial photography  as alternative very high image data source. A stronger inclusion of time-series information  could also aid the interpretation process for upcoming products, especially for temporally  defined land cover classes.
+
+The thematic validation results show good results approaching but not reaching the required  target overall accuracy of >90% at EEA38 level. Classes such as low-growing woody plants (5),  lichens and mosses (8) and non- and sparsely-vegetated (9) show significant improvement in  plausibility checks as compared to the blind validation. The class-specific accuracies show the  expected confusion between low-growing woody plants (5), permanent herbaceous (6) as well  as periodically herbaceous areas (7). These land cover classes are difficult to map due to similar  spectral behaviour and their temporal/seasonal dynamics make the visual interpretation of  reference data challenging. Such classes can be better assessed if a priori map class information  is taken into account during the visual interpretation. The class-specific accuracies also show the  expected confusion between the low-growing woody plants (5), permanent herbaceous (6) as  well as periodically herbaceous (7), which are difficult to distinguish, especially in natural  environments. This may also contribute to the regional differences at the BGR level. Weaker  classification results are seen within the regional assessments of the Mediterranean (MED)  and Tropical (TRO) BGRs, which show challenges distinguishing certain classes, especially lowgrowing woody plants (5), permanent herbaceous (6), and periodically herbaceous (7) (Figure  11 and Figure 12). 
+
+Consistency checks between the CLCplus BB 2018 and 2021 are not explicitly performed for this  report. However, both products show very similar validation results and patterns (see D7-1 Validation Report CLCplus Backbone 2018). Further work may be helpful to check the time series  consistency and focus on areas of change between 2018- 2021.
+
+![img](2021_Validation_Report_v1-media/img-ca42ce3a485707f02b80dbd565352f9f60b07901.png)
+
+Figure 11: Example of difficulties to differentiate low-growing woody vegetation from  broadleaved forests in Spain.
+
+![img](2021_Validation_Report_v1-media/img-fca61a0695979ad01d8992f173f1c6031eadd918.png)
+
+Figure 12: Example of structurally identical looking ground cover but different CLCplus BB 2021 classes (low-growing woody vegetation vs. broadleaved forest) in Guadeloupe.
+
+## 5.2 Usability
+
+To support user uptake and ensure the CLCplus BB 2021 product meets key expectations for  usability, a structured assessment was carried out. This evaluation focuses on critical aspects  such as FAIR compliance, fitness for a specific use case, platform accessibility, and the  completeness of product documentation.
+
+The method used has limitations and does not allow a full assessment of CLCplus BB 2021 against  the specified requirements. Despite this, the evaluation indicates that the product meets key  needs such as spatial resolution and data accessibility, while temporal coverage is partially  aligned with the LULUCF use case requirements.
+
+The CLMS Portal currently exhibits a good level of accessibility and usability, fulfilling essential  user requirements for data access and availability in multiple formats. However, further  streamlining of navigation and the introduction of benchmark comparability testing could  optimize performance and user journey efficiency. Future assessments could benefit from  analysing key metrics like click counts, page load speeds, and response times in coordination  with the EEA.
+
+The PUM review highlights the document’s detailed and comprehensive nature yet points out  the need for improvement in areas such as clarity, consistency, and user guidance. Key  recommendations include adopting a structured chapter layout as specified in the CLMS PUM  Template, simplifying overly technical sections, standardizing terminology and formatting, and  enhancing document navigation. Moreover, incorporating non-technical summaries, FAQ  sections, and glossaries could make the document more accessible to a broader audience,  including non-experts. These changes will ensure that the PUM aligns better with industry  standards and user expectations, improving its overall usability and functionality.
+
+# 6 References
+
+CLMS QC Tool. (2025). [Computer software]. European Environment Agency.  https://github.com/eea/copernicus_quality_tools
+
+Ballin, M., Barcaroli, G., Masselli, M., & Scarnó, M. (2018). Redesign sample for Land Use/Cover  Area frame Survey (LUCAS) 2018 (2018 ed.). Eurostat, European Commission.  https://doi.org/10.2785/132365
+
+Congalton, R. G., & Green, K. (2008). Assessing the accuracy of remotely sensed data: Principles  and practices (2nd ed.). CRC Press. https://doi.org/10.1201/9781420055139
+
+Copernicus Land Monitoring Service. (2022). CLC+ Backbone Product Specification and User  Manual (Product Specification and User Manual No. Issue 3.0; p. 131). European Environment  Agency (EEA). https://land.copernicus.eu/en/technical-library/clc-backbone-product-usermanual/@@download/file
+
+Copernicus Land Monitoring Service. (2024). CLC+ BACKBONE PRODUCT SPECIFICATION AND  USER MANUAL for CLC+ Backbone Raster Product 2021 (Product Specification and User Manual  No. Issue 2.1; p. 63). European Environment Agency (EEA).  https://land.copernicus.eu/en/technical-library/product-user-manual-clc-backbone-2021/@@download/file
+
+EEA. (2016). Biogeographical regions (Version 1) [Vector]. https://www.eea.europa.eu/en/datahub/datahubitem-view/11db8d14-f167-4cd5-9205-95638dfd9618
+
+EEA. (2023a). CLCplus Backbone 2018 (raster 10 m), Europe, 3-yearly, Feb. 2023 [Raster; Vector]. https://doi.org/10.2909/cd534ebf-f553-42f0-9ac1-62c1dc36d32c
+
+EEA. (2023b). Copernicus EEA38 Boundary Layer with 250 m buffer (raster 10m), version 2, Nov. 2023 (Version 2) [Raster; Vector]. 
+
+https://sdi.eea.europa.eu/catalogue/srv/eng/catalog.search#/metadata/a14e9739-089d-4f63-8f83-a184e1e8b906
+
+EEA. (2024). EEA reference grid for Europe (50km), Jun. 2024 [Vector; Vector].https://doi.org/10.2909/aac8379a-5c4e-445c-b2ef-23a6a2701ef0
+
+FAIR-Checker (Version 1.3). (2024). [Computer software]. https://github.com/IFB-ElixirFr/FAIRChecker
+
+FAIR Enough (Version 0.0.1). (2022) [Computer software]. https://github.com/MaastrichtUIDS/fair-enough
+
+F-UJI (Version 3.4.0). (2024). [Computer software]. https://github.com/pangaea-datapublisher/fuji
+
+Olofsson, P., Foody, G. M., Herold, M., Stehman, S. V., Woodcock, C. E., & Wulder, M. A. (2014). Good practices for estimating area and assessing accuracy of land change. Remote Sensing of  Environment, 148, 42–57. https://doi.org/10.1016/j.rse.2014.02.015
+
+Stehman, S. V., & Foody, G. M. (2019). Key issues in rigorous accuracy assessment of land cover  products. Remote Sensing of Environment, 231, 111199. 
+
+https://doi.org/10.1016/j.rse.2019.05.018
+
+# List of abbreviations
+
+|Abbreviation|Name|
+|--|--|
+|ALP|Alpine|
+|ANA|Anatolian|
+|ARC|Arctic|
+|ATBD|Algorithm Theoretical Basis Document|
+|ATL|Atlantic|
+|BB|Backbone|
+|BGR|Biogeographical Regions|
+|BLS|Black Sea|
+|BOR|Boreal|
+|CAPI|Computer-Assisted Photo Interpretation|
+|CLC|CORINE Land Cover|
+|CLCplus BB|CORINE Land Cover Plus Backbone|
+|CLMS|Copernicus Land Monitoring Service|
+|CON|Continental|
+|DOI|Digital Object Identifier|
+|DOM|Départements d'Outre-Mer, French Overseas Territories|
+|EEA|European Environment Agency|
+|EEA38|Member and cooperating countries of the European Environment Agency network, Eionet|
+|EUROSTAT|Statistical Office of the European Union|
+|EU|European Union|
+|FAIR|Findability, Accessibility, Interoperability, and Reusability|
+|GeoTIFF|Georeferenced Tagged Image File Format|
+|GIS|Geographic Information System|
+|HRL|High Resolution Layer|
+|IACS|Integrated Administration and Control Systems|
+|INSPIRE|Infrastructure for Spatial Information in the European Community|
+|ISO|International Organization for Standardization|
+|LAEA|Lambert azimuthal equal-area projection|
+|LC|Land Cover|
+|LPIS|Land Parcel Information System|
+|LU|Land Use|
+|LUCAS|Land Use and Coverage Area frame Survey from Eurostat|
+|LULUCF|Land use, land-use change and forestry|
+|LZW|Lempel-Ziv-Welch|
+|MAC|Macaronesia|
+|MED|Mediterranean|
+|MMU|Minimum Mapping Unit|
+|MoE|Margin of Error|
+|MS|Member State|
+|NUTS|Nomenclature of territorial units for statistics|
+|OA|Overall Accuracy|
+|PAN|Pannonian|
+|PI|Photo Interpretation|
+|PUM|Product User Manual|
+|QC|Quality Control|
+|STE|Steppic|
+|TRO|Tropical|
+|UA|User’s Accuracy|
+|UAT|User Acceptance Testing|
+|UK|United Kingdom|
+|URI|Uniform Resource Identifier|
+|URL|Uniform Resource Locator|
+|UTM|Universal Transverse Mercator|
+|VHR|Very High Resolution|
+|VSE|CLMS Validation System Environment|
+|XML|Extensible Markup Language|
+|WGS84|World Geodetic System 1984|
+|WMS|Web Map Service|
+|WMTS|Web Map Tile Service|
+
+
