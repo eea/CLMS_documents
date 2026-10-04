@@ -1,0 +1,280 @@
+---
+title: "parsEO — CLMS Filename Builder"
+subtitle: "Assemble, parse & validate CLMS filenames"
+author: "European Environment Agency (EEA)"
+date: 2026-07-29
+category: non-browsable
+type: dashboard
+---
+
+```{ojs}
+parseoApp = {
+  // parsEO API base. Absolute because the technical library and the API are
+  // served from different hosts; set to "" if they ever share an origin.
+  const API = "https://parseo.mattiuzzi.com";
+
+  const state = {family: "", version: "", schema: null, values: {}};
+
+  async function getJSON(path, opts) {
+    const r = await fetch(API + path, opts);
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return r.json();
+  }
+
+  function el(tag, style, text) {
+    const n = document.createElement(tag);
+    if (style) n.style.cssText = style;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  const CARD  = "background:var(--bg2,#1a1d27);border:1px solid var(--border,#2e3148);border-radius:8px;padding:16px";
+  const LABEL = "font-size:11px;color:var(--muted,#8b8fa3);text-transform:uppercase;letter-spacing:.3px";
+  const FIELD = "width:100%;padding:6px 10px;background:var(--bg,#0f1117);border:1px solid var(--border,#2e3148);border-radius:6px;color:var(--text,#e4e6f0);font-size:13px;font-family:inherit";
+  const BTN   = "padding:6px 16px;background:var(--theme-primary,#5b8def);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:13px";
+  const MONO  = "font-family:var(--mono,ui-monospace,monospace)";
+  const ERR   = "color:#e74c3c;font-size:13px";
+
+  const fail = (target, e) =>
+    target.replaceChildren(el("div", ERR, "Could not reach the parsEO API (" + e.message + ")."));
+
+  // ── layout ──
+  const root  = el("div", "display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start");
+  const left  = el("div", "flex:1 1 300px;min-width:280px;" + CARD);
+  const right = el("div", "flex:2 1 420px;min-width:320px;display:flex;flex-direction:column;gap:16px");
+  root.append(left, right);
+
+  const familySel  = el("select", FIELD + ";margin-bottom:10px");
+  const versionSel = el("select", FIELD + ";margin-bottom:10px");
+  const fields     = el("div");
+  left.append(
+    el("div", LABEL + ";margin-bottom:3px", "Family"), familySel,
+    el("div", LABEL + ";margin-bottom:3px", "Version"), versionSel,
+    el("hr", "border:0;border-top:1px solid var(--border,#2e3148);margin:12px 0"),
+    fields
+  );
+
+  const previewCard = el("div", CARD);
+  const preview     = el("div", MONO + ";font-size:15px;word-break:break-all;color:var(--text,#e4e6f0);min-height:24px", "—");
+  const examples    = el("div");
+  previewCard.append(el("div", LABEL + ";margin-bottom:6px", "Assembled filename"), preview, examples);
+
+  const parseCard = el("div", CARD + ";flex:1 1 300px");
+  const parseIn   = el("input", FIELD + ";" + MONO + ";font-size:12px;margin-bottom:8px");
+  const parseBtn  = el("button", BTN, "Parse");
+  const parseOut  = el("div", "margin-top:8px");
+  parseIn.placeholder = "VPP_2017_S2_T32TPR-03035-010m_V101_s1_AMPL.tif";
+  parseBtn.type = "button";
+  parseCard.append(el("div", LABEL + ";margin-bottom:8px", "Parse a filename"), parseIn, parseBtn, parseOut);
+
+  const validCard = el("div", CARD + ";flex:1 1 300px");
+  const validIn   = el("textarea", FIELD + ";" + MONO + ";font-size:11px;min-height:120px;resize:vertical;margin-bottom:8px");
+  const validBtn  = el("button", BTN, "Validate");
+  const validOut  = el("div", "margin-top:8px");
+  validIn.placeholder = '{"$schema":"...","schema_id":"copernicus:clms:...", ...}';
+  validBtn.type = "button";
+  validCard.append(el("div", LABEL + ";margin-bottom:8px", "Validate a schema"), validIn, validBtn, validOut);
+
+  const tools = el("div", "display:flex;gap:16px;flex-wrap:wrap");
+  tools.append(parseCard, validCard);
+  right.append(previewCard, tools);
+
+  // ── field editors ──
+  // A field is either a short enum (chips) or free text (input). `oneOf` fields
+  // carry their patterns in the branches rather than at the top level.
+  const hintFor = (def) =>
+    def.description ? def.description
+    : def.pattern   ? "regex: " + def.pattern
+    : def.oneOf     ? def.oneOf.map(o => o.pattern).filter(Boolean).join("  |  ")
+    : "";
+
+  function renderFields() {
+    fields.replaceChildren();
+    if (!state.schema) {
+      fields.append(el("div", "color:var(--muted,#8b8fa3);font-size:13px", "Select a family first."));
+      return;
+    }
+    for (const [name, def] of Object.entries(state.schema.fields || {})) {
+      const cur = state.values[name] || "";
+      const row = el("div", "margin:8px 0");
+      const head = el("div", LABEL + ";margin-bottom:3px");
+      head.append(name.replace(/_/g, " "));
+      if (cur) head.append(el("span", "color:var(--theme-primary,#5b8def);font-weight:600", " · " + cur));
+      row.append(head);
+
+      if (def.enum && def.enum.length <= 30) {
+        const wrap = el("div", "display:flex;flex-wrap:wrap;gap:4px");
+        for (const v of def.enum) {
+          const on = v === cur;
+          const b = el("button",
+            "padding:3px 10px;border-radius:14px;cursor:pointer;font-size:12px;font-family:inherit;" +
+            "border:1px solid var(--border,#2e3148);" +
+            "background:" + (on ? "var(--theme-primary,#5b8def)" : "var(--bg2,#242736)") + ";" +
+            "color:" + (on ? "#fff" : "var(--text,#e4e6f0)"), v);
+          b.type = "button";
+          b.onclick = () => setValue(name, on ? "" : v);   // clicking the active chip clears it
+          wrap.append(b);
+        }
+        row.append(wrap);
+      } else {
+        const i = el("input", FIELD);
+        i.value = cur;
+        i.placeholder = hintFor(def);
+        // Re-rendering on every keystroke would steal focus, so text fields
+        // update the preview only.
+        i.oninput = () => setValue(name, i.value, false);
+        row.append(i);
+      }
+      fields.append(row);
+    }
+  }
+
+  function setValue(name, v, rerender = true) {
+    if (v === "") delete state.values[name];
+    else state.values[name] = v;
+    if (rerender) renderFields();
+    refreshPreview();
+  }
+
+  // ── preview ──
+  // Typing races the network, so a stale response must not overwrite a newer one.
+  let previewSeq = 0;
+  async function refreshPreview() {
+    const mine = ++previewSeq;
+    if (!state.family || !state.version || Object.keys(state.values).length === 0) {
+      preview.textContent = "—";
+      return;
+    }
+    let name = "—";
+    try {
+      const d = await getJSON("/api/assemble", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({family: state.family, version: state.version, fields: state.values})
+      });
+      name = d.filename || "—";
+    } catch (e) {
+      // A half-filled form is the normal state while building and the API
+      // rejects it — that is a prompt to keep going, not an error to shout about.
+    }
+    if (mine === previewSeq) preview.textContent = name;
+  }
+
+  function renderExamples() {
+    examples.replaceChildren();
+    const ex = (state.schema && state.schema.examples) || [];
+    if (!ex.length) return;
+    examples.append(el("div", LABEL + ";margin:12px 0 4px", "Examples"));
+    for (const x of ex.slice(0, 3)) {
+      examples.append(el("div", MONO + ";font-size:12px;color:var(--muted,#8b8fa3);padding:2px 0", x));
+    }
+  }
+
+  // ── loaders ──
+  async function loadSchema() {
+    state.schema = null;
+    state.values = {};
+    renderFields();
+    renderExamples();
+    preview.textContent = "—";
+    if (!state.family || !state.version) return;
+    try {
+      state.schema = await getJSON(
+        "/api/families/" + encodeURIComponent(state.family) +
+        "/schemas/" + encodeURIComponent(state.version));
+    } catch (e) {
+      fail(fields, e);
+      return;
+    }
+    // A single-value enum is fixed by the schema, so prefill it.
+    for (const [name, def] of Object.entries(state.schema.fields || {})) {
+      if (def.enum && def.enum.length === 1) state.values[name] = def.enum[0];
+    }
+    renderFields();
+    renderExamples();
+    refreshPreview();
+  }
+
+  async function loadVersions() {
+    versionSel.replaceChildren();
+    state.version = "";
+    if (!state.family) return loadSchema();
+    let d;
+    try {
+      d = await getJSON("/api/families/" + encodeURIComponent(state.family) + "/versions");
+    } catch (e) {
+      fail(fields, e);
+      return;
+    }
+    // The API returns objects ({version, status, file}), not bare strings.
+    const vs = (d.versions || []).map(v => (typeof v === "string" ? v : v.version));
+    for (const v of vs) versionSel.append(new Option(v, v));
+    state.version = vs.length ? vs[vs.length - 1] : "";
+    versionSel.value = state.version;
+    await loadSchema();
+  }
+
+  familySel.onchange  = () => { state.family = familySel.value; loadVersions(); };
+  versionSel.onchange = () => { state.version = versionSel.value; loadSchema(); };
+
+  parseBtn.onclick = async () => {
+    const fn = parseIn.value.trim();
+    if (!fn) {
+      parseOut.replaceChildren(el("div", "color:var(--muted,#8b8fa3);font-size:13px", "Enter a filename."));
+      return;
+    }
+    try {
+      const d = await getJSON("/api/parse", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({filename: fn})
+      });
+      parseOut.replaceChildren(
+        el("pre", "font-size:12px;line-height:1.5;white-space:pre-wrap;margin:0", JSON.stringify(d.parsed, null, 2)));
+    } catch (e) {
+      parseOut.replaceChildren(el("div", ERR, "Parse failed (" + e.message + ")."));
+    }
+  };
+  parseIn.onkeydown = (ev) => { if (ev.key === "Enter") parseBtn.click(); };
+
+  validBtn.onclick = async () => {
+    let schema;
+    try {
+      schema = JSON.parse(validIn.value);
+    } catch (e) {
+      validOut.replaceChildren(el("div", ERR, "Invalid JSON: " + e.message));
+      return;
+    }
+    let d;
+    try {
+      d = await getJSON("/api/validate", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({schema})
+      });
+    } catch (e) {
+      validOut.replaceChildren(el("div", ERR, "Validation failed (" + e.message + ")."));
+      return;
+    }
+    const errors = d.errors || [], warnings = d.warnings || [];
+    const out = el("div");
+    out.append(d.valid
+      ? el("div", "color:#00aa00;font-weight:600", "✓ Valid (" + errors.length + " errors, " + warnings.length + " warnings)")
+      : el("div", ERR + ";font-weight:600", "✗ Invalid"));
+    for (const e of errors)   out.append(el("div", ERR + ";padding:4px 0", "· " + e));
+    for (const w of warnings) out.append(el("div", "color:#e67e22;font-size:12px;padding:4px 0", "· " + w));
+    validOut.replaceChildren(out);
+  };
+
+  // ── boot ──
+  renderFields();
+  familySel.append(new Option("— select —", ""));
+  getJSON("/api/families")
+    .then(d => {
+      for (const f of (d.families || []).slice().sort()) familySel.append(new Option(f, f));
+    })
+    .catch(e => fail(left, e));
+
+  return root;
+}
+```
