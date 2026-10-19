@@ -83,7 +83,7 @@ With CLC+ Core, the European Environment Agency (EEA) offers you a consistent mu
 
 **Figure 1‑1: CLC+ Product suite overview (from left to right) with the CLC+ Core database solution (middle) hosting integrated CLMS, and potentially ancillary and national LC/LU data.**
 
-The following chapters provide a brief overview about the CLC+ Core System and how to perform an Ingestion or Extraction. Chapter [0](#_Ref105139868) gives an introduction about how to get started and the main functionalities of the CLC+ Core. Further, you get to information about the Organizations and User that are part of the System. The EAGLE concept, as a main part of the System, is described in chapter [0](#_Toc65609501). In this section you get tips and hints how to perform the EAGLE barcoding. There are already several datasets in the CLC+ Core System. The process how to ingest your own data in the System is described in chapter [3](#ingestions) whereas chapter [4](#extraction) explains the creation of an Extraction. The Frequently Asked Questions (FAQ) section ([5](#faq-frequently-asked-questions)) provides the user a summary of questions and their answers regarding the CLC+ Core environment.
+The following chapters provide a brief overview about the CLC+ Core System and how to perform an Ingestion or Extraction. Chapter 0 gives an introduction about how to get started and the main functionalities of the CLC+ Core. Further, you get to information about the Organizations and User that are part of the System. The EAGLE concept, as a main part of the System, is described in chapter [0](#_Toc65609501). In this section you get tips and hints how to perform the EAGLE barcoding. There are already several datasets in the CLC+ Core System. The process how to ingest your own data in the System is described in chapter [3](#ingestions) whereas chapter [4](#extraction) explains the creation of an Extraction. The Frequently Asked Questions (FAQ) section ([5](#faq-frequently-asked-questions)) provides the user a summary of questions and their answers regarding the CLC+ Core environment.
 
 **Please note that this guideline is a living document which will be updated regularly.**
 
@@ -226,7 +226,7 @@ Further there are ’**Quick Filters**” available. The user can quickly filter
 
 **Figure 1‑10: Breadcrumbs**
 
-**Pagination** is only available on the page if applicable to the content of the page, for example where tables / lists exist. With the pagination you can navigate through the different pages of a table (see [Figure 1‑11](#_Ref151467477)). On pages with a higher number, you can find previously ingested datasets.
+**Pagination** is only available on the page if applicable to the content of the page, for example where tables / lists exist. With the pagination you can navigate through the different pages of a table (see Figure 1‑11). On pages with a higher number, you can find previously ingested datasets.
 
 **Help function** by clicking on the “?” icon on the bottom right corner (see [Figure 1‑11](#_Ref151627187)) a separate Help window opens in which the use can report any issues or questions. The support contact form can be found here: <https://land.copernicus.eu/en/contact-service-helpdesk>.
 
@@ -352,7 +352,7 @@ Since 2008, the **EAGLE** Group has been developing a solution and proof of conc
 
 Meanwhile, EAGLE barcoding is acknowledged by the Copernicus Land Monitoring Service (CLMS) as an instrumental and crucial component to support a general shift of focus from classification to characterisation, and EAGLE compliance is enforced in all newer CLMS products.
 
-In the “**EAGLE Ontology**” tab you can inspect the current and older EAGLE ontologies. You can download the EAGLE barcoding file template you will need for the EAGLE barcoding (section [2.3](#_Ref153949431)). Additionally, expert users have the possibility to add new EAGLE ontologies (section 6.3 in separate Annex). The most current version of the EAGLE matrix is v3.2[^3] which is also implemented already in the current version of the CLC+ Core system. In the current EAGLE matrix version some elements have been deleted and the barcoding values were reduced to X-5 instead of before X,0-6.
+In the “**EAGLE Ontology**” tab you can inspect the current and older EAGLE ontologies. You can download the EAGLE barcoding file template you will need for the EAGLE barcoding (section 2.3). Additionally, expert users have the possibility to add new EAGLE ontologies (section 6.3 in separate Annex). The most current version of the EAGLE matrix is v3.2[^3] which is also implemented already in the current version of the CLC+ Core system. In the current EAGLE matrix version some elements have been deleted and the barcoding values were reduced to X-5 instead of before X,0-6.
 
 In this section, you will be further given a general overview of the EAGLE concept and the approach and implementation the CLC+ consortium used for the EAGLE barcoding for the CLMS products ingested in the CLC+ Core system. To prove the concept also two national datasets for the Netherlands and Spain were EAGLE barcoded and uploaded to the system.
 
@@ -544,13 +544,13 @@ Dataset to be uploaded can be common **raster and vector file formats**:
 
 - GeoTiff ((tif/tiff)
 
-Several additional documents can accompany the dataset, such as a metadata file, a legend / style file (section [3.2.1](#raster-dataset) and [3.2.2](#vector-dataset)) and the EAGLE barcoding files (section [2.3](#_Ref105145961)). By adding them at Ingestion creation, the information is extracted automatically, otherwise the user need to add this information manually at a later stage. An Ingestion has been successfully processed, once it is in the status draft.
+Several additional documents can accompany the dataset, such as a metadata file, a legend / style file (section [3.2.1](#raster-dataset) and [3.2.2](#vector-dataset)) and the EAGLE barcoding files (section 2.3). By adding them at Ingestion creation, the information is extracted automatically, otherwise the user need to add this information manually at a later stage. An Ingestion has been successfully processed, once it is in the status draft.
 
 An Ingestion comprises the following steps, which are described in more detail in this section below:
 
 1.  Upload the data (either by attaching a local dataset directly within the "Upload Dataset" field or by providing a dataset download URL) and configure its settings (section [3.2](#add-ingestion))
 
-2.  Map the Input Classes to the respective EAGLE[^6] barcoding using the EAGLE barcoding template (section [2.3](#_Ref99728447)). Alternatively, the mapping can be performed in the system itself (section [3.7](#edit-ingestion))
+2.  Map the Input Classes to the respective EAGLE[^6] barcoding using the EAGLE barcoding template (section 2.3). Alternatively, the mapping can be performed in the system itself (section [3.7](#edit-ingestion))
 
 3.  Edit, preview, start Ingestion and publish the Ingestion
 
@@ -602,7 +602,7 @@ In a second step, further information, such as name and country / region that de
 
 **Figure 3‑4: Add Ingestion - Step 2 (Parameter)**
 
-The data can be uploaded directly from a computer (file upload or per \`drag and drop\`) or by entering an URL where the data shall be collected from (step 3 see [Figure 3‑5](#_Ref151987252)). Please also refer to section [3.3](#_Ref99729782) [Remarks on the Ingestion process](#_Ref99729782). The supported file formats for raster files are:
+The data can be uploaded directly from a computer (file upload or per \`drag and drop\`) or by entering an URL where the data shall be collected from (step 3 see [Figure 3‑5](#_Ref151987252)). Please also refer to section 3.3 Remarks on the Ingestion process. The supported file formats for raster files are:
 
 - Hierarchical Data Format (HDF5)
 
@@ -644,7 +644,7 @@ In the example, we want to exclude 255 and 254 from being ingested. Please press
 
 Additionally, you can **enter a layer name** which shall be used to generate input classes if there are *more than one layers per* dataset (if several layers are stored in a .gdb for example). If nothing is defined, the first layer will be selected. In this case, this field can be omitted.
 
-**Please make sure to avoid special characters, otherwise an error will occur.** Please also refer to section [3.3](#_Ref99729782) to learn about the **limitations of data uploads**.
+**Please make sure to avoid special characters, otherwise an error will occur.** Please also refer to section 3.3 to learn about the **limitations of data uploads**.
 
 ![A screenshot of the 'Add Ingestion' user interface, specifically depicting 'Step 2: 'Dataset Selection Upload Dataset - Raster'' with the 'URL Upload' tab selected. The active URL input field displays 'https://copernicus-fme.eea.europa.eu/clmsdatadownload/results/18447.zip' with a green checkmark indicating validity. Users are prompted to enter a source URL. Under 'Discrete values' and 'Continuous values' radio buttons, 'Continuous values' is selected. Two 'Excluded Value' fields show '254' and '255'. Below these, there are input fields for 'Class Code' (with a hint 'Enter a Value which shall be excluded from processing.') and 'Layer Name' (with a hint 'Enter Layer Name from Dataset which shall be used to generate Input Classes.'). At the bottom, a 'Drag and Drop' area or an 'UPLOAD DOCUMENT/S' button are visible for alternative file submission.](./clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image69.jpg)![This image is a screenshot of a user interface for data ingestion within the Copernicus Land Monitoring Service (CLMS), focusing on excluded values and file upload mechanisms. The interface displays a section for 'Excluded Value' where numeric values '254' and '255' are listed as pre-configured excluded values. Accompanying text explains: 'Exclude all values which do not represent thematic values in the input dataset. Pixels with one of the given values will be counted as NoData in the ingestion. If a TIF dataset specifies a NoData value in its metadata the corresponding value is excluded automatically.' Below this is a field labelled 'Class Code' for input. A subsequent field for 'Layer Name' provides the instruction: 'Enter Layer Name from Dataset which shall be used to generate Input Classes.' The lower portion of the interface features a large dashed-border area for file input, with the text 'Drag and Drop OR' and a green button labelled 'UPLOAD DOCUMENT/S' with an upward arrow icon.](./clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image70.png)
 
@@ -702,7 +702,7 @@ In a second step, further information, such as name and country / region that de
 
 **Figure 3‑16: Add Ingestion - Step 2 (Parameter)**
 
-The data can be uploaded directly from your computer (file upload or per \`drag and drop\`) or by entering an URL where the data shall be collected from (step 3 see [Figure 3‑17](#_Ref151987739)). Please also refer to section [3.3](#_Ref99729782) [Remarks on the Ingestion process](#_Ref99729782). The supported file formats for vector files:
+The data can be uploaded directly from your computer (file upload or per \`drag and drop\`) or by entering an URL where the data shall be collected from (step 3 see [Figure 3‑17](#_Ref151987739)). Please also refer to section 3.3 Remarks on the Ingestion process. The supported file formats for vector files:
 
 - shapefile - When uploading a shapefile (shp), its elements need to be zipped
 
@@ -744,7 +744,7 @@ Please press enter after entering the value. Alternatively, for discrete dataset
 
 Additionally, you can **enter a layer name** (see [Figure 3‑21](#_Ref151988050)) which shall be used to generate input classes if there are *more than one layers per* dataset (if several layers are stored in a .gdb for example). If nothing is defined, the first layer will be selected. In this case, we have three layers and we need the first one. We write ‘AT005L3_INNSBRUCK_UA2018’ but the first layer would be selected by default anyways.
 
-**Please make sure to avoid special characters, otherwise an error will occur.** Please also refer to section [3.3](#_Ref99729782) to learn about the **limitations of data uploads**.
+**Please make sure to avoid special characters, otherwise an error will occur.** Please also refer to section 3.3 to learn about the **limitations of data uploads**.
 
 ![A screenshot of a user interface for the 'Add Ingestion' process, specifically depicting 'Step 2 'Dataset Selection Upload Dataset - Vector''. The previous step, '1 Input Type Selection', is greyed out. The interface presents instructions for 'Parameter for the Class Code', stating that 'Values of the selected attribute column must only contain upper- and lower-case letters, numbers, underscores or hyphens.' An 'Excluded Value' field is shown, with an explanation that these values, representing non-thematic data, will be counted as 'NoData' during ingestion, and that NoData values specified in a TIF dataset's metadata are automatically excluded. A 'Layer Name' field contains the pre-filled value 'AT005L3_INNSBRUCK_UA2018' and an instruction to 'Enter Layer Name from Dataset which shall be used to generate Input Classes.' A large dashed-line area indicates a 'Drag and Drop' option for files, or users can click an 'UPLOAD DOCUMENT/S' button with an arrow-up icon. Below the upload area, a note explains that 'All documents that help to understand the content, including legend files which will be used to automatically create Input Classes and metadata files which will be used to automatically prefill the data description. (No file type restrictions)' are to be uploaded. A checkbox labelled 'Delete raw data' is present, accompanied by a question mark icon for help. At the bottom of the interface, three action buttons are displayed: 'CANCEL', 'BACK', and 'ADD'.](./clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image88.JPG)
 
@@ -876,7 +876,7 @@ In the left section (**General Information**), you can review all Ingestion info
 
 **Note: Changes can only be done for unpublished datasets. As soon as a dataset has been used in an Extraction, changes can no longer be made while in use (by you or any other user).**
 
-It is obligatory to map all ingested classes as **EAGLE elements** in order to publish an Ingestion. It is recommended to upload the EAGLE barcoding file (a detailed description is provided in section [2.3](#_Ref100162317)) together with the data. You can do this already when defining the settings for the Ingestion (see section [3.2](#add-ingestion)) or by clicking on the EAGLE element picker. In case you use the picker, continue with step 3 below, otherwise you can skip this and continue with step 4.
+It is obligatory to map all ingested classes as **EAGLE elements** in order to publish an Ingestion. It is recommended to upload the EAGLE barcoding file (a detailed description is provided in section 2.3) together with the data. You can do this already when defining the settings for the Ingestion (see section [3.2](#add-ingestion)) or by clicking on the EAGLE element picker. In case you use the picker, continue with step 3 below, otherwise you can skip this and continue with step 4.
 
 ![This is a screenshot of the Copernicus Land Monitoring Service (CLMS) CLC+ Core User Admin/Support interface, displaying detailed information for a data ingestion named 'UA_IBK_2018'. The interface is structured into three main sections: General Information, a Map preview, and Input Classes. The 'General Information' section on the left panel provides metadata for the 'UA_IBK_2018' ingestion: \* Name: UA_IBK_2018 \* Country: Austria/Österreich \* Region: Innsbruck \* Reference Year: 2018 \* Time Range of Ingested Data: 01.01.2018 - 31.12.2018 \* INSPIRE (Infrastructure for Spatial Information in the European Community) Themes: LU Land use, LC Land cover \* Created By: CLC+ Core User Admin/Support \* Organisation/s: CLC (CORINE Land Cover), European Environment Agency (EEA) Action buttons at the top right of the interface include 'REPUBLISH ON GEOSERVER', 'START INGESTION', and 'PUBLISH'. A button labeled 'APPROVE EAGLE COMPLIANCE' is also visible, associated with the EIONET Action Group EAGLE Land Monitoring in Europe logo. The central part of the interface features an interactive map displaying the geographic coverage of the 'UA_IBK_2018' data for the Innsbruck region. The map shows a green overlay highlighting the data's extent over a mountainous topographic base map. Map controls include zoom functions (+/-), full screen toggle, and layer visibility. A scale bar shows '10 km' and '5 mi'. The map's attribution credits 'Leaflet / Core003 Mosaic, © OpenStreetMap contributors'. Below the map, an 'Input Classes' section presents a table detailing the classification scheme: \* \*\*Class Code:\*\* 11100, 11210, 11220, 11230 \* \*\*Name:\*\* 11100, 11210, 11220, 11230 \* \*\*EAGLE Elements:\*\* All classes are mapped to 'Sealed Artificial Surfaces and Constructions' with a factor of '+10' (for 11100, 11210) or '+11' (for 11220, 11230). \* \*\*100% EAGLE compliant:\*\* All four listed classes are marked as compliant with a green checkmark. \* \*\*Colour:\*\* Dark red for classes 11100, 11210, 11220; pink for class 11230. \* \*\*Show in Map:\*\* Toggle switches are shown in the 'off' position for all classes. A 'Download EAGLE Barcoding' button is also present above this table.](./clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image109.jpg)
 
@@ -1620,9 +1620,9 @@ Table 0‑2: Datasets used for Ingestion into the CLC+ Core System by the CLC+ C
 
 Source: <https://land.copernicus.eu/> and national authorities
 
-[TABLE]
+Table 0‑3: Excerpt of the LC/LU classes (here Grassland) with sub stratification and corresponding EAGLE elements relevant for Extraction. Proposal EAGLE Group \[AD11\] supplemented by consortium. The procedure must be done for all the remaining classes as well.
 
-Table 0‑3: Excerpt of the LC/LU classes (here Grassland) with sub stratification and corresponding EAGLE elements relevant for Extraction. Proposal EAGLE Group \[AD11\] supplemented by consortium. The procedure must be done for all the remaining classes as well. {.caption-top .table}
+[TABLE]
 
 | 2056 | 5015  |
 |------|-------|
@@ -1648,9 +1648,9 @@ Table 0‑3: Excerpt of the LC/LU classes (here Grassland) with sub stratificati
 
 Table 0‑4: supported national EPSG codes in the CLC+ Core system {.caption-top .table}
 
-[TABLE]
+Table 0‑5: Excerpt of the LC/LU classes (here Forest) with sub stratification and applied rulesets done by the CLC+ Instances consortium.
 
-Table 0‑5: Excerpt of the LC/LU classes (here Forest) with sub stratification and applied rulesets done by the CLC+ Instances consortium. {.caption-top .table}
+[TABLE]
 
 Back to top
 

@@ -248,19 +248,18 @@ solution (middle) hosting integrated CLMS, and potentially ancillary and
 national LC/LU data.**
 
 The following chapters provide a brief overview about the CLC+ Core
-System and how to perform an Ingestion or Extraction. Chapter
-[0](#_Ref105139868) gives an introduction about how to get started and
-the main functionalities of the CLC+ Core. Further, you get to
-information about the Organizations and User that are part of the
-System. The EAGLE concept, as a main part of the System, is described in
-chapter [0](#_Toc65609501). In this section you get tips and hints how
-to perform the EAGLE barcoding. There are already several datasets in
-the CLC+ Core System. The process how to ingest your own data in the
-System is described in chapter [3](#ingestions) whereas chapter
-[4](#extraction) explains the creation of an Extraction. The Frequently
-Asked Questions (FAQ) section ([5](#faq-frequently-asked-questions))
-provides the user a summary of questions and their answers regarding the
-CLC+ Core environment.
+System and how to perform an Ingestion or Extraction. Chapter 0 gives an
+introduction about how to get started and the main functionalities of
+the CLC+ Core. Further, you get to information about the Organizations
+and User that are part of the System. The EAGLE concept, as a main part
+of the System, is described in chapter [0](#_Toc65609501). In this
+section you get tips and hints how to perform the EAGLE barcoding. There
+are already several datasets in the CLC+ Core System. The process how to
+ingest your own data in the System is described in chapter
+[3](#ingestions) whereas chapter [4](#extraction) explains the creation
+of an Extraction. The Frequently Asked Questions (FAQ) section
+([5](#faq-frequently-asked-questions)) provides the user a summary of
+questions and their answers regarding the CLC+ Core environment.
 
 **Please note that this guideline is a living document which will be
 updated regularly.**
@@ -809,8 +808,8 @@ Breadcrumbs**
 **Pagination** is only available on the page if applicable to the
 content of the page, for example where tables / lists exist. With the
 pagination you can navigate through the different pages of a table (see
-[Figure 1‑11](#_Ref151467477)). On pages with a higher number, you can
-find previously ingested datasets.
+Figure 1‑11). On pages with a higher number, you can find previously
+ingested datasets.
 
 **Help function** by clicking on the “?” icon on the bottom right corner
 (see [Figure 1‑11](#_Ref151627187)) a separate Help window opens in
@@ -1441,13 +1440,13 @@ products.
 
 In the “**EAGLE Ontology**” tab you can inspect the current and older
 EAGLE ontologies. You can download the EAGLE barcoding file template you
-will need for the EAGLE barcoding (section [2.3](#_Ref153949431)).
-Additionally, expert users have the possibility to add new EAGLE
-ontologies (section 6.3 in separate Annex). The most current version of
-the EAGLE matrix is v3.2[^3] which is also implemented already in the
-current version of the CLC+ Core system. In the current EAGLE matrix
-version some elements have been deleted and the barcoding values were
-reduced to X-5 instead of before X,0-6.
+will need for the EAGLE barcoding (section 2.3). Additionally, expert
+users have the possibility to add new EAGLE ontologies (section 6.3 in
+separate Annex). The most current version of the EAGLE matrix is
+v3.2[^3] which is also implemented already in the current version of the
+CLC+ Core system. In the current EAGLE matrix version some elements have
+been deleted and the barcoding values were reduced to X-5 instead of
+before X,0-6.
 
 In this section, you will be further given a general overview of the
 EAGLE concept and the approach and implementation the CLC+ consortium
@@ -2345,10 +2344,10 @@ Dataset to be uploaded can be common **raster and vector file formats**:
 Several additional documents can accompany the dataset, such as a
 metadata file, a legend / style file (section [3.2.1](#raster-dataset)
 and [3.2.2](#vector-dataset)) and the EAGLE barcoding files (section
-[2.3](#_Ref105145961)). By adding them at Ingestion creation, the
-information is extracted automatically, otherwise the user need to add
-this information manually at a later stage. An Ingestion has been
-successfully processed, once it is in the status draft.
+2.3). By adding them at Ingestion creation, the information is extracted
+automatically, otherwise the user need to add this information manually
+at a later stage. An Ingestion has been successfully processed, once it
+is in the status draft.
 
 An Ingestion comprises the following steps, which are described in more
 detail in this section below:
@@ -2358,9 +2357,9 @@ detail in this section below:
     and configure its settings (section [3.2](#add-ingestion))
 
 2)  Map the Input Classes to the respective EAGLE[^6] barcoding using
-    the EAGLE barcoding template (section [2.3](#_Ref99728447)).
-    Alternatively, the mapping can be performed in the system itself
-    (section [3.7](#edit-ingestion))
+    the EAGLE barcoding template (section 2.3). Alternatively, the
+    mapping can be performed in the system itself (section
+    [3.7](#edit-ingestion))
 
 3)  Edit, preview, start Ingestion and publish the Ingestion
 
@@ -2511,9 +2510,8 @@ Ingestion - Step 2 (Parameter)**
 The data can be uploaded directly from a computer (file upload or per
 \`drag and drop\`) or by entering an URL where the data shall be
 collected from (step 3 see [Figure 3‑5](#_Ref151987252)). Please also
-refer to section [3.3](#_Ref99729782) [Remarks on the Ingestion
-process](#_Ref99729782). The supported file formats for raster files
-are:
+refer to section 3.3 Remarks on the Ingestion process. The supported
+file formats for raster files are:
 
 - Hierarchical Data Format (HDF5)
 
@@ -2748,8 +2746,8 @@ is defined, the first layer will be selected. In this case, this field
 can be omitted.
 
 **Please make sure to avoid special characters, otherwise an error will
-occur.** Please also refer to section [3.3](#_Ref99729782) to learn
-about the **limitations of data uploads**.
+occur.** Please also refer to section 3.3 to learn about the
+**limitations of data uploads**.
 
 <img
 src="./clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image69.jpg"
@@ -3061,8 +3059,8 @@ Ingestion - Step 2 (Parameter)**
 The data can be uploaded directly from your computer (file upload or per
 \`drag and drop\`) or by entering an URL where the data shall be
 collected from (step 3 see [Figure 3‑17](#_Ref151987739)). Please also
-refer to section [3.3](#_Ref99729782) [Remarks on the Ingestion
-process](#_Ref99729782). The supported file formats for vector files:
+refer to section 3.3 Remarks on the Ingestion process. The supported
+file formats for vector files:
 
 - shapefile - When uploading a shapefile (shp), its elements need to be
   zipped
@@ -3241,8 +3239,8 @@ first one. We write ‘AT005L3_INNSBRUCK_UA2018’ but the first layer would
 be selected by default anyways.
 
 **Please make sure to avoid special characters, otherwise an error will
-occur.** Please also refer to section [3.3](#_Ref99729782) to learn
-about the **limitations of data uploads**.
+occur.** Please also refer to section 3.3 to learn about the
+**limitations of data uploads**.
 
 <img
 src="./clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image88.JPG"
@@ -4162,12 +4160,12 @@ while in use (by you or any other user).**
 
 It is obligatory to map all ingested classes as **EAGLE elements** in
 order to publish an Ingestion. It is recommended to upload the EAGLE
-barcoding file (a detailed description is provided in section
-[2.3](#_Ref100162317)) together with the data. You can do this already
-when defining the settings for the Ingestion (see section
-[3.2](#add-ingestion)) or by clicking on the EAGLE element picker. In
-case you use the picker, continue with step 3 below, otherwise you can
-skip this and continue with step 4.
+barcoding file (a detailed description is provided in section 2.3)
+together with the data. You can do this already when defining the
+settings for the Ingestion (see section [3.2](#add-ingestion)) or by
+clicking on the EAGLE element picker. In case you use the picker,
+continue with step 3 below, otherwise you can skip this and continue
+with step 4.
 
 <img
 src="./clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image109.jpg"
@@ -7359,36 +7357,53 @@ consortium</td>
 
 Source: <https://land.copernicus.eu/> and national authorities
 
-<table style="width:98%;">
-<caption><span id="_Ref149045139" class="anchor"></span>Table 0‑3:
-Excerpt of the LC/LU classes (here Grassland) with sub stratification
-and corresponding EAGLE elements relevant for Extraction. Proposal EAGLE
-Group [AD11] supplemented by consortium. The procedure must be done for
-all the remaining classes as well.</caption>
+<div class="landscape">
+
+<div class="tbl-caption">
+
+<span id="_Ref149045139" class="anchor"></span>Table 0‑3: Excerpt of the
+LC/LU classes (here Grassland) with sub stratification and corresponding
+EAGLE elements relevant for Extraction. Proposal EAGLE Group \[AD11\]
+supplemented by consortium. The procedure must be done for all the
+remaining classes as well.
+
+</div>
+
+<table data-quarto-postprocess="true" style="width:98%;">
 <colgroup>
-<col style="width: 3%" />
-<col style="width: 5%" />
-<col style="width: 8%" />
-<col style="width: 2%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
 <col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 9%" />
-<col style="width: 15%" />
+<col style="width: 14%" />
 <col style="width: 13%" />
-<col style="width: 15%" />
+<col style="width: 13%" />
 </colgroup>
 <thead>
 <tr>
-<th style="text-align: center;">Level 1</th>
-<th style="text-align: center;">Level 2</th>
-<th style="text-align: center;">Level 3</th>
-<th style="text-align: left;">dataset</th>
-<th style="text-align: left;"><strong>LCC</strong></th>
-<th style="text-align: left;"><strong>LUA</strong></th>
-<th style="text-align: left;"><strong>LCH</strong></th>
-<th style="text-align: left;"><strong>code CLMS</strong></th>
-<th style="text-align: left;"><strong>code ES</strong></th>
-<th style="text-align: left;"><strong>code NL</strong></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Level
+1</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Level
+2</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Level
+3</th>
+<th style="text-align: left;"
+data-quarto-table-cell-role="th">dataset</th>
+<th style="text-align: left;"
+data-quarto-table-cell-role="th"><strong>LCC</strong></th>
+<th style="text-align: left;"
+data-quarto-table-cell-role="th"><strong>LUA</strong></th>
+<th style="text-align: left;"
+data-quarto-table-cell-role="th"><strong>LCH</strong></th>
+<th style="text-align: left;"
+data-quarto-table-cell-role="th"><strong>code CLMS</strong></th>
+<th style="text-align: left;"
+data-quarto-table-cell-role="th"><strong>code ES</strong></th>
+<th style="text-align: left;"
+data-quarto-table-cell-role="th"><strong>code NL</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -7621,6 +7636,8 @@ use</td>
 </tbody>
 </table>
 
+</div>
+
 | 2056 | 5015  |
 |------|-------|
 | 2059 | 5016  |
@@ -7648,49 +7665,70 @@ national EPSG codes in the CLC+ Core system
 
 <span id="_Ref105175205" class="anchor"></span>
 
-<table style="width:99%;">
-<caption><span id="_Toc154038182" class="anchor"></span>Table 0‑5:
-Excerpt of the LC/LU classes (here Forest) with sub stratification and
-applied rulesets done by the CLC+ Instances consortium.</caption>
+<div class="landscape">
+
+<div class="tbl-caption">
+
+<span id="_Toc154038182" class="anchor"></span>Table 0‑5: Excerpt of the
+LC/LU classes (here Forest) with sub stratification and applied rulesets
+done by the CLC+ Instances consortium.
+
+</div>
+
+<table data-quarto-postprocess="true" style="width:99%;">
 <colgroup>
-<col style="width: 0%" />
-<col style="width: 2%" />
-<col style="width: 50%" />
-<col style="width: 3%" />
-<col style="width: 1%" />
-<col style="width: 1%" />
-<col style="width: 1%" />
-<col style="width: 0%" />
-<col style="width: 20%" />
 <col style="width: 4%" />
+<col style="width: 8%" />
+<col style="width: 19%" />
+<col style="width: 9%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 5%" />
+<col style="width: 15%" />
 <col style="width: 12%" />
+<col style="width: 10%" />
 </colgroup>
 <thead>
 <tr>
-<th colspan="3" style="text-align: center;">Output Classes</th>
-<th colspan="6" style="text-align: left;">Input Classes</th>
-<th colspan="2" style="text-align: left;">CLC+ Core Ruleset</th>
+<th colspan="3" style="text-align: center;"
+data-quarto-table-cell-role="th">Output Classes</th>
+<th colspan="6" style="text-align: left;"
+data-quarto-table-cell-role="th">Input Classes</th>
+<th colspan="2" style="text-align: left;"
+data-quarto-table-cell-role="th">CLC+ Core Ruleset</th>
 </tr>
 <tr>
-<th style="text-align: center;">Class code</th>
-<th style="text-align: center;">Output classes</th>
-<th style="text-align: center;">Output Class description</th>
-<th style="text-align: left;">Input classes</th>
-<th style="text-align: center;">Reference year</th>
-<th style="text-align: center;">Temp resolution</th>
-<th style="text-align: center;">Spatial resolution</th>
-<th style="text-align: center;">MMU</th>
-<th style="text-align: left;">Class description</th>
-<th style="text-align: left;">CLC+ Core Ruleset</th>
-<th style="text-align: left;">CLC+ Core Ruleset Intention</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Class
+code</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Output
+classes</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Output
+Class description</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Input
+classes</th>
+<th style="text-align: center;"
+data-quarto-table-cell-role="th">Reference year</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Temp
+resolution</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Spatial
+resolution</th>
+<th style="text-align: center;"
+data-quarto-table-cell-role="th">MMU</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Class
+description</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">CLC+ Core
+Ruleset</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">CLC+ Core
+Ruleset Intention</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td rowspan="2" style="text-align: center;"><strong>21</strong></td>
-<td rowspan="2" style="text-align: center;"><strong>FL Burnt
+<td rowspan="2" style="text-align: left;"><strong>21</strong></td>
+<td rowspan="2" style="text-align: left;"><strong>FL Burnt
 areas</strong></td>
-<td rowspan="2" style="text-align: center;">The Burnt Area products map
+<td rowspan="2" style="text-align: left;">The Burnt Area products map
 burn scars, surfaces which have been sufficiently affected by fire to
 display significant changes in the vegetation cover (destruction of dry
 material, reduction or loss of green material) and in the ground surface
@@ -7698,10 +7736,10 @@ material, reduction or loss of green material) and in the ground surface
 it maps burnt forest areas and woody plants such as coniferous and
 broad-leaved trees; etc</td>
 <td style="text-align: left;">EFFIS for year 2018</td>
-<td style="text-align: center;">2018</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">n/a</td>
+<td style="text-align: left;">2018</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">n/a</td>
 <td style="text-align: left;"><a
 href="https://effis-gwis-cms.s3-eu-west-1.amazonaws.com/effis/reports-and-publications/effis-related-publications/eudb_tech_spec_final_2register.pdf"><u>https://effis-gwis-cms.s3-eu-west-1.amazonaws.com/effis/reports-and-publications/effis-related-publications/eudb_tech_spec_final_2register.pdf</u></a></td>
 <td rowspan="2" style="text-align: left;">cov("LCC-trees",
@@ -7714,18 +7752,18 @@ combined with all forest classes that are mapped with the EAGLE element
 <tr>
 <td style="text-align: left;">All HRLs/CLC+BB forest classes mapped with
 trees==5</td>
-<td style="text-align: center;">2018</td>
-<td style="text-align: center;">2/3</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">0.01ha</td>
+<td style="text-align: left;">2018</td>
+<td style="text-align: left;">2/3</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">0.01ha</td>
 <td style="text-align: left;"><a
 href="https://land.copernicus.eu/user-corner/technical-library/clc-bb_user_manual_ras"><u>https://land.copernicus.eu/user-corner/technical-library/clc-bb_user_manual_ras</u></a></td>
 </tr>
 <tr>
-<td rowspan="2" style="text-align: center;"><strong>22</strong></td>
-<td rowspan="2" style="text-align: center;"><strong>FL Transitional
+<td rowspan="2" style="text-align: left;"><strong>22</strong></td>
+<td rowspan="2" style="text-align: left;"><strong>FL Transitional
 woodland</strong></td>
-<td rowspan="2" style="text-align: center;">Transitional bushy and
+<td rowspan="2" style="text-align: left;">Transitional bushy and
 herbaceous vegetation with occasional scattered trees. Can represent
 woodland degradation, forest regeneration / recolonization or natural
 succession. Areas representing natural development of forest formations,
@@ -7745,10 +7783,10 @@ shrubs;<br />
 - herbaceous vegetation (grasses and herbs);<br />
 - bare soil or natural bare surfaces.</td>
 <td style="text-align: left;">CLC 324 Transitional woodland/shrub</td>
-<td style="text-align: center;">2018</td>
-<td style="text-align: center;">6</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">25ha</td>
+<td style="text-align: left;">2018</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">25ha</td>
 <td style="text-align: left;"><a
 href="https://land.copernicus.eu/user-corner/technical-library/corine-land-cover-nomenclature-guidelines/html/index-clc-324.html"><u>https://land.copernicus.eu/user-corner/technical-library/corine-land-cover-nomenclature-guidelines/html/index-clc-324.html</u></a></td>
 <td rowspan="2" style="text-align: left;">(<br />
@@ -7767,18 +7805,18 @@ combined with CLC trans wood class via an AND operator</td>
 <tr>
 <td style="text-align: left;">All HRLs/CLC+BB forest classes mapped with
 trees==5</td>
-<td style="text-align: center;">2018</td>
-<td style="text-align: center;">2/3</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">0.01ha</td>
+<td style="text-align: left;">2018</td>
+<td style="text-align: left;">2/3</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">0.01ha</td>
 <td style="text-align: left;"><a
 href="https://land.copernicus.eu/user-corner/technical-library/clc-bb_user_manual_ras"><u>https://land.copernicus.eu/user-corner/technical-library/clc-bb_user_manual_ras</u></a></td>
 </tr>
 <tr>
-<td rowspan="3" style="text-align: center;"><strong>23</strong></td>
-<td rowspan="3" style="text-align: center;"><strong>FL
+<td rowspan="3" style="text-align: left;"><strong>23</strong></td>
+<td rowspan="3" style="text-align: left;"><strong>FL
 Deciduous</strong></td>
-<td rowspan="3" style="text-align: center;">Perennial woody plants with
+<td rowspan="3" style="text-align: left;">Perennial woody plants with
 single, self-supporting main stem or trunk, containing woody tissue and
 branching into smaller branches and shoots.<br />
 <strong>Includes:</strong><br />
@@ -7792,10 +7830,10 @@ taxonomically.<br />
 - Shrub forms of Taxus, Juniperus and Betula<br />
 - Musa</td>
 <td style="text-align: left;">HRL Forest TCD</td>
-<td style="text-align: center;">2018</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">/</td>
+<td style="text-align: left;">2018</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">/</td>
 <td style="text-align: left;"><a
 href="https://land.copernicus.eu/user-corner/technical-library/forest-2018-user-manual.pdf"><u>Forest
 2018 user manual (copernicus.eu)</u></a></td>
@@ -7813,41 +7851,42 @@ broadleaved/deciduous forest classes via an AND operator</td>
 </tr>
 <tr>
 <td style="text-align: left;">HRL Forest DLT broadleaved</td>
-<td style="text-align: center;">2018</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">/</td>
+<td style="text-align: left;">2018</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">/</td>
 <td style="text-align: left;"><a
 href="https://land.copernicus.eu/user-corner/technical-library/forest-2018-user-manual.pdf"><u>Forest
 2018 user manual (copernicus.eu)</u></a></td>
 </tr>
 <tr>
 <td style="text-align: left;">CLC+BB Broadl deciduous</td>
-<td style="text-align: center;">2018</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">0.01ha</td>
+<td style="text-align: left;">2018</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">0.01ha</td>
 <td style="text-align: left;"><a
 href="https://land.copernicus.eu/user-corner/technical-library/clc-bb_user_manual_ras"><u>https://land.copernicus.eu/user-corner/technical-library/clc-bb_user_manual_ras</u></a></td>
 </tr>
 <tr>
-<td rowspan="4" style="text-align: center;"><strong>24</strong></td>
-<td rowspan="4" style="text-align: center;"><strong>FL
+<td rowspan="4" style="text-align: left;"><strong>24</strong></td>
+<td rowspan="4" style="text-align: left;"><strong>FL
 Coniferous/Evergreen</strong></td>
-<td rowspan="4" style="text-align: center;">Perennial woody plants with
+<td rowspan="4" style="text-align: left;">Perennial woody plants with
 single, self-supporting main stem or trunk, containing woody tissue and
 branching into smaller branches and shoots.<br />
-**Includes:** - Needle leaved trees: referring to trees of the botanical
-group Gymnospermae (Ford-Robertson, 1971) carrying typical needle-shaped
+<strong>Includes:</strong><br />
+- Needle leaved trees: referring to trees of the botanical group
+Gymnospermae (Ford-Robertson, 1971) carrying typical needle-shaped
 leaves. An exception is Ginkgo biloba which belongs to the Gymnospermae
 but is considered here as Broadleaved deciduous tree.<br />
 - trees that are never entirely without green foliage (includes
 palm-leaved species)</td>
 <td style="text-align: left;">HRL Forest TCD</td>
-<td style="text-align: center;">2018</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">/</td>
+<td style="text-align: left;">2018</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">/</td>
 <td style="text-align: left;"><a
 href="https://land.copernicus.eu/user-corner/technical-library/forest-2018-user-manual.pdf"><u>Forest
 2018 user manual (copernicus.eu)</u></a></td>
@@ -7865,34 +7904,36 @@ in southern Europe.</td>
 </tr>
 <tr>
 <td style="text-align: left;">HRL Forest DLT coniferous</td>
-<td style="text-align: center;">2018</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">/</td>
+<td style="text-align: left;">2018</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">/</td>
 <td style="text-align: left;"><a
 href="https://land.copernicus.eu/user-corner/technical-library/forest-2018-user-manual.pdf"><u>Forest
 2018 user manual (copernicus.eu)</u></a></td>
 </tr>
 <tr>
 <td style="text-align: left;">CLC+BB needle leaved</td>
-<td style="text-align: center;">2018</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">0.01ha</td>
+<td style="text-align: left;">2018</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">0.01ha</td>
 <td style="text-align: left;"><a
 href="https://land.copernicus.eu/user-corner/technical-library/clc-bb_user_manual_ras"><u>https://land.copernicus.eu/user-corner/technical-library/clc-bb_user_manual_ras</u></a></td>
 </tr>
 <tr>
 <td style="text-align: left;">CLC+BB Broadl evergreen</td>
-<td style="text-align: center;">2018</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">0.01ha</td>
+<td style="text-align: left;">2018</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">0.01ha</td>
 <td style="text-align: left;"><a
 href="https://land.copernicus.eu/user-corner/technical-library/clc-bb_user_manual_ras"><u>https://land.copernicus.eu/user-corner/technical-library/clc-bb_user_manual_ras</u></a></td>
 </tr>
 </tbody>
 </table>
+
+</div>
 
 [^1]: [clcplus-core.land.copernicus.eu](https://urldefense.com/v3/__https:/eur02.safelinks.protection.outlook.com/?url=https*3A*2F*2Furldefense.com*2Fv3*2F__https*3A*2Feur02.safelinks.protection.outlook.com*2F*3Furl*3Dhttps*3A*2F*2Furldefense.com*2Fv3*2F__https*3A*2F*2Feur02.safelinks.protection.outlook.com*2F*3Furl*3Dhttps*3A*2F*2Furldefense.com*2Fv3*2F__http*3A*2Fclcplus-core.land.copernicus.eu__*3B!!OepYZ6Q!vOjXaYPuONheDubX7TP8vlAB4HsNJN6FhNzsvqHkg48gGOpCiRnh1azddHGtV3Q8bU1s*24*26data*3D04*7C01*7CEugenija.Schuren*40eea.europa.eu*7C6f421a51adb245e0345308da11596ea5*7Cbe2e7beab4934de5bbc58b4a6a235600*7C1*7C0*7C637841373076254170*7CUnknown*7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0*3D*7C3000*26sdata*3Df*2By2Icsr881iMH4*2Fy4XqZL21MYo1U6rS*2FCjZy5q*2FpGQ*3D*26reserved*3D0__*3BJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSU!!OepYZ6Q!u-9fn2l19QpUDeQxuJjOpS3JsdMpopBHv_AL7TvwMKWhE5kg4Acj4zHlXO1YGA_Uya9h*24*26data*3D04*7C01*7CEugenija.Schuren*40eea.europa.eu*7C032e79d3f38e4414f98208da116dcd40*7Cbe2e7beab4934de5bbc58b4a6a235600*7C1*7C0*7C637841460556907216*7CUnknown*7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0*3D*7C3000*26sdata*3DvbJoKgAIl4Eavm8tJQxNqg03N4OUVcsiyGGM7EEFBeU*3D*26reserved*3D0__*3BJSUlJSUlJSUlJSUqKioqKioqKiolJSoqKioqKioqKioqKiUlKioqKiolJSUlJSUlJSUlJSUlJSUlJQ!!OepYZ6Q!q5qrniOv8p1iIfZjis3w329hIAadz9WRg40QUHKftwrQTJmA9rOYSiJwW14coqosJtkr*24&data=04*7C01*7CEugenija.Schuren*40eea.europa.eu*7Ced4a17eba3f84c759e1f08da1602dbae*7Cbe2e7beab4934de5bbc58b4a6a235600*7C1*7C0*7C637846498797154873*7CUnknown*7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0*3D*7C3000&sdata=OnVb26TUT97Ab*2BT4tcGZJLsOyrS1tZFQaunm67nD7D0*3D&reserved=0__;JSUlJSUlJSUlJSoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiUlKioqKioqKioqKioqJSUqJSUlJSUlJSUlJSUlJSUlJSUl!!OepYZ6Q!40atOGXaqdeEoJ_GcIGYMO63a2RM3Pvq1R4AZoytOQKlw-W_0eTXi0SexpK7ZkDuC3Tnf1gCekFB7R2NH6xjfl7QsBXT23nxVQFp$)
 
