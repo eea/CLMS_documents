@@ -5961,6 +5961,13 @@ During the 2018 Riparian Zones mapping some Level 4 classes have been merged to 
 | 1.2 | 23/03/2018 | Update to reflect Nomenclature changes for adapting to new class definition introduced 12/06/17. |
 | 1.1 | 21/09/2015 | Final Nomenclature Guideline Version 1.1 (Copernicus Initial Operations 2011-2013. Riparian Zones). |
 
+# 10 Change Log
+
+| Date | Version | Summary |
+|----|----|----|
+| 2026-06-03 | 1.5.2 | • Standardised YAML frontmatter formatting and reordered fields. • Added explicit width attributes to numerous images for consistent rendering. • Improved table formatting across various sections. • Removed obsolete page breaks throughout the document. |
+| 2026-02-10 | 1.5.1 | Document maintenance updates to include '2012-2018' in the file name and title for consistency. Image paths updated to reflect the new file name structure. |
+
 Back to top
 
 ## Footnotes

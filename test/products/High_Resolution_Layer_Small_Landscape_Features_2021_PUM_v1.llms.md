@@ -964,6 +964,12 @@ Record of changes made to the document over time after the initial published ver
 |---------|------------|------------------------------|
 | 1.0     | 16.09.2025 | Initial published issue      |
 
+# 14 Change Log
+
+| Date       | Version | Summary         |
+|------------|---------|-----------------|
+| 2026-02-10 | 1.0.0   | Initial release |
+
 Back to top
 
 ## Footnotes

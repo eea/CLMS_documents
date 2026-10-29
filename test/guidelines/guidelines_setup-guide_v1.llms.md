@@ -114,6 +114,12 @@ Editors know they need RStudio and Quarto on their machines (see [Prerequisites]
 
 The editors’ starting point is the Editor Guide. They don’t need to touch anything set up here.
 
+# 6 Change Log
+
+| Date | Version | Summary |
+|----|----|----|
+| 2026-06-03 | 1.1.0 | Added a new 'Setup Guide' document detailing the integration process for existing project repositories with the CLMS Technical Library. This includes instructions for adding the documentation repository as a Git subtree and configuring essential Git aliases for the documentation workflow. |
+
 Back to top
 
 ## Reuse

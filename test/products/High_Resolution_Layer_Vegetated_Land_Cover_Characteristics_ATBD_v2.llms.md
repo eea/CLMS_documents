@@ -202,37 +202,37 @@ It is worth mentioning that the derived delineation of non-forest tree cover are
 
 Figure 4: High-level flow chart of the production workflow for the Tree Cover & Forests products FADSL, FTY and aggregated products at 100m.
 
-In a first step an intermediate tree cover mask product is derived through spatial intersection of the two primary status layers **TCD** (≥ 10-100%) and \***DLT**, where areas under agricultural use and in urban context as provided by the **FADSL** are excluded. To ensure consistency with the specified Minimum Mapping Unit (MMU) of 0.5 hectares (equivalent to 50 pixels), the resulting tree cover mask is refined using the GDALSieve[^1] operation. This operation removes small patches below the MMU and fills in small gaps. The output is used to create an initial version of the Forest Type product, that is still missing information in areas, which were filled and marked as tree cover during the sieving process. Furthermore, an ancillary mask is created by mapping these specific pixels with no data values. The GDALFillNodata[^2] function is used to assign values to the pixel shown in the ancillary mask by using an inverse distance weighting algorithm to fill NoData areas based on the values of surrounding pixels. In the last formatting step those interpolated areas and the initial Forest Type version are combined to form the final Forest Type product, which is finally aligned to the processing extent as given in the official Boundary Layer (EEA, 2023).
+### 3.2.3 Forest Type (FTY)
 
 The **Forest Type (FTY)** layer implements forest maps largely following the definition provided by the Food and Agriculture Organization (FAO), as specified in the terms and definitions of the *Global Forest Resources Assessment (FRA) Working Paper 1 (FAO, 2012)*. The 10m FTY product is computed by applying the FAO´s definition, however, for EEA-specific purposes, it explicitly includes tree cover in traditional agroforestry systems, such as Dehesa and Montado, which are typically excluded under standard FAO criteria.
 
-In a first step an intermediate tree cover mask product is derived through spatial intersection of the two primary status layers **TCD** (≥ 10-100%) and \***DLT**, where areas under agricultural use and in urban context as provided by the **FADSL** are excluded. To ensure consistency with the specified Minimum Mapping Unit (MMU) of 0.5 hectares (equivalent to 50 pixels), the resulting tree cover mask is refined using the GDALSieve[^3] operation. This operation removes small patches below the MMU and fills in small gaps. The output is used to create an initial version of the Forest Type product, that is still missing information in areas, which were filled and marked as tree cover during the sieving process. Furthermore, an ancillary mask is created by mapping these specific pixels with no data values. The GDALFillNodata[^4] function is used to assign values to the pixel shown in the ancillary mask by using an inverse distance weighting algorithm to fill NoData areas based on the values of surrounding pixels. In the last formatting step those interpolated areas and the initial Forest Type version are combined to form the final Forest Type product, which is finally aligned to the processing extent as given in the official Boundary Layer (EEA, 2023).
+In a first step an intermediate tree cover mask product is derived through spatial intersection of the two primary status layers **TCD** (≥ 10-100%) and \***DLT**, where areas under agricultural use and in urban context as provided by the **FADSL** are excluded. To ensure consistency with the specified Minimum Mapping Unit (MMU) of 0.5 hectares (equivalent to 50 pixels), the resulting tree cover mask is refined using the GDALSieve[^1] operation. This operation removes small patches below the MMU and fills in small gaps. The output is used to create an initial version of the Forest Type product, that is still missing information in areas, which were filled and marked as tree cover during the sieving process. Furthermore, an ancillary mask is created by mapping these specific pixels with no data values. The GDALFillNodata[^2] function is used to assign values to the pixel shown in the ancillary mask by using an inverse distance weighting algorithm to fill NoData areas based on the values of surrounding pixels. In the last formatting step those interpolated areas and the initial Forest Type version are combined to form the final Forest Type product, which is finally aligned to the processing extent as given in the official Boundary Layer (EEA, 2023).
 
-### 3.2.3 Aggregated products - Tree Cover Density (TCD) 100m, Broadleaved Cover Density (BCD) & Coniferous Cover Density (CCD)
+### 3.2.4 Aggregated products - Tree Cover Density (TCD) 100m, Broadleaved Cover Density (BCD) & Coniferous Cover Density (CCD)
 
 The TCD at 100m spatial resolution is derived through spatial aggregation from the 10m TCD status layer for the respective reference year. The 100m LAEA grid is used to calculate the arithmetic mean density of all underlying 10m pixels (with density values from 0-100) for each 100m cell. The thereof resulting mean values from the aggregation (floating point data type) are rounded and finally converted to integer values (e.g. raw values in the range from 33.5 to 34.4 are converted to a density value of 34).
 
 Several further layers are derived through operations of intersection and aggregations including **Broadleaved Cover Density (BCD)** and **Coniferous Cover Density (CCD)** layers. **BCD** is the aggregated density of broadleaved trees and shows the percentage of broadleaved pixels in the **DLT** for the respective reference year while **CCD** is the aggregated density of coniferous trees and shows the percentage of coniferous pixels. Both **BCD** and **CCD** layers are derived through aggregation of the 10m **DLT**. The 100m LAEA grid is overlaid to the 10m **DLT** product. Within each 100m cell the number of broadleaved and coniferous pixels are counted and the respective percentages stored into 100m pixel of the **CCD** and **BCD**, respectively.
 
-### 3.2.4 Aggregated products - Forest Type (FTY) 100m
+### 3.2.5 Aggregated products - Forest Type (FTY) 100m
 
 The **FTY** at 100m spatial resolution is derived through spatial aggregation from the FTY 10m status layer based on the spatially consistent EEA 100m grid. The first step is to identify forest covered 100m cells by counting and summing up all forest pixels (broadleaved and coniferous) of the 10m FTY product within the respective grid cell. If the number of forest pixels is ≥ 50, the 100m grid cell is assigned to “forest cover”. In case a 100m cell contains less than 50 forest covered 10m pixels, it will be labelled as all non-forest areas in the final product.
 
 After identifying the forest areas, the CORINE Land Cover definition for broadleaved, coniferous and mixed forest is applied. The class broadleaved forest is assigned in 100m grid cells, which contain ≥75% forest pixels belonging to broadleaved. If a 100m grid cells consists of ≥ 75% coniferous pixels within the forested area it is assigned to coniferous forest. Areas in which neither “broadleaved” nor “coniferous” constituents account for ≥75% of the 10m forest pixels are labelled as mixed zones.
 
-### 3.2.5 Dominant Leaf Type Confidence Layer (DLTCL)
+### 3.2.6 Dominant Leaf Type Confidence Layer (DLTCL)
 
 The **DLTCL** uses the probabilities gained during **BVL**/**DLT** computation from the Temporal convolutional neural network to compute classification confidence. The classification confidence is considered here as the probability margin between the highest and second highest ranked leaf type class. The margin is derived by calculating the absolute difference values of probabilities for coniferous and broadleaved tree cover classes. High confidence (up to 100%) indicates domination of one class, whereas lower values (close to 0%) are typical for areas with similar probabilities, suggesting uncertainty or mixed tree cover types.
 
-### 3.2.6 Tree Cover Density Confidence Layer (TCDCL)
+### 3.2.7 Tree Cover Density Confidence Layer (TCDCL)
 
 The **TCDCL** uses the Total Uncertainty (Variance) metric calculated from CatBoost algorithm to derive the standard deviation for each estimated TCD value. Total uncertainty is the sum of data and knowledge uncertainty. The former can be seen as a measure for data complexity due to noisy data or overlapping classes. Knowledge uncertainty is obtained from a single CatBoost model by using virtual ensembles (Malinin et al. 2020). If this option is enabled during the CatBoost run the one existing model is basically divided into (n) separate models. The annual **TCD** production was done with ()=10. Based on these 10 models Knowledge uncertainty is computed by the variance of the mean values predicted by all models. Low **TCDCL** values indicate high confidence in the estimated **TCD** value.
 
-### 3.2.7 Tree Cover Presence Change Confidence Layer (TCPCCL)
+### 3.2.8 Tree Cover Presence Change Confidence Layer (TCPCCL)
 
 The **TCPCCL** relies as well on the probabilities for coniferous and broadleaved tree cover classes gained during **BVL**/**DLT** computation to calculate change confidence. The change confidence here refers to the change in combined tree cover probability from 2018 to 2021. This is done by summing up the probabilities for coniferous and broadleaved tree cover classes for each reference year and afterwards the absolute difference is calculated between 2018 and 2021 respectively. High values signal a big difference between both years and thus a high confidence in change detection, whereas lower values indicate some uncertainty.
 
-### 3.2.8 Encountered issues and known limitations
+### 3.2.9 Encountered issues and known limitations
 
 **Omission of sparse tree cover** is commonly known challenge for tree cover mapping since lower canopy cover leads to a mixed reflectance signal that becomes increasingly dominated by the understory. The issue is further aggravated by imperfections of the multi-temporal coregistration of the Sentinel-2 data. Sparse tree cover is common at the timber line but in particular in the Mediterranean comprising agroforestry systems (Dehesas, Montados) and Olive Groves. Initial classifications for the Iberian Peninsula and Southern Italy revealed large areas of Olive Groves and Dehesas which triggered a reprocessing. This included the revision of approximately 7000 additional samples and the collection of around 5500 additional tree cover samples. Retraining the model with the revised sample database indeed provided major improvements. Further enhancements were implemented also in the post-processing to boost tree cover probabilities in areas designated as Agroforestry, Olive Groves and other type of tree cover according to the Corine Land Cover layer for 2018. An example for the status of the DLT before and after the reprocessing is provided in Figure 5. Though the reprocessing has significantly reduced the amount of omission errors, tree cover omission is generally still more pronounced in the Mediterranean region.
 
@@ -264,11 +264,11 @@ All grassland products described in the following subsections are based on a com
 
 In addition to the **BVL**, different sets of auxiliary data are needed:
 
-- **Corine Land Cover (CLC 2018)**[^5] (to dampen the probability of certain areas)
+- **Corine Land Cover (CLC 2018)**[^3] (to dampen the probability of certain areas)
 
-- **CLCplus Backbone 2018 (CLCplus BB)**[^6] (as reference to derive probability thresholds)
+- **CLCplus Backbone 2018 (CLCplus BB)**[^4] (as reference to derive probability thresholds)
 
-- **HRL Grassland** 2018[^7] (as reference to derive probability thresholds)
+- **HRL Grassland** 2018[^5] (as reference to derive probability thresholds)
 
 - Previous version of **HRL Ploughing Indicator** 2018 (to mark ploughing events before availability of S2 data in 2017)
 
@@ -280,7 +280,7 @@ To derive the herbaceous layer, various operations are performed on the probabil
 
 To further tune these **HER** thresholds a manual inspection using visually interpreted sample points is conducted. In case of strong over- or underestimation the process can be rerun manually forcing the algorithm to use increased or decreased thresholds.
 
-Moreover, the probabilities between yearly layers are harmonized to reduce rapid changes that are often due to classification noise. This achieved by calculating the (fast) Dynamic Time Warp (DTW) of the time-series of two subsequent years using the **Vegetation Phenology and Productivity– Plant Phenology Index (HR-VPP PPI)**[^8] time-series (Salvador et. al. 2007). All yearly binary HER layers are finally determined by applying the threshold found in the procedure described above. Further details follow in the **Grassland Change (GRAC)** layer section 3.3.6.
+Moreover, the probabilities between yearly layers are harmonized to reduce rapid changes that are often due to classification noise. This achieved by calculating the (fast) Dynamic Time Warp (DTW) of the time-series of two subsequent years using the **Vegetation Phenology and Productivity– Plant Phenology Index (HR-VPP PPI)**[^6] time-series (Salvador et. al. 2007). All yearly binary HER layers are finally determined by applying the threshold found in the procedure described above. Further details follow in the **Grassland Change (GRAC)** layer section 3.3.6.
 
 Additionally, the binary HER layer is enriched with information from the **Crop Types (CTY)** layer. All pixels classified as fodder crop (class 1500) are included (for each year respectively) in the binary **HER** layer. Finally, the herbaceous extent is clipped to the yearly **BVL**.
 
@@ -360,7 +360,7 @@ Furthermore, the layer is clipped to actual grassland pixels. Note, that it is p
 
 ### 3.3.6 Grassland Change (GRAC)
 
-As described above, the main part of the processing and time-series analysis is carried out in the processing of the herbaceous layer as this builds the fundament of any subsequently derived layer. For the change detection, it is specifically important to include a sophisticated time-series analysis into the herbaceous classification to prevent false class-flips between consecutive years and therefore to avoid artificial changes introduced by classification noise by calculating the (fast) Dynamic Time Warp (DTW) of the time-series of two subsequent years as already described in section [Section 3.3.2](#sec-Herbaceous-Cover) In principle, various vegetation indices, such as Normalised Difference Vegetation Index (NDVI), Enhanced Vegetation Index (EVI) or Leave Area Index (LAI), can be utilized to accomplish this objective. However, for ease of use and availability, it was decided to use **HR-VPP PPI**[^9] time-series for this analysis.
+As described above, the main part of the processing and time-series analysis is carried out in the processing of the herbaceous layer as this builds the fundament of any subsequently derived layer. For the change detection, it is specifically important to include a sophisticated time-series analysis into the herbaceous classification to prevent false class-flips between consecutive years and therefore to avoid artificial changes introduced by classification noise by calculating the (fast) Dynamic Time Warp (DTW) of the time-series of two subsequent years as already described in section [Section 3.3.2](#sec-Herbaceous-Cover) In principle, various vegetation indices, such as Normalised Difference Vegetation Index (NDVI), Enhanced Vegetation Index (EVI) or Leave Area Index (LAI), can be utilized to accomplish this objective. However, for ease of use and availability, it was decided to use **HR-VPP PPI**[^7] time-series for this analysis.
 
 Depending on the similarity of the time-series in terms of DTW, the raw herbaceous classification probabilities are adapted according to the following formula:
 
@@ -370,7 +370,7 @@ with
 
 \\ f = \begin{cases} 0 & \text{for } \mathrm{DTW}(y_1, y_2) \< th\_{\min} \\ 1 & \text{for } \mathrm{DTW}(y_1, y_2) \> th\_{\max} \\ \frac{\mathrm{DTW}(y_1, y_2) - th\_{\min}}{th\_{\max} - th\_{\min}} & \text{otherwise} \end{cases} \\
 
-In this equation, \\p_1\\ and \\p_2\\ represent the herbaceous classification probabilities for the two years, while \\y_1\\ and \\y_2\\ stand for their corresponding vegetation sensitive index time-series, specifically the **HR-VPP PPI**[^10] time-series. This approach allows to define two thresholds, \\th\_{\min}\\ and \\th\_{\max}\\ which define the level of similarity that must be reached by the two signals to allow or suppress a possible class switch in the **Herbaceous Cover (HER)**. In simple terms, the DTW gives a low value for very similar time series and a high value if the time-series are different. If no change is seen, the classification probability of the previous year is kept. Values in between the two thresholds are linearly interpolated. For the production, the thresholds were set to 0,5 and 1,5, respectively.
+In this equation, \\p_1\\ and \\p_2\\ represent the herbaceous classification probabilities for the two years, while \\y_1\\ and \\y_2\\ stand for their corresponding vegetation sensitive index time-series, specifically the **HR-VPP PPI**[^8] time-series. This approach allows to define two thresholds, \\th\_{\min}\\ and \\th\_{\max}\\ which define the level of similarity that must be reached by the two signals to allow or suppress a possible class switch in the **Herbaceous Cover (HER)**. In simple terms, the DTW gives a low value for very similar time series and a high value if the time-series are different. If no change is seen, the classification probability of the previous year is kept. Values in between the two thresholds are linearly interpolated. For the production, the thresholds were set to 0,5 and 1,5, respectively.
 
 **After the grassland layers have been processed with the above algorithm, the derivation of the grassland change follows the following steps:**
 
@@ -424,7 +424,7 @@ This issue was addressed by harmonizing the **HER** time-series by comparing it 
 
 Figure 9: Comparison of GRAC layers from test production and current production taken from EEA tile E39N31 (upper example in the centre around (3957750, 3114334), lower example in the centre around (3984094, 3150073). Blue areas indicate grassland gain, red areas indicate grassland loss (for year 2018 to 2021).
 
-The **HIS-PLOUGH** from 2012 to 2015 is based on Landsat data and hence not fully consistent in terms of quality and resolution (20m) with the **PLOUGH** for later reference years (10m, based on Sentinel-2). This issue was already realized during the HRL 2018 production and at the time it was decided to rely on the **HIS-PLOUGH** for the years 2016-2018 only[^11]. The same strategy would lead to continuously decreasing grassland extent in the 2017-2021 time series and thus, the full **PLOUGH** time series was hence considered to mitigate the issue. However, the variable resolution and quality of the early **HIS-PLOUGH** years still propagates to some degree to the **Grassland (GRA)** time-series (**Error! Reference source not found.**).
+The **HIS-PLOUGH** from 2012 to 2015 is based on Landsat data and hence not fully consistent in terms of quality and resolution (20m) with the **PLOUGH** for later reference years (10m, based on Sentinel-2). This issue was already realized during the HRL 2018 production and at the time it was decided to rely on the **HIS-PLOUGH** for the years 2016-2018 only[^9]. The same strategy would lead to continuously decreasing grassland extent in the 2017-2021 time series and thus, the full **PLOUGH** time series was hence considered to mitigate the issue. However, the variable resolution and quality of the early **HIS-PLOUGH** years still propagates to some degree to the **Grassland (GRA)** time-series (**Error! Reference source not found.**).
 
 This limitation is generally difficult to be solved completely due to the unavailability of suitable Sentinel-2 time-series before 2017.
 
@@ -550,7 +550,7 @@ The requirement of a Minimum Mapping Unit for the **GRAMD** layers, albeit resul
 
 1.  The **HER** layer used for determining the areas where to apply the mowing detection algorithm does not have an MMU. It is therefore not possible to satisfy both the mapping of mowing events for all herbaceous pixels and the MMU of 0.25 ha of the **GRAMD**. As a result, the **GRAMD** still contains patches below the MMU in particular in small HER patches.
 
-2.  The GDAL sieve[^12] filter needs to be applied independently to each of the four **GRAMD** layers. This filter ensures that patches of DOY-values smaller than the threshold of 0.25 ha (25 pixels) are replaced by the value of the largest neighboring patch, but only if the size of the neighboring patch is larger than the threshold. Since this filtering is applied individually to each **GRAMD** layer (**GRAMD_1, GRAMD_2, …**), in some cases, the newly assigned value is already present in one of the other mowing event date layers at the same location (i.e. the same pixels). In such cases, it results in date duplication, where timing of the first mowing event (**GRAMD_1**) and the second mowing event (**GRAMD_2**) share the same DOY. This occurs in approximately 0.4 % of the herbaceous pixels.
+2.  The GDAL sieve[^10] filter needs to be applied independently to each of the four **GRAMD** layers. This filter ensures that patches of DOY-values smaller than the threshold of 0.25 ha (25 pixels) are replaced by the value of the largest neighboring patch, but only if the size of the neighboring patch is larger than the threshold. Since this filtering is applied individually to each **GRAMD** layer (**GRAMD_1, GRAMD_2, …**), in some cases, the newly assigned value is already present in one of the other mowing event date layers at the same location (i.e. the same pixels). In such cases, it results in date duplication, where timing of the first mowing event (**GRAMD_1**) and the second mowing event (**GRAMD_2**) share the same DOY. This occurs in approximately 0.4 % of the herbaceous pixels.
 
 3.  The independent filtering of the **GRAMD** layers explained in the previous point can also result in a fictitious increase in the mowing count of the **GRAME** layer. Furthermore, the MMU requirement cannot be guaranteed in the resulting **GRAME** layer, because the MMU-compliant patches in the single GRAMD layers could overlap in an “unfavorable” manner. On the other hand, not re-counting the events after sieving or applying a second filter on the GRAME would result in strong inconsistencies across the different layers.
 
@@ -628,7 +628,7 @@ Table 3: Overview of the used training points per dataset and year for the CTY m
 | Europe (LUCAS)           | 2018                   | 26294                  |
 | Europe (Active learning) | 2019, 2020, 2021       | 17196                  |
 
-The trained model is deployed as part of an OpenEO[^13] workflow that covers in an end-to-end way the cloud-based access to the required algorithm inputs, preprocessing steps as described above, model inference, and writing of the output product. Parallelisation is done automatically after tuning the necessary parameters such as the height and width of individual processing windows. The CTY processing is based on 20km LAEA sub-tiles of the original LAEA 100km grid.
+The trained model is deployed as part of an OpenEO[^11] workflow that covers in an end-to-end way the cloud-based access to the required algorithm inputs, preprocessing steps as described above, model inference, and writing of the output product. Parallelisation is done automatically after tuning the necessary parameters such as the height and width of individual processing windows. The CTY processing is based on 20km LAEA sub-tiles of the original LAEA 100km grid.
 
 ### 3.5.3 Post-processing
 
@@ -1194,9 +1194,11 @@ The Tree Cover Presence Change is defined with a Minimum Mapping Unit (MMU) of 1
 
 # 8 Change Log
 
-| Date       | Version | Summary         |
-|------------|---------|-----------------|
-| 2025-12-02 | 2.1.0   | Initial release |
+| Date | Version | Summary |
+|----|----|----|
+| 2026-06-03 | 2.2.1 | • Standardised YAML frontmatter formatting and reordered fields. • Added explicit width attributes to numerous images for consistent rendering. • Improved table formatting across various sections and added new footnotes. • Corrected the '\`+/-\`' symbol to '\`±\`' for consistency. • Refined the description of the Forest Type (FTY) layer, adding details about GDALSieve and GDALFillNodata. • Removed obsolete page breaks. |
+| 2026-02-10 | 2.2.0 | • Revised executive summary for clarity and conciseness. • Updated the description of the Base Vegetation Layer. • Added clarifications on handling TCD artefacts. • Minor edits to wording in various sections. |
+| 2025-12-02 | 2.1.0 | Initial release |
 
 Back to top
 
@@ -1210,24 +1212,20 @@ EUPL (\>= 1.2)
 
 [^2]: https://gdal.org/en/stable/api/gdal_alg.html#\_CPPv414GDALFillNodata15GDALRasterBandH15GDALRasterBandHdiiPPc16GDALProgressFuncPv
 
-[^3]: https://gdal.org/en/stable/api/gdal_alg.html#\_CPPv415GDALSieveFilter15GDALRasterBandH15GDALRasterBandH15GDALRasterBandHiiPPc16GDALProgressFuncPv
+[^3]: https://land.copernicus.eu/en/products/corine-land-cover/clc2018
 
-[^4]: https://gdal.org/en/stable/api/gdal_alg.html#\_CPPv414GDALFillNodata15GDALRasterBandH15GDALRasterBandHdiiPPc16GDALProgressFuncPv
+[^4]: https://land.copernicus.eu/en/products/high-resolution-layer-grasslands/grassland-2018-raster-10-m-100-m-europe-yearly
 
-[^5]: https://land.copernicus.eu/en/products/corine-land-cover/clc2018
+[^5]: https://land.copernicus.eu/en/products/high-resolution-layer-grasslands/grassland-2018-raster-10-m-100-m-europe-yearly
 
-[^6]: https://land.copernicus.eu/en/products/high-resolution-layer-grasslands/grassland-2018-raster-10-m-100-m-europe-yearly
+[^6]: **https://land.copernicus.eu/en/products/vegetation**
 
-[^7]: https://land.copernicus.eu/en/products/high-resolution-layer-grasslands/grassland-2018-raster-10-m-100-m-europe-yearly
+[^7]: **https://land.copernicus.eu/en/products/vegetation**
 
 [^8]: **https://land.copernicus.eu/en/products/vegetation**
 
-[^9]: **https://land.copernicus.eu/en/products/vegetation**
+[^9]: https://land.copernicus.eu/en/technical-library/hrl-grassland-2018-product-user-manual
 
-[^10]: **https://land.copernicus.eu/en/products/vegetation**
+[^10]: https://gdal.org/en/stable/api/gdal_alg.html#\_CPPv415GDALSieveFilter15GDALRasterBandH15GDALRasterBandH15GDALRasterBandHiiPPc16GDALProgressFuncPv
 
-[^11]: https://land.copernicus.eu/en/technical-library/hrl-grassland-2018-product-user-manual
-
-[^12]: https://gdal.org/en/stable/api/gdal_alg.html#\_CPPv415GDALSieveFilter15GDALRasterBandH15GDALRasterBandH15GDALRasterBandHiiPPc16GDALProgressFuncPv
-
-[^13]: https://openeo.org/
+[^11]: https://openeo.org/
