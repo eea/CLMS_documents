@@ -34,7 +34,7 @@ explicit per-chapter pagebreaks are no longer needed.
 
 ### `fix_typst_patterns.py`
 
-Three substitutions that resolve common Pandoc→Typst translation gotchas:
+Substitutions that resolve common Pandoc→Typst translation gotchas:
 
 - **A** — Escape literal `*.ext` (file glob) asterisks to `\*.ext`. Without
   escaping, Pandoc treats `*…*` as emphasis and the resulting
@@ -44,6 +44,9 @@ Three substitutions that resolve common Pandoc→Typst translation gotchas:
   when the first is backslash-escaped.
 - **D** — Replace `+/-`, `+ /-`, `+ / -` with `±` (U+00B1). Inside list
   items, Pandoc emits `- + / - 5 m` which Typst's parser can't read.
+- **E** — Insert a space between a footnote ref and a glued `.word`
+  (`[^10].boolean` → `[^10]. boolean`). Pandoc emits `#footnote[…].boolean`,
+  which Typst reads as field access on the footnote.
 
 ### Image widths
 
