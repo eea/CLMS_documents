@@ -1532,6 +1532,7 @@ L3 products are derived from L2b products following the rationale and the approa
 
 | Date | Version | Summary |
 |----|----|----|
+| 2026-10-29 | 4.0.2 | Removed obsolete \`toc\`, \`toc-depth\`, \`toc-title\`, and \`version\` metadata from YAML frontmatter. |
 | 2026-06-03 | 4.0.1 | • Standardised YAML frontmatter formatting and reordered fields. • Added explicit width attributes to numerous images for consistent rendering. • Improved table formatting across various sections. • Corrected the '\`+/-\`' symbol to '\`±\`' for consistency. • Escaped square brackets in '\[Optional\]:' notations. • Removed obsolete page breaks throughout the document. |
 | 2025-12-03 | 4.0.0 | Initial release |
 

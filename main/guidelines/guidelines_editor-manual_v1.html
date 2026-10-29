@@ -8,8 +8,8 @@
 
 <meta name="author" content="European Environment Agency (EEA)">
 <meta name="dcterms.date" content="2026-05-26">
-<meta name="keywords" content="CLMS Technical Library, Quarto documentation, Markdown authoring, Git subtree integration, Document publishing workflow, Versioning strategy, RStudio editing environment, ATBD templates, PUM templates, YAML header configuration, Local document previewing, Release path management">
-<meta name="description" content="This manual provides a comprehensive guide for editors contributing technical documentation to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the entire workflow for authoring, editing, and publishing scientific content using Quarto and Markdown, emphasising integration with a central repository via Git subtrees and dedicated Git aliases. The document covers essential aspects such as document structuring, YAML header configuration, versioning, local previewing within RStudio, and the multi-stage publication process, ensuring consistency and adherence to CLMS documentation standards. Its technical focus aims to empower authors to effectively manage and disseminate CLMS scientific and technical information.">
+<meta name="keywords" content="CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning, RStudio integration">
+<meta name="description" content="This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, and publishing, explaining the integration of project repositories with the central library via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the develop branch, and restoring previous document versions, ensuring consistent and efficient documentation practices for all contributors.">
 
 <title>Editor Guide – Technical Library</title>
 <style>
@@ -81,7 +81,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-81606b2d085324eee7eb30ab52c42792.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0dd071c488dc3f792b2eb35914b381fe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -113,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "Editor Guide",
-    "description": "This manual provides a comprehensive guide for editors contributing technical documentation to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the entire workflow for authoring, editing, and publishing scientific content using Quarto and Markdown, emphasising integration with a central repository via Git subtrees and dedicated Git aliases. The document covers essential aspects such as document structuring, YAML header configuration, versioning, local previewing within RStudio, and the multi-stage publication process, ensuring consistency and adherence to CLMS documentation standards. Its technical focus aims to empower authors to effectively manage and disseminate CLMS scientific and technical information.",
+    "description": "This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, and publishing, explaining the integration of project repositories with the central library via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the develop branch, and restoring previous document versions, ensuring consistent and efficient documentation practices for all contributors.",
     "datePublished": "May 26, 2026",
     "author": {
       "@type": "Person",
@@ -225,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `1.2.0`.trim();
+    const raw = `1.3.0`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -233,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.2.0</p>
+          <p>1.3.0</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -248,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    This manual provides a comprehensive guide for editors contributing technical documentation to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the entire workflow for authoring, editing, and publishing scientific content using Quarto and Markdown, emphasising integration with a central repository via Git subtrees and dedicated Git aliases. The document covers essential aspects such as document structuring, YAML header configuration, versioning, local previewing within RStudio, and the multi-stage publication process, ensuring consistency and adherence to CLMS documentation standards. Its technical focus aims to empower authors to effectively manage and disseminate CLMS scientific and technical information.
+    This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, and publishing, explaining the integration of project repositories with the central library via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the <code>develop</code> branch, and restoring previous document versions, ensuring consistent and efficient documentation practices for all contributors.
   </div>
 </div>
 
@@ -276,7 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>CLMS Technical Library, Quarto documentation, Markdown authoring, Git subtree integration, Document publishing workflow, Versioning strategy, RStudio editing environment, ATBD templates, PUM templates, YAML header configuration, Local document previewing, Release path management</p>
+    <p>CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning, RStudio integration</p>
   </div>
 </div>
 
@@ -381,19 +381,21 @@ Tip
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"HRL Forest"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"High Resolution Layer - Forest Type"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2026-01-27"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">product-name</span><span class="kw">:</span><span class="at"> </span><span class="st">"HRL Forest"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">category</span><span class="kw">:</span><span class="at"> products</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2026-01-27"</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><code>title</code> - short product name, appears as the document title</li>
 <li><code>subtitle</code> - full product name or document type description</li>
+<li><code>category</code> - one of <code>products</code>, <code>guidelines</code>, <code>reports</code>, <code>uncategorized</code>, <code>non-browsable</code></li>
 <li><code>date</code> - publication or last-updated date in ISO format</li>
-<li><code>product-name</code> - used internally for metadata and indexing</li>
 </ul>
 </section>
 <section id="optional-fields" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="optional-fields"><span class="header-section-number">3.2</span> Optional fields</h2>
 <ul>
+<li><code>type</code> - how the document is built. Leave it out for ordinary documents. Set <code>type: dashboard</code> for an interactive page: it renders to HTML only - no PDF, no table of contents, no version or changelog. New types are added by a Technical Library owner.</li>
+<li><code>product-name</code> - used internally for metadata and indexing</li>
 <li><code>template-version</code> - records which template version was used as the starting point. Set automatically when copying a template; don’t edit it manually.</li>
 </ul>
 </section>
@@ -610,6 +612,11 @@ Tip
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-10-29</td>
+<td>1.3.0</td>
+<td>Updated YAML frontmatter guidelines to include a new 'category' field as required and a new 'type' field as optional, detailing their usage. Removed the `description` field from the document's own metadata.</td>
+</tr>
+<tr class="even">
 <td>2026-06-03</td>
 <td>1.2.0</td>
 <td>• Major restructuring and rewrite of the manual to focus on practical editing aspects for the CLMS Technical Library.
@@ -618,7 +625,7 @@ Tip
 • Added new simplified sections on document lifecycle, publishing flow, folder and file structure, naming conventions, versioning, and restoring previous versions.
 • Updated the document date.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2026-02-10</td>
 <td>1.1.0</td>
 <td>• Extended explanation for `git docs-restore` functionality.
@@ -626,7 +633,7 @@ Tip
 • Added more precise instructions.
 • Minor edits to wording in various sections.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>2025-12-03</td>
 <td>1.0.0</td>
 <td>Initial release</td>

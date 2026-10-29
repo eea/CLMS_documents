@@ -6,7 +6,7 @@ The High-Resolution Layer Small Landscape Features 2021 (HRL SLF) Product User M
 
 Published
 
-April 9, 2026
+September 16, 2025
 
 Keywords
 
@@ -169,7 +169,7 @@ The Common Agricultural Policy (CAP) comprises 9 key objectives for the period 2
 
 source for monitoring changes and to track changes of landscape features in European agricultural landscapes. The CAP Indicator I.21 aims to assess the area covered by landscape features in the agricultural land. The Copernicus Small Woody Features products are proposed as one of the information sources for the creation of the CAP I.21 indicator on landscape features ([Figure 1](#fig-figure1)). The agricultural area is derived with the help of Corine Land Cover (CLC) data which is spatially refined with Copernicus High Resolution Layers (HRL).
 
-![](High_Resolution_Layer_Small_Landscape_Features_2021_PUM_v1-media/img-3a19d0780acfafe464786f6a2f981693595afb0d.png)
+![](High_Resolution_Layer_Small_Landscape_Features_2021_PUM_v1-media/img-3a19d0780acfafe464786f6a2f981693595afb0d.jpg)
 
 Figure 1: Share of agricultural area (AA) covered with woody landscape features at different NUTS levels based on SWF 2015 (Kleeschulte, 2020)
 
@@ -966,9 +966,10 @@ Record of changes made to the document over time after the initial published ver
 
 # 14 Change Log
 
-| Date       | Version | Summary         |
-|------------|---------|-----------------|
-| 2026-02-10 | 1.0.0   | Initial release |
+| Date | Version | Summary |
+|----|----|----|
+| 2026-10-29 | 1.0.1 | Refactored YAML frontmatter for consistency, removing explicit table of contents settings and version field. |
+| 2026-02-10 | 1.0.0 | Initial release |
 
 Back to top
 

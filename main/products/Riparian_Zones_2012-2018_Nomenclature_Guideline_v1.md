@@ -164,7 +164,7 @@ correspond to the MAES[^2] typology of ecosystems.
 <img
 src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Capture1.png"
 style="width:5.38in" data-fig-align="left"
-data-fig-alt="| Level 1 | Level 2 | Level 3 | Level 4 | |---|---|---|---| | 1 Urban | 1.1 Urban fabric, industrial, commercial, public, military and private units | 1.1.1 Urban fabric (predominantly public and private units) | 1.1.1.1 Continuous Urban Fabric (IM.D ≥ 80%) | | 1 Urban | 1.1 Urban fabric, industrial, commercial, public, military and private units | 1.1.1 Urban fabric (predominantly public and private units) | 1.1.1.2 Dense Urban Fabric (IM.D ≥ 30-80%) | | 1 Urban | 1.1 Urban fabric, industrial, commercial, public, military and private units | 1.1.1 Urban fabric (predominantly public and private units) | 1.1.1.3 Low Density Urban Fabric (IM.D &lt; 30%) | | 1 Urban | 1.1 Urban fabric, industrial, commercial, public, military and private units | 1.1.2 Industrial, commercial and military units | 1.1.2.0 | | 1 Urban | 1.2 Transport infrastructure | 1.2.1 Road networks and associated land | 1.2.1.0 | | 1 Urban | 1.2 Transport infrastructure | 1.2.2 Railways and associated land | 1.2.2.0 | | 1 Urban | 1.2 Transport infrastructure | 1.2.3 Port areas and associated land | 1.2.3.0 | | 1 Urban | 1.2 Transport infrastructure | 1.2.4 Airports and associated land | 1.2.4.0 | | 1 Urban | 1.3 Mineral extraction, dump and construction sites, land without current use | 1.3.1 Mineral extraction, dump and construction sites | 1.3.1.0 | | 1 Urban | 1.3 Mineral extraction, dump and construction sites, land without current use | 1.3.2 Land without current use | 1.3.2.0 | | 1 Urban | 1.4 Green urban, sports and leisure facilities | 1.4.0 | 1.4.0.0 | | 2 Cropland | 2.1 Arable land | 2.1.1 Arable irrigated and non-irrigated land | 2.1.1.0 | | 2 Cropland | 2.1 Arable land | 2.1.2 Greenhouses | 2.1.2.0 | | 2 Cropland | 2.2 Permanent crops | 2.2.0 | 2.2.0.0 | | 2 Cropland | 2.2 Permanent crops | 2.2.1 Vineyards, fruit trees and berry plantations | 2.2.1.0 | | 2 Cropland | 2.2 Permanent crops | 2.2.2 Olive groves | 2.2.2.0 | | 2 Cropland | 2.3 Heterogeneous agricultural area | 2.3.1 Annual crops associated with permanent crops | 2.3.1.0 | | 2 Cropland | 2.3 Heterogeneous agricultural area | 2.3.2 Complex cultivation patterns | 2.3.2.0 | | 2 Cropland | 2.3 Heterogeneous agricultural area | 2.3.3 Land principally occupied by agriculture with significant areas of natural vegetation | 2.3.3.0 | | 2 Cropland | 2.3 Heterogeneous agricultural area | 2.3.4 Agro-forestry | 2.3.4.0 | | 3 Woodland and forest | 3.0 | 3.0.0 | 3.0.0.0 | | 3 Woodland and forest | 3.1 Broadleaved forest | 3.1.1 Natural &amp; semi-natural broadleaved forest | 3.1.1.0 | | 3 Woodland and forest | 3.1 Broadleaved forest | 3.1.2 Highly artificial broadleaved plantations | 3.1.2.0 | | 3 Woodland and forest | 3.2 Coniferous forest | 3.2.1 Natural &amp; semi-natural coniferous forest | 3.2.1.0 | This table presents a detailed hierarchical Land Cover / Land Use (LCLU) nomenclature, version 1.4.1, dated 2021.04.07, structured into four levels (Level 1 to Level 4) with corresponding codes, designed to align with MAES (Mapping and Assessment of Ecosystems and their Services) typology. The nomenclature includes primary categories for Urban, Cropland, and Woodland and forest, which are further refined into sub-categories down to specific land cover types such as &#39;Continuous Urban Fabric (IM.D ≥ 80%)&#39; and &#39;Olive groves&#39;." />
+data-fig-alt="/ Level 1 / Level 2 / Level 3 / Level 4 / /---/---/---/---/ / 1 Urban / 1.1 Urban fabric, industrial, commercial, public, military and private units / 1.1.1 Urban fabric (predominantly public and private units) / 1.1.1.1 Continuous Urban Fabric (IM.D ≥ 80%) / / 1 Urban / 1.1 Urban fabric, industrial, commercial, public, military and private units / 1.1.1 Urban fabric (predominantly public and private units) / 1.1.1.2 Dense Urban Fabric (IM.D ≥ 30-80%) / / 1 Urban / 1.1 Urban fabric, industrial, commercial, public, military and private units / 1.1.1 Urban fabric (predominantly public and private units) / 1.1.1.3 Low Density Urban Fabric (IM.D &lt; 30%) / / 1 Urban / 1.1 Urban fabric, industrial, commercial, public, military and private units / 1.1.2 Industrial, commercial and military units / 1.1.2.0 / / 1 Urban / 1.2 Transport infrastructure / 1.2.1 Road networks and associated land / 1.2.1.0 / / 1 Urban / 1.2 Transport infrastructure / 1.2.2 Railways and associated land / 1.2.2.0 / / 1 Urban / 1.2 Transport infrastructure / 1.2.3 Port areas and associated land / 1.2.3.0 / / 1 Urban / 1.2 Transport infrastructure / 1.2.4 Airports and associated land / 1.2.4.0 / / 1 Urban / 1.3 Mineral extraction, dump and construction sites, land without current use / 1.3.1 Mineral extraction, dump and construction sites / 1.3.1.0 / / 1 Urban / 1.3 Mineral extraction, dump and construction sites, land without current use / 1.3.2 Land without current use / 1.3.2.0 / / 1 Urban / 1.4 Green urban, sports and leisure facilities / 1.4.0 / 1.4.0.0 / / 2 Cropland / 2.1 Arable land / 2.1.1 Arable irrigated and non-irrigated land / 2.1.1.0 / / 2 Cropland / 2.1 Arable land / 2.1.2 Greenhouses / 2.1.2.0 / / 2 Cropland / 2.2 Permanent crops / 2.2.0 / 2.2.0.0 / / 2 Cropland / 2.2 Permanent crops / 2.2.1 Vineyards, fruit trees and berry plantations / 2.2.1.0 / / 2 Cropland / 2.2 Permanent crops / 2.2.2 Olive groves / 2.2.2.0 / / 2 Cropland / 2.3 Heterogeneous agricultural area / 2.3.1 Annual crops associated with permanent crops / 2.3.1.0 / / 2 Cropland / 2.3 Heterogeneous agricultural area / 2.3.2 Complex cultivation patterns / 2.3.2.0 / / 2 Cropland / 2.3 Heterogeneous agricultural area / 2.3.3 Land principally occupied by agriculture with significant areas of natural vegetation / 2.3.3.0 / / 2 Cropland / 2.3 Heterogeneous agricultural area / 2.3.4 Agro-forestry / 2.3.4.0 / / 3 Woodland and forest / 3.0 / 3.0.0 / 3.0.0.0 / / 3 Woodland and forest / 3.1 Broadleaved forest / 3.1.1 Natural &amp; semi-natural broadleaved forest / 3.1.1.0 / / 3 Woodland and forest / 3.1 Broadleaved forest / 3.1.2 Highly artificial broadleaved plantations / 3.1.2.0 / / 3 Woodland and forest / 3.2 Coniferous forest / 3.2.1 Natural &amp; semi-natural coniferous forest / 3.2.1.0 / This table presents a detailed hierarchical Land Cover / Land Use (LCLU) nomenclature, version 1.4.1, dated 2021.04.07, structured into four levels (Level 1 to Level 4) with corresponding codes, designed to align with MAES (Mapping and Assessment of Ecosystems and their Services) typology. The nomenclature includes primary categories for Urban, Cropland, and Woodland and forest, which are further refined into sub-categories down to specific land cover types such as &#39;Continuous Urban Fabric (IM.D ≥ 80%)&#39; and &#39;Olive groves&#39;." />
 
 | Level 1 | Level 2 | Level 3 | Level 4 |
 |----|----|----|----|
@@ -220,7 +220,7 @@ Two-digit numeric code for the second classification level (e.g., 4
 <img
 src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Capture3.png"
 style="width:5.4in" data-fig-align="left"
-data-fig-alt="This table presents an extract from a Copernicus Land Monitoring Service (CLMS) Land Cover/Land Use (LC/LU) legend, detailing a hierarchical nomenclature for water-related categories based on a four-level coding system (CODE level 1 to CODE level 4) relevant for the Reference Year 2018. The table shows Level 2, Level 3, and Level 4 codes and descriptions. | Level 2 Category | Level 3 Sub-category | Level 4 Code | |---|---|---| | 8.2 [Description unreadable] | 8.2.4 Standing water bodies of extractive industrial sites | 8.2.4.0 | | 8.3 Transitional waters | 8.3.1 Lagoons | 8.3.1.0 | | 8.3 Transitional waters | 8.3.2 Estuaries | 8.3.2.0 | | 8.4 Sea and ocean | 8.4.0 | 8.4.0.0 | This extract details specific water body types, including different forms of transitional waters and open sea/ocean categories, each assigned a unique hierarchical code. The full nomenclature is designed to correspond to the MAES (Mapping and Assessment of Ecosystems and their Services) typology of ecosystems."
+data-fig-alt="This table presents an extract from a Copernicus Land Monitoring Service (CLMS) Land Cover/Land Use (LC/LU) legend, detailing a hierarchical nomenclature for water-related categories based on a four-level coding system (CODE level 1 to CODE level 4) relevant for the Reference Year 2018. The table shows Level 2, Level 3, and Level 4 codes and descriptions. / Level 2 Category / Level 3 Sub-category / Level 4 Code / /---/---/---/ / 8.2 [Description unreadable] / 8.2.4 Standing water bodies of extractive industrial sites / 8.2.4.0 / / 8.3 Transitional waters / 8.3.1 Lagoons / 8.3.1.0 / / 8.3 Transitional waters / 8.3.2 Estuaries / 8.3.2.0 / / 8.4 Sea and ocean / 8.4.0 / 8.4.0.0 / This extract details specific water body types, including different forms of transitional waters and open sea/ocean categories, each assigned a unique hierarchical code. The full nomenclature is designed to correspond to the MAES (Mapping and Assessment of Ecosystems and their Services) typology of ecosystems."
 alt="Detailed Nomenclature for the LC/LU dataset (version 1.4.1, dated 2021.04.07)" />
 
 This table presents an extract from a Copernicus Land Monitoring Service
@@ -429,7 +429,7 @@ classes in detail.
 ## 1 Urban
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Urban.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Urban.jpg"
 style="width:1.68in"
 data-fig-alt="A circular, blurred aerial photograph depicting an urban or suburban landscape. The central feature is a wide, multi-lane road, possibly a highway, with several indistinct vehicles visible. On both sides of the road, there are tall buildings, suggesting an urban environment. The sky above is clear blue. The image is contained within a light blue circular border. Due to the heavy blurring, specific details of the buildings, vehicles, or surrounding terrain are not discernible." />
 
@@ -663,7 +663,7 @@ classification of “Continuous Urban Fabric (IM.D ≥80%)” and other
 associated land cover types.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image13.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image13.jpg"
 style="width:1.73in" data-fig-align="left"
 data-fig-alt="A false-colour infrared aerial or satellite image displaying an urbanized coastal landscape. Vegetation, including trees and grass, appears in bright red, indicating high infrared reflectance. Impervious surfaces such as buildings and roads are rendered in shades of grey. The lower right portion of the image is dominated by a dark blue/black water body, likely a bay or harbour, featuring several piers and visible boats. A distinct light blue line delineates a specific irregularly shaped area within the dense urban fabric, encompassing buildings, roads, and some red-coloured vegetation. A fainter, thin green line also traces the edges of vegetated areas, particularly along the water&#39;s edge and the outer perimeter of the urban settlement."
 alt="Class 1.1.1.1, City Skien (Norway). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2012-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -681,7 +681,7 @@ traces the edges of vegetated areas, particularly along the water’s edge
 and the outer perimeter of the urban settlement.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image14.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image14.jpg"
 style="width:1.73in" data-fig-align="left"
 data-fig-alt="This map displays detailed false-colour infrared (FCIR) satellite imagery of a coastal or lakeside landscape, overlaid with pixelated thematic data and vector boundaries. The base imagery shows vegetation in reddish-pink (e.g., top-left), water bodies in very dark blue/black (bottom centre-left), and developed or urban areas in lighter, yellowish-beige tones (top-left, bottom-left). A pixelated thematic layer, ranging from dark reddish-brown to lighter yellowish-brown, is overlaid on the base imagery. Darker reddish-brown pixels cover a significant central area, while lighter yellowish-brown pixels are scattered throughout. A prominent cyan (turquoise) line outlines a large, irregular polygon, which encompasses a substantial portion of the dark reddish-brown pixelated area and includes internal segments. Green dashed lines are visible in the lower-left and lower-right portions of the map, and some dotted lines extend from the cyan polygon. No legend, scale bar, compass, or specific geographic location is provided."
 alt="Class 1.1.1.1, City Skien (Norway).SPOT-5 and HR I.MD. (1/2/3 Band Combination). Date: 2012-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -820,7 +820,7 @@ on their visual appearance in high-resolution satellite data. The data
 source is CNES 2011©.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image18.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image18.jpg"
 style="width:2.15in" data-fig-align="left"
 data-fig-alt="This map displays a False Colour Infrared (FCIR) satellite or aerial image of an urban area bordered by a dark blue body of water, likely a river, at the top. Healthy vegetation appears bright red, prominently along the riverbanks and surrounding the settlement. Impervious surfaces such as buildings and roads in the urban core are depicted in shades of grey and white. A prominent linear feature, likely a road or railway, runs diagonally through the western part of the urban area. Overlaid on the imagery are two sets of vector lines: light blue polygons delineate specific urban blocks or developed zones within the settlement, and thin green lines outline larger, irregular land parcels, including areas along the river and encompassing the broader urban and vegetated landscape. No scale bar, compass, legend, or reference year is visible."
 alt="Class 1.1.1.2 City Lunde (Norway). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2012-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -839,7 +839,7 @@ along the river and encompassing the broader urban and vegetated
 landscape. No scale bar, compass, legend, or reference year is visible.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image19.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image19.jpg"
 style="width:1.99in" data-fig-align="left"
 data-fig-alt="The image displays false-colour satellite imagery of a landscape featuring a dark blue river winding through the upper portion. Vegetated areas appear in shades of red, indicating the use of near-infrared bands, while other features appear in greens, browns, and lighter tones. Overlaid on this background imagery is a gridded thematic data layer, represented by square pixels. These pixels exhibit a gradient of brown colours, ranging from light beige to dark reddish-brown, where darker shades indicate higher values and lighter shades indicate lower values. The specific meaning or units of these values are not provided as no legend is present. Two light blue (cyan) polygons outline a large, irregular area in the central-left, with a smaller, partially overlapping polygon inside. Additionally, several green dashed lines indicate smaller boundaries, likely agricultural parcels or fields, particularly on the left side of the image. There is no scale bar, compass, or specific geographic label visible."
 alt="Class 1.1.1.2 City Lunde (Norway). SPOT-5 and HR I.MD. (1/2/3 Band Combination). Date: 2012-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -936,7 +936,7 @@ is less than 30%.
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image22.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image22.jpg"
 style="width:2.79in" data-fig-align="left"
 data-fig-alt="A false-colour infrared satellite map displays a rural landscape, likely showing vegetation in shades of red and less vegetated areas or bare soil in lighter tones of brown and grey. A winding dark feature, appearing as a river or stream, runs through the central and lower-right parts of the image, with a dark oval-shaped water body (pond) visible adjacent to it. Thin green lines overlay the imagery, delineating various land parcels, which likely represent different land cover / land use (LCLU) classes such as agricultural fields, forest patches, and open land. Prominent cyan (light blue) outlines highlight individual buildings or small clusters of buildings scattered across the landscape, indicating areas of impervious surface. No geographic labels, scale, legend, or date information is visible."
 alt="Class 1.1.1.3 Low Density Urban fabric at Siljan region (Norway). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2012-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -955,7 +955,7 @@ indicating areas of impervious surface. No geographic labels, scale,
 legend, or date information is visible.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image23.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image23.jpg"
 style="width:2.78in" data-fig-align="left"
 data-fig-alt="The image is a false-colour infrared (FCIR) satellite map showing a vegetated landscape with a river. The underlying satellite imagery displays dense vegetation in shades of deep red and maroon, suggesting healthy biomass, while a river appears as a dark blue/black band running horizontally across the lower part of the map. Lighter, more disturbed land or bare soil patches are also visible. Overlaid on this imagery is a pixelated grid displaying data in a colour gradient from light yellow to dark reddish-brown. These pixels are distributed across the land area, with lighter yellow pixels appearing more scattered and darker reddish-brown pixels tending to cluster, often associated with what appear to be built-up areas or infrastructure in the underlying imagery. Several irregular polygonal zones are delineated by thick light blue outlines, enclosing many of the areas with denser, darker pixel overlays. Additionally, thin green lines delineate other boundaries, particularly along the river and surrounding some vegetated areas. No legend, scale bar, compass, or specific geographic location labels are visible."
 alt="Class 1.1.1.3, City Skien (Norway). SPOT-5 (2.5m) (1/2/3 Band Combination) together with HR IM.D. Date: 2012-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -979,7 +979,7 @@ legend, scale bar, compass, or specific geographic location labels are
 visible.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image24.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image24.jpg"
 style="width:3.43in" data-fig-align="left"
 data-fig-alt="False-colour infrared satellite imagery from SPOT-5 (2.5m resolution) depicting a landscape classified as &#39;Class 1.1.1.3 Low Density Urban Fabric.&#39; The image displays a patchwork of rectangular agricultural fields in various shades of reddish-purple and turquoise, indicating different vegetation types or growth stages. Scattered throughout the fields are individual buildings and small clusters of buildings, many of which are delineated by yellow outlines and labelled &#39;1.1.1.3&#39;. A winding river or stream flows across the lower portion of the image, bordered by dense, bright red vegetation characteristic of healthy foliage in false-colour infrared. Thin linear features, likely roads or paths, are visible traversing the agricultural areas. The imagery is part of a CLMS CORINE Land Cover (CLC) nomenclature guideline, with a similar image noted to be from 2012-08-11."
 alt="In regions with scattered houses, only large accumulations of houses are mapped (Example from Poland). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2011-07-23. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -1170,7 +1170,7 @@ land cover class. The source is CNES 2011©, Distribution Airbus DS/Spot
 Image.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image29.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image29.jpg"
 style="width:4.37in" data-fig-align="left"
 data-fig-alt="The map illustrates the generalized delineation of a low density urban fabric area in Poland using false-colour SPOT-5 satellite imagery with 2.5 m resolution, captured on 2011-07-23. The imagery uses a 1/2/3 Band Combination. Vegetation appears in shades of red, while urban structures and roads are visible in blue/grey/white tones. A yellow polygon outlines the urban fabric area, corresponding to CORINE Land Cover (CLC) class 1.1.1.3 (labelled as &#39;1111&#39; within the polygon). The map demonstrates generalization rules for land cover mapping: * Gaps larger than 50 m, indicated by an arrow labelled &#39;&gt; 50 m&#39; on the left, separate distinct urban segments that are not merged into a single delineation. * Gaps smaller than 50 m, indicated by arrows labelled &#39;&lt; 50 m&#39; within the polygon, are included in the urban delineation to connect scattered urban blocks, following the rule to close gaps with a maximum width of 50 m. * An area labelled &#39;2321&#39; is visible in the surrounding agricultural landscape, which is explicitly excluded from the urban delineation. The source is CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="Urban mapping example from Poland: SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2011-07-23. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -1234,7 +1234,7 @@ If UA is available, keep the outline and just correct real errors.
 “Fine-tuning” of the class borders is not necessary.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image31.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image31.jpg"
 style="width:4.03in" data-fig-align="left"
 data-fig-alt="A false-colour infrared satellite map of an area in Poland, acquired on 2011-07-23 by SPOT-5 (2.5m resolution, 1/2/3 Band Combination), illustrating the application of generalization rules for Copernicus Land Monitoring Service (CLMS) Land Use / Land Cover (LULC) mapping, specifically for low-density urban fabric. The background satellite imagery shows vegetation in shades of red and cultivated areas in lighter green/red strips, with impervious surfaces appearing bluish-green. Overlaid yellow polygons delineate different land cover classes, indicated by numeric codes: - **1111:** Represents continuous urban fabric, including residential areas and associated gardens. - **1120:** Represents discontinuous urban fabric, indicating less dense urbanized areas. - **2110:** Represents arable land, visible as long, distinct cultivated fields. - **3310:** Represents a forest or dense vegetation patch. - **4100:** Represents agricultural land or grassland, including larger parcels interspersed with urban areas. The map demonstrates how generalization rules are applied to connect single urban blocks, include private gardens within urban class boundaries, and close gaps of less than 50 meters to provide a cartographically representative outline of urban areas. Larger agricultural areas (width &gt; 50 m) at the urban border are excluded from the urban classification. Source: CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="UA delineation of a village in Poland presented on SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2011-07-23. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -1529,7 +1529,7 @@ system:*
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image35.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image35.jpg"
 style="width:5.18in" data-fig-align="left"
 data-fig-alt="This is a false-colour infrared aerial image depicting a mixed landscape with an industrial complex, a large water body, forested areas, and residential zones. The image uses infrared bands where healthy vegetation appears bright red/pink, water bodies appear dark blue/black, and impervious surfaces like buildings and roads appear light blue/grey. A large industrial complex, consisting of numerous light blue/grey buildings and associated infrastructure, is centrally located and clearly delineated by a light blue (cyan) polygon boundary. To the north and northwest of this complex is a dark blue/black water body (likely a lake or large pond). Adjacent to the water and the industrial complex, especially to its north, are areas of dense vegetation shown in bright red, indicating a forest or heavily vegetated land. South and east of the industrial complex, the landscape transitions into residential areas, characterised by smaller, reddish-pink building rooftops and a network of roads (thin green lines overlaid on the image, potentially representing cadastral or road network data). Additional green lines are visible, outlining the water body and defining other land parcels. No scale bar, compass, legend, or reference year is visible."
 alt="Industrial site of Skien (Norway). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2012-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -1723,7 +1723,7 @@ wheeled vehicles with a Minimum Mapping Unit (MMU) of 10 metres.
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image40.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image40.jpg"
 style="width:1.55in" data-fig-align="left"
 data-fig-alt="A false colour infrared aerial map displays a rural landscape dominated by vegetation, water bodies, and human infrastructure. A dark blue/black river flows longitudinally along the right side of the image. Parallel to this river, a prominent light blue linear feature, likely a road or a path, curves through the left-central portion of the map. The majority of the land is covered by bright red areas, indicating healthy vegetation, characteristic of forests and actively growing agricultural fields. Interspersed with these red areas are lighter brown/tan patches, suggesting areas of bare soil, less vigorous vegetation, or possibly harvested fields. Numerous distinct polygonal shapes, outlined in green, demarcate various land parcels, including fields and forested sections. A small, dark blue/black water body (pond or lake) is visible on the left side of the image, west of the light blue linear feature. Scattered small white or grey pixels suggest individual buildings or small settlements, particularly along the light blue linear feature. No scale bar, compass, legend, or acquisition date is present."
 alt="Example of Class 1.2.1.0 from Siljan (Norway) presented on SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2012-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -1746,7 +1746,7 @@ settlements, particularly along the light blue linear feature. No scale
 bar, compass, legend, or acquisition date is present.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image41.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image41.jpg"
 style="width:2.62in" data-fig-align="left"
 data-fig-alt="The image displays a false-colour satellite map of an urban and peri-urban area intersected by a prominent dark river. The underlying satellite imagery uses a colour scheme where dense vegetation appears red, water bodies are dark blue/black, and artificial surfaces (buildings, roads) are greyish-white. Overlaid on this imagery are two sets of vector lines: fine green lines delineate numerous polygonal shapes, likely representing land cover or land use parcels, including residential blocks, vegetated areas, and industrial sites. Thicker cyan lines depict a network of linear features, most likely roads or transportation infrastructure, which traverse the urban areas and cross the river at multiple points. No scale bar, compass, legend, data source, or reference year is visible. The map visually represents the distribution of urban development, natural vegetation, and water bodies, highlighting their interconnections via a linear network and detailed land cover segmentation."
 alt="Example of class 1.2.1.0 city of Skien (Norway) presented on SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2012-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -1768,7 +1768,7 @@ highlighting their interconnections via a linear network and detailed
 land cover segmentation.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image42.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image42.jpg"
 style="width:2.49in" data-fig-align="left"
 data-fig-alt="This is a false-colour satellite image example of Copernicus Land Monitoring Service (CLMS) Land Use / Land Cover (LULC) Class 1.2.1.0 for the city of Skien, Norway. The image was acquired on 2012-08-11 by SPOT-5 satellite at 2.5m resolution, using a 1/2/3 Band Combination. The source is CNES 2011©, Distribution Airbus DS/Spot Image. The false-colour composite shows dense vegetation and agricultural fields in shades of red, urban fabric and impervious surfaces in bluish-grey, and water bodies (a river) in dark blue/green. Overlaid in turquoise are prominent linear features representing transport infrastructure, including a large bridge crossing the river and associated road networks, explicitly labelled &#39;1.2.1.0&#39;. This class corresponds to &#39;Road and rail networks and associated land&#39; within the CLC+ nomenclature guideline. The highlighted infrastructure connects densely built-up urban areas on both banks of the river and extends into surrounding vegetated and cultivated landscapes."
 alt="Example of class 1.2.1.0 Bismil (Turkey). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2013-07-13. Source: CNES 2013©, Distribution Airbus DS/Spot Image" />
@@ -1814,7 +1814,7 @@ surrounding vegetated and cultivated landscapes.
 <u>Specific Generalisation Rule:</u>
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image43.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image43.jpg"
 style="width:4.49in" data-fig-align="left"
 data-fig-alt="This image displays a land cover/land use map illustrating various classified polygons and linear features, with an overlaid &#39;Identify&#39; tool window from a Geographic Information System (GIS). The map uses a colour scheme of predominantly light green for classified land cover areas, with light grey lines delineating features like roads and boundaries. Multiple polygons are labelled with four-digit land cover/land use codes: * `1111`: Continuous urban fabric * `1120`: Discontinuous urban fabric * `1210`: Industrial or commercial units * `1220`: Road and rail networks and associated land * `1400`: Sport and leisure facilities * `2110`: Non-irrigated arable land * `3420`: Sclerophyllous vegetation * `4100`: Wetlands * `9110`: An unclarified land cover type within this specific nomenclature. A linear feature, identified as part of the `1220` (Road and rail networks and associated land) and `3420` (Sclerophyllous vegetation) classes, is highlighted in light purple. The &#39;Identify&#39; tool window shows: * **Identify from:** `&lt;Top-most layer&gt;` * **Location:** `4.201.819,924 2.988.572,209 Meters` * **Identified:** `1 feature` The coordinates are given in meters, indicating a projected Coordinate Reference System (CRS). An area in the bottom right corner is partially outlined in red, possibly indicating an area of interest or a boundary. No scale bar, compass, or specific geographic location is provided on the map itself."
 alt="Class 3.4.2.0 surrounded by 1.2.1.0 and area &lt; 0.5 ha: map as associated feature and generalize into road" />
@@ -1905,7 +1905,7 @@ Unit (MMU).
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image45.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image45.jpg"
 style="width:1.56in" data-fig-align="left"
 data-fig-alt="This map displays false-colour infrared (FCIR) satellite imagery of a mixed landscape. Vegetation appears in various shades of red, water bodies are dark blue or black, and urban areas or impervious surfaces are rendered in grey and light blue tones. Green lines delineate numerous land parcels or land cover/land use units across the visible area. A prominent cyan-coloured linear feature, likely representing a road or railway, traverses the map from top to bottom, crossing a large river (dark blue/black) centrally. Another cyan-coloured polygon highlights a specific rectangular urbanized or industrial block located adjacent to the river and the linear feature. The map shows a detailed view of an area featuring agricultural fields, vegetated land, a river, and urban infrastructure. No scale, compass, legend, or specific geographic location is visible."
 alt="Class 1.2.2.0 city of Lunde (Norway). SPOT-5 (2.5m) (1/2/3 Band Combination) Date: 2012-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -1925,7 +1925,7 @@ and urban infrastructure. No scale, compass, legend, or specific
 geographic location is visible.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image46.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image46.jpg"
 style="width:2.33in" data-fig-align="left"
 data-fig-alt="This map presents a false-colour infrared aerial or satellite image of a river valley. The main river meanders through the scene, appearing in dark blue/black. Healthy vegetation, such as forests and agricultural areas, is highly reflective in the infrared spectrum and appears in shades of dark red/pink. Urban infrastructure, including roads and buildings, is visible in lighter grey and white tones. Green lines delineate various land cover parcels or administrative boundaries across the landscape. A prominent cyan-coloured polygon highlights an elongated urban and infrastructure strip located on the right bank, running parallel to the river and a main road. Other identifiable features include a sports complex with a running track and field on the left bank of the river and a potential harbour or marina in the bottom right corner. No scale bar, compass orientation, legend, data source, or reference year is visible in the image."
 alt="Class 1.2.2.0 city of Gvarv (Norway.) SPOT-5 (2.5m) (1/2/3 Band Combination) Date: 2012-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -1978,7 +1978,7 @@ data are available, map only those railroad features that can be
 detected with SPOT5/6 data.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image47.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image47.jpg"
 style="width:1.88in" data-fig-align="left"
 data-fig-alt="This is an aerial image of an unlabelled urban or industrial area, displaying land cover in an infrared representation, where vegetated areas appear in red hues and built-up structures or impervious surfaces appear in grey and white tones. A red polygon outline defines a specific zone within this area. Within and around this outlined zone, aqua-coloured linear features represent extensive transportation infrastructure, including a complex of multiple parallel railway tracks or roads dominating the central-right part of the image, and other connecting lines. The red-outlined zone encloses a mix of industrial or commercial buildings and significant transportation infrastructure. No scale bar, compass, legend, or reference year is visible in the image."
 alt="Industrial site with railways from ancillary data in turquoise. Example from Stockholm (Sweden). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2012-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -2071,7 +2071,7 @@ and its associated land.
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image49.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image49.jpg"
 style="width:2.34in" data-fig-align="left"
 data-fig-alt="The image is a false-colour infrared satellite map depicting a coastal port or industrial facility. The main complex is outlined by a light blue (cyan) polygon and shows a dense arrangement of grey-toned artificial surfaces (buildings, paved areas, bare ground) and some interspersed dark red vegetated areas. This large delineated area also contains several smaller, internal light blue polygons, indicating sub-divisions within the facility. The surrounding land to the west is predominantly covered by dark red vegetation, characteristic of forests or dense shrubland in false-colour infrared imagery, with some areas outlined by thin green lines. A large dark blue/black body of water, representing the sea or ocean, borders the facility on its eastern and southern sides. No scale bar, compass, or date information is visible."
 alt="Delineation of a port area and associated land located at Surtebogen (Norway). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2012-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -2147,7 +2147,7 @@ Land Monitoring Service (CLMS) documentation.
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image51.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image51.jpg"
 style="width:3.16in" data-fig-align="left"
 data-fig-alt="A false-color satellite or aerial image depicting a diverse landscape composed of urban, industrial, and agricultural features. The image uses a colour scheme where healthy vegetation appears bright red, impervious surfaces (such as buildings, roads, and bare soil/concrete) are light blue or cyan, and areas with sparse vegetation, dry grass, or fallow land appear greenish-brown or tan. Key features visible include: - A prominent complex of light blue/cyan buildings, including several large rectangular structures and numerous smaller ones arranged in rows, indicative of an industrial facility, large campus, or military base, located in the central and right portions of the image. - A large, irregular-shaped open area with greenish-brown hues, possibly an airfield or testing ground, occupying the upper central portion. This area contains a curved track and some small, regularly spaced dark features. - A network of roads and parking lots (light blue/cyan) connects the various structures within the industrial/urban complex. - To the left, a residential-like area with smaller light blue/cyan buildings is visible, bordered by distinct rectangular agricultural fields, some appearing bright red (healthy vegetation) and others bright white/yellow (bare soil or harvested fields). - The periphery of the image, particularly the top, left, and bottom, shows additional agricultural fields and areas of dense red vegetation, likely forests or active crop fields. A road network with what appears to be an interchange is visible in the top-left corner. No scale bar, compass, or explicit date is visible on the image."
 alt="Military airport at Wilhelmswöerth (Germany). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2010-07-14. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -2179,7 +2179,7 @@ what appears to be an interchange is visible in the top-left corner. No
 scale bar, compass, or explicit date is visible on the image.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image52.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image52.jpg"
 style="width:2.89in" data-fig-align="left"
 data-fig-alt="This is a false-colour infrared (NIR) satellite image depicting an airfield and its surrounding rural landscape. The image uses a colour composite where healthy vegetation, such as crops and forested patches, appears bright red. Areas of bare soil, fallow fields, or less vigorous vegetation are shown in shades of green and beige. A small dark blue pond, characteristic of water bodies in NIR imagery, is visible in the upper-left quadrant. The central feature is an airfield, comprising at least one main runway and parallel taxiways, which appear grey to light blue. A cluster of white to light blue buildings, likely hangars and support facilities, is located adjacent to the runways. Linear features resembling roads or tracks traverse the agricultural fields and connect to the airfield complex."
 alt="Airport Worms (Germany).* *SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2010-07-14. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -2198,7 +2198,7 @@ resembling roads or tracks traverse the agricultural fields and connect
 to the airfield complex.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image53.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image53.jpg"
 style="width:3.91in" data-fig-align="left"
 data-fig-alt="This map displays a false-colour infrared satellite image of an airport and its surrounding land cover. The airport infrastructure, including its main runway, a secondary shorter runway, buildings, and associated tarmac, appears in shades of grey, white, and light blue. Extensive vegetated areas within and adjacent to the airport, likely grassland or agricultural fields, are rendered in shades of red, characteristic of vegetation in false-colour infrared imagery. A light blue polygon boundary encloses the core airport area, and within this boundary, the numerical label &#39;1240&#39; is visible, which corresponds to the CORINE Land Cover (CLC) class code for &#39;Airports&#39;. A river, appearing dark blue, forms the southern border of the delineated airport area. Beyond the main airport boundary, the landscape comprises agricultural fields (shown in red and brown hues) segmented by thin dark blue lines indicating parcel divisions, and a small settlement with grey-toned buildings is visible to the northeast. No scale bar, compass rose, or explicit date information is present within the image."
 alt="Erzinkan airport (Turkey). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2011-09-16. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -2378,7 +2378,7 @@ banks.*
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image58.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image58.jpg"
 style="width:2.37in" data-fig-align="left"
 data-fig-alt="The image is a false-colour satellite map showing land cover delineations with superimposed numerical codes. The imagery likely uses a 1/2/3 band combination, similar to SPOT-5 (2.5m) imagery from 2010–2011 referenced in the document context, where healthy vegetation appears red. The specific geographic location is not stated. Several distinct land cover polygons are outlined: * An area outlined in cyan and labelled `1310` represents a light-coloured, bare ground feature, consistent with &#39;Mineral extraction, dump and construction sites&#39; as per the document&#39;s delineation rules for active gravel pits (1.3.1.0). * Multiple areas outlined in green or dark green/black and labelled `9210` show dense red vegetation (forests) adjacent to dark water bodies, consistent with &#39;Riparian forests and scrub habitats&#39;. * A large vegetated area, outlined in green and labelled `3310`, displays dense red vegetation, which, based on the document&#39;s context for non-active gravel pits showing bushes, is visually consistent with &#39;Transitional woodland and scrub&#39; (3.4.1.0). * Two areas outlined in green and labelled `1210` show reddish-brown, bare or sparsely vegetated disturbed ground adjacent to the main pit area. * One additional area in the lower right is outlined in green with an `[unreadable]` label. The map illustrates the classification and delineation of various land cover types, including an active extractive site and its surrounding natural and semi-natural areas."
 alt="Delineation of mineral extraction site at Bostrac (Norway). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2010-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -2409,7 +2409,7 @@ cover types, including an active extractive site and its surrounding
 natural and semi-natural areas.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image59.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image59.jpg"
 style="width:2.11in" data-fig-align="left"
 data-fig-alt="False-colour infrared SPOT-5 satellite image (2.5m resolution, 1/2/3 band combination) depicting the delineation of a mineral extraction site and surrounding land cover types, likely for Copernicus Land Monitoring Service (CLMS) CORINE Land Cover (CLC) classification. The image highlights a large central area, outlined in light blue, labelled &#39;1310&#39;, which represents a mineral extraction, dump, and construction site (CORINE Land Cover class 1.3.1.0). This central area appears as light grey and bare ground. Surrounding the extraction site, extensive vegetation is shown in red, with polygons outlined in light green and labelled &#39;3210&#39;, corresponding to broad-leaved forest (CORINE Land Cover class 3.2.1.0) or transitional woodland and scrub (CORINE Land Cover class 3.4.1.0), as suggested by the nearby text for non-active gravel pits. In the upper left, an area of buildings is labelled &#39;1400&#39; (likely Industrial or commercial units, CLC class 1.4.x.x). In the upper right, near a road network, a polygon is labelled &#39;1210&#39; (likely discontinuous urban fabric, CLC class 1.2.1.0). In the bottom right, an area of continuous artificial surfaces is labelled &#39;1110&#39; (likely continuous urban fabric, CLC class 1.1.1.0). The imagery source is CNES 2011©, Distribution Airbus DS/Spot Image, with similar images in the document dated 2010-08-11 or 2013-08-07."
 alt="Delineation of construction site at Skien (Norway). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2010-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -2528,7 +2528,7 @@ category ‘1.3.2.0 Land without Current Use’.
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image62.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image62.jpg"
 style="width:1.45in" data-fig-align="left"
 data-fig-alt="This image displays false-colour satellite imagery of land cover near Porsgun, Norway, captured on 2010-08-11 by the SPOT-5 sensor at 2.5 m resolution, using a 1/2/3 Band Combination. The source is CNES 2011©, distributed by Airbus DS/Spot Image. Dense vegetation, likely forests, appears in shades of dark red. Lighter areas indicate bare land, low-density vegetation, or urban structures. Roads are visible as dark linear features. Overlaid cyan and green polygons define specific land cover classes. A large cyan-outlined area is labelled `1320`, representing &#39;Land without current use&#39; (likely corresponding to CORINE Land Cover class 132 &#39;Dump sites&#39; or similar degraded land). Several green-outlined areas are labelled `1400` (in a forested area), `1120` (Discontinuous urban fabric), `4112` (in two separate locations near roads), `1230` (near a road), `4113`, and `411` (smaller polygons on the right edge). The image serves as an example for detailed land cover classification in the context of the Copernicus Land Monitoring Service (CLMS) Nomenclature Guideline."
 alt="Land without current use near Porsgun (Norway). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2010-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -2551,7 +2551,7 @@ classification in the context of the Copernicus Land Monitoring Service
 (CLMS) Nomenclature Guideline.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image63.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image63.jpg"
 style="width:1.85in" data-fig-align="left"
 data-fig-alt="This map displays a false-colour infrared (CIR) satellite image illustrating various land cover types in an urban/industrial environment, typically used for Copernicus Land Monitoring Service (CLMS) land cover classification. The image uses a 1/2/3 band combination, where healthy vegetation appears red, urban structures and bare earth appear in shades of grey and blue, and water bodies are dark blue or black. Key land cover polygons are outlined and labelled with numerical codes, interpreted as CORINE Land Cover (CLC) categories based on the surrounding document context: - A prominent, elongated area in the centre, outlined in light blue, is labelled &#39;1330&#39;, representing &#39;Construction sites, Land without current use, Waste land&#39;. This area shows characteristics of disturbed or disused land. - Areas labelled &#39;1110 (Continuous urban fabric)&#39; are visible towards the top, and &#39;1120 (Discontinuous urban fabric)&#39; are present to the east and north of the central &#39;1330&#39; area, indicating built-up zones. - Linear features and associated land, identified as &#39;1210 (Road and rail networks and associated land)&#39;, traverse the image. - An area to the west of the &#39;1330&#39; zone is labelled &#39;1310 (Mineral extraction sites)&#39;. - Adjacent to a body of water at the bottom right, an area is labelled &#39;1220 (Port areas)&#39;. - A large vegetated area, appearing distinctly red in the CIR composite, is located in the upper left portion of the image."
 alt="Land without current use near Porsgun (Norway). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2010-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -2783,7 +2783,7 @@ Map only distinct “holiday and leisure infrastructure” (e. g. camping
 grounds) as *1.4 Green urban, sports and leisure facilities.*
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image69.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image69.jpg"
 style="width:3.37in" data-fig-align="left"
 data-fig-alt="False-colour infrared satellite image of Uleforss, Norway, captured by SPOT-5 at 2.5m resolution on 2010-08-11, using a 1/2/3 (Green, Red, Near-infrared) band combination. The image depicts a diverse landscape including: dense vegetation (forests) appearing in deep red, particularly in the upper and lower sections; a major linear transport infrastructure (road/highway) running horizontally across the middle, shown in grey/blue; and an adjacent settlement with clusters of buildings in light grey/blue. North of the main road, a large area of lighter red/pink vegetation with distinct patterns is visible, identified as a golf course based on external context, interspersed with scattered smaller buildings (possibly holiday homes or cabins) within the forested landscape. A dark blue water body, likely a lake or wide river, is present in the bottom right corner. A prominent bright yellow line delineates a boundary, starting from the lower left, following along the main road, and then curving northwards to encompass portions of the forested area and the golf course. This line likely indicates a land cover classification boundary. Source: CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="Example of 1.1.1.3 Low density fabric (IM.D &lt;30%). Village Åre (Sweden). Map only distinct “holiday and leisure infrastructure” (e. g. camping grounds) as 1.4.0.0 SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2011-07-27. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -2950,7 +2950,7 @@ vegetables (e.g. asparagus), whether open field or under plastic sheets.
 Includes market gardening and aromatic, medicinal and culinary plants.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image71.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image71.jpg"
 style="width:3.33in" data-fig-align="left"
 data-fig-alt="A photograph depicting a large field dominated by bright yellow flowering crops, likely rapeseed (colza), covering a gentle slope. In the immediate foreground, there is a strip of green grass. The mid-ground features a few green bushes and trees, while the background shows a drier, sparsely vegetated hill with a visible track or path winding upwards. The image illustrates an agricultural landscape, specifically an arable land cover type. The partial document caption associated with this image is &#39;Schematic representation of managed&#39;."
 alt="Non-irrigated arable land: Rapeseed in Germany. Credits: M. Probeck" />
@@ -2983,7 +2983,7 @@ falls under CLC class “2.1.1.0 Arable Irrigated and Non-Irrigated Land”
 and specifically “Class 2.1.1.0 Type A: Non-Irrigated Arable Land.”
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image74.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image74.jpg"
 style="width:6.27in" data-fig-align="left"
 data-fig-alt="Choropleth map illustrating a rural landscape with various land cover and land use (LULC) features. The map&#39;s legend defines four categories: &#39;Arable land&#39; (represented by light yellow areas with thin green vertical lines, covering most of the depicted area), &#39;Rural settlement&#39; (represented by a cluster of black and grey rectangular shapes located in the upper central part), &#39;Roads&#39; (represented by narrow white strips intersecting the arable land), and &#39;River&#39; (represented by a winding blue band traversing the central part of the map from left to right). The map depicts a settlement situated north of the river, surrounded by arable fields and connected by roads. No scale bar, compass, or specific data source/year is visible."
 alt="Schematic representation of managed non-irrigated arable land" />
@@ -3119,7 +3119,7 @@ cultivated land. No specific scale or date is visible.
   characteristic of crops.</span>  
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image78.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image78.jpg"
 style="width:2.01in" data-fig-align="left"
 data-fig-alt="This is a false-colour satellite or aerial image depicting a rural landscape. The image is dominated by various shades of light yellow, tan, green, and prominent red areas. Light yellow and tan patches with distinct linear boundaries represent agricultural fields, some appearing fallow or harvested, showing patterns of cultivation. Darker green and brown areas likely indicate denser vegetation or scrubland, often bordering the fields. A prominent linear feature, appearing white or light grey, traverses the upper right and central parts of the image, consistent with a road or major track. In the lower-central part, a small settlement is visible as a cluster of red and light-coloured features, suggesting urban areas with dense vegetation or specific roof types in this false-colour scheme. Patches of intense red within and surrounding the settlement, as well as in some agricultural fields, typically represent healthy vegetation in infrared composites. No scale bar, compass, or textual annotations are present."
 alt="Non-irrigated arable land in Altnkusak (Anatolia, Turkey) SPOT-5 (2,5 m.) (NIR/R/G Band Combination). Date: 2011-08-05 Source: CNES 2011© Distribution Airbus DS/Spot Image" />
@@ -3144,7 +3144,7 @@ bar, compass, or textual annotations are present.
   summer-time.</span>  
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image79.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image79.jpg"
 style="width:4.35in" data-fig-align="left"
 data-fig-alt="This map displays satellite imagery of an agricultural landscape in Altnkusak (Anatolia, Turkey), acquired on 2011-08-05 by SPOT-5 at 2.5 m resolution, using a Near-Infrared/Red/Green (NIR/R/G) band combination (Source: CNES 2011©, Distribution Airbus DS/Spot Image). The imagery is overlaid with black and yellow outlines delineating different land cover classes, indicated by yellow numeric codes. Large areas of the central and left parts are classified as `2111` (Non-irrigated arable land), appearing in bright red, consistent with vital green vegetation in an NIR/R/G composite. Areas coded `3231` (e.g., on the right side) show darker, more textured reddish-brown tones, likely representing forests or sclerophyllous vegetation. A winding dark blue/black feature, labelled `9111`, represents a water course or water body. Narrower reddish polygons adjacent to the water body are labelled `3131`, potentially indicating riparian forest or transitional woodland/shrub. Other smaller, less distinct areas are labelled `2141` (Complex cultivation patterns) and `4112`."
 alt="Non-irrigated arable land in northern Sweden. (1/2/3 Band Combination). SPOT-5 image. Date: 2013-08-05. Source: CNES 2013©, Distribution Airbus DS/Spot." />
@@ -3209,7 +3209,7 @@ Mediterranean will be based on biogeographic regions cartography.
   extensively managed fruit trees.</span>  
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image80.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image80.jpg"
 style="width:2.94in" data-fig-align="left"
 data-fig-alt="A ground-level photograph depicts a vibrant green field of crops, likely maize or corn, under a bright sky. In the foreground, a dark-coloured, trough-like irrigation channel carries flowing water, originating from a concrete, circular basin. The channel runs parallel to the crop field, with a strip of grass and some sparse vegetation between the channel and the cultivated area. In the background, a line of trees and bushes is visible, with faint outlines of buildings further in the distance. This image illustrates irrigated arable land, characterised by the presence of permanent irrigation infrastructure providing an artificial water supply to the crops."
 alt="Irrigation channel in Osmaniye (Turkey). Credits:“Osmaniye irrigation” by Ozgurmulazimoglu - Own work. Licensed under Creative Commons Attribution-Share Alike 3.0 via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:Osmaniye_irrigation.JPG#mediaviewer/File:Osmaniye_irrigation.JPG" />
@@ -3226,7 +3226,7 @@ of permanent irrigation infrastructure providing an artificial water
 supply to the crops.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image81.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image81.jpg"
 style="width:4.75in" data-fig-align="left"
 data-fig-alt="This is an illustrative conceptual map depicting various land cover and land use features within an agricultural landscape. A legend on the right side defines nine distinct categories and their visual representations: * **Irrigated arable land:** shown in dark green. * **Fallow land in irrigated areas:** depicted in light brown/beige. * **Irrigated fruit trees:** represented by patterned squares of green dots on a light background. * **Non-irrigated arable land:** characterized by a very light yellow/beige colour with fine vertical lines. * **Alluvial grassland:** shown in a medium green colour. * **Trees:** represented by stylized green tree icons, often clustered along the main river. * **Rivers:** shown as blue lines; a wider main river flows horizontally through the map, with thinner blue lines representing tributaries or smaller streams. * **Roads:** indicated by light green lines, connecting various parcels and buildings. * **Rural buildings:** depicted as small black and white square/rectangle icons. * **Irrigation channel:** shown as thin wavy blue lines, often running alongside irrigated areas. Spatially, the map illustrates a main river flowing through the center, bordered by areas of alluvial grassland and linear tree formations. Irrigated arable land and irrigated fruit trees are generally situated in proximity to the main river or connected to irrigation channels. Non-irrigated arable land and fallow land are distributed across the broader landscape. Rural buildings are scattered near roads and agricultural parcels. No scale bar, compass orientation, or specific geographic location is indicated directly on the map."
 alt="Schematic representation of a permanent irrigated area with irrigation channels." />
@@ -3268,7 +3268,7 @@ geographic location is indicated directly on the map.
   vary from an agricultural year to another within the same area.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image82.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image82.jpg"
 style="width:4.29in" data-fig-align="left"
 data-fig-alt="This image comprises two visual elements: a photograph and a schematic map. The left side features a photograph captioned &#39;Sprinkler irrigation. Credit: M. Palacios.&#39; The photo shows an agricultural field with active sprinkler irrigation, featuring water sprays over cultivated land, and a background with a distant hilly landscape and electricity pylons. The right side presents a schematic map titled &#39;Schematic representation of an area irrigated in summer-time using underground water.&#39; The map illustrates different land uses with a legend: - **Irrigated arable land:** Depicted in bright green solid fill. - **Center-pivot irrigation:** Represented by a large circular area that includes a pie chart symbol with three coloured sectors (dark green, light green, and light yellow). - **Non-irrigated arable land:** Shown as light yellow areas with a fine vertical line pattern. - **Roads:** Illustrated by light grey lines that delineate parcels and provide access within the schematic area. The map displays a network of roads dividing the area into various rectangular and irregularly shaped land parcels. Several parcels are designated as &#39;Irrigated arable land,&#39; while the majority of the area is &#39;Non-irrigated arable land.&#39; A prominent circular zone in the upper-left quadrant represents &#39;Center-pivot irrigation.&#39;" />
 
@@ -3299,7 +3299,7 @@ prominent circular zone in the upper-left quadrant represents
   or Portugal (Alentejo).</span> 
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image83.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image83.jpg"
 style="width:4.33in" data-fig-align="left"
 data-fig-alt="This composite image features a photograph of a center-pivot irrigation system and a schematic diagram illustrating the resulting land use patterns. The photograph, credited to J. Pecci, shows the mechanical structure of a mobile center-pivot irrigation system with its long, trussed pipeline on wheels traversing a tilled agricultural field under an overcast sky. The adjacent schematic diagram, titled &#39;Schematic representation of an area irrigated using center-pivot irrigation systems,&#39; depicts different land cover and infrastructure elements within an agricultural landscape. The legend defines the colour and pattern coding: * **Center-pivot irrigation** is represented by circular or partial circular areas segmented into dark green (irrigated) and beige (non-irrigated) portions. * **Other irrigated parcels** are shown as solid dark green rectangular or irregular polygons. * **Non-irrigated arable land** is depicted with a striped beige pattern, filling the areas not covered by irrigation. * **Roads** are indicated by thin white lines. * **Rural buildings** are represented by small black rectangles. * **Irrigation pond** is shown as a dark blue rectangle, with one central pond among several circular irrigation fields. The schematic illustrates the characteristic circular and segmented land cover patterns created by center-pivot irrigation, interspersed with other irrigated and non-irrigated parcels, roads, buildings, and water infrastructure." />
 
@@ -3357,7 +3357,7 @@ year to another within the same area.
   etc.).</span> 
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image85.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image85.jpg"
 style="width:4.29in" data-fig-align="left"
 data-fig-alt="This image consists of two juxtaposed visuals: a photograph on the left and a schematic map on the right. The photograph shows an &#39;Irrigation pond and fruits trees in South-East Spain,&#39; with credit attributed to M. Palacios. The landscape features a large, still body of water in the foreground (the irrigation pond), surrounded by green vegetation and fruit trees. In the background, rolling hills rise under a clear sky. The right-hand side displays a &#39;Schematic representation of irrigated fruits trees parcels with irrigation ponds.&#39; This diagram illustrates different land cover types and infrastructure elements. A legend on the right indicates: - Irrigated arable land: represented by bright green polygons. - Irrigated fruit trees: depicted as grids of small olive green squares. - Non-irrigated arable land: shown as light yellow areas with vertical lines. - Roads: thin light grey lines. - Rural buildings: black rectangles with white interiors. - Irrigation pond: dark blue polygons. The schematic shows a layout of various land parcels, roads, multiple irrigation ponds, and rural buildings. Several large areas of &#39;irrigated fruit trees&#39; are depicted, often located near or connected to &#39;irrigation pond&#39; features. &#39;Irrigated arable land&#39; is also present, as are larger expanses of &#39;non-irrigated arable land.&#39; The diagram provides a conceptual view of how irrigated agricultural land, particularly fruit tree parcels, are spatially organised in relation to water sources and infrastructure." />
 
@@ -3415,7 +3415,7 @@ infrastructure.
 infrastructure</u>
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image86.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image86.jpg"
 style="width:1.98in" data-fig-align="left"
 data-fig-alt="An aerial false-colour infrared image depicts a rural landscape. A compact village, characterized by whitish-grey built-up areas, is centrally located. Surrounding the village are numerous distinct, irregularly shaped agricultural parcels, predominantly appearing bright red, indicating actively growing vegetation or healthy crops. Some fields are lighter, in tan or light grey, suggesting bare soil, harvested areas, or different crop types. Linear features, likely roads or tracks, connect the village to the surrounding fields. In the upper right quadrant, an irregular, light grey and tan linear feature is visible, possibly representing a natural channel or dry riverbed. The resolution allows for discernment of individual buildings and field boundaries, consistent with high-resolution land monitoring data."
 alt="Traditional irrigated area in Saka (Anatolia, Turkey) SPOT-5 (2.5 m.) (NIR/R/G Band Combination). Date: 2011-09-06 Source: CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -3444,7 +3444,7 @@ boundaries, consistent with high-resolution land monitoring data.
 <u>Rice fields</u>
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image87.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image87.jpg"
 style="width:1.98in" data-fig-align="left"
 data-fig-alt="A false-colour infrared satellite image displays an agricultural landscape. The majority of the land parcels, primarily rectangular and irregularly shaped fields, are depicted in various shades of reddish-purple, indicating active and healthy vegetation characteristic of false-colour infrared imagery. Lighter green and blue linear features traverse the scene, forming a network that delineates field boundaries and likely represents roads, tracks, or water channels. Small, brighter green and blue clusters of pixels are scattered across the image, possibly corresponding to buildings, farmsteads, or specific types of non-vegetated or water features. No specific geographic location, scale bar, or date is visible."
 alt="Rice fields at Rosayenda, Italy. SPOT-5 (2.5 m) (1/2/3 band combination). Date: 2011-07-29. Source: CNES 20011©, Distribution Airbus DS / Spot Image" />
@@ -3529,7 +3529,7 @@ information is present within the image itself.
 <u>Intensively managed fruit trees plantations</u>
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image90.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image90.jpg"
 style="width:1.81in" data-fig-align="left"
 data-fig-alt="A False Colour Composite (FCC) satellite image displays a rural landscape dominated by agricultural fields, a water body, and a small settlement. The image uses near-infrared wavelengths, rendering healthy vegetation in bright red. A large body of dark blue water is visible along the bottom edge, with an irregular coastline. Adjacent to the coast, and extending inland, are numerous rectangular agricultural fields. Some fields appear in vibrant red, indicating actively growing, healthy vegetation, while others are in shades of light beige and brownish-grey, suggesting bare soil, fallow land, or harvested areas. Patterns within some beige fields suggest tilled land or crop rows. In the upper-central part of the image, a cluster of white, light grey, and reddish-grey irregular shapes indicates a small human settlement with buildings and associated infrastructure. The terrain in the upper and upper-right portions of the image appears undulating or hilly, with lighter, less structured land cover."
 alt="Irrigated fruits trees plantation in Morhamam (Anatolia, Turkey) SPOT-5 (2.5 m.) (NIR/R/G Band Combination). Date: 2011-06-29 Source: CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -3575,7 +3575,7 @@ lighter, less structured land cover.
     land.*
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image94.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image94.jpg"
 style="width:6.27in" data-fig-align="left"
 data-fig-alt="This image displays two conceptual maps illustrating land cover and land use, with a legend for the left map and classification labels for the right map. The left map shows a detailed rural landscape with multiple land cover/land use types: - **Dark green:** Irrigated arable land - **Light brown:** Fallow land in irrigated areas - **Gridded dark green:** Irrigated fruit trees - **Striped light yellow:** Non-irrigated arable land - **Mid-green:** Alluvial grassland - **Small green trees:** Trees - **Blue wavy line:** Rivers - **Light green rectangular lines:** Roads - **Black/grey rectangles:** Rural buildings - **Blue thin wavy line:** Irrigation channel The right map shows a simplified representation of the same area after reclassification. Most of the agricultural land and associated features from the left map are aggregated into a single class, indicated by bright green areas labelled &#39;2.1.1.0&#39;. Based on context, &#39;2.1.1.0&#39; corresponds to &#39;Arable irrigated and non-irrigated land,&#39; which includes fallow land and irrigated fruit trees. Non-irrigated arable land (striped light yellow) remains distinct, as do the rivers (blue). The map demonstrates the process of aggregating detailed land use information into broader categories for land cover mapping systems like CORINE Land Cover (CLC+)."
 alt="Example of final result of classification of traditional irrigated land with traditional infrastructures" />
@@ -3617,7 +3617,7 @@ CORINE Land Cover (CLC+).
     will be used.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image95.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image95.jpg"
 style="width:6.27in" data-fig-align="left"
 data-fig-alt="This diagram illustrates the classification of different land cover types, specifically focusing on irrigated and non-irrigated arable land, using both visual representation and a numerical nomenclature. The left panel, titled &#39;Example of final result of classification of traditional irrigated land with traditional infrastructures&#39; (from context), depicts a landscape with four distinct visual categories based on the legend: * **Irrigated arable land:** shown as dark green polygons. * **Center-pivot irrigation:** depicted as light green semi-circular areas. The legend&#39;s icon for this category is a pie chart with light green and beige sections. * **Non-irrigated arable land:** represented by a pale yellow background with fine vertical light-green stripes. * **Roads:** shown as grey lines and broader grey polygonal areas. * Additionally, there are unlabelled beige polygonal areas visible, which visually correspond to the beige section of the &#39;Center-pivot irrigation&#39; pie chart icon in the legend, but are spatially distinct from the light green semi-circular areas on the map. The right panel displays the numerical classification of the same area. Most of the irrigated arable land (dark green polygons) and all light green semi-circular center-pivot irrigation areas from the left panel are assigned the label &#39;2.1.1.0&#39;. Two polygonal areas, which were dark green &#39;Irrigated arable land&#39; in the left panel, are classified as &#39;2.1.3.1&#39;. The background representing &#39;Non-irrigated arable land&#39; remains visually distinct but is not explicitly numerically labelled in this panel. According to the document&#39;s context, &#39;2.1.1.0 Arable irrigated and non-irrigated land&#39; is a broad category that includes traditional irrigated land, non-irrigated land, irrigated fruit-trees, and center-pivot irrigation parcels within traditional irrigated areas."
 alt="Example of final result of classification of irrigated land using underground water" />
@@ -3671,7 +3671,7 @@ and center-pivot irrigation parcels within traditional irrigated areas.
     pivots irrigation systems are included.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image96.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image96.jpg"
 style="width:6.27in" data-fig-align="left"
 data-fig-alt="The image displays two schematic maps illustrating the classification of an agricultural area, transitioning from a detailed representation to an aggregated CORINE Land Cover (CLC) class. The left map presents a detailed view of land cover and land use features. Its legend defines six categories: * &#39;Center-pivot irrigation&#39; (green/yellow pie chart symbol) * &#39;Other irrigated parcels&#39; (medium green solid fill) * &#39;Non-irrigated arable land&#39; (light yellow vertically striped fill) * &#39;Roads&#39; (pale yellow solid fill) * &#39;Rural buildings&#39; (black rectangular symbol) * &#39;Irrigation pond&#39; (dark blue solid fill) The map shows multiple circular features, some fully dark green (irrigated), others partly dark green and partly pale yellow (non-irrigated arable land) or light yellow (non-irrigated arable land), representing center-pivot irrigation. Other rectangular plots are marked as &#39;Other irrigated parcels&#39;. Light yellow areas denote &#39;Non-irrigated arable land&#39; and &#39;Roads&#39; form linear pathways. An &#39;Irrigation pond&#39; and &#39;Rural buildings&#39; are also visible. The right map shows the aggregated classification of the entire area depicted on the left. The majority of the area is uniformly coloured medium green and labelled &#39;2110&#39;. Based on the surrounding text, this corresponds to the CLC class &#39;2.1.1.0 Arable irrigated and non-irrigated land&#39;. The periphery of this classified area is coloured pale yellow, consistent with &#39;Roads&#39; or unclassified surrounding features from the detailed map. The overall representation demonstrates how complex, mixed land uses within an agricultural landscape, including various irrigation systems and infrastructure, are simplified into a single, broader land cover class for mapping purposes."
 alt="Example of final result of classification of centre pivot irrigation systems" />
@@ -3717,7 +3717,7 @@ cover class for mapping purposes.
     and soil removal) will be also included.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image98.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image98.jpg"
 style="width:6.27in" data-fig-align="left"
 data-fig-alt="The image displays two conceptual maps illustrating land cover classification in an agricultural area. The left map shows a detailed breakdown of land use and cover types, identified by specific colours and patterns: * Bright green: Irrigated arable land * Green dotted pattern: Irrigated fruit trees * Striped light yellow: Non-irrigated arable land * Grey: Roads * Black: Rural buildings * Dark blue: Irrigation pond This map depicts a landscape with multiple land parcels, a road network, buildings, and irrigation infrastructure, including ponds and fruit tree plantations. The right map shows a simplified classification of the same area, highlighting specific land cover types with numeric codes. Bright green areas are labelled &#39;2110&#39; and represent &#39;Arable irrigated and non-irrigated land,&#39; consistent with the &#39;2.1.1.0 Arable irrigated and non-irrigated land&#39; class mentioned in the accompanying text. The background, which is the striped light yellow, represents non-irrigated arable land. This second map illustrates the final result of a classification process, where various detailed land features from the left map are generalized into the &#39;2110&#39; category based on criteria like spectral signature and a minimum mapping unit (e.g., &gt; 0.5 ha)."
 alt="Example of final result of classification of intensively managed fruit trees plantations" />
@@ -3752,7 +3752,7 @@ red colours in infrared combinations bands in summer time, meanwhile, at
 the same time, non-irrigated parcels have not vegetation.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image100.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image100.jpg"
 style="width:3.97in" data-fig-align="left"
 data-fig-alt="Satellite imagery displaying a comparison of an agricultural area using SPOT-5 data from two dates in 2011. The left portion of the image, labelled &#39;SPOT-5 2011-06-&#39;, shows a landscape with predominantly grey-green vegetated areas, some scattered reddish patches, dark irregular features (likely water bodies or shadows), and white cloud cover. The right portion, labelled &#39;SPOT-5 2011-07-15&#39;, shows a significant increase in vigorous vegetation, depicted as prominent reddish-pink areas, with distinct curvilinear patterns characteristic of actively watered center pivot irrigation systems within agricultural fields. This comparison highlights the rapid development and spectral signature change of irrigated land over a short period during the summer, used for classification of &#39;2.1.1.0 Arable irrigated and non-irrigated land&#39;."
 alt="Harran (Turkey) SPOT-5 (2.5 m.) (NIR/R/G Band Combination). Date: 2011-06-04 and 2011-07-15 .Source: CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -3779,7 +3779,7 @@ non-irrigated land”.
   this case the image dated 2011-07-15).</span>  
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image101.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image101.jpg"
 style="width:1.82in" data-fig-align="left"
 data-fig-alt="A natural-colour satellite image depicting a diverse rural landscape. The image shows a mosaic of agricultural fields in various shades of green, brown, and reddish-brown, many of which appear to radiate outwards from central points. Scattered dark green patches indicate forested areas. Several clusters of grey and white features, some with radiating patterns, suggest small settlements or villages. Irregularly shaped dark blue or black patches represent water bodies. A few bright white, fluffy areas with dark shadows beneath them indicate cloud cover. The overall impression is a mixed environment of human land use and natural elements."
 alt="Akoren (Turkey) SPOT-5 (2.5 m.) (NIR/R/G Band Combination). Date: 2011-06-04. Source: CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -3796,7 +3796,7 @@ The overall impression is a mixed environment of human land use and
 natural elements.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image102.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image102.jpg"
 style="width:1.79in" data-fig-align="left"
 data-fig-alt="This image displays a high-resolution satellite view of a predominantly agricultural landscape. The terrain is characterised by numerous irregularly shaped land parcels, indicative of individual fields or crop plots. The majority of the visible land cover appears in shades of light green and beige, suggesting a mix of agricultural fields, some possibly bare soil or fallow, and others with early-stage vegetation. Scattered throughout this matrix are distinct, irregularly shaped patches of bright red. In remote sensing false-colour composites, such red colouring often indicates actively photosynthesizing vegetation or specific land cover types. These red areas are distributed across the landscape, varying in size and shape, suggesting specific types of crops, vegetation, or land use classifications. Some darker green/brown areas, possibly representing forest patches or different crop types, are also visible. Linear features, likely roads or tracks, crisscross the landscape as thin, lighter lines. Small, light grey or white clusters indicate sparse settlements or farmsteads. The image provides a regional view where individual buildings are not discernible, but land fragmentation and broader land use patterns are clear."
 alt="Akoren (Turkey) SPOT-5 (2.5 m.) (NIR/R/G Band Combination). Date: 2011-08-15. Source: CNES 2011© Distribution Airbus DS/Spot Image. Irrigated parcels are only visible in the image dated 2011-08-15." />
@@ -3841,7 +3841,7 @@ Small irrigated parcels mixed with non-irrigated arable land parcels.
 Includes irrigated fruits trees.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image102.2.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image102.2.jpg"
 style="width:5.03in" data-fig-align="left"
 data-fig-alt="A conceptual map displaying an agricultural area composed of multiple parcels, categorised into three land cover/land use types based on colour and pattern coding. The legend defines: * Solid green polygons: &#39;Irrigated arable land&#39;. These represent the most extensive areas. * Light yellow polygons with vertical striping: &#39;Non-irrigated arable land&#39;. These parcels are interspersed among the irrigated arable land. * Light brown/beige rectangular polygons containing a grid of dark blue/black circular dots: &#39;Irrigated fruit trees&#39;. These are smaller, distinct features located within the larger agricultural area. The map illustrates the spatial distribution and differentiation of irrigated and non-irrigated agricultural fields and intensively managed fruit tree plantations. No scale bar, compass, or specific geographic location is indicated on the map itself."
 alt="Schematic representation of complex patters of irrigated and non-irrigated arable land" />
@@ -3886,7 +3886,7 @@ indicated on the map itself.
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image103.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image103.jpg"
 style="width:2.19in" data-fig-align="left"
 data-fig-alt="This is a false-colour composite satellite or aerial image depicting a rural or semi-rural landscape, highlighting various land cover features. In the central area, a dense settlement, likely a village or small town, is visible. It features numerous buildings with light-coloured rooftops and abundant green vegetation, possibly trees and gardens, arranged within a generally grid-like pattern of property divisions. The area surrounding the settlement is primarily agricultural land, characterized by many fields. Many of these fields appear in vibrant red or magenta hues, indicating healthy vegetation, consistent with a false-colour infrared composite typically used to differentiate vegetation types and health. Other fields display lighter brown, beige, or pale green colours, suggesting bare soil, harvested areas, or different crop types/growth stages. The fields are delineated into distinct rectangular and irregularly shaped plots. On the left side of the image, a dark, curvilinear feature, likely a river or stream, is visible, bordered by some darker vegetation."
 alt="Example of Type C class 2.1.1.0. Kallithiro (Turkey).SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-09-02. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -3909,7 +3909,7 @@ curvilinear feature, likely a river or stream, is visible, bordered by
 some darker vegetation.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image104.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image104.jpg"
 style="width:1.98in" data-fig-align="left"
 data-fig-alt="The map displays false-colour aerial imagery depicting an agricultural landscape characterized by a mosaic of rectangular and irregularly shaped fields. The fields show varied tones, with strong reds typically indicating healthy or actively growing vegetation, and greenish-blue areas suggesting different crop types, less vigorous vegetation, or bare soil. A prominent green polygon outlines a large, contiguous block of these fields, delineating a specific land parcel or area of interest. A distinct linear feature, possibly a road or canal, runs along the right edge of the image, appearing in dark red and grey tones. No specific geographic location, scale bar, compass orientation, legend, or data source/year is provided."
 alt="Example of Type C class 2.1.1.0. Megala Kalivia (Greece). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-09-02. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -4169,7 +4169,7 @@ with vegetation are visible in the background. A partially obscured
 watermark in the bottom-left corner includes the year “2007”.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image114.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image114.jpg"
 style="width:2.07in" data-fig-align="left"
 data-fig-alt="A ground-level photograph depicts an agricultural field or orchard under an overcast sky. In the foreground, a dirt path runs horizontally across the frame. Beyond the path, rows of young, leafy trees, likely fruit trees, are planted in a grid pattern in a grassy area. The trees appear to be similar in size and shape, with green foliage. To the far left, a larger, more mature tree is visible, and behind it, a portion of a tall electrical transmission tower or pylon can be seen against the sky. In the background, a denser line of trees forms a natural boundary or forest edge. The ground cover between the tree rows is a mixture of mown and unmown grass and weeds."
 alt="Cherry fruit trees, western Germany. Source: © LUCAS 2012." />
@@ -4186,7 +4186,7 @@ forest edge. The ground cover between the tree rows is a mixture of mown
 and unmown grass and weeds.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image115.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image115.jpg"
 style="width:2.05in" data-fig-align="left"
 data-fig-alt="A ground-level photograph depicts an agricultural field featuring distinct rows of young green plants, likely saplings or crops, extending towards the horizon. The soil is dark, tilled, and relatively bare between the rows, with some scattered green weeds or groundcover visible. The perspective looks down one of the plant rows, which narrows into the distance. In the background, a line of trees or taller vegetation borders the field under a light, hazy sky. No specific identifiers, text, or dates are visible in the image."
 alt="Low stem fruit trees near Rome, Italy. Source: © LUCAS 2012" />
@@ -4390,7 +4390,7 @@ surrounding field. No scale bar or temporal information is visible.
   arable land (e.g. Luxemburg).
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image121.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image121.jpg"
 style="width:4.62in" data-fig-align="left"
 data-fig-alt="This map displays a false-color composite derived from satellite imagery, showcasing a diverse landscape composed of agricultural, urban, water, and transport infrastructure features. A prominent multi-lane highway, appearing as a thick cyan linear feature, traverses the image diagonally from top-left to bottom-right, with an overpass visible. Extensive agricultural fields dominate the central and upper parts of the image, appearing in varying shades of red; bright red indicates vigorous, healthy vegetation, while darker red or reddish-brown likely represents bare soil or harvested fields. Interspersed within these fields are smaller linear white features, indicating field boundaries or minor tracks. In the lower-left quadrant, two dark blue, nearly black, water bodies (likely ponds or lakes) are visible next to the highway. Adjacent to these water bodies, there are light cyan structures suggesting built-up areas such as industrial facilities or sports complexes (e.g., a sports field with a track). The lower-right quadrant features a moderately dense urban or suburban area, characterized by a network of cyan roads and numerous smaller cyan building footprints, intermingled with areas of reddish vegetation. A light cyan river or canal-like feature runs from near the highway towards the urban area. No scale bar, compass, legend, or reference year is visible."
 alt="High stem fruit trees, Ingelheim am Rhein (Germany), Spot 5 (2.5 m) (1/2/3 Band Combination). Date: 2010-06-03. Source: CNES 2010©, Distribution Airbus DS/Spot Image." />
@@ -4532,7 +4532,7 @@ fallow land or annual agricultural crops:</u>
   *2.2.1.0*.</span>  
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image125.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image125.jpg"
 style="width:2.15in" data-fig-align="left"
 data-fig-alt="An aerial or satellite false-colour infrared composite image depicting a rural landscape. A prominent, meandering river, appearing dark greenish-blue, flows from the upper right quadrant towards the lower left. Along the river banks, areas of dense vegetation are visible in dark green hues. The majority of the land area is composed of numerous rectangular agricultural fields, which are rendered in various shades of red, reddish-brown, and purplish-pink, indicating different crop types or stages of vegetation growth. Scattered small clusters of white and light blue features, likely representing buildings, indicate sparse settlements, predominantly located in the upper right and lower left sections of the image. Thin linear features, possibly roads or field boundaries, delineate the agricultural plots. No text, labels, or scale information is visible."
 alt="Śniadków Dolny (Poland). Spot 6 (1.5 m) (4/1/3 Band Combination). Date: 2013-08-06. Source: CNES 2013©, Distribution Airbus DS/Spot Image." />
@@ -4560,7 +4560,7 @@ crops inside areas which are mainly covered by low stem fruit trees:</u>
 - Integrate smaller stripes without vegetation into *2.2.1.0.*
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image126.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image126.jpg"
 style="width:2.16in" data-fig-align="left"
 data-fig-alt="The image displays a false-colour infrared (FCIR) satellite view of an unspecified rural or semi-rural area, featuring a complex pattern of land cover. Agricultural fields are the dominant feature, rendered in various shades of red and green/turquoise, indicating different types or vigour of vegetation. Darker red hues signify higher vegetation activity. Numerous yellow lines delineate individual land parcels or field boundaries, some of which contain numeric identifiers such as &#39;1118&#39;, &#39;604&#39;, &#39;1119&#39;, &#39;605&#39;, &#39;606&#39;, &#39;607&#39;, and &#39;608&#39;. Linear blue features represent infrastructure, including a prominent multi-lane highway in the upper central part and smaller roads winding through the landscape. Clusters of white and light grey pixels indicate buildings and settlements, often adjacent to the agricultural fields. No scale bar, compass, or legend is present."
 alt="Bogoria (Poland). Spot 6 (1.5 m) (4/1/3 Band Combination). Date: 2013-08-06. Source: CNES 2013©, Distribution Airbus DS/Spot Image." />
@@ -4698,7 +4698,7 @@ for the CORINE Land Cover (CLC) class “2.2.2.0 Olive Groves”.
   spotted structure.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image131.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image131.jpg"
 style="width:4.03in" data-fig-align="left"
 data-fig-alt="This is a False Colour Infrared (FCIR) satellite or aerial image displaying an agricultural landscape. Actively photosynthesising vegetation, such as tree plantations (likely olive groves) arranged in regular grids, appears in deep red hues. Areas of bare soil or senescent vegetation are shown in lighter, yellowish-brown tones. A large, dark purplish-red area is visible in the bottom-left, possibly indicating a water body or dense, darker vegetation. A prominent light blue polygon boundary delineates a specific area of interest, encompassing multiple agricultural fields and land parcels. No scale bar, compass, legend, or reference year is visible."
 alt="Olive grove with vineyards around. Úbeda (Spain). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-08-12. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -4842,7 +4842,7 @@ ha), it is not possible to distinguish between *2.1.1.0 Arable irrigated
 and non-irrigated land*.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image134.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image134.jpg"
 style="width:4.9in" data-fig-align="left"
 data-fig-alt="The image is a schematic map illustrating different land cover types and their spatial arrangement in a rural area. The legend identifies five distinct categories: * **Grassland:** Represented by solid light green areas. * **Orchards:** Depicted as light green areas containing dark green circular shapes. * **Arable land:** Shown as light yellow areas with vertical stripes. * **Rural settlement:** Indicated by a cluster of grey and black rectangular shapes, with a small icon of buildings next to the legend entry. * **Roads:** Displayed as solid darker green linear features traversing the landscape and connecting parts of the settlement. The map shows a central rural settlement surrounded by a mosaic of agricultural land, including parcels of grassland, orchards, and arable land, interconnected by roads. This pattern represents a &#39;Complex Cultivation Pattern&#39; with mixed parcels of different agricultural uses and a settlement."
 alt="Schematic representation of 2.3.2.0 complex cultivation patterns" />
@@ -4960,7 +4960,7 @@ interspersed with natural elements like spontaneous grasses, trees, and
 scrub.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image137.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image137.jpg"
 style="width:4.63in" data-fig-align="left"
 data-fig-alt="This schematic map illustrates a conceptual rural landscape characterized by a mosaic of land cover types. The legend on the right defines six categories: * **Grassland:** represented by a solid light green fill. * **Orchards:** depicted as dark green circles within light green areas. * **Arable land:** shown as light green areas with light yellow vertical stripes. * **Natural vegetation:** dark olive green areas containing stylised light green tree icons. * **Rural settlement:** indicated by a cluster of black and grey rectangular shapes, with a legend icon showing a house and a tractor. * **Roads:** represented by linear light green features with a central white stripe. The map displays a central rural settlement surrounded by a mix of agricultural parcels, including grassland, arable land, and orchards. These agricultural areas are interspersed with significant patches of natural vegetation. Roads connect various parts of the landscape. The overall spatial pattern reflects a fragmented land use/land cover (LULC) typical of areas where agriculture coexists with natural elements, aligning with the CORINE Land Cover (CLC) class 2.3.3.0."
 alt="Agricultural parcel included in an area with vegetation natural (spontaneous grasses, trees, scrub, etc.). Credits: M. Rodriguez" />
@@ -5025,7 +5025,7 @@ Heterogeneous areas with predominant land parcels structure but presence
 of natural vegetation.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image139.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image139.jpg"
 style="width:5.2in" data-fig-align="left"
 data-fig-alt="This image displays Satellite Pour l&#39;Observation de la Terre 5 (SPOT-5) satellite imagery from 2010-07-14, with a 2.5 m resolution, using a Near-Infrared/Red/Green (NIR/R/G) band combination. The image depicts a heterogeneous landscape in Germersheim, Germany, classified as land cover category 2.3.3.0 (&#39;Land principally occupied by agriculture with significant areas of natural vegetation&#39;). A prominent dark blue river runs diagonally across the image from the upper left to the lower right. Along its banks, and interspersed with areas of lighter green and brown natural terrain, are patches of vibrant red vegetation, indicating healthy biomass due to the NIR band combination. Several agricultural parcels, appearing as lighter beige/green irregular shapes, are visible. A specific area of interest, encompassing a mix of these agricultural fields and surrounding natural vegetation, is highlighted by a yellow polygon outline on the left bank of the river. The imagery source is CNES 2011©, distributed by Airbus DS/Spot Image."
 alt="Agricultural area with natural vegetation in Inandik (Anatolia, Turkey) SPOT-5 (2.5 m.) (NIR/R/G Band Combination). Date: 2011-07-16 Source: CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -5047,7 +5047,7 @@ polygon outline on the left bank of the river. The imagery source is
 CNES 2011©, distributed by Airbus DS/Spot Image.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image140.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image140.jpg"
 style="width:3.01in" data-fig-align="left"
 data-fig-alt="A false-colour satellite image, captured on 2011-07-16 by SPOT-5 at 2.5 m resolution using a Near-Infrared/Red/Green (NIR/R/G) band combination, depicts an agricultural area with natural vegetation in Inandik, Anatolia, Turkey. The image shows distinct land cover patterns: * A large parcel outlined in yellow is labelled &#39;2330&#39;, representing &#39;Land principally occupied by agriculture, with significant areas of natural vegetation&#39; according to CORINE Land Cover (CLC) nomenclature. Within this parcel, structured greenish-grey strips correspond to cultivated fields, interspersed with reddish-purple natural vegetation. * Two smaller parcels, located to the upper and lower left of the primary outlined area, are labelled &#39;4110&#39;, corresponding to &#39;Managed grassland&#39; in CLC nomenclature. These areas appear uniformly reddish-purple. * A linear dark blue feature, likely a river or canal, runs along the right side of the image, connecting to a larger dark blue water body (lake or sea) at the bottom right. * Thin white lines delineate various land parcel boundaries and potential pathways. The predominant reddish-purple colour indicates strong vegetation reflectance in the near-infrared spectrum. Source: CNES 2011© Distribution Airbus DS/Spot Image."
 alt="Land principally occupied by agriculture with significant areas of natural vegetation (2330) in Germersheim (Germany). SPOT-5 (2.5 m.) (NIR/R/G Band Combination). Date: 2010-07-14. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -5149,7 +5149,7 @@ forestry techniques, often found in Mediterranean regions like the
 *dehesa* or *montado* systems.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image144.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image144.jpg"
 style="width:4.47in" data-fig-align="left"
 data-fig-alt="A conceptual map depicting a rural land parcel with various land cover and land use elements. The map is primarily composed of large areas of **Grassland** (shaded yellow), dotted with numerous individual **Trees** (represented by green tree icons). Several smaller, irregular parcels are classified as **Arable land** (shaded light yellow/cream). In the upper portion of the map, there are **Farm buildings** (black rectangles) and **Roads** (thin white lines) providing access. Two small **Water troughs** (blue irregular shapes) are also present within the grassland areas. The map illustrates a typical mixed agricultural landscape, consistent with an agro-forestry system featuring a mosaic of pastures, individual trees, and cultivated fields, as described in Copernicus Land Monitoring Service (CLMS) guidelines."
 alt="Schematic representation of 2.3.4.0 Agro-forestry T.C.D &lt; 30%" />
@@ -5286,7 +5286,7 @@ is CNES 2011©, distributed by Airbus DS/Spot Image.
 ## 3 Woodland and Forest
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image147.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image147.jpg"
 style="width:1.93in" data-fig-align="left"
 data-fig-alt="A ground-level photograph showcasing a rugged, mountainous landscape. The foreground reveals light-coloured rocky outcrops and cliff faces. In the mid-ground, a valley or ravine is densely covered with dark green coniferous trees. The background shows more distant, hazy mountains with visible tree cover. The image illustrates natural woodland and forest land cover." />
 
@@ -5448,7 +5448,7 @@ these regions broadleaved evergreen forest is predominate and represents
 more than 75% of the pattern.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image149.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image149.jpg"
 style="width:3.01in" data-fig-align="left"
 data-fig-alt="A photograph depicting a dense forest stand composed of numerous tall, slender trees, primarily with smooth, greyish bark. The upper third of the image shows the tree canopy with vibrant green leaves, suggesting late summer or early autumn. The forest floor is covered with a thick layer of dry, fallen brown and reddish leaves. Patches of green moss are visible on some tree bases and rocks on the ground. The sunlight filters through the canopy, creating bright areas in the background. The perspective is looking upwards from the forest floor, emphasizing the height of the trees."
 alt="Broadleaved forest (beech), Bavaria, Germany. Credits: M. Probeck" />
@@ -5519,7 +5519,7 @@ trees, indicating the continuation of the stand. There is a slight
 motion blur effect visible at the bottom of the image.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image153.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image153.jpg"
 style="width:4.24in" data-fig-align="left"
 data-fig-alt="A photograph depicting a broadleaved beech forest in Bavaria, Germany, characterized by a wetland environment. The water surface is extensively covered by a layer of light green aquatic vegetation. Numerous tree trunks, both upright and fallen, emerge from or lie partially submerged in the water. Clumps of dark green, grass-like vegetation are visible within the water. The foliage on the trees shows a mix of green and reddish-brown leaves, indicative of an autumn season."
 alt="Broadleaved swamp forest, Island of Rügen, Germany. Credits: U. Weingart" />
@@ -5598,7 +5598,7 @@ accompanying caption provided for this image is: “Broadleaved forest
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image155.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image155.jpg"
 style="width:2.55in" data-fig-align="left"
 data-fig-alt="A false-colour satellite image displays a heterogeneous landscape composed of forested areas and agricultural parcels. Dense vegetation, characteristic of forests, appears in deep red and magenta tones, dominating the central and left portions of the image. Surrounding these forested blocks and within them are numerous rectangular plots rendered in lighter red and pink hues, indicative of agricultural fields with varying stages of vegetation or bare soil. Patches of blue and cyan, likely representing non-vegetated surfaces such as bare soil or possibly man-made features, are visible, particularly in the upper right and scattered across the agricultural mosaic. White dashed lines are overlaid, delineating distinct parcels or boundaries within the landscape. No geographic location, scale, or date is provided."
 alt="Natural &amp; semi natural deciduous broadleaved forest near the Danube river near Károlyháza (Hungary). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-07-10. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -5617,7 +5617,7 @@ overlaid, delineating distinct parcels or boundaries within the
 landscape. No geographic location, scale, or date is provided.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image156.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image156.jpg"
 style="width:4.82in" data-fig-align="left"
 data-fig-alt="False-colour aerial imagery depicts a complex riverine landscape, likely a floodplain, featuring a dominant, wide river flowing from the upper-right to the lower-left. Numerous narrower, highly meandering water channels and oxbow lakes (dark blue) are visible, particularly on the left and right sides of the main river, indicating a dynamic fluvial environment. Extensive areas of dense vegetation, likely forests or woodlands, are represented in bright red, predominantly bordering the river and its smaller channels. Agricultural fields appear as rectangular patches in light blue/cyan, visible in the upper-left, lower-left, and upper-right portions of the image. A distinct settlement, characterised by a cluster of light blue/cyan patches and a network of white dashed lines (indicating roads or paths), is located in the upper-right corner. Another prominent white dashed line runs parallel to the main river on its western bank, potentially representing a levee or a linear infrastructure feature. The false colour scheme highlights healthy vegetation in red, water bodies in dark blue, and bare soil or specific agricultural land in light blue/cyan."
 alt="Broadleaved forest at the Danube River near Kisbodak (Hungary). Spot 5 (2.5 m) (1/2/3 Band Combination). Date: 2011-07-10. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -5643,7 +5643,7 @@ bare soil or specific agricultural land in light blue/cyan.
 <u>Broadleaved Swamp Forest:</u>
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image157.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image157.jpg"
 style="width:3.15in" data-fig-align="left"
 data-fig-alt="This false-colour satellite image, acquired on 2011-07-10 by SPOT-5 at 2.5 m resolution using a 1/2/3 Band Combination, depicts a landscape near Kisbodak, Hungary, along the Danube River. The image highlights two primary land cover features: &#39;Swamp forest&#39; and an &#39;Exploited Peat bog&#39;. The &#39;Swamp forest&#39; is located on the left side of the image, appearing as an irregularly shaped, dark reddish-brown area. To the right, the &#39;Exploited Peat bog&#39; is identified as a large, dark greenish-blue rectangular area characterized by distinct parallel linear patterns. The broader area displays a mosaic of other land cover types, including agricultural fields and potentially other forests, rendered in shades of red, magenta, and green. The image source is CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="“Borsteler Moor” near Borstel, Germany. SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2013-09-05. Source: CNES 2013©, Distribution Airbus DS/Spot Image" />
@@ -5785,7 +5785,7 @@ noting its context with SPOT-5 (2.5 m) Near-Infrared (NIR) Band
 Combination data.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image160.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image160.jpg"
 style="width:1.85in" data-fig-align="left"
 data-fig-alt="A false-colour infrared satellite image depicts a fragmented rural landscape. The dominant colour is deep red, representing dense, healthy vegetation, likely forests or dense shrubland, divided into numerous irregularly shaped parcels. These parcels are delineated by lighter, off-white linear features that crisscross the terrain, possibly indicating tracks, paths, or field boundaries. Two distinct dark blue water bodies are visible: a larger, kidney-shaped one in the bottom-right corner and a smaller, irregular one in the upper-central part of the image. Several patches of bright white or light grey land are also present, notably in the top-centre and bottom-left, indicative of bare soil, fallow agricultural fields, or cleared land."
 alt="Eucalyptus sp. plantation in Southern Spain. Lepe (Huelva, Spain) SPOT-5 (2.5 m) (NIR Band Combination). Date: 2011-08-06. Source: CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -5820,7 +5820,7 @@ rules</u>:
 - Plantations rows visible.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image161.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image161.jpg"
 style="width:3.13in" data-fig-align="left"
 data-fig-alt="This is a false-colour infrared satellite image displaying a diverse rural landscape. The image is characterised by three main land cover types based on colour and texture. In the upper right and along the right edge, dense, healthy vegetation, likely forests or dense shrubland, appears as dark red areas, traversed by numerous thin linear features resembling tracks or paths. A prominent light blue-green linear feature, possibly a river or stream, runs vertically along the far right. The upper central and middle-right portion of the image shows a lighter greenish-blue area, suggesting less dense vegetation such as pastures, cultivated land, or sparse scrub, with visible terrain undulations and an intricate network of fine linear features. Several small, dark blue water bodies are scattered within this greenish-blue area. The lower left of the image is dominated by brownish-grey tones with scattered small, reddish dots, indicative of very sparse vegetation, individual trees, or dry, open ground. Distinct boundaries separate these different land cover types, with a curvilinear boundary separating the brownish-grey area from the greenish-blue area, and another separating the greenish-blue area from the dense red vegetation on the right. No scale bar, compass, or specific date is visible."
 alt="Clear cuts between harvesting and restoration in an Eucalyptus plantation. Cortegana (Huelva, Spain) SPOT-5 (2.5 m) (NIR Band Combination). Date: 2011-08-06. Source: CNES 2011© Distribution Airbus DS/Spot Image" />
@@ -5893,7 +5893,7 @@ serves as a visual example for the land cover class “3.2.1.0 Natural &
 Semi Natural Coniferous Forest”.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image164.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image164.jpg"
 style="width:3.47in" data-fig-align="left"
 data-fig-alt="A ground-level photograph depicts a natural moorland or peat bog landscape. In the foreground, dense, low-growing green shrubs, possibly dwarf pines (Pinus mugo), frame the scene from the left and right. The midground features an open expanse dominated by reddish-purple ground cover, indicative of flowering heather (Calluna vulgaris) or similar low-lying vegetation, interspersed with patches of brown and green grasses or mosses. Several small, isolated coniferous saplings are visible within this area. The background consists of a dense coniferous forest, likely composed of spruce or pine trees, forming a clear horizon line. Above, the sky is partly cloudy, with bright white clouds mixed with areas of grey cloud cover."
 alt="Dwarf pine on swampland, Bavaria, Germany. Credits: M. Probeck" />
@@ -5911,7 +5911,7 @@ line. Above, the sky is partly cloudy, with bright white clouds mixed
 with areas of grey cloud cover.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image165.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image165.jpg"
 style="width:2.62in" data-fig-align="left"
 data-fig-alt="A ground-level photograph capturing the interior of a coniferous forest. The image shows numerous tall, slender coniferous trees with visible trunks and branches, featuring a dense canopy further into the background. The forest floor is covered with a rich understorey of green grasses and low-lying shrubs, consistent with a humid or peaty substrate. A smaller, younger conifer is visible among the taller trees in the central part of the image. The ground appears uneven, with some mossy or hummocky features. A partially obscured watermark in the bottom left corner reads &#39;© Eurostat / LUCAS / 2009&#39;."
 alt="Coniferous forest (Pinus) in Sweden. Source: © LUCAS 2012." />
@@ -5973,7 +5973,7 @@ left corner reads “© Eurostat / LUCAS / 2009”.
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image166.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image166.jpg"
 style="width:2.34in" data-fig-align="left"
 data-fig-alt="A false-colour infrared satellite image displays an agricultural landscape dominated by rectangular fields and linear features. Healthy vegetation appears in shades of red and pink, with varying intensities indicating different vegetation types or growth stages across numerous cultivated fields. Darker red and brown rectangular areas are interspersed with lighter red fields. A prominent dark linear feature, possibly a main road or canal, runs vertically through the image, with a narrower parallel linear feature adjacent to it. Other thinner linear features delineate field boundaries. Several light blue to cyan areas are visible, notably in the bottom right corner, representing water bodies such as ponds or flooded areas. No scale bar, text labels, or geographic coordinates are visible."
 alt="Other natural or semi-natural coniferous forest located near Bezenye (Hungary). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-07-10. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -5992,7 +5992,7 @@ bodies such as ponds or flooded areas. No scale bar, text labels, or
 geographic coordinates are visible.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image167.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image167.jpg"
 style="width:2.01in" data-fig-align="left"
 data-fig-alt="This is a false-colour satellite imagery depicting a predominantly forested landscape. Vegetation, likely dense forest, is rendered in various shades of dark red, indicating high infrared reflectance typical of healthy plant life. Lighter red areas might suggest sparser vegetation or different plant types within the forest. Several winding, thin, light-coloured linear features traverse the forested areas, resembling roads, tracks, or paths. Multiple small, irregularly shaped lighter patches are visible within the forest, possibly indicating clearings, areas of bare ground, or low vegetation. In the very top-left corner, a small cluster of bright blue-white features is visible, which could represent buildings or other artificial infrastructure. No scale bar or textual labels are present in the image."
 alt="Other natural or semi-natural coniferous forest, Harz, Germany. SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-09-03. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -6016,7 +6016,7 @@ bar or textual labels are present in the image.
   wet grounds.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image168.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image168.jpg"
 style="width:4.12in" data-fig-align="left"
 data-fig-alt="This False Colour Infrared (FCIR) satellite or aerial image depicts a landscape with a winding river, agricultural areas, dense vegetation, and a human settlement. A prominent river, appearing dark blue/black, flows through the scene, exhibiting a distinct meander. Dense, healthy vegetation, primarily forests and tree lines, is highlighted in various shades of deep red, concentrated along the riverbanks and forming a large, curved block within the river&#39;s bend. Surrounding these natural features are numerous agricultural fields, discernible as distinct rectangular and irregularly shaped parcels. These fields display a range of colours, including light green, pale beige, and lighter red tones, suggesting different crop types, growth stages, or bare soil. On the right side of the image, adjacent to the river, a settlement is visible, characterized by a network of white roads and numerous small, white or light blue coloured buildings, indicating urban development. No specific dates, geographic labels, or scale are visible."
 alt="Coniferous forest located at the Monsini Danube River near Magyarkimle (Hungary). Spot 5 (2.5 m) (1/2/3 Band Combination). Date: 2011-07-10. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -6047,7 +6047,7 @@ range, planted in clearly unnatural stands or as monocultures
 (e.g. clearly visible row plantation).
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image169.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image169.jpg"
 style="width:2.23in" data-fig-align="left"
 data-fig-alt="A ground-level photograph depicting a coniferous forest. The image shows numerous tree trunks with textured bark, extending into the background, with the trees appearing to be planted in somewhat uniform rows. The forest floor is covered with sparse green grass and a layer of brown fallen needles. The image is identified in the surrounding document context as &#39;Coniferous forest located at the Monsini Danube River near Magyarkimle (Hungary)&#39;. A copyright notice &#39;© corine-LC.com&#39; is visible in the bottom-left corner. This photograph is used within the 2012-2018 CLMS Nomenclature Guideline to illustrate specific land cover types."
 alt="Highly artificial coniferous plantations (Pine) in the north west of Spain. Source: © LUCAS 2012." />
@@ -6091,7 +6091,7 @@ CLMS Nomenclature Guideline to illustrate specific land cover types.
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image170.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image170.jpg"
 style="width:2.21in" data-fig-align="left"
 data-fig-alt="This is a land cover classification map displaying a rural landscape segment with various CORINE Land Cover (CLC) classes, overlaid on satellite or aerial imagery. The map shows several polygons, each assigned a numeric CLC code. A prominent polygon, outlined in light blue, is labelled `3220`, which corresponds to &#39;Highly Artificial Coniferous Plantations&#39; as defined in the document. This area visually exhibits distinct, linear rows of trees, indicating a cultivated plantation. Other visible land cover classes, outlined in orange, include: - `2110`: Non-irrigated arable land, depicted as a large agricultural field. - `4100`: Areas appearing as agricultural fields or natural vegetation, repeated in multiple locations. - `3110`: Broad-leaved forest, a patch of dense tree cover. - `1111`: Continuous urban fabric, visible near a road in the upper right. The underlying imagery displays a mosaic of cultivated fields, forested patches, and artificial surfaces. No scale bar, compass, or specific date is visible on the map itself."
 alt="Highly artificial coniferous plantation (Christmas trees) near Gifhorn, Germany. Spot 6 (1.5 m) (4/1/3 Band Combination). Date: 2013-09-28. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -6114,7 +6114,7 @@ artificial surfaces. No scale bar, compass, or specific date is visible
 on the map itself.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image171.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image171.jpg"
 style="width:2.11in" data-fig-align="left"
 data-fig-alt="This is a false-colour satellite image, likely using a 4/1/3 Band Combination, displaying land cover in the north-west of Spain, sourced from LUCAS 2012. The image highlights two land parcels with light blue boundaries, labelled with numerical codes. The larger parcel, labelled &#39;3220&#39;, shows a dark reddish-brown area representing a &#39;Highly Artificial Coniferous Plantation&#39; (pine), consistent with monoculture vegetation in this band combination. Adjacent to this, a smaller parcel, labelled &#39;1120&#39;, appears as a greenish area containing a structure, indicating an artificial surface or settlement. Yellow lines delineate broader land parcel boundaries."
 alt="Highly artificial coniferous plantation (Christmas trees) near Bischofsheim, Germany. SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2012-05-25. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -6137,7 +6137,7 @@ broader land parcel boundaries.
   are included here.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image172.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image172.jpg"
 style="width:1.73in" data-fig-align="left"
 data-fig-alt="A photograph shows a row of young pine trees, likely in a plantation or reforested area, stretching into the distance under a clear blue sky. The trees have green needle-like foliage and brown trunks. The foreground shows dry, sparse undergrowth with light brown grasses and some small yellow wildflowers on the ground. The trees are spaced relatively evenly, with shadows cast to the right."
 alt="Highly artificial coniferous plantation in Central Spain. Credit: 2009 Ministerio de Fomento IGN" />
@@ -6150,7 +6150,7 @@ some small yellow wildflowers on the ground. The trees are spaced
 relatively evenly, with shadows cast to the right.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image173.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image173.jpg"
 style="width:2.01in" data-fig-align="left"
 data-fig-alt="This image is an aerial or satellite photograph depicting an agricultural landscape. It features numerous irregularly shaped land parcels, indicative of diverse land use and cultivation practices. Several fields exhibit a dark reddish-brown colour, suggesting bare soil, recently tilled land, or specific crop types. One field in the upper left quadrant shows distinct red linear patterns, likely representing rows of crops or tilling marks. Other fields display lighter shades, ranging from greenish-grey to light brown, possibly indicating different crops, fallow land, or sparse vegetation. The boundaries delineating the fields are irregular and appear organic rather than strictly geometric. No distinct infrastructure such as roads or buildings, nor any water bodies, are clearly visible within the frame. No specific date, scale, or geographic location information is provided."
 alt="Coniferous plantation in Central Spain. Credit: SPOT-5 (2.5 m) (NIR Band Combination). Date: 2012-07-04. Source: CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -6193,7 +6193,7 @@ swamps, marshes, fens or peat bogs) and forest which consists of a mix
 of broadleaved deciduous or evergreen and coniferous trees.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image174.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image174.jpg"
 style="width:5.43in" data-fig-align="left"
 data-fig-alt="A ground-level photograph depicting a dense forest interior, illustrating a &#39;Natural and Semi Natural Mixed Forest&#39; environment. The image shows numerous tree trunks of varying diameters, with lush green undergrowth covering the forest floor. The trees appear to be a mix of types, including some with broader, rougher bark (foreground left) characteristic of deciduous trees, and others with straighter, smoother trunks (midground) possibly coniferous, consistent with a mixed forest. The foliage above is dense, creating filtered light. A credit line in the bottom left corner reads: &#39;© 2009 M. [unreadable] IGN&#39;."
 alt="Mixed forest (Pinus sylvestris, Quercus petraea), Germany. Source: © LUCAS 2012" />
@@ -6241,7 +6241,7 @@ the bottom left corner reads: “© 2009 M. \[unreadable\] IGN”.
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image175.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image175.jpg"
 style="width:2.71in" data-fig-align="left"
 data-fig-alt="An aerial or satellite false-colour infrared image displays a segmented landscape, likely in Germany, with various land cover units from LUCAS 2012 data. Healthy, dense vegetation appears in shades of dark reddish-brown, indicative of forest cover in false-colour infrared imagery, while other areas show lighter brownish-green tones. Overlaid polygons, outlined in magenta and green, delineate distinct land cover classes. A large, central polygon, predominantly outlined in magenta, is labelled &#39;3310&#39;, which represents Mixed forest, consistent with the document&#39;s accompanying description of *Pinus sylvestris* and *Quercus petraea*. Other labelled land cover units include a polygon marked &#39;4110&#39; (showing lighter brownish-green vegetation) in the lower-left, a smaller green-outlined polygon labelled &#39;3210&#39; (darker vegetation) also in the lower-left, and a partially visible green-outlined polygon labelled &#39;4112&#39; at the top-centre."
 alt="Other mixed forest near Runkel, Germany. SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2010-06-03. Source: CNES 2010©, Distribution Airbus DS/Spot Image" />
@@ -6272,7 +6272,7 @@ labelled “4112” at the top-centre.
 - Flown through or not by rivers.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image176.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image176.jpg"
 style="width:2.44in" data-fig-align="left"
 data-fig-alt="This is a false-colour satellite image displaying a mosaic of diverse land cover types. Large areas of dense vegetation, likely forests or mature woody areas, are prominently visible in dark red and maroon. Interspersed with these are numerous rectangular fields: some appear bright green, indicating healthy, actively growing vegetation such as agricultural crops or grasslands, while others are lighter pink or magenta, potentially representing different crop types, less vigorous vegetation, or bare soil. A distinct thin, bright white linear feature cuts diagonally across the image from the top-left to the middle-right, possibly representing a road or a cleared boundary. Small, light-coloured patches, some appearing white or beige, are scattered, particularly near the dark red forest edges, which could be small settlements or bare ground. The image shows clear, often linear or rectangular boundaries between the various land cover features, suggesting a managed landscape."
 alt="Mixed swamp forest, “Großes Moor” near Uchte, Northern Germany. SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2013-09-05. Source: CNES 2013©, Distribution Airbus DS/Spot Image" />
@@ -6474,7 +6474,7 @@ indicating a populated area. The photograph is credited to M. Palacios.
 - Sometimes coarse texture and mix with open areas.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image180.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image180.jpg"
 style="width:2.62in" data-fig-align="left"
 data-fig-alt="An aerial or satellite false-colour infrared image depicts a diverse rural landscape. Prominent winding dark blue features represent water bodies, likely rivers or streams. Extensive areas of bright red and magenta indicate dense, healthy vegetation, primarily forests and various agricultural fields. Variations in the red and magenta intensity suggest different vegetation types or growth stages. Thin, light blue or white linear features traverse the landscape, cutting through vegetated areas and delineating the boundaries of polygonal agricultural fields, potentially representing roads, tracks, bare soil, or non-vegetated pathways. No scale, orientation, or temporal information is visible."
 alt="Forest clear-cuts at the Danube river side (Hungary). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-07-10. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -6491,7 +6491,7 @@ potentially representing roads, tracks, bare soil, or non-vegetated
 pathways. No scale, orientation, or temporal information is visible.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image181.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image181.jpg"
 style="width:4.25in" data-fig-align="left"
 data-fig-alt="False-colour satellite image from SPOT-5 (2.5 m) using 1/2/3 band combination, dated 2011-07-10, showing a land area at the Danube river side in Hungary. The image features a large, irregularly shaped area in reddish-pink tones, identified as a forest clear-cut, delineated by a green polygon and labelled with the numeric code &#39;3410&#39;. This clear-cut area displays scattered lighter streaks, possibly paths or areas with coarser texture, consistent with young clear-cuts. Surrounding this area are darker green tones, likely indicating existing forest or dense natural vegetation, also delineated by green polygons. One such surrounding area is labelled with the numeric code &#39;3210&#39;. The image provides visual support for distinguishing forest clear-cuts from surrounding forested and natural grassland environments."
 alt="Transitional forest near Zella-Mehlis, Germany. SPOT-5 (2.5 m) (1/2/3 Band Combination).Date: 2012-08-01. Source: CNES 2012©, Distribution Airbus DS/Spot Image" />
@@ -6537,7 +6537,7 @@ height. Includes young native woodland replanted with indigenous trees
 and naturally-colonizing stands of non-native trees.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image182.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image182.jpg"
 style="width:2.25in" data-fig-align="left"
 data-fig-alt="A ground-level photograph depicting a wide agricultural field covered in bright yellow flowering plants, likely rapeseed or canola, under a clear blue sky. In the background, a linear arrangement of tall, deciduous green trees forms a distinct boundary or feature. The image illustrates a &#39;Lines of Trees and Scrub&#39; land cover type, where trees form strips within a matrix of cultivated land. No text, labels, or temporal information is visible within the image itself."
 alt="Lines of tress and scrub, eastern Germany. Source: © LUCAS 2012." />
@@ -6586,7 +6586,7 @@ information is visible within the image itself.
 - Lines of trees and scrub may adjoin to forest features.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image183.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image183.jpg"
 style="width:1.64in" data-fig-align="left"
 data-fig-alt="The image is an aerial or satellite false-colour infrared view of an agricultural landscape, likely within Europe. It displays distinct land parcels or fields, primarily in shades of red and green/beige, separated by thin black delineation lines. The red areas typically represent active, healthy vegetation in a false-colour composite, while green/beige areas may indicate different crop types, less vigorous vegetation, or bare soil. A prominent magenta line overlays the image, delineating an irregular boundary across multiple fields. No scale, compass, legend, or specific geographic labels are visible within the image."
 alt="Lines of trees and scrub near Novákpuszta (Hungary). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-07-10. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -6603,7 +6603,7 @@ compass, legend, or specific geographic labels are visible within the
 image.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image184.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image184.jpg"
 style="width:2.58in" data-fig-align="left"
 data-fig-alt="High-resolution false-colour infrared satellite or aerial imagery depicting an agricultural landscape. The image features several elongated parcels of land. The dominant areas are bright pink/magenta with fine parallel linear textures, suggesting cultivated fields or bare soil. Other areas appear in darker red tones, likely representing different types of vegetation or soil. Two prominent, distinct linear features traverse the scene: one is a narrow band of light green vegetation, and the other is a narrow band of very dark blue/black, characteristic of a water body such as a river or canal in false-colour infrared. No scale bar, compass, legend, or geographic labels are visible."
 alt="Lines of trees and scrub near Guntershausen, Germany. SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2010-07-10. Source: CNES 2010©, Distribution Airbus DS/Spot Image" />
@@ -6621,7 +6621,7 @@ infrared. No scale bar, compass, legend, or geographic labels are
 visible.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image185.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image185.jpg"
 style="width:1.73in" data-fig-align="left"
 data-fig-alt="A false-colour SPOT-5 satellite image at 2.5 m resolution, using a 1/2/3 Band Combination, illustrating &#39;lines of forest along river with Strahler level 4 (or higher)&#39;. The image displays a winding river, traced by a dark blue line, bordered by a strip of vegetation outlined in yellow. This yellow outline delineates the &#39;lines of forest&#39;. The surrounding landscape is characterised by agricultural fields, appearing as patches of red (indicative of healthy vegetation) and light green/cyan. Overlaid on the yellow-outlined forest area are partially visible numerical labels: &#39;3420&#39; and &#39;3&#39;, which likely refer to specific land cover classes within the Copernicus Land Monitoring Service (CLMS) nomenclature guidelines. A segment of an unlabelled purple linear feature is visible in the bottom right of the image."
 alt="Example: Lines of trees along river with Strahler level 3 → Forest close to riparian zones. SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-10-04. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -6640,7 +6640,7 @@ nomenclature guidelines. A segment of an unlabelled purple linear
 feature is visible in the bottom right of the image.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image186.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image186.jpg"
 style="width:2.13in" data-fig-align="left"
 data-fig-alt="Choropleth map displaying land cover classification polygons overlaid on a false-colour infrared satellite image (SPOT-5, 2.5 m resolution, 1/2/3 Band Combination) from 2011-10-04. The image serves as an example for the classification of &#39;Lines of trees along river with Strahler level 3 → Forest close to riparian zones.&#39; The data source is CNES 2011©, Distribution Airbus DS/Spot Image. The map illustrates various land cover classes delineated by green polygon boundaries along a river. The river itself is marked by a blue line with a visible label &#39;6&#39;, indicating a Strahler stream order 6 for this main river segment. Within the river channel, a light blue/cyan area represents a sand or gravel bar. The classified land cover polygons and their corresponding codes are: * **9110**: &#39;Riparian wooded formations&#39; (appears as dark red/magenta vegetation immediately bordering the river). * **3110**: &#39;Broad-leaved forest&#39; (appears as dark red/magenta vegetation, adjacent to the riparian formations). * **9210**: &#39;Inland waters&#39; (a distinct dark blue lake or pond feature). * **2110**: &#39;Non-irrigated arable land&#39; (appears as large red/magenta rectangular fields in the upper and lower sections of the map). * **6100**: &#39;Extensive pastures&#39; (appears as a greenish-brown area on the far left edge of the map). * **2321**: &#39;Complex cultivation patterns&#39; (appears as smaller, mixed agricultural plots in the bottom right section). * **4112**: &#39;Road and rail networks and associated land&#39; (a linear feature, likely a road or railway, with adjacent land cover in the bottom right). * **1215**: [Unreadable], an urban or artificial surface class in the bottom right corner. The map demonstrates the detailed classification of land cover, particularly focusing on the distinction and delineation of riparian zones and other surrounding land uses in a riverine landscape."
 alt="Example: Lines of forest along river with Strahler level 4 (or higher) → SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2012-09-17. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -6708,7 +6708,7 @@ rare and occur only sometimes during very hot and dry summers on
 south-facing slopes.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image187.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image187.jpg"
 style="width:4.83in" data-fig-align="left"
 data-fig-alt="A photograph of a forest landscape showing significant environmental damage. The image is dominated by numerous tall, slender, bare trees, primarily grey and light brown, devoid of foliage, indicative of dead or severely affected trees. Many small, broken branches are visible along their trunks. In the foreground and interspersed among the dead trees, there are some smaller, green saplings and young trees with leaves, suggesting areas of new growth or species resilient to the damage. The ground is covered with dry, golden-brown grasses and patches of darker undergrowth. The sky above is overcast and light grey. This image illustrates a &#39;Damaged Forest&#39; as defined in the surrounding document context, likely showing the effects of environmental stress on a forest ecosystem."
 alt="Other damaged forest: Bark-beetle damage, Bavarian Forest, Germany. Credits: M. Probeck" />
@@ -6727,7 +6727,7 @@ context, likely showing the effects of environmental stress on a forest
 ecosystem.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image188.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image188.jpg"
 style="width:1.97in" data-fig-align="left"
 data-fig-alt="A photograph depicting a landscape severely affected by forest degradation, likely from widespread tree mortality. The foreground is dominated by dry, yellow-brown grassland with scattered tree stumps and a few small, green coniferous saplings. In the midground and background, numerous bare, grey, dead trees (snags) stand upright, extending up a hillside. Several clusters of live, green coniferous trees are visible among the deadwood. The sky is overcast and light grey. The scene illustrates extensive tree mortality across a broad area, characteristic of impacts such as bark beetle infestations, drought, or past forest fires."
 alt="Other damaged forest: Bark-beetle damage, Bavarian Forest, Germany. Credits: M. Probeck." />
@@ -6840,7 +6840,7 @@ Airbus DS/Spot Image.
   light red spectral signatures.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image192.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image192.jpg"
 style="width:1.68in" data-fig-align="left"
 data-fig-alt="False-colour infrared satellite or aerial imagery depicting a vegetated landscape. Healthy vegetation appears in shades of magenta and deep red, indicative of high Normalised Difference Vegetation Index (NDVI) values. Within this dominant vegetation, areas of dark grey-blue or greenish-grey are visible. Two irregularly shaped polygons are highlighted with a bright yellow outline, delineating distinct patches of the dark grey-blue/greenish-grey land cover type. These outlined areas contrast significantly with the surrounding magenta and red vegetation. No geographic coordinates, scale bar, or temporal information is visible."
 alt="Bark-beetle damage, Harz National Park, Central Germany. SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-09-03. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -6878,7 +6878,7 @@ information is visible.
 ## 4 Grassland
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Grassland.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Grassland.jpg"
 style="width:2.07in"
 data-fig-alt="A ground-level photograph, framed circularly, depicts a dry agricultural field. In the foreground, a small, bare, multi-branched tree or shrub stands on dry, light brown ground. Several large, cylindrical hay bales are scattered across the mid-ground, casting shadows. A line of green trees forms the background. The overall appearance suggests a rural, agricultural landscape, possibly in a dry season or a region prone to dry conditions." />
 
@@ -7087,7 +7087,7 @@ therefore generally more angular in shape than pastures and the texture
 is smooth.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image199.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image199.jpg"
 style="width:2.71in" data-fig-align="left"
 data-fig-alt="This map displays a land cover classification overlay (yellow and black outlines with numerical labels) on a false-colour infrared satellite image of a heterogeneous landscape. In the false-colour infrared base layer, dense vegetation appears red, agricultural fields appear lighter pink/red, and water bodies appear dark blue/black. The map shows various CORINE Land Cover (CLC) units: * **9110**: A prominent water body in the lower-left and bottom areas. * **4100**: Inland marshes, located adjacent to the water body. * **3310**: Dense wooded or scrubland areas, also bordering the water body and forming large patches elsewhere. The context suggests this could relate to transitional woodland-shrub or sclerophyllous vegetation, consistent with the visual appearance of dense vegetation. * **2110**: Non-irrigated arable land, visible as extensive lighter pink/red fields with linear patterns. * **1113**: Complex cultivation patterns, which often encompass small agricultural plots, scattered dwellings, and semi-natural vegetation. * **3210**: Natural grasslands, appearing as vegetated areas. * **3410**: Sparsely vegetated areas. * **1210**: Industrial or commercial units, visible as small, distinct patches, potentially representing farm buildings as mentioned in the document context. A thick black outline delineates a large, complex area of interest, encompassing multiple CLC classes from the water&#39;s edge through wetlands, forests, and agricultural lands. No scale bar, compass orientation, or specific geographic location is provided."
 alt="Managed grassland in Scandinavia. Borders to arable land. SPOT-5 image.* (*1/2/3 Band Combination). Date: 2011-08-24. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -7235,7 +7235,7 @@ the 2012–2018 period.
   hedges and/or scrub) are considered as *4.1.0.0 Managed grassland.*
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image202.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image202.jpg"
 style="width:2.04in" data-fig-align="left"
 data-fig-alt="This is a false-colour infrared aerial or satellite image depicting a rural landscape. Vegetation appears in various shades of red and magenta, indicating healthy green vegetation in the visible spectrum. The image features numerous irregularly shaped agricultural fields or grasslands (bright red/magenta), many of which are delineated by darker linear features, likely hedgerows, small roads, or field boundaries. Scattered throughout the landscape are small clusters of white or grey rectangular structures, which are likely buildings, often surrounded by darker, possibly impervious or bare ground areas. Patches of denser, darker red vegetation, potentially woodland or forest, are also visible. A single bright green circular marker is centrally placed within a large, bright red field, indicating a specific point of interest or sampling location. No scale bar or textual annotations are visible."
 alt="Example of grassland with trees. Omex (France). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-10-04. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -7310,7 +7310,7 @@ Image.
   classified as *3.4.2.0 Lines of trees and shrub.*
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image204.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image204.jpg"
 style="width:3.13in" data-fig-align="left"
 data-fig-alt="A satellite image captured by SPOT-5 (2.5 m resolution) on 2011-10-04, sourced from CNES 2011© and distributed by Airbus DS/Spot Image, shows an area near Omex, France. The image uses a 1/2/3 Band Combination, rendering healthy vegetation in red, while bare ground or dry vegetation appears brownish. The map displays a heterogeneous landscape indicative of agricultural or semi-natural areas with significant tree and shrub cover. A large polygonal area is delineated by a blue outline, with the Land Cover / Land Use (LULC) classification label &#39;4.2.1.0&#39; placed within it. This area contains a mosaic of reddish vegetation patches and brownish areas. Within this blue-outlined area, a distinct linear feature is highlighted by a green outline and labelled with the LULC code &#39;3.4.2.0&#39;. This green-outlined feature represents a dense strip of reddish vegetation, likely a hedgerow or a line of trees. The image illustrates examples of land cover features relevant to detailed nomenclature guidelines for grassland areas."
 alt="Managed Grassland. Spot 5 (2.5 m) (1/2/3 Band Combination).Date: 2011-08-27. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -7344,7 +7344,7 @@ nomenclature guidelines for grassland areas.
 - “mosaic” of colours due to different mowing stages.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image205.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image205.jpg"
 style="width:4.11in" data-fig-align="left"
 data-fig-alt="False-color satellite imagery depicting a rural landscape, likely from the Copernicus Land Monitoring Service (CLMS), where healthy vegetation appears in shades of red. The image shows a central cluster of irregularly shaped, light green to yellowish-green parcels, characteristic of managed grasslands or agricultural fields, possibly used for hay production or grazing. These parcels are extensively surrounded by dense, dark red vegetation, indicating forested areas. Several narrow, winding linear features, appearing in light blue or white, are visible, suggesting the presence of water bodies (rivers or streams) or unpaved tracks/roads, particularly within the forested and transitional zones. The image provides a high-level view of land cover types and their spatial arrangement without specific geographic or temporal annotations."
 alt="Managed grassland in mountain regions. France. Spot 5 (2.5 m) (1/2/3 Band Combination).Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -7364,7 +7364,7 @@ types and their spatial arrangement without specific geographic or
 temporal annotations.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image206.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image206.jpg"
 style="width:2.25in" data-fig-align="left"
 data-fig-alt="A false-colour infrared satellite image depicts a mixed rural landscape featuring forests, agricultural fields, settlements, and a river. Dense vegetation, likely forests or woodlands, appears in dark red due to high near-infrared reflection, occupying the right side and large patches in the upper and lower central areas. Agricultural fields or open grassland are visible as lighter green-tan patches with irregular boundaries, some showing linear patterns indicative of cultivation, particularly in the central and upper-left regions. Built-up areas or individual buildings are represented by white and light blue patches, concentrated in a settlement in the upper-left, with smaller structures scattered throughout the fields. Winding light grey lines indicate roads or paths connecting these areas. A body of water, appearing light blue, flows along the left edge of the image, consistent with a river or stream. No scale bar or date information is visible."
 alt="Managed grassland in mountain regions. France. Spot 5 (2.5 m) (1/2/3 Band Combination).Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -7397,7 +7397,7 @@ scale bar or date information is visible.
 *Semi-natural*. Decide by colour and texture.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image207.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image207.jpg"
 style="width:3.29in" data-fig-align="left"
 data-fig-alt="False-colour satellite image displaying different land cover types in a European mountain region, dated 2011-08-27, from Spot 5 (2.5 m) imagery with a 1/2/3 band combination. The image highlights two areas of &#39;Managed grassland&#39; (labelled 4.1.0.0) with a red hue and outlined in green, situated adjacent to light-coloured roads. Surrounding these grasslands are other light green agricultural fields, and a darker, textured area with small white features indicating an urban or village infrastructure. The two classified grassland parcels appear to be distinct, relatively homogeneous areas within a mosaic landscape of agriculture and built-up land."
 alt="“Managed” grassland of motorway junctions. Spot 5 (2.5 m) (1/2/3 Band Combination). Source: CNES ©, Distribution Airbus DS/Spot Image." />
@@ -7423,7 +7423,7 @@ agriculture and built-up land.
   colour patterns.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image209.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image209.jpg"
 style="width:5.34in" data-fig-align="left"
 data-fig-alt="This image displays a grid arrangement of 18 small satellite image patches, showcasing diverse agricultural land cover/land use (LCLU) types. The imagery is a false-colour composite, likely a 1/2/3 Band Combination (red, green, blue channels representing specific spectral bands, with vegetation appearing in various hues). The patches, acquired by Spot 5 at 2.5 m spatial resolution (Source: CNES 2011©, Distribution Airbus DS/Spot Image), depict fields with varying spectral characteristics, indicated by colours such as deep green (likely vigorous vegetation), reddish-brown (potentially bare soil or specific crops/mowing stages), light blue, purple, and white/orange. Some patches exhibit distinct linear features, possibly roads or field boundaries. The varying colours reflect different land cover conditions, such as those used for discriminating managed grassland from arable land. The context notes that such imagery shows a &#39;mosaic&#39; of colours due to different mowing stages."
 alt="Typical arable land colour patterns in Landsat images" />
@@ -7445,7 +7445,7 @@ context notes that such imagery shows a “mosaic” of colours due to
 different mowing stages.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image224.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image224.jpg"
 style="width:5.16in" data-fig-align="left"
 data-fig-alt="This image is a collage of eight rectangular satellite imagery snippets, likely from Spot 5 (2.5 m resolution, 1/2/3 Band Combination, often implying false-colour for vegetation analysis, where colours like green, orange, and blue represent different land cover types or vegetation stages). The snippets are arranged in two rows. The top row contains six snippets, and the bottom row contains two. The imagery displays diverse land cover patterns, predominantly agricultural fields appearing as rectangular patches in varying hues of greenish-blue, orange, and brown, indicative of different vegetation types, crop stages, or soil conditions. One notable snippet in the top right shows a distinct elongated linear feature, bright yellow-orange with a dark central line, surrounded by varied colours, characteristic of an airfield or major infrastructure. Other snippets show a mosaic of field patterns interspersed with darker green or brown areas, suggesting managed grasslands or natural vegetation. The overall appearance is a patchwork of colours and textures, which, based on the surrounding context, could represent different mowing stages within managed grassland regions or arable land."
 alt="Typical grasslands colour patterns in Landsat images" />
@@ -7475,7 +7475,7 @@ arable land.
   pattern and row distance.</span>  
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image235.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image235.jpg"
 style="width:2.18in" data-fig-align="left"
 data-fig-alt="The image is a false-color composite satellite photograph depicting various agricultural fields, likely derived from Landsat imagery, showcasing typical colour patterns of arable land. Different field parcels appear in shades of magenta, red, and green. A prominent field in the lower-middle section is explicitly labelled with the land cover class &#39;2110&#39;, which, in the context of CORINE Land Cover (CLC) classifications, represents a specific type of arable land. The varying colours indicate different crop types or stages of vegetation growth. This imagery serves as a visual aid for methodological advice in land cover classification, particularly for discriminating between arable land and managed grasslands."
 alt="Visible cultivation tracks near Beppen (Germany). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2013-09-05. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -7493,7 +7493,7 @@ cover classification, particularly for discriminating between arable
 land and managed grasslands.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image236.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image236.jpg"
 style="width:2.01in" data-fig-align="left"
 data-fig-alt="Choropleth map using false-colour infrared (FCIR) satellite imagery from Spot 5 (2.5 m resolution, 1/2/3 Band Combination), depicting an unspecified rural area, likely in France. The image source is CNES 2011©, Distribution Airbus DS/Spot Image. It illustrates different land cover types, with polygons outlined in yellow. Areas labelled &#39;4100&#39; are shown in shades of red-magenta and represent 4.1.0.0 Managed grassland. Areas labelled &#39;2110&#39; are shown in lighter pink-reds and represent 2.1.1.0 Non-irrigated arable land. A prominent dark blue/black river segment flows through the scene, bordered by both land cover types. Small greyish patches indicate built-up areas or settlements."
 alt="Homogenous parcels of grassland without visible mowing tracks, Ahsen-Oetzen (Germany). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2013-09-05. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -7510,7 +7510,7 @@ segment flows through the scene, bordered by both land cover types.
 Small greyish patches indicate built-up areas or settlements.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image237.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image237.jpg"
 style="width:1.82in" data-fig-align="left"
 data-fig-alt="This satellite image is a False Colour Infrared (FCIR) composite from a Landsat sensor, displaying typical colour patterns associated with arable land. The image shows an agricultural area with multiple fields predominantly appearing in reddish-magenta hues, indicating healthy vegetation. Linear, light-coloured features (likely roads or tracks) delineate the fields. The upper portion of the image contains a field highlighted by a dashed rectangular box and a yellow oval, which clearly shows distinct linear patterns consistent with cultivation tracks from row crops or tilled soil. In the lower portion, a second field is highlighted by a red oval, displaying a more uniform reddish-magenta texture. This image demonstrates visual cues for identifying and discriminating arable land from other land cover types, such as managed grasslands, in Earth Observation datasets."
 alt="Tracks in cropland and grassland with no tracks. SPOT-5 (2.5m), Band combination (1/2/3). Date: 2011-05-06.* *Source: CNES 2012©, Distribution Airbus DS/Spot Image" />
@@ -7727,7 +7727,7 @@ Denmark, grassland located in karstic regions in the Balkans or Nordic
 *alvars*[^8].
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image240.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image240.jpg"
 style="width:1.52in" data-fig-align="left"
 data-fig-alt="A ground-level photograph depicts a rural landscape under a clear blue sky. In the foreground, the lower left features a vibrant yellow field, likely rapeseed or canola, in full bloom. The midground is dominated by a gently sloping grassy hill, covered in dry, light-brown vegetation, interspersed with numerous scattered, conical evergreen shrubs or small trees, consistent with juniper. Towards the crest of the hill in the upper background, denser clusters of deciduous trees form a small woodland. The overall impression is a natural or semi-natural habitat, possibly a pasture or heathland."
 alt="Dry grassland with trees on the Franconian Alb (juniper heathland), Germany. Credit: M. Probeck" />
@@ -7963,7 +7963,7 @@ to water, surrounded by agricultural land.
 (7.x):</u>
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image252.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image252.jpg"
 style="width:4.84in" data-fig-align="left"
 data-fig-alt="A false-colour satellite image displays a rural landscape featuring a winding river, with distinct areas annotated by numerical classification codes. The river appears as a dark blue, meandering feature. Vegetation is rendered in shades of red, with dark red indicating dense vegetation (likely forests) and lighter red/pinkish tones representing less dense vegetation, such as grasslands or agricultural fields, some of which are delineated into rectangular plots. Cyan and white tones are visible in the top right, suggesting urban or built-up areas. Two yellow rectangular boxes highlight specific locations: &#39;4.2.1.0&#39; is positioned over an area of less dense vegetation directly adjacent to a river bend, and &#39;7.1.0.0&#39; is located over a larger area of mixed, lighter vegetation further from the river. These numerical labels likely correspond to a hierarchical land cover or habitat classification system, such as the EUNIS habitat classification or CORINE Land Cover (CLC) scheme, used for identifying specific land use or land cover types. Thin purple lines are visible traversing the landscape, potentially indicating infrastructure or administrative boundaries. No scale bar, compass, legend, or explicit geographic location is provided in the image."
 alt="Differentiation between grasslands and wetlands near Drozdowo (Poland). SPOT-5 (2.5 m.) (1/2/3 Band Combination). Date: 2011-08-27. Source: CNES 2011© Distribution Airbus DS/Spot Image" />
@@ -8201,7 +8201,7 @@ Airbus DS/Spot Image.
 - Green-brown colours in spring and autumn respectively.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image257.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image257.jpg"
 style="width:1.95in" data-fig-align="left"
 data-fig-alt="False-colour infrared (FCIR) satellite or aerial imagery displaying a mixed rural and peri-urban landscape. The imagery uses reddish tones for vegetation (darker red for denser vegetation, lighter red/pink for sparser areas) and grey/blue tones for non-vegetated or artificial surfaces. A large, irregular area is prominently delineated by a bright green polygon boundary. Within this delineated area, a single bright green circular point marker is visible towards the upper right. The landscape within and around the outlined area features distinct rectangular agricultural fields, patches of natural or semi-natural vegetation, and some greyish areas that may represent artificial surfaces or bare ground. No scale, compass, legend, or specific geographic location (country, region) is visible."
 alt="Pannonic steppe grasslands example. (Hortobágy Natura 2000 site, Hungary. SPOT-5 (2.5 m.) (1/2/3 Band Combination). Date: 2011-09-22. Source: CNES 2012©, Distribution Airbus DS/Spot Image" />
@@ -8295,7 +8295,7 @@ visible towards the center of the land area.
 - Grasses appears in red to green colours.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image260.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image260.jpg"
 style="width:1.86in" data-fig-align="left"
 data-fig-alt="This is a false-colour satellite image depicting an area of varied land cover. Areas of dense or healthy vegetation are represented by shades of green and teal, while regions with sparser vegetation or different land cover types appear in reddish-brown hues. A distinct bright green line forms a boundary along the left side of the image. This boundary separates a predominantly reddish-brown area on the far left from a more heterogeneous landscape to its right, which features a mix of green/teal and reddish-brown tones. A bright green diamond-shaped marker is centrally located within the mixed land cover area. A faint linear feature, consistent with a road or track, is visible towards the bottom-center of the image. No specific geographic location, scale, legend, or acquisition date is provided."
 alt="Nordic Alvar example. Stora Alvaret Natura 2000 site, Sweden. Grasslands appear in red colour. SPOT-5 (2.5 m.) (1/2/3 Band Combination) Date: 2011-06-29. Source: CNES 2012©, Distribution Airbus DS/Spot Image" />
@@ -8356,7 +8356,7 @@ image source is CNES 2012©, Distribution Airbus DS/Spot Image.
   alternating dryer and more humid parts.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image262.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image262.jpg"
 style="width:1.91in" data-fig-align="left"
 data-fig-alt="This map displays high-resolution, false-colour satellite or aerial imagery of a specific land area, likely using a Near-Infrared (NIR) composite. The background shows dense vegetation, rendered in a dark red colour, indicating healthy plant life. A distinct, irregularly shaped area of interest is delineated by a bright green outline. Within this outlined area, the land cover appears altered, displaying a mixture of lighter grey, light blue-green, and light reddish-brown tones, suggestive of bare soil, disturbed ground, or possibly low-density artificial surfaces. A small, bright green diamond marker is centrally placed within this disturbed area. No scale, compass, legend, or date information is visible."
 alt="Hydrophilous tall herb example. Rečice Natura 2000 site, Croatia. SPOT-5 (2.5 m). Date: 2011-08-25. Source: CNES 2012©, Distribution Airbus DS/Spot Image" />
@@ -8486,7 +8486,7 @@ slope or in the distance. The image illustrates a typical “alpine
 meadow” environment, likely used for grazing.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image265.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image265.jpg"
 style="width:2.32in" data-fig-align="left"
 data-fig-alt="This landscape profile diagram illustrates the altitudinal zonation of different land cover types on a mountain slope, from higher to lower elevations. At the highest visible elevation, the dominant feature is &#39;Bare rocks&#39;. Moving down the slope, &#39;Grasses with bare soil&#39; appear, followed by &#39;Alpine meadows&#39; situated above a horizontal &#39;Tree line&#39; indicated by a dashed line. Below the tree line, &#39;Mountain hay meadows&#39; are depicted, extending down to an area with buildings, one resembling a church. The &#39;Alpine meadows&#39; shown correspond to natural grasslands identified in Annex I of the Habitats Directive."
 alt="Schematic representation of alpine grasslands" />
@@ -8689,7 +8689,7 @@ orientation, specific geographic location (beyond “Alpine region”), or
 exact reference year is visible on the map itself.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image273.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image273.jpg"
 style="width:2.67in" data-fig-align="left"
 data-fig-alt="This map displays a satellite image of an Alpine region, showcasing various land cover types. The image uses a SPOT-5 1/2/3 Band Combination (Near-Infrared, Red, Green), where vegetated areas appear in shades of red due to strong infrared reflection. The satellite image has a resolution of 2.5 m. The visible land cover features include: * **Red to dark red areas:** Represent dense vegetation, likely high permanent grasslands and some forested areas, consistent with infrared band interpretation for healthy vegetation in a mountain environment. A large continuous area outlined in yellow in the upper and central-right is explicitly labelled &#39;4.2.2.0&#39;, identifying it as a specific Alpine grassland land cover class according to the document&#39;s nomenclature guideline. Other smaller patches also outlined in yellow are scattered throughout the red areas. * **Light blue/cyan areas:** Dominating the central-left and lower-central portions of the image, these areas likely represent snow, glaciers, or extensive bare rock and scree, as described in the surrounding document context for Alpine regions. * **Blue jagged line:** This distinct boundary separates the light blue/cyan areas from the red-toned vegetated areas, potentially delineating the tree limit or a permanent snow/ice line. * **Partial label &#39;4.2.1&#39;:** Located in the lower-left, near the blue jagged line, this indicates another distinct land cover class. The precise geographic location and acquisition date for this specific image are not explicitly stated within the image itself, but similar examples in the document refer to Natura 2000 sites in Alpine countries."
 alt="Alpine grassland example. France. Spot 5 (2.5 m) (1/2/3 Band Combination). Date: 2011-07-18. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -8759,7 +8759,7 @@ examples in the document refer to Natura 2000 sites in Alpine countries.
 ## 5 Heathland and Scrub
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Heathland.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Heathland.jpg"
 style="width:1.39in"
 data-fig-alt="A circular close-up photograph depicts a small, plover-like bird standing on sparse, reddish-brown ground vegetation, which appears to be heather or dwarf shrubs. Lighter patches of ground are visible between the vegetation. The bird faces right, exhibiting light underparts, a darker back, and a distinct light stripe above its eye. The image captures a natural, open landscape, characteristic of subalpine or alpine grassland and heathland environments." />
 
@@ -8958,7 +8958,7 @@ with a mix of agricultural use and natural or semi-natural vegetation.
   consequently also use additional supporting data.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image280.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image280.jpg"
 style="width:2.2in" data-fig-align="left"
 data-fig-alt="This is a false-colour satellite map showing distinct CORINE Land Cover (CLC) types within a natural landscape, likely in Europe. Boundaries between the land cover classes are delineated by yellow lines. A large area on the right is classified as &#39;311 Broad-leaved Forest&#39; and appears in a magenta/pinkish-red colour. A dark blue/black winding river flows through this forest area. To the left of the forest, an area is labelled &#39;321 Natural Grasslands&#39;, depicted in cyan/light blueish-purple. Below the natural grasslands, a zone is labelled &#39;322 Moors and Heathland&#39;, rendered in a darker blueish-purple/brown. A dark blue/black lake is prominently situated within this &#39;Moors and Heathland&#39; area. A small numeric label &#39;412&#39; is visible near the bottom right within the &#39;Broad-leaved Forest&#39; area, but its corresponding land cover class name is [unreadable]. No scale bar, compass, or specific date is visible."
 alt="LC CLC classes. Alpine area south east of Kebnekaise, Sweden. (1/2/3 Band Combination). Spot 6 image. Date: 2013-07-24. Source: CNES 2013©, Distribution Airbus DS/Spot Image." />
@@ -9015,7 +9015,7 @@ Areas with predominance of grass in alpine areas belong to MAES class
 *4.2.2.0* *Alpine and subalpine natural grassland*.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image282.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image282.jpg"
 style="width:3.03in" data-fig-align="left"
 data-fig-alt="False-colour satellite imagery displaying examples of land cover classification, specifically in an alpine/subalpine area south-east of Kebnekaise, Sweden. The image, acquired by SPOT 6 on 2013-07-24, uses a 1/2/3 Band Combination, likely representing a false-colour infrared composite. The land cover class &#39;5.1.1.0 Heathlands and Moorlands&#39; is identified and depicted in a teal/greenish colour, while &#39;Grassland&#39; areas are distinctly visible in a reddish hue. Two yellow circular markers indicate specific reference points within these classified areas. The image source is CNES 2013©, with distribution by Airbus DS/Spot Image."
 alt="Heathland and Moorlands in the southern parts of Scandinavia. SPOT-5 image. 1/2/3 Band Combination). Date: 2011-06-28. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -9164,7 +9164,7 @@ center of the sky.
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image287.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image287.jpg"
 style="width:2.41in" data-fig-align="left"
 data-fig-alt="False-colour satellite map illustrating various land cover classifications in an unspecified local European region, likely demonstrating a Copernicus Land Monitoring Service (CLMS) nomenclature system such as CORINE Land Cover (CLC) or CLC+. The map displays distinct land cover polygons, outlined in black (except for one in teal), with associated numerical labels: - A large area in the upper-right and central-right is labelled `3.1.1.0`, indicating a sub-category of &#39;Woodland and Forest&#39; and showing dense vegetation (red/pink tones). - An area in the upper-left, outlined in teal, is labelled `4.2.2.0`, representing a type of &#39;Grassland and other herbaceous vegetation&#39;. - A broad area in the mid-left, with no distinct outline visible, is labelled `5.1.1.0`, corresponding to &#39;Heathland and Moorland&#39;. - An area in the lower-right, also showing dense vegetation (red/pink tones), is labelled `5.1.2.0`, which refers to &#39;Other scrub land&#39;, including dwarf pines, thickets, and brushwoods as defined by the surrounding document text. - Two distinct dark blue/black water bodies, one in the centre and one in the lower-centre, are both labelled `7.2.2.0`, representing a specific class of &#39;Water and Wetness&#39;. The imagery highlights different vegetation types through false-colour representation, with healthy vegetation appearing in red/pink hues. No scale, compass, or explicit geographic location is provided within the image, but the document context mentions examples from the Bavarian Alps, Germany, and Kiruna, Sweden, for the `5.1.2.0` class."
 alt="5.1.2.0. Other scrub land. Location: Kiruna, Sweden. SPOT-6 image (1.5 m), Band Combination. (3/4/2). Date: 2013-07-24. Source: CNES 2013©, Distribution Airbus DS/Spot Image." />
@@ -9208,7 +9208,7 @@ Example from mountainous area near Kebnekaise, Sweden.
 - Nordic subalpine / subarctic forests, class *3.1. Broadleaved forest.*
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image288.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image288.jpg"
 style="width:2.47in" data-fig-align="left"
 data-fig-alt="A false-colour SPOT-6 satellite image with 1.5 m resolution, acquired on 2013-07-24, showing land cover classifications in a mountainous area near Kiruna, Sweden. The image uses a Band Combination (3/4/2). Three specific land cover classes are identified by yellow markers and numerical labels: * An intense red/bright pink area in the lower-right is labelled &#39;5.1.2.0&#39;, representing &#39;Other scrub land&#39; (specifically Salix scrub). * A dark purple/magenta area in the upper-right is labelled &#39;5.1.1.0&#39;, representing &#39;Heathland and Moorland&#39; or &#39;Dwarf scrubs&#39;. * A darker, greenish-black area in the lower-left is labelled &#39;7.2.2.0&#39;, representing &#39;Unexploited peat bog&#39; or &#39;Peat producing areas&#39;. A large black area on the far left edge of the image appears to be a body of water or a very dark land feature. The source is CNES 2013©, distributed by Airbus DS/Spot Image."
 alt="5.1.2.0. in low laying parts of mountainous areas relative to dwarf scrubs (5.1.1.0). Location: Kiruna, Sweden. SPOT-6 image (1.5 m), Band Combination. (3/4/2). Date: 2013-07-24. Source: CNES 2013©, Distribution Airbus DS/Spot Image*" />
@@ -9242,7 +9242,7 @@ Example from mountainous area south of Kebnekaise, Sweden.
 - According to CLC the whole area is 322 - Moors and Heathland.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image289.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image289.jpg"
 style="width:2.53in" data-fig-align="left"
 data-fig-alt="This is a false-colour infrared satellite map of a mountainous area near Kiruna, Sweden, specifically south of Kebnekaise, dated 2013-07-24. The image was captured by SPOT-6 at 1.5 m resolution, using a Band Combination (3/4/2) (CNES 2013©, Distribution Airbus DS/Spot Image). Yellow polygons delineate different land cover classes, each marked with a three-digit CORINE Land Cover (CLC) code. The primary land cover classes shown are: * **311 (Broad-leaved forest):** Appears in intense red/magenta. These areas are concentrated in the central-upper and upper-right parts of the image. * **321 (Natural grasslands):** Appears in greenish-blue to grey hues. This class is visible in the upper-left and central-left regions. * **322 (Moors and heathland):** Appears in purple-grey tones, located in the mid-left area. * **412 (Peat bogs):** Appears in dark purplish-blue tones, found in the lower-left and central-lower parts, often adjacent to water bodies. Water bodies, including a meandering river and several lakes, appear dark blue to black and are notably present in the central and lower-left sections of the map. The spatial distribution shows a mixture of forest, grassland, moorland, and peat bog environments typical of a subalpine/subarctic mountainous landscape, with water features often integrated with peat bogs."
 alt="SPOT-6 image (1.5m), Band Combination (1/2/3). Location: Kiruna, Sweden. Date: 2013-07-24. Source: CNES 2013©, Distribution Airbus DS/Spot Image." />
@@ -9276,7 +9276,7 @@ included in CLC classes 311, 322 and 412 (yellow lines). A low, dense
 and rough texture is often seen in the orthographic photo.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image290.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image290.jpg"
 style="width:2.11in" data-fig-align="left"
 data-fig-alt="This map displays a landscape in false-colour infrared (NIR-Red-Green composite) imagery, showing distinct land cover types. The upper and central regions are predominantly covered by dense, healthy vegetation, rendered in deep reddish-brown and maroon hues, characteristic of forest or dense shrubland. Within these vegetated areas, some lighter brown and white patches suggest bare ground, rock outcrops, or sparse vegetation. Darker, linear features are also visible, likely shadows or water bodies. The lower-right portion of the image transitions to an area dominated by lighter brown, orange, and pinkish-brown tones, indicative of open ground, bare soil, or sparse, possibly drier, vegetation. A prominent, continuous yellow line delineates a polygonal boundary across the lower-right section, highlighting a specific area of interest or a land cover/land use (LULC) classification unit. No specific geographic location, scale, or legend is provided."
 alt="Dwarf pine region in the Alps (Austria).Difference in height and texture to neighbouring coniferous forest is clearly visible. SPOT-5 (2.5m), Band combination (1/2/3). CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -9434,7 +9434,7 @@ tracks, are visible across the landscape.
 Mediterranean scrubs in Albania in summer-time.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image296.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image296.jpg"
 style="width:2.01in" data-fig-align="left"
 data-fig-alt="A false-colour infrared satellite image of a landscape featuring Mediterranean scrubs in Tren, Albania, captured on 2011-08-22 by SPOT5 with 2.5 m resolution. The image uses a 1/2/3 band combination (typically Near-Infrared, Red, Green mapped to Red, Green, Blue display channels), where healthy vegetation appears in reddish to purplish hues. Dominant features include extensive areas of dense reddish-purple vegetation, consistent with scrubland or matorral, delineated by overlaid green polygon boundaries suggesting land cover classification units. Some areas show lighter green tones, possibly indicating different vegetation types or moisture levels, while small, bright blue patches likely represent water bodies or sparsely vegetated ground. The image source is CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="Badajoz (Spain) SPOT-5 (2.5 m.) (1/2/3 Band Combination). Date: 2011-03-18 Source: CNES 2011© Distribution Airbus DS/Spot Image" />
@@ -9474,7 +9474,7 @@ as is the case.
 ## 6 Open spaces with little or no vegetation
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image297.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image297.jpg"
 style="width:1.66in"
 data-fig-alt="A slightly blurred circular photograph depicts a deer standing on a grassy hillside. In the background, there is a body of water (likely a lake) and rolling hills or mountains covered with green vegetation under a cloudy sky. The image primarily shows natural elements: wildlife, grass, trees, water, and mountains. There are no labels or text visible within the image." />
 
@@ -9557,7 +9557,7 @@ clear sky, with light orange and pink hues typical of sunrise or sunset,
 and a dark blue area that could be a distant body of water or forest.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image299.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image299.jpg"
 style="width:3.18in" data-fig-align="left"
 data-fig-alt="This photograph depicts a landscape at Nipfjället, Sweden, illustrating &#39;Sparsely Vegetated Areas&#39; (Class 6.1.0.0) as defined by the accompanying documentation (a field layer cover between 10% and 50% at the phenological mature stage). The foreground shows extensive dry, sparsely vegetated terrain with scattered low bushes. In the mid-ground, a railway line is visible on the left, while the right side features a cluster of artificial structures including greenhouses, buildings, and trees, some appearing to be palm trees. The background is dominated by rolling hills covered in sparse, dry vegetation, with some areas showing bare rock or soil. The sky is clear and light blue. The photo is credited to S. Kirppu."
 alt="Sparsely vegetated areas in the background. South of Spain. Credits: M. Palacios." />
@@ -9642,7 +9642,7 @@ In dry environments sparsely vegetated areas may be covered by grasses
 in spring.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image300.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image300.jpg"
 style="width:2.31in" data-fig-align="left"
 data-fig-alt="This map displays an example of land cover classification in the Ölands alvar limestone plain in Sweden, showing delineated areas on a satellite image background. Several land cover polygons are outlined in blue. Specific labelled polygons include: `6.1.0.0` (Sparsely vegetated areas), `6.3.1.0` (Bare rocks and debris), `4.2.1.0` (a type of Grassland or Heathland and scrub), and `3.4.1.0` (a type of Woodland and forest), which also has a brown fill within its blue outline. The underlying imagery shows a mosaic of green, brown, and yellowish tones corresponding to vegetation and bare ground. No scale bar, compass, legend, or data source reference year is visible. The map illustrates the detailed delineation of various land cover types in a complex natural environment."
 alt="Sparsely vegetated areas, Ölands alvar, Sweden. SPOT-5 data." />
@@ -9671,7 +9671,7 @@ Example from Ölands alvar (a limestone barren plain).
 - *3.4.1.0 Transitional woodland and scrub.*
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image301.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image301.jpg"
 style="width:2.36in" data-fig-align="left"
 data-fig-alt="This false-colour infrared satellite image displays an arid, mountainous, or hilly landscape. The predominant land cover is light beige/off-white, indicating barren land or sparsely vegetated terrain across the undulating hills. A prominent winding river system, depicted in a light blue/teal colour, flows through the lower-left quadrant. Significant areas of dense vegetation, rendered in bright red, flank the river banks. Additional patches of red-coloured vegetation are visible in the upper and lower right sections of the image. No specific geographic location, scale bar, compass, legend, or date information is provided."
 alt="Sparsely vegetated area (6.1.0.0) in Agalar (Anatolia, Turkey) SPOT-5 (2.5 m) (NIR/R/G Band Combination). Date: 2011-06-29 Source: CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -9692,7 +9692,7 @@ give as a result this type of vegetation composed of very low density
 xeric scrubland.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image302.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image302.jpg"
 style="width:2.65in" data-fig-align="left"
 data-fig-alt="A false-colour satellite or aerial image depicting a rugged mountainous landscape. The image shows a complex terrain with pronounced ridges and valleys, particularly in the upper left and central-upper regions, exhibiting varied textures and strong relief. Numerous small to medium-sized water bodies appear in bright turquoise/cyan, scattered across the lower half and upper right of the image. The dominant land cover in the central and lower areas is rendered in reddish, pinkish, and purplish tones, characteristic of bare soil, sparse vegetation, or exposed rock formations in false-colour infrared imagery. Darker areas, especially in the upper central region, suggest shadows or specific geological features. No scale, orientation, or temporal context is visible."
 alt="Sparsely vegetated area (6.1.0.0) in the Alps. SPOT-5 (2.5 m) (NIR/R/G Band Combination). Date: 2012-09-07 Source: CNES 2011© Distribution Airbus DS/Spot Image" />
@@ -10084,7 +10084,7 @@ brown, suggesting artificial surfaces or agricultural land. The imagery
 source is CNES 2011© Distribution Airbus DS/Spot Image.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image316.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image316.jpg"
 style="width:2.54in" data-fig-align="left"
 data-fig-alt="A false-colour infrared satellite image showing a landscape dominated by a wide, braided river channel. Water and bare earth in the riverbed appear in shades of light blue-grey and light brown. Surrounding land cover is depicted in red hues, characteristic of infrared imagery where vegetation reflects strongly: dense vegetation (likely forest or dense scrub) is shown in bright red, particularly on the right side of the river and in patches on the left. Lighter pink-red and brownish areas indicate sparser vegetation, agricultural fields, or bare soil. Several small, light-coloured structures, possibly buildings or parts of settlements, are visible along the river&#39;s right bank. Faint linear features, potentially tracks or roads, traverse the landscape."
 alt="River bank (6.2.1.3) in Anatolia (Turkey) SPOT-5 (2,5 m.) (NIR/R/G Band Combination). Date: 2011-06-30. Source: CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -10230,7 +10230,7 @@ Italy, credited to A. Utanda.
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image321.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image321.jpg"
 style="width:2.65in" data-fig-align="left"
 data-fig-alt="This false-color satellite image displays a natural landscape featuring a prominent blue river flowing diagonally from the top-left towards the bottom-right. Adjacent to the river, lighter green areas suggest riparian zones or grasslands. The surrounding land cover is dominated by shades of green and scattered patches of bright red. The red areas indicate dense, photosynthetically active vegetation (e.g., forests or shrublands) as typically rendered in false-color infrared composites. The green-teal areas likely represent sparse vegetation, grasslands, or bare ground. A distinct, dark, linear ridge or escarpment runs parallel to the river, revealing significant topographic relief through shadow casting. The overall terrain shows undulating patterns, possibly indicative of erosion or geological formations. No scale bar, compass, or temporal information is visible."
 alt="Bare rocks formations (6.3.1.0) in Anatolia (Turkey). SPOT-5 (2,5 m.) (NIR/R/G Band Combination). Date: 2011-06-30 Source: CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -10250,7 +10250,7 @@ indicative of erosion or geological formations. No scale bar, compass,
 or temporal information is visible.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image322.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image322.jpg"
 style="width:4.34in" data-fig-align="left"
 data-fig-alt="This image displays false-colour infrared satellite imagery, likely using a Near-Infrared/Red/Green (NIR/R/G) band combination, showing a landscape with varied vegetation and a linear feature. Densely vegetated areas, possibly broadleaf forest or dense shrubs, appear in bright red. Other vegetated areas, perhaps coniferous forest or less vigorous vegetation, are shown in dark green/teal. A winding, light blue feature, likely a river or stream, traverses the upper-left and central parts of the image. A yellow line is overlaid on the imagery, delineating a specific area that encompasses a segment of the light blue feature and portions of both red and dark green vegetation. The image has a resolution consistent with SPOT-5 (2.5m) satellite data and is illustrative of land cover interpretation."
 alt="Example of bare rock with &lt;10% vegetation. It is a steep hillside dotted with birch. (Norway) Image (1/2/3 Band Combination). Date: 2012-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -10269,7 +10269,7 @@ resolution consistent with SPOT-5 (2.5m) satellite data and is
 illustrative of land cover interpretation.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image323.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image323.jpg"
 style="width:3.28in" data-fig-align="left"
 data-fig-alt="This is a false-colour satellite image depicting a rugged mountainous landscape. The image displays a complex terrain characterized by steep slopes, ridges, and deep valleys. Dominant land cover types include: 1. Areas of dense vegetation, appearing in deep reddish-brown hues, concentrated in the upper-left and scattered across various slopes. This false-colour representation typically indicates healthy vegetation reflecting strongly in the near-infrared spectrum. 2. Extensive areas of bright cyan/light blue, which likely represent snow, ice, or highly reflective bare rock formations. These areas exhibit undulating textures and cover significant portions of the visible terrain. 3. Very dark, almost black areas, primarily found in deep shadows within valleys and crevices, indicating lack of direct sunlight or possibly water bodies. The imagery highlights the topographical variations and distinct land cover patterns of a high-altitude or cold-climate region. No specific scale, location, or date information is visible."
 alt="Example of bare rock with &lt;10% vegetation in the Alps (Austria). SPOT-5 (2.5m), Date: 2012-09-07. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -10438,7 +10438,7 @@ reference year. The credit for the infrared orthophoto is Lantmäteriet,
 Sweden.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image328.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image328.jpg"
 style="width:2.04in" data-fig-align="left"
 data-fig-alt="This topographic map displays a mountainous region, likely Kebnekaise, Sweden, consistent with areas of &#39;Glaciers and Perpetual Snow&#39; as defined in section 6.3.3.0 of the document. The map features numerous thin grey contour lines indicating high-relief topography. Several large water bodies are depicted with a blue dotted pattern. Thin blue lines represent watercourses (streams and rivers) flowing through the terrain, with some connecting to the blue dotted water bodies. A single thin purple line in the lower-left section denotes a linear feature, potentially a path or road. The white/light grey areas bounded by contour lines represent the undifferentiated land, which, in the context of the document, pertains to mountainous terrain and includes glacier and perpetual snowfields, though these specific features are not highlighted with a distinct pattern within this map view. No legend, scale bar, compass orientation, or date is visible."
 alt="Glacier and perpetual snow according to topographical map. (Kebnekaise, Sweden). Credit: Lantmäteriet, Sweden" />
@@ -10504,7 +10504,7 @@ DS/Spot Image.
 ## 7 Wetland
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Wetland.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Wetland.jpg"
 style="width:1.71in"
 data-fig-alt="A blurry photograph depicting a natural landscape, framed within a light blue oval border. The foreground and mid-ground are dominated by a body of still water, likely a pond or marsh. Tall, dry grasses or reeds grow abundantly along the edges of the water. In the background, a discernible line of trees is visible beneath an overcast or cloudy sky. The upper portion of the image shows the branches and green leaves of another tree, partially obscuring the sky." />
 
@@ -10537,7 +10537,7 @@ classes***
 <img
 src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Capture.png"
 style="width:6.27in" data-fig-align="left"
-data-fig-alt="The table classifies land cover types based on categories of water presence, mapping them to specific Riparian Zones (RZ) and other land cover classifications. | PRESENCE OF WATER | RZ CLASSIFICATION | | :----------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | | Always dry (except extraordinary floods) | 1 Urban (except ponds related to industrial units); 2 Croplands (except rice fields); 3 Woodland and forest (except riparian/fluvial and swamp forests); 4 Grassland (except mesic grasslands); 5 Heathland and scrub; 6.1.0.0 Sparsely vegetated areas; 6.3.1.0 Bare rocks outcrops, cliffs; 6.3.2.0 Burnt areas | | Permafrost | N/A | | Ice | 6.3.3.0 Glaciers and perpetual snow | | Permanent snow | 6.3.3.0 Glaciers and perpetual snow | | Mesic, moist, or humid | 3.x Riparian and fluvial forest; 4.2.x.0 Natural and semi-natural grasslands | | Water-logged (the water table at or above ground level for at least half of the year). Wet soil (including periods with presence of dry soils in dry regions). | 3. Woodland and forest; 7. Wetland | | Permanently covered by water, but water level variations occurs (including occasionally periods with presence of wet soils). | 8.1.1.0 Natural &amp; semi-natural water courses; 8.1.3.0 Seasonally connected water courses (oxbows); 8.2 Lakes and reservoirs (except temporary water bodies); 7.2.3.0 Intertidal flats; 8.3.1.0 Lagoons; 8.3.2.0 Estuaries | | Permanently covered by water with tidal movements | 8.4 Sea and Ocean | The &#39;PRESENCE OF WATER&#39; column uses a color-coding scheme: yellow for &#39;Always dry&#39;, red for &#39;Permafrost&#39;, light blue for &#39;Mesic, moist, or humid&#39;, medium blue for &#39;Water-logged&#39; or &#39;Wet soil&#39;, dark blue for &#39;Permanently covered by water&#39; with variations, and a darker blue for &#39;Permanently covered by water with tidal movements&#39;. For &#39;Ice&#39; and &#39;Permanent snow&#39;, the RZ Classification is 6.3.3.0 (Glaciers and perpetual snow). For &#39;Water-logged&#39; or &#39;Wet soil&#39;, classifications include &#39;3. Woodland and forest&#39; and &#39;7. Wetland&#39;, which aligns with the Ramsar Convention definition for wetlands." />
+data-fig-alt="The table classifies land cover types based on categories of water presence, mapping them to specific Riparian Zones (RZ) and other land cover classifications. / PRESENCE OF WATER / RZ CLASSIFICATION / / :----------------------------------------------------------------------------------------------- / :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- / / Always dry (except extraordinary floods) / 1 Urban (except ponds related to industrial units); 2 Croplands (except rice fields); 3 Woodland and forest (except riparian/fluvial and swamp forests); 4 Grassland (except mesic grasslands); 5 Heathland and scrub; 6.1.0.0 Sparsely vegetated areas; 6.3.1.0 Bare rocks outcrops, cliffs; 6.3.2.0 Burnt areas / / Permafrost / N/A / / Ice / 6.3.3.0 Glaciers and perpetual snow / / Permanent snow / 6.3.3.0 Glaciers and perpetual snow / / Mesic, moist, or humid / 3.x Riparian and fluvial forest; 4.2.x.0 Natural and semi-natural grasslands / / Water-logged (the water table at or above ground level for at least half of the year). Wet soil (including periods with presence of dry soils in dry regions). / 3. Woodland and forest; 7. Wetland / / Permanently covered by water, but water level variations occurs (including occasionally periods with presence of wet soils). / 8.1.1.0 Natural &amp; semi-natural water courses; 8.1.3.0 Seasonally connected water courses (oxbows); 8.2 Lakes and reservoirs (except temporary water bodies); 7.2.3.0 Intertidal flats; 8.3.1.0 Lagoons; 8.3.2.0 Estuaries / / Permanently covered by water with tidal movements / 8.4 Sea and Ocean / The &#39;PRESENCE OF WATER&#39; column uses a color-coding scheme: yellow for &#39;Always dry&#39;, red for &#39;Permafrost&#39;, light blue for &#39;Mesic, moist, or humid&#39;, medium blue for &#39;Water-logged&#39; or &#39;Wet soil&#39;, dark blue for &#39;Permanently covered by water&#39; with variations, and a darker blue for &#39;Permanently covered by water with tidal movements&#39;. For &#39;Ice&#39; and &#39;Permanent snow&#39;, the RZ Classification is 6.3.3.0 (Glaciers and perpetual snow). For &#39;Water-logged&#39; or &#39;Wet soil&#39;, classifications include &#39;3. Woodland and forest&#39; and &#39;7. Wetland&#39;, which aligns with the Ramsar Convention definition for wetlands." />
 
 The table classifies land cover types based on categories of water
 presence, mapping them to specific Riparian Zones (RZ) and other land
@@ -10765,7 +10765,7 @@ a copyright notice in the bottom left corner: “© 2018 DG JRC / MAI /
 EEA” and “Copernicus Land Monitoring Service”.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image335.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image335.jpg"
 style="width:2.59in" data-fig-align="left"
 data-fig-alt="A blurred photograph depicts a natural wetland landscape, specifically inland freshwater marshes in the Tablas de Daimiel Natura 2000 Site in Central Spain, according to the accompanying context. In the foreground, a small, calm body of water is present, labelled &#39;WATER&#39; and encircled by a dotted blue line. An area to the left of the water is labelled &#39;PRESENCE OF CYPERACEAE PLANTS&#39;. Adjacent to the water and extending into the middle ground, an area of green vegetation is labelled &#39;GRASSES&#39;. The middle ground is dominated by a dense coniferous forest comprising numerous tall trees. In the background, rugged mountains are visible under a bright sky."
 alt="Interpretation of cyperaceae plants in a wetland. Credits of photography: M. Rodriguez" />
@@ -10782,7 +10782,7 @@ comprising numerous tall trees. In the background, rugged mountains are
 visible under a bright sky.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image336.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image336.jpg"
 style="width:2.45in" data-fig-align="left"
 data-fig-alt="This is a photograph depicting inland freshwater marshes at the Tablas de Daimiel Natura 2000 Site in Central Spain. The image shows a body of brownish-green water in the foreground, with a dense band of bright green emergent aquatic vegetation, likely reeds, growing from the water. In the mid-ground and background, a bank is covered with darker green, denser vegetation, appearing as woodland or shrub. The visible caption states: &#39;Inland freshwater marshes in Tablas de Daimiel Natura 2000 Site (Central Spain). Credits: M. Palacios&#39;."
 alt="Juncaceae plants. Credits: M. Palacios" />
@@ -10799,7 +10799,7 @@ states: “Inland freshwater marshes in Tablas de Daimiel Natura 2000 Site
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image337.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image337.jpg"
 style="width:2.23in" data-fig-align="left"
 data-fig-alt="False-colour infrared satellite imagery displaying an aerial view of a landscape featuring agricultural fields and several water bodies. Healthy vegetation appears in shades of dark magenta and red, indicating active cultivation or dense natural vegetation, likely agricultural fields with distinct boundaries forming a grid-like pattern. Water bodies are depicted in various shades of blue and black; some areas are deep dark blue/black, while others appear lighter blue-green or whitish, suggesting shallower water, sediment, or emergent aquatic vegetation typical of wetlands. Straight linear features, likely roads or field divisions, traverse the landscape. No text labels, scale bar, or temporal information are visible."
 alt="SPOT-5 (2,5 m). (1/2/3 band combination). Pannonic Salt Steppes example. Felső-kiskunsági szikes tavak és Miklapuszta Natura 2000 site, Hungary. Date: 2011-02-24. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -10819,7 +10819,7 @@ temporal information are visible.
 <u>Example of “Inland wetland” Interpretation Rules:</u>
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image338.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image338.jpg"
 style="width:3.77in" data-fig-align="left"
 data-fig-alt="A map displaying land cover classification examples within a Natura 2000 (N2K) Site, likely in Central Spain, overlaid on what appears to be false-colour satellite or aerial imagery. The green outline delimits the &#39;Border of Natura 2000 Site&#39;. Blue arrows point from specific features on the map to descriptive text boxes on the right, classifying the land cover according to a hierarchical nomenclature system. The classifications shown are: * &#39;Grass-like plants/water-logged area visible in imagery&#39; classified as &#39;7.1.1 Inland marshes&#39;. * &#39;Bare soil from previous water-logged area&#39; also classified as &#39;7.1.1 Inland marshes&#39;. * An area identified as &#39;3.1.2/3.1.3/3.1.1 Woodland and forest&#39;. * &#39;Mesic/moist/humid grasslands&#39; classified as &#39;4.2.1.2 Semi-natural grassland without woody plants&#39;. * &#39;Open water visible in imagery&#39; classified as &#39;8.2.1 Natural lakes&#39;. The map illustrates the application of land cover / land use (LCLU) categories to a complex wetland environment, distinguishing between different water-logged areas, open water bodies, and surrounding vegetation types within a protected area framework."
 alt="Araslövssjöområdet Natura 2000 site (limits in green), Sweden. SPOT-5 (2.5 m), (1/2/3 band combination). Date: 2011-06-28. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -10847,7 +10847,7 @@ vegetation types within a protected area framework.
 <u>Waterlogged areas covered by vegetation:</u>
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image339.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image339.jpg"
 style="width:2.91in" data-fig-align="left"
 data-fig-alt="This satellite image, captured by SPOT-5 at 2.5 m resolution (1/2/3 band combination, suggesting false-colour infrared), illustrates land cover classification within a Natura 2000 site. A thick green line delineates the &#39;Border of Natura 2000 site&#39;. Within this boundary, the primary features are classified: 1. A large, central dark blue area is identified as &#39;Open water visible in imagery&#39;, classified as &#39;8.2.1 Natural lakes&#39;. 2. Lighter blue/purple areas surrounding the open water, indicating vegetation, are labelled as &#39;Reeds &gt; 30%&#39;, classified as &#39;7.1.1 Inland marshes&#39;. The imagery also shows adjacent land areas, likely agricultural or vegetated, rendered in shades of red and purple, with white linear features, possibly roads or tracks, visible along some boundaries."
 alt="Srebarna Natura 2000 site (in green), Bulgaria. SPOT-5 2.5 m. (1/2/3 band combination). Date: 2011-04-26. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -10904,7 +10904,7 @@ prominent, interspersed with agricultural land and patches of woody
 vegetation.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image343.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image343.jpg"
 style="width:3.16in" data-fig-align="left"
 data-fig-alt="False-colour aerial or satellite imagery depicting a landscape with diverse land cover and land use. Vegetation, including forests and tree lines, is represented in various shades of dark red and magenta. A prominent river or stream flows from the upper left to the lower right, appearing bright cyan/light blue, with a white line along its banks, likely indicating a riparian zone or bare earth. Agricultural fields or bare soil areas are visible as lighter pinkish-purple or greyish-white patches, some with distinct rectangular shapes. Built-up areas and roads appear white or light grey, with a main road crossing the river via a bridge in the central portion of the image. In the upper-left and lower-right, a larger road network, possibly a highway, is visible. Specific features include: circular structures (possibly water treatment tanks or industrial ponds) coloured white/light blue near the centre-left; multiple light green rectangular areas, likely sports fields, surrounded by buildings near the centre-right; and a larger complex of light blue water bodies or industrial ponds in the far right. The image displays a mix of natural riparian and forest areas, cultivated land, and developed infrastructure."
 alt="7.1.0.0 Inland marshes (with reeds). Murnau, Southern Bavaria. SPOT-5 (2.5 m), (1/2/3 band combination). Date: 2011-06-28. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -10929,7 +10929,7 @@ The image displays a mix of natural riparian and forest areas,
 cultivated land, and developed infrastructure.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image344.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image344.jpg"
 style="width:3.1in" data-fig-align="left"
 data-fig-alt="False-colour infrared satellite imagery of a rural landscape, likely showing land cover and land use. The image depicts a meandering river rendered in bright cyan/turquoise, with a white line closely delineating its banks. Dense linear vegetation, appearing in deep red/brown, follows the river and forms boundaries around large agricultural fields. These fields are visible in varying shades of reddish-pink and light green/turquoise, indicating different crop types, growth stages, or bare soil. A small settlement or urban area, characterized by clusters of light blue/cyan features with white outlines, is located on the far left of the image. A distinct linear bright cyan feature crosses the river, suggesting a bridge or road. The colour scheme is typical of false-colour composites, where healthy vegetation is represented by strong reds, water by cyan/blue, and impervious surfaces or bare ground by lighter colours."
 alt="7.1.0.0 Inland marshes (with reeds, mowed and mixed with grassland). Murnau, Southern Bavaria. SPOT-5 (2.5 m. (1/2/3 band combination). Date: 2011-06-28. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -10952,7 +10952,7 @@ by lighter colours.
 <u>Wetland and semi-natural grassland distinction example:</u>
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image345.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image345.jpg"
 style="width:2.31in" data-fig-align="left"
 data-fig-alt="False-colour infrared composite map depicting a landscape with varied land cover. Dense vegetation, such as forests, appears in shades of dark red/magenta, primarily in the upper left and lower right sections. Open areas or agricultural land are depicted in lighter red/pink/brown. Water bodies and very wet areas are rendered in bright cyan/blue. A significant linear water feature (river) runs diagonally from the upper left towards the middle of the image, with several branching tributaries also in cyan. Two polygons are highlighted with white outlines. Polygon &#39;411&#39; is located in the central-left area, encompassing a mixed landscape with lighter red/pink vegetation and some blue/green patches, suggesting agricultural land or open fields. Polygon &#39;412&#39; is in the central-right, outlining a large wetland or shallow water body, characterized by light green/yellow/brown tones indicating marshy vegetation and shallow water, with distinct cyan patches of open water. No scale bar, compass, or specific geographic location is visible."
 alt="7.1.0.0 Inland marsh with CLC class 411 overlay. Neighbouring moorland shows yellow-green-spectral signatures. Location: South of Murnau, Southern Bavaria. SPOT-5 (2.5 m), (1/2/3 band combination). Date: 2011-06-28. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -11074,7 +11074,7 @@ statistical survey from 2012.
 **Appearance**:
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image347.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image347.jpg"
 style="width:1.93in" data-fig-align="left"
 data-fig-alt="An infrared orthophoto displaying a landscape with distinct land cover features. The central, dominant feature is a large, bright green, rectangular area with a visible linear trench and parcel structure, explicitly labelled &#39;Exploited peat bog.&#39; This area is delineated by a yellow polygon outline. To the left of the peat bog, there are two distinct dark blue water bodies (lakes) also outlined in yellow. The surrounding areas show a mix of reddish-brown and darker green hues, indicative of other land cover types such as forest or agricultural land, also delineated by yellow polygon outlines. The image background consists of infrared orthophotos, with imagery credit attributed to Lantmäteriet."
 alt="The delineation of the exploited peat bog (yellow polygons) is from CORINE Land Cover and corresponds fairly to MAES delineation. Sweden. SPOT-5 data. Credit imagery: ESA" />
@@ -11092,7 +11092,7 @@ consists of infrared orthophotos, with imagery credit attributed to
 Lantmäteriet.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image348.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image348.jpg"
 style="width:1.95in" data-fig-align="left"
 data-fig-alt="This map displays an aerial or satellite image of an exploited peat bog in Sweden, with yellow polygons delineating specific land cover areas. The background imagery is sourced from SPOT-5 data, credited to ESA, and shows a false-colour or infrared composite. Densely vegetated areas, likely forests, appear in shades of reddish-maroon, while open land and the exploited peat bog areas are greenish-grey. Water bodies, such as lakes and ponds, are dark blue or black. The yellow polygons represent the delineation of exploited peat bog areas as defined by CORINE Land Cover (CLC), which the accompanying text notes corresponds fairly to MAES delineation. These exploited peat bogs are visually characterized by distinct linear trench and parcel structures within the greenish-grey areas, consistent with peat extraction activities."
 alt="The same area as left but infrared orthophotos as image background. Credit imagery: Lantmäteriet" />
@@ -11255,7 +11255,7 @@ an unexploited peat bog, which is a key habitat type under the EU
 Habitats Directive.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image354.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image354.jpg"
 style="width:4.11in" data-fig-align="left"
 data-fig-alt="This satellite image depicts a natural landscape, likely composed of vegetation and small water bodies. The colouration suggests either a natural-colour or false-colour rendering, with a dominance of green hues for vegetated areas, interspersed with reddish-brown tones, and dark blue/black patches that appear to be small lakes or wetlands. Two irregularly shaped polygons are highlighted with a bright yellow outline. One polygon is located on the upper left-center of the image, appearing relatively elongated. The second, larger polygon is situated towards the upper right and center-right of the image, exhibiting a more complex, angular shape. No geographical labels, scale bar, compass, legend, or data source information is visible, preventing specific identification of land cover types or the purpose of the outlined polygons."
 alt="Area in the north of Sweden mapped as peat bog in CORINE LC. SPOT-5. Credit imagery: ESA" />
@@ -11458,7 +11458,7 @@ in estuaries and other coastal landscapes and with low vegetation
 coverage.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image360.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image360.jpg"
 style="width:2.26in" data-fig-align="left"
 data-fig-alt="A false-color satellite image showing rice fields and surrounding landscapes in Doñana National Park, Spain, captured on 2011-08-11 by SPOT-5 at 2.5 m resolution using a 1/2/3 Band Combination. The image depicts several distinct land cover types characteristic of coastal and agricultural environments. Large, regularly gridded areas in the upper-right and central-right portions display a vivid blue hue, identifying them as flooded rice fields or other wet agricultural land. Extensive areas of healthy vegetation, including fields and natural cover, appear in various shades of red and dark red, prominent in the upper-right and along the lower-left coastline. A prominent body of water, likely an estuary or river, winds through the center of the image, appearing turquoise to light blue, connecting to a larger, darker blue water body on the left, possibly the Atlantic Ocean or a bay. Areas of brownish-tan and lighter brown indicate bare soil, mudflats, or less vegetated terrain. Small, scattered bright red/pink patches represent built-up areas or settlements. This imagery illustrates landscapes, potentially including salt marshes transformed into agriculture. The source is CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="Marshes in Doñana Natura 2000 site, Spain and estuary of the Guadalquivir river SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-08-01. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -11512,7 +11512,7 @@ Distribution Airbus DS/Spot Image.
 classification rules are applied as follows</u>:
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image362.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image362.jpg"
 style="width:2.44in" data-fig-align="left"
 data-fig-alt="The image is a false-colour infrared satellite image depicting an agricultural landscape. The dominant feature is a large area of regularly shaped, rectangular fields rendered in bright red, indicating healthy, vigorous vegetation. These fields are arranged in a grid-like pattern, with thin, darker lines possibly representing field boundaries, irrigation channels, or access paths. A dark blue to black, curving water body, likely a river, borders the main cluster of fields along its southern and eastern edges. Surrounding the cultivated areas and the water body are regions of lighter brown, tan, and greyish-white tones, indicative of bare soil, sparse vegetation, or different land cover types. Some internal variations in the red fields suggest different crop types, growth stages, or localised patches of bare ground, such as a darker, rectangular patch near the center of the main field cluster. A small, bright white patch is visible in the lower-left corner."
 alt="Rice fields in Doñana National Park (Spain). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -11536,7 +11536,7 @@ small, bright white patch is visible in the lower-left corner.
   *2.1.1.0 Arable irrigated and non-irrigated land.*</span>  
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image363.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image363.jpg"
 style="width:3.44in" data-fig-align="left"
 data-fig-alt="An aerial or satellite false-colour infrared composite image depicting a landscape dominated by large, rectangular land parcels and distinct water features. Large areas of bright red indicate healthy vegetation or actively growing crops, consistent with extensive agricultural fields. Adjacent to these are equally large, rectangular areas appearing in brownish-green or grey tones, suggesting bare soil, fallow land, or sparsely vegetated fields. Water bodies are rendered in light blue and are prominent throughout the scene: a significant linear feature, likely a river or large canal, runs along the right edge of the image; another linear water body curves across the top-left. In the bottom-left corner, multiple geometrically shaped light blue ponds are visible, characteristic of salt pans or aquaculture facilities. A distinct light blue, triangular-shaped water body is located in the upper-middle section, enclosed within a more complex artificial structure amidst the brownish-green fields. Fine, reddish-brown lines delineate the boundaries of the rectangular fields, indicating field borders, tracks, or irrigation/drainage channels. No scale bar, compass, legend, or specific geographic location is provided."
 alt="Transformed salt marsh in Doñana National Park (Spain) without agricultural use. SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -11591,7 +11591,7 @@ Airbus DS/Spot Image.
   scrub*.</span>  
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image365.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image365.jpg"
 style="width:1.23in" data-fig-align="left"
 data-fig-alt="This is a satellite image, specifically a SPOT-5 (Satellite Pour l&#39;Observation de la Terre) image with 2.5 m resolution, captured on 2011-08-11, showing a transformed salt marsh in Doñana National Park, Spain. The image uses a 1/2/3 Band Combination, typically representing false-colour infrared where active vegetation appears red. The right side of the image depicts the dark blue coastal water. Inland, a significant area of reddish vegetation is visible, containing several elongated, lighter-coloured features that suggest former agricultural plots or drainage channels, indicating a transformed marsh without current agricultural use. Dark, meandering lines represent water bodies or rivers, such as the Guadalquivir river estuary mentioned in the surrounding context for similar images. The image source is CNES 2011©, distributed by Airbus DS/Spot Image."
 alt="Pineiou Delta, Natura 2000 site (Greece). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-08-23. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -11626,7 +11626,7 @@ rules</u>:
   clear surface depressions) will be classified as *8.3.1.0* *Lagoons.*
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image367.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image367.jpg"
 style="width:3.54in" data-fig-align="left"
 data-fig-alt="A SPOT-5 satellite image (2.5 m resolution, 1/2/3 Band Combination) of a landscape in Doñana National Park, Spain, dated 2011-08-11. The image shows several distinct land cover types. A large, irregularly shaped area, outlined by a dotted yellow line, appears as a pale grey-blue surface with darker blue water patches, indicative of a waterlogged, transformed salt marsh without active agricultural use, consistent with Copernicus Land Monitoring Service (CLMS) categories like *6.1 Sparsely vegetated areas* or *8.1.1.0 Coastal salt marshes*. To the right, a prominent river or water channel, outlined by a solid green line, flows vertically and appears turquoise. Adjacent to the river on its right side, a series of rectangular plots are visible, some in bright cyan and others in dark green, indicating active agricultural fields, specifically identified in context as &#39;Rice fields&#39;. The area to the far left of the yellow-outlined marsh shows reddish-brown land with distinct linear patterns, suggesting either natural vegetation or disturbed soil. The image source is CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="Relevant and clear ponds and channels in salt marshes are classified as 8.2.1.0 Coastal lagoons. SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-08-01. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -11933,7 +11933,7 @@ characterized by river influence.
 ## 8 Water
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Water.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Water.jpg"
 style="width:1.57in"
 data-fig-alt="This photograph, enclosed within a light blue circular frame, depicts a blurred view of a water body, likely a river or stream. The water occupies the midground, reflecting parts of the blue sky and white clouds. A distinct line of green trees forms the far bank, extending across the horizon. Scattered patches of lighter green vegetation, possibly reeds or bushes, are visible along the near bank and within the water. In the background, above the treeline, several vertical structures resembling power line towers are indistinctly visible. The foreground shows very blurred green and brown elements." />
 
@@ -12158,7 +12158,7 @@ image.
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image381.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image381.jpg"
 style="width:1.61in" data-fig-align="left"
 data-fig-alt="A false-color infrared satellite or aerial image depicts a diverse European landscape. A prominent, wide, meandering river, appearing dark blue/cyan, flows from the top-left, forms a large curve around a central landmass, and exits towards the bottom-right. Within this river bend, two distinct, interconnected, darker blue water bodies, likely reservoirs or natural lakes (potentially mapped under CLMS category *8.2.1.0 Natural lakes*), are visible. The surrounding land cover is dominated by irregularly shaped agricultural fields, displayed in shades of reddish-pink, indicating vegetated crops or bare soil. Patches of denser, dark red/maroon vegetation, representing forests or woodlands, are scattered across the scene, notably in the lower right. Settlements or urbanized areas appear as lighter blue-green/cyan tones with irregular patterns and clustered structures, particularly along the inner riverbanks. The false-color infrared palette highlights vegetation as red, water as dark blue, and built-up areas with cyan tones, typical for remote sensing applications in land cover analysis."
 alt="River Weser in Bodenwerder (Lower Saxony, Germany). SPOT-5 (2.5 m) (1/2/3 band combination). Date: 2011-02-05. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -12181,7 +12181,7 @@ as red, water as dark blue, and built-up areas with cyan tones, typical
 for remote sensing applications in land cover analysis.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image382.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image382.jpg"
 style="width:1.49in" data-fig-align="left"
 data-fig-alt="This is a False Colour Infrared (FCI) satellite image displaying a natural landscape. The image uses a colour composite where healthy vegetation appears in shades of reddish-brown and magenta, indicating strong near-infrared reflectance. A prominent, elongated dark blue to black feature, characteristic of a river or a large stream, traverses the image diagonally from the upper right to the lower left. The banks of this water body are bordered by bright, almost white or light blue lines, possibly indicating sun glint or reflective sediment. Extensive areas of deep reddish-brown signify dense vegetation, likely forests or woodlands, covering much of the land. Lighter reddish-pink patches are visible, suggesting areas of less dense vegetation, grasslands, or agricultural fields. Several small, irregular light-coloured specks are scattered within the vegetated areas, but their specific nature (e.g., clearings, bare ground, small structures) cannot be definitively determined. No scale, location, or date information is visible."
 alt="Intermittent river in Aetolia-Acarnania region (Greece). SPOT-5 (2.5 m) (1/2/3 band combination). Date: 2011-02-05. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -12237,7 +12237,7 @@ determined. No scale, location, or date information is visible.
     Natural and semi-natural water courses*</span>  
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image383.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image383.jpg"
 style="width:5.32in" data-fig-align="left"
 data-fig-alt="A false-colour infrared aerial or satellite image displaying a winding, braided river system outlined in blue, surrounded by varied land cover. The river channel and its immediate floodplain appear in light blue/cyan, indicating water or wet and sandy areas. A prominent blue line delineates the boundary of the main river corridor, potentially representing a riparian zone or active floodplain. Surrounding the river, the landscape shows large areas of vibrant red, characteristic of dense vegetation such as healthy forests or crops. Interspersed with these red areas are greenish-blue rectangular patches, likely representing agricultural fields or other cultivated land with different vegetation characteristics or soil moisture. Other areas appear as reddish-brown, indicating sparser vegetation or bare soil. No scale bar, compass orientation, legend, or data source/year is visible."
 alt="Example of delineation of dry braided rivers. Euphrates River (Turkey). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-06-25. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -12261,7 +12261,7 @@ compass orientation, legend, or data source/year is visible.
   banks*.</span>  
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image384.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image384.jpg"
 style="width:3.79in" data-fig-align="left"
 data-fig-alt="This is a False Colour Infrared (FCIR) satellite image showing a landscape dominated by a wide, braided, light blue/grey riverbed or wadi running from left to right across the image. The blue/grey colour likely indicates exposed sediment, sand, or gravel, possibly water-filled in places but primarily dry. Flanking the riverbed are areas of bright red, indicating healthy vegetation, which is characteristic of FCIR imagery where near-infrared light is mapped to red. These red vegetated areas are particularly dense along the immediate banks and extend into the surrounding hilly terrain. Other areas show muted green and brown tones, suggesting sparser vegetation or bare soil. In the upper left quadrant, several white linear features are visible, likely representing unpaved roads or tracks winding through the landscape. A cluster of small, light-coloured structures (possibly buildings) is also visible in the upper-left, near the tracks. No scale bar or specific geographic location is identifiable from the image."
 alt="River system where it is not possible to delineate water channels &gt; 10 m. Tributary of the Euphrates River (Turkey). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-06-29. Source: CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -12419,7 +12419,7 @@ guidelines.
 **Appearance:**
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image389.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image389.jpg"
 style="width:5.37in" data-fig-align="left"
 data-fig-alt="This satellite image, likely in false colour, illustrates the visual distinction between two Copernicus Land Monitoring Service (CLMS) water course classification categories. The vegetation appears in shades of red/magenta, and water bodies are dark blue/cyan. An annotation box in the upper left points to a straight, narrow water channel and labels it as &#39;Highly modified water channel = 8.1.2 Highly modified water courses and canals&#39;. An annotation box in the lower right points to a wider, meandering water course and labels it as &#39;Natural water course not modified = 8.1.1 Natural &amp; semi-natural water courses&#39;. The surrounding land cover consists of vegetated areas and possibly agricultural fields. There is no visible scale bar, compass, or date."
 alt="Danube river in Gemenc Ramsar Site, Hungary. SPOT-5 2.5 m. (1/2/3 band combination). Date: 2011-02-24. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -12537,7 +12537,7 @@ temporary flooded areas, *permanent* land cover will be mapped
 (e.g. grasslands, wetlands or agricultural features).
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image393.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image393.jpg"
 style="width:2.66in" data-fig-align="left"
 data-fig-alt="A false-colour infrared satellite image displays a diverse landscape featuring a large river, a floodplain wetland, extensive agricultural fields, and an urban area. A prominent dark blue river flows diagonally from the top-right to the bottom-left, containing a long, narrow island. Adjacent to the river on the left is a complex floodplain or wetland system, characterized by meandering dark blue water channels and multiple irregularly shaped dark blue water bodies. Surrounding these natural features are extensive agricultural fields, rendered in various shades of bright red to dull red, indicating actively growing vegetation. These fields exhibit distinct geometric patterns. On the far left and upper-left, a densely built-up urban area or town is visible in light blue-grey tones, showing a discernible grid-like street pattern. Other visible features include linear elements such as roads or smaller canals traversing the agricultural land. The vibrant red colours of vegetation suggest the image was captured during a period of active growth."
 alt="Temporary flood ponds in Danube River in Borcea (Romania). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-04-21. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -12588,7 +12588,7 @@ SPOT-6, 2013
   unclear – flooded or normal water level?</span>  
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image395.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image395.jpg"
 style="width:2.67in" data-fig-align="left"
 data-fig-alt="A false-color infrared satellite image depicting land cover classification polygons within a riverine system. Healthy, dense vegetation appears in bright red, while water bodies appear dark blue or black. Other land cover types are visible in shades of brown and dark green. The image features several distinct land cover classification polygons: * Water bodies are outlined in light blue. A large central water body is labelled `9.1.1.0`. Several smaller, irregularly shaped water bodies, likely permanent dead side-arms, are labelled `9.1.3.0`. * Vegetated areas, appearing bright red, are outlined in green and labelled with classification code `7.1.0.0`. Two yellow arrows are present; one points from a `9.1.3.0` area towards the `9.1.1.0` water body on the left, and another from a `9.1.3.0` area towards the `9.1.1.0` water body on the right. This image serves as an example for classifying permanent water bodies and surrounding vegetation within river systems, consistent with high-resolution imagery like SPOT-5 with a 2.5 m resolution and a 1/2/3 band combination, as discussed in the context of Danube river mapping." />
 
@@ -12651,7 +12651,7 @@ resulting from former extractive industries (gravel mining, open cast
 pit) after restoration.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image396.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image396.jpg"
 style="width:3.25in" data-fig-align="left"
 data-fig-alt="A wide-angle landscape photograph features a large, deep blue lake as the central element, reflecting the clear sky. The lake is surrounded by densely forested hills and mountains, primarily covered with dark green coniferous trees. In the background, rugged, snow-capped or bare rock mountains rise prominently under a clear, bright blue sky. On the lower right side of the image, nestled between the forest and the lake, a small village or settlement is visible, with several light-coloured buildings and some open green spaces. The overall scene depicts a natural, mountainous environment with minimal human development concentrated in one small area. No text is visible within the image."
 alt="Permanent natural water body in the Bavarian Alps (S-Germany). Credits: M. Probeck" />
@@ -12776,7 +12776,7 @@ with the actual land cover of 2012 and get the attributed with the
 comment “temporal fluctuation of water level”.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image399.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image399.jpg"
 style="width:3.2in" data-fig-align="left"
 data-fig-alt="A photograph depicting a reservoir situated in a mountainous, arid landscape, likely in the Canary Islands, Spain. A concrete dam structure is visible across the water body in the background. The current water level along the rocky shoreline is highlighted by a red dashed line, which appears to correctly delineate the water body&#39;s limits. The surrounding context indicates this image demonstrates the &#39;correct interpretation&#39; for delimiting water bodies using the current water level for mapping purposes, particularly in the context of temporal fluctuations. The image credit is M. Palacios."
 alt="Delimitation of water bodies using the maximum water lever. This is the wrong interpretation. Reservoir in Canary Island (Spain). Credit: M. Palacios" />
@@ -12792,7 +12792,7 @@ level for mapping purposes, particularly in the context of temporal
 fluctuations. The image credit is M. Palacios.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image400.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image400.jpg"
 style="width:3.19in" data-fig-align="left"
 data-fig-alt="This photograph depicts a reservoir nestled within a steep, rocky, mountainous landscape, identified as being in the Canary Islands, Spain. The water in the reservoir appears a pale greenish-yellow. A dam wall is visible in the background. A red dashed line delineates the current visible water level along the shore. According to the accompanying text, this image illustrates the &#39;wrong interpretation&#39; for the delimitation of water bodies, specifically in the context of using the maximum water level for mapping, implying that the depicted water level is not the maximum. Credit: M. Palacios."
 alt="Delimitation of water bodies using the current water level. This is the correct interpretation. Reservoir in Canary Island (Spain). Credit: M. Palacios" />
@@ -12821,7 +12821,7 @@ wetland and coastal systems, temporal ponds within the river system,
 boreal snow-melt pools and ponds from abandoned or restored quarries.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image403.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image403.jpg"
 style="width:2.07in" data-fig-align="left"
 data-fig-alt="An aerial photograph illustrating the correct interpretation method for delimiting water bodies based on the current water level. The setting is a reservoir in the Canary Islands, Spain. The image displays a landscape predominantly covered by dense, reddish vegetation, indicative of forests or shrublands, likely in a false-colour infrared composite. Two prominent, dark, circular water bodies are visible, representing lakes or reservoirs. Several lighter-coloured, winding linear features traverse the landscape, appearing to be tracks or roads, alongside patches of lighter grey-green areas indicating sparser vegetation or bare ground. The associated text confirms: &#39;Delimitation of water bodies using the current water level. This is the **correct interpretation**.&#39; Credit is attributed to M. Palacios."
 alt="Temporary Mediterranean ponds in Castilla-La Mancha (Spain) SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-07-22. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -12944,7 +12944,7 @@ corner of the image contains the text “©European Union, 2012” and
 Artificial ponds/lakes with regular shape.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image407.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image407.jpg"
 style="width:2.81in" data-fig-align="left"
 data-fig-alt="This is a false-color satellite image displaying an agricultural landscape. The image shows a grid-like pattern of cultivated fields and two large water bodies. Vegetated areas, likely crops, are depicted in various shades of pink and red, indicating high Normalized Difference Vegetation Index (NDVI) values or strong infrared reflectance. Areas appearing light green or teal may represent bare soil, harvested fields, or less vigorous vegetation in this specific false-color composition. The two primary water bodies are dark blue, with the larger one in the upper-center containing several pinkish-red patches, suggesting emergent vegetation or very shallow areas. The smaller water body in the lower-right appears to be divided into two compartments. A prominent linear feature, likely a road or canal, runs diagonally across the upper portion of the image. No specific geographic location, scale, or date is discernible."
 alt="Irrigation water pond in Thessaly (Greece) SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-08-23. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -13032,7 +13032,7 @@ Differentiable for salines ponds due the presence in the waters of algae
 and the related characteristic water colour.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4444.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4444.jpg"
 style="width:3.51in" data-fig-align="left"
 data-fig-alt="A simplified land cover map illustrating a geographic area featuring water bodies, tree cover, and a designated zone. The background is a light green, representing general land cover. Scattered across this land are numerous green and grey tree icons, indicating areas of tree cover or forest. Within this landscape, a large, irregularly shaped aggregate of polygons, coloured in various shades of blue (light blue, medium blue, and dark blue), represents distinct water bodies. These individual water body polygons are delineated by dark grey/green lines. A prominent red outline encircles the majority of the water bodies and some adjacent land with tree cover, defining a larger area. Two smaller, isolated blue polygons (water bodies) are also present, each individually enclosed by a red outline. The alphanumeric code &#39;8.2.3&#39; is explicitly labelled in red text within the largest red-outlined area and next to the two smaller, isolated red-outlined water bodies. No scale bar, compass, legend, or specific geographic location is indicated."
 alt="Typical pattern of fish ponds in the region of Třeboňsko (Czech Republic)" />
@@ -13137,7 +13137,7 @@ included in this category. The main differentiation active/non-active is
 based in the presence of recent removed soil around the water bodies.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image411.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image411.jpg"
 style="width:5.39in" data-fig-align="left"
 data-fig-alt="False-colour satellite imagery of a landscape in Villedaigne, France, captured on 2011-03-20 by SPOT-5 at 2.5 m resolution, using a 1/2/3 Band Combination. The image illustrates land cover classification distinctions, featuring a large river or canal (dark blue) traversing the upper portion. An orange arrow highlights a dark blue pond surrounded by lighter bluish-green areas, identified as &#39;Bare soil = active quarry = 8.2.4 Standing water bodies of extractive industrial sites&#39; according to CORINE Land Cover (CLC) nomenclature. A second orange arrow points to a cluster of smaller, darker ponds within vegetated areas (depicted in red and magenta), labelled &#39;Naturalized ponds = 8.2.1 Natural lakes&#39;. Agricultural fields are shown in various red and magenta tones, and a road-like linear feature crosses the image. The image credit is CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="Water bodies in a gravel pit area - Bozbulut (Turkey) Credit: SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-07-05. Source: CNES 2011©, Distribution Airbus DS/Spot" />
@@ -13316,7 +13316,7 @@ Lagoons* (including muddy areas separated from the main lagoons by
 barrier and not included in salines or fish farms).
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image417.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image417.jpg"
 style="width:3.33in" data-fig-align="left"
 data-fig-alt="This is a satellite image illustrating the Copernicus Land Monitoring Service (CLMS) land cover classification &#39;8.3.1 Lagoons (without reeds)&#39;. The image depicts a coastal lagoon, visible as a large body of blue/turquoise water, separated from the open sea (darker blue) by a narrow land barrier composed of reddish-toned sparse vegetation and sand. A prominent yellow polygon outlines the area classified as &#39;8.3.1 Lagoons (without reeds)&#39;, encompassing the main water body and adjacent lighter-coloured, possibly muddy or shallow water areas, particularly along the internal shores. To the left of the main lagoon, a series of rectangular parcels are visible, some containing light green water and others dark ground, suggesting human-modified areas like aquaculture ponds or salt pans. The surrounding land shows reddish tones indicating vegetation. Based on metadata from a closely related image within the document, this imagery is likely derived from SPOT-5 satellite data, acquired on 2011-02-05, with a 2.5 m resolution using a 1/2/3 band combination, and depicts a location consistent with the Limnes Voulkaria Kai Saltini Natura 2000 site in Greece."
 alt="Schematic view of the treatment of bare soils in coastal lagoons" />
@@ -13343,7 +13343,7 @@ The following types of coastal lagoons are considered according their
 main morphological characteristics:
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image418.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image418.jpg"
 style="width:5.83in" data-fig-align="left"
 data-fig-alt="This schematic map illustrates a typical coastal lagoon landscape, depicting various land cover and land use (LCLU) classes using a colour-coded system, likely based on the CORINE Land Cover (CLC) nomenclature. The legend provides the following colour-to-land cover mappings: * Light blue: Coastal lagoon * Yellow: Sand bank * Dark olive green: Vegetated dunes * Bright green: Pine * Light green: Rice * Pale cream/white: Irrigated land * Dark blue: Sea and Ocean The map features a large central body of water, light blue in colour, explicitly labelled &#39;8.3.1 Lagoons&#39;. This lagoon is bordered by light green areas labelled &#39;2.1.1 Arable irrigated and non-irrigated land&#39;. A small patch of pale cream/white, corresponding to &#39;Irrigated land&#39; in the legend, is visible within the &#39;2.1.1 Arable irrigated and non-irrigated land&#39; area in the top-left. Other terrestrial areas include a darker green region labelled &#39;3.2.1 Other natural &amp; semi-natural coniferous forest&#39; and a light green area labelled &#39;5.3 Sclerophyllous scrub&#39; to the south of the lagoon. Between the &#39;8.3.1 Lagoons&#39; and the &#39;Sea and Ocean&#39; (dark blue area on the far right), a series of linear features are arranged: * A dark blue strip labelled &#39;8.4.2 Coastal waters&#39;. * A yellow strip labelled &#39;Sand bank&#39;. * A dark olive green strip labelled &#39;Vegetated dunes&#39;. * A bright green strip labelled &#39;Pine&#39;. The label &#39;6.2.1 Beaches and Dunes&#39; spans across the yellow &#39;Sand bank&#39; and dark olive green &#39;Vegetated dunes&#39; areas, suggesting these are sub-categories within a broader &#39;Beaches and Dunes&#39; class. Several yellow arrows indicate a conceptual flow or connection from the inner terrestrial features, across the sand bank and vegetated dunes, towards the Sea and Ocean. The land cover classes include CLC codes such as 2.1.1 (Arable land), 8.3.1 (Lagoons), 8.4.2 (Coastal waters), 6.2.1 (Beaches and Dunes), 5.3 (Sclerophyllous scrub), and 3.2.1 (Coniferous forest)."
 alt="Schematic view of La Albufera coastal lagoon (Valencia, Spain)" />
@@ -13397,7 +13397,7 @@ completely by sand banks. Many of these lagoons are man-made transformed
 (especially by the construction of roads on the sand barriers).
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image420.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image420.jpg"
 style="width:5.73in" data-fig-align="left"
 data-fig-alt="This schematic landscape diagram illustrates the classification of land cover / land use (LCLU) types within a typical coastal lagoon environment, referencing specific classification codes. The diagram depicts a body of water classified as 8.3.1 Lagoons (light blue) which is largely enclosed by a land barrier (beige). This land barrier is identified as a Sand bank in the legend and includes an area explicitly labelled 6.2.1 Beaches and Dunes. On the outer side of the land barrier, a larger body of water is shown as 8.4.2 Coastal waters (dark blue), which corresponds to the general classification of Sea and Ocean in the legend. A small Vegetated area (olive green) is also shown on the land barrier at the top of the diagram. The legend defines four colour-coded classes: Lagoon (light blue), Sand bank (beige), Vegetated area (olive green), and Sea and Ocean (dark blue)."
 alt="Schematic view of Falsterbo coastal lagoons complex (Scania Province, Sweden)" />
@@ -13417,7 +13417,7 @@ classes: Lagoon (light blue), Sand bank (beige), Vegetated area (olive
 green), and Sea and Ocean (dark blue).
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4211.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4211.jpg"
 style="width:5.51in" data-fig-align="left"
 data-fig-alt="This schematic map illustrates a typical coastal lagoon landscape, depicting various land cover / land use (LULC) types with associated CORINE Land Cover (CLC) codes and corresponding colours. The legend identifies: light blue as &#39;Lagoon&#39; (8.3.1 Lagoons); yellow as &#39;Sand bank&#39;; red as &#39;Urban area&#39; (1.1.1 Urban fabric); olive green as &#39;Sclerophyllous scrub&#39; (5.3 Sclerophyllous scrub); light green as &#39;Irrigated land&#39;, which is labelled &#39;2.1.1 Arable land&#39; on the map itself; very light blue lines as &#39;Roads&#39;; and dark blue as &#39;Sea and ocean&#39; (8.4.2 Coastal waters). White lines delineate coastal features, including an area labelled &#39;6.2.1 Beaches and Dunes&#39; located between the sea, a sand bank, and an urban area. The map shows a large central lagoon body adjacent to the sea, with land masses featuring arable land, sclerophyllous scrub, and an urban area."
 alt="Schematic view of a transformed coastal lagoon. Logarou lake (Greece)." />
@@ -13441,7 +13441,7 @@ by sand or shingle banks. Seawater enters by percolating through the
 bank.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4212.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4212.jpg"
 style="width:5.77in" data-fig-align="left"
 data-fig-alt="This schematic map illustrates the land cover classification of a typical coastal lagoon landscape, detailing the spatial arrangement of various environmental features. The map uses a colour-coded legend to represent distinct land cover types and includes associated classification codes. The legend on the right indicates: * Light blue: Lagoon (represented as &#39;8.3.1 Lagoons&#39; in the main body). * Yellow: Sand bank (represented as &#39;6.2.1.0 Beaches&#39; by a red arrow pointing to a segment of the yellow area). * Olive green: Vegetated dunes. * Light beige: Arable land (represented as &#39;2.1.1 Arable land&#39; and &#39;5.1.0 Heathland and moorland&#39; by a red arrow, though &#39;Heathland and moorland&#39; is partially obscured). * Grey: Cliffs (represented as &#39;6.3.1 Bare rocks&#39; in a grey area). * Dark blue: Sea and ocean (represented as &#39;8.4.2 Coastal waters&#39;). The map shows a large body of &#39;8.3.1 Lagoons&#39; (light blue) separated from &#39;8.4.2 Coastal waters&#39; (dark blue) by a barrier composed of a &#39;Sand bank&#39; / &#39;6.2.1.0 Beaches&#39; (yellow) and &#39;Vegetated dunes&#39; (olive green). A small river or inlet (light blue line) feeds into the coastal waters from the upper left. Surrounding these coastal features are extensive areas of &#39;2.1.1 Arable land&#39; (light beige) and &#39;5.1.0 Heathland and moorland&#39; (light beige). On the northeastern side of the coastal waters, a grey area represents &#39;6.3.1 Bare rocks&#39; / &#39;Cliffs&#39;. There is no scale bar, compass, or specific date."
 alt="Schematic view of percolation Cemlyn lagoon (north Wales, United Kingdom)" />
@@ -13478,7 +13478,7 @@ a long narrow entrance channel. Fjords are the same landform but in this
 case the difference from choked coastal lagoons is the water depth.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4213.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4213.jpg"
 style="width:4.8in" data-fig-align="left"
 data-fig-alt="A schematic map illustrating the land cover types around the La Albufera coastal lagoon in Valencia, Spain. The map uses colour coding with a legend on the right. The legend defines: * Light blue: &#39;Lago&#39; (referring to the main lagoon body, labelled &#39;8.3.1&#39;) * Grey: &#39;Muddy&#39; (an area adjacent to the lagoon) * Dark blue: &#39;Sea and&#39; (representing the open sea, labelled &#39;8.4.2 Coastal&#39;) * Light beige/sand: &#39;Lan&#39; (representing land, labelled &#39;2.1.1 Arable irrigated and&#39; near the main landmass) The spatial pattern shows a large body of light blue &#39;8.3.1&#39; (Lagoons) bordered by light beige &#39;2.1.1 Arable irrigated and&#39; (Land) to the west and east, and dark blue &#39;8.4.2 Coastal&#39; (Sea and) to the far east. A grey &#39;Muddy&#39; area is visible at the northern extent of the main lagoon. The lagoon appears partially separated from the open sea by a land barrier, with a connection visible in the south-eastern part."
 alt="Schematic view of silled lagoon of Strangford Lough (Northern Ireland, United Kingdom)" />
@@ -13525,7 +13525,7 @@ Reed and vegetated areas in coastal lagoons areas are considered as
 *8.1.1.0 Salt marshes.*
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4214.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4214.jpg"
 style="width:5.71in" data-fig-align="left"
 data-fig-alt="A false-colour satellite image displaying a large coastal lagoon and its surrounding land, used to demonstrate land cover classification. The deep dark blue area represents open water. Areas of dark green surrounding parts of the lagoon indicate dense vegetation, likely reed beds. The surrounding land shows varied vegetation in shades of red and light green, suggesting agricultural fields or other vegetated areas. A distinct green line delineates the &#39;Border of Natura 2000 site&#39;, encompassing the lagoon and some adjacent land. Two blue arrows point to specific features on the map, clarifying their classification: - An arrow pointing to the dark green vegetated area along the lagoon&#39;s edge is labelled: &#39;Reed coverage = 8.3.1 Lagoons (with reeds)&#39;. - An arrow pointing to the dark blue open water area within the lagoon is labelled: &#39;Open water visible in imagery = 8.3.1 Lagoons (without reeds)&#39;. The image highlights the distinction between vegetated and open water areas within a lagoon for classification purposes, both falling under the &#39;8.3.1 Lagoons&#39; category, and places this classification within the context of a Natura 2000 site."
 alt="Limnes Voulkaria Kai Saltini Natura 2000 site, Greece. SPOT-5 (2.5 m) (1/2/3 band combination). Date: 2011-02-05. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -13597,7 +13597,7 @@ different types of salt marshes such as 8.1.1.0 Salt marshes and 7.2.1.0
 Salt marshes, as part of land cover classification guidelines.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4221.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4221.jpg"
 style="width:5.89in" data-fig-align="left"
 data-fig-alt="Choropleth map illustrating various land cover/land use (LULC) classes in a coastal environment, designed to clarify the classification of coastal marshes. The map displays a detailed conceptualisation of different environmental features with associated nomenclature codes and a legend. The land cover classes and their corresponding colours are: - **Lagoon** (light blue, associated with the label &#39;8.3.1 Lagoons&#39; on the map). - **Sand bank** (yellow, associated with the labels &#39;6.2.1 Beaches and Dunes&#39; and &#39;6.2.1.Dunes&#39; on the map). - **Reed beds and marsh plants** (grey, associated with the labels &#39;7.2.1 Salt marshes&#39; and &#39;8.1.1 Natural &amp; semi-natural water courses&#39; on the map. The main river channel shown on the map is also depicted in this grey colour). - **Rivers** (light blue, but this colour is not used for the main river feature on the map, which is grey). - **Sea and ocean** (dark blue, associated with the label &#39;8.4.2 Coastal waters&#39; on the map). - **Irrigated land** (light green, associated with the label &#39;2.1.1 Arable irrigated and non-irrigated land&#39; on the map). - **Sclerophyllous scrub** (olive green/brown, associated with the label &#39;5.3 Sclerophyllous scrub&#39; on the map). The map shows a dynamic coastal zone: the dark blue &#39;8.4.2 Coastal waters&#39; transition inland to yellow &#39;6.2.1 Beaches and Dunes&#39;, which enclose light blue &#39;8.3.1 Lagoons&#39;. Extensive grey areas representing &#39;Reed beds and marsh plants&#39; are visible around the lagoons (&#39;7.2.1 Salt marshes&#39;) and along the main river course (&#39;8.1.1 Natural &amp; semi-natural water courses&#39;) that flows into the coastal waters. Further inland, there is light green &#39;2.1.1 Arable irrigated and non-irrigated land&#39; and olive green &#39;5.3 Sclerophyllous scrub&#39;."
 alt="Schematic concept for differentiation between 8.2.1.0/8.1.1.0 classes" />
@@ -13637,7 +13637,7 @@ and the presence of a tidal channel. In these cases the tidal channels
 will be classified as *8.3.1.0 Lagoons.*
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4222.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4222.jpg"
 style="width:5.83in" data-fig-align="left"
 data-fig-alt="Conceptual map illustrating different land cover types and their spatial relationships in a coastal environment. The legend on the right defines six colour-coded classes: Lagoon (light blue), Sand bank (yellow), Reed beds and marsh plants (grey), Rivers (light blue lines), Sea and ocean (dark blue), and Irrigated land (light green). The map features a large expanse of dark blue Sea and ocean, bordered by a yellow Sand bank. Inland from the sand bank, light blue Lagoon areas are present, marked with the label &#39;8.3.1 Lagoons&#39; twice. These lagoon areas are intricately connected with grey regions of Reed beds and marsh plants, which also contain smaller light blue linear features representing Rivers. Further inland, a light green area represents Irrigated land. The map schematically depicts the transition from sea to coastal lagoons, wetlands, and agricultural land, highlighting key features relevant for land cover classification within coastal zones (CZ)."
 alt="Schematic concept of coastal lagoons with reed beds and tide channels (Leaky coastal lagoon of Ria Formosa in Portugal)" />
@@ -13757,7 +13757,7 @@ imagery from 2011-09-17 with a 2.5 m resolution, produced by CNES and
 distributed by Airbus DS/Spot Image.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image424.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image424.jpg"
 style="width:2.7in" data-fig-align="left"
 data-fig-alt="This diagram provides a schematic representation of the Riparian Zones (RZ) Level 4 land cover classification for a deltaic and coastal environment, based on the Axios Delta, Greece. It illustrates the spatial relationships between different water bodies and associated land cover types according to Copernicus Land Monitoring Service (CLMS) nomenclature. The diagram identifies the following features: - **8.1.1.0 Natural/Semi-natural water courses**: Depicted as inland river channels, coloured light blue, flowing towards the sea. - **8.3.2.0 Estuaries**: The broader light blue water body where the river meets the sea, influenced by tides, encompassing the deltaic area. - **7.2.1.0 Salt marshes**: Green-dotted areas located within the 8.3.2.0 Estuaries. - **6.2.1 Beaches**: A light beige land strip located at the interface between the estuary mouth and the open sea. - **8.4.2.0 Coastal waters**: The larger, darker blue body of open water located seaward from the estuary and beaches. The surrounding landmass is coloured light beige."
 alt="Schematic representation of typical estuary morphology" />
@@ -13805,7 +13805,7 @@ meets the sea, consistent with an estuary and delta system. The source
 is CNES 2011©, Distribution Airbus DS/Spot Image.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4262.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4262.jpg"
 style="width:5.67in" data-fig-align="left"
 data-fig-alt="A schematic map illustrating the spatial distribution of four land cover/land use (LULC) types typical of an estuarine environment. The map uses a colour legend on the right. The mapped categories are: * Light grey: 8.3.2 Estuaries * Light pink: 7.2.1 Salt marshes * Blue: 8.4.0 Sea and ocean * Olive green: 6.1 Sparsely vegetated areas The map shows a complex intertidal zone where &#39;Sea and ocean&#39; (blue) transitions inland through &#39;Estuaries&#39; (light grey) which form wide river mouths and channels. &#39;Salt marshes&#39; (light pink) are extensively distributed, frequently bordering the estuarine channels and the &#39;Sea and ocean&#39; coastline, forming an intricate network of wetland areas. &#39;Sparsely vegetated areas&#39; (olive green) occupy higher ground, appearing as landmasses interspersed with the salt marshes and estuaries. This representation highlights the interweaving nature of water bodies and land cover types in a coastal estuarine system. No scale bar or compass is visible."
 alt="Schematic representation of RZ level 4 classification of Axios Delta (Greece)" />
@@ -13831,7 +13831,7 @@ The limits between 8.1.1 *Natural and semi-natural water courses* and
 *8.3.2.0* *Estuaries* is based in the following practical visual rules:
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4263.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4263.jpg"
 style="width:2.96in" data-fig-align="left"
 data-fig-alt="This diagram schematically represents typical estuary morphology, illustrating a river system flowing into a larger water body. The surrounding land is depicted in green. A winding light blue line represents a river flowing from the top towards the bottom-right. The river widens at its mouth, transitioning into a larger, dark blue body of water identified as the sea or ocean. Between the river mouth and the dark blue sea, an irregularly shaped light grey area represents the estuary or tidal mud/sand flats, indicating an area influenced by tides. A conceptual boundary or transect, marked by a red dashed line with two thicker solid red segments, crosses the land and the river near its mouth. This line likely delineates classification boundaries, possibly for Riparian Zones (RZ) or for defining the extent of the *8.3.2.0 Estuaries* land cover class, which includes tidal areas not covered by vegetation." />
 
@@ -13855,7 +13855,7 @@ vegetation.
   wider. Usually, there are muddy areas from this point.</span>  
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4264.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4264.jpg"
 style="width:2.97in" data-fig-align="left"
 data-fig-alt="A schematic diagram illustrating typical estuary morphology and its classification boundaries. The diagram features a large body of water (dark blue) connected to a river system (light blue), which is surrounded by land (green). Within the river system, particularly at its mouth where it meets the larger water body, there are smaller, lighter grey areas representing features such as sand or mud flats influenced by tides. Two thick red lines are drawn across the river system, indicating classification boundaries. One red line marks the transition zone where the river significantly widens into the larger water body, and another red line is positioned further upstream within the narrower river channel. A small red dot is located on the land area adjacent to the river mouth. These red lines are indicative of the limits used to classify different hydrographic features, such as distinguishing estuaries (e.g., CORINE Land Cover (CLC+) category 8.3.2.0 Estuaries) from natural water courses or the open sea (e.g., CLC+ category 8.4 Sea and ocean), in accordance with land cover/land use (LULC) mapping guidelines." />
 
@@ -13882,7 +13882,7 @@ guidelines.
   confluent of two rivers.</span> 
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4265.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image4265.jpg"
 style="width:3.21in" data-fig-align="left"
 data-fig-alt="This diagram illustrates the practical visual rules for defining the classification boundary between land cover class *8.1.1 Natural and semi-natural water courses* and *8.3.2.0 Estuaries*. The schematic depicts a landscape with green land areas (representing terrestrial terrain), a light blue river system, and a dark blue larger body of water (representing the sea). A grey area borders the river mouth and delta, visually corresponding to the area influenced by tides and potentially showing mud flats, characteristic of *8.3.2.0 Estuaries* according to the surrounding document context. A red dashed line visually marks the conceptual boundary where the river transitions into the estuary. Upstream of this red line, the narrower light blue river channel is designated as *8.1.1 Natural and semi-natural water courses*. Downstream of the red line, the wider, branching light blue water channels and the adjacent grey tidal areas are classified as *8.3.2.0 Estuaries*." />
 
@@ -13942,7 +13942,7 @@ The Baltic Sea, the Bothnia Sea and the Gulf of Bothnia are considered
 Marine despite low salinity.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image427.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image427.jpg"
 style="width:2.17in" data-fig-align="left"
 data-fig-alt="A photograph of a calm marine or large lake environment at Grinda, Sweden. The foreground features large, light grey rocks, one of which is partially covered in patches of orange lichen. Clear water with some submerged dark aquatic vegetation extends into the middle ground, reflecting the partly cloudy sky. In the background, calm water is flanked by small, tree-covered landmasses or islands under a bright, slightly overcast sky. The image illustrates a &#39;Marine Others&#39; classification and is credited to K. Larsson."
 alt="Marine Others (Fjärdlång, Sweden). Credit: K. Larsson" />
@@ -13957,7 +13957,7 @@ slightly overcast sky. The image illustrates a “Marine Others”
 classification and is credited to K. Larsson.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image428.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image428.jpg"
 style="width:1.21in" data-fig-align="left"
 data-fig-alt="This photograph depicts a marine coastal landscape at Fjärdlång, Sweden, as credited to K. Larsson. The foreground features a large, dark grey boulder partially submerged in clear, calm water and resting on reddish-brown rock formations. Some green vegetation (likely algae or seaweed) is visible in the water around the base of the boulder. The middle ground shows a wide expanse of open water, leading to a distant, tree-lined horizon under a bright blue sky with scattered white clouds. The image illustrates a typical marine environment referenced in the document&#39;s classification of &#39;8.4.0.0 Sea and Ocean&#39; or &#39;8.3 Transitional waters.&#39;"
 alt="Marine Others (Grinda, Sweden). Credit: K. Larsson" />
@@ -14034,7 +14034,7 @@ in the surrounding document text. No scale bar, compass, or explicit
 data source/reference year is visible.
 
 <img
-src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image430.png"
+src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/image430.jpg"
 style="width:2.07in" data-fig-align="left"
 data-fig-alt="False-colour satellite imagery of a coastal inlet system illustrating different Copernicus Land Monitoring Service (CLMS) water body classifications. The image shows vegetated land in shades of red and pink, with water bodies appearing dark blue. A light blue outline delineates the entire water body system. Three distinct categories are identified by coloured dots and labels: 1. A green dot marks a broader, seaward section of the water body, labelled &#39;7.0.0.0 Sea and ocean&#39;. 2. A yellow dot marks an intermediate section, further inland, labelled &#39;8.2.2.0 Estuaries&#39;. 3. A second yellow dot marks the innermost, shallowest section of the water body, labelled &#39;8.1.3.0 Intertidal flats&#39;. The map provides a schematic representation of how these water body types are spatially differentiated within a single geographic feature. No scale bar, compass, or specific date is visible, but the surrounding context suggests the imagery is from Lantmäteriet, Sweden."
 alt="Class 8.4.0.0 Sea and ocean, separates from the other marine classes by the presence of fine sediment deposition (8.3.2.0 Estuaries) and Intertidal flats (7.2.3.0) that are in between high and low water marks. (Sweden) (1/2/3 Band Combination). Date: 2013-07-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -14171,7 +14171,7 @@ The table shows the following re-classifications and merges: - \*\*
 <img
 src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Annex1.2.png"
 style="width:4.37in" data-fig-align="left"
-data-fig-alt="The table presents a mapping between detailed land cover classes (left column) and aggregated land cover classes (right column), likely for the Copernicus Land Monitoring Service (CLMS) CORINE Land Cover (CLC) or CLC+ framework. An &#39;X&#39; in the middle column indicates that the detailed class on that row is grouped with other detailed classes from the same block to form the broader aggregated class listed on the first row of that block. The table content is as follows: | Detailed CLC+ Class | Aggregation Marker | Aggregated CLC+ Class | |---|---|---| | 3.2.1.1 Riparian" />
+data-fig-alt="The table presents a mapping between detailed land cover classes (left column) and aggregated land cover classes (right column), likely for the Copernicus Land Monitoring Service (CLMS) CORINE Land Cover (CLC) or CLC+ framework. An &#39;X&#39; in the middle column indicates that the detailed class on that row is grouped with other detailed classes from the same block to form the broader aggregated class listed on the first row of that block. The table content is as follows: / Detailed CLC+ Class / Aggregation Marker / Aggregated CLC+ Class / /---/---/---/ / 3.2.1.1 Riparian" />
 
 The table presents a mapping between detailed land cover classes (left
 column) and aggregated land cover classes (right column), likely for the
@@ -14190,7 +14190,7 @@ The table content is as follows:
 <img
 src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Annex1.3.png"
 style="width:4.37in" data-fig-align="left"
-data-fig-alt="This table presents a comparison of specific land cover classes related to Riparian Zones (RZ) between the MAES (Mapping and Assessment of Ecosystems and their Services) Level 4 2012 classification and a &#39;MAES Level 4 New Riparian Zones&#39; classification, indicating a merging or reclassification process. | MAES Level 4 2012 Riparian Zones | merging | MAES Level 4 New Riparian Zones | | :------------------------------- | :------ | :------------------------------ | | 9.2.1.5 Standing Water Bodies of Extractive Industrial Sites | | 9.2.4.0 Standing Water Bodies of Extractive Industrial Sites | | 10.1.1.1 Marine (other) | | 10.0.0.0 Sea and Ocean | The table demonstrates how two specific land cover types are reclassified: &#39;9.2.1.5 Standing Water Bodies of Extractive Industrial Sites&#39; in the 2012 classification maps to &#39;9.2.4.0 Standing Water Bodies of Extractive Industrial Sites&#39; in the new schema, and &#39;10.1.1.1 Marine (other)&#39; maps to &#39;10.0.0.0 Sea and Ocean&#39;. The &#39;merging&#39; column is empty, suggesting these are the direct reclassifications or results of a merging process." />
+data-fig-alt="This table presents a comparison of specific land cover classes related to Riparian Zones (RZ) between the MAES (Mapping and Assessment of Ecosystems and their Services) Level 4 2012 classification and a &#39;MAES Level 4 New Riparian Zones&#39; classification, indicating a merging or reclassification process. / MAES Level 4 2012 Riparian Zones / merging / MAES Level 4 New Riparian Zones / / :------------------------------- / :------ / :------------------------------ / / 9.2.1.5 Standing Water Bodies of Extractive Industrial Sites / / 9.2.4.0 Standing Water Bodies of Extractive Industrial Sites / / 10.1.1.1 Marine (other) / / 10.0.0.0 Sea and Ocean / The table demonstrates how two specific land cover types are reclassified: &#39;9.2.1.5 Standing Water Bodies of Extractive Industrial Sites&#39; in the 2012 classification maps to &#39;9.2.4.0 Standing Water Bodies of Extractive Industrial Sites&#39; in the new schema, and &#39;10.1.1.1 Marine (other)&#39; maps to &#39;10.0.0.0 Sea and Ocean&#39;. The &#39;merging&#39; column is empty, suggesting these are the direct reclassifications or results of a merging process." />
 
 This table presents a comparison of specific land cover classes related
 to Riparian Zones (RZ) between the MAES (Mapping and Assessment of
@@ -14218,7 +14218,7 @@ applicable change matrix:
 <img
 src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Annex1.4.png"
 style="width:3.8in" data-fig-align="left"
-data-fig-alt="| Level_4 code (v1.3) | Level_4 class (v1.3) | Level_4 code (v1.4.1) | Level_4 class (v1.4.1) | Change v1.3 -&gt; v1.4.1 | |---------------------|--------------------------------------------------------------------------|-----------------------|--------------------------------------------------------------------------|-----------------------| | 1110 | Urban fabric (predominantly public and private units) | 1110 | Urban fabric (predominantly public and private units) | unchanged | | 1120 | Industrial, commercial and military units | 1120 | Industrial, commercial and military units | unchanged | | 1210 | Road networks and associated land | 1210 | Road networks and associated land | unchanged | | 1220 | Railways and associated land | 1220 | Railways and associated land | unchanged | | 1230 | Port areas and associated land | 1230 | Port areas and associated land | unchanged | | 1240 | Airports and associated land | 1240 | Airports and associated land | unchanged | | 1310 | Mineral extraction, dump and construction sites | 1310 | Mineral extraction, dump and construction sites | unchanged | | 1320 | Land without current use | 1320 | Land without current use | unchanged | | 1400 | Green urban, sports and leisure facilities | 1400 | Green urban, sports and leisure facilities | unchanged | | 2110 | Arable irrigated and non-irrigated land | 2110 | Arable irrigated and non-irrigated land | unchanged | | 2120 | Greenhouses | 2120 | Greenhouses | unchanged | | 2210 | Vineyards, fruit trees and berry plantations | 2210 | Vineyards, fruit trees and berry plantations | unchanged | | 2220 | Olive groves | 2220 | Olive groves | unchanged | | 2310 | Annual crops associated with permanent crops | 2310 | Annual crops associated with permanent crops | unchanged | | 2320 | Complex cultivation patterns | 2320 | Complex cultivation patterns | unchanged | | 2330 | Land principally occupied by agriculture with significant areas of natural vegetation | 2330 | Land principally occupied by agriculture with significant areas of natural vegetation | unchanged | This table details the Level_4 land cover/land use classification codes and descriptions, showing that all listed categories are identical between version 1.3 and version 1.4.1 of the classification system used in Copernicus Land Monitoring Service (CLMS) products." />
+data-fig-alt="/ Level_4 code (v1.3) / Level_4 class (v1.3) / Level_4 code (v1.4.1) / Level_4 class (v1.4.1) / Change v1.3 -&gt; v1.4.1 / /---------------------/--------------------------------------------------------------------------/-----------------------/--------------------------------------------------------------------------/-----------------------/ / 1110 / Urban fabric (predominantly public and private units) / 1110 / Urban fabric (predominantly public and private units) / unchanged / / 1120 / Industrial, commercial and military units / 1120 / Industrial, commercial and military units / unchanged / / 1210 / Road networks and associated land / 1210 / Road networks and associated land / unchanged / / 1220 / Railways and associated land / 1220 / Railways and associated land / unchanged / / 1230 / Port areas and associated land / 1230 / Port areas and associated land / unchanged / / 1240 / Airports and associated land / 1240 / Airports and associated land / unchanged / / 1310 / Mineral extraction, dump and construction sites / 1310 / Mineral extraction, dump and construction sites / unchanged / / 1320 / Land without current use / 1320 / Land without current use / unchanged / / 1400 / Green urban, sports and leisure facilities / 1400 / Green urban, sports and leisure facilities / unchanged / / 2110 / Arable irrigated and non-irrigated land / 2110 / Arable irrigated and non-irrigated land / unchanged / / 2120 / Greenhouses / 2120 / Greenhouses / unchanged / / 2210 / Vineyards, fruit trees and berry plantations / 2210 / Vineyards, fruit trees and berry plantations / unchanged / / 2220 / Olive groves / 2220 / Olive groves / unchanged / / 2310 / Annual crops associated with permanent crops / 2310 / Annual crops associated with permanent crops / unchanged / / 2320 / Complex cultivation patterns / 2320 / Complex cultivation patterns / unchanged / / 2330 / Land principally occupied by agriculture with significant areas of natural vegetation / 2330 / Land principally occupied by agriculture with significant areas of natural vegetation / unchanged / This table details the Level_4 land cover/land use classification codes and descriptions, showing that all listed categories are identical between version 1.3 and version 1.4.1 of the classification system used in Copernicus Land Monitoring Service (CLMS) products." />
 
 | Level_4 code (v1.3) | Level_4 class (v1.3) | Level_4 code (v1.4.1) | Level_4 class (v1.4.1) | Change v1.3 -\> v1.4.1 |
 |----|----|----|----|----|
@@ -14247,7 +14247,7 @@ in Copernicus Land Monitoring Service (CLMS) products.
 <img
 src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Annex1.5.png"
 style="width:3.8in" data-fig-align="left"
-data-fig-alt="This table presents a comparison of land cover/land use classification codes and their associated labels, indicating changes between an &#39;Old Classification&#39; system and a &#39;New Classification&#39; system. The categories generally align with the CORINE Land Cover (CLC) or CLC+ nomenclature, with higher-level grouping like &#39;Agro-forestry&#39; (code 2340) implicitly encompassing many of the listed classes. The table contains the following columns: | Old Classification Code | Old Classification Label | New Classification Code | New Classification Label | Change Type | |:------------------------|:-------------------------------------------------|:------------------------|:-------------------------------------------------|:------------------| | 3110 | Natural &amp; semi-natural broadleaved forest | 3110 | Natural &amp; semi-natural broadleaved forest | unchanged | | 3120 | Highly artificial broadleaved plantations | 3120 | Highly artificial broadleaved plantations | unchanged | | 3210 | Natural &amp; semi natural coniferous forest | 3210 | Natural &amp; semi natural coniferous forest | unchanged | | 3220 | Highly artificial coniferous plantations | 3220 | Highly artificial coniferous plantations | unchanged | | 3310 | Natural &amp; semi natural mixed forest | 3310 | Natural &amp; semi natural mixed forest | unchanged | | 3320 | Highly artificial mixed plantations | 3320 | Highly artificial mixed plantations | unchanged | | 3410 | Transitional woodland and scrub | 3400 | Transitional woodland and scrub | code change | | 3420 | Lines" />
+data-fig-alt="This table presents a comparison of land cover/land use classification codes and their associated labels, indicating changes between an &#39;Old Classification&#39; system and a &#39;New Classification&#39; system. The categories generally align with the CORINE Land Cover (CLC) or CLC+ nomenclature, with higher-level grouping like &#39;Agro-forestry&#39; (code 2340) implicitly encompassing many of the listed classes. The table contains the following columns: / Old Classification Code / Old Classification Label / New Classification Code / New Classification Label / Change Type / /:------------------------/:-------------------------------------------------/:------------------------/:-------------------------------------------------/:------------------/ / 3110 / Natural &amp; semi-natural broadleaved forest / 3110 / Natural &amp; semi-natural broadleaved forest / unchanged / / 3120 / Highly artificial broadleaved plantations / 3120 / Highly artificial broadleaved plantations / unchanged / / 3210 / Natural &amp; semi natural coniferous forest / 3210 / Natural &amp; semi natural coniferous forest / unchanged / / 3220 / Highly artificial coniferous plantations / 3220 / Highly artificial coniferous plantations / unchanged / / 3310 / Natural &amp; semi natural mixed forest / 3310 / Natural &amp; semi natural mixed forest / unchanged / / 3320 / Highly artificial mixed plantations / 3320 / Highly artificial mixed plantations / unchanged / / 3410 / Transitional woodland and scrub / 3400 / Transitional woodland and scrub / code change / / 3420 / Lines" />
 
 This table presents a comparison of land cover/land use classification
 codes and their associated labels, indicating changes between an “Old
@@ -14277,7 +14277,7 @@ Lines
 <img
 src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Annex1.6.png"
 style="width:3.79in" data-fig-align="left"
-data-fig-alt="The table presents a mapping of land cover classification codes and descriptions, indicating how they have changed between an older and a newer classification system for various water and wetland categories. | Old Code | Old Description | New Code | New Description | Change Type | |---|---|---|---|---| | 7100 | Inland marshes | 7110 | Inland marshes | code change | | 7210 | Exploited peat bog | 7121 | Exploited peat bogs | code&amp;name change | | 7220 | Unexploited peat bog | 7122 | Unexploited peat bogs | code&amp;name change | | 8110 | Coastal salt marshes | 7210 | Salt marshes | code&amp;name change | | 8120 | Salines | 7220 | Salines | code change | | 8130 | Intertidal flats | 7230 | Intertidal flats | code change | | 9110 | Interconnected water courses | 8110 | Natural &amp; semi-natural water courses | code&amp;name change | | 9120 | Highly modified water courses and canals | 8120 | Highly modified water courses and canals | code change | | 9130 | Separated water bodies belonging to the river system | 8130 | Seasonally connected water courses (oxbows) | code&amp;name change | | 9210 | Natural water bodies | 8210 | Natural lakes | code&amp;name change | | 9220 | Artificial standing water bodies | 8220 | Reservoirs | code&amp;name change | | 9230 | Intensively managed fish ponds | 8230 | Aquaculture ponds | code&amp;name change | | 9240 | Standing water bodies of extractive industrial sites | 8240 | Standing water bodies of extractive industrial sites | code change | | 8210 | Coastal lagoons | 8310 | Lagoons | code&amp;name change | | 8220 | Estuaries | 8320 | Estuaries | code change | | 10000 | Sea and ocean | 8400 | Sea and ocean | code change | The table details specific transitions in land cover/land use (LULC) classification, highlighting that while some categories (e.g., &#39;Inland marshes&#39;, &#39;Salines&#39;, &#39;Estuaries&#39;) only experienced a change in their numerical code, others (e.g., &#39;Exploited peat bog&#39; to &#39;Exploited peat bogs&#39;, &#39;Coastal salt marshes&#39; to &#39;Salt marshes&#39;, &#39;Natural water bodies&#39; to &#39;Natural lakes&#39;) underwent both a code and a name modification." />
+data-fig-alt="The table presents a mapping of land cover classification codes and descriptions, indicating how they have changed between an older and a newer classification system for various water and wetland categories. / Old Code / Old Description / New Code / New Description / Change Type / /---/---/---/---/---/ / 7100 / Inland marshes / 7110 / Inland marshes / code change / / 7210 / Exploited peat bog / 7121 / Exploited peat bogs / code&amp;name change / / 7220 / Unexploited peat bog / 7122 / Unexploited peat bogs / code&amp;name change / / 8110 / Coastal salt marshes / 7210 / Salt marshes / code&amp;name change / / 8120 / Salines / 7220 / Salines / code change / / 8130 / Intertidal flats / 7230 / Intertidal flats / code change / / 9110 / Interconnected water courses / 8110 / Natural &amp; semi-natural water courses / code&amp;name change / / 9120 / Highly modified water courses and canals / 8120 / Highly modified water courses and canals / code change / / 9130 / Separated water bodies belonging to the river system / 8130 / Seasonally connected water courses (oxbows) / code&amp;name change / / 9210 / Natural water bodies / 8210 / Natural lakes / code&amp;name change / / 9220 / Artificial standing water bodies / 8220 / Reservoirs / code&amp;name change / / 9230 / Intensively managed fish ponds / 8230 / Aquaculture ponds / code&amp;name change / / 9240 / Standing water bodies of extractive industrial sites / 8240 / Standing water bodies of extractive industrial sites / code change / / 8210 / Coastal lagoons / 8310 / Lagoons / code&amp;name change / / 8220 / Estuaries / 8320 / Estuaries / code change / / 10000 / Sea and ocean / 8400 / Sea and ocean / code change / The table details specific transitions in land cover/land use (LULC) classification, highlighting that while some categories (e.g., &#39;Inland marshes&#39;, &#39;Salines&#39;, &#39;Estuaries&#39;) only experienced a change in their numerical code, others (e.g., &#39;Exploited peat bog&#39; to &#39;Exploited peat bogs&#39;, &#39;Coastal salt marshes&#39; to &#39;Salt marshes&#39;, &#39;Natural water bodies&#39; to &#39;Natural lakes&#39;) underwent both a code and a name modification." />
 
 The table presents a mapping of land cover classification codes and
 descriptions, indicating how they have changed between an older and a
@@ -14314,7 +14314,7 @@ to “Natural lakes”) underwent both a code and a name modification.
 <img
 src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Annex1.7.png"
 style="width:4.03in" data-fig-align="left"
-data-fig-alt="| UA2012 &amp; 2018 (Code) | UA2012 &amp; 2018 (Nomenclature) | Riparian Zone (Nomenclature) | CODE for UA Urban Centre | Updated CODE for UA Urban Centre (according to N2K v1.4) | |---|---|---|---|---| | 11100 | Continuous Urban Fabric (Sealing Degree &gt; 80%) | Continuous urban fabric (in-situ based or Imperviousness Density (IM.D.) &gt;80-100%) | 1." />
+data-fig-alt="/ UA2012 &amp; 2018 (Code) / UA2012 &amp; 2018 (Nomenclature) / Riparian Zone (Nomenclature) / CODE for UA Urban Centre / Updated CODE for UA Urban Centre (according to N2K v1.4) / /---/---/---/---/---/ / 11100 / Continuous Urban Fabric (Sealing Degree &gt; 80%) / Continuous urban fabric (in-situ based or Imperviousness Density (IM.D.) &gt;80-100%) / 1." />
 
 | UA2012 & 2018 (Code) | UA2012 & 2018 (Nomenclature) | Riparian Zone (Nomenclature) | CODE for UA Urban Centre | Updated CODE for UA Urban Centre (according to N2K v1.4) |
 |----|----|----|----|----|
@@ -14323,7 +14323,7 @@ data-fig-alt="| UA2012 &amp; 2018 (Code) | UA2012 &amp; 2018 (Nomenclature) | Ri
 <img
 src="Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Annex1.8.png"
 style="width:4.05in" data-fig-align="left"
-data-fig-alt="| Level 4 Code (2012 Nomenclature) | Original Land Cover Class (2012 Nomenclature) | New Land Cover Class (2018 Nomenclature) | Original Numeric Code (2012) | New Numeric Code (2018) | |---|---|---|---|---| | 24000 | Complex and mixed cultivation patterns | Complex cultivation patterns | 2.3.2.0 | 2.3.2.0 | | 30000 | Forests (Urban Atlas 2006) | Forest | 3.0.0.0 | 3.0.0.0 | | 31000 | Forests (Urban Atlas 2012) | Forest | 3.0.0.0 | 3.0.0.0 | | 23000 | Pastures | Grassland | 4.0.0.0 | 4.0.0.0 | | 32000 | Herbaceous vegetation associations | Heathlands and Moorlands | 5.0.0.0 | 5.0.0.0 | | 33000 | Open spaces with little or no vegetation | Sparsely vegetated areas | 6.0.0.0 | 6.0.0.0 | | 40000 | Wetlands | Wetlands | 7.0.0.0 | 7.0.0.0 | | 50000 | Water bodies | Water bodies | 9.0.0.0 | 8.0.0.0 | This table presents a nomenclature change matrix, showing how specific Level 4 land cover classes from a 2012 classification were mapped to new land cover classes in a 2018 nomenclature. Most classes, such as &#39;Complex and mixed cultivation patterns&#39; (code 24000) to &#39;Complex cultivation patterns&#39;, &#39;Pastures&#39; (code 23000) to &#39;Grassland&#39;, and &#39;Wetlands&#39; (code 40000) remain descriptive equivalents with corresponding numeric codes. Notably, both &#39;Forests (Urban Atlas 2006)&#39; (code 30000) and &#39;Forests (Urban Atlas 2012)&#39; (code 31000) map to the single &#39;Forest&#39; class with a numeric code of 3.0.0.0. The class &#39;Water bodies&#39; (code 50000) maintains its name but changes its numeric code from 9.0.0.0 to 8.0.0.0 in the 2018 nomenclature." />
+data-fig-alt="/ Level 4 Code (2012 Nomenclature) / Original Land Cover Class (2012 Nomenclature) / New Land Cover Class (2018 Nomenclature) / Original Numeric Code (2012) / New Numeric Code (2018) / /---/---/---/---/---/ / 24000 / Complex and mixed cultivation patterns / Complex cultivation patterns / 2.3.2.0 / 2.3.2.0 / / 30000 / Forests (Urban Atlas 2006) / Forest / 3.0.0.0 / 3.0.0.0 / / 31000 / Forests (Urban Atlas 2012) / Forest / 3.0.0.0 / 3.0.0.0 / / 23000 / Pastures / Grassland / 4.0.0.0 / 4.0.0.0 / / 32000 / Herbaceous vegetation associations / Heathlands and Moorlands / 5.0.0.0 / 5.0.0.0 / / 33000 / Open spaces with little or no vegetation / Sparsely vegetated areas / 6.0.0.0 / 6.0.0.0 / / 40000 / Wetlands / Wetlands / 7.0.0.0 / 7.0.0.0 / / 50000 / Water bodies / Water bodies / 9.0.0.0 / 8.0.0.0 / This table presents a nomenclature change matrix, showing how specific Level 4 land cover classes from a 2012 classification were mapped to new land cover classes in a 2018 nomenclature. Most classes, such as &#39;Complex and mixed cultivation patterns&#39; (code 24000) to &#39;Complex cultivation patterns&#39;, &#39;Pastures&#39; (code 23000) to &#39;Grassland&#39;, and &#39;Wetlands&#39; (code 40000) remain descriptive equivalents with corresponding numeric codes. Notably, both &#39;Forests (Urban Atlas 2006)&#39; (code 30000) and &#39;Forests (Urban Atlas 2012)&#39; (code 31000) map to the single &#39;Forest&#39; class with a numeric code of 3.0.0.0. The class &#39;Water bodies&#39; (code 50000) maintains its name but changes its numeric code from 9.0.0.0 to 8.0.0.0 in the 2018 nomenclature." />
 
 | Level 4 Code (2012 Nomenclature) | Original Land Cover Class (2012 Nomenclature) | New Land Cover Class (2018 Nomenclature) | Original Numeric Code (2012) | New Numeric Code (2018) |
 |----|----|----|----|----|

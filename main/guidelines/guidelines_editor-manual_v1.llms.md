@@ -2,7 +2,7 @@
 
 Copernicus Land Monitoring Service - Technical Library
 
-This manual provides a comprehensive guide for editors contributing technical documentation to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the entire workflow for authoring, editing, and publishing scientific content using Quarto and Markdown, emphasising integration with a central repository via Git subtrees and dedicated Git aliases. The document covers essential aspects such as document structuring, YAML header configuration, versioning, local previewing within RStudio, and the multi-stage publication process, ensuring consistency and adherence to CLMS documentation standards. Its technical focus aims to empower authors to effectively manage and disseminate CLMS scientific and technical information.
+This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, and publishing, explaining the integration of project repositories with the central library via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the `develop` branch, and restoring previous document versions, ensuring consistent and efficient documentation practices for all contributors.
 
 Author
 
@@ -14,7 +14,7 @@ May 26, 2026
 
 Keywords
 
-CLMS Technical Library, Quarto documentation, Markdown authoring, Git subtree integration, Document publishing workflow, Versioning strategy, RStudio editing environment, ATBD templates, PUM templates, YAML header configuration, Local document previewing, Release path management
+CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning, RStudio integration
 
   
 **Contact:**
@@ -94,18 +94,20 @@ If you copied a template, the header is pre-filled - just update `title`, `subti
 ---
 title: "HRL Forest"
 subtitle: "High Resolution Layer - Forest Type"
+category: products
 date: "2026-01-27"
-product-name: "HRL Forest"
 ---
 ```
 
 - `title` - short product name, appears as the document title
 - `subtitle` - full product name or document type description
+- `category` - one of `products`, `guidelines`, `reports`, `uncategorized`, `non-browsable`
 - `date` - publication or last-updated date in ISO format
-- `product-name` - used internally for metadata and indexing
 
 ## 3.2 Optional fields
 
+- `type` - how the document is built. Leave it out for ordinary documents. Set `type: dashboard` for an interactive page: it renders to HTML only - no PDF, no table of contents, no version or changelog. New types are added by a Technical Library owner.
+- `product-name` - used internally for metadata and indexing
 - `template-version` - records which template version was used as the starting point. Set automatically when copying a template; don’t edit it manually.
 
 ## 3.3 System-managed fields
@@ -295,6 +297,7 @@ At each release, the system assigns version numbers automatically based on what 
 
 | Date | Version | Summary |
 |----|----|----|
+| 2026-10-29 | 1.3.0 | Updated YAML frontmatter guidelines to include a new 'category' field as required and a new 'type' field as optional, detailing their usage. Removed the \`description\` field from the document's own metadata. |
 | 2026-06-03 | 1.2.0 | • Major restructuring and rewrite of the manual to focus on practical editing aspects for the CLMS Technical Library. • Updated document title to 'Editor Guide' and revised its description. • Removed extensive sections on Quarto and Markdown basics, software installation, detailed rendering, and troubleshooting. • Added new simplified sections on document lifecycle, publishing flow, folder and file structure, naming conventions, versioning, and restoring previous versions. • Updated the document date. |
 | 2026-02-10 | 1.1.0 | • Extended explanation for \`git docs-restore\` functionality. • Added major version upgrade process explanation. • Added more precise instructions. • Minor edits to wording in various sections. |
 | 2025-12-03 | 1.0.0 | Initial release |

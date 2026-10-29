@@ -1,6 +1,6 @@
 # High Resolution Layer Small Landscape Features 2021 – Product User Manual
 
-2026-04-09
+2025-09-16
 
 - [<span class="toc-section-number">1</span> Non-technical
   summary](#sec-non-technical-summary)
@@ -432,7 +432,7 @@ data which is spatially refined with Copernicus High Resolution Layers
 
 <div id="fig-figure1">
 
-![](High_Resolution_Layer_Small_Landscape_Features_2021_PUM_v1-media/img-3a19d0780acfafe464786f6a2f981693595afb0d.png)
+![](High_Resolution_Layer_Small_Landscape_Features_2021_PUM_v1-media/img-3a19d0780acfafe464786f6a2f981693595afb0d.jpg)
 
 Figure 1: Share of agricultural area (AA) covered with woody landscape
 features at different NUTS levels based on SWF 2015 (Kleeschulte, 2020)
