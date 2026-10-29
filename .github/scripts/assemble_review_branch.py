@@ -84,17 +84,17 @@ def owned_paths(qmd: str, changed: list[str]) -> list[str]:
 
 
 def changed_paths(repo: str | Path, test_ref: str, develop_ref: str) -> list[str]:
-    out = git("diff", "--name-only", f"{test_ref}...{develop_ref}", repo=repo)
+    # Two-dot: test's tree vs develop's. Squash merges leave the merge base
+    # stale, so a three-dot diff misses files test gained since then (a doc
+    # deleted on develop stayed on test). No renames, or the old path is lost.
+    out = git(
+        "diff", "--name-only", "--no-renames", test_ref, develop_ref, repo=repo
+    )
     return [line for line in out.splitlines() if line.strip()]
 
 
 def all_documents(changed: list[str]) -> list[str]:
     return [p for p in changed if DOC_RE.match(p)]
-
-
-def tree_paths(repo: str | Path, ref: str) -> set[str]:
-    """All file paths in *ref*. Reads trees only, so it's cheap in a blobless clone."""
-    return set(git("ls-tree", "-r", "--name-only", ref, repo=repo).splitlines())
 
 
 def sync(repo: str | Path, develop_ref: str, paths: list[str]) -> None:
@@ -245,11 +245,7 @@ def assemble(
         to_sync.extend(p for p in changed if is_pipeline_path(p))
     for qmd in selection:
         to_sync.extend(owned_paths(qmd, changed))
-    # The three-dot diff also lists paths test has caught up with since the
-    # merge base. Drop the ones missing on both sides: git restore fails the
-    # whole chunk on a pathspec that matches nothing.
-    present = tree_paths(repo, test_ref) | tree_paths(repo, develop_ref)
-    to_sync = sorted(p for p in set(to_sync) if p in present)
+    to_sync = sorted(set(to_sync))
 
     if dry_run:
         for path in to_sync:
