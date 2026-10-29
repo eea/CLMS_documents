@@ -4,9 +4,7 @@
 
 | Title | version | Date |
 |----|----|----|
-| [CLC+ Core User Manual](../products/clcplus-core_CLCplusCore_User_Manual_Issue_4.0_v1.llms.md) | 1.0.0 | Dec 22, 2023 |
 | [CLC+ Core User Manual](../products/clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1.llms.md) | 1.0.0 | Sep 28, 2026 |
-| [CLC+ Core User Manual Annex](../products/clcplus-core_CLCplusCore_User_Manual_Issue_4.0_Annex_Admin_User_v1.llms.md) | 1.0.0 | Dec 22, 2023 |
 | [CLC+ Core User Manual Annex](../products/clcplus-core_CLCplusCore_User_Manual_Issue_5.0_Annex_Admin_User_v1.llms.md) | 1.0.0 | Sep 28, 2026 |
 | [CLCplus Backbone 2021 - Product User Manual](../products/CLCplus_Backbone_2021_PUM_v1.llms.md) | 1.2.2 | Jun 12, 2025 |
 | [CLCplus Backbone 2023 - Algorith Theoretical Basis Document](../products/CLCplus_Backbone_2023_ATBD_v1.llms.md) | 1.2.2 | Apr 1, 2025 |
