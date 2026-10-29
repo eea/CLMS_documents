@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Build the review PR checklist from a test...develop diff, and parse it back.
+"""Build the review PR checklist from a test..develop diff, and parse it back.
 
 parse(build(paths)) returns the .qmd paths, so keep the two in sync. Product
 headings use the raw directory name, so heading + stem gives back
 `DOCS/<product>/<stem>.qmd`.
 
 CLI:
-    git diff --name-only origin/test...origin/develop | %(prog)s --build
+    git diff --name-only --no-renames origin/test origin/develop | %(prog)s --build
     %(prog)s --parse < pr_body.md     # -> {"documents": [...], "pipeline": bool}
 """
 
