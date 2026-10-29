@@ -1,0 +1,330 @@
+#!/usr/bin/env python3
+"""Build review/<date>: test plus the selected content from develop.
+
+Runs with everything selected when the PR opens, and with the ticked boxes on
+Ready for review, so both cases share one code path.
+
+Paths are copied with `git restore --source=<develop> --staged --worktree`.
+It runs in no-overlay mode, so files missing on develop get deleted too, which
+covers deletions and case-renamed media. Don't swap it for
+`git checkout <ref> -- <path>`: that only adds files and leaves stale ones behind.
+
+Shared state files are merged per key, so unticked documents keep test's values.
+
+CLI:
+    %(prog)s --date 2026-09-21 --all
+    build_review_checklist.py --parse < body.md > sel.json
+    %(prog)s --date 2026-09-21 --selection-file sel.json --push
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import subprocess
+import sys
+from pathlib import Path
+from typing import NamedTuple
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from build_review_checklist import DOC_RE, is_pipeline_path  # noqa: E402
+from helpers.json_io import load_json_or_empty  # noqa: E402
+
+LLM_CACHE_DIR = ".llm_cache"
+NON_BROWSABLE_MAP = ".github/non_browsable_doc_map.json"
+
+
+class Assembled(NamedTuple):
+    branch: str
+    paths: list[str]
+    tree_sha: str
+    empty: bool
+
+
+def git(*args: str, repo: str | Path = ".", check: bool = True) -> str:
+    """Run git in *repo*, return stripped stdout.
+
+    Raises with git's stderr so CI shows the actual error. Args are cut short
+    in the message, since a restore chunk can pass 500 paths.
+    """
+    result = subprocess.run(
+        ["git", *args], cwd=str(repo), capture_output=True, text=True
+    )
+    if check and result.returncode != 0:
+        shown = " ".join(["git", *args[:6]])
+        if len(args) > 6:
+            shown += f" ... (+{len(args) - 6} more args)"
+        raise RuntimeError(
+            f"{shown} failed with exit {result.returncode}:\n{result.stderr.strip()}"
+        )
+    return result.stdout.strip()
+
+
+def llm_cache_path(qmd: str) -> str:
+    """`.llm_cache` entry for a document (same naming as helpers/file_updater.py)."""
+    return f"{LLM_CACHE_DIR}/{'__'.join(Path(qmd).parts)}.json"
+
+
+def product_of(qmd: str) -> str:
+    """Product directory owning *qmd* (`DOCS/<product>/...`)."""
+    return Path(qmd).parts[1]
+
+
+def owned_paths(qmd: str, changed: list[str]) -> list[str]:
+    """Paths in *changed* that belong to this document alone."""
+    stem = qmd[: -len(".qmd")]
+    media_prefix = f"{stem}-media/"
+    cache = llm_cache_path(qmd)
+    return [
+        p
+        for p in changed
+        if p == qmd or p.startswith(media_prefix) or p == cache
+    ]
+
+
+def changed_paths(repo: str | Path, test_ref: str, develop_ref: str) -> list[str]:
+    # Two-dot: test's tree vs develop's. Squash merges leave the merge base
+    # stale, so a three-dot diff misses files test gained since then (a doc
+    # deleted on develop stayed on test). No renames, or the old path is lost.
+    out = git(
+        "diff", "--name-only", "--no-renames", test_ref, develop_ref, repo=repo
+    )
+    return [line for line in out.splitlines() if line.strip()]
+
+
+def all_documents(changed: list[str]) -> list[str]:
+    return [p for p in changed if DOC_RE.match(p)]
+
+
+def sync(repo: str | Path, develop_ref: str, paths: list[str]) -> None:
+    """Copy *paths* from develop into the index and worktree."""
+    if not paths:
+        return
+    # Chunked to stay under the arg length limit.
+    for i in range(0, len(paths), 500):
+        git(
+            "restore",
+            "--source",
+            develop_ref,
+            "--staged",
+            "--worktree",
+            "--",
+            *paths[i : i + 500],
+            repo=repo,
+        )
+
+
+def _json_at_ref(repo: str | Path, ref: str, path: str) -> dict:
+    """Parse a JSON file as it exists at *ref*; {} if absent or unparseable."""
+    result = subprocess.run(
+        ["git", "show", f"{ref}:{path}"],
+        cwd=str(repo),
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        return {}
+    try:
+        return json.loads(result.stdout)
+    except json.JSONDecodeError:
+        print(f"[WARNING] Could not parse {path} at {ref}")
+        return {}
+
+
+def _merge_keyed_json(repo: Path, develop_ref: str, rel: str, keys: list[str]) -> bool:
+    """Copy only *keys* from develop's copy of *rel* into the on-disk copy."""
+    develop_data = _json_at_ref(repo, develop_ref, rel)
+    target = load_json_or_empty(repo / rel, label=rel)
+    changed = False
+    for key in keys:
+        if key in develop_data:
+            if target.get(key) != develop_data[key]:
+                target[key] = develop_data[key]
+                changed = True
+        elif key in target:
+            del target[key]
+            changed = True
+    if not changed:
+        return False
+    path = repo / rel
+    path.parent.mkdir(parents=True, exist_ok=True)
+    # Same format as update_versions_and_changelogs.py (indent=2, sort_keys, no
+    # trailing newline), otherwise the PR diff gets end-of-file noise.
+    path.write_text(json.dumps(target, indent=2, sort_keys=True), encoding="utf-8")
+    return True
+
+
+def _merge_non_browsable_map(repo: Path, develop_ref: str, selection: list[str]) -> bool:
+    """Copy each selected document's secret-URL entry.
+
+    Entries are a list under "mappings", keyed by `source` (path relative to
+    DOCS/, unlike the other shared files). A missing entry gets a new random
+    URL on the next build, so dropping one quietly changes that document's URL.
+    """
+    develop_data = _json_at_ref(repo, develop_ref, NON_BROWSABLE_MAP)
+    target = load_json_or_empty(repo / NON_BROWSABLE_MAP, label=NON_BROWSABLE_MAP)
+    if not develop_data and not target:
+        return False
+
+    develop_by_source = {m["source"]: m for m in develop_data.get("mappings", [])}
+    mappings = list(target.get("mappings", []))
+    changed = False
+
+    for qmd in selection:
+        source = qmd[len("DOCS/") :]
+        wanted = develop_by_source.get(source)
+        index = next(
+            (i for i, m in enumerate(mappings) if m.get("source") == source), None
+        )
+        if wanted is not None:
+            if index is None:
+                mappings.append(wanted)
+                changed = True
+            elif mappings[index] != wanted:
+                mappings[index] = wanted
+                changed = True
+        elif index is not None:
+            del mappings[index]
+            changed = True
+
+    if not changed:
+        return False
+    payload = dict(target) or dict(develop_data)
+    payload["mappings"] = mappings
+    # Same format as group_docs_by_category.save_secret_map.
+    (repo / NON_BROWSABLE_MAP).write_text(
+        json.dumps(payload, indent=2), encoding="utf-8"
+    )
+    return True
+
+
+def merge_shared_state(repo: Path, develop_ref: str, selection: list[str]) -> list[str]:
+    """Merge each selected document's key into the shared state files."""
+    touched: list[str] = []
+
+    if _merge_keyed_json(repo, develop_ref, f"{LLM_CACHE_DIR}/versions.json", selection):
+        touched.append(f"{LLM_CACHE_DIR}/versions.json")
+
+    by_product: dict[str, list[str]] = {}
+    for qmd in selection:
+        by_product.setdefault(product_of(qmd), []).append(qmd)
+    for product, qmds in by_product.items():
+        rel = f".version-history/{product}/versions.json"
+        if _merge_keyed_json(repo, develop_ref, rel, qmds):
+            touched.append(rel)
+
+    if _merge_non_browsable_map(repo, develop_ref, selection):
+        touched.append(NON_BROWSABLE_MAP)
+
+    return touched
+
+
+def assemble(
+    selection: list[str],
+    pipeline: bool,
+    date: str,
+    *,
+    repo: str | Path = ".",
+    develop_ref: str = "origin/develop",
+    test_ref: str = "origin/test",
+    fetch: bool = False,
+    push: bool = False,
+    dry_run: bool = False,
+) -> Assembled:
+    repo = Path(repo).resolve()
+    branch = f"review/{date}"
+
+    if fetch:
+        git("fetch", "origin", "develop", "test", repo=repo)
+
+    changed = changed_paths(repo, test_ref, develop_ref)
+
+    to_sync: list[str] = []
+    if pipeline:
+        to_sync.extend(p for p in changed if is_pipeline_path(p))
+    for qmd in selection:
+        to_sync.extend(owned_paths(qmd, changed))
+    to_sync = sorted(set(to_sync))
+
+    if dry_run:
+        for path in to_sync:
+            print(path)
+        print(
+            f"[dry-run] {len(to_sync)} path(s), {len(selection)} document(s), "
+            f"pipeline={'yes' if pipeline else 'no'} -> {branch}",
+            file=sys.stderr,
+        )
+        return Assembled(branch, to_sync, "", not to_sync)
+
+    git("switch", "-C", branch, test_ref, repo=repo)
+    sync(repo, develop_ref, to_sync)
+
+    touched = merge_shared_state(repo, develop_ref, selection)
+    if touched:
+        git("add", "--", *touched, repo=repo)
+
+    staged = git("diff", "--cached", "--name-only", repo=repo)
+    if staged:
+        git("commit", "-m", f"chore(docs): review batch {date}", repo=repo)
+
+    tree_sha = git("rev-parse", "HEAD^{tree}", repo=repo)
+    empty = not git("diff", "--name-only", test_ref, "HEAD", repo=repo)
+
+    if push and not empty:
+        git("push", "--force", "origin", branch, repo=repo)
+
+    return Assembled(branch, to_sync, tree_sha, empty)
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--date", required=True, help="batch date -> review/<date>")
+    source = ap.add_mutually_exclusive_group(required=True)
+    source.add_argument("--all", action="store_true", help="select every document + pipeline")
+    source.add_argument(
+        "--selection-file", help="JSON from build_review_checklist.py --parse"
+    )
+    ap.add_argument("--repo", default=".")
+    ap.add_argument("--develop-ref", default="origin/develop")
+    ap.add_argument("--test-ref", default="origin/test")
+    ap.add_argument("--fetch", action="store_true")
+    ap.add_argument("--push", action="store_true")
+    ap.add_argument("--dry-run", action="store_true", help="print paths, write nothing")
+    args = ap.parse_args()
+
+    if args.all:
+        changed = changed_paths(args.repo, args.test_ref, args.develop_ref)
+        selection, pipeline = all_documents(changed), True
+    else:
+        data = json.loads(Path(args.selection_file).read_text(encoding="utf-8"))
+        selection, pipeline = data["documents"], bool(data["pipeline"])
+
+    if not selection and not pipeline:
+        print("❌ Empty selection — nothing to assemble.", file=sys.stderr)
+        return 2
+
+    result = assemble(
+        selection,
+        pipeline,
+        args.date,
+        repo=args.repo,
+        develop_ref=args.develop_ref,
+        test_ref=args.test_ref,
+        fetch=args.fetch,
+        push=args.push,
+        dry_run=args.dry_run,
+    )
+    if not args.dry_run:
+        print(
+            f"✅ {result.branch}: {len(result.paths)} path(s), "
+            f"{len(selection)} document(s), pipeline={'yes' if pipeline else 'no'}"
+        )
+        if result.empty:
+            print("⚠️  Assembled tree is identical to test — nothing to review.")
+            return 3
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

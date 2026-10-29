@@ -34,7 +34,7 @@ explicit per-chapter pagebreaks are no longer needed.
 
 ### `fix_typst_patterns.py`
 
-Three substitutions that resolve common Pandoc→Typst translation gotchas:
+Substitutions that resolve common Pandoc→Typst translation gotchas:
 
 - **A** — Escape literal `*.ext` (file glob) asterisks to `\*.ext`. Without
   escaping, Pandoc treats `*…*` as emphasis and the resulting
@@ -44,6 +44,9 @@ Three substitutions that resolve common Pandoc→Typst translation gotchas:
   when the first is backslash-escaped.
 - **D** — Replace `+/-`, `+ /-`, `+ / -` with `±` (U+00B1). Inside list
   items, Pandoc emits `- + / - 5 m` which Typst's parser can't read.
+- **E** — Insert a space between a footnote ref and a glued `.word`
+  (`[^10].boolean` → `[^10]. boolean`). Pandoc emits `#footnote[…].boolean`,
+  which Typst reads as field access on the footnote.
 
 ### Image widths
 
@@ -85,5 +88,18 @@ caption lines (a List-of-Tables/Figures index) are left alone. Run it after
 `audit_plaintext_captions.py` reports any remaining plain-text captions (read-only,
 non-zero exit if found).
 
+### `realign_grid_tables.py`
+
+Re-pads grid-table rows whose `|` no longer line up with the `+` border
+columns. Anything that edits text inside a grid cell without re-padding it (an
+upstream media-path rewrite, the build's `{stem}-media/` rename, the `fig-alt`
+baked in by `inject_image_descriptions.py`) makes that row wider than its
+border; Pandoc then mis-parses the table and Typst fails with
+`error: unexpected comma`. Drifted rows are split on their pipes and every row
+is re-padded to the border columns, widening a column when a cell no longer
+fits. Tables with merged cells are left alone. The build runs it **last**,
+after every other qmd rewrite.
+
 Run them in any order, any number of times — each one no-ops on content it
-has already fixed.
+has already fixed (`realign_grid_tables.py` should still go last, since the
+others can re-introduce drift).

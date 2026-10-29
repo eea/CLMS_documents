@@ -1,0 +1,17 @@
+# Injected at render time via --metadata-file. Supplies the Typst format and the
+# template partials (resolved relative to the doc's dir, i.e. the run dir, which
+# carries a `_meta` symlink). Project `_quarto.yml` template-partials are IGNORED
+# in single-file renders — this is why the partials live here instead.
+toc: true
+number-sections: true
+tbl-colwidths: auto
+format:
+  typst:
+    template-partials:
+      - _meta/theme/typst/typst-template.typ
+      - _meta/theme/typst/typst-show.typ
+    toc-title: "Table of contents"
+    section-numbering: "1.1.1"
+    papersize: a4
+    margin: { x: 2.54cm, top: 2.54cm, bottom: 3.35cm }
+    fontsize: 10pt
