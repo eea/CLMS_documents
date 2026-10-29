@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Three mechanical qmd fixes for things that trip up the Typst writer.
+Mechanical qmd fixes for things that trip up the Typst writer.
 
 A) `*.ext` globs (`*.tif`, `*.aux.xml`) get parsed as emphasis, so Pandoc
    emits `#emph[…].ext` and Typst reads `.ext` as field access. Escaping the
@@ -10,6 +10,8 @@ B) `@@download/file` Plone URLs — Pandoc treats the `@` as a citation key
    (even when backslash-escaped). URL-encoding `@@` to `%40%40` kills it.
 D) `+/-` tolerance notation — Typst tries to parse `+ / -` as an expression
    inside list items. Swap for ±.
+E) Footnote ref glued to `.word` (`[^10].boolean`) — Pandoc emits
+   `#footnote[…].boolean`, read as field access. Add the missing space.
 """
 from __future__ import annotations
 
@@ -48,11 +50,19 @@ def fix_d_plusminus(text: str) -> tuple[str, int]:
     return D_PLUSMIN.subn("±", text)
 
 
+E_FOOTNOTE_DOT = re.compile(r"(\[\^[^\]\s]+\]\.)(?=[A-Za-z_])")
+
+
+def fix_e_footnote_dot(text: str) -> tuple[str, int]:
+    return E_FOOTNOTE_DOT.subn(r"\1 ", text)
+
+
 PATTERNS = [
     ("A1 glob", fix_a1_globs),
     ("A2 var.ext", fix_a2_var_ext),
     ("B Plone @@", fix_b_plone),
     ("D plusminus", fix_d_plusminus),
+    ("E footnote.dot", fix_e_footnote_dot),
 ]
 
 
