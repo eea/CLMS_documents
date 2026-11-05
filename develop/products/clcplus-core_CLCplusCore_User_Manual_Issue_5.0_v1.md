@@ -7076,14 +7076,14 @@ elements to take different roles, according to the targeted definitions.
 Similar class definitions should reflect in also similar barcoding
 results.[^11].
 
-| **Barcode Value** | **Definition** |
+| BCV | Description |
 |----|----|
 | X | Element is excluded by definition |
 | 1 | Optional element, it can occur occasionally or typically but is not mandatory. Take into account scale and MMU of addressed class. |
-| 2 | Selective defining element, EITHER-OR-logic, at least one or more out of all elements with assigned BCV 2 must be present, BCV 2 element never stands alone, always must |
-| 3 | Cumulative mandatory element, AND-logic, all elements with assigned BCV 3 are compulsory and must be present. More than 1 element expected, but can also occur as stand-a |
+| 2 | Selective defining element, EITHER-OR-logic, at least one or more out of all elements with assigned BCV 2 must be present, BCV 2 element never stands alone, always must have at least one counter-selective element. |
+| 3 | Cumulative mandatory element, AND-logic, all elements with assigned BCV 3 are compulsory and must be present. More than 1 element expected, but can also occur as stand-alone. |
 | 4 | Paired mandatory element, EITHER-AND-OR-logic, at least two out of three or more elements with assigned BCV 4 must be present. |
-| 5 | Exclusive mandatory element, NOTHING-BUT-logic, practically allows only the one solitary element with assigned BCV 5 and excludes any other element from its parent matri |
+| 5 | Exclusive mandatory element, NOTHING-BUT-logic, practically allows only the one solitary element with assigned BCV 5 and excludes any other element from its parent matrix block. |
 
 <span id="_Ref152071020" class="anchor"></span>Table 0‑1: List of
 Bar-code value meanings. The BCVs define the role of EAGLE elements to
