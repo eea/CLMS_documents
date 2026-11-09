@@ -21,22 +21,13 @@ Kongens Nytorv 6
 Denmark  
 [**https://land.copernicus.eu/**](https://land.copernicus.eu/)
 
-  
-**Contact:**
-
-European Environment Agency (EEA)  
-Kongens Nytorv 6  
-1050 Copenhagen K  
-Denmark  
-[**https://land.copernicus.eu/**](https://land.copernicus.eu/)
-
 # 1 Introduction
 
 This report summarises the outcomes of the CLDS consultation survey launched on October 01, 2023. In addition to standard single/multiple choice questions and tables, the survey also offered several options for open replies and the possibility to interact further with CLMS by email. This was done to increase the possibility for interaction and to inquire about aspects respondents might consider relevant but were not covered by the questions.
 
 The goal of the survey was to better understand working practices in the field of geospatial applications. In particular, we were interested to understand limiting factors that inhibit (or block) users from working on the cloud. The underlaying assumption is that an eventual migration to a cloud environment depends on several factors, which can be grouped into two key forces, and which the survey tries to assess specifically:
 
-1.  **intensity of the need** (e.g., the lack of non-cloud-based infrastructure to cope with given data volumes and processing needs) against
+1.  **intensity of the need** e.g., the lack of non-cloud-based infrastructure to cope with given data volumes and processing needs; against
 
 2.  **intensity of concerns and difficulties** standing in the way of such migration.
 
