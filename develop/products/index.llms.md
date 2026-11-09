@@ -22,6 +22,7 @@
 | [N2K 2006-2018 - Product User Manual](../products/N2K_2006-2018_PUM_v1.llms.md) | 1.0.2 | Jun 1, 2021 |
 | [Product Name – Algorithm Theoretical Basis Document (ATBD)](../products/templates_CLMS_ATBD_Template_v1.llms.md) | 1.0.0 | Nov 5, 2026 |
 | [Product Name – Product User Manual (PUM)](../products/templates_CLMS_PUM_Template_v1.llms.md) | 1.0.0 | Nov 5, 2026 |
+| [Protected Areas 2021 - Product User Manual (PUM)](../products/Protected_Areas_2021_PUM_v1.llms.md) | 1.0.0 | Feb 26, 2026 |
 | [Protected Areas 2021-2024 - Algorithm Theoretical Basis Document (ATBD)](../products/Protected_Areas_2021-2024_ATBD_v1.llms.md) | 1.0.0 | Sep 17, 2026 |
 | [Riparian Zones 2012-2018 - Nomenclature Guideline](../products/Riparian_Zones_2012-2018_Nomenclature_Guideline_v1.llms.md) | 1.5.2 | Dec 14, 2021 |
 | [Riparian Zones LC/LU and change 2012-2018 - Product User Manual](../products/Riparian_Zones_2012-2018_PUM_v1.llms.md) | 1.0.2 | Aug 1, 2023 |
