@@ -27,7 +27,7 @@ Denmark
 
 Date: 2026-09-28
 
-Doc. Version : Issue 5.0
+Doc. Version : Issue 5.0
 
 Content ID: /
 
@@ -1424,7 +1424,7 @@ Extraction Input classes are **Input classes** of **Ingestions** used in an **Ex
 
 **Coverage**
 
-The percentage of the area of a given pixel that an **Input Class** covers is called the coverage. Pixel values are not binary because the raw input data is reprojected to the EPSG:3035 coordinate reference system and resampled to a 100m x 100m or 10 x 10m pixel size if they are not given in this format already. Therefore, it can happen that multiple **Input Classes** from the same **Ingestion** apply to the same raster pixel, but don’t cover the full extent of the pixel.  
+The percentage of the area of a given pixel that an **Input Class** covers is called the coverage. Pixel values are not binary because the raw input data is reprojected to the EPSG:3035 coordinate reference system and resampled to a 100m x 100m or 10 x 10m pixel size if they are not given in this format already. Therefore, it can happen that multiple **Input Classes** from the same **Ingestion** apply to the same raster pixel, but don’t cover the full extent of the pixel.
 
 A coverage can also be *No-Data* if the whole area of the pixel is unclassified in the **Ingestion**.
 
@@ -1432,23 +1432,23 @@ A coverage can also be *No-Data* if the whole area of the pixel is unclassified 
 Represents one classification option of an **Extraction**. It has a name, an identifying class code and a C**lass Condition** that specifies when the output class should be applied.
 
 **Class Condition**  
-Specifies whether the **Extraction Output Class** to which it belongs should be applied to a given pixel, given the **coverage** values of **Extraction Input Classes**. Technically speaking, a class condition is a **Ruleset** (consisting of nested **Rules** and **Rulesets).**
+Specifies whether the **Extraction Output Class** to which it belongs should be applied to a given pixel, given the **coverage** values of **Extraction Input Classes**. Technically speaking, a class condition is a **Ruleset** (consisting of nested **Rules** and **Rulesets).**
 
 **Ruleset**  
-A combination of **Rules** *or* **Rulesets** using Boolean operators[^10]. Depending on the type of linking operator, the compound expression is only true if both linked expressions are true (AND-linkage) or if at least one of the linked expressions is true (OR-linkage). Consequently, the result of a ruleset is also always *true* or *false.* For example: 
+A combination of **Rules** *or* **Rulesets** using Boolean operators[^10]. Depending on the type of linking operator, the compound expression is only true if both linked expressions are true (AND-linkage) or if at least one of the linked expressions is true (OR-linkage). Consequently, the result of a ruleset is also always *true* or *false.* For example:
 
-> *The coverage of LCC-Water/5 or LCC-Trees/5 must be greater than 50%.   
-> **cov(“LCC-Water”, 5) \> 50*** ***   OR*** ***  cov(“LCC-Trees”, 5) \> 50** *
+> *The coverage of LCC-Water/5 or LCC-Trees/5 must be greater than 50%.  
+> **cov(“LCC-Water”, 5) \> 50*** \*\*\* OR\*\*\* \*\*\* cov(“LCC-Trees”, 5) \> 50\*\* \*
 
-The top-level ruleset of an output class is called the **Class Condition.** 
+The top-level ruleset of an output class is called the **Class Condition.**
 
 **Rule**  
-A simple comparison of a **Coverage Function** (i.e. the coverage of a barcoded EAGLE element) against another coverage value. For example: 
+A simple comparison of a **Coverage Function** (i.e. the coverage of a barcoded EAGLE element) against another coverage value. For example:
 
-> *The coverage of LCC-Water with barcode 5 must be greater than 50%.   
-> **cov(“LCC-Water\*\*\*\*\*\*”, 5) \> 50** *
+> *The coverage of LCC-Water with barcode 5 must be greater than 50%.  
+> **cov(“LCC-Water\*\*\*\*\*\*”, 5) \> 50***
 
-When evaluating a **rule** on a given pixel, the result is always either *true* or *false.* Comparing a *No-Data* value against any other value produces the result *false.* 
+When evaluating a **rule** on a given pixel, the result is always either *true* or *false.* Comparing a *No-Data* value against any other value produces the result *false.*
 
 **Coverage Function**  
 A function that computes the **Coverage** of a barcoded EAGLE element for the selected **Extraction Input Classes** for a given pixel. This computation works by:
@@ -1551,14 +1551,14 @@ The EAGLE matrix elements initially have no specific bar code value (BCV) and ar
 
 This bar-coding approach streamlines the process of representing complex information about different classes, making it easier to handle and to compare among them and with other classification systems. When working with the barcoding exercise, different classes require the EAGLE elements to take different roles, according to the targeted definitions. Similar class definitions should reflect in also similar barcoding results.[^11].
 
-| **Barcode Value** | **Definition** |
+| BCV | Description |
 |----|----|
 | X | Element is excluded by definition |
-| 1 | An optional element, it can occur as typical but not necessarily as mandatory |
-| 2 | Selective mandatory element, EITHER-AND/OR logic, at least two or more of all elements with assigned BCV 2 must be present |
-| 3 | Cumulative mandatory element, AND-logic, all elements with assigned BCV 3 must be present |
-| 4 | Paired mandatory element, two of all elements with assigned BCV 4 must be present |
-| 5 | Exclusive mandatory element, NOTHING-BUT-logic, practically allows only the one element with assigned BCV 5 and excludes any other element from its parent matrix block |
+| 1 | Optional element, it can occur occasionally or typically but is not mandatory. Take into account scale and MMU of addressed class. |
+| 2 | Selective defining element, EITHER-OR-logic, at least one or more out of all elements with assigned BCV 2 must be present, BCV 2 element never stands alone, always must have at least one counter-selective element. |
+| 3 | Cumulative mandatory element, AND-logic, all elements with assigned BCV 3 are compulsory and must be present. More than 1 element expected, but can also occur as stand-alone. |
+| 4 | Paired mandatory element, EITHER-AND-OR-logic, at least two out of three or more elements with assigned BCV 4 must be present. |
+| 5 | Exclusive mandatory element, NOTHING-BUT-logic, practically allows only the one solitary element with assigned BCV 5 and excludes any other element from its parent matrix block. |
 
 Table 0‑1: List of Bar-code value meanings. The BCVs define the role of EAGLE elements to fulfil a given mapping rule, class definition or landscape situation. {.caption-top .table}
 

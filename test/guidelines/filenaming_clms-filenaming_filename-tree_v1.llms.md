@@ -2,7 +2,7 @@
 
 Copernicus Land Monitoring Service - Technical Library
 
-This document presents the “Filename Tree” for Copernicus Land Monitoring Service (CLMS) products, offering a structured, visual guide to all valid filename variants. It serves as a practical reference for understanding and constructing CLMS product filenames, detailing the hierarchical options for each field. The tree systematically illustrates choices for product codes, temporal coverage, spatial resolution, geographic extent, and product variables, supported by concrete examples. Designed to complement the CLMS Filenaming Design Principles, this guide facilitates accurate data identification and ensures consistency across the CLMS data catalogue.
+This document presents the “Filename Tree” for Copernicus Land Monitoring Service (CLMS) products, offering a structured, visual guide to all valid filename variants. It serves as a practical reference for understanding and constructing CLMS product filenames, detailing the hierarchical options for each field. The tree systematically illustrates choices for product codes, including new EU Hydro products, standardised temporal period formats conforming to ISO 8601, spatial resolution, geographic extent, and product variables, supported by concrete examples. Designed to complement the CLMS Filenaming Design Principles, this guide facilitates accurate data identification and ensures consistency across the CLMS data catalogue.
 
 Author
 
@@ -10,11 +10,11 @@ European Environment Agency (EEA)
 
 Published
 
-July 24, 2026
+November 6, 2026
 
 Keywords
 
-CLMS filenaming conventions, product naming taxonomy, filename structure, temporal coverage formats, spatial resolution types, geographic extent identifiers, product variable codes, data catalogue schema, MGRS tiling system, LAEA 100km grid, functional urban areas, Copernicus Land Monitoring Service
+CLMS filenaming conventions, product naming taxonomy, filename structure, ISO 8601 temporal period formats, spatial resolution types, geographic extent identifiers, product variable codes, data catalogue schema, MGRS tiling system, LAEA 100km grid, functional urban areas, EU Hydro product naming
 
   
 **Contact:**
@@ -37,75 +37,71 @@ Denmark
 
     CLMS_
     ├── VLCC-                          Vegetated Land Cover Characteristics (upgraded HRL)
-    │   ├── GRA_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
-    │   ├── DLT_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
-    │   └── CTY_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
+    │   ├── GRA_{YYYY}0101P1Y_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
+    │   ├── DLT_{YYYY}0101P1Y_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
+    │   └── CTY_{YYYY}0101P1Y_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
     │
     ├── HRL-                           High Resolution Layers (legacy, not yet upgraded)
-    │   ├── TCD_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
-    │   ├── FTY_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
-    │   ├── IMD_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
-    │   ├── IBU_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
-    │   ├── WAW_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
-    │   ├── SWF_S{YYYY}_R5m_E{XXX}N{YYY}_3035_V01-R00.tif
+    │   ├── TCD_{YYYY}0101P1Y_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
+    │   ├── FTY_{YYYY}0101P1Y_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
+    │   ├── IMD_{YYYY}0101P1Y_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
+    │   ├── IBU_{YYYY}0101P1Y_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
+    │   ├── WAW_{YYYY}0101P1Y_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
+    │   ├── SWF_{YYYY}0101P1Y_R5m_E{XXX}N{YYY}_3035_V01-R00.tif
     │   ├── TCD_C{YYYY}-{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
     │   └── IMD_C{YYYY}-{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
     │
     ├── NVLCC-                         Non-Vegetated Land Cover Characteristics
-    │   └── IMCCS_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
+    │   └── IMCCS_{YYYY}0101P1Y_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
     │
     ├── SLF-                           Small Landscape Features
-    │   └── SFW_S{YYYY}_R5m_E{XXX}N{YYY}_3035_V01-R01.tif
+    │   └── SFW_{YYYY}0101P1Y_R5m_E{XXX}N{YYY}_3035_V01-R01.tif
     │
     ├── WSI-                           Water & Snow/Ice
-    │   ├── SP-SCD_A{YYYYMMDD}P1Y_R20m_T{ZZ}{GZD}{AA}_V01-R00.tif
+    │   ├── SP-SCD_{YYYYMMDD}P1Y_R20m_T{ZZ}{GZD}{AA}_V01-R00.tif
     │   ├── SWS-WSM_{YYYYMMDD}T{HHMMSS}_R60m_T{ZZ}{GZD}{AA}_S1B_V01-R00.tif
     │   └── WDS-SSC_{YYYYMMDD}T{HHMMSS}_R60m_T{ZZ}{GZD}{AA}_S1B_V01-R00.tif
     │
     ├── EUHYDRO-                       EU Hydro
-    │   └── NET_S{YYYY}_R10m_EUROPE_3035_V02-R00.gpkg
+    │   └── NET_{YYYY}0101P1Y_R10m_EUROPE_3035_V02-R00.gpkg
     │
     ├── UA-                            Urban Atlas
-    │   ├── LCU_S{YYYY}_V025ha_{FUA}_3035_V01-R00.gpkg
+    │   ├── LCU_{YYYY}0101P1Y_V025ha_{FUA}_3035_V01-R00.gpkg
     │   └── LCU_C{YYYY}-{YYYY}_V025ha_{FUA}_3035_V01-R00.gpkg
     │
     ├── CLCPLUS-                       CLC+ Raster
-    │   └── LCU_S{YYYY}_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
+    │   └── LCU_{YYYY}0101P1Y_R10m_E{XXX}N{YYY}_3035_V01-R00.tif
     │
     ├── VPP2-                          Vegetation Phenology & Productivity v2
-    │   ├── ST-PPI_A{YYYYMMDD}P10D_R10m_T{ZZ}{GZD}{AA}_V01-R00.tif
-    │   ├── VPP-SOSD-S1_A{YYYYMMDD}P1Y_R10m_T{ZZ}{GZD}{AA}_V01-R00.tif
-    │   ├── GPP-TOTAL_A{YYYYMMDD}P1Y_R10m_T{ZZ}{GZD}{AA}_V01-R00.tif
-    │   └── GPP-TOTAL-QFLAG_A{YYYYMMDD}P1Y_R10m_T{ZZ}{GZD}{AA}_V01-R00.tif
+    │   ├── ST-PPI_{YYYYMMDD}P10D_R10m_T{ZZ}{GZD}{AA}_V01-R00.tif
+    │   ├── VPP-SOSD-S1_{YYYYMMDD}P1Y_R10m_T{ZZ}{GZD}{AA}_V01-R00.tif
+    │   ├── GPP-TOTAL_{YYYYMMDD}P1Y_R10m_T{ZZ}{GZD}{AA}_V01-R00.tif
+    │   └── GPP-TOTAL-QFLAG_{YYYYMMDD}P1Y_R10m_T{ZZ}{GZD}{AA}_V01-R00.tif
     │
     ├── CLC-                           Corine Land Cover
-    │   └── LCU_S{YYYY}_V25ha_EUROPE_3035_V01-R00.gpkg
+    │   └── LCU_{YYYY}0101P1Y_V25ha_EUROPE_3035_V01-R00.gpkg
     │
     └── EGMS-                          European Ground Motion Service
-        ├── L3-U_T{YYYYMMDD}P{duration}_V100m_E{XXX}N{YYY}_3035_V01-R00.csv
-        ├── L3-EW_T{YYYYMMDD}P{duration}_R100m_E{XXX}N{YYY}_3035_V01-R00.tif
-        ├── L2a-A_T{YYYYMMDD}P{duration}_V20-5m_{Orbit}-{BurstID}-{SubSwath}_V01-R00.csv
-        └── L2b-D_T{YYYYMMDD}P{duration}_V20-5m_{Orbit}-{BurstID}-{SubSwath}_V01-R00.csv
+        ├── L3-U_{YYYYMMDD}P{duration}_V100m_E{XXX}N{YYY}_3035_V01-R00.csv
+        ├── L3-EW_{YYYYMMDD}P{duration}_R100m_E{XXX}N{YYY}_3035_V01-R00.tif
+        ├── L2a-A_{YYYYMMDD}P{duration}_V20-5m_{Orbit}-{BurstID}-{SubSwath}_V01-R00.csv
+        └── L2b-D_{YYYYMMDD}P{duration}_V20-5m_{Orbit}-{BurstID}-{SubSwath}_V01-R00.csv
 
 ## 1.2 By Temporal Situation
 
     {TEMPORAL}_
-    ├── {YYYYMMDD}T{HHMMSS}_           Sensing instant    (satellite scene)
+    ├── {YYYYMMDD}T{HHMMSS}_           Sensing instant    (single acquisition)
     │   └── e.g. 20210217T053159_
     │
-    ├── A{YYYYMMDD}P{duration}_        Aggregated          (sub-annual composite)
-    │   ├── A20240101P10D_             dekadal
-    │   ├── A20240101P1M_              monthly
-    │   └── A20240101P1Y_              annual NRT
+    ├── {YYYYMMDD}P{duration}_        Period             (start date plus ISO 8601 duration)
+    │   ├── 20240101P10D_             dekadal composite
+    │   ├── 20240101P1M_              monthly composite
+    │   ├── 20240101P1Y_              annual period
+    │   ├── 20210101P1Y_              status year
+    │   └── 20190101P5Y_              multi-year series
     │
-    ├── S{YYYY}_                       Status              (single reference year)
-    │   └── S2021_
-    │
-    ├── C{YYYY}-{YYYY}_                Change              (change between two Status years)
-    │   └── C2018-2021_                3-year change
-    │
-    └── T{YYYYMMDD}P{duration}_        Timeseries          (multi-year aggregate)
-        └── T20190101P5Y_              5-year timeseries
+    └── C{YYYY}-{YYYY}_                Change             (change between two reference years)
+        └── C2018-2021_                3-year change
 
 ## 1.3 By Resolution
 
@@ -186,20 +182,22 @@ Denmark
     │
     ├── L3-U, L3-EW                    EGMS velocity components (EGMS Ortho – L3)
     │
-    └── L2a-A, L2a-D, L2b-A, L2b-D    EGMS calibrated     (EGMS L2)
+    ├── L2a-A, L2a-D, L2b-A, L2b-D     Orbit (EGMS Calibrated – L2)
+    │
+    └── NET, DIR, SUB                  EU Hydro            (EUHYDRO)
 
 ## 1.6 Full Example Walkthrough
 
     CLMS_
          ├── WSI-SP-SCD_                  Water & Snow/Ice - Snow Cover Duration
-         │   └── A20240101P1Y_            annual composite
+         │   └── 20240101P1Y_            annual period
          │       └── R20m_                raster 20m
          │           └── T38TKL_          MGRS tile
          │               └── 3035_        EPSG 3035
          │                   └── V01-R00.tif  version 1, revision 0
          │
          └── EGMS-L2a-A_                  European Ground Motion - L2a ascending
-             └── T20190101P5Y_            5-year timeseries
+             └── 20190101P5Y_            5-year period
                  └── R20-5m_              irregular grid 20x5m
                      └── 054-0154-IW1_    IW burst
                          └── V01-R00.tif  version 1, revision 0
