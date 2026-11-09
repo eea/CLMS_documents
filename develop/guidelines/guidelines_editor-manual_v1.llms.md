@@ -1,12 +1,8 @@
-# Editor Guide
+# Technical Library - Editor Guidelines
 
-Copernicus Land Monitoring Service - Technical Library
+Copernicus Land Monitoring Serviceross references
 
-This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, and publishing, explaining the integration of project repositories with the central library via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the `develop` branch, and restoring previous document versions, ensuring consistent and efficient documentation practices for all contributors.
-
-Author
-
-European Environment Agency (EEA)
+This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the `develop` branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.
 
 Published
 
@@ -14,7 +10,7 @@ May 26, 2026
 
 Keywords
 
-CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning, RStudio integration
+CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning policy, QMD document migration, automated changelog generation, RStudio integration
 
   
 **Contact:**
@@ -25,9 +21,11 @@ Kongens Nytorv 6
 Denmark  
 [**https://land.copernicus.eu/**](https://land.copernicus.eu/)
 
+This guide is for editors writing and publishing documents in the CLMS Technical Library. It covers the day-to-day workflow: starting a document from a template, previewing it locally, publishing it to the library, and keeping it in step with the central repository.
+
 > **NOTE:**
 >
-> This guide assumes your project is already integrated with the Technical Library - the `DOCS/` subtree is in place and the Git aliases are configured. If that setup isn’t done yet, see the [Setup Guide](guidelines_setup-guide_v1.llms.md) first.
+> This guide assumes your project is already integrated with the Technical Library - the `DOCS/` subtree is in place and the Git aliases are configured. If that setup isn’t done yet, see the [Setup Guideline](guidelines_setup-guide_v1.llms.md) first.
 
 # 1 How This Works
 
@@ -51,7 +49,7 @@ Major version bumps are your decision - you create a new file with a bumped `_v<
 
 # 2 Starting a New Document
 
-## 2.1 From a template (recommended)
+## 2.1 From a template
 
 Pick the template that matches your document type:
 
@@ -82,27 +80,42 @@ If neither template fits, create a new `.qmd` file directly in `DOCS/`, followin
 >
 > Templates save time even when they don’t feel like an exact fit - the YAML header and section structure are the main things you’d otherwise need to set up manually.
 
-Migrating an existing `.docx`? See the Migration Guide \[TBD link\].
+## 2.3 Migrating an existing document
+
+Migrate when you already have substantial content in an existing `.qmd` file; start from a template when you don’t. An existing `.qmd` can be dropped into the library as-is, but it needs to be adapted first.
+
+1.  **Copy.** Place the existing `.qmd` in `DOCS/<product>/` and rename it with the pattern above, e.g. `CLMS_HRL-Forest_PUM_v1.qmd`.
+
+2.  **Trim the YAML header** down to `title`, `subtitle`, `category`, and `date` if needed.
+
+3.  **Move the images** into the sibling `<document-name>-media/` folder and make every reference relative. Check that the file extension case matches what is on disk: a `.PNG` referenced as `.png` renders locally but breaks the published build.
+
+4.  **Verify** with a local render and the frontmatter check before publishing:
+
+    ``` bash
+    quarto render DOCS/<product>/<document>_v1.qmd
+    python3 .github/scripts/validate_qmd_files.py
+    ```
 
 # 3 The YAML Header
 
-If you copied a template, the header is pre-filled - just update `title`, `subtitle`, `date`, and `product-name`.
+If you copied a template, the header is pre-filled - just update `title`, `subtitle`, and `date`.
 
 ## 3.1 Required fields
 
 ``` yaml
 ---
-title: "HRL Forest"
-subtitle: "High Resolution Layer - Forest Type"
+title: HRL Forest
+subtitle: Copernis Land Monitoring Service
 category: products
 date: "2026-01-27"
 ---
 ```
 
 - `title` - short product name, appears as the document title
-- `subtitle` - full product name or document type description
+- `subtitle` - Copernis Land Monitoring Service
 - `category` - one of `products`, `guidelines`, `reports`, `uncategorized`, `non-browsable`
-- `date` - publication or last-updated date in ISO format
+- `date` - publication or last-updated date in ISO format e.g. ‘2026-05-26’
 
 ## 3.2 Optional fields
 
@@ -235,30 +248,53 @@ DOCS/
 
 Your work lives in `DOCS/` directly: one `.qmd` file per document, plus a matching `-media/` folder for images and diagrams. The four managed subdirectories (`_meta/`, `includes/`, `templates/`, `theme/`) are updated centrally - don’t edit them.
 
-# 8 File Naming and Versioning
+# 8 File Naming, Versioning, and Changelog
 
 ## 8.1 The version suffix
 
 The `_v<N>` suffix in the filename is the major version - the only version number you control. Minor and patch versions are assigned automatically by AI at library release time based on the scope of changes: small corrections get a patch bump (`2.3.5 → 2.3.6`), new or revised sections get a minor bump (`2.3.0 → 2.4.0`). A new file `CLMS_HRL-Forest_PUM_v3.qmd` starts at `3.0.0` at its first release. You never set a version number in YAML.
 
+Version numbers are assigned only when your changes reach `main`, i.e. at the public release. Publishing to `develop`, or promoting to `test`, assigns nothing - the document keeps its previous version until the release build runs.
+
 ## 8.2 When to create a new major version
 
-Edit the existing file for most changes. Create a new major version only when you need to:
+Most changes are an edit to the existing file - the system bumps the minor or patch version for you. Create a new `_v<N>` file only when the **old version has to stay available exactly as it is**, for example when you:
 
-- rewrite most of the content
-- make breaking structural changes
-- keep the previous version available as a stable reference
+- work on a new product release
+- need the earlier release to keep being citable as a stable reference
+
+Creating one is a fork, not an update. Copy the file and its media folder, and from that point the two documents are independent: separate version numbers, separate change logs, and no link between them.
 
 ``` bash
 cp DOCS/CLMS_HRL-Forest_PUM_v2.qmd DOCS/CLMS_HRL-Forest_PUM_v3.qmd
 cp -r DOCS/CLMS_HRL-Forest_PUM_v2-media DOCS/CLMS_HRL-Forest_PUM_v3-media
 ```
 
-Both versions stay in the library and evolve independently from that point on.
+The copied filename must carry the new major version (`_v3` above); the new document then starts at `N.0.0` at its first release, while the old one keeps its own history.
 
 ## 8.3 Don’t rename after publishing
 
 The filename becomes part of the document’s URL. Renaming breaks links and cross-references. If a significant revision is needed, create a new major version rather than renaming.
+
+## 8.4 The change log
+
+You don’t write the change log. The system generates it at release time and appends a **Change Log** section to the end of your document - a table of date, version, and summary entries:
+
+| Date | Version | Summary |
+|----|----|----|
+| 2026-11-06 | 2.1.0 | Reworded the coverage section and corrected the tile table |
+| 2026-07-24 | 2.0.0 | First published version |
+
+At each release - that is, when a change reaches `main`, in the same step that assigns the version number - the pipeline compares the document against its last release and writes a short summary of what changed, storing the entry under the new version. A document with no previous release gets an initial entry instead.
+
+The stored history is what the library build renders, newest entry first, as the **Change Log** section appended after your content. Because it comes from stored history rather than the current diff, it shows up in every built version of the page (`develop`, `test` and `main` alike) - you just won’t see your own change there until it has been released. At most the last 20 entries are kept.
+
+What this means in practice:
+
+- **Nothing to add to the source.** There is no `changelog` field and no section to maintain.
+- **Write descriptive commits.** The summary is derived from the diff, so focused changes produce a clearer entry.
+- **It’s absent from your local preview.** `quarto render` doesn’t run the library build, so the section only appears on a built page. This document has one too - see its [Change Log](#change-log) at the end of the published page.
+- **Some documents have none.** Interactive pages (`type: dashboard`) opt out of the change log. Leave `type` unset unless the document really is one.
 
 # 9 Restoring Previous Versions
 

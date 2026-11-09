@@ -2123,28 +2123,28 @@
   {
     "objectID": "guidelines/guidelines_setup-guide_v1.html",
     "href": "guidelines/guidelines_setup-guide_v1.html",
-    "title": "Setup Guide",
+    "title": "Technical Library - Repository Setup Guideline",
     "section": "",
-    "text": "Contact:"
+    "text": "Contact:\nThis guide is for the person maintaining a project repository. It is a one-time, administrator-level setup: it links that repository to the CLMS Technical Library, so its documentation can be written, previewed and published alongside the rest of the library.\nEditors don’t need this page. Once the setup below is in place, they work entirely from the Editor Guidelines."
   },
   {
     "objectID": "guidelines/guidelines_setup-guide_v1.html#add-the-base-documentation-repository-as-a-remote",
     "href": "guidelines/guidelines_setup-guide_v1.html#add-the-base-documentation-repository-as-a-remote",
-    "title": "Setup Guide",
+    "title": "Technical Library - Repository Setup Guideline",
     "section": "3.1 1. Add the base documentation repository as a remote",
     "text": "3.1 1. Add the base documentation repository as a remote\ngit remote add clms-docs-base git@github.com:eea/CLMS_documents_base.git"
   },
   {
     "objectID": "guidelines/guidelines_setup-guide_v1.html#pull-in-the-docs-folder-as-a-subtree",
     "href": "guidelines/guidelines_setup-guide_v1.html#pull-in-the-docs-folder-as-a-subtree",
-    "title": "Setup Guide",
+    "title": "Technical Library - Repository Setup Guideline",
     "section": "3.2 2. Pull in the DOCS/ folder as a subtree",
     "text": "3.2 2. Pull in the DOCS/ folder as a subtree\ngit subtree add --prefix=DOCS clms-docs-base main --squash\nThis creates the DOCS/ directory and commits it into the project repository."
   },
   {
     "objectID": "guidelines/guidelines_setup-guide_v1.html#configure-the-git-aliases",
     "href": "guidelines/guidelines_setup-guide_v1.html#configure-the-git-aliases",
-    "title": "Setup Guide",
+    "title": "Technical Library - Repository Setup Guideline",
     "section": "3.3 3. Configure the Git aliases",
     "text": "3.3 3. Configure the Git aliases\nRun the setup script for your operating system:\n# macOS or Linux\n./DOCS/_meta/scripts/linux/setup-docs-aliases.sh\n\n# Windows (PowerShell)\n./DOCS/_meta/scripts/win/setup-docs-aliases.ps1\nThis registers four Git aliases for the project:\n\n\n\n\n\n\n\nAlias\nWhat it does\n\n\n\n\ngit docs-update\nPulls updates from the central base repository into DOCS/\n\n\ngit docs-publish\nPushes local documentation changes to the Technical Library\n\n\ngit docs-preview\nRenders the full project locally, including PDF output\n\n\ngit docs-restore\nFetches a published version of a document into the local working copy"
   },
@@ -2473,140 +2473,154 @@
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html",
     "href": "guidelines/guidelines_editor-manual_v1.html",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "",
-    "text": "Contact:"
+    "text": "Contact:\nThis guide is for editors writing and publishing documents in the CLMS Technical Library. It covers the day-to-day workflow: starting a document from a template, previewing it locally, publishing it to the library, and keeping it in step with the central repository."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#your-project-and-the-central-library",
     "href": "guidelines/guidelines_editor-manual_v1.html#your-project-and-the-central-library",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "1.1 Your project and the central library",
     "text": "1.1 Your project and the central library\nYour project repository contains a DOCS/ folder that is both part of your project and part of the central CLMS Technical Library. The connection works as a git subtree: your documents live in your repo, but git docs-publish merges them into the library’s develop branch.\nThat means you own the source. You edit locally, commit to your project, and publish when ready. The library pulls in documents from all projects."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#the-publish-flow",
     "href": "guidelines/guidelines_editor-manual_v1.html#the-publish-flow",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "1.2 The publish flow",
     "text": "1.2 The publish flow\nPublishing to develop is not a public release. The public-facing library only changes when a Technical Library owner promotes changes from develop to test to main. As an editor, your work stops at develop."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#the-document-lifecycle",
     "href": "guidelines/guidelines_editor-manual_v1.html#the-document-lifecycle",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "1.3 The document lifecycle",
     "text": "1.3 The document lifecycle\n\n\n\n\n\nMajor version bumps are your decision - you create a new file with a bumped _v&lt;N&gt; suffix. Minor and patch versions are AI-assigned at release time based on the scope of changes."
   },
   {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#from-a-template-recommended",
-    "href": "guidelines/guidelines_editor-manual_v1.html#from-a-template-recommended",
-    "title": "Editor Guide",
-    "section": "2.1 From a template (recommended)",
-    "text": "2.1 From a template (recommended)\nPick the template that matches your document type:\n\nCLMS_Template_ATBD.qmd - Algorithm Theoretical Basis Document, for the scientific and technical foundations of a data product\nCLMS_Template_PUM.qmd - Product User Manual, for how users access and interpret a product\n\nOnce you’ve chosen:\n\nCopy the template into DOCS/ (not sure what that looks like? See Folder and File Structure)\nRename it using this pattern: CLMS_&lt;Product-Name&gt;_&lt;Document-Type&gt;_v&lt;Major-Version&gt;.qmd\nFor example: CLMS_HRL-Forest_PUM_v1.qmd\nUse hyphens within the product name, not underscores. Start every new document at _v1. The document type is either ATBD or PUM.\nCreate a matching -media/ folder for images: CLMS_HRL-Forest_PUM_v1-media/\nEdit in place, following the structure the template provides\n\nThe templates include a pre-filled YAML header, required sections, and commented guidance throughout. Try to keep the structure intact - it makes a real difference to how consistently documents behave across the library."
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#from-a-template",
+    "href": "guidelines/guidelines_editor-manual_v1.html#from-a-template",
+    "title": "Technical Library - Editor Guidelines",
+    "section": "2.1 From a template",
+    "text": "2.1 From a template\nPick the template that matches your document type:\n\nCLMS_Template_ATBD.qmd - Algorithm Theoretical Basis Document, for the scientific and technical foundations of a data product\nCLMS_Template_PUM.qmd - Product User Manual, for how users access and interpret a product\n\nOnce you’ve chosen:\n\nCopy the template into DOCS/ (not sure what that looks like? See Folder and File Structure)\nRename it using this pattern: CLMS_&lt;Product-Name&gt;_&lt;Document-Type&gt;_v&lt;Major-Version&gt;.qmd\nFor example: CLMS_HRL-Forest_PUM_v1.qmd\nUse hyphens within the product name, not underscores. Start every new document at _v1. The document type is either ATBD or PUM.\nCreate a matching -media/ folder for images: CLMS_HRL-Forest_PUM_v1-media/\nEdit in place, following the structure the template provides\n\nThe templates include a pre-filled YAML header, required sections, and commented guidance throughout. Try to keep the structure intact - it makes a real difference to how consistently documents behave across the library."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#from-scratch",
     "href": "guidelines/guidelines_editor-manual_v1.html#from-scratch",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "2.2 From scratch",
-    "text": "2.2 From scratch\nIf neither template fits, create a new .qmd file directly in DOCS/, following the same naming pattern, create a matching -media/ folder, and add the required YAML header manually (see The YAML Header).\n\n\n\n\n\n\nTip\n\n\n\nTemplates save time even when they don’t feel like an exact fit - the YAML header and section structure are the main things you’d otherwise need to set up manually.\n\n\nMigrating an existing .docx? See the Migration Guide [TBD link]."
+    "text": "2.2 From scratch\nIf neither template fits, create a new .qmd file directly in DOCS/, following the same naming pattern, create a matching -media/ folder, and add the required YAML header manually (see The YAML Header).\n\n\n\n\n\n\nTip\n\n\n\nTemplates save time even when they don’t feel like an exact fit - the YAML header and section structure are the main things you’d otherwise need to set up manually."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#migrating-an-existing-document",
+    "href": "guidelines/guidelines_editor-manual_v1.html#migrating-an-existing-document",
+    "title": "Technical Library - Editor Guidelines",
+    "section": "2.3 Migrating an existing document",
+    "text": "2.3 Migrating an existing document\nMigrate when you already have substantial content in an existing .qmd file; start from a template when you don’t. An existing .qmd can be dropped into the library as-is, but it needs to be adapted first.\n\nCopy. Place the existing .qmd in DOCS/&lt;product&gt;/ and rename it with the pattern above, e.g. CLMS_HRL-Forest_PUM_v1.qmd.\nTrim the YAML header down to title, subtitle, category, and date if needed.\nMove the images into the sibling &lt;document-name&gt;-media/ folder and make every reference relative. Check that the file extension case matches what is on disk: a .PNG referenced as .png renders locally but breaks the published build.\nVerify with a local render and the frontmatter check before publishing:\nquarto render DOCS/&lt;product&gt;/&lt;document&gt;_v1.qmd\npython3 .github/scripts/validate_qmd_files.py"
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#required-fields",
     "href": "guidelines/guidelines_editor-manual_v1.html#required-fields",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "3.1 Required fields",
-    "text": "3.1 Required fields\n---\ntitle: \"HRL Forest\"\nsubtitle: \"High Resolution Layer - Forest Type\"\ncategory: products\ndate: \"2026-01-27\"\n---\n\ntitle - short product name, appears as the document title\nsubtitle - full product name or document type description\ncategory - one of products, guidelines, reports, uncategorized, non-browsable\ndate - publication or last-updated date in ISO format"
+    "text": "3.1 Required fields\n---\ntitle: HRL Forest\nsubtitle: Copernis Land Monitoring Service\ncategory: products\ndate: \"2026-01-27\"\n---\n\ntitle - short product name, appears as the document title\nsubtitle - Copernis Land Monitoring Service\ncategory - one of products, guidelines, reports, uncategorized, non-browsable\ndate - publication or last-updated date in ISO format e.g. ‘2026-05-26’"
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#optional-fields",
     "href": "guidelines/guidelines_editor-manual_v1.html#optional-fields",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "3.2 Optional fields",
     "text": "3.2 Optional fields\n\ntype - how the document is built. Leave it out for ordinary documents. Set type: dashboard for an interactive page: it renders to HTML only - no PDF, no table of contents, no version or changelog. New types are added by a Technical Library owner.\nproduct-name - used internally for metadata and indexing\ntemplate-version - records which template version was used as the starting point. Set automatically when copying a template; don’t edit it manually."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#system-managed-fields",
     "href": "guidelines/guidelines_editor-manual_v1.html#system-managed-fields",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "3.3 System-managed fields",
     "text": "3.3 System-managed fields\nLeave these out of your YAML header entirely - the publishing system handles them:\n\nkeywords - AI-generated at publish time based on document content. Anything you add gets overwritten.\nversion - carried by the filename suffix, not the YAML. No version field belongs in the header."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#image-folder-convention",
     "href": "guidelines/guidelines_editor-manual_v1.html#image-folder-convention",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "4.1 Image folder convention",
     "text": "4.1 Image folder convention\nImages go in &lt;your-document-name&gt;-media/, referenced with relative paths:\n![Processing workflow](CLMS_HRL-Forest_PUM_v2-media/workflow.png)"
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#page-breaks",
     "href": "guidelines/guidelines_editor-manual_v1.html#page-breaks",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "4.2 Page breaks",
     "text": "4.2 Page breaks\nUse the Quarto shortcode to insert a page break in PDF output:\n{{&lt; pagebreak &gt;}}\nNote that --- renders as a horizontal rule, not a page break."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#complex-table-layouts",
     "href": "guidelines/guidelines_editor-manual_v1.html#complex-table-layouts",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "4.3 Complex table layouts",
     "text": "4.3 Complex table layouts\nFor tables with merged cells, nested content, or custom styling, use HTML tables directly in your .qmd file. Both the HTML output and Typst-rendered PDF handle them well.\nStandard Markdown tables have limited formatting options. HTML tables let you control exactly how things look - column widths, cell colours, text alignment, borders - using inline CSS:\n```{=html}\n&lt;table style=\"width: 100%; border-collapse: collapse;\"&gt;\n  &lt;thead&gt;\n    &lt;tr style=\"background-color: #2c3e50; color: white;\"&gt;\n      &lt;th colspan=\"2\" style=\"padding: 10px; text-align: center;\"&gt;Product Overview&lt;/th&gt;\n    &lt;/tr&gt;\n  &lt;/thead&gt;\n  &lt;tbody&gt;\n    &lt;tr&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc; font-weight: bold;\"&gt;HRL Forest&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Active&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr style=\"background-color: #f2f2f2;\"&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc; font-weight: bold;\"&gt;Water Bodies&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Active&lt;/td&gt;\n    &lt;/tr&gt;\n  &lt;/tbody&gt;\n&lt;/table&gt;\n```"
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#open-the-project-in-rstudio",
     "href": "guidelines/guidelines_editor-manual_v1.html#open-the-project-in-rstudio",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "5.1 Open the project in RStudio",
     "text": "5.1 Open the project in RStudio\n\nOpen RStudio\nFile &gt; Open Project… and select the root folder of your project\nNavigate to DOCS/ and open the .qmd file you want to edit"
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#preview-your-document",
     "href": "guidelines/guidelines_editor-manual_v1.html#preview-your-document",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "5.2 Preview your document",
     "text": "5.2 Preview your document\nClick the Render button at the top of the editor pane to render HTML or PDF:\n\n\n\n\n\nOr enable Preview on Save in the toolbar to re-render on every save:\n\n\n\n\n\nThe rendered output appears in the Viewer tab in the lower-right pane:\n\n\n\n\n\nIf the Viewer tab isn’t showing rendered output, go to Tools &gt; Global Options &gt; R Markdown and set Show output preview in to Viewer Pane:"
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#render-the-full-project",
     "href": "guidelines/guidelines_editor-manual_v1.html#render-the-full-project",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "5.3 Render the full project",
     "text": "5.3 Render the full project\nTo render all documents and preview the complete library locally:\ngit docs-preview\n\n\n\n\n\n\nTip\n\n\n\nThe repository ships with the project config renamed to _quarto-not-used.yaml so RStudio operates in single-file mode by default - faster for day-to-day editing. When you need to render the full project, rename it to _quarto.yaml, run quarto render, then rename it back."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#the-version-suffix",
     "href": "guidelines/guidelines_editor-manual_v1.html#the-version-suffix",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "8.1 The version suffix",
-    "text": "8.1 The version suffix\nThe _v&lt;N&gt; suffix in the filename is the major version - the only version number you control. Minor and patch versions are assigned automatically by AI at library release time based on the scope of changes: small corrections get a patch bump (2.3.5 → 2.3.6), new or revised sections get a minor bump (2.3.0 → 2.4.0). A new file CLMS_HRL-Forest_PUM_v3.qmd starts at 3.0.0 at its first release. You never set a version number in YAML."
+    "text": "8.1 The version suffix\nThe _v&lt;N&gt; suffix in the filename is the major version - the only version number you control. Minor and patch versions are assigned automatically by AI at library release time based on the scope of changes: small corrections get a patch bump (2.3.5 → 2.3.6), new or revised sections get a minor bump (2.3.0 → 2.4.0). A new file CLMS_HRL-Forest_PUM_v3.qmd starts at 3.0.0 at its first release. You never set a version number in YAML.\nVersion numbers are assigned only when your changes reach main, i.e. at the public release. Publishing to develop, or promoting to test, assigns nothing - the document keeps its previous version until the release build runs."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#when-to-create-a-new-major-version",
     "href": "guidelines/guidelines_editor-manual_v1.html#when-to-create-a-new-major-version",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "8.2 When to create a new major version",
-    "text": "8.2 When to create a new major version\nEdit the existing file for most changes. Create a new major version only when you need to:\n\nrewrite most of the content\nmake breaking structural changes\nkeep the previous version available as a stable reference\n\ncp DOCS/CLMS_HRL-Forest_PUM_v2.qmd DOCS/CLMS_HRL-Forest_PUM_v3.qmd\ncp -r DOCS/CLMS_HRL-Forest_PUM_v2-media DOCS/CLMS_HRL-Forest_PUM_v3-media\nBoth versions stay in the library and evolve independently from that point on."
+    "text": "8.2 When to create a new major version\nMost changes are an edit to the existing file - the system bumps the minor or patch version for you. Create a new _v&lt;N&gt; file only when the old version has to stay available exactly as it is, for example when you:\n\nwork on a new product release\nneed the earlier release to keep being citable as a stable reference\n\nCreating one is a fork, not an update. Copy the file and its media folder, and from that point the two documents are independent: separate version numbers, separate change logs, and no link between them.\ncp DOCS/CLMS_HRL-Forest_PUM_v2.qmd DOCS/CLMS_HRL-Forest_PUM_v3.qmd\ncp -r DOCS/CLMS_HRL-Forest_PUM_v2-media DOCS/CLMS_HRL-Forest_PUM_v3-media\nThe copied filename must carry the new major version (_v3 above); the new document then starts at N.0.0 at its first release, while the old one keeps its own history."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#dont-rename-after-publishing",
     "href": "guidelines/guidelines_editor-manual_v1.html#dont-rename-after-publishing",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "8.3 Don’t rename after publishing",
     "text": "8.3 Don’t rename after publishing\nThe filename becomes part of the document’s URL. Renaming breaks links and cross-references. If a significant revision is needed, create a new major version rather than renaming."
   },
   {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#the-change-log",
+    "href": "guidelines/guidelines_editor-manual_v1.html#the-change-log",
+    "title": "Technical Library - Editor Guidelines",
+    "section": "8.4 The change log",
+    "text": "8.4 The change log\nYou don’t write the change log. The system generates it at release time and appends a Change Log section to the end of your document - a table of date, version, and summary entries:\n\n\n\n\n\n\n\n\nDate\nVersion\nSummary\n\n\n\n\n2026-11-06\n2.1.0\nReworded the coverage section and corrected the tile table\n\n\n2026-07-24\n2.0.0\nFirst published version\n\n\n\nAt each release - that is, when a change reaches main, in the same step that assigns the version number - the pipeline compares the document against its last release and writes a short summary of what changed, storing the entry under the new version. A document with no previous release gets an initial entry instead.\nThe stored history is what the library build renders, newest entry first, as the Change Log section appended after your content. Because it comes from stored history rather than the current diff, it shows up in every built version of the page (develop, test and main alike) - you just won’t see your own change there until it has been released. At most the last 20 entries are kept.\nWhat this means in practice:\n\nNothing to add to the source. There is no changelog field and no section to maintain.\nWrite descriptive commits. The summary is derived from the diff, so focused changes produce a clearer entry.\nIt’s absent from your local preview. quarto render doesn’t run the library build, so the section only appears on a built page. This document has one too - see its Change Log at the end of the published page.\nSome documents have none. Interactive pages (type: dashboard) opt out of the change log. Leave type unset unless the document really is one."
+  },
+  {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#commands",
     "href": "guidelines/guidelines_editor-manual_v1.html#commands",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "9.1 Commands",
     "text": "9.1 Commands\ngit docs-restore --list-all                                 # all published documents\ngit docs-restore --list DOCS/CLMS_HRL-Forest_PUM_v2.qmd     # versions of one file\ngit docs-restore DOCS/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0      # specific version\ngit docs-restore --latest DOCS/CLMS_HRL-Forest_PUM_v2.qmd   # latest published version"
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#when-to-use-it",
     "href": "guidelines/guidelines_editor-manual_v1.html#when-to-use-it",
-    "title": "Editor Guide",
+    "title": "Technical Library - Editor Guidelines",
     "section": "9.2 When to use it",
     "text": "9.2 When to use it\nRecover deleted content. You removed a section locally and need it back. Restore the last published version, copy out what you need, then carry on with your current version.\nSomething went wrong in a recent edit. Restore an earlier version (e.g. 2.1.0) and work forward from there rather than trying to untangle the current state.\nResurrect a deleted file. If a file was removed from the project but still exists in the library history, --list-all will find it. Restore brings it back into DOCS/ as if nothing happened."
   },
@@ -4008,7 +4022,7 @@
     "href": "guidelines/index.html",
     "title": "Guidelines",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        version\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n\n\n\n\n\n\nTitle\n\n\n\nversion\n\n\n\nDate\n\n\n\n\n\n\n\n\nCLMS Product Filenaming - Design Principles\n\n\n1.0.0\n\n\nNov 6, 2026\n\n\n\n\n\n\nCLMS Product Filenaming - Filename Tree\n\n\n1.0.0\n\n\nNov 6, 2026\n\n\n\n\n\n\nEditor Guide\n\n\n1.2.0\n\n\nMay 26, 2026\n\n\n\n\n\n\nIT Architecture Principles and Implementation Guidelines\n\n\n1.4.3\n\n\nJun 19, 2025\n\n\n\n\n\n\nProtected Areas 2021-2024 - Nomenclature Guideline\n\n\n1.0.0\n\n\nSep 18, 2026\n\n\n\n\n\n\nSetup Guide\n\n\n1.1.0\n\n\nMay 26, 2026\n\n\n\n\n\n\nNo matching items\n Back to top"
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        version\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n\n\n\n\n\n\nTitle\n\n\n\nversion\n\n\n\nDate\n\n\n\n\n\n\n\n\nCLMS Product Filenaming - Design Principles\n\n\n1.0.0\n\n\nNov 6, 2026\n\n\n\n\n\n\nCLMS Product Filenaming - Filename Tree\n\n\n1.0.0\n\n\nNov 6, 2026\n\n\n\n\n\n\nIT Architecture Principles and Implementation Guidelines\n\n\n1.4.3\n\n\nJun 19, 2025\n\n\n\n\n\n\nProtected Areas 2021-2024 - Nomenclature Guideline\n\n\n1.0.0\n\n\nSep 18, 2026\n\n\n\n\n\n\nTechnical Library - Editor Guidelines\n\n\n1.2.0\n\n\nMay 26, 2026\n\n\n\n\n\n\nTechnical Library - Repository Setup Guideline\n\n\n1.1.0\n\n\nMay 26, 2026\n\n\n\n\n\n\nNo matching items\n Back to top"
   },
   {
     "objectID": "products/index.html",
