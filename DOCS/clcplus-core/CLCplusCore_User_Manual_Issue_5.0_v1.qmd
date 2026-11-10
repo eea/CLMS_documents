@@ -12,7 +12,7 @@ description: "Product DESCRIPTION"
 
 Date: 2026-09-28
 
-Doc. Version : Issue 5.0
+Doc. Version : Issue 5.0
 
 Content ID: /
 
@@ -673,7 +673,7 @@ In another example below (see [Figure 3‑7](#_Ref151987383)), we chose the URL 
 
 After selecting the dataset, you need to define if the dataset has discrete or continuous values[^8] (see [Figure 3‑5](#_Ref151987252) and [Figure 3‑6](#_Ref151987332)). For example, the HRL WAW and all local components consists of discrete objects, which have known and definable boundaries. A lake is a discrete object within the surrounding landscape. The HRL TCD and IMD however, represent continuous values, as their values range from 0-100 %, indicating the degree of their respective characteristic.
 
-In step 4, you have the possibility to **exclude a class code** from being processed (see [Figure 3‑9](#_Ref151987363)). It excludes all class codes which stand for an unknown classification (i.e. NoData values). If a TIF dataset specifies a NoData value in its metadata the corresponding class is excluded automatically. This is recommended if you don't want to have specific values in the statistics/being processed and for all unclassified/unknown values (i.e. NoData) (step 4). All pixels in the ingested dataset with an excluded class code will then appear as NoData pixel in the final Ingestion. If you do not enter a excluded class code value and the NoData value does not appear in the TIF metadata, then all classes are "0" in the ingestion, where the original data always displayed the no-data class.
+In step 4, you have the possibility to **exclude a class code** from being processed (see [Figure 3‑9](#_Ref151987363)). It excludes all class codes which stand for an unknown classification (i.e. NoData values). If a TIF dataset specifies a NoData value in its metadata the corresponding class is excluded automatically. This is recommended if you don't want to have specific values in the statistics/being processed and for all unclassified/unknown values (i.e. NoData) (step 4). All pixels in the ingested dataset with an excluded class code will then appear as NoData pixel in the final Ingestion. If you do not enter a excluded class code value and the NoData value does not appear in the TIF metadata, then all classes are "0" in the ingestion, where the original data always displayed the no-data class.
 
 For **Continuous values** (datasets with continues values/ranges like e.g. tree cover density values between 0 and 100%) all **values** which do not represent thematic values in the input dataset will be **excluded**. Pixels with one of the given values will be counted as NoData in the ingestion. If a TIF dataset specifies a NoData value in its metadata the corresponding value is excluded automatically.
 
@@ -1544,7 +1544,7 @@ Extraction Input classes are **Input classes** of **Ingestions** used in an **Ex
 
 **Coverage**
 
-The percentage of the area of a given pixel that an **Input Class** covers is called the coverage. Pixel values are not binary because the raw input data is reprojected to the EPSG:3035 coordinate reference system and resampled to a 100m x 100m or 10 x 10m pixel size if they are not given in this format already. Therefore, it can happen that multiple **Input Classes** from the same **Ingestion** apply to the same raster pixel, but don't cover the full extent of the pixel.  
+The percentage of the area of a given pixel that an **Input Class** covers is called the coverage. Pixel values are not binary because the raw input data is reprojected to the EPSG:3035 coordinate reference system and resampled to a 100m x 100m or 10 x 10m pixel size if they are not given in this format already. Therefore, it can happen that multiple **Input Classes** from the same **Ingestion** apply to the same raster pixel, but don't cover the full extent of the pixel.  
 
 A coverage can also be *No-Data* if the whole area of the pixel is unclassified in the **Ingestion**.
 
@@ -1552,23 +1552,23 @@ A coverage can also be *No-Data* if the whole area of the pixel is unclassified 
 Represents one classification option of an **Extraction**. It has a name, an identifying class code and a C**lass Condition** that specifies when the output class should be applied.
 
 **Class Condition**\
-Specifies whether the **Extraction Output Class** to which it belongs should be applied to a given pixel, given the **coverage** values of **Extraction Input Classes**. Technically speaking, a class condition is a **Ruleset** (consisting of nested **Rules** and **Rulesets).**
+Specifies whether the **Extraction Output Class** to which it belongs should be applied to a given pixel, given the **coverage** values of **Extraction Input Classes**. Technically speaking, a class condition is a **Ruleset** (consisting of nested **Rules** and **Rulesets).**
 
 **Ruleset**\
-A combination of **Rules** *or* **Rulesets** using Boolean operators[^10]. Depending on the type of linking operator, the compound expression is only true if both linked expressions are true (AND-linkage) or if at least one of the linked expressions is true (OR-linkage). Consequently, the result of a ruleset is also always *true* or *false.* For example: 
+A combination of **Rules** *or* **Rulesets** using Boolean operators[^10]. Depending on the type of linking operator, the compound expression is only true if both linked expressions are true (AND-linkage) or if at least one of the linked expressions is true (OR-linkage). Consequently, the result of a ruleset is also always *true* or *false.* For example: 
 
-> *The coverage of LCC-Water/5 or LCC-Trees/5 must be greater than 50%. \
-> **cov("LCC-Water", 5) \> 50*** ***   OR*** ***  cov("LCC-Trees", 5) \> 50** *
+> *The coverage of LCC-Water/5 or LCC-Trees/5 must be greater than 50%. \
+> **cov("LCC-Water", 5) \> 50*** ***   OR*** ***  cov("LCC-Trees", 5) \> 50** *
 
-The top-level ruleset of an output class is called the **Class Condition.** 
+The top-level ruleset of an output class is called the **Class Condition.** 
 
 **Rule**\
-A simple comparison of a **Coverage Function** (i.e. the coverage of a barcoded EAGLE element) against another coverage value. For example: 
+A simple comparison of a **Coverage Function** (i.e. the coverage of a barcoded EAGLE element) against another coverage value. For example: 
 
-> *The coverage of LCC-Water with barcode 5 must be greater than 50%. \
-> **cov("LCC-Water******", 5) \> 50** *
+> *The coverage of LCC-Water with barcode 5 must be greater than 50%. \
+> **cov("LCC-Water******", 5) \> 50** *
 
-When evaluating a **rule** on a given pixel, the result is always either *true* or *false.* Comparing a *No-Data* value against any other value produces the result *false.* 
+When evaluating a **rule** on a given pixel, the result is always either *true* or *false.* Comparing a *No-Data* value against any other value produces the result *false.* 
 
 **Coverage Function**\
 A function that computes the **Coverage** of a barcoded EAGLE element for the selected **Extraction Input Classes** for a given pixel. This computation works by:
@@ -1751,22 +1751,21 @@ The EAGLE matrix elements initially have no specific bar code value (BCV) and ar
 
 This bar-coding approach streamlines the process of representing complex information about different classes, making it easier to handle and to compare among them and with other classification systems. When working with the barcoding exercise, different classes require the EAGLE elements to take different roles, according to the targeted definitions. Similar class definitions should reflect in also similar barcoding results.[^11].
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  BCV       Description
-  --------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  X         Element is excluded by definition
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   **Barcode Value**  **Definition**
+  ------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           X          Element is excluded by definition
 
-  1         Optional element, it can occur occasionally or typically but is not mandatory. Take into account scale and MMU of addressed class.
+           1          An optional element, it can occur as typical but not necessarily as mandatory
 
-  2         Selective defining element, EITHER-OR-logic, at least one or more out of all elements with assigned BCV 2 must be present, BCV 2 element never stands alone, always must have at least one counter-selective element.
+           2          Selective mandatory element, EITHER-AND/OR logic, at least two or more of all elements with assigned BCV 2 must be present
 
-  3         Cumulative mandatory element, AND-logic, all elements with assigned BCV 3 are compulsory and must be present. More than 1 element expected, but can also occur as stand-alone.
+           3          Cumulative mandatory element, AND-logic, all elements with assigned BCV 3 must be present
 
-  4         Paired mandatory element, EITHER-AND-OR-logic, at least two out of three or more elements with assigned BCV 4 must be present.
+           4          Paired mandatory element, two of all elements with assigned BCV 4 must be present
 
-  5         Exclusive mandatory element, NOTHING-BUT-logic, practically allows only the one solitary element with assigned BCV 5 and excludes any other element from its parent matrix block.
-            
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           5          Exclusive mandatory element, NOTHING-BUT-logic, practically allows only the one element with assigned BCV 5 and excludes any other element from its parent matrix block
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   : []{#_Ref152071020 .anchor}Table 0‑1: List of Bar-code value meanings. The BCVs define the role of EAGLE elements to fulfil a given mapping rule, class definition or landscape situation.
 
@@ -1799,19 +1798,19 @@ In the **current version of the CLC+ Core system**, for the creation of an Extra
 +:=====================+:=============================================================+:=========================+:===================+:================+:=========================================+
 | HRLs                                                                                                                                                                                             |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
-| Imperviousness       | Built up                                                     | IBU_010m_18              | HRL 2018           | Raster          |                                          |
+| Imperviousness       | Built up                                                     | IBU_010m_18              | HRL 2018           | Raster          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
 | Imperviousness       | Degree of Imperviousness                                     | IMD_010m_18              | HRL 2018           | Raster          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
 | Forest               | Tree Cover Density                                           | TCD_010m_18              | HRL 2018           | Raster          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
-| Forest               | Forest Type                                                  | FTY_010m_18              | HRL 2018           | Raster          |                                          |
+| Forest               | Forest Type                                                  | FTY_010m_18              | HRL 2018           | Raster          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
-| Forest               | Dominant Leaf Type                                           | DLT_010m_18              | HRL 2018           | Raster          |                                          |
+| Forest               | Dominant Leaf Type                                           | DLT_010m_18              | HRL 2018           | Raster          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
-| Grassland            | Grassland                                                    | GRA_010m_18              | HRL 2018           | Raster          |                                          |
+| Grassland            | Grassland                                                    | GRA_010m_18              | HRL 2018           | Raster          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
-| Water and Wetness    | Water and Wetness                                            | WAW_010m_18              | HRL 2018           | Raster          |                                          |
+| Water and Wetness    | Water and Wetness                                            | WAW_010m_18              | HRL 2018           | Raster          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
 | Small Woody Feature  | Small Woody Feature                                          | SWF_005m_15              | HRL 2015           | Raster          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
@@ -1819,27 +1818,27 @@ In the **current version of the CLC+ Core system**, for the creation of an Extra
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
 | CLC / CLC+ Backbone                                                                                                                                                                              |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
-| CLC raster           | Corine Land Cover                                            | CLC_100m_18              | CLC 2018           | Raster          |                                          |
+| CLC raster           | Corine Land Cover                                            | CLC_100m_18              | CLC 2018           | Raster          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
-| CLC+ Backbone        | Corine Land Cover Plus Backbone                              | CLC+BB_010m_18           | CLC+ BB 2018       | Raster          |                                          |
+| CLC+ Backbone        | Corine Land Cover Plus Backbone                              | CLC+BB_010m_18           | CLC+ BB 2018       | Raster          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
 | Priority Area Monitoring                                                                                                                                                                         |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
-| Urban Atlas          | Urban Atlas LC/LU                                            | UA LC/LU 18              | Hotspot 2018       | Vector          |                                          |
+| Urban Atlas          | Urban Atlas LC/LU                                            | UA LC/LU 18              | Hotspot 2018       | Vector          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
-| Urban Atlas          | Urban Atlas LC/LU                                            | UA LC/LU 12              | Hotspot 2012       | Vector          |                                          |
+| Urban Atlas          | Urban Atlas LC/LU                                            | UA LC/LU 12              | Hotspot 2012       | Vector          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
-| Riparian Zones       | Riparian Zones LC/LU                                         | RZ LC/LU 18              | Hotspot 2018       | Vector          |                                          |
+| Riparian Zones       | Riparian Zones LC/LU                                         | RZ LC/LU 18              | Hotspot 2018       | Vector          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
-| Riparian Zones       | Riparian Zones LC/LU                                         | RZ LC/LU 12              | Hotspot 2012       | Vector          |                                          |
+| Riparian Zones       | Riparian Zones LC/LU                                         | RZ LC/LU 12              | Hotspot 2012       | Vector          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
-| Natura 2000          | Natura 2000 LC/LU                                            | N2K LC/LU 18             | Hotspot 2018       | Vector          |                                          |
+| Natura 2000          | Natura 2000 LC/LU                                            | N2K LC/LU 18             | Hotspot 2018       | Vector          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
-| Natura 2000          | Natura 2000 LC/LU                                            | N2K LC/LU 12             | Hotspot 2012       | Vector          |                                          |
+| Natura 2000          | Natura 2000 LC/LU                                            | N2K LC/LU 12             | Hotspot 2012       | Vector          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
-| Coastal Zones        | Coastal Zones LC/LU                                          | CZ LC/LU 18              | Hotspot 2018       | Vector          |                                          |
+| Coastal Zones        | Coastal Zones LC/LU                                          | CZ LC/LU 18              | Hotspot 2018       | Vector          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
-| Coastal Zones        | Coastal Zones LC/LU                                          | CZ LC/LU 12              | Hotspot 2012       | Vector          |                                          |
+| Coastal Zones        | Coastal Zones LC/LU                                          | CZ LC/LU 12              | Hotspot 2012       | Vector          |                                          |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
 | National Datasets                                                                                                                                                                                |
 +----------------------+--------------------------------------------------------------+--------------------------+--------------------+-----------------+------------------------------------------+
@@ -2005,12 +2004,12 @@ Source: <https://land.copernicus.eu/> and national authorities
 <tr>
 <td style="text-align: left;">SIOSE LU</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;"> 1_1_1 commercial crop production</td>
+<td style="text-align: left;"> 1_1_1 commercial crop production</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
 <td style="text-align: left;">SIOSE LC</td>
-<td style="text-align: left;"> 2_2_1 graminiods, 2_2 herbaceous_vegetation</td>
+<td style="text-align: left;"> 2_2_1 graminiods, 2_2 herbaceous_vegetation</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -2084,14 +2083,14 @@ Source: <https://land.copernicus.eu/> and national authorities
 </tr>
 <tr>
 <td style="text-align: left;">SIOSE LC</td>
-<td style="text-align: left;"> 2_2_1_1 Grasses, Sedges, Rushes, Cereals</td>
+<td style="text-align: left;"> 2_2_1_1 Grasses, Sedges, Rushes, Cereals</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
 <td style="text-align: left;">BRP</td>
 <td style="text-align: left;">2_2_1 graminiods</td>
-<td style="text-align: left;"> 6_3_1 Land areas not in other economic use</td>
+<td style="text-align: left;"> 6_3_1 Land areas not in other economic use</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
@@ -2238,7 +2237,7 @@ cov("LCH-forest-fire-wildfire", 5)&gt;=30</td>
 <tr>
 <td rowspan="2" style="text-align: left;"><strong>22</strong></td>
 <td rowspan="2" style="text-align: left;"><strong>FL Transitional woodland</strong></td>
-<td rowspan="2" style="text-align: left;">Transitional bushy and herbaceous vegetation with occasional scattered trees. Can represent woodland degradation, forest regeneration / recolonization or natural succession. Areas representing natural development of forest formations, consisting of young plants of broad–leaved and coniferous species, with herbaceous vegetation and dispersed solitary adult trees. Transitional process can be for instance natural succession on abandoned agricultural land, regeneration of forest after damages of various origin (e.g. storm, avalanche), stages of forest degeneration caused by natural or anthropogenic stress factors (e.g. drought, pollution), reforestation after clearcutting, afforestation on formerly non-forested natural or semi-natural areas etc.<br />
+<td rowspan="2" style="text-align: left;">Transitional bushy and herbaceous vegetation with occasional scattered trees. Can represent woodland degradation, forest regeneration / recolonization or natural succession. Areas representing natural development of forest formations, consisting of young plants of broad–leaved and coniferous species, with herbaceous vegetation and dispersed solitary adult trees. Transitional process can be for instance natural succession on abandoned agricultural land, regeneration of forest after damages of various origin (e.g. storm, avalanche), stages of forest degeneration caused by natural or anthropogenic stress factors (e.g. drought, pollution), reforestation after clearcutting, afforestation on formerly non-forested natural or semi-natural areas etc.<br />
 <strong>Includes:</strong><br />
 - young broad-leaved and/or coniferous trees;<br />
 - damaged or dead trees and shrubs;<br />
