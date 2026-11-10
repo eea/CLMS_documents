@@ -9,6 +9,7 @@ from unittest.mock import MagicMock
 
 # Add scripts directory to path
 sys.path.insert(0, str(Path(__file__).parent.parent / ".github/scripts"))
+sys.path.insert(0, str(Path(__file__).parent.parent / ".github/scripts/ai"))
 
 from update_versions_and_changelogs import (
     clean_diff_for_ai,
