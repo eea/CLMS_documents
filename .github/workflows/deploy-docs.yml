@@ -6,7 +6,9 @@ on:
       - develop
       - test
       - main
-  workflow_dispatch:  # manual trigger from Actions UI
+  # Not for people: auto-merge.yml dispatches test's deploy after a
+  # GITHUB_TOKEN merge (which fires no push). Manual clicks are skipped below.
+  workflow_dispatch:
 
 # One run per branch - concurrent runs race on the cache commit-back and the
 # gh-pages deploy. Queue, don't cancel (a half-written cache is worse).
@@ -17,6 +19,9 @@ concurrency:
 jobs:
   deploy_docs:
     name: Build and Deploy Docs
+    # Only open-review-pr / open-release-pr are run by hand. A dispatch from
+    # the Actions tab is skipped; auto-merge's dispatch runs as the bot.
+    if: github.event_name != 'workflow_dispatch' || github.actor == 'github-actions[bot]'
     runs-on: ubuntu-latest
 
     # Force bash for every run step. Inside a container the default is sh.

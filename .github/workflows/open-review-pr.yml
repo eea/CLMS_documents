@@ -35,6 +35,14 @@ jobs:
       contents: read
 
     steps:
+      # GitHub always shows a "Use workflow from" branch picker. Another branch
+      # would run its own copy of this workflow and the assembler on develop.
+      - name: Guard - must run from develop
+        if: github.ref != 'refs/heads/develop'
+        run: |
+          echo "::error::Run this from 'develop' (Use workflow from: develop), not '${{ github.ref_name }}'."
+          exit 1
+
       - name: Checkout
         uses: actions/checkout@v6
         with:
