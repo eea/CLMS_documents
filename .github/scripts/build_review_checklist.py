@@ -27,13 +27,19 @@ REMOVED_SUFFIX = " (removed)"
 
 # Per-document state: goes with its document, never with the pipeline block.
 PER_DOC_STATE_EXACT = {
-    ".llm_cache/versions.json",
     ".github/non_browsable_doc_map.json",
 }
 PER_DOC_STATE_PREFIXES = (
-    ".version-history/",
     ".llm_cache/DOCS__",
 )
+
+# Version state is generated on test (and carried to main by the release
+# merge). develop's copies are never promoted, per document or as pipeline.
+VERSION_STATE_EXACT = {
+    ".llm_cache/versions.json",
+    ".llm_cache/change_logs.json",
+}
+VERSION_STATE_PREFIXES = (".version-history/",)
 
 
 def is_pipeline_path(path: str) -> bool:
@@ -44,7 +50,9 @@ def is_pipeline_path(path: str) -> bool:
     """
     if path.startswith("DOCS/"):
         return False
-    if path in PER_DOC_STATE_EXACT:
+    if path in PER_DOC_STATE_EXACT or path in VERSION_STATE_EXACT:
+        return False
+    if path.startswith(VERSION_STATE_PREFIXES):
         return False
     return not path.startswith(PER_DOC_STATE_PREFIXES)
 

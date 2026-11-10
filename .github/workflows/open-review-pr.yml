@@ -35,6 +35,14 @@ jobs:
       contents: read
 
     steps:
+      # GitHub always shows a "Use workflow from" branch picker. Another branch
+      # would run its own copy of this workflow and the assembler on develop.
+      - name: Guard - must run from develop
+        if: github.ref != 'refs/heads/develop'
+        run: |
+          echo "::error::Run this from 'develop' (Use workflow from: develop), not '${{ github.ref_name }}'."
+          exit 1
+
       - name: Checkout
         uses: actions/checkout@v6
         with:
@@ -130,8 +138,12 @@ jobs:
             --title "$title" \
             --body "$body")
           echo "🚀 Review PR opened: $url"
+          # Read by check_independent_approval.py: the requester can't approve.
+          gh pr comment "$url" --body "Requested by **${REQUESTER}**, so someone else has to approve.
+          <!-- promotion-requester: ${REQUESTER} -->"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REQUESTER: ${{ github.triggering_actor }}
 
       - name: Open selective draft PR
         if: steps.check.outputs.exists == 'false' && steps.diff_check.outputs.ahead != '0' && inputs.mode == 'selective'
@@ -161,5 +173,10 @@ jobs:
             --body "$body")
           echo "🚀 Selective draft PR opened: $url"
           echo "   Untick what should wait, then click Ready for review."
+          # Read by check_independent_approval.py: the requester, and whoever
+          # clicks Ready for review, can't approve.
+          gh pr comment "$url" --body "Requested by **${REQUESTER}**. The requester and whoever clicks **Ready for review** can't approve this PR.
+          <!-- promotion-requester: ${REQUESTER} -->"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REQUESTER: ${{ github.triggering_actor }}
