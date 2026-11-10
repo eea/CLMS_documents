@@ -2,7 +2,7 @@
 
 Copernicus Land Monitoring Service
 
-This Algorithm Theoretical Basis Document (ATBD) provides an overview of the methodologies and algorithms employed in creating the High-Resolution Vegetated Land Cover Characteristics (HRL VLCC) products for the Copernicus Land Monitoring Service (CLMS). It outlines the characteristics and derivation of annual status and change layers for Tree Cover & Forests, Grasslands, and Croplands, leveraging multi-source satellite data, including Sentinel-2 imagery. The document explains the Base Vegetation Layer (BVL), key agricultural monitoring capabilities, and post-classification processing steps, offering essential insights for users applying these products.
+This Algorithm Theoretical Basis Document (ATBD) provides a comprehensive overview of the methodologies and algorithms employed in creating the High-Resolution Vegetated Land Cover Characteristics (HRL VLCC) products for the Copernicus Land Monitoring Service (CLMS). It details the production of annual status and change layers for Tree Cover & Forests, Grasslands, and Croplands, leveraging multi-source satellite data, including Sentinel-2 imagery. The document explains the Base Vegetation Layer (BVL), key agricultural monitoring capabilities, and post-classification processing steps, offering essential insights for users applying these products.
 
 Published
 
