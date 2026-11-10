@@ -13,6 +13,7 @@ import os
 
 # Import the modules
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../.github/scripts"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../.github/scripts/build"))
 import group_docs_by_category
 import update_url_mappings
 import validate_qmd_files

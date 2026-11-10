@@ -10,6 +10,7 @@ import subprocess
 
 # Add scripts directory to path
 sys.path.insert(0, str(Path(__file__).parent.parent / ".github/scripts"))
+sys.path.insert(0, str(Path(__file__).parent.parent / ".github/scripts/ai"))
 
 from update_versions_and_changelogs import (
     get_last_release_tag,
@@ -34,15 +35,15 @@ class TestGetLastReleaseTag:
         assert result == "v1.5.0", "Should return latest non-test tag"
 
     @patch("subprocess.check_output")
-    def test_test_branch_filters_main_tags(self, mock_subprocess):
-        """Test branch should only see test tags"""
+    def test_test_branch_uses_main_release_tag(self, mock_subprocess):
+        """Test branch diffs against main's last release, ignoring -test tags"""
         mock_subprocess.side_effect = [
             b"test\n",  # Current branch
             b"v1.5.0\nv1.4.0-test.1\nv1.3.0\nv1.2.0-test.2\n",  # All tags
         ]
 
         result = get_last_release_tag()
-        assert result == "v1.4.0-test.1", "Should return latest test tag"
+        assert result == "v1.5.0", "Should return main's latest release tag"
 
     @patch("subprocess.check_output")
     def test_no_tags_returns_none(self, mock_subprocess):
@@ -67,15 +68,15 @@ class TestGetLastReleaseTag:
         assert result is None, "Main branch should ignore test-only tags"
 
     @patch("subprocess.check_output")
-    def test_only_main_tags_on_test_returns_none(self, mock_subprocess):
-        """Test should return None if only main tags exist"""
+    def test_only_test_tags_on_test_returns_none(self, mock_subprocess):
+        """Test should return None if only leftover -test tags exist"""
         mock_subprocess.side_effect = [
             b"test\n",
-            b"v1.0.0\nv0.9.0\n",
+            b"v1.0.0-test.1\nv0.9.0-test.2\n",
         ]
 
         result = get_last_release_tag()
-        assert result is None, "Test branch should ignore non-test tags"
+        assert result is None, "Test branch should ignore -test tags"
 
     @patch("subprocess.check_output")
     def test_git_error_returns_none(self, mock_subprocess):

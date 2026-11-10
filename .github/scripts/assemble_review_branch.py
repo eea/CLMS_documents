@@ -9,7 +9,8 @@ It runs in no-overlay mode, so files missing on develop get deleted too, which
 covers deletions and case-renamed media. Don't swap it for
 `git checkout <ref> -- <path>`: that only adds files and leaves stale ones behind.
 
-Shared state files are merged per key, so unticked documents keep test's values.
+The non-browsable map is merged per key, so unticked documents keep test's
+values. Version state is never copied: test generates it.
 
 CLI:
     %(prog)s --date 2026-09-21 --all
@@ -64,11 +65,6 @@ def git(*args: str, repo: str | Path = ".", check: bool = True) -> str:
 def llm_cache_path(qmd: str) -> str:
     """`.llm_cache` entry for a document (same naming as helpers/file_updater.py)."""
     return f"{LLM_CACHE_DIR}/{'__'.join(Path(qmd).parts)}.json"
-
-
-def product_of(qmd: str) -> str:
-    """Product directory owning *qmd* (`DOCS/<product>/...`)."""
-    return Path(qmd).parts[1]
 
 
 def owned_paths(qmd: str, changed: list[str]) -> list[str]:
@@ -132,29 +128,6 @@ def _json_at_ref(repo: str | Path, ref: str, path: str) -> dict:
         return {}
 
 
-def _merge_keyed_json(repo: Path, develop_ref: str, rel: str, keys: list[str]) -> bool:
-    """Copy only *keys* from develop's copy of *rel* into the on-disk copy."""
-    develop_data = _json_at_ref(repo, develop_ref, rel)
-    target = load_json_or_empty(repo / rel, label=rel)
-    changed = False
-    for key in keys:
-        if key in develop_data:
-            if target.get(key) != develop_data[key]:
-                target[key] = develop_data[key]
-                changed = True
-        elif key in target:
-            del target[key]
-            changed = True
-    if not changed:
-        return False
-    path = repo / rel
-    path.parent.mkdir(parents=True, exist_ok=True)
-    # Same format as update_versions_and_changelogs.py (indent=2, sort_keys, no
-    # trailing newline), otherwise the PR diff gets end-of-file noise.
-    path.write_text(json.dumps(target, indent=2, sort_keys=True), encoding="utf-8")
-    return True
-
-
 def _merge_non_browsable_map(repo: Path, develop_ref: str, selection: list[str]) -> bool:
     """Copy each selected document's secret-URL entry.
 
@@ -200,19 +173,11 @@ def _merge_non_browsable_map(repo: Path, develop_ref: str, selection: list[str])
 
 
 def merge_shared_state(repo: Path, develop_ref: str, selection: list[str]) -> list[str]:
-    """Merge each selected document's key into the shared state files."""
+    """Merge each selected document's key into the shared state files.
+
+    Version state (versions.json, change_logs.json, .version-history/) is not
+    merged: test generates it, so develop's copies are never promoted."""
     touched: list[str] = []
-
-    if _merge_keyed_json(repo, develop_ref, f"{LLM_CACHE_DIR}/versions.json", selection):
-        touched.append(f"{LLM_CACHE_DIR}/versions.json")
-
-    by_product: dict[str, list[str]] = {}
-    for qmd in selection:
-        by_product.setdefault(product_of(qmd), []).append(qmd)
-    for product, qmds in by_product.items():
-        rel = f".version-history/{product}/versions.json"
-        if _merge_keyed_json(repo, develop_ref, rel, qmds):
-            touched.append(rel)
 
     if _merge_non_browsable_map(repo, develop_ref, selection):
         touched.append(NON_BROWSABLE_MAP)

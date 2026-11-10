@@ -11,6 +11,7 @@ import pytest
 
 # Add scripts directory to path to import the main script
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".github", "scripts"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".github", "scripts", "ai"))
 
 # Import functions from the main script
 from update_versions_and_changelogs import (

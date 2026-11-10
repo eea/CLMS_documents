@@ -111,13 +111,11 @@ def get_last_release_tag():
             print("[INFO] No release tags found - this is the first release")
             return None
 
-        # Filter tags based on branch
-        if current_branch == "test":
-            filtered_tags = [t for t in all_tags if "-test" in t]
-            print("[INFO] Filtering for test branch tags (with -test suffix)")
-        elif current_branch == "main":
+        # test prepares main's next release, so both diff against main's last
+        # release. Old -test tags are leftovers and are ignored.
+        if current_branch in ("test", "main"):
             filtered_tags = [t for t in all_tags if "-test" not in t]
-            print("[INFO] Filtering for main branch tags (without -test suffix)")
+            print("[INFO] Filtering for release tags (without -test suffix)")
         else:
             filtered_tags = all_tags
             print(f"[INFO] Using all tags for branch: {current_branch}")
@@ -135,6 +133,24 @@ def get_last_release_tag():
     except subprocess.CalledProcessError:
         print("[INFO] No release tags found - this is the first release")
         return None
+
+
+VERSION_STATE_PATHS = [VERSIONS_FILE, CHANGELOGS_FILE, ".version-history"]
+
+
+def _current_branch():
+    return subprocess.check_output(["git", "branch", "--show-current"]).decode().strip()
+
+
+def reset_version_state_to(tag):
+    """Restore versions, changelogs and version history to their state at *tag*.
+
+    No-overlay restore: files absent at the tag are removed too. Raises on
+    failure - carrying on would bump already-bumped versions a second time."""
+    print(f"[INFO] Resetting version state to {tag} before recomputing")
+    subprocess.run(
+        ["git", "restore", f"--source={tag}", "--", *VERSION_STATE_PATHS], check=True
+    )
 
 
 def get_changed_files_with_renames(last_tag):
@@ -1015,6 +1031,12 @@ def main():
     print("=" * 70)
 
     last_tag = get_last_release_tag()
+
+    # test runs on every push but always diffs against the same release tag.
+    # Start each run from the published state at that tag, so pending entries
+    # are rebuilt from scratch: no double bumps, no stale entries after reverts.
+    if last_tag and not DRY_RUN and _current_branch() == "test":
+        reset_version_state_to(last_tag)
 
     changed_files, renames = get_changed_files_with_renames(last_tag)
 

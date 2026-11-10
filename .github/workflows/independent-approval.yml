@@ -1,0 +1,41 @@
+name: Independent Approval
+
+# Whoever asked for a promotion (ran Open Pre-Release Review PR / Open Release
+# PR, or clicked Ready for review) can't be the one who approves it. The
+# check fails until someone else approves the current head.
+#
+# Must be a required check on test and main (require-pr-release ruleset,
+# context "independent_approval"). auto-merge.yml runs the same script, but a
+# merge from the web UI skips that workflow, so only the ruleset enforces it.
+#
+# Limitation: pull_request runs the workflow from the PR head, so a promotion
+# that changes this file or the script runs the changed version. Changes still
+# reach develop only through a reviewed PR.
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+    branches: [test, main]
+  pull_request_review:
+    types: [submitted, dismissed]
+
+jobs:
+  independent_approval:
+    # pull_request_review has no branches filter.
+    if: github.event.pull_request.base.ref == 'test' || github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+      issues: read
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          sparse-checkout: .github/scripts
+
+      - name: Require approval from someone other than the requester
+        run: python3 .github/scripts/check_independent_approval.py "$PR" "$HEAD_SHA"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
