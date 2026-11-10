@@ -1,6 +1,6 @@
 # CLMS Product Filenaming - Design Principles
 European Environment Agency (EEA)
-2026-07-24
+2026-11-06
 
 - [<span class="toc-section-number">1</span> CLMS Product Filenaming -
   Design Principles](#clms-product-filenaming---design-principles)
@@ -96,10 +96,10 @@ beginning or end of a filename, nor twice in a row.
 **Extension:** The file extension (.tif, .gpkg, .xml) indicates the file
 format and is not part of the naming convention.
 
-**Compliant:** `CLMS_VLCC-GRA_S2021_R10m_E27N48_3035_V01-R00.tif`
+**Compliant:** `CLMS_VLCC-GRA_20210101P1Y_R10m_E27N48_3035_V01-R00.tif`
 
 **Non-compliant:** `_CLMS_VLCC-GRA_…` (leading delimiter),
-`CLMS_VLCC-GRA__S2021_…` (double delimiter)
+`CLMS_VLCC-GRA__20210101P1Y_…` (double delimiter)
 
 ------------------------------------------------------------------------
 
@@ -161,10 +161,10 @@ count within a product family.
 
 **Compliant:**
 
-- `CLMS_VLCC-GRA_S2021_R10m_E27N48_3035_V01-R00.tif`
-- `CLMS_EGMS-L2a-A_T20190101P5Y_R20-5m_054-0154-IW1_V01-R00.tif`
-  (hyphens inside `EGMS-L2a-A` and `054-0154-IW1` are semantic)
-- `CLMS_CLCPLUS-LCU_S2023_R10m_E48N37_3035_V01-R00.tif`
+- `CLMS_VLCC-GRA_20210101P1Y_R10m_E27N48_3035_V01-R00.tif`
+- `CLMS_EGMS-L2a-A_20190101P5Y_R20-5m_054-0154-IW1_V01-R00.tif` (hyphens
+  inside `EGMS-L2a-A` and `054-0154-IW1` are semantic)
+- `CLMS_CLCPLUS-LCU_20230101P1Y_R10m_E48N37_3035_V01-R00.tif`
 
 **Edge case:** Hyphenated geographic names (e.g., “Bourg-en-Bresse”) is
 a single token; the hyphen is part of the name, not a delimiter.
@@ -197,8 +197,8 @@ logic based on which sub-product happens to be present.
 
 **Compliant:**
 
-- `CLMS_VPP2-ST-PPI_A20240101P10D_R10m_T33UVS_V01-R00.tif`
-- `CLMS_WSI-SP-SCD_A20200901P1Y_R20m_T38TKL_V01-R00.tif`
+- `CLMS_VPP2-ST-PPI_20240101P10D_R10m_T33UVS_V01-R00.tif`
+- `CLMS_WSI-SP-SCD_20200901P1Y_R20m_T38TKL_V01-R00.tif`
 - `CLMS_WSI-WDS-SSC_20210217T053159_R60m_T32TNS_S1B_V01-R00.tif`
   (sensing datetime, sub-product in the code-variable compound)
 
@@ -217,12 +217,12 @@ non-conformant.
 
 **Compliant:**
 
-- `CLMS_VLCC-GRA_S2021_R10m_E27N48_3035_V01-R00.tif`
-- `CLMS_VPP2-ST-PPI_A20240101P10D_R10m_T33UVS_V01-R00.tif`
-- `CLMS_UA-LCU_S2021_V025ha_DK004L3_3035_V01-R00.gpkg`
-- `CLMS_CLCPLUS-LCU_S2018_R10m_EUROPE_3035_V01-R00.tif`
-- `CLMS_CLC-LCU_S2018_V25ha_EUROPE_3035_V01-R00.gpkg`
-- `CLMS_EGMS-L3-U_T20190101P5Y_R100m_E28N49_3035_V01-R00.tif`
+- `CLMS_VLCC-GRA_20210101P1Y_R10m_E27N48_3035_V01-R00.tif`
+- `CLMS_VPP2-ST-PPI_20240101P10D_R10m_T33UVS_V01-R00.tif`
+- `CLMS_UA-LCU_20210101P1Y_V025ha_DK004L3_3035_V01-R00.gpkg`
+- `CLMS_CLCPLUS-LCU_20180101P1Y_R10m_EUROPE_3035_V01-R00.tif`
+- `CLMS_CLC-LCU_20180101P1Y_V25ha_EUROPE_3035_V01-R00.gpkg`
+- `CLMS_EGMS-L3-U_20190101P5Y_R100m_E28N49_3035_V01-R00.tif`
 
 ------------------------------------------------------------------------
 
@@ -242,16 +242,15 @@ any unregistered code
 
 ## Principle 8 - Temporal Coverage: Format matches product type
 
-**Rule:**
+**Rule:** Every product except a change product uses one of the first
+two forms below - the sensing instant or the period. No other temporal
+form is permitted. Change products use the third form.
 
 | Situation | Format | Examples | Definition |
 |----|----|----|----|
 | Sensing instant | `{YYYYMMDD}T{HHMMSS}` | `20210217T053159` | Single acquisition at a specific date+time (e.g. satellite scene). Zero-duration temporal instant. Uses bare ISO 8601 `dateTime` lexical form - the `T` separator and fixed-width format make it self-identifying, so no semantic prefix is needed. |
-| Aggregated | `A{YYYYMMDD}P{duration}` | `A20240101P10D`, `A20240101P1M`, `A20240101P1Y` | A 2D snapshot where pixel values are derived by **compositing, averaging, or selecting** from multiple observations over time using a defined algorithm. The temporal dimension is **collapsed** to a single representative value per pixel; the file is not designed for temporal querying. |
-| Status | `S{YYYY}` | `S2021` | A static thematic map or interpreted classification representing a single reference year. The product does **not** represent a statistical aggregate of repeated measurements; it is the result of a single survey, interpretation, or classification exercise. |
-| Change | `C{YYYY}-{YYYY}` | `C2018-2021` | A map of transitions or differences between two Status reference years. The two years are the start and end of the change period. The output is a 2D change layer (not a time-series stack). |
-| Timeseries | `T{YYYYMMDD}P{duration}` | `T20190101P5Y` | A single file containing **preserved multi-temporal measurements** where the temporal dimension is queryable (e.g. as internal bands, layers, or a time-enabled data cube). Designed for temporal analysis, not as a collapsed 2D snapshot. |
-| Forecast | `F{YYYYMMDD}P{duration}` | *(Reserved)* | **Reserved/Proposed.** For future forecast/modelled products. Not currently in use. |
+| Period | `{YYYYMMDD}P{duration}` | `20240101P10D`, `20240101P1M`, `20240101P1Y`, `20210101P1Y`, `20190101P5Y` | A file whose temporal coverage is the period that starts on the given date and lasts the given ISO 8601 duration. Carries composites, status years, multi-year series and forecasts alike. No prefix letter. |
+| Change | `C{YYYY}-{YYYY}` | `C2018-2021` | A map of transitions or differences between two reference years. The two years are the start and end of the change period. The output is a 2D change layer (not a time-series stack). |
 
 **Temporal reference standard:** All temporal formats follow **ISO
 8601-1:2019** (Date and time - Representations for information
@@ -266,13 +265,13 @@ which treat season as a data attribute, not a temporal primitive.
 
 **Compliant examples:**
 
-- `CLMS_VPP2-ST-PPI_A20240101P10D_…` (aggregated, dekadal)
-- `CLMS_VLCC-GRA_S2021_…` (annual status)
-- `CLMS_UA-LCU_C2018-2021_…` (change between two Status years)
+- `CLMS_VPP2-ST-PPI_20240101P10D_…` (period, dekadal)
+- `CLMS_VLCC-GRA_20210101P1Y_…` (period, status year)
+- `CLMS_UA-LCU_C2018-2021_…` (change between two reference years)
 - `CLMS_WSI-WDS-SSC_20210217T053159_R60m_T32TNS_S1B_V01-R00.tif`
   (sensing datetime)
-- `CLMS_EGMS-L3-U_T20190101P5Y_R100m_E28N49_3035_V01-R00.tif`
-  (timeseries, multi-year)
+- `CLMS_EGMS-L3-U_20190101P5Y_R100m_E28N49_3035_V01-R00.tif` (period,
+  multi-year series)
 
 ------------------------------------------------------------------------
 
@@ -332,9 +331,9 @@ fuse them with EPSG or resolution.
 **Compliant:**
 
 - `CLMS_VPP2-ST-PPI_…_T33UVS_…` (MGRS tile)
-- `CLMS_VLCC-GRA_S2021_R10m_E27N48_…` (LAEA tile)
-- `CLMS_CLCPLUS-LCU_S2023_R10m_E48N37_…` (LAEA tile)
-- `CLMS_UA-LCU_S2021_V025ha_DK004L3_…` (FUA code)
+- `CLMS_VLCC-GRA_20210101P1Y_R10m_E27N48_…` (LAEA tile)
+- `CLMS_CLCPLUS-LCU_20230101P1Y_R10m_E48N37_…` (LAEA tile)
+- `CLMS_UA-LCU_20210101P1Y_V025ha_DK004L3_…` (FUA code)
 - `CLMS_EGMS-L2a-A_…_054-0154-IW1_…` (IW burst)
 - `CLMS_EUHYDRO-NET-LINE_EUROPE_…` (continental coverage)
 - `CLMS_WSI-WDS-SSC_20210217T053159_R60m_T32TNS_S1B_V01-R00.tif` (MGRS,
@@ -359,10 +358,10 @@ field order keeps parsing deterministic without artificial padding.
 
 **Compliant:**
 
-- `CLMS_VLCC-GRA_S2021_R10m_E27N48_3035_V01-R00.tif` (LAEA tile, EPSG
-  3035 required)
-- `CLMS_CLCPLUS-LCU_S2023_R10m_E48N37_3035_V01-R00.tif`
-- `CLMS_VPP2-ST-PPI_A20240101P10D_R10m_T33UVS_V01-R00.tif` (MGRS tile -
+- `CLMS_VLCC-GRA_20210101P1Y_R10m_E27N48_3035_V01-R00.tif` (LAEA tile,
+  EPSG 3035 required)
+- `CLMS_CLCPLUS-LCU_20230101P1Y_R10m_E48N37_3035_V01-R00.tif`
+- `CLMS_VPP2-ST-PPI_20240101P10D_R10m_T33UVS_V01-R00.tif` (MGRS tile -
   EPSG omitted, CRS implicit)
 
 **Non-compliant:** `03035` (zero-padded), `EPSG3035` (prefixed)
@@ -394,7 +393,7 @@ identity compound:
 
 `LCU` (Land Cover / Land Use) is the shared variable for all status and
 change land cover/use products (UA, CLC, CLCPLUS, RZ, …); status vs
-change is expressed by the temporal field (`S{YYYY}` vs
+change is expressed by the temporal field (`{YYYY}0101P1Y` vs
 `C{YYYY}-{YYYY}`), not by the variable.
 
 **Compliant:**
@@ -427,7 +426,7 @@ product supports multiple sensor sources distinguishable at file level
 
 **Compliant:**
 
-- `CLMS_WSI-SP-SCD_A20200901P1Y_R20m_T38TKL_V01-R00.tif`
+- `CLMS_WSI-SP-SCD_20200901P1Y_R20m_T38TKL_V01-R00.tif`
 - `CLMS_WSI-WDS-SSC_20210217T053159_R60m_T32TNS_S1B_V01-R00.tif` (S1B
   sensor token required for SAR discrimination)
 
@@ -449,8 +448,8 @@ The `-QFLAG` suffix attaches at the level it applies to:
 
 **Compliant:**
 
-    CLMS_VPP2-ST-PPI_A20240101P10D_R10m_T33UVS_V01-R00.tif       ← data
-    CLMS_VPP2-ST-PPI-QFLAG_A20240101P10D_R10m_T33UVS_V01-R00.tif ← quality
+    CLMS_VPP2-ST-PPI_20240101P10D_R10m_T33UVS_V01-R00.tif       ← data
+    CLMS_VPP2-ST-PPI-QFLAG_20240101P10D_R10m_T33UVS_V01-R00.tif ← quality
 
 ------------------------------------------------------------------------
 
@@ -475,8 +474,8 @@ forced into a single mould:
     (`E27N48`) for pan-European products, FUA codes (`DK004L3`) for
     city-level vector - these are incompatible spatial encodings, both
     valid
-3.  **Annual status vs. scene-level temporal format** - `S{YYYY}` for
-    static maps, `{YYYYMMDD}T{HHMMSS}` for single acquisitions - the
+3.  **Annual status vs. scene-level temporal format** - `{YYYY}0101P1Y`
+    for static maps, `{YYYYMMDD}T{HHMMSS}` for single acquisitions - the
     right format depends on the product’s temporal nature
 4.  **Multi-resolution families** - the set of valid resolution values
     varies per product; each schema enumerates its own
@@ -496,7 +495,7 @@ forced into a single mould:
 | 5 | Field order | Variable hyphen-appended to product code at position 2; canonical template defines field sequence |
 | 6 | Prefix | `CLMS_` mandatory for all products, no exceptions |
 | 7 | Product code | Short, uppercase, registered in code registry |
-| 8 | Temporal | `A{start}P{duration}` (aggregated), `S{YYYY}` (status), `C{YYYY}-{YYYY}` (change), `T{start}P{duration}` (timeseries) |
+| 8 | Temporal | `{YYYYMMDD}P{duration}` (period), `{YYYYMMDD}T{HHMMSS}` (instant), `C{YYYY}-{YYYY}` (change) |
 | 9 | Resolution | `R{XX}m` (raster/grid), `V{value}ha` (vector MMU), `V{value}m` (point grid) - hyphen for irregular grids |
 | 10 | Spatial extent | MGRS / LAEA / IW burst / FUA / country / DU / EUROPE - identifies the area of the specific file, not the product coverage |
 | 11 | EPSG | Bare EPSG code, no zero-padding (`3035`); required for projected CRS, omit when CRS is implicit in the spatial extent |

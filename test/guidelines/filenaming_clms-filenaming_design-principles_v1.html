@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="European Environment Agency (EEA)">
-<meta name="dcterms.date" content="2026-07-24">
-<meta name="keywords" content="Filenaming conventions, CLMS product naming, data interoperability, product metadata standards, spatial resolution encoding, temporal coverage formats, geographic extent identifiers, EPSG codes, product versioning, quality layer naming, parsEO schema registry, CDSE product catalogue">
-<meta name="description" content="This document outlines the design principles and mandatory conventions for filenaming all new Copernicus Land Monitoring Service (CLMS) products, including reprocessings and new versions. It establishes a consistent, machine-parseable structure, detailing rules for character sets, delimiters, field order, temporal and spatial definitions, and versioning. The guidelines ensure uniformity across the entire CLMS portfolio, facilitating data discovery, integration, and management for scientists, regulators, and data engineers. Adherence to these principles is crucial for maintaining data consistency within the Copernicus Land Data Store.">
+<meta name="dcterms.date" content="2026-11-06">
+<meta name="keywords" content="Filenaming conventions, CLMS product naming, data interoperability, product metadata standards, spatial resolution encoding, unified temporal encoding, geographic extent identifiers, EPSG codes, product versioning, quality layer naming, parsEO schema registry, CDSE product catalogue">
+<meta name="description" content="This document outlines the design principles and mandatory conventions for filenaming all new Copernicus Land Monitoring Service (CLMS) products, including reprocessings and new versions. It establishes a consistent, machine-parseable structure, detailing rules for character sets, delimiters, field order, and simplified temporal encoding, alongside spatial definitions and product versioning. The guidelines ensure uniformity across the entire CLMS portfolio, facilitating data discovery, integration, and management for scientists, regulators, and data engineers. Adherence to these principles is crucial for maintaining data consistency within the Copernicus Land Data Store.">
 
 <title>CLMS Product Filenaming - Design Principles – Technical Library</title>
 <style>
@@ -78,8 +78,8 @@ ul.task-list li input[type="checkbox"] {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "CLMS Product Filenaming - Design Principles",
-    "description": "This document outlines the design principles and mandatory conventions for filenaming all new Copernicus Land Monitoring Service (CLMS) products, including reprocessings and new versions. It establishes a consistent, machine-parseable structure, detailing rules for character sets, delimiters, field order, temporal and spatial definitions, and versioning. The guidelines ensure uniformity across the entire CLMS portfolio, facilitating data discovery, integration, and management for scientists, regulators, and data engineers. Adherence to these principles is crucial for maintaining data consistency within the Copernicus Land Data Store.",
-    "datePublished": "July 24, 2026",
+    "description": "This document outlines the design principles and mandatory conventions for filenaming all new Copernicus Land Monitoring Service (CLMS) products, including reprocessings and new versions. It establishes a consistent, machine-parseable structure, detailing rules for character sets, delimiters, field order, and simplified temporal encoding, alongside spatial definitions and product versioning. The guidelines ensure uniformity across the entire CLMS portfolio, facilitating data discovery, integration, and management for scientists, regulators, and data engineers. Adherence to these principles is crucial for maintaining data consistency within the Copernicus Land Data Store.",
+    "datePublished": "November 6, 2026",
     "author": {
       "@type": "Person",
       "name": "European Environment Agency (EEA)
@@ -170,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `1.1.0`.trim();
+    const raw = `1.2.0`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -178,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.1.0</p>
+          <p>1.2.0</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -193,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    This document outlines the design principles and mandatory conventions for filenaming all new Copernicus Land Monitoring Service (CLMS) products, including reprocessings and new versions. It establishes a consistent, machine-parseable structure, detailing rules for character sets, delimiters, field order, temporal and spatial definitions, and versioning. The guidelines ensure uniformity across the entire CLMS portfolio, facilitating data discovery, integration, and management for scientists, regulators, and data engineers. Adherence to these principles is crucial for maintaining data consistency within the Copernicus Land Data Store.
+    This document outlines the design principles and mandatory conventions for filenaming all new Copernicus Land Monitoring Service (CLMS) products, including reprocessings and new versions. It establishes a consistent, machine-parseable structure, detailing rules for character sets, delimiters, field order, and simplified temporal encoding, alongside spatial definitions and product versioning. The guidelines ensure uniformity across the entire CLMS portfolio, facilitating data discovery, integration, and management for scientists, regulators, and data engineers. Adherence to these principles is crucial for maintaining data consistency within the Copernicus Land Data Store.
   </div>
 </div>
 
@@ -210,7 +210,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 24, 2026</p>
+      <p class="date">November 6, 2026</p>
     </div>
   </div>
   
@@ -221,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>Filenaming conventions, CLMS product naming, data interoperability, product metadata standards, spatial resolution encoding, temporal coverage formats, geographic extent identifiers, EPSG codes, product versioning, quality layer naming, parsEO schema registry, CDSE product catalogue</p>
+    <p>Filenaming conventions, CLMS product naming, data interoperability, product metadata standards, spatial resolution encoding, unified temporal encoding, geographic extent identifiers, EPSG codes, product versioning, quality layer naming, parsEO schema registry, CDSE product catalogue</p>
   </div>
 </div>
 
@@ -254,8 +254,8 @@ Denmark<br>
 <pre><code>field1_field2_field3_…_fieldN.ext</code></pre>
 <p>Fields may not be empty. A field delimiter may not appear at the beginning or end of a filename, nor twice in a row.</p>
 <p><strong>Extension:</strong> The file extension (.tif, .gpkg, .xml) indicates the file format and is not part of the naming convention.</p>
-<p><strong>Compliant:</strong> <code>CLMS_VLCC-GRA_S2021_R10m_E27N48_3035_V01-R00.tif</code></p>
-<p><strong>Non-compliant:</strong> <code>_CLMS_VLCC-GRA_…</code> (leading delimiter), <code>CLMS_VLCC-GRA__S2021_…</code> (double delimiter)</p>
+<p><strong>Compliant:</strong> <code>CLMS_VLCC-GRA_20210101P1Y_R10m_E27N48_3035_V01-R00.tif</code></p>
+<p><strong>Non-compliant:</strong> <code>_CLMS_VLCC-GRA_…</code> (leading delimiter), <code>CLMS_VLCC-GRA__20210101P1Y_…</code> (double delimiter)</p>
 <hr>
 </section>
 <section id="principle-2---allowed-characters-uppercase-digits-underscore-hyphen" class="level2" data-number="1.3">
@@ -316,9 +316,9 @@ Denmark<br>
 <p><strong>Rationale:</strong> Consistent underscore delimiters make tokenisation deterministic across all product families. The hyphen carries all intra-field structure, so splitting on <code>_</code> always yields the same field count within a product family.</p>
 <p><strong>Compliant:</strong></p>
 <ul>
-<li><code>CLMS_VLCC-GRA_S2021_R10m_E27N48_3035_V01-R00.tif</code></li>
-<li><code>CLMS_EGMS-L2a-A_T20190101P5Y_R20-5m_054-0154-IW1_V01-R00.tif</code> (hyphens inside <code>EGMS-L2a-A</code> and <code>054-0154-IW1</code> are semantic)</li>
-<li><code>CLMS_CLCPLUS-LCU_S2023_R10m_E48N37_3035_V01-R00.tif</code></li>
+<li><code>CLMS_VLCC-GRA_20210101P1Y_R10m_E27N48_3035_V01-R00.tif</code></li>
+<li><code>CLMS_EGMS-L2a-A_20190101P5Y_R20-5m_054-0154-IW1_V01-R00.tif</code> (hyphens inside <code>EGMS-L2a-A</code> and <code>054-0154-IW1</code> are semantic)</li>
+<li><code>CLMS_CLCPLUS-LCU_20230101P1Y_R10m_E48N37_3035_V01-R00.tif</code></li>
 </ul>
 <p><strong>Edge case:</strong> Hyphenated geographic names (e.g., “Bourg-en-Bresse”) is a single token; the hyphen is part of the name, not a delimiter.</p>
 <hr>
@@ -334,8 +334,8 @@ Denmark<br>
 <p><strong>Rationale:</strong> Code and variable together identify <strong>what</strong> the file is; the remaining fields identify <strong>when</strong>, <strong>where</strong>, and <strong>which version</strong>. Placing the full product identity at position 2 groups all files of a product and its layers together in directory listings, and a parser always knows which position holds which field - no branching logic based on which sub-product happens to be present.</p>
 <p><strong>Compliant:</strong></p>
 <ul>
-<li><code>CLMS_VPP2-ST-PPI_A20240101P10D_R10m_T33UVS_V01-R00.tif</code></li>
-<li><code>CLMS_WSI-SP-SCD_A20200901P1Y_R20m_T38TKL_V01-R00.tif</code></li>
+<li><code>CLMS_VPP2-ST-PPI_20240101P10D_R10m_T33UVS_V01-R00.tif</code></li>
+<li><code>CLMS_WSI-SP-SCD_20200901P1Y_R20m_T38TKL_V01-R00.tif</code></li>
 <li><code>CLMS_WSI-WDS-SSC_20210217T053159_R60m_T32TNS_S1B_V01-R00.tif</code> (sensing datetime, sub-product in the code-variable compound)</li>
 </ul>
 <hr>
@@ -346,12 +346,12 @@ Denmark<br>
 <p><strong>Rationale:</strong> The prefix makes programme identity parseable from the filename alone. Any file without <code>CLMS_</code> is immediately identifiable as non-conformant.</p>
 <p><strong>Compliant:</strong></p>
 <ul>
-<li><code>CLMS_VLCC-GRA_S2021_R10m_E27N48_3035_V01-R00.tif</code></li>
-<li><code>CLMS_VPP2-ST-PPI_A20240101P10D_R10m_T33UVS_V01-R00.tif</code></li>
-<li><code>CLMS_UA-LCU_S2021_V025ha_DK004L3_3035_V01-R00.gpkg</code></li>
-<li><code>CLMS_CLCPLUS-LCU_S2018_R10m_EUROPE_3035_V01-R00.tif</code></li>
-<li><code>CLMS_CLC-LCU_S2018_V25ha_EUROPE_3035_V01-R00.gpkg</code></li>
-<li><code>CLMS_EGMS-L3-U_T20190101P5Y_R100m_E28N49_3035_V01-R00.tif</code></li>
+<li><code>CLMS_VLCC-GRA_20210101P1Y_R10m_E27N48_3035_V01-R00.tif</code></li>
+<li><code>CLMS_VPP2-ST-PPI_20240101P10D_R10m_T33UVS_V01-R00.tif</code></li>
+<li><code>CLMS_UA-LCU_20210101P1Y_V025ha_DK004L3_3035_V01-R00.gpkg</code></li>
+<li><code>CLMS_CLCPLUS-LCU_20180101P1Y_R10m_EUROPE_3035_V01-R00.tif</code></li>
+<li><code>CLMS_CLC-LCU_20180101P1Y_V25ha_EUROPE_3035_V01-R00.gpkg</code></li>
+<li><code>CLMS_EGMS-L3-U_20190101P5Y_R100m_E28N49_3035_V01-R00.tif</code></li>
 </ul>
 <hr>
 </section>
@@ -364,13 +364,13 @@ Denmark<br>
 </section>
 <section id="principle-8---temporal-coverage-format-matches-product-type" class="level2" data-number="1.9">
 <h2 data-number="1.9" class="anchored" data-anchor-id="principle-8---temporal-coverage-format-matches-product-type"><span class="header-section-number">1.9</span> Principle 8 - Temporal Coverage: Format matches product type</h2>
-<p><strong>Rule:</strong></p>
+<p><strong>Rule:</strong> Every product except a change product uses one of the first two forms below - the sensing instant or the period. No other temporal form is permitted. Change products use the third form.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 14%">
-<col style="width: 33%">
+<col style="width: 13%">
+<col style="width: 32%">
 <col style="width: 25%">
-<col style="width: 27%">
+<col style="width: 28%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -388,34 +388,16 @@ Denmark<br>
 <td>Single acquisition at a specific date+time (e.g.&nbsp;satellite scene). Zero-duration temporal instant. Uses bare ISO 8601 <code>dateTime</code> lexical form - the <code>T</code> separator and fixed-width format make it self-identifying, so no semantic prefix is needed.</td>
 </tr>
 <tr class="even">
-<td>Aggregated</td>
-<td><code>A{YYYYMMDD}P{duration}</code></td>
-<td><code>A20240101P10D</code>, <code>A20240101P1M</code>, <code>A20240101P1Y</code></td>
-<td>A 2D snapshot where pixel values are derived by <strong>compositing, averaging, or selecting</strong> from multiple observations over time using a defined algorithm. The temporal dimension is <strong>collapsed</strong> to a single representative value per pixel; the file is not designed for temporal querying.</td>
+<td>Period</td>
+<td><code>{YYYYMMDD}P{duration}</code></td>
+<td><code>20240101P10D</code>, <code>20240101P1M</code>, <code>20240101P1Y</code>, <code>20210101P1Y</code>, <code>20190101P5Y</code></td>
+<td>A file whose temporal coverage is the period that starts on the given date and lasts the given ISO 8601 duration. Carries composites, status years, multi-year series and forecasts alike. No prefix letter.</td>
 </tr>
 <tr class="odd">
-<td>Status</td>
-<td><code>S{YYYY}</code></td>
-<td><code>S2021</code></td>
-<td>A static thematic map or interpreted classification representing a single reference year. The product does <strong>not</strong> represent a statistical aggregate of repeated measurements; it is the result of a single survey, interpretation, or classification exercise.</td>
-</tr>
-<tr class="even">
 <td>Change</td>
 <td><code>C{YYYY}-{YYYY}</code></td>
 <td><code>C2018-2021</code></td>
-<td>A map of transitions or differences between two Status reference years. The two years are the start and end of the change period. The output is a 2D change layer (not a time-series stack).</td>
-</tr>
-<tr class="odd">
-<td>Timeseries</td>
-<td><code>T{YYYYMMDD}P{duration}</code></td>
-<td><code>T20190101P5Y</code></td>
-<td>A single file containing <strong>preserved multi-temporal measurements</strong> where the temporal dimension is queryable (e.g.&nbsp;as internal bands, layers, or a time-enabled data cube). Designed for temporal analysis, not as a collapsed 2D snapshot.</td>
-</tr>
-<tr class="even">
-<td>Forecast</td>
-<td><code>F{YYYYMMDD}P{duration}</code></td>
-<td><em>(Reserved)</em></td>
-<td><strong>Reserved/Proposed.</strong> For future forecast/modelled products. Not currently in use.</td>
+<td>A map of transitions or differences between two reference years. The two years are the start and end of the change period. The output is a 2D change layer (not a time-series stack).</td>
 </tr>
 </tbody>
 </table>
@@ -423,11 +405,11 @@ Denmark<br>
 <p><strong>Edge case:</strong> Multi-seasonal products encode the season in the code-variable compound (<code>-S1</code>, <code>-S2</code>), not in the temporal field. This is consistent with external standards (CF Conventions, NASA EOSDIS) which treat season as a data attribute, not a temporal primitive.</p>
 <p><strong>Compliant examples:</strong></p>
 <ul>
-<li><code>CLMS_VPP2-ST-PPI_A20240101P10D_…</code> (aggregated, dekadal)</li>
-<li><code>CLMS_VLCC-GRA_S2021_…</code> (annual status)</li>
-<li><code>CLMS_UA-LCU_C2018-2021_…</code> (change between two Status years)</li>
+<li><code>CLMS_VPP2-ST-PPI_20240101P10D_…</code> (period, dekadal)</li>
+<li><code>CLMS_VLCC-GRA_20210101P1Y_…</code> (period, status year)</li>
+<li><code>CLMS_UA-LCU_C2018-2021_…</code> (change between two reference years)</li>
 <li><code>CLMS_WSI-WDS-SSC_20210217T053159_R60m_T32TNS_S1B_V01-R00.tif</code> (sensing datetime)</li>
-<li><code>CLMS_EGMS-L3-U_T20190101P5Y_R100m_E28N49_3035_V01-R00.tif</code> (timeseries, multi-year)</li>
+<li><code>CLMS_EGMS-L3-U_20190101P5Y_R100m_E28N49_3035_V01-R00.tif</code> (period, multi-year series)</li>
 </ul>
 <hr>
 </section>
@@ -515,9 +497,9 @@ Denmark<br>
 <p><strong>Compliant:</strong></p>
 <ul>
 <li><code>CLMS_VPP2-ST-PPI_…_T33UVS_…</code> (MGRS tile)</li>
-<li><code>CLMS_VLCC-GRA_S2021_R10m_E27N48_…</code> (LAEA tile)</li>
-<li><code>CLMS_CLCPLUS-LCU_S2023_R10m_E48N37_…</code> (LAEA tile)</li>
-<li><code>CLMS_UA-LCU_S2021_V025ha_DK004L3_…</code> (FUA code)</li>
+<li><code>CLMS_VLCC-GRA_20210101P1Y_R10m_E27N48_…</code> (LAEA tile)</li>
+<li><code>CLMS_CLCPLUS-LCU_20230101P1Y_R10m_E48N37_…</code> (LAEA tile)</li>
+<li><code>CLMS_UA-LCU_20210101P1Y_V025ha_DK004L3_…</code> (FUA code)</li>
 <li><code>CLMS_EGMS-L2a-A_…_054-0154-IW1_…</code> (IW burst)</li>
 <li><code>CLMS_EUHYDRO-NET-LINE_EUROPE_…</code> (continental coverage)</li>
 <li><code>CLMS_WSI-WDS-SSC_20210217T053159_R60m_T32TNS_S1B_V01-R00.tif</code> (MGRS, SAR sensor)</li>
@@ -530,9 +512,9 @@ Denmark<br>
 <p><strong>Rationale:</strong> The bare code is the EPSG identifier exactly as registered (https://epsg.org) - <code>3035</code>, <code>4326</code>, <code>32633</code> - so the token matches the authority and needs no transformation for lookups. EPSG codes are 4–5 digits; the field is bounded, and the surrounding fixed field order keeps parsing deterministic without artificial padding.</p>
 <p><strong>Compliant:</strong></p>
 <ul>
-<li><code>CLMS_VLCC-GRA_S2021_R10m_E27N48_3035_V01-R00.tif</code> (LAEA tile, EPSG 3035 required)</li>
-<li><code>CLMS_CLCPLUS-LCU_S2023_R10m_E48N37_3035_V01-R00.tif</code></li>
-<li><code>CLMS_VPP2-ST-PPI_A20240101P10D_R10m_T33UVS_V01-R00.tif</code> (MGRS tile - EPSG omitted, CRS implicit)</li>
+<li><code>CLMS_VLCC-GRA_20210101P1Y_R10m_E27N48_3035_V01-R00.tif</code> (LAEA tile, EPSG 3035 required)</li>
+<li><code>CLMS_CLCPLUS-LCU_20230101P1Y_R10m_E48N37_3035_V01-R00.tif</code></li>
+<li><code>CLMS_VPP2-ST-PPI_20240101P10D_R10m_T33UVS_V01-R00.tif</code> (MGRS tile - EPSG omitted, CRS implicit)</li>
 </ul>
 <p><strong>Non-compliant:</strong> <code>03035</code> (zero-padded), <code>EPSG3035</code> (prefixed)</p>
 <hr>
@@ -553,7 +535,7 @@ Denmark<br>
 <li><code>SEASON</code>: <code>S1</code> or <code>S2</code> for multi-seasonal products</li>
 <li><code>QFLAG</code>: literal suffix for quality flag layers - always last</li>
 </ul>
-<p><code>LCU</code> (Land Cover / Land Use) is the shared variable for all status and change land cover/use products (UA, CLC, CLCPLUS, RZ, …); status vs change is expressed by the temporal field (<code>S{YYYY}</code> vs <code>C{YYYY}-{YYYY}</code>), not by the variable.</p>
+<p><code>LCU</code> (Land Cover / Land Use) is the shared variable for all status and change land cover/use products (UA, CLC, CLCPLUS, RZ, …); status vs change is expressed by the temporal field (<code>{YYYY}0101P1Y</code> vs <code>C{YYYY}-{YYYY}</code>), not by the variable.</p>
 <p><strong>Compliant:</strong></p>
 <pre><code>VPP2-ST-PPI          → VPP2-ST-PPI-QFLAG
 VPP2-VPP-SOSD-S1     → VPP2-VPP-SOSD-S1-QFLAG
@@ -573,7 +555,7 @@ UA-LCU / CLC-LCU / CLCPLUS-LCU</code></pre>
 <p><strong>Rule:</strong> No standalone sensor token in the filename. The sensor is implicit in the product code. Include a sensor token only when the product supports multiple sensor sources distinguishable at file level (e.g., SAR platform identity <code>_S1B_</code>).</p>
 <p><strong>Compliant:</strong></p>
 <ul>
-<li><code>CLMS_WSI-SP-SCD_A20200901P1Y_R20m_T38TKL_V01-R00.tif</code></li>
+<li><code>CLMS_WSI-SP-SCD_20200901P1Y_R20m_T38TKL_V01-R00.tif</code></li>
 <li><code>CLMS_WSI-WDS-SSC_20210217T053159_R60m_T32TNS_S1B_V01-R00.tif</code> (S1B sensor token required for SAR discrimination)</li>
 </ul>
 <hr>
@@ -588,8 +570,8 @@ UA-LCU / CLC-LCU / CLCPLUS-LCU</code></pre>
 <li><code>VPP2-ST-PPI-QFLAG</code> - quality applies to the PPI measurement only</li>
 </ul>
 <p><strong>Compliant:</strong></p>
-<pre><code>CLMS_VPP2-ST-PPI_A20240101P10D_R10m_T33UVS_V01-R00.tif       ← data
-CLMS_VPP2-ST-PPI-QFLAG_A20240101P10D_R10m_T33UVS_V01-R00.tif ← quality</code></pre>
+<pre><code>CLMS_VPP2-ST-PPI_20240101P10D_R10m_T33UVS_V01-R00.tif       ← data
+CLMS_VPP2-ST-PPI-QFLAG_20240101P10D_R10m_T33UVS_V01-R00.tif ← quality</code></pre>
 <hr>
 </section>
 <section id="principle-17---schema-registration-parseo-schema-before-cdse-onboarding" class="level2" data-number="1.18">
@@ -603,7 +585,7 @@ CLMS_VPP2-ST-PPI-QFLAG_A20240101P10D_R10m_T33UVS_V01-R00.tif ← quality</code><
 <ol type="1">
 <li><strong>Raster vs.&nbsp;vector/point-grid resolution</strong> - <code>R10m</code> and <code>V25ha</code> are different physical quantities; <code>V</code> covers both vector MMU (<code>V{value}ha</code>) and point grids (<code>V{value}m</code>)</li>
 <li><strong>Pan-European vs.&nbsp;local tile encoding</strong> - LAEA grid tiles (<code>E27N48</code>) for pan-European products, FUA codes (<code>DK004L3</code>) for city-level vector - these are incompatible spatial encodings, both valid</li>
-<li><strong>Annual status vs.&nbsp;scene-level temporal format</strong> - <code>S{YYYY}</code> for static maps, <code>{YYYYMMDD}T{HHMMSS}</code> for single acquisitions - the right format depends on the product’s temporal nature</li>
+<li><strong>Annual status vs.&nbsp;scene-level temporal format</strong> - <code>{YYYY}0101P1Y</code> for static maps, <code>{YYYYMMDD}T{HHMMSS}</code> for single acquisitions - the right format depends on the product’s temporal nature</li>
 <li><strong>Multi-resolution families</strong> - the set of valid resolution values varies per product; each schema enumerates its own</li>
 <li><strong>Production date inclusion</strong> - reflects operational policy; included when corrections under the same version are expected</li>
 </ol>
@@ -663,7 +645,7 @@ CLMS_VPP2-ST-PPI-QFLAG_A20240101P10D_R10m_T33UVS_V01-R00.tif ← quality</code><
 <tr class="even">
 <td>8</td>
 <td>Temporal</td>
-<td><code>A{start}P{duration}</code> (aggregated), <code>S{YYYY}</code> (status), <code>C{YYYY}-{YYYY}</code> (change), <code>T{start}P{duration}</code> (timeseries)</td>
+<td><code>{YYYYMMDD}P{duration}</code> (period), <code>{YYYYMMDD}T{HHMMSS}</code> (instant), <code>C{YYYY}-{YYYY}</code> (change)</td>
 </tr>
 <tr class="odd">
 <td>9</td>
@@ -735,6 +717,15 @@ CLMS_VPP2-ST-PPI-QFLAG_A20240101P10D_R10m_T33UVS_V01-R00.tif ← quality</code><
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-11-10</td>
+<td>1.2.0</td>
+<td>• Updated document date in frontmatter.
+• Major revision of Principle 8 (Temporal Coverage) to consolidate 'Aggregated', 'Status', and 'Timeseries' formats into a single 'Period' format.
+• Removed `A`, `S`, and `T` prefixes from temporal fields, simplifying the rule set.
+• Updated all filename examples throughout the document to reflect the new temporal field convention.
+• Revised the summary table at the end to align with the new temporal field principles.</td>
+</tr>
+<tr class="even">
 <td>2026-10-29</td>
 <td>1.1.0</td>
 <td>Initial publication of the 'CLMS Product Filenaming - Design Principles' document, detailing rules for filename structure, allowed characters, delimiters, field order, and product-specific tokens.</td>
