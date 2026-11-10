@@ -212,7 +212,7 @@ ul.task-list li input[type="checkbox"] {
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `1.0.1`.trim();
+    const raw = `1.0.2`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -220,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.0.1</p>
+          <p>1.0.2</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -4744,6 +4744,11 @@ The selected false stereo pair images have an angle difference of 20 degrees and
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-10-29</td>
+<td>1.0.2</td>
+<td>Removed document description, table of contents settings, and version information from the YAML frontmatter for consistency.</td>
+</tr>
+<tr class="even">
 <td>2026-06-03</td>
 <td>1.0.1</td>
 <td>• Standardised YAML frontmatter formatting and reordered fields.
@@ -4752,7 +4757,7 @@ The selected false stereo pair images have an angle difference of 20 degrees and
 • Corrected the '`+/-`' symbol to '`±`' for consistency.
 • Removed obsolete page breaks throughout the document.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2025-12-03</td>
 <td>1.0.0</td>
 <td>Initial release</td>

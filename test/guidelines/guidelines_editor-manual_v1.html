@@ -225,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `1.2.0`.trim();
+    const raw = `1.3.0`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -233,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.2.0</p>
+          <p>1.3.0</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -612,6 +612,11 @@ Tip
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-10-29</td>
+<td>1.3.0</td>
+<td>Updated YAML frontmatter guidelines to include a new 'category' field as required and a new 'type' field as optional, detailing their usage. Removed the `description` field from the document's own metadata.</td>
+</tr>
+<tr class="even">
 <td>2026-06-03</td>
 <td>1.2.0</td>
 <td>• Major restructuring and rewrite of the manual to focus on practical editing aspects for the CLMS Technical Library.
@@ -620,7 +625,7 @@ Tip
 • Added new simplified sections on document lifecycle, publishing flow, folder and file structure, naming conventions, versioning, and restoring previous versions.
 • Updated the document date.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2026-02-10</td>
 <td>1.1.0</td>
 <td>• Extended explanation for `git docs-restore` functionality.
@@ -628,7 +633,7 @@ Tip
 • Added more precise instructions.
 • Minor edits to wording in various sections.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>2025-12-03</td>
 <td>1.0.0</td>
 <td>Initial release</td>

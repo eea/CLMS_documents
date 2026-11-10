@@ -724,6 +724,7 @@ More information on the products can be found on the Copernicus Land Monitoring 
 
 | Date | Version | Summary |
 |----|----|----|
+| 2026-10-29 | 1.1.1 | Removed obsolete \`toc\`, \`toc-depth\`, \`toc-title\`, and \`version\` metadata from YAML frontmatter. |
 | 2026-06-03 | 1.1.0 | Initial release of the High Resolution Layer Small Landscape Features 2021 – Algorithm Theoretical Basis Document (ATBD). This document details the theoretical basis and algorithms used for deriving the HRL SLF product suite, including source data, preprocessing, processing for Woody Vegetation Layer, post-processing for Small Woody Features and Street Tree Layer, and internal verification methods. |
 
 Back to top

@@ -1114,6 +1114,7 @@ Table 11: Riparian Zones Delivery Units
 
 | Date | Version | Summary |
 |----|----|----|
+| 2026-10-29 | 1.0.3 | Removed obsolete \`toc\`, \`toc-depth\`, \`toc-title\`, and \`version\` metadata from YAML frontmatter. |
 | 2026-06-03 | 1.0.2 | • Standardised YAML frontmatter formatting and reordered fields. • Added explicit width attributes to numerous images for consistent rendering. • Improved table formatting across various sections. • Corrected the '\`+/-\`' symbol to '\`±\`' for consistency. • Added explicit column width definitions to various tables. • Removed obsolete page breaks throughout the document. |
 | 2026-02-10 | 1.0.1 | Document maintenance updates to include '2012-2018' in the file name and title for consistency. Image paths updated to reflect the new file name structure. |
 

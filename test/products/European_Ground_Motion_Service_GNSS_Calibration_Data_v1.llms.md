@@ -3801,6 +3801,7 @@ Denmark
 
 | Date | Version | Summary |
 |----|----|----|
+| 2026-10-29 | 1.0.2 | Removed table of contents settings and version information from the YAML frontmatter for consistency. |
 | 2026-06-03 | 1.0.1 | Standardised YAML frontmatter keys and formatting for consistency across documents. |
 | 2025-12-03 | 1.0.0 | Initial release |
 

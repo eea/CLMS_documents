@@ -1753,6 +1753,7 @@ Zhong Zheng, W. Z. (2019). The higher, the cooler? Effects of building height on
 
 | Date | Version | Summary |
 |----|----|----|
+| 2026-10-29 | 1.0.2 | Removed document description, table of contents settings, and version information from the YAML frontmatter for consistency. |
 | 2026-06-03 | 1.0.1 | • Standardised YAML frontmatter formatting and reordered fields. • Added explicit width attributes to numerous images for consistent rendering. • Improved table formatting across various sections. • Corrected the '\`+/-\`' symbol to '\`±\`' for consistency. • Removed obsolete page breaks throughout the document. |
 | 2025-12-03 | 1.0.0 | Initial release |
 

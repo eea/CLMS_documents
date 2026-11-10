@@ -326,6 +326,7 @@ The IT solutions of the CLMS program shall ensure system integrity against vario
 
 | Date | Version | Summary |
 |----|----|----|
+| 2026-10-29 | 1.4.4 | Removed document description and version information from the YAML frontmatter for consistency. |
 | 2026-06-03 | 1.4.3 | Updated the internal document version number in the frontmatter. Standardised YAML metadata formatting for consistency and improved table header styling. |
 | 2026-02-10 | 1.4.2 | Document maintenance updates. |
 | 2025-12-04 | 1.4.1 | Removed test data that was incorrectly added to the introduction section. |

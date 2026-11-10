@@ -226,7 +226,7 @@ window.Quarto = {
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `1.1.0`.trim();
+    const raw = `1.1.1`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -234,7 +234,7 @@ window.Quarto = {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.1.0</p>
+          <p>1.1.1</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -1303,6 +1303,11 @@ Figure&nbsp;11: Comparison of densely planted orchards between 20cm imagery and 
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-10-29</td>
+<td>1.1.1</td>
+<td>Removed obsolete `toc`, `toc-depth`, `toc-title`, and `version` metadata from YAML frontmatter.</td>
+</tr>
+<tr class="even">
 <td>2026-06-03</td>
 <td>1.1.0</td>
 <td>Initial release of the High Resolution Layer Small Landscape Features 2021 – Algorithm Theoretical Basis Document (ATBD). This document details the theoretical basis and algorithms used for deriving the HRL SLF product suite, including source data, preprocessing, processing for Woody Vegetation Layer, post-processing for Small Woody Features and Street Tree Layer, and internal verification methods.</td>

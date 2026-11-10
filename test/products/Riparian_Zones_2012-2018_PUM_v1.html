@@ -183,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `1.0.2`.trim();
+    const raw = `1.0.3`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -191,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.0.2</p>
+          <p>1.0.3</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -2409,6 +2409,11 @@ Pressure from interest groups can in turn influence policy making and political 
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-10-29</td>
+<td>1.0.3</td>
+<td>Removed obsolete `toc`, `toc-depth`, `toc-title`, and `version` metadata from YAML frontmatter.</td>
+</tr>
+<tr class="even">
 <td>2026-06-03</td>
 <td>1.0.2</td>
 <td>• Standardised YAML frontmatter formatting and reordered fields.
@@ -2418,7 +2423,7 @@ Pressure from interest groups can in turn influence policy making and political 
 • Added explicit column width definitions to various tables.
 • Removed obsolete page breaks throughout the document.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2026-02-10</td>
 <td>1.0.1</td>
 <td>Document maintenance updates to include '2012-2018' in the file name and title for consistency. Image paths updated to reflect the new file name structure.</td>

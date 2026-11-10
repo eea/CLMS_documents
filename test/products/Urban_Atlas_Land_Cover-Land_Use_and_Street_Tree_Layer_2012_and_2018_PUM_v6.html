@@ -199,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `6.3.1`.trim();
+    const raw = `6.3.2`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -207,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>6.3.1</p>
+          <p>6.3.2</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -2987,6 +2987,11 @@ Denmark<br>
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-10-29</td>
+<td>6.3.2</td>
+<td>Removed document description, table of contents settings, and version information from the YAML frontmatter for consistency.</td>
+</tr>
+<tr class="even">
 <td>2026-06-03</td>
 <td>6.3.1</td>
 <td>• Corrected 'plus/minus' signs to '±' for positional accuracy
@@ -2995,7 +3000,7 @@ Denmark<br>
 • Removed unnecessary pagebreak shortcodes
 • Clarified wording in a LU/LC nomenclature table from 'data / field check' to 'data or field check'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2025-12-02</td>
 <td>6.3.0</td>
 <td>Initial release</td>

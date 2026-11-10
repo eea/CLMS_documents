@@ -210,6 +210,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">7</span> Glossary</a></li>
   <li><a href="#list-of-abbreviations" id="toc-list-of-abbreviations" class="nav-link" data-scroll-target="#list-of-abbreviations"><span class="header-section-number">8</span> List of abbreviations</a></li>
   <li><a href="#annex" id="toc-annex" class="nav-link" data-scroll-target="#annex"><span class="header-section-number">9</span> Annex</a></li>
+  <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">10</span> Change Log</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -223,7 +224,7 @@ ul.task-list li input[type="checkbox"] {
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `1.0.0`.trim();
+    const raw = `1.2.0`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -231,7 +232,7 @@ ul.task-list li input[type="checkbox"] {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.0.0</p>
+          <p>1.2.0</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -291,7 +292,7 @@ Denmark<br>
 <a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
 </div>
 <p>Date: 2026-09-28</p>
-<p>Doc. Version : Issue 5.0</p>
+<p>Doc. Version&nbsp;: Issue 5.0</p>
 <p>Content ID: /</p>
 <p><strong>Document Control Information</strong></p>
 <table class="caption-top table">
@@ -1538,26 +1539,26 @@ An Extraction will create new and independent data products (100x100m or 10x10m 
 <p><strong>Extraction Input Class</strong><br>
 Extraction Input classes are <strong>Input classes</strong> of <strong>Ingestions</strong> used in an <strong>Extraction</strong>. They are selected by the user from all published <strong>Ingestions</strong> in the CLC+ Core system. They need to be selected for each Extraction because they define the input data which is needed to evaluate the <strong>Class Condition</strong> of each <strong>Extraction Output Class</strong>.</p>
 <p><strong>Coverage</strong></p>
-<p>The percentage of the area of a given pixel that an <strong>Input Class</strong> covers is called the coverage. Pixel values are not binary because the raw input data is reprojected to the EPSG:3035 coordinate reference system and resampled to a 100m x 100m or 10 x 10m pixel size if they are not given in this format already. Therefore, it can happen that multiple <strong>Input Classes</strong> from the same <strong>Ingestion</strong> apply to the same raster pixel, but don’t cover the full extent of the pixel.</p>
+<p>The percentage of the area of a given pixel that an <strong>Input Class</strong> covers is called the coverage. Pixel values are not binary because the raw input data is reprojected to the EPSG:3035 coordinate reference system and resampled to a 100m x 100m or 10 x 10m pixel size if they are not given in this format already. Therefore, it can happen that multiple <strong>Input Classes</strong> from the same <strong>Ingestion</strong> apply to the same raster pixel, but don’t cover the full extent of the pixel. &nbsp;</p>
 <p>A coverage can also be <em>No-Data</em> if the whole area of the pixel is unclassified in the <strong>Ingestion</strong>.</p>
 <p><strong>Extraction Output Class</strong><br>
 Represents one classification option of an <strong>Extraction</strong>. It has a name, an identifying class code and a C<strong>lass Condition</strong> that specifies when the output class should be applied.</p>
 <p><strong>Class Condition</strong><br>
-Specifies whether the <strong>Extraction Output Class</strong> to which it belongs should be applied to a given pixel, given the <strong>coverage</strong> values of <strong>Extraction Input Classes</strong>. Technically speaking, a class condition is a <strong>Ruleset</strong> (consisting of nested <strong>Rules</strong> and <strong>Rulesets).</strong></p>
+Specifies whether the <strong>Extraction Output Class</strong> to which it belongs&nbsp;should be applied to a given pixel, given the <strong>coverage</strong> values of <strong>Extraction Input Classes</strong>. Technically speaking, a class condition is a <strong>Ruleset</strong> (consisting of nested <strong>Rules</strong> and <strong>Rulesets).</strong></p>
 <p><strong>Ruleset</strong><br>
-A combination of <strong>Rules</strong> <em>or</em> <strong>Rulesets</strong> using Boolean operators<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>. Depending on the type of linking operator, the compound expression is only true if both linked expressions are true (AND-linkage) or if at least one of the linked expressions is true (OR-linkage). Consequently, the result of a ruleset is also always <em>true</em> or <em>false.</em> For example:</p>
+A combination of <strong>Rules</strong> <em>or</em> <strong>Rulesets</strong> using Boolean operators<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>. Depending on the type of linking operator, the compound expression is only true if both linked expressions are true (AND-linkage) or if at least one of the linked expressions is true (OR-linkage). Consequently, the result of a ruleset is also always <em>true</em> or <em>false.</em> For example:&nbsp;</p>
 <blockquote class="blockquote">
-<p><em>The coverage of LCC-Water/5 or LCC-Trees/5 must be greater than 50%.<br>
-<strong>cov(“LCC-Water”, 5) &gt; 50</strong></em> *** OR*** *** cov(“LCC-Trees”, 5) &gt; 50** *</p>
+<p><em>The coverage of LCC-Water/5 or LCC-Trees/5 must be greater than 50%.&nbsp;<br>
+<strong>cov(“LCC-Water”, 5) &gt; 50</strong></em> <strong><em>&nbsp;&nbsp; OR</em></strong> <em><strong>&nbsp; cov(“LCC-Trees”, 5) &gt; 50</strong>&nbsp;</em></p>
 </blockquote>
-<p>The top-level ruleset of an output class is called the <strong>Class Condition.</strong></p>
+<p>The top-level ruleset of an output class is called the <strong>Class Condition.</strong>&nbsp;</p>
 <p><strong>Rule</strong><br>
-A simple comparison of a <strong>Coverage Function</strong> (i.e.&nbsp;the coverage of a barcoded EAGLE element) against another coverage value. For example:</p>
+A simple comparison of a <strong>Coverage Function</strong> (i.e.&nbsp;the coverage of a barcoded EAGLE element) against another coverage value. For example:&nbsp;</p>
 <blockquote class="blockquote">
-<p><em>The coverage of LCC-Water with barcode 5 must be greater than 50%.<br>
-<strong>cov(“LCC-Water******”, 5) &gt; 50</strong> </em></p>
+<p><em>The coverage of LCC-Water with barcode 5 must be greater than 50%.&nbsp;<br>
+<strong>cov(“LCC-Water******”, 5) &gt; 50</strong>&nbsp;</em></p>
 </blockquote>
-<p>When evaluating a <strong>rule</strong> on a given pixel, the result is always either <em>true</em> or <em>false.</em> Comparing a <em>No-Data</em> value against any other value produces the result <em>false.</em></p>
+<p>When evaluating a <strong>rule</strong> on a given pixel, the result is always either <em>true</em> or <em>false.</em> Comparing a <em>No-Data</em> value against any other value produces the result <em>false.</em>&nbsp;</p>
 <p><strong>Coverage Function</strong><br>
 A function that computes the <strong>Coverage</strong> of a barcoded EAGLE element for the selected <strong>Extraction Input Classes</strong> for a given pixel. This computation works by:</p>
 <ol type="1">
@@ -1974,13 +1975,13 @@ A function that computes the <strong>Coverage</strong> of a barcoded EAGLE eleme
 <table class="caption-top table">
 <caption><span id="_Ref152071020" class="anchor"></span>Table 0‑1: List of Bar-code value meanings. The BCVs define the role of EAGLE elements to fulfil a given mapping rule, class definition or landscape situation.</caption>
 <colgroup>
-<col style="width: 6%">
-<col style="width: 93%">
+<col style="width: 17%">
+<col style="width: 83%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>BCV</th>
-<th>Description</th>
+<th><strong>Barcode Value</strong></th>
+<th><strong>Definition</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -1990,23 +1991,23 @@ A function that computes the <strong>Coverage</strong> of a barcoded EAGLE eleme
 </tr>
 <tr class="even">
 <td>1</td>
-<td>Optional element, it can occur occasionally or typically but is not mandatory. Take into account scale and MMU of addressed class.</td>
+<td>An optional element, it can occur as typical but not necessarily as mandatory</td>
 </tr>
 <tr class="odd">
 <td>2</td>
-<td>Selective defining element, EITHER-OR-logic, at least one or more out of all elements with assigned BCV 2 must be present, BCV 2 element never stands alone, always must have at least one counter-selective element.</td>
+<td>Selective mandatory element, EITHER-AND/OR logic, at least two or more of all elements with assigned BCV 2 must be present</td>
 </tr>
 <tr class="even">
 <td>3</td>
-<td>Cumulative mandatory element, AND-logic, all elements with assigned BCV 3 are compulsory and must be present. More than 1 element expected, but can also occur as stand-alone.</td>
+<td>Cumulative mandatory element, AND-logic, all elements with assigned BCV 3 must be present</td>
 </tr>
 <tr class="odd">
 <td>4</td>
-<td>Paired mandatory element, EITHER-AND-OR-logic, at least two out of three or more elements with assigned BCV 4 must be present.</td>
+<td>Paired mandatory element, two of all elements with assigned BCV 4 must be present</td>
 </tr>
 <tr class="even">
 <td>5</td>
-<td>Exclusive mandatory element, NOTHING-BUT-logic, practically allows only the one solitary element with assigned BCV 5 and excludes any other element from its parent matrix block.</td>
+<td>Exclusive mandatory element, NOTHING-BUT-logic, practically allows only the one element with assigned BCV 5 and excludes any other element from its parent matrix block</td>
 </tr>
 </tbody>
 </table>
@@ -2390,12 +2391,12 @@ A function that computes the <strong>Coverage</strong> of a barcoded EAGLE eleme
 <tr class="odd">
 <td style="text-align: left;">SIOSE LU</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">1_1_1 commercial crop production</td>
+<td style="text-align: left;">&nbsp;1_1_1 commercial crop production</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">SIOSE LC</td>
-<td style="text-align: left;">2_2_1 graminiods, 2_2 herbaceous_vegetation</td>
+<td style="text-align: left;">&nbsp;2_2_1 graminiods, 2_2 herbaceous_vegetation</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -2469,14 +2470,14 @@ A function that computes the <strong>Coverage</strong> of a barcoded EAGLE eleme
 </tr>
 <tr class="odd">
 <td style="text-align: left;">SIOSE LC</td>
-<td style="text-align: left;">2_2_1_1 Grasses, Sedges, Rushes, Cereals</td>
+<td style="text-align: left;">&nbsp;2_2_1_1 Grasses, Sedges, Rushes, Cereals</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">BRP</td>
 <td style="text-align: left;">2_2_1 graminiods</td>
-<td style="text-align: left;">6_3_1 Land areas not in other economic use</td>
+<td style="text-align: left;">&nbsp;6_3_1 Land areas not in other economic use</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
@@ -2656,7 +2657,7 @@ cov("LCH-forest-fire-wildfire", 5)&gt;=30</td>
 <tr class="odd">
 <td rowspan="2" style="text-align: left;"><strong>22</strong></td>
 <td rowspan="2" style="text-align: left;"><strong>FL Transitional woodland</strong></td>
-<td rowspan="2" style="text-align: left;">Transitional bushy and herbaceous vegetation with occasional scattered trees. Can represent woodland degradation, forest regeneration / recolonization or natural succession. Areas representing natural development of forest formations, consisting of young plants of broad–leaved and coniferous species, with herbaceous vegetation and dispersed solitary adult trees. Transitional process can be for instance natural succession on abandoned agricultural land, regeneration of forest after damages of various origin (e.g. storm, avalanche), stages of forest degeneration caused by natural or anthropogenic stress factors (e.g. drought, pollution), reforestation after clearcutting, afforestation on formerly non-forested natural or semi-natural areas etc.<br>
+<td rowspan="2" style="text-align: left;">Transitional bushy and herbaceous vegetation with occasional scattered trees. Can represent woodland degradation, forest regeneration / recolonization or natural succession. Areas representing natural development of forest formations, consisting of young plants of broad–leaved and coniferous species, with herbaceous vegetation and dispersed solitary adult trees. Transitional process can be for instance natural succession on abandoned agricultural land, regeneration of forest after damages of various origin (e.g.&nbsp;storm, avalanche), stages of forest degeneration caused by natural or anthropogenic stress factors (e.g.&nbsp;drought, pollution), reforestation after clearcutting, afforestation on formerly non-forested natural or semi-natural areas etc.<br>
 <strong>Includes:</strong><br>
 - young broad-leaved and/or coniferous trees;<br>
 - damaged or dead trees and shrubs;<br>
@@ -2785,6 +2786,30 @@ cov("LCH-evergreen", 5)&gt;=30<br>
 </div>
 
 
+</section>
+<section id="change-log" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Change Log</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Version</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2026-10-29</td>
+<td>1.2.0</td>
+<td>Initial publication of the CLC+ Core User Manual, providing comprehensive guidance on system interfaces, functionalities, ingestion, extraction processes, and the EAGLE concept.</td>
+</tr>
+</tbody>
+</table>
 </section>
 
 

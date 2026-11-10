@@ -233,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `1.3.1`.trim();
+    const raw = `1.3.2`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -241,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.3.1</p>
+          <p>1.3.2</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -1599,6 +1599,11 @@ Figure&nbsp;21: CLCplus Backbone Raster Post-Processing Layer (RASPL) 2023
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-10-29</td>
+<td>1.3.2</td>
+<td>Removed obsolete `toc`, `toc-depth`, `toc-title`, and `version` metadata from YAML frontmatter.</td>
+</tr>
+<tr class="even">
 <td>2026-06-03</td>
 <td>1.3.1</td>
 <td>• Standardised YAML frontmatter formatting and reordered fields.
@@ -1606,7 +1611,7 @@ Figure&nbsp;21: CLCplus Backbone Raster Post-Processing Layer (RASPL) 2023
 • Improved table formatting across various sections and added explicit column width definitions.
 • Escaped asterisks in file format descriptions (e.g. '*.tif' to '\*.tif').</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2026-02-10</td>
 <td>1.3.0</td>
 <td>• Added internal section links.
@@ -1614,7 +1619,7 @@ Figure&nbsp;21: CLCplus Backbone Raster Post-Processing Layer (RASPL) 2023
 • Updated figure captions and descriptions.
 • Various minor edits to improve clarity.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>2025-12-02</td>
 <td>1.2.0</td>
 <td>Initial release</td>

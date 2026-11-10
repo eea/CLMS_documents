@@ -309,6 +309,12 @@ In the wizard for adding Ingestions or Extractions, the resolution option will n
 | **WP** | Work Package |  |
 | **ZIP** | ZIP Format |  |
 
+# 3 Change Log
+
+| Date | Version | Summary |
+|----|----|----|
+| 2026-10-29 | 1.2.0 | Initial publication of the CLC+ Core User Manual Annex for Admin Users, covering organisation and user management, EAGLE Ontology uploads, approval processes, and 10m processing toggle functionality. |
+
 Back to top
 
 ## Footnotes

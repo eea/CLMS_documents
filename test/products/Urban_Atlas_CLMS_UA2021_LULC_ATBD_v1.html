@@ -260,7 +260,7 @@ window.Quarto = {
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `1.0.2`.trim();
+    const raw = `1.0.3`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -268,7 +268,7 @@ window.Quarto = {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.0.2</p>
+          <p>1.0.3</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -2127,16 +2127,21 @@ Figure&nbsp;7: Examples of the public, private and unknown classes in Iasi, Roma
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-10-29</td>
+<td>1.0.3</td>
+<td>Removed table of contents settings and version information from the YAML frontmatter for consistency.</td>
+</tr>
+<tr class="even">
 <td>2026-06-03</td>
 <td>1.0.2</td>
 <td>Standardised YAML frontmatter keys and formatting. Improved table header rendering and added explicit width attributes for images throughout the document for consistent display.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2026-03-31</td>
 <td>1.0.1</td>
 <td>Updated date format in YAML frontmatter to ISO 8601 (YYYY-MM-DD) for consistency and improved machine readability.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>2026-02-10</td>
 <td>1.0.0</td>
 <td>Initial release</td>

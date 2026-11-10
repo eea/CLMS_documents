@@ -1290,6 +1290,7 @@ CLC+ Backbone Raster Product - Producer’s and User’s accuracy in percent for
 
 | Date | Version | Summary |
 |----|----|----|
+| 2026-10-29 | 1.2.3 | Removed obsolete \`toc\`, \`toc-depth\`, \`toc-title\`, and \`version\` metadata from YAML frontmatter. |
 | 2026-06-03 | 1.2.2 | • Standardised YAML frontmatter formatting and reordered fields. • Added explicit width attributes to numerous images for consistent rendering. • Improved table formatting across various sections. • Corrected typos such as 'area thesholds' to 'area thresholds' and updated internal references. • Escaped asterisks in file format descriptions (e.g. '\*.dbf' to '\\.dbf'). • Removed obsolete page breaks. |
 | 2026-02-10 | 1.2.1 | Document maintenance updates. |
 | 2025-12-02 | 1.2.0 | Initial release |

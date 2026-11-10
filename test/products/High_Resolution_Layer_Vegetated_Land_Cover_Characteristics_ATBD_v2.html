@@ -241,7 +241,7 @@ window.Quarto = {
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `2.2.1`.trim();
+    const raw = `2.3.0`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -249,7 +249,7 @@ window.Quarto = {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>2.2.1</p>
+          <p>2.3.0</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -1916,6 +1916,11 @@ days\;uncertainty_{\mathrm{event}} =
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-10-29</td>
+<td>2.3.0</td>
+<td>Restructured the 'Forest Type (FTY)' product description, introducing a new subsection header for clarity and revising its definition. Removed table of contents settings and version information from the YAML frontmatter.</td>
+</tr>
+<tr class="even">
 <td>2026-06-03</td>
 <td>2.2.1</td>
 <td>• Standardised YAML frontmatter formatting and reordered fields.
@@ -1925,7 +1930,7 @@ days\;uncertainty_{\mathrm{event}} =
 • Refined the description of the Forest Type (FTY) layer, adding details about GDALSieve and GDALFillNodata.
 • Removed obsolete page breaks.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2026-02-10</td>
 <td>2.2.0</td>
 <td>• Revised executive summary for clarity and conciseness.
@@ -1933,7 +1938,7 @@ days\;uncertainty_{\mathrm{event}} =
 • Added clarifications on handling TCD artefacts.
 • Minor edits to wording in various sections.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>2025-12-02</td>
 <td>2.1.0</td>
 <td>Initial release</td>

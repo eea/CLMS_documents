@@ -221,7 +221,7 @@ window.Quarto = {
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `2.3.2`.trim();
+    const raw = `2.3.3`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -229,7 +229,7 @@ window.Quarto = {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>2.3.2</p>
+          <p>2.3.3</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -3286,6 +3286,11 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-10-29</td>
+<td>2.3.3</td>
+<td>Removed obsolete `toc`, `toc-depth`, `toc-title`, and `version` metadata from YAML frontmatter.</td>
+</tr>
+<tr class="even">
 <td>2026-06-03</td>
 <td>2.3.2</td>
 <td>• Standardised YAML frontmatter formatting and reordered fields, including the addition of editor markdown wrap settings.
@@ -3293,12 +3298,12 @@ F_1=2.\frac{(P A\,.U A)}{(P A+U A)}
 • Improved table formatting across various sections and added explicit column width definitions.
 • Escaped asterisks in file format descriptions.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2026-02-10</td>
 <td>2.3.1</td>
 <td>Document maintenance updates.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>2025-12-02</td>
 <td>2.3.0</td>
 <td>Initial release</td>

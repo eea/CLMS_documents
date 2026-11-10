@@ -218,7 +218,7 @@ window.Quarto = {
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `1.2.2`.trim();
+    const raw = `1.2.3`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -226,7 +226,7 @@ window.Quarto = {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.2.2</p>
+          <p>1.2.3</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -873,6 +873,11 @@ M^{max}_{meas}=\sqrt[2]{2}=1.414...
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-10-29</td>
+<td>1.2.3</td>
+<td>Removed obsolete `toc`, `toc-depth`, `toc-title`, and `version` metadata from YAML frontmatter.</td>
+</tr>
+<tr class="even">
 <td>2026-06-03</td>
 <td>1.2.2</td>
 <td>• Corrected markdown escaping for asterisks in file format descriptions
@@ -880,12 +885,12 @@ M^{max}_{meas}=\sqrt[2]{2}=1.414...
 • Standardised YAML frontmatter keys and formatting
 • Improved table header rendering for consistency</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2026-02-10</td>
 <td>1.2.1</td>
 <td>Document maintenance updates to the file name.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>2025-12-02</td>
 <td>1.2.0</td>
 <td>Initial release</td>

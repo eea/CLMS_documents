@@ -795,6 +795,7 @@ Estimated_Acc_And_Std = [EstimatedAcceleration EstimatedSTD_Acc]
 
 | Date | Version | Summary |
 |----|----|----|
+| 2026-10-29 | 3.0.2 | Removed obsolete \`toc\`, \`toc-depth\`, \`toc-title\`, and \`version\` metadata from YAML frontmatter. |
 | 2026-06-03 | 3.0.1 | • Standardised YAML frontmatter formatting and reordered fields. • Added explicit width attributes to numerous images for consistent rendering. • Improved table formatting across various sections and added explicit column width definitions. • Corrected the '\`+/-\`' symbol to '\`±\`' for consistency. • Escaped asterisks in file naming convention examples. • Removed obsolete page breaks throughout the document. |
 | 2025-12-03 | 3.0.0 | Initial release |
 

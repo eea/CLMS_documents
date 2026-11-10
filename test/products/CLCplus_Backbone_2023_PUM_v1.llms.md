@@ -733,6 +733,7 @@ PROJCS["ETRS89-extended / LAEA Europe",
 
 | Date | Version | Summary |
 |----|----|----|
+| 2026-10-29 | 1.3.2 | Removed obsolete \`toc\`, \`toc-depth\`, \`toc-title\`, and \`version\` metadata from YAML frontmatter. |
 | 2026-06-03 | 1.3.1 | • Standardised YAML frontmatter formatting and reordered fields. • Added explicit width attributes to numerous images for consistent rendering. • Improved table formatting across various sections and added explicit column width definitions. • Escaped asterisks in file format descriptions (e.g. '\*.tif' to '\\.tif'). |
 | 2026-02-10 | 1.3.0 | • Added internal section links. • Renamed product versions in section titles for consistency. • Updated figure captions and descriptions. • Various minor edits to improve clarity. |
 | 2025-12-02 | 1.2.0 | Initial release |

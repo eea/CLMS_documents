@@ -966,9 +966,10 @@ Record of changes made to the document over time after the initial published ver
 
 # 14 Change Log
 
-| Date       | Version | Summary         |
-|------------|---------|-----------------|
-| 2026-02-10 | 1.0.0   | Initial release |
+| Date | Version | Summary |
+|----|----|----|
+| 2026-10-29 | 1.0.1 | Refactored YAML frontmatter for consistency, removing explicit table of contents settings and version field. |
+| 2026-02-10 | 1.0.0 | Initial release |
 
 Back to top
 

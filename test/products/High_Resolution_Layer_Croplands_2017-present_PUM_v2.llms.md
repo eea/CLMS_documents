@@ -904,6 +904,7 @@ Table 0-22: Colour palette and attributes of CPCST layer
 
 | Date | Version | Summary |
 |----|----|----|
+| 2026-10-29 | 2.3.3 | Removed obsolete \`toc\`, \`toc-depth\`, \`toc-title\`, and \`version\` metadata from YAML frontmatter. |
 | 2026-06-03 | 2.3.2 | • Standardised YAML frontmatter formatting and reordered fields, including the addition of editor markdown wrap settings. • Added explicit width attributes to numerous images for consistent rendering. • Improved table formatting across various sections and added explicit column width definitions. • Escaped asterisks in file format descriptions. |
 | 2026-02-10 | 2.3.1 | Document maintenance updates. |
 | 2025-12-02 | 2.3.0 | Initial release |

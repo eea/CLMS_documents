@@ -297,6 +297,7 @@ At each release, the system assigns version numbers automatically based on what 
 
 | Date | Version | Summary |
 |----|----|----|
+| 2026-10-29 | 1.3.0 | Updated YAML frontmatter guidelines to include a new 'category' field as required and a new 'type' field as optional, detailing their usage. Removed the \`description\` field from the document's own metadata. |
 | 2026-06-03 | 1.2.0 | • Major restructuring and rewrite of the manual to focus on practical editing aspects for the CLMS Technical Library. • Updated document title to 'Editor Guide' and revised its description. • Removed extensive sections on Quarto and Markdown basics, software installation, detailed rendering, and troubleshooting. • Added new simplified sections on document lifecycle, publishing flow, folder and file structure, naming conventions, versioning, and restoring previous versions. • Updated the document date. |
 | 2026-02-10 | 1.1.0 | • Extended explanation for \`git docs-restore\` functionality. • Added major version upgrade process explanation. • Added more precise instructions. • Minor edits to wording in various sections. |
 | 2025-12-03 | 1.0.0 | Initial release |
