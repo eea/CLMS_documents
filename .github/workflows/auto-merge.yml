@@ -34,6 +34,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      # Same script as the independent_approval required check. Run here too
+      # so a self-approval fails now instead of after the 30 min wait below.
+      - name: Reject approval by the requester
+        run: python3 .github/scripts/check_independent_approval.py "$PR" "$HEAD_SHA"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+
       - name: Wait for all required status checks to pass
         run: |
           PR_NUMBER=${{ github.event.pull_request.number }}
@@ -50,9 +59,19 @@ jobs:
           ELAPSED=0
 
           while true; do
+            # Leave out auto-merge: this job's own run is always in progress,
+            # so counting it waited out the full timeout (PR #98).
+            # Each workflow run adds its own check run, so keep the newest per
+            # name. independent_approval: the run from before this approval may
+            # still be the newest and read failure; the one this review starts
+            # replaces it, so treat that failure as pending.
             CHECKS=$(gh api \
-              "repos/${{ github.repository }}/commits/$HEAD_SHA/check-runs" \
-              --jq '[.check_runs[] | {name: .name, status: .status, conclusion: .conclusion}]')
+              "repos/${{ github.repository }}/commits/$HEAD_SHA/check-runs?per_page=100" \
+              --jq '[.check_runs[] | select(.name != "auto-merge")]
+                    | group_by(.name) | map(max_by(.started_at))
+                    | map(if .name == "independent_approval" and .conclusion == "failure"
+                          then .status = "queued" else . end
+                          | {name: .name, status: .status, conclusion: .conclusion})')
 
             TOTAL=$(echo   "$CHECKS" | jq 'length')
             PENDING=$(echo "$CHECKS" | jq '[.[] | select(.status != "completed")] | length')
