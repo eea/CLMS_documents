@@ -1,8 +1,8 @@
 name: Semantic Release
 
-# Fires after deploy-docs finishes on main, so the version-history and cache
-# commits are on the branch before semantic-release reads it. The bot commits
-# use [skip ci], so a push won't chain back here on its own.
+# Fires after deploy-docs finishes on main. Version-history and changelogs are
+# generated on test and arrive with the release merge, so the tag snapshots the
+# published version state (test diffs its next release against that tag).
 on:
   workflow_run:
     workflows: ["Build and Deploy Documentation"]
