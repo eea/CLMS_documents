@@ -6,7 +6,9 @@ on:
       - develop
       - test
       - main
-  workflow_dispatch:  # manual trigger from Actions UI
+  # Not for people: auto-merge.yml dispatches test's deploy after a
+  # GITHUB_TOKEN merge (which fires no push). Manual clicks are skipped below.
+  workflow_dispatch:
 
 # One run per branch - concurrent runs race on the cache commit-back and the
 # gh-pages deploy. Queue, don't cancel (a half-written cache is worse).
@@ -17,6 +19,9 @@ concurrency:
 jobs:
   deploy_docs:
     name: Build and Deploy Docs
+    # Only open-review-pr / open-release-pr are run by hand. A dispatch from
+    # the Actions tab is skipped; auto-merge's dispatch runs as the bot.
+    if: github.event_name != 'workflow_dispatch' || github.actor == 'github-actions[bot]'
     runs-on: ubuntu-latest
 
     # Force bash for every run step. Inside a container the default is sh.
@@ -35,8 +40,9 @@ jobs:
           # github-actions[bot], but they can bypass deploy keys, so push as
           # the key over SSH.
           ssh-key: ${{ secrets.CI_DEPLOY_KEY }}
-          # develop/test only diff HEAD^..HEAD, so a shallow clone is enough
-          fetch-depth: ${{ (github.ref_name == 'main' || startsWith(github.ref, 'refs/heads/test-')) && '0' || '50' }}
+          # test diffs against main's last release tag (versions/changelogs),
+          # so it needs full history; develop only diffs HEAD^..HEAD.
+          fetch-depth: ${{ (github.ref_name == 'main' || github.ref_name == 'test' || startsWith(github.ref, 'refs/heads/test-')) && '0' || '50' }}
           fetch-tags: true
 
       - name: Mark repo as safe for Git
@@ -68,17 +74,24 @@ jobs:
           fi
 
       # Runs in the container - it carries google-genai + tiktoken.
+      # One writer per file, flowing one way (develop -> test -> main):
+      #   develop: intros/keywords   (.llm_cache/DOCS__*, carried to test per document)
+      #   test:    versions/changelogs/version-history, diffed against main's last
+      #            release tag, carried to main by the release merge
+      #   main:    nothing - it publishes what test produced. build-docs.sh applies
+      #            the cached intros and versions on every branch.
       - name: Update intros, keywords, versions & changelogs
+        if: github.ref_name != 'main'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           DRY_RUN: ${{ steps.test_mode.outputs.dry_run }}
         run: |
           DRY_RUN_FLAG=()
           if [[ "$DRY_RUN" == "true" ]]; then DRY_RUN_FLAG=(--dry-run); fi
-          # --versions runs only on main (real releases) and test-* (dry-run tests).
-          # develop/test skip it: no version bumps there, and no tags to diff against.
-          if [[ "$GITHUB_REF_NAME" == "main" || "$GITHUB_REF" == refs/heads/test-* ]]; then
+          if [[ "$GITHUB_REF" == refs/heads/test-* ]]; then
             python .github/scripts/ai/update_documentation.py --intros modified_docs_list.txt --versions "${DRY_RUN_FLAG[@]}"
+          elif [[ "$GITHUB_REF_NAME" == "test" ]]; then
+            python .github/scripts/ai/update_documentation.py --versions "${DRY_RUN_FLAG[@]}"
           else
             python .github/scripts/ai/update_documentation.py --intros modified_docs_list.txt "${DRY_RUN_FLAG[@]}"
           fi

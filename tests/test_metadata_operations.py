@@ -13,6 +13,7 @@ from datetime import datetime
 
 # Add scripts directory to path
 sys.path.insert(0, str(Path(__file__).parent.parent / ".github/scripts"))
+sys.path.insert(0, str(Path(__file__).parent.parent / ".github/scripts/ai"))
 
 from update_versions_and_changelogs import (
     load_versions_metadata,
