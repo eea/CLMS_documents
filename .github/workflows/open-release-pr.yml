@@ -173,5 +173,9 @@ jobs:
             --title "$title" \
             --body "$body")
           echo "🚀 Release PR opened ($release_type): $url"
+          # Read by check_independent_approval.py: the requester can't approve.
+          gh pr comment "$url" --body "Requested by **${REQUESTER}**, so someone else has to approve.
+          <!-- promotion-requester: ${REQUESTER} -->"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REQUESTER: ${{ github.triggering_actor }}
