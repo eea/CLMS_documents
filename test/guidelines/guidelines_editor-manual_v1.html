@@ -6,11 +6,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="European Environment Agency (EEA)">
 <meta name="dcterms.date" content="2026-05-26">
-<meta name="keywords" content="CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning policy, QMD document migration, automated changelog generation, RStudio integration">
-<meta name="description" content="This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the develop branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.">
+<meta name="keywords" content="CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning, RStudio integration">
+<meta name="description" content="This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, and publishing, explaining the integration of project repositories with the central library via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the develop branch, and restoring previous document versions, ensuring consistent and efficient documentation practices for all contributors.">
 
-<title>Technical Library - Editor Guidelines – Technical Library</title>
+<title>Editor Guide – Technical Library</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -111,12 +112,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "Technical Library - Editor Guidelines",
-    "description": "This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the develop branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.",
+    "headline": "Editor Guide",
+    "description": "This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, and publishing, explaining the integration of project repositories with the central library via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the develop branch, and restoring previous document versions, ensuring consistent and efficient documentation practices for all contributors.",
     "datePublished": "May 26, 2026",
     "author": {
       "@type": "Person",
-      "name": "?meta:author"
+      "name": "European Environment Agency (EEA)
+"
     },
     "publisher": {
       "@type": "Organization",
@@ -174,9 +176,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#starting-a-new-document" id="toc-starting-a-new-document" class="nav-link" data-scroll-target="#starting-a-new-document"><span class="header-section-number">2</span> Starting a New Document</a>
   <ul class="collapse">
-  <li><a href="#from-a-template" id="toc-from-a-template" class="nav-link" data-scroll-target="#from-a-template"><span class="header-section-number">2.1</span> From a template</a></li>
+  <li><a href="#from-a-template-recommended" id="toc-from-a-template-recommended" class="nav-link" data-scroll-target="#from-a-template-recommended"><span class="header-section-number">2.1</span> From a template (recommended)</a></li>
   <li><a href="#from-scratch" id="toc-from-scratch" class="nav-link" data-scroll-target="#from-scratch"><span class="header-section-number">2.2</span> From scratch</a></li>
-  <li><a href="#migrating-an-existing-document" id="toc-migrating-an-existing-document" class="nav-link" data-scroll-target="#migrating-an-existing-document"><span class="header-section-number">2.3</span> Migrating an existing document</a></li>
   </ul></li>
   <li><a href="#the-yaml-header" id="toc-the-yaml-header" class="nav-link" data-scroll-target="#the-yaml-header"><span class="header-section-number">3</span> The YAML Header</a>
   <ul class="collapse">
@@ -198,12 +199,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#publishing-to-develop" id="toc-publishing-to-develop" class="nav-link" data-scroll-target="#publishing-to-develop"><span class="header-section-number">6</span> Publishing to Develop</a></li>
   <li><a href="#folder-and-file-structure" id="toc-folder-and-file-structure" class="nav-link" data-scroll-target="#folder-and-file-structure"><span class="header-section-number">7</span> Folder and File Structure</a></li>
-  <li><a href="#file-naming-versioning-and-changelog" id="toc-file-naming-versioning-and-changelog" class="nav-link" data-scroll-target="#file-naming-versioning-and-changelog"><span class="header-section-number">8</span> File Naming, Versioning, and Changelog</a>
+  <li><a href="#file-naming-and-versioning" id="toc-file-naming-and-versioning" class="nav-link" data-scroll-target="#file-naming-and-versioning"><span class="header-section-number">8</span> File Naming and Versioning</a>
   <ul class="collapse">
   <li><a href="#the-version-suffix" id="toc-the-version-suffix" class="nav-link" data-scroll-target="#the-version-suffix"><span class="header-section-number">8.1</span> The version suffix</a></li>
   <li><a href="#when-to-create-a-new-major-version" id="toc-when-to-create-a-new-major-version" class="nav-link" data-scroll-target="#when-to-create-a-new-major-version"><span class="header-section-number">8.2</span> When to create a new major version</a></li>
   <li><a href="#dont-rename-after-publishing" id="toc-dont-rename-after-publishing" class="nav-link" data-scroll-target="#dont-rename-after-publishing"><span class="header-section-number">8.3</span> Don’t rename after publishing</a></li>
-  <li><a href="#the-change-log" id="toc-the-change-log" class="nav-link" data-scroll-target="#the-change-log"><span class="header-section-number">8.4</span> The change log</a></li>
   </ul></li>
   <li><a href="#restoring-previous-versions" id="toc-restoring-previous-versions" class="nav-link" data-scroll-target="#restoring-previous-versions"><span class="header-section-number">9</span> Restoring Previous Versions</a>
   <ul class="collapse">
@@ -225,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `1.4.0`.trim();
+    const raw = `1.3.0`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -233,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.4.0</p>
+          <p>1.3.0</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -242,19 +242,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Technical Library - Editor Guidelines</h1>
-<p class="subtitle lead">Copernicus Land Monitoring Serviceross references</p>
+<h1 class="title">Editor Guide</h1>
+<p class="subtitle lead">Copernicus Land Monitoring Service - Technical Library</p>
 </div>
 
 <div>
   <div class="description">
-    This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the <code>develop</code> branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.
+    This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, and publishing, explaining the integration of project repositories with the central library via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the <code>develop</code> branch, and restoring previous document versions, ensuring consistent and efficient documentation practices for all contributors.
   </div>
 </div>
 
 
 <div class="quarto-title-meta column-page-left">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>European Environment Agency (EEA) </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -270,7 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning policy, QMD document migration, automated changelog generation, RStudio integration</p>
+    <p>CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning, RStudio integration</p>
   </div>
 </div>
 
@@ -286,7 +292,6 @@ Kongens Nytorv 6<br>
 Denmark<br>
 <a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
 </div>
-<p>This guide is for editors writing and publishing documents in the CLMS Technical Library. It covers the day-to-day workflow: starting a document from a template, previewing it locally, publishing it to the library, and keeping it in step with the central repository.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -297,7 +302,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This guide assumes your project is already integrated with the Technical Library - the <code>DOCS/</code> subtree is in place and the Git aliases are configured. If that setup isn’t done yet, see the <a href="guidelines_setup-guide_v1.html">Setup Guideline</a> first.</p>
+<p>This guide assumes your project is already integrated with the Technical Library - the <code>DOCS/</code> subtree is in place and the Git aliases are configured. If that setup isn’t done yet, see the <a href="guidelines_setup-guide_v1.html">Setup Guide</a> first.</p>
 </div>
 </div>
 <script type="application/ld+json">
@@ -331,8 +336,8 @@ Note
 </section>
 <section id="starting-a-new-document" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Starting a New Document</h1>
-<section id="from-a-template" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="from-a-template"><span class="header-section-number">2.1</span> From a template</h2>
+<section id="from-a-template-recommended" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="from-a-template-recommended"><span class="header-section-number">2.1</span> From a template (recommended)</h2>
 <p>Pick the template that matches your document type:</p>
 <ul>
 <li><code>CLMS_Template_ATBD.qmd</code> - Algorithm Theoretical Basis Document, for the scientific and technical foundations of a data product</li>
@@ -365,36 +370,25 @@ Tip
 <p>Templates save time even when they don’t feel like an exact fit - the YAML header and section structure are the main things you’d otherwise need to set up manually.</p>
 </div>
 </div>
-</section>
-<section id="migrating-an-existing-document" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="migrating-an-existing-document"><span class="header-section-number">2.3</span> Migrating an existing document</h2>
-<p>Migrate when you already have substantial content in an existing <code>.qmd</code> file; start from a template when you don’t. An existing <code>.qmd</code> can be dropped into the library as-is, but it needs to be adapted first.</p>
-<ol type="1">
-<li><p><strong>Copy.</strong> Place the existing <code>.qmd</code> in <code>DOCS/&lt;product&gt;/</code> and rename it with the pattern above, e.g.&nbsp;<code>CLMS_HRL-Forest_PUM_v1.qmd</code>.</p></li>
-<li><p><strong>Trim the YAML header</strong> down to <code>title</code>, <code>subtitle</code>, <code>category</code>, and <code>date</code> if needed.</p></li>
-<li><p><strong>Move the images</strong> into the sibling <code>&lt;document-name&gt;-media/</code> folder and make every reference relative. Check that the file extension case matches what is on disk: a <code>.PNG</code> referenced as <code>.png</code> renders locally but breaks the published build.</p></li>
-<li><p><strong>Verify</strong> with a local render and the frontmatter check before publishing:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render DOCS/<span class="op">&lt;</span>product<span class="op">&gt;</span>/<span class="op">&lt;</span>document<span class="op">&gt;</span>_v1.qmd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> .github/scripts/validate_qmd_files.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-</ol>
+<p>Migrating an existing <code>.docx</code>? See the Migration Guide [TBD link].</p>
 </section>
 </section>
 <section id="the-yaml-header" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> The YAML Header</h1>
-<p>If you copied a template, the header is pre-filled - just update <code>title</code>, <code>subtitle</code>, and <code>date</code>.</p>
+<p>If you copied a template, the header is pre-filled - just update <code>title</code>, <code>subtitle</code>, <code>date</code>, and <code>product-name</code>.</p>
 <section id="required-fields" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="required-fields"><span class="header-section-number">3.1</span> Required fields</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> HRL Forest</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> Copernis Land Monitoring Service</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">category</span><span class="kw">:</span><span class="at"> products</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2026-01-27"</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"HRL Forest"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"High Resolution Layer - Forest Type"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">category</span><span class="kw">:</span><span class="at"> products</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2026-01-27"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><code>title</code> - short product name, appears as the document title</li>
-<li><code>subtitle</code> - Copernis Land Monitoring Service</li>
+<li><code>subtitle</code> - full product name or document type description</li>
 <li><code>category</code> - one of <code>products</code>, <code>guidelines</code>, <code>reports</code>, <code>uncategorized</code>, <code>non-browsable</code></li>
-<li><code>date</code> - publication or last-updated date in ISO format e.g.&nbsp;‘2026-05-26’</li>
+<li><code>date</code> - publication or last-updated date in ISO format</li>
 </ul>
 </section>
 <section id="optional-fields" class="level2" data-number="3.2">
@@ -420,37 +414,37 @@ Tip
 <section id="image-folder-convention" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="image-folder-convention"><span class="header-section-number">4.1</span> Image folder convention</h2>
 <p>Images go in <code>&lt;your-document-name&gt;-media/</code>, referenced with relative paths:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Processing workflow](CLMS_HRL-Forest_PUM_v2-media/workflow.png)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Processing workflow](CLMS_HRL-Forest_PUM_v2-media/workflow.png)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="page-breaks" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="page-breaks"><span class="header-section-number">4.2</span> Page breaks</h2>
 <p>Use the Quarto shortcode to insert a page break in PDF output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Note that <code>---</code> renders as a horizontal rule, not a page break.</p>
 </section>
 <section id="complex-table-layouts" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="complex-table-layouts"><span class="header-section-number">4.3</span> Complex table layouts</h2>
 <p>For tables with merged cells, nested content, or custom styling, use HTML tables directly in your <code>.qmd</code> file. Both the HTML output and Typst-rendered PDF handle them well.</p>
 <p>Standard Markdown tables have limited formatting options. HTML tables let you control exactly how things look - column widths, cell colours, text alignment, borders - using inline CSS:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;table style="width: 100%; border-collapse: collapse;"&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;thead&gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr style="background-color: #2c3e50; color: white;"&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th colspan="2" style="padding: 10px; text-align: center;"&gt;Product Overview&lt;/th&gt;</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/thead&gt;</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;tbody&gt;</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc; font-weight: bold;"&gt;HRL Forest&lt;/td&gt;</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc;"&gt;Active&lt;/td&gt;</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr style="background-color: #f2f2f2;"&gt;</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc; font-weight: bold;"&gt;Water Bodies&lt;/td&gt;</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc;"&gt;Active&lt;/td&gt;</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/tbody&gt;</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/table&gt;</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;table style="width: 100%; border-collapse: collapse;"&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;thead&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr style="background-color: #2c3e50; color: white;"&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th colspan="2" style="padding: 10px; text-align: center;"&gt;Product Overview&lt;/th&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/thead&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;tbody&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc; font-weight: bold;"&gt;HRL Forest&lt;/td&gt;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc;"&gt;Active&lt;/td&gt;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr style="background-color: #f2f2f2;"&gt;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc; font-weight: bold;"&gt;Water Bodies&lt;/td&gt;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td style="padding: 8px; border: 1px solid #ccc;"&gt;Active&lt;/td&gt;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/tbody&gt;</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/table&gt;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="editing-and-previewing-locally" class="level1" data-number="5">
@@ -493,7 +487,7 @@ Tip
 <section id="render-the-full-project" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="render-the-full-project"><span class="header-section-number">5.3</span> Render the full project</h2>
 <p>To render all documents and preview the complete library locally:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -511,9 +505,9 @@ Tip
 </section>
 <section id="publishing-to-develop" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Publishing to Develop</h1>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add DOCS/</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"docs: update [brief description]"</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-publish</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add DOCS/</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"docs: update [brief description]"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-publish</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>After the pipeline runs, check your document at: <a href="https://eea.github.io/CLMS_documents/develop/index.html" class="uri">https://eea.github.io/CLMS_documents/develop/index.html</a></p>
 <p>Navigation, cross-links, and the sidebar TOC can behave differently than in your local RStudio preview - worth a quick look before calling it done.</p>
 </section>
@@ -532,67 +526,27 @@ Tip
 └── ...</code></pre>
 <p>Your work lives in <code>DOCS/</code> directly: one <code>.qmd</code> file per document, plus a matching <code>-media/</code> folder for images and diagrams. The four managed subdirectories (<code>_meta/</code>, <code>includes/</code>, <code>templates/</code>, <code>theme/</code>) are updated centrally - don’t edit them.</p>
 </section>
-<section id="file-naming-versioning-and-changelog" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> File Naming, Versioning, and Changelog</h1>
+<section id="file-naming-and-versioning" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> File Naming and Versioning</h1>
 <section id="the-version-suffix" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="the-version-suffix"><span class="header-section-number">8.1</span> The version suffix</h2>
 <p>The <code>_v&lt;N&gt;</code> suffix in the filename is the major version - the only version number you control. Minor and patch versions are assigned automatically by AI at library release time based on the scope of changes: small corrections get a patch bump (<code>2.3.5 → 2.3.6</code>), new or revised sections get a minor bump (<code>2.3.0 → 2.4.0</code>). A new file <code>CLMS_HRL-Forest_PUM_v3.qmd</code> starts at <code>3.0.0</code> at its first release. You never set a version number in YAML.</p>
-<p>Version numbers are assigned only when your changes reach <code>main</code>, i.e.&nbsp;at the public release. Publishing to <code>develop</code>, or promoting to <code>test</code>, assigns nothing - the document keeps its previous version until the release build runs.</p>
 </section>
 <section id="when-to-create-a-new-major-version" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="when-to-create-a-new-major-version"><span class="header-section-number">8.2</span> When to create a new major version</h2>
-<p>Most changes are an edit to the existing file - the system bumps the minor or patch version for you. Create a new <code>_v&lt;N&gt;</code> file only when the <strong>old version has to stay available exactly as it is</strong>, for example when you:</p>
+<p>Edit the existing file for most changes. Create a new major version only when you need to:</p>
 <ul>
-<li>work on a new product release</li>
-<li>need the earlier release to keep being citable as a stable reference</li>
+<li>rewrite most of the content</li>
+<li>make breaking structural changes</li>
+<li>keep the previous version available as a stable reference</li>
 </ul>
-<p>Creating one is a fork, not an update. Copy the file and its media folder, and from that point the two documents are independent: separate version numbers, separate change logs, and no link between them.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> DOCS/CLMS_HRL-Forest_PUM_v2.qmd DOCS/CLMS_HRL-Forest_PUM_v3.qmd</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> DOCS/CLMS_HRL-Forest_PUM_v2-media DOCS/CLMS_HRL-Forest_PUM_v3-media</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The copied filename must carry the new major version (<code>_v3</code> above); the new document then starts at <code>N.0.0</code> at its first release, while the old one keeps its own history.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> DOCS/CLMS_HRL-Forest_PUM_v2.qmd DOCS/CLMS_HRL-Forest_PUM_v3.qmd</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> DOCS/CLMS_HRL-Forest_PUM_v2-media DOCS/CLMS_HRL-Forest_PUM_v3-media</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Both versions stay in the library and evolve independently from that point on.</p>
 </section>
 <section id="dont-rename-after-publishing" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="dont-rename-after-publishing"><span class="header-section-number">8.3</span> Don’t rename after publishing</h2>
 <p>The filename becomes part of the document’s URL. Renaming breaks links and cross-references. If a significant revision is needed, create a new major version rather than renaming.</p>
-</section>
-<section id="the-change-log" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="the-change-log"><span class="header-section-number">8.4</span> The change log</h2>
-<p>You don’t write the change log. The system generates it at release time and appends a <strong>Change Log</strong> section to the end of your document - a table of date, version, and summary entries:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 27%">
-<col style="width: 19%">
-<col style="width: 53%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Date</th>
-<th>Version</th>
-<th>Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>2026-11-06</td>
-<td>2.1.0</td>
-<td>Reworded the coverage section and corrected the tile table</td>
-</tr>
-<tr class="even">
-<td>2026-07-24</td>
-<td>2.0.0</td>
-<td>First published version</td>
-</tr>
-</tbody>
-</table>
-<p>At each release - that is, when a change reaches <code>main</code>, in the same step that assigns the version number - the pipeline compares the document against its last release and writes a short summary of what changed, storing the entry under the new version. A document with no previous release gets an initial entry instead.</p>
-<p>The stored history is what the library build renders, newest entry first, as the <strong>Change Log</strong> section appended after your content. Because it comes from stored history rather than the current diff, it shows up in every built version of the page (<code>develop</code>, <code>test</code> and <code>main</code> alike) - you just won’t see your own change there until it has been released. At most the last 20 entries are kept.</p>
-<p>What this means in practice:</p>
-<ul>
-<li><strong>Nothing to add to the source.</strong> There is no <code>changelog</code> field and no section to maintain.</li>
-<li><strong>Write descriptive commits.</strong> The summary is derived from the diff, so focused changes produce a clearer entry.</li>
-<li><strong>It’s absent from your local preview.</strong> <code>quarto render</code> doesn’t run the library build, so the section only appears on a built page. This document has one too - see its <a href="#change-log">Change Log</a> at the end of the published page.</li>
-<li><strong>Some documents have none.</strong> Interactive pages (<code>type: dashboard</code>) opt out of the change log. Leave <code>type</code> unset unless the document really is one.</li>
-</ul>
 </section>
 </section>
 <section id="restoring-previous-versions" class="level1" data-number="9">
@@ -600,10 +554,10 @@ Tip
 <p>Restore pulls a published version of a document into your local working copy. It doesn’t roll back the library - think of it as “pick up from version X,” not “undo to version X.”</p>
 <section id="commands" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="commands"><span class="header-section-number">9.1</span> Commands</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore <span class="at">--list-all</span>                                 <span class="co"># all published documents</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore <span class="at">--list</span> DOCS/CLMS_HRL-Forest_PUM_v2.qmd     <span class="co"># versions of one file</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore DOCS/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0      <span class="co"># specific version</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore <span class="at">--latest</span> DOCS/CLMS_HRL-Forest_PUM_v2.qmd   <span class="co"># latest published version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore <span class="at">--list-all</span>                                 <span class="co"># all published documents</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore <span class="at">--list</span> DOCS/CLMS_HRL-Forest_PUM_v2.qmd     <span class="co"># versions of one file</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore DOCS/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0      <span class="co"># specific version</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore <span class="at">--latest</span> DOCS/CLMS_HRL-Forest_PUM_v2.qmd   <span class="co"># latest published version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="when-to-use-it" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="when-to-use-it"><span class="header-section-number">9.2</span> When to use it</h2>
@@ -658,19 +612,11 @@ Tip
 </thead>
 <tbody>
 <tr class="odd">
-<td>2026-11-10</td>
-<td>1.4.0</td>
-<td>• Added new sections outlining the process for migrating existing documents and explaining the automatic generation and function of the document's change log.
-• Clarified guidelines for major version creation and provided more detail on how version numbers are assigned during release.
-• Updated the YAML header example and its field definitions, making the subtitle more generic and removing the `product-name` field.
-• Revised the introductory note to refer to 'Setup Guideline'.</td>
-</tr>
-<tr class="even">
 <td>2026-10-29</td>
 <td>1.3.0</td>
 <td>Updated YAML frontmatter guidelines to include a new 'category' field as required and a new 'type' field as optional, detailing their usage. Removed the `description` field from the document's own metadata.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>2026-06-03</td>
 <td>1.2.0</td>
 <td>• Major restructuring and rewrite of the manual to focus on practical editing aspects for the CLMS Technical Library.
@@ -679,7 +625,7 @@ Tip
 • Added new simplified sections on document lifecycle, publishing flow, folder and file structure, naming conventions, versioning, and restoring previous versions.
 • Updated the document date.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2026-02-10</td>
 <td>1.1.0</td>
 <td>• Extended explanation for `git docs-restore` functionality.
@@ -687,7 +633,7 @@ Tip
 • Added more precise instructions.
 • Minor edits to wording in various sections.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>2025-12-03</td>
 <td>1.0.0</td>
 <td>Initial release</td>

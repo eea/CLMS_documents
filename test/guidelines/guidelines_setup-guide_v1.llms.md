@@ -1,8 +1,12 @@
-# Technical Library - Repository Setup Guideline
+# Setup Guide
 
-Copernicus Land Monitoring Service
+Copernicus Land Monitoring Service - Technical Library
 
 This guide outlines the essential steps for integrating an existing project repository with the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the technical process of establishing a `DOCS/` directory within the project, linking it to the central library via a Git subtree, and configuring bespoke Git aliases. The document ensures that project repositories are properly set up for seamless documentation contribution, allowing editors to subsequently utilise the CLMS documentation workflow for authoring and publishing scientific and technical materials.
+
+Author
+
+European Environment Agency (EEA)
 
 Published
 
@@ -21,10 +25,6 @@ Kongens Nytorv 6
 Denmark  
 [**https://land.copernicus.eu/**](https://land.copernicus.eu/)
 
-This guide is for the person maintaining a project repository. It is a one-time, administrator-level setup: it links that repository to the CLMS Technical Library, so its documentation can be written, previewed and published alongside the rest of the library.
-
-Editors don’t need this page. Once the setup below is in place, they work entirely from the Editor Guidelines.
-
 # 1 What This Sets Up
 
 Running through this guide integrates an existing project repository with the CLMS Technical Library. The result is:
@@ -32,7 +32,7 @@ Running through this guide integrates an existing project repository with the CL
 - a `DOCS/` directory in the project repo, linked to the central library as a git subtree
 - a set of Git aliases (`git docs-publish`, `git docs-update`, `git docs-preview`, `git docs-restore`) for day-to-day documentation workflow
 
-Once done, editors can follow the Editor Guidelines to create and publish documents. Your work here is a one-time setup.
+Once done, editors can follow the Editor Guide to create and publish documents. Your work here is a one-time setup.
 
 # 2 Prerequisites
 
@@ -108,17 +108,16 @@ All three integration steps completed without errors
 
 Verification checks above pass
 
-Editors have the Editor Guidelines link: [Editor Guidelines](guidelines_editor-manual_v1.llms.md)
+Editors have the Editor Guide link: [Editor Guide](guidelines_editor-manual_v1.llms.md)
 
 Editors know they need RStudio and Quarto on their machines (see [Prerequisites](#prerequisites))
 
-The editors’ starting point is the Editor Guidelines. They don’t need to touch anything set up here.
+The editors’ starting point is the Editor Guide. They don’t need to touch anything set up here.
 
 # 6 Change Log
 
 | Date | Version | Summary |
 |----|----|----|
-| 2026-11-10 | 1.1.2 | Updated introductory text to clarify document purpose and audience. Renamed 'Editor Guide' to 'Editor Guidelines' consistently across text and links. |
 | 2026-10-29 | 1.1.1 | Removed obsolete \`description\` metadata from YAML frontmatter. |
 | 2026-06-03 | 1.1.0 | Added a new 'Setup Guide' document detailing the integration process for existing project repositories with the CLMS Technical Library. This includes instructions for adding the documentation repository as a Git subtree and configuring essential Git aliases for the documentation workflow. |
 

@@ -1,5 +1,5 @@
-# Technical Library - Repository Setup Guideline
-
+# Setup Guide
+European Environment Agency (EEA)
 2026-05-26
 
 - [<span class="toc-section-number">1</span> What This Sets
@@ -20,14 +20,6 @@
 - [<span class="toc-section-number">5</span> Handoff
   Checklist](#handoff-checklist)
 
-This guide is for the person maintaining a project repository. It is a
-one-time, administrator-level setup: it links that repository to the
-CLMS Technical Library, so its documentation can be written, previewed
-and published alongside the rest of the library.
-
-Editors don’t need this page. Once the setup below is in place, they
-work entirely from the Editor Guidelines.
-
 # What This Sets Up
 
 Running through this guide integrates an existing project repository
@@ -39,8 +31,8 @@ with the CLMS Technical Library. The result is:
   `git docs-preview`, `git docs-restore`) for day-to-day documentation
   workflow
 
-Once done, editors can follow the Editor Guidelines to create and
-publish documents. Your work here is a one-time setup.
+Once done, editors can follow the Editor Guide to create and publish
+documents. Your work here is a one-time setup.
 
 # Prerequisites
 
@@ -120,10 +112,10 @@ Before passing to editors, confirm:
 
 - [ ] All three integration steps completed without errors
 - [ ] Verification checks above pass
-- [ ] Editors have the Editor Guidelines link: [Editor
-  Guidelines](guidelines_editor-manual_v1.html)
+- [ ] Editors have the Editor Guide link: [Editor
+  Guide](guidelines_editor-manual_v1.html)
 - [ ] Editors know they need RStudio and Quarto on their machines (see
   [Prerequisites](#prerequisites))
 
-The editors’ starting point is the Editor Guidelines. They don’t need to
+The editors’ starting point is the Editor Guide. They don’t need to
 touch anything set up here.

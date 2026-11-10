@@ -54,6 +54,19 @@
     4](#respondent-4)
 - [<span class="toc-section-number">5</span> Conclusions](#conclusions)
 
+  
+**Contact:**
+
+<div custom-style="LeftAlign">
+
+European Environment Agency (EEA)  
+Kongens Nytorv 6  
+1050 Copenhagen K  
+Denmark  
+[**https://land.copernicus.eu/**](https://land.copernicus.eu/)
+
+</div>
+
 # Introduction
 
 This report summarises the outcomes of the CLDS consultation survey
@@ -71,8 +84,8 @@ on the cloud. The underlaying assumption is that an eventual migration
 to a cloud environment depends on several factors, which can be grouped
 into two key forces, and which the survey tries to assess specifically:
 
-1.  **intensity of the need** e.g., the lack of non-cloud-based
-    infrastructure to cope with given data volumes and processing needs;
+1.  **intensity of the need** (e.g., the lack of non-cloud-based
+    infrastructure to cope with given data volumes and processing needs)
     against
 
 2.  **intensity of concerns and difficulties** standing in the way of
