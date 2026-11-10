@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-09-17">
+<meta name="keywords" content="Protected Areas monitoring, Natura 2000 sites, Land Cover/Land Use classification, Deep Learning classification, Super-Resolution imagery (Sentinel-2), Biogeographical modelling, Training data refinement, Temporal Convolutional Neural Network (TempCNN), Thematic accuracy assessment, Minimum Mapping Unit (MMU), Post-processing workflow, Quality assurance">
+<meta name="description" content="This Algorithm Theoretical Basis Document (ATBD) comprehensively details the technical framework for producing the Copernicus Protected Areas Land Cover/Land Use (LC/LU) product for 2021 and 2024. It outlines the methodologies used to generate harmonised, high-quality data for terrestrial Natura 2000 sites across the EU27. The document focuses on the semi-automatic workflow, integrating super-resolved Sentinel-2 imagery and diverse CLMS datasets within a bioregional deep learning approach, complemented by rigorous post-processing and manual refinement to ensure robust thematic and geometric accuracy.">
+
+<title>Protected Areas 2021-2024 - Algorithm Theoretical Basis Document (ATBD) – Technical Library</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-cc2c63177fbf9d0018fa3815378e833d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "Search ...",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Protected Areas 2021-2024 - Algorithm Theoretical Basis Document (ATBD)",
+    "description": "This Algorithm Theoretical Basis Document (ATBD) comprehensively details the technical framework for producing the Copernicus Protected Areas Land Cover/Land Use (LC/LU) product for 2021 and 2024. It outlines the methodologies used to generate harmonised, high-quality data for terrestrial Natura 2000 sites across the EU27. The document focuses on the semi-automatic workflow, integrating super-resolved Sentinel-2 imagery and diverse CLMS datasets within a bioregional deep learning approach, complemented by rigorous post-processing and manual refinement to ensure robust thematic and geometric accuracy.",
+    "datePublished": "September 17, 2026",
+    "author": {
+      "@type": "Person",
+      "name": "?meta:author"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Copernicus Land Monitoring Service",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://land.copernicus.eu/static/media/ccl-icon-land-text-2.e04af716.svg"
+      }
+    },
+    "articleSection": "General",
+    "isAccessibleForFree": "true",
+    "license": "",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": "article p"
+    }
+  }
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../_meta/theme/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Technical Library</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Index</h2>
+   
+  <ul>
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary"><span class="header-section-number">1</span> Executive summary</a></li>
+  <li><a href="#background-of-the-document" id="toc-background-of-the-document" class="nav-link" data-scroll-target="#background-of-the-document"><span class="header-section-number">2</span> Background of the document</a>
+  <ul class="collapse">
+  <li><a href="#scope-and-objectives" id="toc-scope-and-objectives" class="nav-link" data-scroll-target="#scope-and-objectives"><span class="header-section-number">2.1</span> Scope and objectives</a></li>
+  <li><a href="#content-and-structure" id="toc-content-and-structure" class="nav-link" data-scroll-target="#content-and-structure"><span class="header-section-number">2.2</span> Content and structure</a></li>
+  </ul></li>
+  <li><a href="#product-description-and-methodology" id="toc-product-description-and-methodology" class="nav-link" data-scroll-target="#product-description-and-methodology"><span class="header-section-number">3</span> Product description and methodology</a>
+  <ul class="collapse">
+  <li><a href="#product-overview" id="toc-product-overview" class="nav-link" data-scroll-target="#product-overview"><span class="header-section-number">3.1</span> Product overview</a></li>
+  <li><a href="#technical-product-specifications" id="toc-technical-product-specifications" class="nav-link" data-scroll-target="#technical-product-specifications"><span class="header-section-number">3.2</span> Technical product specifications</a></li>
+  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow"><span class="header-section-number">3.3</span> Workflow</a></li>
+  <li><a href="#pa2021-area-of-interest-refinement-process" id="toc-pa2021-area-of-interest-refinement-process" class="nav-link" data-scroll-target="#pa2021-area-of-interest-refinement-process"><span class="header-section-number">3.4</span> PA2021 Area Of Interest: refinement process</a></li>
+  <li><a href="#input-data" id="toc-input-data" class="nav-link" data-scroll-target="#input-data"><span class="header-section-number">3.5</span> Input data</a></li>
+  <li><a href="#production-units-regionalization-based-on-biogeographicalecological-characteristics" id="toc-production-units-regionalization-based-on-biogeographicalecological-characteristics" class="nav-link" data-scroll-target="#production-units-regionalization-based-on-biogeographicalecological-characteristics"><span class="header-section-number">3.6</span> Production units: regionalization based on biogeographical/ecological characteristics</a></li>
+  <li><a href="#sampling-and-reference-data-strategy" id="toc-sampling-and-reference-data-strategy" class="nav-link" data-scroll-target="#sampling-and-reference-data-strategy"><span class="header-section-number">3.7</span> Sampling and reference data strategy</a>
+  <ul class="collapse">
+  <li><a href="#spatial-design-grid-generation-and-cube-placement-based-on-existing-clms-data-via-a-hierarchical-scheme" id="toc-spatial-design-grid-generation-and-cube-placement-based-on-existing-clms-data-via-a-hierarchical-scheme" class="nav-link" data-scroll-target="#spatial-design-grid-generation-and-cube-placement-based-on-existing-clms-data-via-a-hierarchical-scheme"><span class="header-section-number">3.7.1</span> Spatial design: grid generation and cube placement based on existing CLMS data via a hierarchical scheme</a></li>
+  <li><a href="#training-data-refinement" id="toc-training-data-refinement" class="nav-link" data-scroll-target="#training-data-refinement"><span class="header-section-number">3.7.2</span> Training data refinement</a></li>
+  </ul></li>
+  <li><a href="#model-implementation-per-bioregion" id="toc-model-implementation-per-bioregion" class="nav-link" data-scroll-target="#model-implementation-per-bioregion"><span class="header-section-number">3.8</span> Model implementation per bioregion</a>
+  <ul class="collapse">
+  <li><a href="#algorithm-descriptions" id="toc-algorithm-descriptions" class="nav-link" data-scroll-target="#algorithm-descriptions"><span class="header-section-number">3.8.1</span> Algorithm descriptions</a></li>
+  </ul></li>
+  <li><a href="#post-processing-and-manual-refinement" id="toc-post-processing-and-manual-refinement" class="nav-link" data-scroll-target="#post-processing-and-manual-refinement"><span class="header-section-number">3.9</span> Post-processing and manual refinement</a></li>
+  <li><a href="#data-wrapping" id="toc-data-wrapping" class="nav-link" data-scroll-target="#data-wrapping"><span class="header-section-number">3.10</span> Data wrapping</a></li>
+  </ul></li>
+  <li><a href="#uncertainty-limitations-and-known-issues" id="toc-uncertainty-limitations-and-known-issues" class="nav-link" data-scroll-target="#uncertainty-limitations-and-known-issues"><span class="header-section-number">4</span> Uncertainty, limitations and known issues</a></li>
+  <li><a href="#validation-and-quality-assessment" id="toc-validation-and-quality-assessment" class="nav-link" data-scroll-target="#validation-and-quality-assessment"><span class="header-section-number">5</span> Validation and quality assessment</a>
+  <ul class="collapse">
+  <li><a href="#overview-of-the-validation-activities" id="toc-overview-of-the-validation-activities" class="nav-link" data-scroll-target="#overview-of-the-validation-activities"><span class="header-section-number">5.1</span> Overview of the validation activities</a></li>
+  <li><a href="#thematic-performance-of-the-pa2021-product" id="toc-thematic-performance-of-the-pa2021-product" class="nav-link" data-scroll-target="#thematic-performance-of-the-pa2021-product"><span class="header-section-number">5.2</span> Thematic performance of the PA2021 product</a></li>
+  <li><a href="#geometric-quality-delineation-issues-and-product-limitations" id="toc-geometric-quality-delineation-issues-and-product-limitations" class="nav-link" data-scroll-target="#geometric-quality-delineation-issues-and-product-limitations"><span class="header-section-number">5.3</span> Geometric quality, delineation issues and product limitations</a></li>
+  </ul></li>
+  <li><a href="#terms-of-use-and-product-technical-support" id="toc-terms-of-use-and-product-technical-support" class="nav-link" data-scroll-target="#terms-of-use-and-product-technical-support"><span class="header-section-number">6</span> Terms of use and product technical support</a>
+  <ul class="collapse">
+  <li><a href="#terms-of-use" id="toc-terms-of-use" class="nav-link" data-scroll-target="#terms-of-use"><span class="header-section-number">6.1</span> Terms of use</a></li>
+  <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation"><span class="header-section-number">6.2</span> Citation</a></li>
+  <li><a href="#product-technical-support" id="toc-product-technical-support" class="nav-link" data-scroll-target="#product-technical-support"><span class="header-section-number">6.3</span> Product technical support</a></li>
+  </ul></li>
+  <li><a href="#list-of-abbreviations-acronyms" id="toc-list-of-abbreviations-acronyms" class="nav-link" data-scroll-target="#list-of-abbreviations-acronyms"><span class="header-section-number">7</span> List of abbreviations &amp; acronyms</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8</span> References</a></li>
+  <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">9</span> Change Log</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Protected_Areas_2021-2024_ATBD_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Add Version to the title's metadata
+    //
+    // Skip when there's no version (e.g. document-type with version off) so we
+    // don't render an empty "Version" heading, and when the doc has no
+    // title-meta block at all (nothing to append to). Quarto renders an unset
+    // meta key as the placeholder "?meta:version", so treat that as empty too.
+    const raw = `1.1.0`.trim();
+    const version = raw.startsWith("?meta:") ? "" : raw;
+    const titleMetaEl = document.querySelector(".quarto-title-meta");
+    if (!version || !titleMetaEl) return;
+    const wrapperDiv = document.createElement("div");
+    wrapperDiv.innerHTML = `
+        <div class="quarto-title-meta-heading">Version</div>
+        <div class="quarto-title-meta-contents">
+          <p>1.1.0</p>
+        </div>
+      `;
+    titleMetaEl.appendChild(wrapperDiv);
+  });
+</script>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Protected Areas 2021-2024 - Algorithm Theoretical Basis Document (ATBD)</h1>
+<p class="subtitle lead">Copernicus Land Monitoring Service</p>
+</div>
+
+<div>
+  <div class="description">
+    This Algorithm Theoretical Basis Document (ATBD) comprehensively details the technical framework for producing the Copernicus Protected Areas Land Cover/Land Use (LC/LU) product for 2021 and 2024. It outlines the methodologies used to generate harmonised, high-quality data for terrestrial Natura 2000 sites across the EU27. The document focuses on the semi-automatic workflow, integrating super-resolved Sentinel-2 imagery and diverse CLMS datasets within a bioregional deep learning approach, complemented by rigorous post-processing and manual refinement to ensure robust thematic and geometric accuracy.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 17, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>Protected Areas monitoring, Natura 2000 sites, Land Cover/Land Use classification, Deep Learning classification, Super-Resolution imagery (Sentinel-2), Biogeographical modelling, Training data refinement, Temporal Convolutional Neural Network (TempCNN), Thematic accuracy assessment, Minimum Mapping Unit (MMU), Post-processing workflow, Quality assurance</p>
+  </div>
+</div>
+
+</header>
+
+
+<p><br>
+<strong>Contact:</strong></p>
+<div data-custom-style="LeftAlign">
+<p>European Environment Agency (EEA)<br>
+Kongens Nytorv 6<br>
+1050 Copenhagen K<br>
+Denmark<br>
+<a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
+</div>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Figure  1:  PA2021  production  workflow.","url":"Protected_Areas_2021-2024_ATBD_v1-media/img-3058833c9b82e13361c3e862fa8faa27.jpeg","width":"433pt"},{"@type":"ImageObject","caption":"Figure  2:  Comparison  between  native  Sentinel-2  imagery  at  10  m  and  super-resolved  Sentinel-2  imagery  at  2.5  m.","url":"Protected_Areas_2021-2024_ATBD_v1-media/img-b94dd7bb1ce4d372d6229bb5a5efcea6.jpeg","width":"432pt"},{"@type":"ImageObject","caption":"Figure  3:  Substantial  Improvement  in  Spatial  Detail.","url":"Protected_Areas_2021-2024_ATBD_v1-media/img-24bd8f6336a636c575429d3ac2818427.jpeg","width":"433pt"},{"@type":"ImageObject","caption":"Figure  4:  Spectral  and  Temporal  Consistency  for  the  four  bands:  RGBn.","url":"Protected_Areas_2021-2024_ATBD_v1-media/img-a70a4eab698a4890315461e40a9965f2.jpeg","width":"433pt"},{"@type":"ImageObject","caption":"Figure  5:  Comparison  between  satellite  (used  for  validation  purposes)  spectral  responses","url":"Protected_Areas_2021-2024_ATBD_v1-media/img-0bdfe54966615c02a7eedb4b9f4c3a62.jpeg","width":"291pt"},{"@type":"ImageObject","caption":"Figure  6:  Final  representation  of  bioregions  used  for  training  models.","url":"Protected_Areas_2021-2024_ATBD_v1-media/img-03e2ede9dcb4ed19e8821d851485c830.jpeg","width":"432pt"},{"@type":"ImageObject","caption":"Figure  7:  Example  of  corridor  detection  within  the  PA2021  post-processing  workflow.","url":"Protected_Areas_2021-2024_ATBD_v1-media/img-af1d0e952b199308d26f5abeab3cb640.jpeg","width":"433pt"}]}
+</script>
+<section id="executive-summary" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Executive summary</h1>
+<p>COTESA is the leader of a consortium for the “Copernicus Land Monitoring Service, Priority Area Monitoring Protected Areas 2021 and 2024”, in response to the call for tenders by open procedure No EEA/DIS/RO/23/009.</p>
+<p>The Protected Areas product aims to provide high-quality, harmonized Land Cover/Land Use (LC/LU) information for all terrestrial Natura 2000 sites across the 27 Member States of the European Union (European Union 27 Member States EU27) for the reference years 2021 and 2024. This information is expected to underpin, support, and evaluate European policies focused on biodiversity conservation and sustainable management of protected areas. The product will enable more effective monitoring of Natura 2000 sites, facilitating the assessment of conservation measures and progress towards halting biodiversity loss in Europe. These objectives align with the broader goals of the European Green Deal and the EU Biodiversity Strategy for 2030.</p>
+<p>The Framework Service Contract No EEA/DIS/RO/23/009 addresses the following objectives through associated tasks:</p>
+<ul>
+<li>Task 1: To produce the Protected Areas LC/LU status product for the 2021 reference year for all terrestrial Natura 2000 sites, using Very High Resolution (VHR) satellite imagery as primary input.</li>
+<li>Task 2: To produce an updated LC/LU status layer for the 2024 reference year, including a change layer between 2021 and 2024 and revision of the 2021 status layer whenever needed.</li>
+<li>Task 3: To support user uptake activities for the Protected Areas product.</li>
+<li>Task 4: To provide ad-hoc consultancy services as required.</li>
+</ul>
+<p>The duration of the Framework Contract is a maximum of 48 months, divided into two phases:</p>
+<ul>
+<li>First phase: Covers the 2021 update.</li>
+<li>Second phase: Covers the 2024 update.</li>
+</ul>
+<p>For each phase, a series of specific contracts will be established to address the corresponding tasks in a structured manner. The first specific contract is dedicated to the full-scale production of the Protected Areas LC/LU product for all 25,011 Natura 2000 sites, covering approximately 821,000 km². This phase allows for the evaluation of the proposed new methodology, quality control procedures, and workflow efficiency for the entire dataset. The second specific contract focuses on activities related to user involvement and uptake, including outreach, communication, training, and the establishment of feedback mechanisms to ensure that the product meets the needs of various stakeholders and end-users. Each contract is designed to ensure the successful delivery of high-quality products and to facilitate the continuous improvement of processes throughout the project lifecycle.</p>
+<p>This Interim Report provides an overview of the progress achieved in each requested task as of TO+9 months. It also summarizes the main issues encountered to date, the mitigation actions implemented, and highlights the risks identified for upcoming activities.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="background-of-the-document" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Background of the document</h1>
+<section id="scope-and-objectives" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="scope-and-objectives"><span class="header-section-number">2.1</span> Scope and objectives</h2>
+<p>This Algorithm Theoretical Basis Document (ATBD) provides a technical description of the product characteristics, production methodologies and workflows required to generate the Protected Areas Land Cover/Land Use (LC/LU) datasets for the reference years 2021 and 2024 in terrestrial Natura 2000 sites across EU27. The product is a restart/continuation of the existing Copernicus Land Monitoring Service (CLMS) Natura 2000 (N2K) LC/LU product for 2006, 2012 and 2018, renamed Protected Areas to align with other CLMS Priority Area Monitoring products while maintaining backward compatibility as far as possible.</p>
+<p>The tender specifies the overarching objectives as:</p>
+<ol type="1">
+<li>Production of the 2021 status layer for all terrestrial Natura 2000 sites in EU27.</li>
+<li>Production of the 2024 status layer, including the 2021-2024 change layer and revision of the 2021 status layer whenever needed.</li>
+<li>Support to user uptake activities.</li>
+<li>Provision of ad-hoc consultancy services.</li>
+</ol>
+</section>
+<section id="content-and-structure" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="content-and-structure"><span class="header-section-number">2.2</span> Content and structure</h2>
+<p>In the Executive summary section, the document will deliver a succinct snapshot of the PA2021 product, its purpose, the main methodological principles, and the full set of delivered outputs. It will briefly connect the input data and processing workflow to the final layers, emphasising the key elements that underpin consistency, quality, and traceability.</p>
+<p>As part of the Background of the document section, the ATBD will establish the context in which PA2021 is produced, the operational needs it responds to, and the main constraints that shape the approach. It will also clarify the intended audience and explain the role of this ATBD in supporting transparency, reproducibility, and quality assurance.</p>
+<p>Under Product description and methodology, the ATBD will describe the product and the complete generation process, covering the overview and specifications, the end-to-end workflow, and the nomenclature logic. It will detail input datasets and harmonisation, the sampling and reference-data strategy, production units and bioregional implementation, model training and iterative refinement (including active learning), and the downstream post-processing, manual Quality Control (QC) and Quality Assurance (QA), and packaging of deliverables such as the confidence layer, Product Specification and Inventory List (PSIL), and metadata.</p>
+<p>In the Uncertainty, limitations and known issues section, the ATBD will identify and characterise the main sources of uncertainty and limitations across the full processing chain, describing where errors may arise and how they can propagate into the outputs. It will also document known failure modes and recurring edge cases that can affect classification, delineation, change attribution, or interpretability.</p>
+<p>Through the Validation and quality assessment section, the ATBD will define how product performance is evaluated, including validation design (sampling and stratification), reference/verification data, and the metrics used to quantify quality. It will also describe how acceptance thresholds are applied and how the results are communicated to support compliance and fitness-for-purpose statements.</p>
+<p>Within Reproducibility and traceability, the ATBD will specify the operational controls that ensure repeatability and auditability, including versioning of inputs and models, parameter/configuration documentation, and data lineage tracking supported by PSIL. It will also summarise computational requirements and runtime constraints relevant to scalable production and reprocessing.</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="product-description-and-methodology" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Product description and methodology</h1>
+<section id="product-overview" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="product-overview"><span class="header-section-number">3.1</span> Product overview</h2>
+<p>The PA2021 product overview describes the Protected Areas 2021 status layer as a Very High Resolution (VHR) Land Cover/Land Use (LC/LU) dataset mapped for all terrestrial Natura 2000 sites in EU27. The Area of Interest (AoI) corresponds to the 2021 Natura 2000 terrestrial boundaries (approximately 821,000 km² across 25,011 sites) and is checked for anomalies prior to production. The temporal reference is defined as a 2021 reference date derived from VHR satellite imagery acquired between 2020 and 2022, and the positional accuracy follows the geolocation accuracy of the imagery delivered by the European Space Agency (ESA). The dataset is a vector product delivered in GeoPackage format in the European Terrestrial Reference System 1989 (European Terrestrial Reference System 1989 ETRS89) Lambert Azimuthal Equal Area (LAEA) projection, identified by EPSG (European Petroleum Survey Group coordinate reference system code):3035. It applies a Protected Areas tailored nomenclature of 59 classes. The mapping is specified with a Minimum Mapping Unit (MMU) of 0.5 ha and a Minimum Mapping Width (MMW) of 10 m between objects for distinct mapping. The intended use is to provide a harmonised baseline of LC/LU information within Natura 2000 sites, extracted from VHR and other available imagery and combined with in-situ and ancillary data where appropriate, to support the study and evolution of Natura 2000 sites. The thematic quality targets are ≥85% overall accuracy and ≥80% user’s and producer’s accuracies per class.</p>
+</section>
+<section id="technical-product-specifications" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="technical-product-specifications"><span class="header-section-number">3.2</span> Technical product specifications</h2>
+<p>The main technical specifications of the Protected Areas 2021 status layer are summarised in Table 1. The technical requirements are defined in the Tender Specifications for service contract EEA/DIS/RO/23/009 (EEA, 2022).</p>
+<div class="tbl-caption">
+<p>Table 1: Product description and technical specifications for the Protected Areas 2021 status layer.</p>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Title</th>
+<th>Protected Areas 2021 status layer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Abstract</td>
+<td>VHR LC/LU dataset in Natura 2000 sites</td>
+</tr>
+<tr class="even">
+<td>INSPIRE themes</td>
+<td>Land cover, Land use</td>
+</tr>
+<tr class="odd">
+<td>Geographic description</td>
+<td>EU27</td>
+</tr>
+<tr class="even">
+<td>Temporal description</td>
+<td>2021 reference date extracted from VHR satellite imagery ranging from 2020 to 2022</td>
+</tr>
+<tr class="odd">
+<td>Purpose</td>
+<td>Provide the baseline of LC/LU data in Natura 2000 sites extracted from VHR and other available imagery (and combined with in-situ data) to allow the study and evolution of Natura 2000 sites</td>
+</tr>
+<tr class="even">
+<td>Minimum Mapping Unit</td>
+<td>0.5 ha</td>
+</tr>
+<tr class="odd">
+<td>Minimum Mapping Width</td>
+<td>Minimum Mapping Width (MinMW) of 10 m between 2 objects for distinct mapping</td>
+</tr>
+<tr class="even">
+<td>Nomenclature</td>
+<td>The classification follows the Protected Areas Nomenclature and Mapping Guideline (CLMS, 2026), detailed 59 classes.</td>
+</tr>
+<tr class="odd">
+<td>Projection</td>
+<td>ETRS89 Lambert Azimuthal Equal Area (LAEA) (EPSG 3035)</td>
+</tr>
+<tr class="even">
+<td>Delivery formats</td>
+<td>GeoPackage</td>
+</tr>
+<tr class="odd">
+<td>Metadata</td>
+<td>Compliant with the Infrastructure for Spatial Information in the European Community (INSPIRE) metadata requirements (European Commission JRC, 2013), according to the applicable technical guidance based on EN ISO 19115 and EN ISO 19119.</td>
+</tr>
+<tr class="even">
+<td>Positional accuracy</td>
+<td>According to geo-location accuracy of satellite imagery delivered by ESA</td>
+</tr>
+<tr class="odd">
+<td>Overall classification accuracy</td>
+<td>≥ 85 % overall accuracy ≥ 80 % for class specific user and producer accuracies</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="workflow" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="workflow"><span class="header-section-number">3.3</span> Workflow</h2>
+<p>CLMS Protected Areas 2021 uses a semi-automatic approach to extract LC/LU information. A Deep Learning model is trained at bioregional scale using CLMS data and time series of super-resolved Sentinel-2 imagery. Its output is then processed through an advanced post-processing chain and manually refined by expert photo-interpreters. This combination preserves the objectivity of the automated classification while ensuring that the final layer meets the required thematic and geometric specifications. The overall production workflow is shown in Figure 1.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Protected_Areas_2021-2024_ATBD_v1-media/img-3058833c9b82e13361c3e862fa8faa27.jpeg" class="img-fluid figure-img" style="width:433pt" alt="This diagram illustrates the Land Use / Land Cover (LULC) mapping workflow, specifically for generating a Copernicus Land Monitoring Service (CLMS) information product at a 50x50 km resolution, likely for the Protected Areas 2021 (PA2021) dataset covering Natura 2000 sites. The process integrates information at both the bioregional level and from Sentinel-2 (S2) satellite tiles, employing active learning and deep learning methodologies. The workflow begins with initial data inputs: 1. **Tiles S2:** Sentinel-2 imagery tiles covering Europe are used. 2. **Bioregional level information:** Environmental zoning data is incorporated from European bioregions. The core of the process involves an **Active Learning** module, which refines the model by interacting with data from two sources: * 'Samples vs S2SR Time series per class': A line chart shows the temporal profiles of different land cover classes derived from Sentinel-2 Super Resolution (S2SR) time series. * 'Samples vs model uncertainty': A bar chart displays the distribution of model uncertainty across samples. The Active Learning module feeds into the 'Model training and data production' phase, influencing the training dataset and deep learning model. A feedback loop from the final 'Information product at 50x50kms' back to Active Learning suggests iterative refinement. The **Model training and data production** phase consists of three steps: 1. **Sentinel-2 Super Resolution Time Series Predictors:** Time series data derived from Sentinel-2 imagery are used as predictors. 2. **Training dataset:** A training dataset, comprising geolocated samples (shown as coloured points on a map of Europe), is prepared. This step is influenced by the Active Learning module. 3. **Deep Learning Model Training:** A deep learning model is trained iteratively. The visible code snippet shows a training loop with `loss = model(inputs, labels)`, `loss.backward()`, and `optimizer.step()`, indicating an optimization process over epochs. Following model training, the **Mapping production and refinement** phase proceeds: 1. **Predictions:** Initial LULC predictions are generated across Europe (depicted as a classified map). 2. **Post-processing:** The predictions undergo a post-processing step to refine the classification. 3. **Manual refinement:** Further manual refinement is performed on the post-processed data, including a detailed visual inspection at a finer grid level. The output is an **Information product at 50x50kms**, which is generated using 'Working units' (a satellite image overlaid with a grid of 50x50 km cells, with a zoomed-in section showing individual pixels/grid cells). This product adheres to a new LULC nomenclature, 'L3_fusion', comprising 16 classes: * **Urban fabric:** 110 (Continuous urban fabric), 120 (Discontinuous urban fabric) * **Cropland:** 210 (Arable land), 220 (Permanent crops), 230 (Pastures) * **Forest:** 310 (Broadleaved forest), 320 (Coniferous forest), 330 (Mixed forest) * **Grassland:** 410 (Natural grassland) * **Shrubland:** 420 (Moors and heathland) * **Wetland:** 510 (Inland wetlands), 520 (Peatbogs) * **Water:** 610 (Inland waters), 620 (Marine waters) * **Bare / sparse:** 710 (Bare rock), 720 (Sparsely vegetated areas) * **Snow and ice:** 810 (Permanent snow and ice)"></p>
+<figcaption>Figure 1: PA2021 production workflow.</figcaption>
+</figure>
+</div>
+</section>
+<section id="pa2021-area-of-interest-refinement-process" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="pa2021-area-of-interest-refinement-process"><span class="header-section-number">3.4</span> PA2021 Area Of Interest: refinement process</h2>
+<p>The PA2021 Area of Interest (AoI) is composed of the contributions of the Member States regarding declared Natura 2000 sites. As CLMS Protected Areas refers to terrestrial land areas, only sites with “MARINE_AREA_PERCENTAGE = 0” are selected; users should therefore note that sites containing both land and marine areas are excluded from this selection. To reduce issues related to snapping between polygons, isolated areas below the MMU and/or MMW, and geometric spikes, a 20 m buffer is applied. This results in an area of approximately 821,000 km². The AoI also includes Emerald sites and the United Kingdom (around 20,000 km²) as part of the new re-inclusion in the Copernicus Programme.</p>
+</section>
+<section id="input-data" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="input-data"><span class="header-section-number">3.5</span> Input data</h2>
+<p>The production of the Protected Areas LC/LU layers is based on a comprehensive integration of multiple CLMS core datasets, ancillary geospatial sources, and high-resolution satellite imagery, ensuring both thematic accuracy and spatial consistency across Europe’s Natura 2000 sites.</p>
+<p>As the backbone for data sampling within Natura 2000 terrestrial areas, the CLMS N2K 2018 layer has been utilized, providing the essential reference for site delineation and initial class assignment. For coastal Natura 2000 sites, the CLMS Coastal Zones 2018 product serves as the primary reference, with a necessary crosswalk implemented to harmonize LC/LU nomenclature and ensure compatibility across the two layers.</p>
+<p>To enhance data reliability and thematic resolution, several CLMS products from 2021 are leveraged for data checking and as complementary sources. These include CLMS High Resolution Layers (HRLs) 2021 (specifically the crop types, grasslands, tree cover density, and forest type layers) which support detailed discrimination between similar classes (e.g., grassland vs.&nbsp;shrubland) and provide up-to-date biophysical context. Additionally, CLCPlus Backbone 2021 is used to support data validation and ensure coherence in LC/LU classification logic. In areas within Natura 2000 sites lacking detailed mapping, Corine Land Cover (CLC) 2018 data support stratification and guides further classification efforts.</p>
+<p>Ancillary datasets from the CLMS programme, such as EU-Hydro and Riparian Zones, play a crucial role in accurately assimilating inland watercourses and associated riparian habitats. For the extraction of roads and railways, OpenStreetMap (OSM) data has been integrated due to its broad coverage and up-to-date infrastructure information. Where automated classification is insufficient (particularly for the most detailed Level 4 L4 classes such as airports) the project has employed CLMS Priority Area Monitoring 2018 layers to inform manual refinement and ensure high thematic accuracy. Quality control is further enhanced by cross-checking with CLMS Burnt Areas and CLMS Snow datasets, helping to identify and resolve anomalous results (such as detecting improbable permanent snow at low altitudes).</p>
+<p>For validation and calibration, the project incorporates Canopy Height from META (outside the Copernicus programme) to discriminate between shrubland and certain forest types. The ESA_VHR_2021 image mosaic serves as the core reference for manual refinement, given its central role in the creation of CLMS 2021 products. When uncertainties arise during visual interpretation, additional support is provided by Google Earth imagery and Google Street View, offering auxiliary information to the refinement team.</p>
+<p>Altogether, this robust multi-source input data strategy ensures that the resulting LC/LU products for Protected Areas are comprehensive, accurate, and well-adapted to the diverse European landscape.</p>
+<p>Regarding satellite information, the process begins with the access and download of Sentinel-2 Level 2A imagery, orchestrated via Theia and PySTAC services. For each bioregion, cloud-free seasonal mosaics are generated to maximize spectral and temporal information. Spatial resolution is enhanced using COTESA’s proprietary IRIX4 superresolution model, standardizing all tiles to 10 m or finer. Multitemporal coregistration algorithms are then applied to ensure accurate pixel alignment across image dates, followed by rigorous QC to filter out suboptimal data and maintain high standards for the S2 (Sentinel-2) superresolved (S2SR) input stack.</p>
+<p>The accurate delineation of land cover classes, particularly in dynamic categories such as grasslands and heterogeneous areas, poses a significant challenge in the field of remote sensing. Existing products, like the N2K product, have shown limitations in delineating fine features when compared to alternatives like the CLCPlus Backbone product. This is primarily due to the use of a single Very High Resolution (VHR) reference image (not always matching the reference year, but mostly) and insufficient temporal resolution.</p>
+<p>In this context, the Tender Specifications explicitly encourage the investigation of other data sources, such as Sentinel-2 (S2) time series, and advocate for a combined approach using VHR and HR data together with automated and manual classification methods to overcome these limitations and achieve more precise delineation. That is why Super-Resolution (SR) methods emerge as an innovative and strategic solution. COTESA proposes the application of its own pre-trained Super-Resolution Generative Adversarial Network (SRGAN) model on original Sentinel-2 imagery. This methodology not only responds to the call for exploring new data sources but also transcends the traditional trade-off between spatial and temporal resolution. A direct visual comparison between native Sentinel-2 imagery at 10 m and the super-resolved Sentinel-2 output at 2.5 m is shown in Figure 2.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Protected_Areas_2021-2024_ATBD_v1-media/img-b94dd7bb1ce4d372d6229bb5a5efcea6.jpeg" class="img-fluid figure-img" style="width:432pt" alt="Two side-by-side aerial images compare different spatial resolutions of satellite data over an urban area featuring dense building structures, streets, green spaces, and a railway line. The left panel, labelled 'S2 10 m', displays Sentinel-2 imagery at 10-metre resolution, showing a pixelated view where individual buildings and narrow streets are blurred. The right panel, labelled 'Pre-trained S2SR 2.5 m', displays super-resolved Sentinel-2 imagery at 2.5-metre resolution, revealing significantly finer detail, with distinct building outlines, clear street networks, individual trees, and detailed railway tracks and platforms. Both images include a scale bar indicating '0', '250', and '500 m'. The comparison highlights the enhanced clarity and detail achieved through super-resolution processing, which is crucial for Land Use / Land Cover (LULC) mapping in urban environments."></p>
+<figcaption>Figure 2: Comparison between native Sentinel-2 imagery at 10 m and super-resolved Sentinel-2 imagery at 2.5 m.</figcaption>
+</figure>
+</div>
+<p>The key advantages justifying this approach are:</p>
+<ol type="1">
+<li><strong>Substantial Improvement in Spatial Detail:</strong> SR enhances the level of detail of Sentinel-2 images (from 10 m to 2.5 m), enabling a significantly finer delineation of objects such as small buildings, crop borders, streets, and critically, the boundaries of complex classes like grasslands. This directly addresses the issue of “overly coarse” delineation identified in the N2K product. A direct visual comparison between the native 10 m resolution of Sentinel-2 and the super-resolved output at 2.5 m demonstrates this enhancement tangibly, where linear structures and small spatial features become clearly discernible. This will allow us to reduce substantially noise in our PA2021 models whilst improving the details of the geometries.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Protected_Areas_2021-2024_ATBD_v1-media/img-24bd8f6336a636c575429d3ac2818427.jpeg" class="img-fluid figure-img" style="width:433pt" alt="Four satellite imagery panels display an urban area on 2020-02-15, comparing Sentinel-2 (S2) data at 10 m and 2.5 m spatial resolutions, including zoomed views. The x and y axes show coordinate values, ranging from approximately 538400 to 538900 and 4747000 to 4748200, respectively, for the overview panels, and narrower ranges for the zoomed views. Green circles highlight specific features in all four panels. The top-left panel is labelled 'S2 10 m 2020-02-15' and shows an overview of the urban area at 10 m resolution, with a 200 m scale bar. The top-right panel, 'S2 2.5 m 2020-02-15', displays the same area at 2.5 m resolution, also with a 200 m scale bar. The bottom-left panel, 'S2 10 m (zoom)', provides a magnified view of a central pentagonal building and surrounding structures at 10 m resolution, with a 50 m scale bar. The bottom-right panel, 'S2 2.5 m (zoom)', presents the zoomed area at 2.5 m resolution, also with a 50 m scale bar. The comparison clearly illustrates the significantly higher level of detail and clarity achieved with 2.5 m resolution imagery compared to 10 m, enabling better identification of urban morphology, individual buildings, roads, and land cover features. This enhanced resolution is crucial for detailed Land Cover / Land Use (LCLU) mapping and validation processes, particularly for complex environments like urban areas or those within Natura 2000 (N2K) sites where high accuracy is required for Copernicus Land Monitoring Service (CLMS) products."></p>
+<figcaption>Figure 3: Substantial Improvement in Spatial Detail.</figcaption>
+</figure>
+</div>
+<ol start="2" type="1">
+<li><strong>Spectral and Temporal Consistency:</strong> Unlike the reliance on a single VHR scene, our SRGAN model generates enhanced images that are spectrally consistent with the original Sentinel-2 time series. This ensures the stability of information over time, leveraging the high temporal resolution (5 days) of Sentinel-2 to capture seasonal dynamics—a key factor for the correct characterization of grasslands, different type of forests or crops, etc. The spectral fidelity of the model is quantitatively demonstrated through regression analysis for key bands (Blue, Green, Red, Near-Infrared), showing high coefficients of determination (R²) and low errors (Root Mean Square Error RMSE), guaranteeing the integrity of the information for classifications and multi-temporal analysis. Also, this model can be applied to mosaics referring to different time steps in any part of the year, so superresolved mosaics can be used for S2SR time series generation. Regarding validation, this example was carried out by comparing two scenes: a resampled VHR image from commercial imagery (Pléaides) and super-resolved Sentinel-2 image taken, approximately, at the same time. We expected some differences due to the availability of “pure pixels”, but a similar behaviour overall in all bands (no bias whatsoever between different bands), which is what actually the image is showing below.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Protected_Areas_2021-2024_ATBD_v1-media/img-a70a4eab698a4890315461e40a9965f2.jpeg" class="img-fluid figure-img" style="width:433pt" alt="This image displays four scatter plots comparing two sets of values, likely reference and product values, for different spectral bands: BLUE, GREEN, RED, and Near-Infrared (NIR). Each plot has X and Y axes ranging from 0.0 to 1.0. A dashed black line represents the 1:1 ideal agreement, and a solid blue line shows the linear regression fit for the data points. The performance metrics for each band are: * **BLUE:** R² = 52.8%, RMSE = 0.04 * **GREEN:** R² = 55.69%, RMSE = 0.05 * **RED:** R² = 65.6%, RMSE = 0.06 * **NIR:** R² = 77.91%, RMSE = 0.05 The R² (coefficient of determination) values indicate the proportion of variance in one variable predictable from the other, increasing from the BLUE band (52.8%) to the NIR band (77.91%), suggesting a stronger linear relationship for longer wavelengths. The RMSE (Root Mean Square Error) values, which measure the average magnitude of errors, remain consistently low, ranging from 0.04 to 0.06 across all bands, indicating good overall agreement between the compared values. The data points cluster more tightly around the regression line for the RED and NIR bands compared to the BLUE and GREEN bands."></p>
+<figcaption>Figure 4: Spectral and Temporal Consistency for the four bands: RGBn.</figcaption>
+</figure>
+</div>
+<ol start="3" type="1">
+<li><strong>Validated and Ready-to-Implement Process:</strong> COTESA is using a pre-trained SRGAN model that has been expressly validated using the OpenSR benchmarking initiative developed by the European Space Agency (ESA) in collaboration with the Universitat Politècnica de València (UPV) (ESA, 2022–2025). This tool aims to compare different datasets (National Agriculture Imagery Program NAIP, Plan Nacional de Ortofotografía Aérea PNOA Ortho, Commercial high-resolution optical Earth observation satellite system SPOT and Pleaides) all over the world (US, Europe, etc.) in different landscapes (crops, forests, etc.) with superresolved images allowing a benchmarking between other SR models in terms of hallucinations, omissions, improvements, spectral characteristics, geometrical errors, etc. Our model, trained on over 9,000 km² of multitemporal VHR imagery across Europe, has demonstrated superior performance in critical metrics: high detail enhancement, low omission of patterns, minimal hallucinations, and subpixel geometric errors. The model’s design and performance is optimized for the spectral range of sensors like Sentinel-2, ensuring its suitability for the task. No retraining is required, enabling a fully automated, fast, and efficient prediction process whenever a new mosaic is generated.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Protected_Areas_2021-2024_ATBD_v1-media/img-0bdfe54966615c02a7eedb4b9f4c3a62.jpeg" class="img-fluid figure-img" style="width:291pt" alt="This chart compares the spatial resolution (Y-axis, in metres, ranging from 1.5 m to 65 m) and spectral bands (X-axis, in wavelength nanometres, ranging from approximately 450 nm to 2300 nm) for three satellite sensors: Sentinel-2 MultiSpectral Instrument (MSI), Landsat Data Continuity Mission Operational Land Imager (LDCM OLI), and SPOT 6/7. Data series are represented by different shades of grey and specific colours: * **Sentinel-2 MSI (Black, with blue, green, red highlights)**: * **10 m spatial resolution**: Bands at approximately 490 nm (blue), 560 nm (green), 665 nm (red), and 835 nm (Near Infrared). The blue, green, and red bars specifically highlight the visible spectrum bands. * **20 m spatial resolution**: Bands at approximately 705 nm, 740 nm, 783 nm, 865 nm (Red Edge and Near Infrared), 1610 nm, and 2190 nm (Shortwave Infrared). * **60 m spatial resolution**: Bands at approximately 443 nm (Coastal Aerosol), 940 nm (Water Vapour), and 1375 nm (Cirrus). * **LDCM OLI (Dark grey)**: * **15 m spatial resolution**: A panchromatic band spanning approximately 500 nm to 680 nm. * **30 m spatial resolution**: Bands at approximately 480 nm, 560 nm, 655 nm, 865 nm (Visible and Near Infrared), 1650 nm, and 2200 nm (Shortwave Infrared). * **SPOT 6/7 (Light grey)**: * **1.5 m spatial resolution**: A panchromatic band spanning approximately 500 nm to 680 nm. * **6 m spatial resolution**: Bands at approximately 480 nm, 550 nm, 650 nm, and 810 nm (Visible and Near Infrared). * **30 m spatial resolution**: Bands at approximately 1650 nm and 2200 nm (Shortwave Infrared). The chart illustrates the diverse capabilities of these satellite platforms, with Sentinel-2 MSI offering a comprehensive set of multispectral bands across various resolutions, while LDCM OLI and SPOT 6/7 provide valuable higher spatial resolution options, especially in the panchromatic and visible/NIR ranges, which are essential for Copernicus Land Monitoring Service (CLMS) High Resolution Layers (HRLs) and other detailed land cover/land use mapping."></p>
+<figcaption>Figure 5: Comparison between satellite (used for validation purposes) spectral responses</figcaption>
+</figure>
+</div>
+<p>In conclusion, the integration of super-resolved Sentinel-2 imagery through our SRGAN model represents the realization of the recommended “combined approach,” effectively merging the spectral and temporal richness of Sentinel-2 with spatial detail close to VHR. This translates directly into an enhanced capacity for change detection and more accurate and reliable delineation of land cover classes, providing differential and robust value to the project.</p>
+</section>
+<section id="production-units-regionalization-based-on-biogeographicalecological-characteristics" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="production-units-regionalization-based-on-biogeographicalecological-characteristics"><span class="header-section-number">3.6</span> Production units: regionalization based on biogeographical/ecological characteristics</h2>
+<p>The regionalization framework, based on <strong>biogeographical regions (bioregions)</strong>, constitutes a fundamental component of the ATBD for CLMS Protected Areas. Its primary objective is to ensure that land cover and land use (LC/LU) mapping is conducted within <strong>ecologically coherent domains</strong>, while maintaining consistency and scalability at the European level.</p>
+<p>The methodology adopts a <strong>regionally stratified modelling approach</strong>, whereby <strong>independent classification models</strong> are developed and calibrated within each biogeographical region. This approach is motivated by the significant ecological and environmental heterogeneity observed across Europe. Variations in <strong>climatic conditions, geological substrates, hydrological regimes, and landscape histories</strong> result in differing ecosystem structures and dynamics, which cannot be adequately captured by a single, continent-wide model.</p>
+<p>Within this framework, environmental differentiation is not explicitly modelled through abiotic variables. Instead, it is implicitly represented through the <strong>spectral-temporal behaviour</strong> of ecosystems derived from <strong>Sentinel-2 time series data</strong>. Differences in vegetation structure, productivity, phenology, and surface moisture conditions are reflected in the temporal evolution of surface reflectance. Consequently, LC/LU classes exhibit distinct signatures in <strong>spectro-phenological space</strong>, forming the basis for their discrimination within each region.</p>
+<p>The delineation of the regional modelling domains is based on the <strong>biogeographical regions defined by the European Environment Agency (EEA)</strong>, which provide a well-established representation of large-scale ecological patterns across Europe. To enhance <strong>operational applicability</strong> and facilitate uptake by Member States, these regions are further refined through the integration of <strong>national administrative boundaries</strong>. This combined approach ensures alignment with both <strong>ecological processes and governance structures</strong>.</p>
+<p>The resulting regional units are designed to achieve a balance between <strong>ecological homogeneity and operational scalability</strong>. Each region constitutes a modelling domain characterized by relatively consistent environmental conditions and ecosystem functioning. The spatial extent of these domains is optimized to capture dominant spectro-phenological patterns while limiting internal heterogeneity that could negatively affect model performance.</p>
+<p>Regionalization serves to <strong>constrain the classification process</strong> within ecologically consistent contexts. By reducing the range of variability encountered by the classification algorithms, the approach minimizes <strong>spectral ambiguity between classes</strong> and enhances the capacity of machine learning models to learn robust relationships between <strong>multi-temporal satellite observations</strong> and LC/LU categories.</p>
+<p>Despite the independent calibration of models at regional level, the overall framework ensures <strong>pan-European harmonization</strong>. This is achieved through the application of <strong>consistent class definitions, standardized modelling procedures, and a unified Earth observation data framework</strong>. As a result, regional outputs are fully interoperable and can be integrated into a coherent continental dataset, while retaining sensitivity to <strong>regional ecosystem dynamics</strong>.</p>
+<p>In conclusion, the regionalization framework establishes the methodological basis for linking ecological variability across Europe with spectral-temporal information derived from Sentinel-2, enabling the generation of robust, consistent, and ecologically meaningful LC/LU products within the CLMS Protected Areas mapping workflow. The final modelling units resulting from the regionalisation framework are shown in Figure 6.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Protected_Areas_2021-2024_ATBD_v1-media/img-03e2ede9dcb4ed19e8821d851485c830.jpeg" class="img-fluid figure-img" style="width:432pt" alt="This map displays the geographic partitioning of Europe into 38 distinct operational areas, referred to as 'Production-unit codes.' The covered area includes the European continent, the British Isles, Fennoscandia, and associated islands in the Atlantic Ocean, Norwegian Sea, Barents Sea, Baltic Sea, Black Sea, and Mediterranean Sea. Each production unit is labelled with a unique 'DU' code: DU0001, DU0002, DU0004, DU0005, DU0006, DU0007, DU0008, DU0009, DU0010, DU0011, DU0012, DU0013, DU0014, DU0015, DU0016, DU0017, DU0018, DU0019, DU0020, DU0021, DU0022, DU0023 (appears in Central Europe and near Greece), DU0024, DU0025, DU0026, DU0027 (Atlantic islands including Azores, Madeira, Canaries), DU0028, DU0029, DU0030, DU0031 (appears in the Aegean Sea and the Turkish Black Sea coast), DU0032, DU0033, DU0034, DU0035, DU0036, DU0037, DU0038. Land areas are shaded light grey with black outlines for the production units, while water bodies are light blue. A compass rose indicates North. A scale bar shows distances ranging from 0 to 1,500 km. These production units are likely used for data processing, validation, or product generation within the Copernicus Land Monitoring Service (CLMS) framework, particularly for tasks involving Sentinel-2 super-resolution or Very High Resolution (VHR) imagery analysis."></p>
+<figcaption>Figure 6: Final representation of bioregions used for training models.</figcaption>
+</figure>
+</div>
+</section>
+<section id="sampling-and-reference-data-strategy" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="sampling-and-reference-data-strategy"><span class="header-section-number">3.7</span> Sampling and reference data strategy</h2>
+<p>This section describes how <strong>analysis/training points (ATs)</strong> are constructed and refined to support model training and internal checks, based on a <strong>rule-driven sampling strategy</strong> designed to (i) ensure broad spatial representativeness, (ii) reduce spatial autocorrelation and boundary noise, and (iii) increase label reliability by cross-checking points against independent thematic evidence layers (CLMS rasters and ancillary masks). The overall approach follows a <strong>two-stage logic</strong>: first, generate a geographically well-distributed candidate point set from existing polygonal information; second, iteratively refine, reclassify, and filter points using intersection rules and consistency checks.</p>
+<section id="spatial-design-grid-generation-and-cube-placement-based-on-existing-clms-data-via-a-hierarchical-scheme" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="spatial-design-grid-generation-and-cube-placement-based-on-existing-clms-data-via-a-hierarchical-scheme"><span class="header-section-number">3.7.1</span> Spatial design: grid generation and cube placement based on existing CLMS data via a hierarchical scheme</h3>
+<p><strong>Spatial representativeness and sampling units.</strong> The sampling strategy operates on a regular grid to avoid local clustering and to improve coverage across the Area of Interest. A grid of <strong>500 m × 500 m cells</strong> is generated over the target geometry (e.g., AoI or thematic polygons used as sources). Only grid cells that intersect the target domain are retained. Each retained grid cell is processed independently, enabling a controlled number of samples per unit area and supporting scalable, parallel processing if required.</p>
+<p>**Candidate sample generation from polygons (“cube” sampling).** Candidate points are generated from polygonal sources by first creating small square sampling windows (”cubes”) and then expanding each cube into a fixed micro-pattern of points. For each qualifying polygon subset inside a grid cell, the process attempts to place sampling cubes in two ways:</p>
+<ol type="1">
+<li><strong>Centroid-based cubes:</strong> a cube is centered on the polygon centroid but only accepted if it falls within a “safe area” (known as pixel pureness) defined by applying an inward buffer (negative buffer) to the polygon. This enforces a minimum distance to the polygon border and reduces the likelihood that samples fall on mixed pixels or ambiguous boundaries.</li>
+<li><strong>Random cubes:</strong> if the number of accepted centroid cubes is below the target, additional cubes are placed by sampling random locations within the buffered polygon area, again enforcing border distance and minimum spacing between cubes.</li>
+</ol>
+<p>The cube parameters are fixed to provide consistent sampling density and boundary avoidance: the cube side length is 8 m, the maximum number of cubes per grid cell is 5, the minimum distance to polygon borders is 12 m for centroid cubes and 15 m for random cubes, and the minimum distance between cube centroids is 15 m. Grid cells are only processed if the clipped polygon area exceeds a minimum coverage threshold (implemented as a fraction of the cell area), ensuring that negligible intersections do not create unstable sampling behaviour.</p>
+<p><strong>Point expansion and micro-redundancy.</strong> Each accepted cube is converted into a small set of points by placing a 3 x 3 point pattern around the cube centre with a fixed spacing (e.g.&nbsp;2.6 m offsets). This produces nine points per cube, increasing within-object sampling while still enforcing macro-scale separation via the grid/cube constraints. Each point carries: (i) a target class code inherited from the source polygon attribute (e.g., CODE_4_18 or analogous), (ii) a grid cell identifier (cell_id) supporting stratification, auditing, and later balancing, and (iii) an origin flag (centroid vs.&nbsp;random) to track how the sample was created.</p>
+<p><strong>Augmentation using thematic rasters (CLMS).</strong> To address gaps or low-frequency classes and to reinforce class evidence, the workflow includes a mechanism to generate additional candidate cubes/points directly from CLMS layers. In practice, raster values meeting specific conditions (e.g., class codes in a given band) are polygonised or masked, then sampled with the same grid/cube logic to create additional ATs. This raster-driven augmentation is particularly useful for classes that are difficult to sample reliably from legacy polygons alone, or for landscapes where polygon coverage is sparse or inconsistent.</p>
+</section>
+<section id="training-data-refinement" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="training-data-refinement"><span class="header-section-number">3.7.2</span> Training data refinement</h3>
+<p>The purpose of this step is to automatically refine the L4 labels initially inherited from the CLMS Priority Area Monitoring PAM 2018 layers (notably Natura 2000 2018 N2K18, Coastal Zones 2018 CZ18, and Riparian Zones 2018 RZ18) by exploiting the strengths of complementary CLMS <strong>datasets closer to the 2021 reference period</strong>. In practice, the refinement relies on a hierarchy of rule-based enrichments and overrides derived from 2021 products, thereby reducing the temporal mismatch that would otherwise be introduced by using 2018-based thematic information as the primary reference for PA2021 training. The rules are applied to (i) generate <strong>additional training points</strong> for under-represented or poorly separable classes, and (ii) <strong>relabel or prioritise classes</strong> where specific 2021 layers provide stronger evidence than the legacy PAM 2018 sources.</p>
+<p>In summary, the refinement rules applied are as follows. (1) Additional cropland training points are generated from <strong>HRL Cropland 2021</strong> to improve representation and consistency of agricultural classes. (2) Additional forest-type points are generated from <strong>HRL Forest Type 2021</strong>, supporting a more robust characterisation of forest subclasses. (3) Additional grassland points are generated from <strong>HRL Grassland 2021</strong>; within grassland, the two main grassland categories (<strong>4100 managed grassland and 4212 natural grassland</strong>) are further enriched by analysing grassland harvesting patterns, and expert-defined alpine constraints are introduced through bioregion-specific “Areas Treeline” masks to systematically reclassify managed grasslands to natural grasslands where appropriate. (4) Because shrubland is both heterogeneous and typically underestimated across Copernicus layers, shrub-related labels are prioritised over competing classes; this includes extracting additional shrub evidence from <strong>CLCPlus Backbone 2021</strong> using the <strong>Low-Growing Woody Plants</strong> class and refining it with HRL Cropland 2021 to reduce confusion with agricultural surfaces. (5) Additional training points for <strong>Evergreen Broadleaved</strong> are extracted from CLCPlus Backbone 2021 to improve separability between coniferous forest (3210) and broadleaved forest (3110). (6) The European Wetland Map is used to extract additional wetland training points (both inland and coastal), including specific enrichment of peat bog conditions where represented.</p>
+<p>Overall, this rule-based framework provides a consistent and reproducible mechanism to align candidate labels with independent evidence layers, while remaining extensible: new rules can be incorporated as additional CLMS products, thematic masks, or expert constraints become available for specific bioregions or class groups.</p>
+<p><strong>Conflict filtering near class boundaries (buffer-ring exclusion).</strong> A dedicated cleaning step removes “conflictive” points located too close to transitions in key thematic layers, where mixed pixels and delineation uncertainty are common. This is implemented by creating <strong>annular buffer rings</strong> around raster-defined class regions: the target class mask is dilated and eroded by a fixed distance (e.g., 5 m), and the ring between them defines a boundary zone. Points falling inside these rings are removed for selected codes, while a set of “protected” codes may be exempt from removal (to avoid systematically deleting rare but important classes). This boundary filtering reduces label noise and improves the separability of classes during training.</p>
+<p><strong>Special handling for coastal and rare thematic classes.</strong> The sampling strategy supports targeted enrichment of thematic groups, notably coastal-related classes, by sampling from dedicated coastal polygon datasets (with their own attribute codes) and merging the resulting points into the main AT pool. After merging, points are optionally reclassified by polygon intersection so that their final code (CODE_4_18) is consistent with the coastal source codes, ensuring that the training set contains enough exemplars for shoreline and coastal habitat types that may otherwise be underrepresented.</p>
+<p><strong>Label normalisation and exclusion rules (training-ready labels).</strong> Once the refined AT pool is produced, class codes are mapped to a simplified or grouped training label scheme where required (e.g., converting detailed codes into label strings such as “3.1”, “4.2”, etc.). A set of codes can be explicitly assigned to an “exclude” label (e.g., “99”) to remove ambiguous, non-target, or out-of-scope categories from model training. This step yields a training-ready point layer where the included points are consistently labelled and the excluded set is traceable.</p>
+<p><strong>Packaging and stratified export by tile.</strong> For operational training and reproducibility, the final AT dataset is exported in a structured way: points are intersected with a tile grid (e.g., Sentinel-2 tiling), then written out per tile. During export, points are reprojected to the appropriate UTM (Universal Transverse Mercator) zone for each tile (deriving the EPSG code programmatically) and non-essential fields used only during sampling/refinement (e.g., internal codes, provenance flags, intermediate action fields) are removed. This produces a clean, tile-organised training dataset that aligns with downstream modelling pipelines and supports parallelised training or per-region modelling strategies. Finally, the workflow provides a systematic count of points per training label across all exported tiles, including relative percentages. This enables rapid diagnosis of class imbalance, detection of missing labels in specific regions, and supports iterative sampling refinement (e.g., adding new raster-driven AT generation rules or increasing sampling intensity for low-frequency classes).</p>
+<p>Overall, the strategy ensures that PA2021 reference/training points are <strong>spatially distributed, boundary-aware, and evidence-refined</strong> through explicit, auditable rules. This combination supports robust model training and provides a clear mechanism to evolve the sampling design as new inputs, new classes, or region-specific issues emerge.</p>
+<p>As a last step, <strong>Self Organizing Maps</strong> from the <strong>SITS library</strong> has been used to filter out those points that does not comply with the “normal” spectrophenological behavior, for each of the 6 predictos: RGBn (Red, Green, Blue and Near-Infrared bands )-NDVI-NDWI. Also, <strong>Cleanlab</strong> has been applied to the final set of points to filter out those points showing bad quality.</p>
+</section>
+</section>
+<section id="model-implementation-per-bioregion" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="model-implementation-per-bioregion"><span class="header-section-number">3.8</span> Model implementation per bioregion</h2>
+<p>The production is carried out per ecological region (<strong>bioregion</strong>) so that the modelling adapts to the dominant environmental and landscape conditions in each area. This regional approach helps the algorithm learn more consistent patterns locally and reduces typical errors that occur when a single model is applied across very different climates, vegetation types, and land-use contexts. For each bioregion, a dedicated training dataset is built, a region-specific model is trained, and predictions are generated in a consistent and repeatable way.</p>
+<p>The training dataset starts with an initial pool of candidate reference points derived from available thematic information (see previous section for more information) and is strengthened using superresolved Sentinel-2 time series. For every reference point, the workflow extracts <strong>monthly mosaicked information from superresolved Sentinel-2 composites</strong> (including the four core reflectance channels, Red R Green G Blue B Near-Infrared NIR) and also derives commonly used indices that capture vegetation and water-related behaviour over time. This means each reference point is represented not by a single image value, but by a <strong>temporal signature</strong> that improves class separability and robustness to short-term variability. There are a potential 72 bands used as predictors within the model (6 bands x12 time steps), but it could vary from bioregion to bioregion, depending on the quality of the data for each month (for example, most of winter months have been removed because of low sun elevations, snow cover and poor reflectance information).</p>
+<p>Before modelling, the reference points are automatically <strong>quality-filtered</strong> to remove samples that are incomplete or unreliable (for example, points with missing values). The process also normalises labels into the set used by the model and removes categories that are explicitly marked as out of scope. This produces a training-ready dataset that is consistent across tiles and regions.</p>
+<p>A key component is the <strong>automatic refinement of training points</strong> using model confidence, also known as <strong>Active Learning</strong> process. After an initial model is trained, it is used to re-evaluate the training samples and estimate how strongly each sample is supported by the learned patterns. Samples that show strong contradiction (the model consistently indicates a different class) are treated as likely mislabels and can be removed. Samples that are weakly supported (low separation between the most plausible classes) can also be filtered, but more conservatively. Importantly, the filtering rules are applied with safeguards so that rare or inherently mixed categories are not disproportionately removed, and so that each class retains a minimum amount of training support. It also explicitly treats certain labels as “heterogeneous” (e.g.&nbsp;1xxx, 4100, 4212, 5100, 5300, 6100) and applies more conservative filtering to them (removing only contradictions, capped at 20%), which is a practical way to preserve inherently mixed/edge categories while still reducing blatant mislabels.</p>
+<p><strong>TempCNN (Temporal Convolutional Neural Network)</strong> model training is performed with a standard workflow that ensures comparability and stability. The dataset is split into <strong>training, validation, and test subsets</strong> using stratification so that all classes remain represented. Training uses regularisation and automated controls that prevent overfitting: the best model checkpoint is saved based on validation performance, training can stop early when improvements plateau, and the learning rate is automatically reduced when progress slows. Performance is then measured on an independent test subset using standard quality metrics (including overall accuracy and complementary precision/recall-type measures), providing an internal indication of model behaviour before map generation.</p>
+<p>Finally, the approach is <strong>iterative</strong>. Training, confidence-based refinement, and retraining can be repeated to progressively improve the reliability of the reference set and the resulting model. In practice, this yields a more stable classification, reduces the impact of noisy labels, and improves consistency across the bioregion while keeping the process transparent and reproducible for operational production.</p>
+<p>Once a bioregion-specific model is considered fit for production, it is formally accepted only after meeting two complementary criteria: (1) it achieves the required quantitative performance targets (e.g., overall accuracy, Interesection over Union -IoU- and Kappa) on the defined evaluation datasets, and (2) its spatial outputs are qualitatively endorsed through expert review of predictions generated over representative <strong>Bounding Boxes (BBOX)</strong> spanning diverse landscape contexts within the bioregion, using <strong>CORINE (Coordination of Information on the Environment) Land Cover</strong> as a consistency reference to support interpretation of expected patterns. After acceptance, the model weights are frozen and archived in .h5 format to ensure reproducibility, and batch inference is executed over the full Area of Interest covered by the Sentinel-2 tiles that compose the bioregion. The resulting classified raster is then post-processed to improve spatial coherence by applying a <strong>GDAL (Geospatial Data Abstraction Library) SIEVE</strong> operation with a <strong>threshold of 15 and 8-neighbour connectivity</strong>, which removes small, isolated pixel patches and filters salt-and-pepper artefacts prior to packaging of the final product.</p>
+<section id="algorithm-descriptions" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="algorithm-descriptions"><span class="header-section-number">3.8.1</span> Algorithm descriptions</h3>
+<p>The PA2021 processing chain combines super-resolution, rule-based reference-data preparation, bioregion-specific Deep Learning classification and deterministic spatial post-processing.</p>
+<p><strong>Sentinel-2 preprocessing and super-resolution.</strong> Sentinel-2 Level-2A imagery is accessed and organised by bioregion. Cloud-free seasonal mosaics are generated to maximise spectral and temporal information. Spatial detail is enhanced using COTESA’s pre-trained super-resolution approach, generating S2SR inputs. Multi-temporal coregistration and quality-control procedures are then applied to maintain pixel alignment between dates and remove suboptimal observations.</p>
+<p><strong>Reference-data generation and refinement.</strong> Candidate analysis/training points are generated from existing CLMS polygonal information using a regular 500 m × 500 m grid. Within each retained grid cell, candidate cubes are generated with a cube side length of 8 m, a maximum of five cubes per grid cell, minimum distances to polygon boundaries, and minimum spacing between cube centroids. Each accepted cube is expanded into a 3 x 3 point pattern. The initial labels are subsequently refined using rule-based intersections with complementary 2021 CLMS products and ancillary evidence layers. Boundary-conflict filtering and class-specific enrichment rules are applied to reduce label noise and improve representation of under-represented classes.</p>
+<p><strong>Bioregion-specific classification.</strong> A dedicated model is trained for each bioregion using monthly super-resolved Sentinel-2 information and derived vegetation/water indices. The model workflow includes stratified training, validation and test subsets, regularisation, early stopping, learning-rate adaptation and confidence-based iterative refinement of training samples. Models are accepted only after quantitative performance targets and expert spatial review are satisfied. Accepted model weights are frozen and archived to support reproducibility.</p>
+<p><strong>Raster post-processing and vectorisation.</strong> The classified raster is post-processed using GDAL SIEVE with a threshold of 15 and 8-neighbour connectivity to remove small isolated patches and salt-and-pepper artefacts. The result is converted from raster to vector using GDAL POLYGONIZE. Subsequent generalisation, MMU/MMW enforcement, ancillary-data corrections and manual refinement are applied before final packaging of the Protected Areas product.</p>
+</section>
+</section>
+<section id="post-processing-and-manual-refinement" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="post-processing-and-manual-refinement"><span class="header-section-number">3.9</span> Post-processing and manual refinement</h2>
+<p>After obtaining the raster result at 2.5 m × 2.5 m resolution, a specific post-processing workflow is applied to convert the raster output into a vector product in accordance with the rules specified in the Invitation to Tender (ITT) requirements. As a first step, isolated pixels are removed using GDAL SIEVE with 8-neighbour connectivity to reduce salt-and-pepper effects. GDAL POLYGONIZE is then used to convert the raster result to vector format. The workflow preserves the detailed delineation provided by the super-resolved Sentinel-2 imagery while applying generalisation rules to reduce the number of vertices without losing relevant boundary detail. Particular emphasis is placed on forest delineation because these classes are especially relevant for end users. Areas below the 0.5 ha MMU are aggregated to the closest suitable polygon. A similar approach is applied to corridor-like geometries. The general MMW is 10 m. Corridors narrower than 10 m are detected and corrected or generalised whenever possible. Exceptions may be retained when correction is not feasible without compromising a valid narrow feature (for example, a narrow polygon between a road and a railway) or when the feature is located at the product boundary; these cases are documented using the COMMENT attribute. The corridor-detection procedure is illustrated in Figure 7.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Protected_Areas_2021-2024_ATBD_v1-media/img-af1d0e952b199308d26f5abeab3cb640.jpeg" class="img-fluid figure-img" style="width:433pt" alt="This map displays a false-color satellite image of a landscape characterized by dense vegetation and wetland features, overlaid with vector boundaries. The background imagery shows healthy vegetation in bright red tones, interspersed with lighter cyan areas, which likely represent less dense vegetation, bare ground, or water-influenced terrain. Prominent bright cyan polygons with black outlines are labelled 'Corridor feature' in the legend; one is located centrally, and another, larger one representing a river or extensive water body, is visible at the top right. Irregular yellow lines, labelled 'Area boundary,' delineate various polygons across the map, often following land cover transitions. A smaller blue feature, likely a small water body, is also visible within a lighter cyan patch towards the top left. The map includes a scale bar indicating distances of 0, 0.25, 0.5, and 1.0 km, and a North arrow. The imagery is consistent with a Sentinel-2 false-color composite, used for land cover mapping within the Copernicus Land Monitoring Service (CLMS)."></p>
+<figcaption>Figure 7: Example of corridor detection within the PA2021 post-processing workflow.</figcaption>
+</figure>
+</div>
+<p>Roads and railways have been extracted from Open Street Maps information with a fixed buffer (and later checked by the manual refinement team that it is continuous and visible within the VHR image). Also, to guarantee consistency between CLMS layers, PA2021 models not only are fed with these data but also used as a post-processing step to improve the result. As a matter of an example, PA2021 areas within Coastal Areas use systematically labels from these layers from 2018 but maintain geometries from the automatic process. In this sense, operators check manually that there is no mismatch between layers (e.g.&nbsp;changes between CZ2018 and PA2021). For those results obtained from the automatic approach as 7xxxx, label at level 4 has been extracted from European Wetland Map, of special importance for the peatbogs. Mountainous areas are prone to show urban false positives within the 2,5x2,5-meter raster, especially in rocks and bare areas. CLCPlus Backbone 2021 has been used to filter automatically those polygons with improbable presence of urban areas and re-labelled accordingly thanks to a crosswalk between the maximum percentage of the class present and the PA2021 nomenclature within the polygon. Likewise, a crosswalk between Open Street Map features and PA2021 classes has been carried out in order to get as much as possible information (even though it is checked by the operators afterwards to avoid any mismatch related to different timeframes). A nice example is the location of farms close to the coast of Netherlands, which are all 1120.</p>
+<p>Regarding manual refinement activities, a well-trained team of photointerpreters make use of the VHR_2021_IMAGE provided by EEA as WMS (Web Map Service) with the automatic result loaded in a GIS (Geographic Information System) project. The main objective is to preserve as much as possible the delimitation provided by the automatic process to keep the objectivity of the layer. Since the automatic result does not reach L4 levels, especially for urban, wetlands and water, a specific in-house software has been generated. It works as a huge browse feature on the automatic layer with the VHR as a background, setting up the L4 buttons to be clicked by them. Thousands of polygons have been relabelled through this process, more important in those areas with no CLMS data.</p>
+</section>
+<section id="data-wrapping" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="data-wrapping"><span class="header-section-number">3.10</span> Data wrapping</h2>
+<p>PA2021 has generated a set of products that are ready-to-use at a European scale. The final delivery will include:</p>
+<ul>
+<li><p><strong>Data Deliverable.</strong> The core data deliverable is the Land Cover/Land Use (LC/LU) Protected Areas product for the reference years 2021 and 2024, covering all terrestrial Natura 2000 sites in the EU27. The production relies on semi-automatic workflows combining Sentinel and Very High Resolution (VHR) satellite imagery, harmonized with in-situ and ancillary datasets (such as CLMS N2K, Coastal Zones, HRLS, CLCPlus, etc.). The deliverable consists of both raster and vector products, segmented and classified into 59 thematic classes according to MAES (Mapping and Assessment of Ecosystems and their Services) and CORINE nomenclatures. All products are produced to meet minimum mapping unit, geometric accuracy, and thematic requirements as defined by EEA. Data are delivered in geospatial formats suitable for integration and analysis at the European scale, ensuring harmonization with other CLMS products and facilitating downstream biodiversity and policy applications. PA2021 final delivery (at a bioregional scale; a total of 38 has been delivered so far) consists of both Geopackage and Geodatabase files with LC/LU information at Level4, accompanied by metadata in a ZIP format.</p></li>
+<li><p><strong>Metadata.</strong> Comprehensive metadata accompanies all data deliverables, ensuring full traceability, transparency, and reproducibility. Metadata includes details on data sources (satellite missions, ancillary datasets), processing chains (pre-processing, segmentation, classification, post-processing), quality control steps, spatial and temporal coverage, and thematic class definitions. Metadata follows INSPIRE and Copernicus standards to support interoperability and compliance with EU (European Union) data sharing policies. The metadata structure documents versioning, product specifications, and processing history to facilitate updates and future validation efforts.</p></li>
+<li><p><strong>Product Delivery and Quality Control Reports.</strong> Each product delivery is accompanied by a QC Report, prepared by COTESA, which documents all steps taken to ensure technical and thematic quality, including internal validation protocols, visual and statistical checks, and comparison with previous versions (e.g., N2K 2018). Collecte Localisation Satellites (CLS) is responsible for independent thematic validation and QA as internal validation, leveraging their expertise in Copernicus land monitoring and cross-product harmonization. The QA process covers accuracy assessment (including sampling design, confusion matrices, and user/producer accuracies), reporting of omissions and commissions, and thematic plausibility checks across bioregions. The combined QC/QA framework guarantees compliance with EEA requirements and provides confidence to end users on data reliability.</p></li>
+<li><p><strong>PSIL (Product Specification and Inventory List).</strong> PSIL is a comprehensive catalogue of all products delivered under the contract. It details product names, formats, spatial and temporal extents, class hierarchies, and file organization. The PSIL is essential for documentation, project management, and user guidance, ensuring all stakeholders have a clear overview of the available data products and their specifications. The PSIL follows the standards set by Copernicus and the EEA, facilitating future updates and data integration efforts.</p></li>
+<li><p><strong>Confidence Layer.</strong> Each LC/LU product is complemented by a confidence layer, providing spatially explicit information on the predicted accuracy or uncertainty for each classified unit. The confidence layer is derived from model outputs (e.g.&nbsp;class probability surfaces). This information is critical for end users, as it allows them to interpret results with appropriate caution and to prioritise areas for further review or field validation. Each bioregion also holds a confidence layer, understood as the maximum probability of the most probable class according to the model, and a heterogeneity layer, understood as the number/diversity of classes contained within each 10 m pixel. The raw model output has a resolution of 2.5 m × 2.5 m, so 16 model pixels contribute to each 100 m² area.</p></li>
+</ul>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="uncertainty-limitations-and-known-issues" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Uncertainty, limitations and known issues</h1>
+<p>This novel approach of generating LC/LU information from superresolved Sentinel-2 time series present several advantages but there are other limitations and known issues to be taken into account. The main motto of the use of this workflow is the traceability; the final PA2021 result directly communicates with the model results. In this sense, additional layers (such as confidence, heterogeneity) bring the possibility to the user of understanding what’s behind of the errors. Some known issues are listed below as follows:</p>
+<ul>
+<li>Due to the temporal sensitive nature of this pipeline, dynamic areas (e.g.&nbsp;water level in Spanish reservoirs) may differ when seen from the VHR imagery. The model tried to adapt to the maximum level of water within the year, in concordance with the EEA team.</li>
+<li>Commission of 7xxxx classes, specifically within PA2021 sites in northern Europe (e.g.&nbsp;Scandinavia and UK plus Ireland). This is quite significant within peatbogs, which in reality are vast wetlands systems that may seem heathland from the VHR imagery. By comparing the result with the European Wetland Map in those areas, there is absolute agreement for almost all the points.</li>
+<li>There is a clear lack of CLMS data in those areas, with a very limited presence of N2K18 status layer. Since PA2021 automatic model is looking at the whole superresolved Sentinel-2 time series, it is quite sensitive to the presence of humidity on the ground. Thus, there might be a difference between the VHR from 2021 and PA2021 status layer result.</li>
+<li>Heathland infraestimation towards grasslands due to a mix between classes and an overrepresentation of grasslands within CLMS layers (depending on specific bioregions).</li>
+<li>Confusion between crops and heathlands due to the use of N2K18, RZ18, CZ18 layers to extract training points plus low growing woody plants from CLCPlus Backbone 2021 limited by HRL Crop Types 2021. This last layer seems to omit some crops (e.g.&nbsp;vineyards located in Istria, Croatia), causing more incorrect training points of heathlands.</li>
+<li>Confusion between croplands, managed grasslands and natural grasslands due to the similar spectro-phenological behavior shown within the superresolved Sentinel-2 time series.</li>
+<li>More level of detail within polygons means that there are more vertexes so polygons may be more irregular, specifically diffuse within subjective classes (e.g.&nbsp;agroforestry). This is of particular relevance within typical land use classes such as urban:
+<ul>
+<li>Isolated houses connected by non-artificial surfaces might be omitted since the post-processing rules (such as minimum mapping unit and minimum mapping width) tends to generalize.</li>
+<li>In a similar sense, gardens are strictly grasslands regarding the automatic process, so they might be omitted as well in terms of Land Use.</li>
+</ul></li>
+</ul>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="validation-and-quality-assessment" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Validation and quality assessment</h1>
+<section id="overview-of-the-validation-activities" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="overview-of-the-validation-activities"><span class="header-section-number">5.1</span> Overview of the validation activities</h2>
+<p>The validation activities undertaken for the Protected Areas Land Cover/Land Use (Protected Areas PA LC/LU) 2021 status layer constituted a fundamental component of the quality assurance framework established within the project <strong>Copernicus Land Monitoring Services: Priority Area Monitoring - Protected Areas 2021 and 2024</strong>. The objective of these activities was not only to verify compliance with contractual accuracy requirements but also to provide a comprehensive understanding of the thematic behaviour of the product across the ecological diversity represented within Natura 2000 sites throughout Europe. The validation exercise covered the complete extent of the PA2021 layer, corresponding to more than <strong>821,000 km²</strong>, and therefore represented the first full-scale assessment of the new generation Protected Areas product.</p>
+<p>The assessment framework (further details on the validation methodology, sampling design and thematic accuracy assessment are provided in the Final Validation Report (Hugé &amp; Pennec, 2026)) combined geospatial quality evaluation, statistical validation procedures, independent interpretation exercises and plausibility analyses. The methodology followed internationally accepted practices derived from Committee on Earth Observation Satellites (CEOS) recommendations and INSPIRE data quality specifications, ensuring consistency with previous Copernicus validation exercises while adapting the workflow to the increased complexity of the PA2021 product. Particular emphasis was placed on thematic accuracy because the product introduces an expanded nomenclature containing <strong>59 classes</strong>, significantly increasing thematic detail compared with previous Natura 2000 products.</p>
+<p>Validation activities were performed independently from production workflows. This separation ensured objectivity and reduced potential bias in interpretation. The assessment relied on a stratified systematic sampling approach derived from the Land Use/Cover Area Frame Statistical Survey (LUCAS) framework and incorporated reference imagery, ancillary information and manual photo-interpretation procedures. The final sample population reached approximately <strong>37,000 validation points</strong>, providing statistically robust results at pan-European scale while maintaining representation of all Level 1 thematic classes.</p>
+<p>Besides the numerical assessment, additional visual inspection activities were carried out to evaluate polygon geometry, thematic plausibility and consistency between mapped classes and ecological patterns. This dual approach allowed the validation exercise to move beyond simple accuracy indicators and identify structural limitations, recurrent confusion patterns and opportunities for future methodological improvements.</p>
+</section>
+<section id="thematic-performance-of-the-pa2021-product" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="thematic-performance-of-the-pa2021-product"><span class="header-section-number">5.2</span> Thematic performance of the PA2021 product</h2>
+<p>The thematic assessment confirmed that the PA2021 status layer achieved the expected quality targets established in the technical specifications. The final product reached an overall accuracy of 89.63%, with a 95% confidence interval of <span class="math inline">\(\pm0.30\)</span> percentage points, exceeding the contractual threshold of 85%, exceeding the contractual threshold of 85%, demonstrating the robustness of the production workflow and confirming the suitability of the adopted methodology for continental implementation.</p>
+<p>Performance varied among thematic classes according to ecological complexity and landscape heterogeneity. Forest and water classes achieved the highest levels of reliability. Woodland and Forest reached a Producer Accuracy of 94.75% (95% CI: <span class="math inline">\(\pm0.32\)</span> percentage points) and a User Accuracy of 97.91% (95% CI: <span class="math inline">\(\pm0.22\)</span> percentage points), representing one of the strongest components of the classification. These results indicate that the combination of temporal Sentinel-2 information, ancillary CLMS products and regional modelling successfully captured forest structures across different ecological environments. Water classes performed even better, showing minimal confusion with neighboring categories and very high thematic stability.</p>
+<p>Agricultural and grassland environments produced intermediate results. Cropland achieved a Producer Accuracy of 90.52% (95% CI: <span class="math inline">\(\pm0.89\)</span> percentage points), although commission errors remained relatively high due to frequent confusion with grassland systems. These difficulties are largely explained by phenological similarities, rotational agricultural practices and temporary fallow periods. In many Mediterranean and transitional environments, spectral responses of managed grasslands and cultivated fields overlap during specific periods of the year, reducing separability. Grassland classes also showed bidirectional confusion with croplands, shrublands and wetlands, reflecting the complexity of semi-natural ecosystems frequently observed within Natura 2000 sites.</p>
+<p>The most problematic thematic groups corresponded to <strong>Heathland and Scrub</strong> and <strong>Wetland</strong> classes. Shrub environments achieved a Producer Accuracy below the target threshold, mainly because of transitions with natural grasslands and forest edges. Validation teams repeatedly identified extensive polygons containing mixtures of shrubs, herbaceous vegetation and sparse tree cover. These situations were particularly frequent in alpine and Nordic regions where ecological transitions are gradual and difficult to delimit precisely. Thematic ambiguities were further increased by the presence of dwarf shrubs, mosses, lichens and low woody vegetation that can exhibit spectral behaviour similar to grasslands.</p>
+<p>Wetlands represented the class with the lowest User Accuracy, indicating elevated commission errors. The strongest confusion occurred with shrublands and hydrophilous grasslands, especially in northern habitats. Several wet ecosystems presented mixed characteristics combining moisture gradients, herbaceous vegetation and sparse woody structures, making strict separation difficult even during manual interpretation. Despite these limitations, Producer Accuracy remained above target values, indicating that wetlands were generally detected but occasionally overestimated in extent.</p>
+<p>Overall, thematic performance demonstrated that the PA2021 methodology successfully captured the dominant ecological structures of European protected areas while highlighting specific classes requiring additional refinement for future updates.</p>
+</section>
+<section id="geometric-quality-delineation-issues-and-product-limitations" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="geometric-quality-delineation-issues-and-product-limitations"><span class="header-section-number">5.3</span> Geometric quality, delineation issues and product limitations</h2>
+<p>Beyond thematic accuracy, validation activities also examined the spatial behaviour of polygons and their correspondence with landscape structures visible in reference imagery. This additional assessment revealed that although the product achieved satisfactory thematic quality, some geometric limitations remain and should be considered during interpretation and future updates.</p>
+<p>One of the most recurrent observations concerned the presence of very large polygons containing internally heterogeneous landscapes. Validation teams identified polygons ranging from several hundred square kilometres to, in exceptional cases, more than one thousand square kilometres. These polygons frequently included combinations of croplands, grasslands, shrublands, wetlands and urban structures that exceeded the minimum mapping unit and could therefore have been represented as separate objects.</p>
+<p>This phenomenon was particularly visible in Balkan, Mediterranean and Nordic regions. In Mediterranean landscapes, agricultural mosaics and shrub transitions often remained aggregated within broader polygons despite containing distinguishable internal structures. In Nordic environments, extensive shrublands and grassland patches occasionally appeared merged into large units, reducing thematic detail.</p>
+<p>Boundary delineation also represented an important source of uncertainty. River margins, wetland transitions and forest edges frequently showed ambiguous geometry due to seasonal variability and gradual ecological transitions. Water bodies were especially sensitive to temporal fluctuations because imagery acquisition dates did not always coincide with identical hydrological conditions. Consequently, river widths and shorelines occasionally differed from the interpreted reference situation.</p>
+<p>Another limitation concerned ecological transition zones. Interfaces between shrublands and forests, alpine grasslands and rocky areas, or wetlands and hydrophilous vegetation often lacked sharp boundaries in reality. In such environments, thematic separation becomes partially subjective and depends strongly on interpretation criteria and local ecological conditions.</p>
+<p>Despite these limitations, the validation exercise confirmed that most identified issues correspond to refinement opportunities rather than systematic methodological weaknesses. The product remains fully suitable for large-scale ecological analysis and significantly improves thematic detail compared with previous Natura 2000 datasets.</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="terms-of-use-and-product-technical-support" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Terms of use and product technical support</h1>
+<section id="terms-of-use" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="terms-of-use"><span class="header-section-number">6.1</span> Terms of use</h2>
+<p>The product(s) described in this document is/are created in the frame of the Copernicus programme of the European Union by the European Environment Agency (product custodian) and is/are owned by the European Union. The product(s) can be used following the Copernicus full, free and open data policy, which allows the use of the product(s) also for commercial purposes. Derived products created by end users from the product(s) described in this document are owned by the end users, who have all intellectual property rights to the derived products.</p>
+</section>
+<section id="citation" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="citation"><span class="header-section-number">6.2</span> Citation</h2>
+<p>In cases of re-dissemination of the product(s) described in this document, or when the product(s) is/are used to create a derived product, a reference to the source is required. The following acknowledgement can be used:</p>
+<p>“© European Union, Copernicus Land Monitoring Service <year>, European Environment Agency (EEA)”</year></p>
+</section>
+<section id="product-technical-support" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="product-technical-support"><span class="header-section-number">6.3</span> Product technical support</h2>
+<p>Product technical support is provided by the product custodian through the Copernicus Land Monitoring Service helpdesk at copernicus@eea.europa.eu. Product technical support does not include software-specific user support or general GIS or remote sensing support.</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="list-of-abbreviations-acronyms" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> List of abbreviations &amp; acronyms</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Abbreviation</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AoI</td>
+<td>Area of Interest</td>
+</tr>
+<tr class="even">
+<td>AT</td>
+<td>Analysis/Training point(s)</td>
+</tr>
+<tr class="odd">
+<td>ATBD</td>
+<td>Algorithm Theoretical Basis Document</td>
+</tr>
+<tr class="even">
+<td>BBOX</td>
+<td>Bounding Box</td>
+</tr>
+<tr class="odd">
+<td>CEOS</td>
+<td>Committee on Earth Observation Satellites</td>
+</tr>
+<tr class="even">
+<td>CLC</td>
+<td>CORINE Land Cover</td>
+</tr>
+<tr class="odd">
+<td>CLCPlus Backbone</td>
+<td>CLCPlus Backbone</td>
+</tr>
+<tr class="even">
+<td>CLS</td>
+<td>Use the consortium partner’s official full organisation name</td>
+</tr>
+<tr class="odd">
+<td>CLMS</td>
+<td>Copernicus Land Monitoring Service</td>
+</tr>
+<tr class="even">
+<td>CORINE</td>
+<td>Coordination of Information on the Environment</td>
+</tr>
+<tr class="odd">
+<td>CZ18</td>
+<td>Coastal Zones 2018</td>
+</tr>
+<tr class="even">
+<td>EEA</td>
+<td>European Environment Agency</td>
+</tr>
+<tr class="odd">
+<td>EPSG</td>
+<td>European Petroleum Survey Group coordinate reference system code</td>
+</tr>
+<tr class="even">
+<td>ESA</td>
+<td>European Space Agency</td>
+</tr>
+<tr class="odd">
+<td>ETRS89</td>
+<td>European Terrestrial Reference System 1989</td>
+</tr>
+<tr class="even">
+<td>EU</td>
+<td>European Union</td>
+</tr>
+<tr class="odd">
+<td>EU27</td>
+<td>European Union 27 Member States</td>
+</tr>
+<tr class="even">
+<td>GDAL</td>
+<td>Geospatial Data Abstraction Library</td>
+</tr>
+<tr class="odd">
+<td>GIS</td>
+<td>Geographic Information System</td>
+</tr>
+<tr class="even">
+<td>HRL</td>
+<td>High Resolution Layer</td>
+</tr>
+<tr class="odd">
+<td>INSPIRE</td>
+<td>Infrastructure for Spatial Information in the European Community</td>
+</tr>
+<tr class="even">
+<td>IoU</td>
+<td>Intersection over Union</td>
+</tr>
+<tr class="odd">
+<td>IRIX4</td>
+<td>IRIX4 Super Resolution algorithm</td>
+</tr>
+<tr class="even">
+<td>ISO</td>
+<td>International Organization for Standardization</td>
+</tr>
+<tr class="odd">
+<td>ITT</td>
+<td>Invitation to Tender</td>
+</tr>
+<tr class="even">
+<td>L4</td>
+<td>Level 4</td>
+</tr>
+<tr class="odd">
+<td>LAEA</td>
+<td>Lambert Azimuthal Equal Area</td>
+</tr>
+<tr class="even">
+<td>LC/LU</td>
+<td>Land Cover / Land Use</td>
+</tr>
+<tr class="odd">
+<td>LUCAS</td>
+<td>Land Use/Cover Area Frame Statistical Survey</td>
+</tr>
+<tr class="even">
+<td>MAES</td>
+<td>Mapping and Assessment of Ecosystems and their Services</td>
+</tr>
+<tr class="odd">
+<td>MMU</td>
+<td>Minimum Mapping Unit</td>
+</tr>
+<tr class="even">
+<td>MMW</td>
+<td>Minimum Mapping Width</td>
+</tr>
+<tr class="odd">
+<td>NAIP</td>
+<td>National Agriculture Imagery Program</td>
+</tr>
+<tr class="even">
+<td>N2K</td>
+<td>Natura 2000</td>
+</tr>
+<tr class="odd">
+<td>N2K18</td>
+<td>Natura 2000 2018</td>
+</tr>
+<tr class="even">
+<td>NIR</td>
+<td>Near-Infrared</td>
+</tr>
+<tr class="odd">
+<td>OSM</td>
+<td>OpenStreetMap</td>
+</tr>
+<tr class="even">
+<td>PA</td>
+<td>Protected Areas</td>
+</tr>
+<tr class="odd">
+<td>PAM</td>
+<td>Priority Area Monitoring</td>
+</tr>
+<tr class="even">
+<td>PNOA</td>
+<td>Plan Nacional de Ortofotografía Aérea</td>
+</tr>
+<tr class="odd">
+<td>PSIL</td>
+<td>Product Specification and Inventory List</td>
+</tr>
+<tr class="even">
+<td>QA</td>
+<td>Quality Assurance</td>
+</tr>
+<tr class="odd">
+<td>QC</td>
+<td>Quality Control</td>
+</tr>
+<tr class="even">
+<td>RGBn</td>
+<td>Red, Green, Blue and Near-Infrared bands</td>
+</tr>
+<tr class="odd">
+<td>RMSE</td>
+<td>Root Mean Square Error</td>
+</tr>
+<tr class="even">
+<td>RZ18</td>
+<td>Riparian Zones 2018</td>
+</tr>
+<tr class="odd">
+<td>S2</td>
+<td>Sentinel-2</td>
+</tr>
+<tr class="even">
+<td>S2SR</td>
+<td>Super-resolved Sentinel-2</td>
+</tr>
+<tr class="odd">
+<td>SPOT</td>
+<td>Commercial high-resolution optical Earth observation satellite system</td>
+</tr>
+<tr class="even">
+<td>SR</td>
+<td>Super-Resolution</td>
+</tr>
+<tr class="odd">
+<td>SRGAN</td>
+<td>Super-Resolution Generative Adversarial Network</td>
+</tr>
+<tr class="even">
+<td>TempCNN</td>
+<td>Temporal Convolutional Neural Network</td>
+</tr>
+<tr class="odd">
+<td>UTM</td>
+<td>Universal Transverse Mercator</td>
+</tr>
+<tr class="even">
+<td>VHR</td>
+<td>Very High Resolution</td>
+</tr>
+<tr class="odd">
+<td>WMS</td>
+<td>Web Map Service</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="references" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> References</h1>
+<p>Copernicus Land Monitoring Service (CLMS). (2026). Protected Areas Nomenclature and Mapping Guideline, Issue 1.4, 30 April 2026. Unpublished project document.</p>
+<p>European Commission, Joint Research Centre (JRC). (2013). INSPIRE Metadata Implementing Rules: Technical Guidelines based on EN ISO 19115 and EN ISO 19119. 29 October 2013. European Commission.</p>
+<p>European Environment Agency (EEA). (2022). Call for tenders EEA/DIS/R0/23/009 – Annex I: Tender Specifications. Copernicus Land Monitoring Services: Priority Area Monitoring – Protected Areas 2021 and 2024. Issued 1 September 2022. Procurement document.</p>
+<p>Hugé, J., &amp; Pennec, A. (2026). Protected Areas LC/LU 2021 status product – Final Validation Report, Version 2.0. Copernicus Land Monitoring Services: Priority Area Monitoring – Protected Areas 2021 and 2024. Service contract EEA/DIS/R0/23/009. 31 March 2026. Unpublished project document.</p>
+<p>European Space Agency (ESA). (2022–2025). OpenSR — Robust, accountable super-resolution for Sentinel-2 and beyond. ESA Φ-lab project, University of Valencia &amp; Signal Processing Group.</p>
+
+
+</section>
+<section id="change-log" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Change Log</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Version</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2026-11-10</td>
+<td>1.1.0</td>
+<td>Initial release of the 'Protected Areas 2021-2024 - Algorithm Theoretical Basis Document (ATBD)' document, outlining the technical characteristics, production methodologies, and workflows for generating the Protected Areas LC/LU datasets.</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+<!-- Mobile-only "Contents" button that reveals the section TOC, which the
+     full-width HTML layout hides on small screens. Styling is in
+     theme/styles.css (.toc-mobile-btn / body.toc-mobile-open). -->
+<script>
+(function () {
+  var toc = document.getElementById('TOC');
+  if (!toc) return; // no section TOC on this page (e.g. listings) -> no button
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toc-mobile-btn';
+  btn.setAttribute('aria-label', 'Toggle table of contents');
+  btn.innerHTML = '☰ Contents';
+  btn.addEventListener('click', function () {
+    document.body.classList.toggle('toc-mobile-open');
+  });
+  document.body.appendChild(btn);
+
+  // Tapping a TOC link closes the panel.
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a')) document.body.classList.remove('toc-mobile-open');
+  });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/library\.land\.copernicus\.eu");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2026 EEA. All rights reserved.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

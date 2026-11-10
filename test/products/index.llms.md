@@ -4,7 +4,7 @@
 
 | Title | version | Date |
 |----|----|----|
-| [CLC+ Core User Manual](../products/clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1.llms.md) | 1.2.0 | Sep 28, 2026 |
+| [CLC+ Core User Manual](../products/clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1.llms.md) | 1.3.0 | Sep 28, 2026 |
 | [CLC+ Core User Manual Annex](../products/clcplus-core_CLCplusCore_User_Manual_Issue_5.0_Annex_Admin_User_v1.llms.md) | 1.2.0 | Sep 28, 2026 |
 | [CLCplus Backbone 2021 - Product User Manual](../products/CLCplus_Backbone_2021_PUM_v1.llms.md) | 1.2.3 | Jun 12, 2025 |
 | [CLCplus Backbone 2023 - Algorith Theoretical Basis Document](../products/CLCplus_Backbone_2023_ATBD_v1.llms.md) | 1.2.3 | Apr 1, 2025 |
@@ -20,7 +20,10 @@
 | [Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Algorithm Theoretical Basis Document (ATBD)](../products/MRVPP_MRVPP_ATBD_v2.llms.md) | 2.2.0 | Jun 9, 2026 |
 | [Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Product User Manual (PUM)](../products/MRVPP_MRVPP_PUM_v1.llms.md) | 1.2.0 | Jun 18, 2026 |
 | [N2K 2006-2018 - Product User Manual](../products/N2K_2006-2018_PUM_v1.llms.md) | 1.0.3 | Jun 1, 2021 |
-| [NOMENCLATURE and MAPPING GUIDELINE](../products/Protected_Areas_PA21_Description_MappingFeatures_Guideline_v3.llms.md) | 3.1.0 | Sep 18, 2026 |
+| [Product Name – Algorithm Theoretical Basis Document (ATBD)](../products/templates_CLMS_ATBD_Template_v1.llms.md) | 1.1.0 | Nov 5, 2026 |
+| [Product Name – Product User Manual (PUM)](../products/templates_CLMS_PUM_Template_v1.llms.md) | 1.1.0 | Nov 5, 2026 |
+| [Protected Areas 2021 - Product User Manual (PUM)](../products/Protected_Areas_2021_PUM_v1.llms.md) | 1.1.0 | Feb 26, 2026 |
+| [Protected Areas 2021-2024 - Algorithm Theoretical Basis Document (ATBD)](../products/Protected_Areas_2021-2024_ATBD_v1.llms.md) | 1.1.0 | Sep 17, 2026 |
 | [Riparian Zones 2012-2018 - Nomenclature Guideline](../products/Riparian_Zones_2012-2018_Nomenclature_Guideline_v1.llms.md) | 1.5.3 | Dec 14, 2021 |
 | [Riparian Zones LC/LU and change 2012-2018 - Product User Manual](../products/Riparian_Zones_2012-2018_PUM_v1.llms.md) | 1.0.3 | Aug 1, 2023 |
 | [Urban Atlas 2021 – Algorithm Theoretical Basis Document](../products/Urban_Atlas_CLMS_UA2021_LULC_ATBD_v1.llms.md) | 1.0.3 | Feb 5, 2026 |

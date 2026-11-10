@@ -174,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `1.0.2`.trim();
+    const raw = `1.0.3`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -182,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.0.2</p>
+          <p>1.0.3</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -235,15 +235,6 @@ Kongens Nytorv 6<br>
 Denmark<br>
 <a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
 </div>
-<p><br>
-<strong>Contact:</strong></p>
-<div data-custom-style="LeftAlign">
-<p>European Environment Agency (EEA)<br>
-Kongens Nytorv 6<br>
-1050 Copenhagen K<br>
-Denmark<br>
-<a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
-</div>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"Figure  1  -  ‘Which  category  describes  best  your  current  professional  activity?’  (single  choice)","url":"dr3yejtzxollhygq0lwfgjxf755jvzyly2lemmvpgiqrzf5own2074qpdivug54c-media/img-7fc03cfba11c7af99271d646985f693eea22b9bd.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  2  -  ‘How  would  you  rate  your  technical  skills  in  the  field  of  geospatial  applications?’","url":"dr3yejtzxollhygq0lwfgjxf755jvzyly2lemmvpgiqrzf5own2074qpdivug54c-media/img-d82b983272123af1c3826fb1c922c0428186da86.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  3  -  ‘How  do  you  normally  work  with  geodata?’","url":"dr3yejtzxollhygq0lwfgjxf755jvzyly2lemmvpgiqrzf5own2074qpdivug54c-media/img-b517b561ae2527eb4f9db918fdb10897bb804325.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  4  -  What  is  the  data  amount  you  are  usually  dealing  with?  (single  choice)","url":"dr3yejtzxollhygq0lwfgjxf755jvzyly2lemmvpgiqrzf5own2074qpdivug54c-media/img-fd0320b7c3ea7d2d43dc68e239016ec2f0d948f4.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  5  -   (multiple  question)","url":"dr3yejtzxollhygq0lwfgjxf755jvzyly2lemmvpgiqrzf5own2074qpdivug54c-media/img-9fcdf4dd99e33e58363bedaf14ede7ffd8020dff.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  6  -  In  recent  times,  let’s  say  in  the  past  year,  have  you  been  working  in  a  cloud  processing  environment?","url":"dr3yejtzxollhygq0lwfgjxf755jvzyly2lemmvpgiqrzf5own2074qpdivug54c-media/img-847a58a2c98af9f2bb83d5970d0a80c5b862ded8.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  7  –  What  is  the  scale  you  are  usually  working  on?  (multiple  choice)","url":"dr3yejtzxollhygq0lwfgjxf755jvzyly2lemmvpgiqrzf5own2074qpdivug54c-media/img-512418cabf87a8782d0d8a929294999ef8874591.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  8  -  Generally,  do  you  find  yourself  in  the  situation  where  you  would  like  to  have  more  data/products  at  your  disposal?","url":"dr3yejtzxollhygq0lwfgjxf755jvzyly2lemmvpgiqrzf5own2074qpdivug54c-media/img-b9a0538f6ac96aa1dc153d1e6526ec2149bc2f7a.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  9  –  ‘Think  about  new  products  that  you  wish  to  include  in  your  processes.  How  difficult/problematic  is…’","url":"dr3yejtzxollhygq0lwfgjxf755jvzyly2lemmvpgiqrzf5own2074qpdivug54c-media/img-a9bf8b3bb3ef3583aacd84449d7142cc137d5de1.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  10  –  ‘How  easy  it  is…’","url":"dr3yejtzxollhygq0lwfgjxf755jvzyly2lemmvpgiqrzf5own2074qpdivug54c-media/img-7059a8039acb8745a6057d792689b8d46f062375.png","width":"6.27in"},{"@type":"ImageObject","caption":"Figure  11  -","url":"dr3yejtzxollhygq0lwfgjxf755jvzyly2lemmvpgiqrzf5own2074qpdivug54c-media/img-1dfb0d2b588aed2d55dd53387a4c4271397c434b.png","width":"6.27in"}]}
 </script>
@@ -252,7 +243,7 @@ Denmark<br>
 <p>This report summarises the outcomes of the CLDS consultation survey launched on October 01, 2023. In addition to standard single/multiple choice questions and tables, the survey also offered several options for open replies and the possibility to interact further with CLMS by email. This was done to increase the possibility for interaction and to inquire about aspects respondents might consider relevant but were not covered by the questions.</p>
 <p>The goal of the survey was to better understand working practices in the field of geospatial applications. In particular, we were interested to understand limiting factors that inhibit (or block) users from working on the cloud. The underlaying assumption is that an eventual migration to a cloud environment depends on several factors, which can be grouped into two key forces, and which the survey tries to assess specifically:</p>
 <ol type="1">
-<li><p><strong>intensity of the need</strong> (e.g., the lack of non-cloud-based infrastructure to cope with given data volumes and processing needs) against</p></li>
+<li><p><strong>intensity of the need</strong> e.g., the lack of non-cloud-based infrastructure to cope with given data volumes and processing needs; against</p></li>
 <li><p><strong>intensity of concerns and difficulties</strong> standing in the way of such migration.</p></li>
 </ol>
 <p>Only when the needs outweigh the concerns and difficulties will a user consider migrating to the cloud. Finally, there is a third force worth mentioning - <strong>curiosity</strong> - which can introduce a certain unpredictability into the otherwise predictable equation of the first two. The flexibility to scale computing and storage resources as needed is considered as one important advantage of a cloud environment. Equally important is the data pool a cloud environment makes accessible.</p>
@@ -631,11 +622,16 @@ Denmark<br>
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-11-10</td>
+<td>1.0.3</td>
+<td>Removed the contact information section and made a minor punctuation adjustment in the introduction.</td>
+</tr>
+<tr class="even">
 <td>2026-10-29</td>
 <td>1.0.2</td>
 <td>Removed obsolete `toc`, `toc-depth`, `toc-title`, and `version` metadata from YAML frontmatter.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2026-06-03</td>
 <td>1.0.1</td>
 <td>• Updated URL encoding for a reference link in the introduction
@@ -643,7 +639,7 @@ Denmark<br>
 • Removed an unnecessary page break instruction
 • Minor updates to section anchor IDs for consistency</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>2025-12-03</td>
 <td>1.0.0</td>
 <td>Initial release</td>
