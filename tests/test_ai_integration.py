@@ -19,6 +19,7 @@ sys.modules["json5"] = MagicMock()
 
 # Import the modules
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../.github/scripts"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../.github/scripts/ai"))
 import update_versions_and_changelogs
 import generate_intros_and_keywords
 

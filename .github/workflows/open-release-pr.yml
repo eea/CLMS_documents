@@ -36,6 +36,14 @@ jobs:
       contents: read
 
     steps:
+      # GitHub always shows a "Use workflow from" branch picker. The PR is
+      # always test -> main; run test's copy of this workflow, the one released.
+      - name: Guard - must run from test
+        if: github.ref != 'refs/heads/test'
+        run: |
+          echo "::error::Run this from 'test' (Use workflow from: test), not '${{ github.ref_name }}'."
+          exit 1
+
       - name: Checkout
         uses: actions/checkout@v6
         with:
