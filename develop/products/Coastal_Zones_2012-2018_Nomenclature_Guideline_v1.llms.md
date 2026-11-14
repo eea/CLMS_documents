@@ -6738,7 +6738,7 @@ Back to top
 
 ## Reuse
 
-EUPL (\>= 1.2)
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 [^1]: MAES, J., et al. (2013): Mapping and assessment of ecosystems and their services. An analytical framework for ecosystem assessments under Action 5 of the EU Biodiversity Strategy to 2020, Discussion paper (http://ec.europa.eu/environment/nature/knowledge/ecosystem_assessment/pdf/ MAESWorkingPaper2013.pdf)
 

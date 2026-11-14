@@ -1123,7 +1123,7 @@ Back to top
 
 ## Reuse
 
-EUPL (\>= 1.2)
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 [^1]: contribute to climate change mitigation and adaptation, as well as sustainable energy; foster sustainable development and efficient management of natural resources such as water, soil and air; contribute to the protection of biodiversity, enhance ecosystem services and preserve habitats and landscapes.
 

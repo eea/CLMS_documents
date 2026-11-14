@@ -976,7 +976,7 @@ Back to top
 
 ## Reuse
 
-EUPL (\>= 1.2)
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 [^1]: H2020 ECoLaSS User Requirement Analysis: [Deliverable D3.2 – Service Evolution Requirements Report Vol. 2](https://6c1e2b9b-e840-4757-9a09-97d14ddbfe72.filesusr.com/ugd/c90769_5a431f06039141a6b4db4d6b4596d272.pdf)
 
