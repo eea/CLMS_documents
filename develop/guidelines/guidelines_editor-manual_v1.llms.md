@@ -2,7 +2,7 @@
 
 Copernicus Land Monitoring Serviceross references
 
-This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the `develop` branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.
+This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, content formatting, and document licensing policies. It also outlines procedures for local previewing, publishing to the `develop` branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.
 
 Published
 
@@ -10,7 +10,7 @@ May 26, 2026
 
 Keywords
 
-CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning policy, QMD document migration, automated changelog generation, RStudio integration
+CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning policy, QMD document migration, automated changelog generation, document licensing
 
   
 **Contact:**
@@ -130,11 +130,21 @@ Leave these out of your YAML header entirely - the publishing system handles the
 - `keywords` - AI-generated at publish time based on document content. Anything you add gets overwritten.
 - `version` - carried by the filename suffix, not the YAML. No version field belongs in the header.
 
-# 4 Writing Content
+# 4 Licence
+
+**All documents published in the Technical Library are released under the [Creative Commons Attribution 4.0 International licence (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).** That covers every document type - ATBDs, PUMs, guidelines and reports - and every major version of each.
+
+Copyright belongs to the European Union, which owns the Copernicus programme. The EEA publishes these documents on the Union’s behalf, so the documents carry the usual line: © European Union, Copernicus Land Monitoring Service \<year\>, European Environment Agency (EEA).
+
+You don’t add the licence yourself. The library build applies CC BY 4.0 to every page, both as the visible licence line and in the machine-readable metadata. Leave any `license` field out of your YAML header.
+
+If your document contains material that cannot be redistributed under CC BY 4.0 - third-party data, or a figure or table taken from a source with more restrictive terms - remove it, or clear it with a Technical Library owner before the document is published to `develop`.
+
+# 5 Writing Content
 
 Markdown basics - headings, lists, links, images, tables, equations, footnotes, diagrams - are covered in the [Quarto Markdown guide](https://quarto.org/docs/authoring/markdown-basics.html). This chapter covers only what’s specific to this system.
 
-## 4.1 Image folder convention
+## 5.1 Image folder convention
 
 Images go in `<your-document-name>-media/`, referenced with relative paths:
 
@@ -142,7 +152,7 @@ Images go in `<your-document-name>-media/`, referenced with relative paths:
 ![Processing workflow](CLMS_HRL-Forest_PUM_v2-media/workflow.png)
 ```
 
-## 4.2 Page breaks
+## 5.2 Page breaks
 
 Use the Quarto shortcode to insert a page break in PDF output:
 
@@ -152,7 +162,7 @@ Use the Quarto shortcode to insert a page break in PDF output:
 
 Note that `---` renders as a horizontal rule, not a page break.
 
-## 4.3 Complex table layouts
+## 5.3 Complex table layouts
 
 For tables with merged cells, nested content, or custom styling, use HTML tables directly in your `.qmd` file. Both the HTML output and Typst-rendered PDF handle them well.
 
@@ -180,15 +190,15 @@ Standard Markdown tables have limited formatting options. HTML tables let you co
 ```
 ````
 
-# 5 Editing and Previewing Locally
+# 6 Editing and Previewing Locally
 
-## 5.1 Open the project in RStudio
+## 6.1 Open the project in RStudio
 
 1.  Open RStudio
 2.  **File \> Open Project…** and select the root folder of your project
 3.  Navigate to `DOCS/` and open the `.qmd` file you want to edit
 
-## 5.2 Preview your document
+## 6.2 Preview your document
 
 Click the **Render** button at the top of the editor pane to render HTML or PDF:
 
@@ -206,7 +216,7 @@ If the Viewer tab isn’t showing rendered output, go to **Tools \> Global Optio
 
 ![This image is a screenshot of the 'Options' dialog within the RStudio Integrated Development Environment (IDE), displaying settings for R Markdown. On the left navigation panel, 'R Markdown' is selected. The main pane has four tabs: 'Basic' (currently active), 'Advanced', 'Visual', and 'Citations'. Under the 'Basic' tab for 'R Markdown' settings, the following options are visible: 'Show document outline by default' (unchecked), 'Soft-wrap R Markdown files' (checked), and 'Show in document outline:' (dropdown set to 'Sections Only'). A key setting, 'Show output preview in:', is highlighted with a purple border, and its dropdown is set to 'Viewer Pane'. Below this, 'Show output inline for all R Markdown documents' is checked, 'Show equation and image previews:' is set to 'Inline', and 'Evaluate chunks in directory:' is set to 'Document'.](guidelines_editor-manual_v1-media/rstudio-render-viewer-options.png)
 
-## 5.3 Render the full project
+## 6.3 Render the full project
 
 To render all documents and preview the complete library locally:
 
@@ -218,7 +228,7 @@ git docs-preview
 >
 > The repository ships with the project config renamed to `_quarto-not-used.yaml` so RStudio operates in single-file mode by default - faster for day-to-day editing. When you need to render the full project, rename it to `_quarto.yaml`, run `quarto render`, then rename it back.
 
-# 6 Publishing to Develop
+# 7 Publishing to Develop
 
 ``` bash
 git add DOCS/
@@ -230,7 +240,7 @@ After the pipeline runs, check your document at: <https://eea.github.io/CLMS_doc
 
 Navigation, cross-links, and the sidebar TOC can behave differently than in your local RStudio preview - worth a quick look before calling it done.
 
-# 7 Folder and File Structure
+# 8 Folder and File Structure
 
 ``` text
 DOCS/
@@ -248,15 +258,15 @@ DOCS/
 
 Your work lives in `DOCS/` directly: one `.qmd` file per document, plus a matching `-media/` folder for images and diagrams. The four managed subdirectories (`_meta/`, `includes/`, `templates/`, `theme/`) are updated centrally - don’t edit them.
 
-# 8 File Naming, Versioning, and Changelog
+# 9 File Naming, Versioning, and Changelog
 
-## 8.1 The version suffix
+## 9.1 The version suffix
 
 The `_v<N>` suffix in the filename is the major version - the only version number you control. Minor and patch versions are assigned automatically by AI at library release time based on the scope of changes: small corrections get a patch bump (`2.3.5 → 2.3.6`), new or revised sections get a minor bump (`2.3.0 → 2.4.0`). A new file `CLMS_HRL-Forest_PUM_v3.qmd` starts at `3.0.0` at its first release. You never set a version number in YAML.
 
 Version numbers are assigned only when your changes reach `main`, i.e. at the public release. Publishing to `develop`, or promoting to `test`, assigns nothing - the document keeps its previous version until the release build runs.
 
-## 8.2 When to create a new major version
+## 9.2 When to create a new major version
 
 Most changes are an edit to the existing file - the system bumps the minor or patch version for you. Create a new `_v<N>` file only when the **old version has to stay available exactly as it is**, for example when you:
 
@@ -272,11 +282,11 @@ cp -r DOCS/CLMS_HRL-Forest_PUM_v2-media DOCS/CLMS_HRL-Forest_PUM_v3-media
 
 The copied filename must carry the new major version (`_v3` above); the new document then starts at `N.0.0` at its first release, while the old one keeps its own history.
 
-## 8.3 Don’t rename after publishing
+## 9.3 Don’t rename after publishing
 
 The filename becomes part of the document’s URL. Renaming breaks links and cross-references. If a significant revision is needed, create a new major version rather than renaming.
 
-## 8.4 The change log
+## 9.4 The change log
 
 You don’t write the change log. The system generates it at release time and appends a **Change Log** section to the end of your document - a table of date, version, and summary entries:
 
@@ -296,11 +306,11 @@ What this means in practice:
 - **It’s absent from your local preview.** `quarto render` doesn’t run the library build, so the section only appears on a built page. This document has one too - see its [Change Log](#change-log) at the end of the published page.
 - **Some documents have none.** Interactive pages (`type: dashboard`) opt out of the change log. Leave `type` unset unless the document really is one.
 
-# 9 Restoring Previous Versions
+# 10 Restoring Previous Versions
 
 Restore pulls a published version of a document into your local working copy. It doesn’t roll back the library - think of it as “pick up from version X,” not “undo to version X.”
 
-## 9.1 Commands
+## 10.1 Commands
 
 ``` bash
 git docs-restore --list-all                                 # all published documents
@@ -309,7 +319,7 @@ git docs-restore DOCS/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0      # specific version
 git docs-restore --latest DOCS/CLMS_HRL-Forest_PUM_v2.qmd   # latest published version
 ```
 
-## 9.2 When to use it
+## 10.2 When to use it
 
 **Recover deleted content.** You removed a section locally and need it back. Restore the last published version, copy out what you need, then carry on with your current version.
 
@@ -317,7 +327,7 @@ git docs-restore --latest DOCS/CLMS_HRL-Forest_PUM_v2.qmd   # latest published v
 
 **Resurrect a deleted file.** If a file was removed from the project but still exists in the library history, `--list-all` will find it. Restore brings it back into `DOCS/` as if nothing happened.
 
-# 10 Release Path
+# 11 Release Path
 
 Once you publish to `develop`, the rest of the process belongs to Technical Library owners. Getting from develop to public requires two separate pull requests, each reviewed and approved by a second owner before it merges.
 
@@ -329,7 +339,7 @@ Once you publish to `develop`, the rest of the process belongs to Technical Libr
 
 At each release, the system assigns version numbers automatically based on what changed.
 
-# 11 Change Log
+# 12 Change Log
 
 | Date | Version | Summary |
 |----|----|----|

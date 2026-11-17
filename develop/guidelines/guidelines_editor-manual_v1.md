@@ -26,42 +26,43 @@
     fields](#optional-fields)
   - [<span class="toc-section-number">3.3</span> System-managed
     fields](#system-managed-fields)
-- [<span class="toc-section-number">4</span> Writing
+- [<span class="toc-section-number">4</span> Licence](#licence)
+- [<span class="toc-section-number">5</span> Writing
   Content](#writing-content)
-  - [<span class="toc-section-number">4.1</span> Image folder
+  - [<span class="toc-section-number">5.1</span> Image folder
     convention](#image-folder-convention)
-  - [<span class="toc-section-number">4.2</span> Page
+  - [<span class="toc-section-number">5.2</span> Page
     breaks](#page-breaks)
-  - [<span class="toc-section-number">4.3</span> Complex table
+  - [<span class="toc-section-number">5.3</span> Complex table
     layouts](#complex-table-layouts)
-- [<span class="toc-section-number">5</span> Editing and Previewing
+- [<span class="toc-section-number">6</span> Editing and Previewing
   Locally](#editing-and-previewing-locally)
-  - [<span class="toc-section-number">5.1</span> Open the project in
+  - [<span class="toc-section-number">6.1</span> Open the project in
     RStudio](#open-the-project-in-rstudio)
-  - [<span class="toc-section-number">5.2</span> Preview your
+  - [<span class="toc-section-number">6.2</span> Preview your
     document](#preview-your-document)
-  - [<span class="toc-section-number">5.3</span> Render the full
+  - [<span class="toc-section-number">6.3</span> Render the full
     project](#render-the-full-project)
-- [<span class="toc-section-number">6</span> Publishing to
+- [<span class="toc-section-number">7</span> Publishing to
   Develop](#publishing-to-develop)
-- [<span class="toc-section-number">7</span> Folder and File
+- [<span class="toc-section-number">8</span> Folder and File
   Structure](#folder-and-file-structure)
-- [<span class="toc-section-number">8</span> File Naming, Versioning,
+- [<span class="toc-section-number">9</span> File Naming, Versioning,
   and Changelog](#file-naming-versioning-and-changelog)
-  - [<span class="toc-section-number">8.1</span> The version
+  - [<span class="toc-section-number">9.1</span> The version
     suffix](#the-version-suffix)
-  - [<span class="toc-section-number">8.2</span> When to create a new
+  - [<span class="toc-section-number">9.2</span> When to create a new
     major version](#when-to-create-a-new-major-version)
-  - [<span class="toc-section-number">8.3</span> Don’t rename after
+  - [<span class="toc-section-number">9.3</span> Don’t rename after
     publishing](#dont-rename-after-publishing)
-  - [<span class="toc-section-number">8.4</span> The change
+  - [<span class="toc-section-number">9.4</span> The change
     log](#the-change-log)
-- [<span class="toc-section-number">9</span> Restoring Previous
+- [<span class="toc-section-number">10</span> Restoring Previous
   Versions](#restoring-previous-versions)
-  - [<span class="toc-section-number">9.1</span> Commands](#commands)
-  - [<span class="toc-section-number">9.2</span> When to use
+  - [<span class="toc-section-number">10.1</span> Commands](#commands)
+  - [<span class="toc-section-number">10.2</span> When to use
     it](#when-to-use-it)
-- [<span class="toc-section-number">10</span> Release
+- [<span class="toc-section-number">11</span> Release
   Path](#release-path)
 
 This guide is for editors writing and publishing documents in the CLMS
@@ -223,6 +224,29 @@ handles them:
   Anything you add gets overwritten.
 - `version` - carried by the filename suffix, not the YAML. No version
   field belongs in the header.
+
+# Licence
+
+**All documents published in the Technical Library are released under
+the [Creative Commons Attribution 4.0 International licence (CC BY
+4.0)](https://creativecommons.org/licenses/by/4.0/).** That covers every
+document type - ATBDs, PUMs, guidelines and reports - and every major
+version of each.
+
+Copyright belongs to the European Union, which owns the Copernicus
+programme. The EEA publishes these documents on the Union’s behalf, so
+the documents carry the usual line: © European Union, Copernicus Land
+Monitoring Service \<year\>, European Environment Agency (EEA).
+
+You don’t add the licence yourself. The library build applies CC BY 4.0
+to every page, both as the visible licence line and in the
+machine-readable metadata. Leave any `license` field out of your YAML
+header.
+
+If your document contains material that cannot be redistributed under CC
+BY 4.0 - third-party data, or a figure or table taken from a source with
+more restrictive terms - remove it, or clear it with a Technical Library
+owner before the document is published to `develop`.
 
 # Writing Content
 

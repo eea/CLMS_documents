@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2026-05-26">
-<meta name="keywords" content="CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning policy, QMD document migration, automated changelog generation, RStudio integration">
-<meta name="description" content="This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the develop branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.">
+<meta name="keywords" content="CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning policy, QMD document migration, automated changelog generation, document licensing">
+<meta name="description" content="This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, content formatting, and document licensing policies. It also outlines procedures for local previewing, publishing to the develop branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.">
 
 <title>Technical Library - Editor Guidelines – Technical Library</title>
 <style>
@@ -80,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cc2c63177fbf9d0018fa3815378e833d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1295ec6e15d9f75777d563e82aa4ddc4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -112,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "Technical Library - Editor Guidelines",
-    "description": "This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the develop branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.",
+    "description": "This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, content formatting, and document licensing policies. It also outlines procedures for local previewing, publishing to the develop branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.",
     "datePublished": "May 26, 2026",
     "author": {
       "@type": "Person",
@@ -184,34 +184,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#optional-fields" id="toc-optional-fields" class="nav-link" data-scroll-target="#optional-fields"><span class="header-section-number">3.2</span> Optional fields</a></li>
   <li><a href="#system-managed-fields" id="toc-system-managed-fields" class="nav-link" data-scroll-target="#system-managed-fields"><span class="header-section-number">3.3</span> System-managed fields</a></li>
   </ul></li>
-  <li><a href="#writing-content" id="toc-writing-content" class="nav-link" data-scroll-target="#writing-content"><span class="header-section-number">4</span> Writing Content</a>
+  <li><a href="#licence" id="toc-licence" class="nav-link" data-scroll-target="#licence"><span class="header-section-number">4</span> Licence</a></li>
+  <li><a href="#writing-content" id="toc-writing-content" class="nav-link" data-scroll-target="#writing-content"><span class="header-section-number">5</span> Writing Content</a>
   <ul class="collapse">
-  <li><a href="#image-folder-convention" id="toc-image-folder-convention" class="nav-link" data-scroll-target="#image-folder-convention"><span class="header-section-number">4.1</span> Image folder convention</a></li>
-  <li><a href="#page-breaks" id="toc-page-breaks" class="nav-link" data-scroll-target="#page-breaks"><span class="header-section-number">4.2</span> Page breaks</a></li>
-  <li><a href="#complex-table-layouts" id="toc-complex-table-layouts" class="nav-link" data-scroll-target="#complex-table-layouts"><span class="header-section-number">4.3</span> Complex table layouts</a></li>
+  <li><a href="#image-folder-convention" id="toc-image-folder-convention" class="nav-link" data-scroll-target="#image-folder-convention"><span class="header-section-number">5.1</span> Image folder convention</a></li>
+  <li><a href="#page-breaks" id="toc-page-breaks" class="nav-link" data-scroll-target="#page-breaks"><span class="header-section-number">5.2</span> Page breaks</a></li>
+  <li><a href="#complex-table-layouts" id="toc-complex-table-layouts" class="nav-link" data-scroll-target="#complex-table-layouts"><span class="header-section-number">5.3</span> Complex table layouts</a></li>
   </ul></li>
-  <li><a href="#editing-and-previewing-locally" id="toc-editing-and-previewing-locally" class="nav-link" data-scroll-target="#editing-and-previewing-locally"><span class="header-section-number">5</span> Editing and Previewing Locally</a>
+  <li><a href="#editing-and-previewing-locally" id="toc-editing-and-previewing-locally" class="nav-link" data-scroll-target="#editing-and-previewing-locally"><span class="header-section-number">6</span> Editing and Previewing Locally</a>
   <ul class="collapse">
-  <li><a href="#open-the-project-in-rstudio" id="toc-open-the-project-in-rstudio" class="nav-link" data-scroll-target="#open-the-project-in-rstudio"><span class="header-section-number">5.1</span> Open the project in RStudio</a></li>
-  <li><a href="#preview-your-document" id="toc-preview-your-document" class="nav-link" data-scroll-target="#preview-your-document"><span class="header-section-number">5.2</span> Preview your document</a></li>
-  <li><a href="#render-the-full-project" id="toc-render-the-full-project" class="nav-link" data-scroll-target="#render-the-full-project"><span class="header-section-number">5.3</span> Render the full project</a></li>
+  <li><a href="#open-the-project-in-rstudio" id="toc-open-the-project-in-rstudio" class="nav-link" data-scroll-target="#open-the-project-in-rstudio"><span class="header-section-number">6.1</span> Open the project in RStudio</a></li>
+  <li><a href="#preview-your-document" id="toc-preview-your-document" class="nav-link" data-scroll-target="#preview-your-document"><span class="header-section-number">6.2</span> Preview your document</a></li>
+  <li><a href="#render-the-full-project" id="toc-render-the-full-project" class="nav-link" data-scroll-target="#render-the-full-project"><span class="header-section-number">6.3</span> Render the full project</a></li>
   </ul></li>
-  <li><a href="#publishing-to-develop" id="toc-publishing-to-develop" class="nav-link" data-scroll-target="#publishing-to-develop"><span class="header-section-number">6</span> Publishing to Develop</a></li>
-  <li><a href="#folder-and-file-structure" id="toc-folder-and-file-structure" class="nav-link" data-scroll-target="#folder-and-file-structure"><span class="header-section-number">7</span> Folder and File Structure</a></li>
-  <li><a href="#file-naming-versioning-and-changelog" id="toc-file-naming-versioning-and-changelog" class="nav-link" data-scroll-target="#file-naming-versioning-and-changelog"><span class="header-section-number">8</span> File Naming, Versioning, and Changelog</a>
+  <li><a href="#publishing-to-develop" id="toc-publishing-to-develop" class="nav-link" data-scroll-target="#publishing-to-develop"><span class="header-section-number">7</span> Publishing to Develop</a></li>
+  <li><a href="#folder-and-file-structure" id="toc-folder-and-file-structure" class="nav-link" data-scroll-target="#folder-and-file-structure"><span class="header-section-number">8</span> Folder and File Structure</a></li>
+  <li><a href="#file-naming-versioning-and-changelog" id="toc-file-naming-versioning-and-changelog" class="nav-link" data-scroll-target="#file-naming-versioning-and-changelog"><span class="header-section-number">9</span> File Naming, Versioning, and Changelog</a>
   <ul class="collapse">
-  <li><a href="#the-version-suffix" id="toc-the-version-suffix" class="nav-link" data-scroll-target="#the-version-suffix"><span class="header-section-number">8.1</span> The version suffix</a></li>
-  <li><a href="#when-to-create-a-new-major-version" id="toc-when-to-create-a-new-major-version" class="nav-link" data-scroll-target="#when-to-create-a-new-major-version"><span class="header-section-number">8.2</span> When to create a new major version</a></li>
-  <li><a href="#dont-rename-after-publishing" id="toc-dont-rename-after-publishing" class="nav-link" data-scroll-target="#dont-rename-after-publishing"><span class="header-section-number">8.3</span> Don’t rename after publishing</a></li>
-  <li><a href="#the-change-log" id="toc-the-change-log" class="nav-link" data-scroll-target="#the-change-log"><span class="header-section-number">8.4</span> The change log</a></li>
+  <li><a href="#the-version-suffix" id="toc-the-version-suffix" class="nav-link" data-scroll-target="#the-version-suffix"><span class="header-section-number">9.1</span> The version suffix</a></li>
+  <li><a href="#when-to-create-a-new-major-version" id="toc-when-to-create-a-new-major-version" class="nav-link" data-scroll-target="#when-to-create-a-new-major-version"><span class="header-section-number">9.2</span> When to create a new major version</a></li>
+  <li><a href="#dont-rename-after-publishing" id="toc-dont-rename-after-publishing" class="nav-link" data-scroll-target="#dont-rename-after-publishing"><span class="header-section-number">9.3</span> Don’t rename after publishing</a></li>
+  <li><a href="#the-change-log" id="toc-the-change-log" class="nav-link" data-scroll-target="#the-change-log"><span class="header-section-number">9.4</span> The change log</a></li>
   </ul></li>
-  <li><a href="#restoring-previous-versions" id="toc-restoring-previous-versions" class="nav-link" data-scroll-target="#restoring-previous-versions"><span class="header-section-number">9</span> Restoring Previous Versions</a>
+  <li><a href="#restoring-previous-versions" id="toc-restoring-previous-versions" class="nav-link" data-scroll-target="#restoring-previous-versions"><span class="header-section-number">10</span> Restoring Previous Versions</a>
   <ul class="collapse">
-  <li><a href="#commands" id="toc-commands" class="nav-link" data-scroll-target="#commands"><span class="header-section-number">9.1</span> Commands</a></li>
-  <li><a href="#when-to-use-it" id="toc-when-to-use-it" class="nav-link" data-scroll-target="#when-to-use-it"><span class="header-section-number">9.2</span> When to use it</a></li>
+  <li><a href="#commands" id="toc-commands" class="nav-link" data-scroll-target="#commands"><span class="header-section-number">10.1</span> Commands</a></li>
+  <li><a href="#when-to-use-it" id="toc-when-to-use-it" class="nav-link" data-scroll-target="#when-to-use-it"><span class="header-section-number">10.2</span> When to use it</a></li>
   </ul></li>
-  <li><a href="#release-path" id="toc-release-path" class="nav-link" data-scroll-target="#release-path"><span class="header-section-number">10</span> Release Path</a></li>
-  <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">11</span> Change Log</a></li>
+  <li><a href="#release-path" id="toc-release-path" class="nav-link" data-scroll-target="#release-path"><span class="header-section-number">11</span> Release Path</a></li>
+  <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">12</span> Change Log</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="guidelines_editor-manual_v1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -248,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, and content formatting. It also outlines procedures for local previewing, publishing to the <code>develop</code> branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.
+    This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, content formatting, and document licensing policies. It also outlines procedures for local previewing, publishing to the <code>develop</code> branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.
   </div>
 </div>
 
@@ -270,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning policy, QMD document migration, automated changelog generation, RStudio integration</p>
+    <p>CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning policy, QMD document migration, automated changelog generation, document licensing</p>
   </div>
 </div>
 
@@ -414,22 +415,29 @@ Tip
 </ul>
 </section>
 </section>
-<section id="writing-content" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Writing Content</h1>
+<section id="licence" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Licence</h1>
+<p><strong>All documents published in the Technical Library are released under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International licence (CC BY 4.0)</a>.</strong> That covers every document type - ATBDs, PUMs, guidelines and reports - and every major version of each.</p>
+<p>Copyright belongs to the European Union, which owns the Copernicus programme. The EEA publishes these documents on the Union’s behalf, so the documents carry the usual line: © European Union, Copernicus Land Monitoring Service &lt;year&gt;, European Environment Agency (EEA).</p>
+<p>You don’t add the licence yourself. The library build applies CC BY 4.0 to every page, both as the visible licence line and in the machine-readable metadata. Leave any <code>license</code> field out of your YAML header.</p>
+<p>If your document contains material that cannot be redistributed under CC BY 4.0 - third-party data, or a figure or table taken from a source with more restrictive terms - remove it, or clear it with a Technical Library owner before the document is published to <code>develop</code>.</p>
+</section>
+<section id="writing-content" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Writing Content</h1>
 <p>Markdown basics - headings, lists, links, images, tables, equations, footnotes, diagrams - are covered in the <a href="https://quarto.org/docs/authoring/markdown-basics.html">Quarto Markdown guide</a>. This chapter covers only what’s specific to this system.</p>
-<section id="image-folder-convention" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="image-folder-convention"><span class="header-section-number">4.1</span> Image folder convention</h2>
+<section id="image-folder-convention" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="image-folder-convention"><span class="header-section-number">5.1</span> Image folder convention</h2>
 <p>Images go in <code>&lt;your-document-name&gt;-media/</code>, referenced with relative paths:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Processing workflow](CLMS_HRL-Forest_PUM_v2-media/workflow.png)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="page-breaks" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="page-breaks"><span class="header-section-number">4.2</span> Page breaks</h2>
+<section id="page-breaks" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="page-breaks"><span class="header-section-number">5.2</span> Page breaks</h2>
 <p>Use the Quarto shortcode to insert a page break in PDF output:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Note that <code>---</code> renders as a horizontal rule, not a page break.</p>
 </section>
-<section id="complex-table-layouts" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="complex-table-layouts"><span class="header-section-number">4.3</span> Complex table layouts</h2>
+<section id="complex-table-layouts" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="complex-table-layouts"><span class="header-section-number">5.3</span> Complex table layouts</h2>
 <p>For tables with merged cells, nested content, or custom styling, use HTML tables directly in your <code>.qmd</code> file. Both the HTML output and Typst-rendered PDF handle them well.</p>
 <p>Standard Markdown tables have limited formatting options. HTML tables let you control exactly how things look - column widths, cell colours, text alignment, borders - using inline CSS:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
@@ -453,18 +461,18 @@ Tip
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="editing-and-previewing-locally" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Editing and Previewing Locally</h1>
-<section id="open-the-project-in-rstudio" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="open-the-project-in-rstudio"><span class="header-section-number">5.1</span> Open the project in RStudio</h2>
+<section id="editing-and-previewing-locally" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Editing and Previewing Locally</h1>
+<section id="open-the-project-in-rstudio" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="open-the-project-in-rstudio"><span class="header-section-number">6.1</span> Open the project in RStudio</h2>
 <ol type="1">
 <li>Open RStudio</li>
 <li><strong>File &gt; Open Project…</strong> and select the root folder of your project</li>
 <li>Navigate to <code>DOCS/</code> and open the <code>.qmd</code> file you want to edit</li>
 </ol>
 </section>
-<section id="preview-your-document" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="preview-your-document"><span class="header-section-number">5.2</span> Preview your document</h2>
+<section id="preview-your-document" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="preview-your-document"><span class="header-section-number">6.2</span> Preview your document</h2>
 <p>Click the <strong>Render</strong> button at the top of the editor pane to render HTML or PDF:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -490,8 +498,8 @@ Tip
 </figure>
 </div>
 </section>
-<section id="render-the-full-project" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="render-the-full-project"><span class="header-section-number">5.3</span> Render the full project</h2>
+<section id="render-the-full-project" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="render-the-full-project"><span class="header-section-number">6.3</span> Render the full project</h2>
 <p>To render all documents and preview the complete library locally:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -509,16 +517,16 @@ Tip
 </div>
 </section>
 </section>
-<section id="publishing-to-develop" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Publishing to Develop</h1>
+<section id="publishing-to-develop" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Publishing to Develop</h1>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add DOCS/</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"docs: update [brief description]"</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-publish</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>After the pipeline runs, check your document at: <a href="https://eea.github.io/CLMS_documents/develop/index.html" class="uri">https://eea.github.io/CLMS_documents/develop/index.html</a></p>
 <p>Navigation, cross-links, and the sidebar TOC can behave differently than in your local RStudio preview - worth a quick look before calling it done.</p>
 </section>
-<section id="folder-and-file-structure" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Folder and File Structure</h1>
+<section id="folder-and-file-structure" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Folder and File Structure</h1>
 <pre class="text"><code>DOCS/
 ├── _meta/                            # Scripts, config, metadata - do not edit
 ├── includes/                         # Quarto include files - do not edit
@@ -532,15 +540,15 @@ Tip
 └── ...</code></pre>
 <p>Your work lives in <code>DOCS/</code> directly: one <code>.qmd</code> file per document, plus a matching <code>-media/</code> folder for images and diagrams. The four managed subdirectories (<code>_meta/</code>, <code>includes/</code>, <code>templates/</code>, <code>theme/</code>) are updated centrally - don’t edit them.</p>
 </section>
-<section id="file-naming-versioning-and-changelog" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> File Naming, Versioning, and Changelog</h1>
-<section id="the-version-suffix" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="the-version-suffix"><span class="header-section-number">8.1</span> The version suffix</h2>
+<section id="file-naming-versioning-and-changelog" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> File Naming, Versioning, and Changelog</h1>
+<section id="the-version-suffix" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="the-version-suffix"><span class="header-section-number">9.1</span> The version suffix</h2>
 <p>The <code>_v&lt;N&gt;</code> suffix in the filename is the major version - the only version number you control. Minor and patch versions are assigned automatically by AI at library release time based on the scope of changes: small corrections get a patch bump (<code>2.3.5 → 2.3.6</code>), new or revised sections get a minor bump (<code>2.3.0 → 2.4.0</code>). A new file <code>CLMS_HRL-Forest_PUM_v3.qmd</code> starts at <code>3.0.0</code> at its first release. You never set a version number in YAML.</p>
 <p>Version numbers are assigned only when your changes reach <code>main</code>, i.e.&nbsp;at the public release. Publishing to <code>develop</code>, or promoting to <code>test</code>, assigns nothing - the document keeps its previous version until the release build runs.</p>
 </section>
-<section id="when-to-create-a-new-major-version" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="when-to-create-a-new-major-version"><span class="header-section-number">8.2</span> When to create a new major version</h2>
+<section id="when-to-create-a-new-major-version" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="when-to-create-a-new-major-version"><span class="header-section-number">9.2</span> When to create a new major version</h2>
 <p>Most changes are an edit to the existing file - the system bumps the minor or patch version for you. Create a new <code>_v&lt;N&gt;</code> file only when the <strong>old version has to stay available exactly as it is</strong>, for example when you:</p>
 <ul>
 <li>work on a new product release</li>
@@ -551,12 +559,12 @@ Tip
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> DOCS/CLMS_HRL-Forest_PUM_v2-media DOCS/CLMS_HRL-Forest_PUM_v3-media</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The copied filename must carry the new major version (<code>_v3</code> above); the new document then starts at <code>N.0.0</code> at its first release, while the old one keeps its own history.</p>
 </section>
-<section id="dont-rename-after-publishing" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="dont-rename-after-publishing"><span class="header-section-number">8.3</span> Don’t rename after publishing</h2>
+<section id="dont-rename-after-publishing" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="dont-rename-after-publishing"><span class="header-section-number">9.3</span> Don’t rename after publishing</h2>
 <p>The filename becomes part of the document’s URL. Renaming breaks links and cross-references. If a significant revision is needed, create a new major version rather than renaming.</p>
 </section>
-<section id="the-change-log" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="the-change-log"><span class="header-section-number">8.4</span> The change log</h2>
+<section id="the-change-log" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="the-change-log"><span class="header-section-number">9.4</span> The change log</h2>
 <p>You don’t write the change log. The system generates it at release time and appends a <strong>Change Log</strong> section to the end of your document - a table of date, version, and summary entries:</p>
 <table class="caption-top table">
 <colgroup>
@@ -595,25 +603,25 @@ Tip
 </ul>
 </section>
 </section>
-<section id="restoring-previous-versions" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Restoring Previous Versions</h1>
+<section id="restoring-previous-versions" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Restoring Previous Versions</h1>
 <p>Restore pulls a published version of a document into your local working copy. It doesn’t roll back the library - think of it as “pick up from version X,” not “undo to version X.”</p>
-<section id="commands" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="commands"><span class="header-section-number">9.1</span> Commands</h2>
+<section id="commands" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="commands"><span class="header-section-number">10.1</span> Commands</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore <span class="at">--list-all</span>                                 <span class="co"># all published documents</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore <span class="at">--list</span> DOCS/CLMS_HRL-Forest_PUM_v2.qmd     <span class="co"># versions of one file</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore DOCS/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0      <span class="co"># specific version</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> docs-restore <span class="at">--latest</span> DOCS/CLMS_HRL-Forest_PUM_v2.qmd   <span class="co"># latest published version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="when-to-use-it" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="when-to-use-it"><span class="header-section-number">9.2</span> When to use it</h2>
+<section id="when-to-use-it" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="when-to-use-it"><span class="header-section-number">10.2</span> When to use it</h2>
 <p><strong>Recover deleted content.</strong> You removed a section locally and need it back. Restore the last published version, copy out what you need, then carry on with your current version.</p>
 <p><strong>Something went wrong in a recent edit.</strong> Restore an earlier version (e.g.&nbsp;<code>2.1.0</code>) and work forward from there rather than trying to untangle the current state.</p>
 <p><strong>Resurrect a deleted file.</strong> If a file was removed from the project but still exists in the library history, <code>--list-all</code> will find it. Restore brings it back into <code>DOCS/</code> as if nothing happened.</p>
 </section>
 </section>
-<section id="release-path" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Release Path</h1>
+<section id="release-path" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Release Path</h1>
 <p>Once you publish to <code>develop</code>, the rest of the process belongs to Technical Library owners. Getting from develop to public requires two separate pull requests, each reviewed and approved by a second owner before it merges.</p>
 <table class="caption-top table">
 <thead>
@@ -641,8 +649,8 @@ Tip
 
 
 </section>
-<section id="change-log" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> Change Log</h1>
+<section id="change-log" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Change Log</h1>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
