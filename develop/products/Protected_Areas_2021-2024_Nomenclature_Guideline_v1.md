@@ -84,6 +84,8 @@ Protected Areas 2021-2024. It covers a detailed description of all LC/LU
 classes, their geographic characteristics, available input datasets and
 relevant methods to interpret the respective classes.
 
+
+
 # Protected Areas LC/LU legend
 
 The Nomenclature for the LC/LU dataset is structured into four levels
@@ -454,6 +456,8 @@ fjords</td>
 </tbody>
 </table>
 
+
+
 # Mapping rules
 
 ## Object delineation
@@ -582,6 +586,8 @@ Table 2: List of allowed comments
 |----|----|----|
 | 1 | Polygons \< 0.5 ha at outer Aol site boundary, that have an apparent continuation outside the Aol boundary, which is visible on the image data. | “Area size exception (at Protected Areas Aol boundary)” |
 | 2 | Polygons \< 0.5 ha inside Aol site boundary, that are allowed due to nomenclature guideline rules e.g. to represent changes, to ensure continuity of road/rail/river network at intersections of these classes, to mark urban objects confined by roads or railways ≥ 0.2 ha up to \< 0.5 ha | “Area size exception (inside Protected Areas Aol boundary)” |
+
+
 
 # Description of mapping features
 
@@ -6715,6 +6721,8 @@ guidelines.
 - Supporting remote sensing data and depth data to delineate from 8.2
   Lakes and reservoirs.
 - Computer assisted visual interpretation of SPOT-5 data.
+
+
 
 # List of abbreviations & acronyms
 
