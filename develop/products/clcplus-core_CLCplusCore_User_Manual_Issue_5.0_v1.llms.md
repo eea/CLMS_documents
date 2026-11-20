@@ -21,10 +21,6 @@ Kongens Nytorv 6
 Denmark  
 [**https://land.copernicus.eu/**](https://land.copernicus.eu/)
 
-**Applicable Documents (AD)**
-
-[TABLE]
-
 # 1 Introduction
 
 This User Guideline is designed to provide documentation for the users of CLC+ Core[^1]. This documentation aims to describe all user interfaces and functionalities from the user's point of view. Furthermore, additional useful information, experiences and recommendations have been added to provide the user with the most comprehensive guideline possible.
@@ -1419,89 +1415,93 @@ A function that computes the **Coverage** of a barcoded EAGLE element for the se
 
 3.  Calculating the **Coverage** sum of all selected **Extraction Input Classes** (aggregation rule 2).
 
-# 8 List of abbreviations
+# 8 List of abbreviations & acronym
 
 | Abbreviation | Name | Reference |
 |----|----|----|
-| **ADs** | Applicable Documents |  |
-| **AI** | Action Item |  |
-| **API** | Application Programming Interface |  |
-| **CLC** | CORINE Land Cover | <https://land.copernicus.eu/en/products/corine-land-cover> |
-| **CLC+** | CORINE Land Cover + | <https://land.copernicus.eu/en/products/clc-a-new-generation-land-information-system-for-europe> |
-| **CLMS** | Copernicus Land Monitoring Service | <https://land.copernicus.eu/en> |
-| **COG** | Cloud-optimized GIF |  |
-| **CORINE** | Coordination of information on the environment |  |
-| **CZ** | Coastal Zones |  |
-| **DB** | Database |  |
-| **DIAS** | Copernicus Data and Information Access Services |  |
-| **EAGLE** | Eionet Action Group on Land monitoring in Europe | <https://land.copernicus.eu/en/eagle> |
-| **EC** | European Commission | <https://commission.europa.eu/> |
-| **EEA** | European Environment Agency | <https://www.eea.europa.eu> |
-| **EEA39** | The 33 member and 6 cooperating countries of the EEA |  |
-| **EEA38+UK** | The 32 member and 6 cooperating countries of the EEA + United Kingdom |  |
-| **EO** | Earth Observation |  |
-| **ESA** | European Space Agency | <https://www.esa.int> |
-| **ETC** | European Topic Centre | <https://www.eionet.europa.eu/etcs> |
-| **EU** | European Union |  |
-| **EU27** | The 27 Member States of the European Union |  |
-| **FM** | Final Meeting |  |
-| **FWC** | Framework Contract |  |
-| **GDAL** | Geospatial Data Abstraction Library |  |
-| **GDB** | Geodatabase |  |
-| **GIO** | GMES Initial Operations |  |
-| **GPKG** | GeoPackage |  |
-| **HDF5** | Hierarchical Data Format |  |
-| **HRL / HRLs** | High Resolution Layer / High Resolution Layers |  |
-| **IaaS** | Infrastructure-as-a-Service |  |
-| **ID** | Identification Number |  |
-| **INSPIRE** | Infrastructure for Spatial Information in Europe | <https://knowledge-base.inspire.ec.europa.eu/index_en> |
-| **ISO** | International Organisation for Standardization |  |
-| **ITT** | Invitation to Tender |  |
-| **JDBC** | Java Database Connectivity |  |
-| **JWT** | JSON Web Token |  |
-| **KOM** | Kick-Off Meeting |  |
-| **LC** | Land Cover |  |
-| **LCC** | Land Cover Component |  |
-| **LCH** | Land Characteristics |  |
-| **LC/LU** | Land Cover / Land Use |  |
-| **LCC** | Land Cover Component |  |
-| **LU** | Land Use |  |
-| **LUA** | Land Use Attribute |  |
-| **LULUCF** | Land Use, Land Use Change and Forestry |  |
-| **LYR** | ArcGIS Layer File |  |
-| **MMU** | Minimum Mapping Unit |  |
-| **MS** | Member States |  |
-| **NFRs** | Non-Functional-Requirements |  |
-| **NRC** | National Reference Centre |  |
-| **NUTS** | Nomenclature of Territorial Units for Statistics |  |
-| **N2K** | Natura 2000 |  |
-| **OBDC** | Open Database Connectivity |  |
-| **PDF** | Portable Document Format |  |
-| **PM** | Progress Meeting |  |
-| **PMP** | Project Management Plan |  |
-| **PoC** | Proof of Concept |  |
-| **QA** | Quality Assurance |  |
-| **QC** | Quality Control |  |
-| **QM** | Quality Management |  |
-| **QML** | QGIS Style file |  |
-| **REST** | Representational State Transfer |  |
-| **RZ** | Riparian Zones |  |
-| **SC** | Specific Contract |  |
-| **SHP** | ESRI Shapefile |  |
-| **SLD** | Styled Layer Descriptor |  |
-| **SQL** | Structured Query Language |  |
-| **UA** | Urban Atlas |  |
-| **UI** | User Interface |  |
-| **URI** | Uniform Resource Identifier |  |
-| **URL** | Uniform Resource Locator |  |
-| **UUID** | Universally Unique Identifier |  |
-| **VM** | Virtual Machine |  |
-| **WBS** | Work Breakdown Structure |  |
-| **WEkEO** | Copernicus DIAS reference service for environmental data, virtual environments for data processing | <https://www.wekeo.eu/> |
-| **WP** | Work Package |  |
-| **ZIP** | ZIP Format |  |
+| ADs | Applicable Documents |  |
+| AI | Action Item |  |
+| API | Application Programming Interface |  |
+| CLC | CORINE Land Cover | https://land.copernicus.eu/en/products/corine-land-cover |
+| CLC+ | CORINE Land Cover + | https://land.copernicus.eu/en/products/clc-a-new-generation-land-information-system-for-europe |
+| CLMS | Copernicus Land Monitoring Service | https://land.copernicus.eu/en |
+| COG | Cloud-optimized GIF |  |
+| CORINE | Coordination of information on the environment |  |
+| CZ | Coastal Zones |  |
+| DB | Database |  |
+| DIAS | Copernicus Data and Information Access Services |  |
+| EAGLE | Eionet Action Group on Land monitoring in Europe | https://land.copernicus.eu/en/eagle |
+| EC | European Commission | https://commission.europa.eu/ |
+| EEA | European Environment Agency | https://www.eea.europa.eu |
+| EEA39 | The 33 member and 6 cooperating countries of the EEA |  |
+| EEA38+UK | The 32 member and 6 cooperating countries of the EEA + United Kingdom |  |
+| EO | Earth Observation |  |
+| ESA | European Space Agency | https://www.esa.int |
+| ETC | European Topic Centre | https://www.eionet.europa.eu/etcs |
+| EU | European Union |  |
+| EU27 | The 27 Member States of the European Union |  |
+| FM | Final Meeting |  |
+| FWC | Framework Contract |  |
+| GDAL | Geospatial Data Abstraction Library |  |
+| GDB | Geodatabase |  |
+| GIO | GMES Initial Operations |  |
+| GPKG | GeoPackage |  |
+| HDF5 | Hierarchical Data Format |  |
+| HRL / HRLs | High Resolution Layer / High Resolution Layers |  |
+| IaaS | Infrastructure-as-a-Service |  |
+| ID | Identification Number |  |
+| INSPIRE | Infrastructure for Spatial Information in Europe | https://knowledge-base.inspire.ec.europa.eu/index_en |
+| ISO | International Organisation for Standardization |  |
+| ITT | Invitation to Tender |  |
+| JDBC | Java Database Connectivity |  |
+| JWT | JSON Web Token |  |
+| KOM | Kick-Off Meeting |  |
+| LC | Land Cover |  |
+| LCC | Land Cover Component |  |
+| LCH | Land Characteristics |  |
+| LC/LU | Land Cover / Land Use |  |
+| LCC | Land Cover Component |  |
+| LU | Land Use |  |
+| LUA | Land Use Attribute |  |
+| LULUCF | Land Use, Land Use Change and Forestry |  |
+| LYR | ArcGIS Layer File |  |
+| MMU | Minimum Mapping Unit |  |
+| MS | Member States |  |
+| NFRs | Non-Functional-Requirements |  |
+| NRC | National Reference Centre |  |
+| NUTS | Nomenclature of Territorial Units for Statistics |  |
+| N2K | Natura 2000 |  |
+| OBDC | Open Database Connectivity |  |
+| PDF | Portable Document Format |  |
+| PM | Progress Meeting |  |
+| PMP | Project Management Plan |  |
+| PoC | Proof of Concept |  |
+| QA | Quality Assurance |  |
+| QC | Quality Control |  |
+| QM | Quality Management |  |
+| QML | QGIS Style file |  |
+| REST | Representational State Transfer |  |
+| RZ | Riparian Zones |  |
+| SC | Specific Contract |  |
+| SHP | ESRI Shapefile |  |
+| SLD | Styled Layer Descriptor |  |
+| SQL | Structured Query Language |  |
+| UA | Urban Atlas |  |
+| UI | User Interface |  |
+| URI | Uniform Resource Identifier |  |
+| URL | Uniform Resource Locator |  |
+| UUID | Universally Unique Identifier |  |
+| VM | Virtual Machine |  |
+| WBS | Work Breakdown Structure |  |
+| WEkEO | Copernicus DIAS reference service for environmental data, virtual environments for data processing | https://www.wekeo.eu/ |
+| WP | Work Package |  |
+| ZIP | ZIP Format |  |
 
 # 9 Annex
+
+**Applicable Documents (AD)**
+
+[TABLE]
 
 **Barcoding**
 

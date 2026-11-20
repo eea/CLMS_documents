@@ -28,27 +28,8 @@
     - [<span class="toc-section-number">1.5.3</span> 10m functionality
       deactivated in Add
       Ingestion/Extraction](#10m-functionality-deactivated-in-add-ingestionextraction)
-    - [<span class="toc-section-number">1.5.4</span> ](#section)
 - [<span class="toc-section-number">2</span> List of
   abbreviations](#list-of-abbreviations)
-
-**Applicable Documents (AD)**
-
-| **ID** | **Document Name / Content** |
-|----|----|
-| AD01 | Tender Specifications – EEA/DIS/R0/20/019 – Copernicus Land Monitoring Service – Production of the CLC+ Core and Provision of Complementary Consultancy Services |
-| AD02 | Consortium’s Technical Proposal – in response to Call for tenders EEA/DIS/R0/20/019 – CLC+CORE Technical Proposal - v2.0 |
-| AD03 | Specific Contract No 3436/R0-COPERNICUS/EEA.58286 |
-| AD04 | Minutes of the KOM (CLC+Core_KOM_Minutes.docx) |
-| AD05 | PM1 - Project Management and Governance Plan (CLC+Core_Deliverable_PM1_Project_Management_Plan_V1.0.pdf) |
-| AD06 | Implementation of CLC+ based on the EAGLE concept –Additional support for further development of CLC+<br><br>databases (CLC+ and CLC+ instances, namely CLC+ LULUCF instance and CLC+ Legacy instance) - Task 4: From CLC+ Core to CLC+ Legacy - 3436/R0-Copernicus/EEA.57755 |
-| AD07 | PM2 - 1st Project Management and Status Report (CLC+Core_Deliverable_PM2_1st-Project-Management-Status-Report_V1.0.pdf) |
-| AD08 | CLC+ Core Decision Log_V1.4 (CLC+Core_Decision_log_V1.4.pdf) |
-| AD09 | D1 - Software Design (CLC+Core_D1_Software \_Design_V1.0.pdf) |
-| AD10 | D3.2.1 - Demonstration and documentation of ingested CLMS datasets, under this Service Contract (CLC+Core_Deliverable_D3.2.1_Demonstration-and-documentation-of-ingested-CLMS-datasets_V01.pdf) |
-| AD11 | D3.1 - Documentation of deployment of CLC+ Core products to DIAS – cloud service (CLC+Core_Deliverable_D3.1_Documentation of deployment of CLC+ Core products to DIAS_V1.0.pdf) |
-| AD12 | LULUCF_classes_simplified_EAGLE_query_rules_20210325.xlsx (Provided by EAGLE Group) |
-| AD13 | Specific contract no 3506_R0-COPERNCA_EEA.59433 |
 
 # Admin User only
 
@@ -825,88 +806,104 @@ Commission”, and “European Environment Agency”.
 <span id="_Toc241495824" class="anchor"></span>**Figure 6‑15: 10 m
 deactivated in Add Extraction**
 
-### 
-
 # List of abbreviations
 
 | Abbreviation | Name | Reference |
 |----|----|----|
-| **ADs** | Applicable Documents |  |
-| **AI** | Action Item |  |
-| **API** | Application Programming Interface |  |
-| **CLC** | CORINE Land Cover | <https://land.copernicus.eu/en/products/corine-land-cover> |
-| **CLC+** | CORINE Land Cover + | <https://land.copernicus.eu/en/products/clc-a-new-generation-land-information-system-for-europe> |
-| **CLMS** | Copernicus Land Monitoring Service | <https://land.copernicus.eu/en> |
-| **COG** | Cloud-optimized GIF |  |
-| **CORINE** | Coordination of information on the environment |  |
-| **CZ** | Coastal Zones |  |
-| **DB** | Database |  |
-| **DIAS** | Copernicus Data and Information Access Services |  |
-| **EAGLE** | Eionet Action Group on Land monitoring in Europe | <https://land.copernicus.eu/en/eagle> |
-| **EC** | European Commission | <https://commission.europa.eu/> |
-| **EEA** | European Environment Agency | <https://www.eea.europa.eu> |
-| **EEA39** | The 33 member and 6 cooperating countries of the EEA |  |
-| **EEA38+UK** | The 32 member and 6 cooperating countries of the EEA + United Kingdom |  |
-| **EO** | Earth Observation |  |
-| **ESA** | European Space Agency | <https://www.esa.int> |
-| **ETC** | European Topic Centre | <https://www.eionet.europa.eu/etcs> |
-| **EU** | European Union |  |
-| **EU27** | The 27 Member States of the European Union |  |
-| **FM** | Final Meeting |  |
-| **FWC** | Framework Contract |  |
-| **GDAL** | Geospatial Data Abstraction Library |  |
-| **GDB** | Geodatabase |  |
-| **GIO** | GMES Initial Operations |  |
-| **GPKG** | GeoPackage |  |
-| **HDF5** | Hierarchical Data Format |  |
-| **HRL / HRLs** | High Resolution Layer / High Resolution Layers |  |
-| **IaaS** | Infrastructure-as-a-Service |  |
-| **ID** | Identification Number |  |
-| **INSPIRE** | Infrastructure for Spatial Information in Europe | <https://knowledge-base.inspire.ec.europa.eu/index_en> |
-| **ISO** | International Organisation for Standardization |  |
-| **ITT** | Invitation to Tender |  |
-| **JDBC** | Java Database Connectivity |  |
-| **JWT** | JSON Web Token |  |
-| **KOM** | Kick-Off Meeting |  |
-| **LC** | Land Cover |  |
-| **LCC** | Land Cover Component |  |
-| **LCH** | Land Characteristics |  |
-| **LC/LU** | Land Cover / Land Use |  |
-| **LCC** | Land Cover Component |  |
-| **LU** | Land Use |  |
-| **LUA** | Land Use Attribute |  |
-| **LULUCF** | Land Use, Land Use Change and Forestry |  |
-| **LYR** | ArcGIS Layer File |  |
-| **MMU** | Minimum Mapping Unit |  |
-| **MS** | Member States |  |
-| **NFRs** | Non-Functional-Requirements |  |
-| **NRC** | National Reference Centre |  |
-| **NUTS** | Nomenclature of Territorial Units for Statistics |  |
-| **N2K** | Natura 2000 |  |
-| **OBDC** | Open Database Connectivity |  |
-| **PDF** | Portable Document Format |  |
-| **PM** | Progress Meeting |  |
-| **PMP** | Project Management Plan |  |
-| **PoC** | Proof of Concept |  |
-| **QA** | Quality Assurance |  |
-| **QC** | Quality Control |  |
-| **QM** | Quality Management |  |
-| **QML** | QGIS Style file |  |
-| **REST** | Representational State Transfer |  |
-| **RZ** | Riparian Zones |  |
-| **SC** | Specific Contract |  |
-| **SHP** | ESRI Shapefile |  |
-| **SLD** | Styled Layer Descriptor |  |
-| **SQL** | Structured Query Language |  |
-| **UA** | Urban Atlas |  |
-| **UI** | User Interface |  |
-| **URI** | Uniform Resource Identifier |  |
-| **URL** | Uniform Resource Locator |  |
-| **UUID** | Universally Unique Identifier |  |
-| **VM** | Virtual Machine |  |
-| **WBS** | Work Breakdown Structure |  |
-| **WEkEO** | Copernicus DIAS reference service for environmental data, virtual environments for data processing | <https://www.wekeo.eu/> |
-| **WP** | Work Package |  |
-| **ZIP** | ZIP Format |  |
+| ADs | Applicable Documents |  |
+| AI | Action Item |  |
+| API | Application Programming Interface |  |
+| CLC | CORINE Land Cover | https://land.copernicus.eu/en/products/corine-land-cover |
+| CLC+ | CORINE Land Cover + | https://land.copernicus.eu/en/products/clc-a-new-generation-land-information-system-for-europe |
+| CLMS | Copernicus Land Monitoring Service | https://land.copernicus.eu/en |
+| COG | Cloud-optimized GIF |  |
+| CORINE | Coordination of information on the environment |  |
+| CZ | Coastal Zones |  |
+| DB | Database |  |
+| DIAS | Copernicus Data and Information Access Services |  |
+| EAGLE | Eionet Action Group on Land monitoring in Europe | https://land.copernicus.eu/en/eagle |
+| EC | European Commission | https://commission.europa.eu/ |
+| EEA | European Environment Agency | https://www.eea.europa.eu |
+| EEA39 | The 33 member and 6 cooperating countries of the EEA |  |
+| EEA38+UK | The 32 member and 6 cooperating countries of the EEA + United Kingdom |  |
+| EO | Earth Observation |  |
+| ESA | European Space Agency | https://www.esa.int |
+| ETC | European Topic Centre | https://www.eionet.europa.eu/etcs |
+| EU | European Union |  |
+| EU27 | The 27 Member States of the European Union |  |
+| FM | Final Meeting |  |
+| FWC | Framework Contract |  |
+| GDAL | Geospatial Data Abstraction Library |  |
+| GDB | Geodatabase |  |
+| GIO | GMES Initial Operations |  |
+| GPKG | GeoPackage |  |
+| HDF5 | Hierarchical Data Format |  |
+| HRL / HRLs | High Resolution Layer / High Resolution Layers |  |
+| IaaS | Infrastructure-as-a-Service |  |
+| ID | Identification Number |  |
+| INSPIRE | Infrastructure for Spatial Information in Europe | https://knowledge-base.inspire.ec.europa.eu/index_en |
+| ISO | International Organisation for Standardization |  |
+| ITT | Invitation to Tender |  |
+| JDBC | Java Database Connectivity |  |
+| JWT | JSON Web Token |  |
+| KOM | Kick-Off Meeting |  |
+| LC | Land Cover |  |
+| LCC | Land Cover Component |  |
+| LCH | Land Characteristics |  |
+| LC/LU | Land Cover / Land Use |  |
+| LCC | Land Cover Component |  |
+| LU | Land Use |  |
+| LUA | Land Use Attribute |  |
+| LULUCF | Land Use, Land Use Change and Forestry |  |
+| LYR | ArcGIS Layer File |  |
+| MMU | Minimum Mapping Unit |  |
+| MS | Member States |  |
+| NFRs | Non-Functional-Requirements |  |
+| NRC | National Reference Centre |  |
+| NUTS | Nomenclature of Territorial Units for Statistics |  |
+| N2K | Natura 2000 |  |
+| OBDC | Open Database Connectivity |  |
+| PDF | Portable Document Format |  |
+| PM | Progress Meeting |  |
+| PMP | Project Management Plan |  |
+| PoC | Proof of Concept |  |
+| QA | Quality Assurance |  |
+| QC | Quality Control |  |
+| QM | Quality Management |  |
+| QML | QGIS Style file |  |
+| REST | Representational State Transfer |  |
+| RZ | Riparian Zones |  |
+| SC | Specific Contract |  |
+| SHP | ESRI Shapefile |  |
+| SLD | Styled Layer Descriptor |  |
+| SQL | Structured Query Language |  |
+| UA | Urban Atlas |  |
+| UI | User Interface |  |
+| URI | Uniform Resource Identifier |  |
+| URL | Uniform Resource Locator |  |
+| UUID | Universally Unique Identifier |  |
+| VM | Virtual Machine |  |
+| WBS | Work Breakdown Structure |  |
+| WEkEO | Copernicus DIAS reference service for environmental data, virtual environments for data processing | https://www.wekeo.eu/ |
+| WP | Work Package |  |
+| ZIP | ZIP Format |  |
+
+**Applicable Documents (AD)**
+
+| **ID** | **Document Name / Content** |
+|----|----|
+| AD01 | Tender Specifications – EEA/DIS/R0/20/019 – Copernicus Land Monitoring Service – Production of the CLC+ Core and Provision of Complementary Consultancy Services |
+| AD02 | Consortium’s Technical Proposal – in response to Call for tenders EEA/DIS/R0/20/019 – CLC+CORE Technical Proposal - v2.0 |
+| AD03 | Specific Contract No 3436/R0-COPERNICUS/EEA.58286 |
+| AD04 | Minutes of the KOM (CLC+Core_KOM_Minutes.docx) |
+| AD05 | PM1 - Project Management and Governance Plan (CLC+Core_Deliverable_PM1_Project_Management_Plan_V1.0.pdf) |
+| AD06 | Implementation of CLC+ based on the EAGLE concept –Additional support for further development of CLC+<br><br>databases (CLC+ and CLC+ instances, namely CLC+ LULUCF instance and CLC+ Legacy instance) - Task 4: From CLC+ Core to CLC+ Legacy - 3436/R0-Copernicus/EEA.57755 |
+| AD07 | PM2 - 1st Project Management and Status Report (CLC+Core_Deliverable_PM2_1st-Project-Management-Status-Report_V1.0.pdf) |
+| AD08 | CLC+ Core Decision Log_V1.4 (CLC+Core_Decision_log_V1.4.pdf) |
+| AD09 | D1 - Software Design (CLC+Core_D1_Software \_Design_V1.0.pdf) |
+| AD10 | D3.2.1 - Demonstration and documentation of ingested CLMS datasets, under this Service Contract (CLC+Core_Deliverable_D3.2.1_Demonstration-and-documentation-of-ingested-CLMS-datasets_V01.pdf) |
+| AD11 | D3.1 - Documentation of deployment of CLC+ Core products to DIAS – cloud service (CLC+Core_Deliverable_D3.1_Documentation of deployment of CLC+ Core products to DIAS_V1.0.pdf) |
+| AD12 | LULUCF_classes_simplified_EAGLE_query_rules_20210325.xlsx (Provided by EAGLE Group) |
+| AD13 | Specific contract no 3506_R0-COPERNCA_EEA.59433 |
 
 [^1]: <https://dd.eionet.europa.eu/documentation/doc1>
