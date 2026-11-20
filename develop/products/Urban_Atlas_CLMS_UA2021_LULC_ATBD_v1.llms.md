@@ -939,19 +939,13 @@ Table 6: UA LC/LU nomenclature (in bold, classes used in the products, without a
 | **9.1** | **91000** | **No data (Clouds and shadows)** |  |
 | **9.2** | **92000** | **No data (Missing imagery)** |  |
 
-# 10 Document history
-
-| Version | Date       | Short description of changes |
-|---------|------------|------------------------------|
-| 1.2     | 05.02.2026 | Initial published version    |
-
-# 11 Applicable documents
+# 10 Applicable documents
 
 | Version | Applicable document                          |
 |---------|----------------------------------------------|
 | AD-1    | Urban Atlas 2021 – Product User Manual (PUM) |
 
-# 12 Change Log
+# 11 Change Log
 
 | Date | Version | Summary |
 |----|----|----|

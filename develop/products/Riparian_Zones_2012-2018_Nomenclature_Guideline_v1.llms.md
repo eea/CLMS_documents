@@ -5934,34 +5934,7 @@ During the 2018 Riparian Zones mapping some Level 4 classes have been merged to 
 
 ![/ Level 4 Code (2012 Nomenclature) / Original Land Cover Class (2012 Nomenclature) / New Land Cover Class (2018 Nomenclature) / Original Numeric Code (2012) / New Numeric Code (2018) / /---/---/---/---/---/ / 24000 / Complex and mixed cultivation patterns / Complex cultivation patterns / 2.3.2.0 / 2.3.2.0 / / 30000 / Forests (Urban Atlas 2006) / Forest / 3.0.0.0 / 3.0.0.0 / / 31000 / Forests (Urban Atlas 2012) / Forest / 3.0.0.0 / 3.0.0.0 / / 23000 / Pastures / Grassland / 4.0.0.0 / 4.0.0.0 / / 32000 / Herbaceous vegetation associations / Heathlands and Moorlands / 5.0.0.0 / 5.0.0.0 / / 33000 / Open spaces with little or no vegetation / Sparsely vegetated areas / 6.0.0.0 / 6.0.0.0 / / 40000 / Wetlands / Wetlands / 7.0.0.0 / 7.0.0.0 / / 50000 / Water bodies / Water bodies / 9.0.0.0 / 8.0.0.0 / This table presents a nomenclature change matrix, showing how specific Level 4 land cover classes from a 2012 classification were mapped to new land cover classes in a 2018 nomenclature. Most classes, such as 'Complex and mixed cultivation patterns' (code 24000) to 'Complex cultivation patterns', 'Pastures' (code 23000) to 'Grassland', and 'Wetlands' (code 40000) remain descriptive equivalents with corresponding numeric codes. Notably, both 'Forests (Urban Atlas 2006)' (code 30000) and 'Forests (Urban Atlas 2012)' (code 31000) map to the single 'Forest' class with a numeric code of 3.0.0.0. The class 'Water bodies' (code 50000) maintains its name but changes its numeric code from 9.0.0.0 to 8.0.0.0 in the 2018 nomenclature.](Riparian_Zones_2012-2018_Nomenclature_Guideline_v1-media/Annex1.8.png)
 
-# 9 Document controll information
-
-| **Settings**      | **Value**                             |
-|-------------------|---------------------------------------|
-| Document Title:   | Riparian Zones Nomenclature Guideline |
-| Project Owner:    | Hans Dufourmont (EEA)                 |
-| Project Manager:  | Ana Maria Ribeiro de Sousa (EEA)      |
-| Document Version: | 1.5                                   |
-| Sensitivity:      | Basic                                 |
-| Date:             | 14/12/2021                            |
-
-**Document Approver(s) and Reviewer(s):**
-
-| **Name**         | **Action** | **Date**   |
-|------------------|------------|------------|
-| Johannes Heymann | Approval   | 19/10/2018 |
-
-**Document History:**
-
-| **Version** | **Date** | **Short description of changes** |
-|----|----|----|
-| 1.5 | 14/12/2021 | Update to reflect updated class definitions. |
-| 1.4 | 19/10/2018 | Update to reflect administrative/formal changes; class definitions unchanged. |
-| 1.3 | 25/05/2018 | Harmonisation of Nomenclatures of common LC/LU classes between Lot2 (RZ) and Lot3 (N2K). |
-| 1.2 | 23/03/2018 | Update to reflect Nomenclature changes for adapting to new class definition introduced 12/06/17. |
-| 1.1 | 21/09/2015 | Final Nomenclature Guideline Version 1.1 (Copernicus Initial Operations 2011-2013. Riparian Zones). |
-
-# 10 Change Log
+# 9 Change Log
 
 | Date | Version | Summary |
 |----|----|----|

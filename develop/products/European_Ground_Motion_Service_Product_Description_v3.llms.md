@@ -761,37 +761,7 @@ Estimated_Acc_And_Std = [EstimatedAcceleration EstimatedSTD_Acc]
 
 *Table 14 Data delivery field evaluation*
 
-# 12 Document Control Information
-
-| **Settings**          | **Value**                                    |     |
-|-----------------------|----------------------------------------------|-----|
-| **Document Title:**   | Product Description and Format Specification |     |
-| **Project Title:**    | EGMS-SC1                                     |     |
-| **Project Owner:**    | Henrik Steen Andersen (EEA)                  |     |
-| **Document Code:**    | EGMS-D6-PDD-SC1-2.0-009                      |     |
-| **Document Version:** | 2.0                                          |     |
-| **Distribution:**     | Public                                       |     |
-| **Date:**             | 25/10/2023                                   |     |
-
-**Document Approver(s) and Reviewer(s):**
-
-|                |                       |            |            |
-|:---------------|:----------------------|:-----------|:-----------|
-| **Name**       | **Role**              | **Action** | **Date**   |
-| Lorenzo Solari | Project Officer (EEA) | Approve    | 25/10/2023 |
-
-**Document history:**
-
-| Revision  | Date       | Short Description of Changes                     |
-|-----------|------------|--------------------------------------------------|
-| draft 1.0 | 18/06/2021 | Initial version                                  |
-| draft 1.1 | 15/10/2021 | Updated according to review by EEA               |
-| draft 1.2 | 20/12/2021 | Updated according to review by EEA               |
-| 1.0       | 24/02/2022 | Changes to EGMS Basic data format                |
-| 2.0       | 25/10/2023 | Changes to EGMS Basic data naming convention     |
-| 3.0       | 06/08/2025 | Additional details in the track angle on Table 5 |
-
-# 13 Change Log
+# 12 Change Log
 
 | Date | Version | Summary |
 |----|----|----|

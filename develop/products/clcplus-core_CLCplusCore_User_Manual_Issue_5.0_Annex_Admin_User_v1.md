@@ -32,42 +32,6 @@
 - [<span class="toc-section-number">2</span> List of
   abbreviations](#list-of-abbreviations)
 
-Date: 2026-09-28
-
-Doc. Version : Issue 5.0
-
-Content ID: /
-
-**Document Control Information**
-
-| Document Title | CLC+ Core User Guideline |
-|----|----|
-| Project Title | Operational maintenance of the CLCplus Core platform and infrastructure |
-| Document Author | Xabier Diego, Manuel Martínez, Arantza Echevarria |
-| Project Owner | Massimiliano Rossi (EEA) |
-| Project Manager | Massimiliano Rossi (EEA) |
-| Document Code | / |
-| Document Version | Issue 5.0 |
-| Distribution |  |
-| Date | 2026-09-28 |
-
-**Document Approver(s) and Reviewer(s):**
-
-| Name                | Role     | Action          | Date       |
-|---------------------|----------|-----------------|------------|
-| Tim Wiltzius (CLF)  | Reviewer | Document review | 2023-12-20 |
-| Johannes Vass (CLF) | Reviewer | Document review |            |
-
-**Document history**
-
-| Revision | Date | Created by | Short description of changes |
-|----|----|----|----|
-| 1.0 | 2022-04-08 | CLC+ Core consortium (CLF, GV, GAF) | Initial document creation |
-| 2.0 | 2022-06-10 | CLC+ Core consortium (CLF, GV, GAF) | Restructure of entire document, extension of Extraction chapter and Admin User section |
-| 3.0 | 2023-06-06 | CLC+ Core consortium (CLF, GV, GAF) | Adaption of rule 3 in the current version of the CLC+ Core system |
-| 4.0 | 2023-12-22 | CLC+ Core consortium (CLF, GV, GAF) | Update of the entire document with all newly implemented features and improvements of the system (within SC8) |
-| 5.0 | 2026-09-28 | Bilbomática, an Altia company | Update with the new 10m resolution feature |
-
 **Applicable Documents (AD)**
 
 | **ID** | **Document Name / Content** |

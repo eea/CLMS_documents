@@ -717,19 +717,13 @@ PROJCS["ETRS89-extended / LAEA Europe",
     AUTHORITY["EPSG","3035"]]
 ```
 
-# 12 Document history
-
-| Version | Date       | Short description of changes |
-|---------|------------|------------------------------|
-| 1.2     | 01.04.2025 | Initial published issue      |
-
-# 13 Applicable documents
+# 12 Applicable documents
 
 | ID | Applicable Document |
 |----|----|
 | AD-1 | [CLCplus Backbone 2023 - Algorithm Theoretical Basis Document (ATBD)](https://land.copernicus.eu/en/products/clc-backbone?tab=documentation) |
 
-# 14 Change Log
+# 13 Change Log
 
 | Date | Version | Summary |
 |----|----|----|

@@ -1458,19 +1458,13 @@ Areas for which no reference image is available (gaps in image coverage).
 
 In cases over the sea or within large forest masses, and for small areas, it may be considered—after verification using Google Earth or Bing imagery—that no changes need to be extracted, and the class from the previous reference year is retained.
 
-# 13 Document history
-
-| Version | Date       | Short description of changes |
-|---------|------------|------------------------------|
-| 1.2     | 05.02.2026 | Initial published issue      |
-
-# 14 Applicable documents
+# 13 Applicable documents
 
 | Version | Applicable document                                            |
 |---------|----------------------------------------------------------------|
 | AD-1    | Urban Atlas 2021 – Algorithm Theoretical Basis Document (ATBD) |
 
-# 15 Change Log
+# 14 Change Log
 
 | Date | Version | Summary |
 |----|----|----|

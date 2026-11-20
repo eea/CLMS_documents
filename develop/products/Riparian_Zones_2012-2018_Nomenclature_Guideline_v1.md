@@ -27,8 +27,6 @@
   Matrixes](#annex-1-change-matrixes)
 - [<span class="toc-section-number">8</span> Annex 2: Re-coding Table
   for UA Core Areas](#annex-2-re-coding-table-for-ua-core-areas)
-- [<span class="toc-section-number">9</span> Document controll
-  information](#document-controll-information)
 
 # Introduction
 
@@ -14347,33 +14345,6 @@ corresponding numeric codes. Notably, both “Forests (Urban Atlas 2006)”
 single “Forest” class with a numeric code of 3.0.0.0. The class “Water
 bodies” (code 50000) maintains its name but changes its numeric code
 from 9.0.0.0 to 8.0.0.0 in the 2018 nomenclature.
-
-# Document controll information
-
-| **Settings**      | **Value**                             |
-|-------------------|---------------------------------------|
-| Document Title:   | Riparian Zones Nomenclature Guideline |
-| Project Owner:    | Hans Dufourmont (EEA)                 |
-| Project Manager:  | Ana Maria Ribeiro de Sousa (EEA)      |
-| Document Version: | 1.5                                   |
-| Sensitivity:      | Basic                                 |
-| Date:             | 14/12/2021                            |
-
-**Document Approver(s) and Reviewer(s):**
-
-| **Name**         | **Action** | **Date**   |
-|------------------|------------|------------|
-| Johannes Heymann | Approval   | 19/10/2018 |
-
-**Document History:**
-
-| **Version** | **Date** | **Short description of changes** |
-|----|----|----|
-| 1.5 | 14/12/2021 | Update to reflect updated class definitions. |
-| 1.4 | 19/10/2018 | Update to reflect administrative/formal changes; class definitions unchanged. |
-| 1.3 | 25/05/2018 | Harmonisation of Nomenclatures of common LC/LU classes between Lot2 (RZ) and Lot3 (N2K). |
-| 1.2 | 23/03/2018 | Update to reflect Nomenclature changes for adapting to new class definition introduced 12/06/17. |
-| 1.1 | 21/09/2015 | Final Nomenclature Guideline Version 1.1 (Copernicus Initial Operations 2011-2013. Riparian Zones). |
 
 [^1]: European Union (2013, 2014): Mapping and Assessment of Ecosystems
     and their Services, An Analytical Framework for Ecosystems

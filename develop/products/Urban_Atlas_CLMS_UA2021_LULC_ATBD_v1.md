@@ -67,9 +67,7 @@
   queries](#annex-1---green-urban-areas-queries)
 - [<span class="toc-section-number">9</span> Annex 2 - UA LC/LU
   Nomenclature](#annex-2---ua-lclu-nomenclature)
-- [<span class="toc-section-number">10</span> Document
-  history](#document-history)
-- [<span class="toc-section-number">11</span> Applicable
+- [<span class="toc-section-number">10</span> Applicable
   documents](#applicable-documents)
 
 # Executive summary
@@ -1940,12 +1938,6 @@ without any further subdivision)
 | 9 |  | No data |  |
 | **9.1** | **91000** | **No data (Clouds and shadows)** |  |
 | **9.2** | **92000** | **No data (Missing imagery)** |  |
-
-# Document history
-
-| Version | Date       | Short description of changes |
-|---------|------------|------------------------------|
-| 1.2     | 05.02.2026 | Initial published version    |
 
 # Applicable documents
 

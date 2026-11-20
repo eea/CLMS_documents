@@ -713,14 +713,7 @@ More information on the products can be found on the Copernicus Land Monitoring 
 
 - Ronneberger, O., Fischer, P., & Brox, T. (2015, October). U-net: Convolutional networks for biomedical image segmentation. In *International Conference on Medical image computing and computer-assisted intervention* (pp. 234-241). Cham: Springer international publishing.
 
-# 9 Document history
-
-| Version | Date       | Short description of changes     |
-|---------|------------|----------------------------------|
-| 1.0     | 16.09.2025 | Initial published issue          |
-| 1.1     | 20.11.2025 | Addition of STL related sections |
-
-# 10 Change Log
+# 9 Change Log
 
 | Date | Version | Summary |
 |----|----|----|

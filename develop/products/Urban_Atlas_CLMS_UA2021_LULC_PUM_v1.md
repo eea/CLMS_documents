@@ -85,9 +85,7 @@
   nomenclature](#annex-1-ua-lclu-nomenclature)
 - [<span class="toc-section-number">12</span> Annex 2 Description of
   LC/LU thematic classes](#annex-2-description-of-lclu-thematic-classes)
-- [<span class="toc-section-number">13</span> Document
-  history](#document-history)
-- [<span class="toc-section-number">14</span> Applicable
+- [<span class="toc-section-number">13</span> Applicable
   documents](#applicable-documents)
 
 # Non-technical summary
@@ -2440,12 +2438,6 @@ In cases over the sea or within large forest masses, and for small
 areas, it may be considered—after verification using Google Earth or
 Bing imagery—that no changes need to be extracted, and the class from
 the previous reference year is retained.
-
-# Document history
-
-| Version | Date       | Short description of changes |
-|---------|------------|------------------------------|
-| 1.2     | 05.02.2026 | Initial published issue      |
 
 # Applicable documents
 

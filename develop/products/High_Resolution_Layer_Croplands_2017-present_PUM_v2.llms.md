@@ -883,20 +883,7 @@ Table 0-21: Colour palette and attributes of CPCSY layer
 
 Table 0-22: Colour palette and attributes of CPCST layer
 
-# 13 Document Control Information:
-
-| Document Title | D1.12 HRL Croplands - Product User Manual |
-|----|----|
-| Project Title | Copernicus Land Monitoring Service – High Resolution Layer - Vegetated Land Cover Characteristics |
-| Document Author | André Stumpf, Stephanie Wegscheider, Christian Siegert, Elcin Acar (GAF AG), Bert De Roo, Kasper Bonte (VITO), Tanja Gasber (GeoVille), Loïc Faucqueur (CLS) |
-| Project Owner | Luca Battistella (EEA) |
-| Project Manager | Christian Siegert (GAF) |
-| Document Code | D1.12 HRL CTY |
-| Document Version | 2.3 |
-| Distribution | Public |
-| Date | 2025-11-03 |
-
-# 14 Change Log
+# 13 Change Log
 
 | Date | Version | Summary |
 |----|----|----|

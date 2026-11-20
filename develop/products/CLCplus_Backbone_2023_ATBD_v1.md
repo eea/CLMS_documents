@@ -60,9 +60,7 @@
 - [<span class="toc-section-number">5</span> List of
   abbreviations](#list-of-abbreviations)
 - [<span class="toc-section-number">6</span> References](#references)
-- [<span class="toc-section-number">7</span> Document
-  history](#document-history)
-- [<span class="toc-section-number">8</span> Applicable
+- [<span class="toc-section-number">7</span> Applicable
   documents](#applicable-documents)
 
 # Executive summary
@@ -1049,12 +1047,6 @@ Monitoring Service website (https://land.copernicus.eu/)
   methods for landcover classification. IEEE Transactions on Geoscience
   and Remote Sensing, 50(11), 4534-4545.
   https://ieeexplore.ieee.org/document/6198886 \[27.03.2025\]
-
-# Document history
-
-| Version | Date       | Short description of changes |
-|---------|------------|------------------------------|
-| 1.2     | 01.04.2025 | Initial published version    |
 
 # Applicable documents
 

@@ -134,12 +134,6 @@
     Updates](#l2a-products--future-updates)
   - [<span class="toc-section-number">10.4</span> L2b and L3 products –
     Updates](#l2b-and-l3-products--updates)
-- [<span class="toc-section-number">11</span> Document Control
-  Information](#document-control-information)
-  - [<span class="toc-section-number">11.1</span> Document Approver(s)
-    and Reviewer(s):](#document-approvers-and-reviewers)
-  - [<span class="toc-section-number">11.2</span> Document
-    history:](#document-history)
 
 # Introduction
 
@@ -4317,36 +4311,3 @@ the approach described in section
 <a href="#sec-9EGMS-PRODUCTION-PROTOCOL-ORTHO-PRODUCT"
 class="quarto-xref">Section 9</a>. As a consequence, L3 products update
 is automatically obtained as a consequence of the L2a and L2b one.
-
-# Document Control Information
-
-| Settings          | Value                                            |
-|-------------------|--------------------------------------------------|
-| Document Title:   | Algorithm Theoretical Basis Document             |
-| Project Title:    | EGMS-SC1                                         |
-| Document Author:  | Alessandro FerrettiEmanuele Passera Renalt Capes |
-| Project Owner:    | Henrik Steen Andersen (EEA)                      |
-| Project Manager:  | Sergio Proietti (e-GEOS)                         |
-| Document Code:    | EGMS-D3-ALG-SC1-006                              |
-| Document Version: | 4.0                                              |
-| Distribution:     | Public                                           |
-| Date:             | 07/08/2025                                       |
-
-## Document Approver(s) and Reviewer(s):
-
-| Name | Role | Action | Date |
-|----|----|----|----|
-| Alessandro Ferretti | Document Owner | Review | 25/10/2023 |
-| Original Consortium Technical Steering Committee | TSC member | Review | 25/10/2023 |
-| Lorenzo Solari | Project Officer (EEA) | Approve | 25/10/2023 |
-
-## Document history:
-
-| Revision | Date | Created by | Short Description of Changes |
-|----|----|----|----|
-| draft 1.0 | 02/07/2021 | Alessandro Ferretti | first version |
-| draft 1.1 | 22/10/2021 | Alessandro Ferretti | Updated according to review by EEA Review table_ORR_final_v2 - EEA 13/07/202 |
-| 1.0 | 20/12/2021 | Emanuele Passera | Updated according to review by EEA20211015_Review_package |
-| 2.0 | 06/02/2023 | Emanuele Passera | 1st update strategy added in section 10 |
-| 3.0 | 25/10/2025 | Emanuele Passera | 2nd update strategy added in section 10 |
-| 4.0 | 06/08/2025 | Emanuele Mele | Update relevant to some IPE’s peculiarity |

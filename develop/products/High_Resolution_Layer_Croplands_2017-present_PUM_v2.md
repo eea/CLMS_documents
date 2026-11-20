@@ -69,8 +69,6 @@
 - [<span class="toc-section-number">11</span> References](#references)
 - [<span class="toc-section-number">12</span> Annex I – Colour tables
   for HRL Croplands](#annex-i--colour-tables-for-hrl-croplands)
-- [<span class="toc-section-number">13</span> Document Control
-  Information:](#document-control-information)
 
 # Executive summary
 
@@ -2787,19 +2785,6 @@ type counts over a three-year period, non-cropland, and special codes
 for unclassified areas (65528) and outside the area of interest (65535).
 Each class is assigned a unique RGB triplet and a visual colour
 representation.
-
-# Document Control Information:
-
-| Document Title | D1.12 HRL Croplands - Product User Manual |
-|----|----|
-| Project Title | Copernicus Land Monitoring Service – High Resolution Layer - Vegetated Land Cover Characteristics |
-| Document Author | André Stumpf, Stephanie Wegscheider, Christian Siegert, Elcin Acar (GAF AG), Bert De Roo, Kasper Bonte (VITO), Tanja Gasber (GeoVille), Loïc Faucqueur (CLS) |
-| Project Owner | Luca Battistella (EEA) |
-| Project Manager | Christian Siegert (GAF) |
-| Document Code | D1.12 HRL CTY |
-| Document Version | 2.3 |
-| Distribution | Public |
-| Date | 2025-11-03 |
 
 [^1]: https://land.copernicus.eu/en/eagle?tab=technical_implementation
 

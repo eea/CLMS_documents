@@ -488,19 +488,13 @@ More information on the products can be found on the Copernicus Land Monitoring 
 
 - Schindler, K. (2012). An overview and comparison of smooth labeling methods for landcover classification. IEEE Transactions on Geoscience and Remote Sensing, 50(11), 4534-4545. https://ieeexplore.ieee.org/document/6198886 \[27.03.2025\]
 
-# 7 Document history
-
-| Version | Date       | Short description of changes |
-|---------|------------|------------------------------|
-| 1.2     | 01.04.2025 | Initial published version    |
-
-# 8 Applicable documents
+# 7 Applicable documents
 
 | ID | Applicable document |
 |----|----|
 | AD-1 | [CLCplus Backbone 2023 - Product User Manual (PUM)](https://land.copernicus.eu/en/products/clc-backbone?tab=documentation) |
 
-# 9 Change Log
+# 8 Change Log
 
 | Date | Version | Summary |
 |----|----|----|

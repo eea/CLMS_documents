@@ -75,9 +75,7 @@
       Layer (RASPL)](#post-processing-layer-raspl)
   - [<span class="toc-section-number">11.2</span> Annex 2: Projection
     parameters](#annex-2-projection-parameters)
-- [<span class="toc-section-number">12</span> Document
-  history](#sec-document-history)
-- [<span class="toc-section-number">13</span> Applicable
+- [<span class="toc-section-number">12</span> Applicable
   documents](#sec-applicable-documents)
 
 # Executive summary
@@ -2399,12 +2397,6 @@ PROJCS["ETRS89-extended / LAEA Europe",
     AXIS["Easting",EAST],
     AUTHORITY["EPSG","3035"]]
 ```
-
-# Document history
-
-| Version | Date       | Short description of changes |
-|---------|------------|------------------------------|
-| 1.2     | 01.04.2025 | Initial published issue      |
 
 # Applicable documents
 

@@ -69,8 +69,6 @@
 - [<span class="toc-section-number">7</span> List of abbreviations &
   acronyms](#list-of-abbreviations--acronyms)
 - [<span class="toc-section-number">8</span> References](#references)
-- [<span class="toc-section-number">9</span> Document
-  history](#document-history)
 
 # Executive summary
 
@@ -1646,13 +1644,6 @@ Monitoring Service website <https://land.copernicus.eu/>
   *International Conference on Medical image computing and
   computer-assisted intervention* (pp. 234-241). Cham: Springer
   international publishing.
-
-# Document history
-
-| Version | Date       | Short description of changes     |
-|---------|------------|----------------------------------|
-| 1.0     | 16.09.2025 | Initial published issue          |
-| 1.1     | 20.11.2025 | Addition of STL related sections |
 
 [^1]: [Copernicus Land Monitoring Service – Data
     policy](https://land.copernicus.eu/en/data-policy)

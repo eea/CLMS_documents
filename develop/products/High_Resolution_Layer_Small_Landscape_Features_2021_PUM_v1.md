@@ -88,8 +88,6 @@
 - [<span class="toc-section-number">11</span>
   References](#sec-references)
 - [<span class="toc-section-number">12</span> Annexes](#sec-annexes)
-- [<span class="toc-section-number">13</span> Document
-  history](#document-history)
 
 # Non-technical summary
 
@@ -1493,18 +1491,6 @@ Table 3: Attribute table of the PSIL
 | delivery_d | Delivery date | 2023-01-31 |
 | ql_url | Reference to the Datastrip Quick Look | prod/QL/PH00/DS_PHR1A_202207200941593_FR1_PX_E019N42_0811_03280.tif htps://storage.googleapis.com/bucket-vhr-public- |
 | cov_step | Coverage Step | CCR2022 |
-
-# Document history
-
-Record of changes made to the document over time after the initial
-published version, including version numbers, dates of revisions, and a
-summary of modifications. This table must be only included in the
-initial PUM published version and without the personal information
-(“Created by:” filed must be removed).
-
-| Version | Date       | Short description of changes |
-|---------|------------|------------------------------|
-| 1.0     | 16.09.2025 | Initial published issue      |
 
 [^1]: H2020 ECoLaSS User Requirement Analysis: [Deliverable D3.2 –
     Service Evolution Requirements Report Vol.

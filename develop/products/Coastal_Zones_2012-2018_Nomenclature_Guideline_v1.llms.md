@@ -6694,27 +6694,6 @@ Schematic representation of classes 8.4 Sea and ocean (red dot line)
 | VHR | Very High Resolution |
 | WMS | Web Map Service |
 
-\#Document Control Information
-
-[TABLE]
-
-Document Approver(s) and Reviewer(s)
-
-| **Name**        | **Role**        | **Action** | **Date** |
-|-----------------|-----------------|------------|----------|
-| Hans Dufourmont | Project Officer |            |          |
-
-**Document History**
-
-| **Revision** | **Date** | **Short description of changes** |
-|----|----|----|
-| 1.2 | 15/02/2021 | Classes 832 Estuaries and 833 Marine inlets and fjords have been swapped. Reservoirs are defined under |
-| 1.1 | 01/10/2020 | Update of codes according to change in Nomenclature |
-| 1.0 | 24/01/2020 | Final Nomenclature Guideline |
-| 0.3 | 19/12/2019 | Preliminary Nomenclature Guideline (incl. adaptions after training, comments to be clarified by EEA) |
-| 0.2 | 06/12/2019 | Preliminary Nomenclature Guideline (including all adaptations resulting of the User Consultation) |
-| 0.1 | 21/09/2019 | Preliminary Nomenclature Guideline (before User consultation) |
-
 Applicable Documents
 
 | **ID** | **Document Name / Content**                       |
