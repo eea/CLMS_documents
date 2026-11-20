@@ -1,5 +1,5 @@
-# CLC+ Core User Manual Annex
-European Environment Agency (EEA)
+# CLCplus Core User Manual Annex
+
 2026-09-28
 
 - [<span class="toc-section-number">1</span> Admin User

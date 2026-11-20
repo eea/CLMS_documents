@@ -1,4 +1,4 @@
-# CLCplus Backbone 2023 - Algorith Theoretical Basis Document
+# CLCplus Backbone 2023 - Algorithm Theoretical Basis Document
 
 2025-04-01
 

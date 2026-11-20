@@ -4,10 +4,6 @@ Copernicus Land Monitoring Service
 
 This Product User Manual (PUM) serves as a comprehensive guide for users of the Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) Croplands products, covering the period from 2017 to the present. It details the characteristics, production methodologies, and quality assessment of the annual HRL Croplands provision. The manual provides essential information on product usage, including nomenclature, spatial resolution, file formats, and terms of use, enabling effective application of these geospatial datasets. The technical focus includes the crop type classification, cropping patterns and accuracy assessment.
 
-Author
-
-Copernicus Land Monitoring Service
-
 Published
 
 November 3, 2025

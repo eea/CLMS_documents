@@ -1,12 +1,8 @@
-# CLC+ Core User Manual
+# CLCplus Core User Manual
 
-CLC+ Core production and provision of complementary consultancy
+Copernicus Land Monitoring Service
 
 This User Guideline serves as comprehensive documentation for the Copernicus Land Monitoring Service’s CLC+ Core system, detailing its web-based functionalities and user interfaces. It guides users through the process of ingesting diverse land cover/land use datasets, encompassing CLMS products and national data, and standardising them via the EAGLE concept. The document meticulously explains how to define complex rule-based extractions to generate new, customised land monitoring products at both 100m and 10m spatial resolutions, supporting advanced environmental analysis and policy implementation.
-
-Author
-
-European Environment Agency (EEA)
 
 Published
 

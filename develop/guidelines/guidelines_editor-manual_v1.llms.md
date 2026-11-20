@@ -1,6 +1,6 @@
 # Technical Library - Editor Guidelines
 
-Copernicus Land Monitoring Serviceross references
+Copernicus Land Monitoring Service
 
 This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, content formatting, and document licensing policies. It also outlines procedures for local previewing, publishing to the `develop` branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.
 

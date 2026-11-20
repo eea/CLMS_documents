@@ -1,12 +1,8 @@
-# CLC+ Core User Manual Annex
+# CLCplus Core User Manual Annex
 
-CLC+ Core production and provision of complementary consultancy
+Copernicus Land Monitoring Service
 
 This annex provides essential guidance for administrative users of the Copernicus Land Monitoring Service’s CLC+ Core system, detailing their elevated functionalities. It covers the management of user profiles and organisations, alongside the crucial process of uploading and updating EAGLE ontologies to maintain data standardisation. Furthermore, the document explains the administrative control over 10m resolution processing via a global toggle, outlining its implications for system operations, data ingestion, and extraction workflows to ensure efficient resource management.
-
-Author
-
-European Environment Agency (EEA)
 
 Published
 

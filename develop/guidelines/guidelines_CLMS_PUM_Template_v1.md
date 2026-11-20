@@ -1,4 +1,4 @@
-# Product Name – Product User Manual (PUM)
+# Product Name – Product User Manual
 
 2026-11-05
 

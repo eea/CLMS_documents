@@ -1,4 +1,4 @@
-# High Resolution Layer Small Landscape Features 2021 – Algorithm Theoretical Basis Document (ATBD)
+# High Resolution Layer Small Landscape Features 2021 – Algorithm Theoretical Basis Document
 
 2025-11-20
 

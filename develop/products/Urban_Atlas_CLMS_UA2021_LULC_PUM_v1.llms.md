@@ -1,6 +1,6 @@
 # Urban Atlas 2021 – Product User Manual
 
-Copernicus Land Monitoring Service – Priority Area Monitoring – Urban Atlas 2021 and 2024
+Copernicus Land Monitoring Service
 
 This Product User Manual (PUM) provides comprehensive guidance for utilising the Copernicus Urban Atlas (UA) 2021, a key component of the Copernicus Land Monitoring Service (CLMS). It details product specifications, definitions, and methodologies employed in creating high-resolution land use and land cover maps for 790 Functional Urban Areas (FUAs) across Europe. The manual focuses on the vector layers, derived from semi-automatic image processing of Very High Resolution (VHR) and High-Resolution (HR) Earth Observation imagery, covering land use and land cover status in 2021 and changes detected between 2018 and 2021. This document aids a broad audience in effectively applying the Urban Atlas data for environmental monitoring and spatial decision-making.
 

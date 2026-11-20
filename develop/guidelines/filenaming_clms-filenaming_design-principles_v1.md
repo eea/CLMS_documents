@@ -1,5 +1,5 @@
 # CLMS Product Filenaming - Design Principles
-European Environment Agency (EEA)
+
 2026-11-06
 
 - [<span class="toc-section-number">1</span> CLMS Product Filenaming -

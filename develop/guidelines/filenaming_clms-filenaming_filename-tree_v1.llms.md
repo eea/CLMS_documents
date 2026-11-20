@@ -1,12 +1,8 @@
 # CLMS Product Filenaming - Filename Tree
 
-Copernicus Land Monitoring Service - Technical Library
+Copernicus Land Monitoring Service
 
 This document presents the “Filename Tree” for Copernicus Land Monitoring Service (CLMS) products, offering a structured, visual guide to all valid filename variants. It serves as a practical reference for understanding and constructing CLMS product filenames, detailing the hierarchical options for each field. The tree systematically illustrates choices for product codes, including new EU Hydro products, temporal coverage using ISO 8601 period formats, spatial resolution, geographic extent, and product variables, supported by concrete examples. Designed to complement the CLMS Filenaming Design Principles, this guide facilitates accurate data identification and ensures consistency across the CLMS data catalogue.
-
-Author
-
-European Environment Agency (EEA)
 
 Published
 

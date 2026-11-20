@@ -1,4 +1,4 @@
-# Protected Areas 2021-2024 - Algorithm Theoretical Basis Document (ATBD)
+# Protected Areas 2021-2024 - Algorithm Theoretical Basis Document
 
 Copernicus Land Monitoring Service
 

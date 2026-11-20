@@ -1,12 +1,8 @@
-# Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Algorithm Theoretical Basis Document (ATBD)
+# Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Algorithm Theoretical Basis Document
 
 Copernicus Land Monitoring Service
 
 This Algorithm Theoretical Basis Document (ATBD) comprehensively details the scientific and algorithmic foundations underpinning the Copernicus Land Monitoring Service’s Medium-Resolution Vegetation Phenology and Productivity (MR-VPP) product suite, Version 5.0 Issue 2.0. Covering the pan-European domain for 2000-2025, it explains the generation of annual phenology and productivity parameters from daily MODIS Nadir BRDF-Adjusted Reflectance (NBAR) data. Key aspects include the Plant Phenology Index (PPI) calculation, time-series smoothing using TIMESAT with cubic spline fitting, and robust quality assurance. The document also assesses the feasibility of short time-series processing for efficient operational updates, highlighting significant methodological improvements over previous versions.
-
-Author
-
-European Environment Agency (EEA)
 
 Published
 

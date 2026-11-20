@@ -1,5 +1,5 @@
 # High Resolution Layer Croplands 2017-present - Product User Manual
-Copernicus Land Monitoring Service
+
 2025-11-03
 
 - [<span class="toc-section-number">1</span> Executive

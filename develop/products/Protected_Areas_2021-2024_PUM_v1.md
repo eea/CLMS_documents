@@ -1,4 +1,4 @@
-# Protected Areas 2021-2024 - Product User Manual (PUM)
+# Protected Areas 2021-2024 - Product User Manual
 
 2026-02-26
 

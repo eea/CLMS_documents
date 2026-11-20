@@ -1,6 +1,6 @@
 # Protected Areas 2021-2024 - Nomenclature Guideline
 
-Copernicus Land Monitoring Services
+Copernicus Land Monitoring Service
 
 This document serves as a comprehensive Land Cover/Land Use (LC/LU) nomenclature guideline for the Copernicus Protected Areas 2021-2024 monitoring products. It meticulously defines a four-level classification hierarchy, aligning with MAES typology, for interpreting land cover types within protected areas. The scope encompasses detailed descriptions of 59 LC/LU classes, their geographic characteristics, and associated mapping rules, including minimum mapping unit and width. This guideline is crucial for ensuring consistent and accurate classification of terrestrial Natura 2000 sites, providing essential reference for scientists, regulators, and data engineers engaged in European land monitoring.
 

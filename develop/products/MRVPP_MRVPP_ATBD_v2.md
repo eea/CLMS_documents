@@ -1,5 +1,5 @@
-# Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Algorithm Theoretical Basis Document (ATBD)
-European Environment Agency (EEA)
+# Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Algorithm Theoretical Basis Document
+
 2026-06-09
 
 - [<span class="toc-section-number">1</span>

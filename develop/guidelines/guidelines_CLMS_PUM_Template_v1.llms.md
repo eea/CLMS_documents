@@ -1,4 +1,4 @@
-# Product Name – Product User Manual (PUM)
+# Product Name – Product User Manual
 
 Copernicus Land Monitoring Service
 

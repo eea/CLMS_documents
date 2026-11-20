@@ -1,6 +1,6 @@
 # Urban Atlas 2021 – Algorithm Theoretical Basis Document
 
-Copernicus Land Monitoring Service – Priority Area Monitoring – Urban Atlas 2021 and 2024
+Copernicus Land Monitoring Service
 
 The Copernicus Urban Atlas Algorithm Theoretical Basis Document (UA ATBD) presents a detailed description of the algorithms employed to generate the Urban Atlas 2021 (UA2021). The document outlines the process of transforming raw satellite data into thematic land cover and land use products. It covers data acquisition, preprocessing techniques like radiometric and geometric corrections, change detection methodologies using Very High Resolution (VHR) and Sentinel-2 data, and post-processing steps. Internal verification methods ensuring the accuracy and reliability are also described.
 

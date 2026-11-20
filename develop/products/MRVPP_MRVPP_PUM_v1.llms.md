@@ -1,12 +1,8 @@
-# Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Product User Manual (PUM)
+# Medium Resolution Vegetation Phenology and Productivity (MR-VPP) – Product User Manual
 
 Copernicus Land Monitoring Service
 
 This Product User Manual offers practical guidance for engaging with the Copernicus Land Monitoring Service’s Medium-Resolution Vegetation Phenology and Productivity (MR-VPP) Version 5.0 Issue 2.0 products. It details the product suite, encompassing Plant Phenology Index (PPI) time series and annual Vegetation Phenology and Productivity (VPP) parameters covering 2000-2025 across the pan-European domain. The document outlines input data, processing concepts, output formats, quality assurance layers, and recommended applications. It further assists users in interpreting phenological and productivity metrics, addressing known limitations, and leveraging product enhancements, including the 2025 data extension and short time-series processing evaluation.
-
-Author
-
-European Environment Agency (EEA)
 
 Published
 

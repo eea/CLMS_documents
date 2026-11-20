@@ -1,4 +1,4 @@
-# Product Name – Algorithm Theoretical Basis Document (ATBD)
+# Product Name – Algorithm Theoretical Basis Document
 
 2026-11-05
 
@@ -345,7 +345,7 @@ workflow.
 
 </div>
 
-<img src="templates_CLMS_ATBD_Template_v1-media/figure_1.png"
+<img src="guidelines_CLMS_ATBD_Template_v1-media/figure_1.png"
 style="width:100.0%"
 data-fig-alt="This diagram illustrates a generic production process workflow for Copernicus Land Monitoring Service (CLMS) products, detailing five sequential stages: Input data, Pre-processing, Processing, Post-processing, and Output products. 1. **Input data**: This stage involves sourcing data from Sentinel-x, Copernicus Land Monitoring Service (CLMS) specific datasets, Ancillary data, and other unspecified data sources. 2. **Pre-processing**: This stage includes multiple concurrent or sequential activities: &#39;Scene selection, check and correction&#39;, &#39;Extraction, quality control and calibration&#39;, and &#39;Classification and optimization&#39;. 3. **Processing**: This core stage encompasses &#39;Metrics generation, classification (e.g. threshold tunning, visual interpretation) data fusion processing&#39;. During this processing phase, &#39;Quality control and product verification&#39; is also conducted. 4. **Post-processing**: This stage focuses on refining the processed data through &#39;Filtering and harmonization, integration of ancillary data, classification improvements, product preparation&#39;. 5. **Output products**: The final outputs generated are a &#39;Status layer&#39;, a &#39;Change, auxiliary, reference layer&#39;, and &#39;Other datasets&#39;."
 alt="Figure 1.1 Example of a generic workflow (insert your caption here, delete feature and insert your feature)" />

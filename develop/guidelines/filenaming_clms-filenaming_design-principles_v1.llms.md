@@ -1,12 +1,8 @@
 # CLMS Product Filenaming - Design Principles
 
-Copernicus Land Monitoring Service - Technical Library
+Copernicus Land Monitoring Service
 
 This document outlines the design principles and mandatory conventions for filenaming all new Copernicus Land Monitoring Service (CLMS) products, including reprocessings and new versions. It establishes a consistent, machine-parseable structure, detailing rules for character sets, delimiters, field order, and simplified temporal encoding, alongside spatial definitions and product versioning. The guidelines ensure uniformity across the entire CLMS portfolio, facilitating data discovery, integration, and management for scientists, regulators, and data engineers. Adherence to these principles is crucial for maintaining data consistency within the Copernicus Land Data Store.
-
-Author
-
-European Environment Agency (EEA)
 
 Published
 
