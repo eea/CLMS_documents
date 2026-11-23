@@ -2,7 +2,7 @@
 
 Copernicus Land Monitoring Service
 
-This document functions as a land cover and land use nomenclature guideline specifically tailored for the Copernicus local land monitoring product focusing on Coastal Zones. It provides detailed descriptions of all Level 5 land cover and land use classes, encompassing their geographic characteristics, available input datasets, and the interpretation methods employed. It offers a structured framework for accurate and consistent classification of land features within the coastal environment. The document aims to standardise the classification process.
+This document provides a comprehensive land cover and land use nomenclature guideline for the Copernicus local land monitoring product focusing on Coastal Zones. It details a multi-level hierarchical classification system for all land features within coastal environments, cross-referencing to MAES Level 2 ecosystem types. The guideline offers structured definitions, geographic characteristics, and interpretation methods for ensuring accurate and consistent classification, standardising the process for the 2012-2018 product series.
 
 Published
 
@@ -10,7 +10,7 @@ February 15, 2021
 
 Keywords
 
-Coastal Zones, Land Cover, Land Use, nomenclature guideline, thematic classes, satellite image classification, change detection layer, visual interpretation, object delineation, minimum mapping unit
+Coastal Zones, Land Cover nomenclature, Land Use nomenclature, Multi-level land cover classification, MAES ecosystem types, Satellite image interpretation, Change detection mapping, Visual interpretation, Minimum mapping unit, Classification hierarchy
 
   
 **Contact:**
@@ -67,11 +67,82 @@ The creation of the new Natura 2000 nomenclature, based on the v1 of this guidel
 
 In line with the other thematic hotspot products the CZ nomenclature is designed to address the MAES classes at level 2.[^1] Table 2 describes how CZ classes shall be aggregated to map MAES at level 2.
 
-![This diagram presents a hierarchical land cover/land use (LCLU) nomenclature system organised into five thematic levels, with a sixth column for 'Ecosystem types level 2 (MAES)' (Mapping and Assessment of Ecosystems and their Services). The classification begins with three main Level 1 categories, which are then progressively refined into more specific classes up to Level 4. The Level 1 categories are: 1. \*\*1 Urban\*\*: This category encompasses four Level 2 sub-categories: \* \*\*1.1 Urban fabric, industrial, commercial, public, military and private units\*\*: This expands into two Level 3 types: \* \*\*1.1.1 Urban fabric (predominantly public and private units)\*\*, which further divides into three Level 4 classes based on Imperviousness Density (IMD): '1.1.1.1 Continuous urban fabric (IMD ≥80%)', '1.1.1.2 Dense urban fabric (IMD ≥30-80%)', and '1.1.1.3 Low density fabric (IMD \<30%)'. \* \*\*1.1.2 Industrial, commercial, public and military units\*\*, which divides into '1.1.2.1 Industrial, commercial, public and military units (other)' and '1.1.2.2 Nuclear energy plants and associated land'. \* \*\*1.2 Transport infrastructure\*\*: This expands into four Level 3 types: '1.2.1 Road networks and associated land', '1.2.2 Railways and associated land', '1.2.3 Port areas and associated land' (which further categorizes into seven Level 4 classes: '1.2.3.1 Cargo port', '1.2.3.2 Passenger port', '1.2.3.3 Fishing port', '1.2.3.4 Naval port', '1.2.3.5 Marinas', '1.2.3.6 Local multi-functional harbours', and '1.2.3.7 Shipyards'), and '1.2.4 Airports and associated land'. \* \*\*1.3 Mineral extraction, dump and construction sites, land without current use\*\*: This expands into two Level 3 types: \* \*\*1.3.1 Mineral extraction, dump and construction sites\*\*, which further divides into three Level 4 classes: '1.3.1.1 Mineral extraction sites', '1.3.1.2 Dump sites', and '1.3.1.3 Construction sites'. \* \*\*1.3.2 Land without current use\*\*. \* \*\*1.4 Green urban, sports and leisure facilities\*\*. All Level 1 '1 Urban' categories map to 'Urban' in the Ecosystem types level 2 (MAES) column. 2. \*\*2 Cropland\*\*: This category encompasses three Level 2 sub-categories: \* \*\*2.1 Arable land\*\*: This expands into '2.1.1 Arable irrigated and non-irrigated land' and '2.1.2 Greenhouses' at Level 3. \* \*\*2.2 Permanent crops\*\*: This expands into '2.2.1 Vineyards, fruit trees and berry plantations' and '2.2.2 Olive groves' at Level 3. \* \*\*2.3 Heterogeneous agricultural area\*\*: This expands into four Level 3 types: '2.3.1 Annual crops associated with permanent crops', '2.3.2 Complex cultivation patterns', '2.3.3 Land principally occupied by agriculture with significant areas of natural vegetation', and '2.3.4 Agro-forestry'. All Level 1 '2 Cropland' categories map to 'Cropland' in the Ecosystem types level 2 (MAES) column. 3. \*\*3 Woodland and forest\*\*: This category encompasses six Level 2 sub-categories: \* \*\*3.1 Broadleaved forest\*\*: This expands into '3.1.1 Natural & semi-natural broadleaved forest' and '3.1.2 Highly artificial broadleaved plantations' at Level 3. \* \*\*3.2 Coniferous forest\*\*: This expands into '3.2.1 Natural & semi-natural coniferous forest' and '3.2.2 Highly artificial coniferous plantations' at Level 3. \* \*\*3.3 Mixed forest\*\*: This expands into '3.3.1 Natural & semi-natural mixed forest' and '3.3.2 Highly artificial mixed plantations' at Level 3. \* \*\*3.4 Transitional woodland and scrub\*\*. \*](Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image1.png)
-
-![This diagram presents a hierarchical Land Cover / Land Use (LCLU) classification nomenclature for Copernicus Land Monitoring Service (CLMS) Coastal Zones (CZ) products, detailing classes from Level 1 to Level 4, with a broader aggregation level on the right. The classification system includes: - \*\*Level 1 categories (leftmost column):\*\* - \`4 Grassland\` - \`5 Heathland and scrub\` - \`6 Open spaces with little or no vegetation\` - \`7 Wetland\` - \`8 Water\` - \*\*Level 2 sub-categories:\*\* - Under \`4 Grassland\`: \`4.1 Managed grassland\`, \`4.2 Natural & semi-natural grassland\` - Under \`5 Heathland and scrub\`: \`5.1 Heathland and moorland\`, \`5.2 Alpine scrub land\`, \`5.3 Sclerophyllous scrubs\` - Under \`6 Open spaces with little or no vegetation\`: \`6.1 Sparsely vegetated areas\`, \`6.2 Beaches, dunes, river banks\`, \`6.3 Bare rocks, burnt areas, glaciers and perpetual snow\` - Under \`7 Wetland\`: \`7.1 Inland wetlands\`, \`7.2 Coastal wetlands\` - Under \`8 Water\`: \`8.1 Water courses\`, \`8.2 Lakes and reservoirs\`, \`8.3 Transitional waters\`, \`8.4 Sea and ocean\` - \*\*Level 3 sub-categories:\*\* - Under \`4.2 Natural & semi-natural grassland\`: \`4.2.1 Semi-natural grassland\`, \`4.2.2 Alpine and sub-alpine natural grassland\` - Under \`6.1 Sparsely vegetated areas\`: \`6.1.1 Sparse vegetation on sands\`, \`6.1.2 Sparse vegetation on rocks\` - Under \`6.2 Beaches, dunes, river banks\`: \`6.2.1 Beaches and dunes\`, \`6.2.2 River banks\` - Under \`6.3 Bare rocks, burnt areas, glaciers and perpetual snow\`: \`6.3.1 Bare rocks, outcrops, cliffs\`, \`6.3.2 Burnt areas (except burnt forest)\`, \`6.3.3 Glaciers and perpetual snow\` - Under \`7.1 Inland wetlands\`: \`7.1.1 Inland marshes\`, \`7.1.2 Peat bogs\` - Under \`7.2 Coastal wetlands\`: \`7.2.1 Salt marshes\`, \`7.2.2 Salines\`, \`7.2.3 Intertidal flats\` - Under \`8.1 Water courses\`: \`8.1.1 Natural & semi-natural water courses\`, \`8.1.2 Highly modified water courses and canals\`, \`8.1.3 Seasonally connected water courses (oxbows)\` - Under \`8.2 Lakes and reservoirs\`: \`8.2.1 Natural lakes\`, \`8.2.2 Reservoirs\`, \`8.2.3 Aquaculture ponds\`, \`8.2.4 Standing water bodies of extractive industrial sites\` - Under \`8.3 Transitional waters\`: \`8.3.1 Lagoons\`, \`8.3.2 Estuaries\`, \`8.3.3 Marine inlets and fjords\` - Under \`8.4 Sea and ocean\`: \`8.4.1 Open sea\`, \`8.4.2 Coastal waters\` - \*\*Level 4 sub-categories (rightmost detailed column):\*\* - Under \`6.2.1 Beaches and dunes\`: \`6.2.1.1 Beaches\` (\`6.2.1.1.1 Sandy beaches\`, \`6.2.1.1.2 Shingle beaches\`), \`6.2.1.2 Dunes\` - Under \`6.3.1 Bare rocks, outcrops, cliffs\`: \`6.3.1.1 Bare rocks and outcrops\`, \`6.3.1.2 Coastal cliffs\` - Under \`7.1.2 Peat bogs\`: \`7.1.2.1 Exploited peat bogs\`, \`7.1.2.2 Unexploited peat bogs\` - \*\*Aggregated Higher-Level Categories (rightmost column):\*\* - \`Grassland\` (aggregates \`4 Grassland\` categories) - \`Heathland and shrub\` (aggregates \`5 Heathland and scrub\` categories) - \`Sparsely vegetated land\` (aggregates \`6 Open spaces with little or no vegetation\` categories) - \`Wetlands\` (aggregates \`7 Wetland\` categories) - \`Marine inlets and transitional waters\` (aggregates \`7.2 Coastal wetlands\` and \`8.3 Transitional waters\` categories) - \`Rivers and lakes\` (aggregates \`8.1 Water courses\` and \`8.2 Lakes and reservoirs\` categories) - \`Open ocean\` (aggregates \`8.4.1 Open sea\`) - \`Coastal\` (aggregates \`8.4.2 Coastal waters\`) This nomenclature is part of the current Coastal Zones (CZ) products and is structured to allow merging of different hotspot products at the level of core classes.](Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image2.png)
-
 Table 2: Detailed CZ LC/LU classes and cross reference to MAES Level 2
+
+|  |  |  |  |  |  |
+|----|----|----|----|----|----|
+| Level 1 | Level 2 | Level 3 | Level 4 | Level 5 | Ecosystem types level 2 (MAES) |
+| 1 Urban | 1.1 Urban fabric, industrial, commercial, public, military and private units | 1.1.1 Urban fabric (predominantly public and private units) | 1.1.1.1 Continuous urban fabric (IM.D ≥80%) |  | Urban |
+|  |  |  | 1.1.1.2 Dense urban fabric (IM.D ≥30-80%) |  |  |
+|  |  |  | 1.1.1.3 Low density urban fabric (IM.D \<30%) |  |  |
+|  |  | 1.1.2 Industrial, commercial, public and military units | 1.1.2.1 Industrial, commercial, public and military units (other) |  |  |
+|  |  |  | 1.1.2.2 Nuclear energy plants and associated land |  |  |
+|  | 1.2 Transport infrastructure | 1.2.1 Road networks and associated land |  |  |  |
+|  |  | 1.2.2 Railways and associated land |  |  |  |
+|  |  | 1.2.3 Port areas and associated land | 1.2.3.1 Cargo port |  |  |
+|  |  |  | 1.2.3.2 Passenger port |  |  |
+|  |  |  | 1.2.3.3 Fishing port |  |  |
+|  |  |  | 1.2.3.4 Naval port |  |  |
+|  |  |  | 1.2.3.5 Marinas |  |  |
+|  |  |  | 1.2.3.6 Local multi-functional harbours |  |  |
+|  |  |  | 1.2.3.7 Shipyards |  |  |
+|  |  | 1.2.4 Airports and associated land |  |  |  |
+|  | 1.3 Mineral extraction, dump and construction sites, land without current use | 1.3.1 Mineral extraction, dump and construction sites | 1.3.1.1 Mineral extraction sites |  |  |
+|  |  |  | 1.3.1.2 Dump sites |  |  |
+|  |  |  | 1.3.1.3 Construction sites |  |  |
+|  |  | 1.3.2 Land without current use |  |  |  |
+|  | 1.4 Green urban, sports and leisure facilities |  |  |  |  |
+| 2 Cropland | 2.1 Arable land | 2.1.1 Arable irrigated and non-irrigated land |  |  | Cropland |
+|  |  | 2.1.2 Greenhouses |  |  |  |
+|  | 2.2 Permanent crops | 2.2.1 Vineyards, fruit trees and berry plantations |  |  |  |
+|  |  | 2.2.2 Olive groves |  |  |  |
+|  | 2.3 Heterogeneous agricultural area | 2.3.1 Annual crops associated with permanent crops |  |  |  |
+|  |  | 2.3.2 Complex cultivation patterns |  |  |  |
+|  |  | 2.3.3 Land principally occupied by agriculture with significant areas of natural vegetation |  |  |  |
+|  |  | 2.3.4 Agro-forestry |  |  |  |
+| 3 Woodland and forest | 3.1 Broadleaved forest | 3.1.1 Natural & semi-natural broadleaved forest |  |  | Woodland and forest |
+|  |  | 3.1.2 Highly artificial broadleaved plantations |  |  |  |
+|  | 3.2 Coniferous forest | 3.2.1 Natural & semi-natural coniferous forest |  |  |  |
+|  |  | 3.2.2 Highly artificial coniferous plantations |  |  |  |
+|  | 3.3 Mixed forest | 3.3.1 Natural & semi-natural mixed forest |  |  |  |
+|  |  | 3.3.2 Highly artificial mixed plantations |  |  |  |
+|  | 3.4 Transitional woodland and scrub |  |  |  |  |
+|  | 3.5 Lines of trees and scrub |  |  |  |  |
+|  | 3.6 Damaged forest |  |  |  |  |
+| 4 Grassland | 4.1 Managed grassland |  |  |  | Grassland |
+|  | 4.2 Natural & semi-natural grassland | 4.2.1 Semi-natural grassland |  |  |  |
+|  |  | 4.2.2 Alpine and sub-alpine natural grassland |  |  |  |
+| 5 Heathland and scrub | 5.1 Heathland and moorland |  |  |  | Heathland and shrub |
+|  | 5.2 Alpine scrub land |  |  |  |  |
+|  | 5.3 Sclerophyllous scrubs |  |  |  |  |
+| 6 Open spaces with little or no vegetation | 6.1 Sparsely vegetated areas | 6.1.1 Sparse vegetation on sands |  |  | Sparsely vegetated land |
+|  |  | 6.1.2 Sparse vegetation on rocks |  |  |  |
+|  | 6.2 Beaches, dunes, river banks | 6.2.1 Beaches and dunes | 6.2.1.1 Beaches | 6.2.1.1.1 Sandy beaches |  |
+|  |  |  |  | 6.2.1.1.2 Shingle beaches |  |
+|  |  |  | 6.2.1.2 Dunes |  |  |
+|  |  | 6.2.2 River banks |  |  |  |
+|  | 6.3 Bare rocks, burnt areas, glaciers and perpetual snow | 6.3.1 Bare rocks, outcrops, cliffs | 6.3.1.1 Bare rocks and outcrops |  |  |
+|  |  |  | 6.3.1.2 Coastal cliffs |  |  |
+|  |  | 6.3.2 Burnt areas (except burnt forest) |  |  |  |
+|  |  | 6.3.3 Glaciers and perpetual snow |  |  |  |
+| 7 Wetland | 7.1 Inland wetlands | 7.1.1 Inland marshes |  |  | Wetlands |
+|  |  | 7.1.2 Peat bogs | 7.1.2.1 Exploited peat bogs |  |  |
+|  |  |  | 7.1.2.2 Unexploited peat bogs |  |  |
+|  | 7.2 Coastal wetlands | 7.2.1 Salt marshes |  |  | Marine inlets and transitional waters |
+|  |  | 7.2.2 Salines |  |  |  |
+|  |  | 7.2.3 Intertidal flats |  |  |  |
+| 8 Water | 8.1 Water courses | 8.1.1 Natural & semi-natural water courses |  |  | Rivers and lakes |
+|  |  | 8.1.2 Highly modified water courses and canals |  |  |  |
+|  |  | 8.1.3 Seasonally connected water courses (oxbows) |  |  |  |
+|  | 8.2 Lakes and reservoirs | 8.2.1 Natural lakes |  |  |  |
+|  |  | 8.2.2 Reservoirs |  |  |  |
+|  |  | 8.2.3 Aquaculture ponds |  |  |  |
+|  |  | 8.2.4 Standing water bodies of extractive industrial sites |  |  |  |
+|  | 8.3 Transitional waters | 8.3.1 Lagoons |  |  | Marine inlets and transitional waters |
+|  |  | 8.3.2 Estuaries |  |  |  |
+|  |  | 8.3.3 Marine inlets and fjords |  |  |  |
+|  | 8.4 Sea and ocean | 8.4.1 Open sea |  |  | Open ocean |
+|  |  | 8.4.2 Coastal waters |  |  | Coastal |
 
 # 4 Mapping Rules
 
@@ -194,7 +265,7 @@ Table 3: List of allowed comments {.caption-top .table}
 
 Following definitions and rules for Land Cover Change (LCC) mapping are based on the LCC rules of Corine Land Cover (CLC). The given rules were adopted and expanded to the Natura 2000, Riparian Zone and Coastal Zones specifications and requirements.
 
-## 5.1 V.I Mapping of Land Cover Change in Coastal Zones project
+## 5.1 Mapping of Land Cover Change in Coastal Zones project
 
 In the Coastal Zones project, change mapping is carried out by visual interpretation of 2012 LC/LU vector data and satellite imagery of the timeframe 2018 and subsequent direct delineation of change polygons.
 
@@ -215,8 +286,6 @@ Interpreters must be aware that not every change visible on the images should be
 - temporal changes in water cover of fishpond cassettes being part of their management;
 
 - seasonal changes of snow spots in high mountains.
-
-- …
 
 The introduction of false changes must also be avoided. Many of these can and should be excluded by pure logics. These vary from country to country (e.g. while normally sea water does not change into pasture, it might happen in the Netherlands), thus following examples are not exhaustive and not binding for all cases. However, in most cases they can be considered valid.
 
@@ -250,7 +319,7 @@ Land Cover Changes are changes that occur between the timespan 2012 (± 2 years
 
 Change polygons are drawn directly over the corresponding image by visual interpretation and are not generated automatically by a GIS operation.
 
-## 5.2 V.II Simple change
+## 5.2 Simple change
 
 Simple changes are modifications where either a single polygon changes from one LC/LU class to another or a new polygon ≥ 0.5 ha emerges within an existing, larger polygon.
 
@@ -258,7 +327,7 @@ Simple changes are modifications where either a single polygon changes from one 
 
 Figure 1: The loss of green urban area ≥ 0.5 ha (1.4) in 2012 by becoming urban fabric in 2018.
 
-## 5.3 V.III Complex changes
+## 5.3 Complex changes
 
 Although the MMU for change mapping is 0.5 ha, in some cases change polygons \< 0.5 ha are also mapped. When a new polygon is formed by taking area from several other polygons (e.g. a road construction, urban growth, …), the individually connected change parts can be mapped even if they are \< 0.5 ha, given they altogether make up a ≥ 0.5 ha complex change polygon (shown in Figure 2).
 
@@ -278,7 +347,7 @@ Complex changes have to have a common attribute (“splitted change”) in 2012 
 
 Figure 3: Urban expansion: Changes with MMU \< 0.5 ha make up a complex change area of 0.5 ha, but because the single changes would result in an incorrect status map 2018 they are generalized to one class.
 
-### 5.3.1 V.III.II Handling changes in, by-definition, change classes — changes at landscape level
+### 5.3.1 Handling changes in, by-definition, change classes — changes at landscape level
 
 CZ nomenclature includes some land cover classes that, by definition, are characterized by a land cover change. These classes are:
 
@@ -312,9 +381,7 @@ For better reading of this guideline, no "0" are displayed in the codes resultin
 
 In order to better distinguish between a parent class (on any hierarchical level) and the last child class, parent classes are referred to as e.g. "classes 6.2.1 Beaches and dunes" indicating that all child classes within this parent class are addressed.
 
-# 1 Urban
-
-![A circular photograph depicting an urban landscape under a clear blue sky. The image captures a view from a high vantage point, likely a building or elevated structure. In the foreground on the right, a tall, light-coloured building is partially visible, extending upwards beyond the frame. An elevated road or highway, featuring several vehicles, stretches horizontally across the middle ground. In the background on the left, another tall building and several other structures are visible. The scene primarily consists of artificial surfaces and built structures, with minimal visible vegetation.](Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image11.png)
+## 1 Urban
 
 The urban classes contain land that is covered by building structures and transport network. Urban fabrics appear in blue and darkish blue-grey on satellite images.
 
@@ -401,7 +468,11 @@ Dump sites include public, industrial or mine dump sites. Construction developme
 
 Green urban areas are areas with vegetation within the urban fabric and it includes parks. Sports and leisure facilities are included (camping grounds, sport grounds, leisure parks, golf courses, racecourses, etc.). It also comprises parks not surrounded by urban areas.
 
-**1.1.1.1 Continuous urban fabric (IM.D ≥80%)**
+### 1.1 Urban fabric, industrial, commercial, public, military and private units
+
+#### 1.1.1 Urban fabric (predominantly public and private units)
+
+##### 1.1.1.1 Continuous urban fabric (IM.D ≥80%)
 
 **Definition:**
 
@@ -457,7 +528,7 @@ Distinguishing between different levels of urban fabric has to be done with help
 
 - For interpretation of urban density: Use IM.D HRL.
 
-**1.1.1.2 Dense urban fabric (IM.D ≥30-80%)**
+##### 1.1.1.2 Dense urban fabric (IM.D ≥30-80%)
 
 **Definition:**
 
@@ -511,7 +582,7 @@ Dense urban fabric (IM.D ≥30-80%): City: Stockholm. Credits: European Union LU
 
 - For interpretation of urban density: Use IM.D HRL.
 
-**1.1.1.3 Low density urban fabric (IM.D \<30%)**
+##### 1.1.1.3 Low density urban fabric (IM.D \<30%)
 
 **Definition:**
 
@@ -633,7 +704,9 @@ If OSM delineation is too precise, please correct real errors and perhaps parts 
 
 Left side. Very precise OSM delineation Keep OSM, and just correct errors. Right side: manual delineation – map urban outline generalized. Example from Poland. SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2011-07-23. Source: CNES 2011©, Distribution Airbus DS/Spot Image
 
-**1.1.2.1 Industrial, commercial, public and military units (other)**
+#### 1.1.2 Industrial, commercial, public and military units
+
+##### 1.1.2.1 Industrial, commercial, public and military units (other)
 
 **Definition:**
 
@@ -819,7 +892,7 @@ Water: 8.1.1 Natural/semi-natural water courses.
 
 Ataturk dam, Sanliurfa region (Turkey). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2011-07-05. Source: CNES 2011©, Distribution Airbus DS/Spot Image
 
-**1.1.2.2 Nuclear energy plants and associated land**
+##### 1.1.2.2 Nuclear energy plants and associated land
 
 **Definition:**
 
@@ -869,7 +942,9 @@ Delineation of\* \*Vandellòs nuclear energy plant and associated land (Spain). 
 
 - If local in-situ data other than UA available, use if suitable.
 
-**1.2.1 Road network and associated land**
+### 1.2 Transport infrastructure
+
+#### 1.2.1 Road network and associated land
 
 **Definition:**
 
@@ -949,7 +1024,7 @@ Example of 1.2.1 Bismil (Turkey). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 
 
 3.5 Lines of trees and scrub surrounded by road network (1.2.1) and area \< 0.5 ha: map as associated feature and generalize into road
 
-**1.2.2 Railways and associated land**
+#### 1.2.2 Railways and associated land
 
 **Definition:**
 
@@ -1017,7 +1092,9 @@ In industrial sites, rail networks are often complicated and hard to delineate i
 
 Industrial site with railways from ancillary data in turquoise. Example from Stockholm (Sweden). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2012-08-11. Source: CNES 2011©, Distribution Airbus DS/Spot Image.
 
-**1.2.3.1 Cargo port**
+#### 1.2.3 Port areas and associated land
+
+##### 1.2.3.1 Cargo port
 
 **Definition:**
 
@@ -1089,7 +1166,7 @@ Delineation of a cargo port area and associated land located at Le Havre (France
 
 - Delineation of harbour areas of different purposes as well as to urban and industrial units may be difficult. If local in-situ data other than UA is available, use if suitable. Decision must be taken in each case individually depending on the LC/LU situation and additional data.
 
-**1.2.3.2 Passenger port**
+##### 1.2.3.2 Passenger port
 
 **Definition:**
 
@@ -1153,7 +1230,7 @@ Delineation of a passenger port area and associated land located at Split (Croat
 
 - Delineation of harbour areas of different purposes as well as to urban areas may be difficult. If local in-situ data other than UA is available, use if suitable.
 
-**1.2.3.3 Fishing port**
+##### 1.2.3.3 Fishing port
 
 **Definition:**
 
@@ -1211,7 +1288,7 @@ Delineation of a fishing port and associated land located at Loirent (France). S
 
 - Delineation of harbour areas of different purposes as well as to urban and industrial units may be difficult. If local in-situ data other than UA is available, use if suitable.  
 
-**1.2.3.4 Naval port**
+##### 1.2.3.4 Naval port
 
 **Definition:**
 
@@ -1271,7 +1348,7 @@ Naval Base Toulon (France). Credit: Jesfr - Own work, CC BY-SA 3.0, https://comm
 
 - Delineation of harbour areas of different purposes as well as to urban and industrial units may be difficult. If local in-situ data other than UA is available, use if suitable.  
 
-**1.2.3.5 Marinas**
+##### 1.2.3.5 Marinas
 
 **Definition:**
 
@@ -1321,7 +1398,7 @@ Delineation of marinas in Dunkirk (France). SPOT-6 (1.5m) (4/3/2 Band Combinatio
 
 - Delineation of harbour areas of different purposes as well as to urban and industrial units may be difficult. If local in-situ data other than UA is available, use if suitable.  
 
-**1.2.3.6 Local multi-functional harbours**
+##### 1.2.3.6 Local multi-functional harbours
 
 **Definition:**
 
@@ -1375,7 +1452,7 @@ Delineation of a local multi-functional harbour in Pontevenere (Italy). SPOT- (2
 
 - Delineation of harbour areas of different purposes as well as to urban and industrial units may be difficult. If local in-situ data other than UA is available, use if suitable.  
 
-**1.2.3.7 Shipyards**
+##### 1.2.3.7 Shipyards
 
 **Definition:**
 
@@ -1441,7 +1518,7 @@ Delineation of a shipyard in Pula (Croatia). SPOT-7 (2 m) (1/2/3 Band Combinatio
 
 - Delineation of harbour areas of different purposes as well as to urban and industrial units may be difficult. If local in-situ data other than UA is available, use if suitable. Decision must be taken in each case individually depending on the LC/LU situation and additional data.  
 
-**1.2.4 Airports and associated land**
+#### 1.2.4 Airports and associated land
 
 **Definition:**
 
@@ -1491,7 +1568,11 @@ Erzinkan airport (Turkey)*.* SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2011-
 
 - If local in-situ data other than UA available, use if suitable.  
 
-**1.3.1.1 Mineral extraction sites**
+### 1.3 Mineral extraction, dump and construction sites, land without current use
+
+#### 1.3.1 Mineral extraction, dump and construction sites
+
+##### 1.3.1.1 Mineral extraction sites
 
 **Definition:**
 
@@ -1557,7 +1638,7 @@ Gravel pit (Turkey)*.* SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 2013-08-07.
 
 - If local in-situ data other than UA available, use if suitable.  
 
-**1.3.1.2 Dump sites**
+##### 1.3.1.2 Dump sites
 
 **Definition:**
 
@@ -1609,7 +1690,7 @@ Delineation of a dump site near Málaga (Spain)*.* Pléiades 1B (2m) (1/2/3 Band
 
 - If local in-situ data other than UA and CLC available, use if suitable.  
 
-**1.3.1.3 Construction sites**
+##### 1.3.1.3 Construction sites
 
 **Definition:**
 
@@ -1651,7 +1732,7 @@ Delineation of construction site at Skien (Norway). SPOT-5 (2.5m) (1/2/3 Band Co
 
 - If local in-situ data other than UA available, use if suitable.  
 
-**1.3.2 Land without current use**
+#### 1.3.2 Land without current use
 
 **Definition:**
 
@@ -1703,7 +1784,7 @@ Unfinished urban development outside Madrid (Spain) SuperView-1 (2m) (1/2/3). Da
 
 - If local in-situ data other than UA available, use if suitable.  
 
-**1.4 Green urban, sports and leisure facilities**
+### 1.4 Green urban, sports and leisure facilities
 
 **Definition:**
 
@@ -1789,9 +1870,7 @@ Golf course at Uleforss (Norway). SPOT-5 (2.5m) (1/2/3 Band Combination). Date: 
 
 - If local in-situ data other than UA available, use if suitable.  
 
-# 2 Cropland
-
-![A ground-level photograph, presented within a circular frame, depicts a wide, tilled brown agricultural field under a partly cloudy sky. In the mid-ground, a series of five centre-pivot irrigation systems are visible, actively spraying water across the dry soil. A gentle green hillside forms the distant horizon. This image illustrates an example of irrigated cropland, relevant to Copernicus Land Monitoring Service (CLMS) Land Use / Land Cover (LULC) classifications such as '2.1.1 Arable irrigated and non-irrigated land'.](Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/Picture1.png)
+## 2 Cropland
 
 Cropland is the main food production area. It includes both, intensively managed ecosystems and multifunctional areas supporting many semi-natural and natural species along with food production (lower intensity management). It comprises regularly or recently cultivated agricultural, horticultural and domestic habitats and agro-ecosystems with significant coverage of natural vegetation (agricultural mosaics)[^2].
 
@@ -1845,7 +1924,9 @@ Specific decision rules have been stabilised to distinct different types of hete
 
   - 2.3.4 Agro-forestry
 
-**2.1.1 Arable irrigated and non-irrigated land**
+### 2.1 Arable land
+
+#### 2.1.1 Arable irrigated and non-irrigated land
 
 This class includes the following land cover/land use types: non-irrigated arable land; irrigated arable land and rice fields; and complex patterns of irrigated and non-irrigated arable land.
 
@@ -2221,7 +2302,7 @@ Example of Type C class 2.1.1 Megala Kalivia (Greece). SPOT-5 (2.5 m) (1/2/3 Ban
 
 - Visual interpretation.  
 
-**2.1.2 Greenhouses**
+#### 2.1.2 Greenhouses
 
 **Definition:**
 
@@ -2283,7 +2364,9 @@ Greenhouses in Koru (Turkey). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 201
 
 - Use VHR data sources like e.g. aerial orthophotos from national data bases or any other adequate VHR images to verify the interpretation.
 
-**2.2.1 Vineyards, fruit frees and berry plantations**
+### 2.2 Permanent crops
+
+#### 2.2.1 Vineyards, fruit frees and berry plantations
 
 **Definition:**
 
@@ -2477,7 +2560,7 @@ Bogoria (Poland). Spot 6 (1.5 m) (4/1/3 Band Combination). Date: 2013-08-06. Sou
 
 - Areas with \< 75 % fruit trees will be mapped as *2.3.2 Complex cultivation patterns.*
 
-**2.2.2 Olive groves**
+#### 2.2.2 Olive groves
 
 **Definition:**
 
@@ -2549,7 +2632,9 @@ Olive grove, Badajoz (Spain). SPOT-5 (2.5 m.) (1/2/3 Band Combination). Date: 20
 
   - *2.2.1 Vineyards, fruit trees and berry plantations*, if olive trees cover \< 50%.
 
-**2.3.1 Annual crops associated with permanent crops**
+### 2.3 Heterogeneous agricultural area
+
+#### 2.3.1 Annual crops associated with permanent crops
 
 **Definition:**
 
@@ -2585,7 +2670,7 @@ Typical landscape of annual crops in association and mosaic with olive groves an
 
 - Classification based on CLC guideline for class 241.
 
-**2.3.2 Complex cultivation patterns**
+#### 2.3.2 Complex cultivation patterns
 
 **Definition:**
 
@@ -2645,7 +2730,7 @@ Mix of annual and permanent crops, Bad Salzig (Germany). SPOT-5 (2.5 m) (1/2/3 B
 
 - Computer assisted visual interpretation.
 
-**2.3.3 Land principally occupied by agriculture with significant areas of natural vegetation**
+#### 2.3.3 Land principally occupied by agriculture with significant areas of natural vegetation
 
 **Definition:**
 
@@ -2703,7 +2788,7 @@ Land principally occupied by agriculture with significant areas of natural veget
 
 - Computer assisted visual interpretation.  
 
-**2.3.4 Agro-forestry**
+#### 2.3.4 Agro-forestry
 
 **Definition:**
 
@@ -2797,9 +2882,7 @@ Example of Agroforestry T.C.D. \< 30% with grassland and arable land understory.
 
 - T.C.D. assignation.
 
-# 3 Woodland and forest
-
-![A photograph displaying a mountainous landscape, framed within a circular border. The image shows a deep valley or ravine densely covered with coniferous trees, forming a vibrant green forest. Rocky cliffs and slopes are visible in the foreground, framing the valley, and extending into the background, where more distant, hazy mountains are under a bright sky. The overall impression is one of rugged natural terrain dominated by forest cover.](Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/Picture4.png)
+## 3 Woodland and forest
 
 The woodland and forest classes are mainly dominated by woody vegetation of various ages or by succession of climax vegetation types[^3]. The interpretation is done according to FAO (2000) with tree cover \>10%, MMU of 0.5 ha and trees able to reach 5 m height in-situ at maturity. Young natural stands and all plantations established for forestry purposes, which have yet to reach a crown density of 10% or tree height of 5 m, are also included as forest. These areas normally are part of the forest area although temporarily small in height because of human intervention or natural reasons but which are expected to revert to forest.
 
@@ -2865,7 +2948,9 @@ Fire breaks will be classified according to their current land covers.
 
 - **3.6 Damaged forest**
 
-**3.1.1 Natural & semi-natural broadleaved forest**
+### 3.1 Broadleaved forest
+
+#### 3.1.1 Natural & semi-natural broadleaved forest
 
 **Definition:**
 
@@ -2969,7 +3054,7 @@ Mediterranean sclerophyllous forest (Quercus rotundifolia) in South Western Spai
 
 - Spectral separation between broadleaved and coniferous forest.
 
-**3.1.2 Highly artificial broadleaved plantations**
+#### 3.1.2 Highly artificial broadleaved plantations
 
 **Definition:**
 
@@ -3039,7 +3124,9 @@ Eucalyptus sp. plantation in Southern Spain. Lepe (Huelva, Spain) SPOT-5 (2.5 m)
 
 Clear cuts between harvesting and restoration in an eucalyptus plantation. Cortegana (Huelva, Spain) SPOT-5 (2.5 m) (NIR Band Combination). Date: 2011-08-06. Source: CNES 2011© Distribution Airbus DS/Spot Image
 
-**3.2.1 Natural & semi-natural coniferous forest**
+### 3.2 Coniferous forest
+
+#### 3.2.1 Natural & semi-natural coniferous forest
 
 **Definition:**
 
@@ -3113,7 +3200,7 @@ Other natural or semi-natural coniferous forest, Harz, Germany. SPOT-5 (2.5 m) (
 
 Coniferous forest located at the Monsini Danube River near Magyarkimle (Hungary). Spot 5 (2.5 m) (1/2/3 Band Combination). Date: 2011-07-10. Source: CNES 2011©, Distribution Airbus DS/Spot Image
 
-**3.2.2 Highly artificial coniferous plantations**
+#### 3.2.2 Highly artificial coniferous plantations
 
 **Definition:**
 
@@ -3169,7 +3256,9 @@ Coniferous plantation in Central Spain. Credit: SPOT-5 (2.5 m) (NIR Band Combina
 
 - If situation is unclear, map *3.2.1 Natural and semi-natural coniferous forest.*
 
-**3.3.1 Natural & semi-natural mixed forest**
+### 3.3 Mixed forest
+
+#### 3.3.1 Natural & semi-natural mixed forest
 
 **Definition:**
 
@@ -3227,7 +3316,7 @@ Mixed swamp forest, “Großes Moor” near Uchte, Northern Germany. SPOT-5 (2.5
 
 - Manual/visual or semi-automatic classification of broadleaved forest border according to CORE_03 data.
 
-**3.3.2 Highly artificial mixed plantations**
+#### 3.3.2 Highly artificial mixed plantations
 
 **Definition:**
 
@@ -3255,7 +3344,7 @@ Mixed plantations (EUNIS G4.F) of coniferous and deciduous species where at leas
 
 - T.C.D. attribute is either derived automatically by intersection with the High-Resolution Forest Layer (Tree Cover Density product) or manually if an automatic approach is not feasible.
 
-**3.4 Transitional woodland and scrub**
+### 3.4 Transitional woodland and scrub
 
 **Definition:**
 
@@ -3345,7 +3434,7 @@ Transitional forest near Zella-Mehlis, Germany. SPOT-5 (2.5 m) (1/2/3 Band Combi
 
 - Use auxiliary information e.g. geological maps to clarify specific geomorphological conditions like e.g. calcareous grounds.
 
-**3.5 Lines of trees and scrub**
+### 3.5 Lines of trees and scrub
 
 **Definition:**
 
@@ -3411,7 +3500,7 @@ Example: Lines of forest along river with Strahler level 4 (or higher) → SPOT-
 
 - Use GLE data set, when available, to avoid overlays.
 
-**3.6 Damaged forest**
+### 3.6 Damaged forest
 
 **Definition:**
 
@@ -3497,9 +3586,7 @@ Bark-beetle damage, Harz National Park, Central Germany. SPOT-5 (2.5 m) (1/2/3 B
 
 - Final detailed delineation and identification using computer assisted visual interpretation.
 
-# 4 Grassland
-
-![A photograph depicting a rural or agricultural landscape, framed within an oval border. The scene shows a field with low-lying, dry vegetation or stubble, likely after a harvest. Two large, cylindrical hay bales are visible, one prominently in the mid-ground casting a shadow to its left, and another less distinct in the far background. To the left of the foreground hay bale, a small, bare tree or shrub with several branches stands. In the background, beyond the field, there is a dark line of trees or dense vegetation against a muted, light-coloured sky. The overall colour palette of the image is desaturated, with tones of beige, brown, and grey.](Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/Picture3.png)
+## 4 Grassland
 
 The grassland classes are areas dominated by grassy vegetation of two kinds –managed pastures and (semi-) natural (extensively managed) grasslands[^4]. Generally, grasses (basically *g*raminacea** plants but can include tall forbs, rushes and sedges, mosses and lichens) covers more than 30% of the soils (EUNIS description), called below Crown Cover Density (C.C.D.).
 
@@ -3519,7 +3606,7 @@ Semi-natural grasslands are frequently associated with trees and scrubs. These g
 
   - 4.2.2 Alpine and sub-alpine natural grassland
 
-**4.1 Managed grassland**
+### 4.1 Managed grassland
 
 **Definition:**
 
@@ -3649,8 +3736,6 @@ Hade Edge (United Kingdom). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2012-
 
 Example of grassland with trees. Omex (France). SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-10-04. Source: CNES 2011©, Distribution Airbus DS/Spot Image
 
-*Difference between managed (semi-Improved) and semi-natural grasslands*
-
 |  | Managed (semi-improved) grassland | Semi-natural grassland |
 |----|----|----|
 | **Land use** | Managed land parcel normally used for hay production | Normally used for grazing either because it cannot be mowed or because it is located on poor soils (calcareous soils, etc.). Normally never used for hay production |
@@ -3658,6 +3743,8 @@ Example of grassland with trees. Omex (France). SPOT-5 (2.5 m) (1/2/3 Band Combi
 | **Degree of management** | Grassland that is more or less frequently mowed and/or managed in other ways. More homogeneous grass coverage. In specific conditions could be irrigated. In the case of grassland with trees they could be also managed (e.g. cut for forage). | The herbaceous plants are natural but are created and maintained as permanent grasslands by non-intensive activities, such as grazing. Less homogenous grass coverage. |
 | **Landscape** | Normally artificially limited by fences, tree lines, small stone walls and other type of structures in order to facilitate its management. Normally small regular parcels. | Normally larger areas, and normally with no parcel structure. In many cases presence of trees and shrubs due process on natural vegetation invasion or land abandonment |
 | **Location** | Near villages, fertile soils of valleys and accessible areas | Normally located on slopes or poor soils which limit the production. Located in less accessible areas. |
+
+Table 5: Difference between managed (semi-Improved) and semi-natural grasslands {.caption-top .table}
 
 ![This image presents a visual comparison between Managed grassland (classified as 4.1.0.0) and Semi-natural grassland (classified as 4.2.1.0), using a central SPOT-5 satellite image from 2011-10-04, alongside six ground-level photographs. The satellite image, with a 2.5 m resolution and 1/2/3 band combination (showing red colours based on infrared, indicating vegetation), depicts a rural landscape near Omex, France, with fields, structures, and varied terrain. The source is CNES 2011©, Distribution Airbus DS/Spot Image. The upper yellow bounding box in the satellite image highlights an area labelled '4.1.0.0 Managed grassland'. This area is associated with three ground photos and descriptions: \* Photo 1: A green field bordered by a stone wall and trees, described as 'Normally with parcel structure'. \* Photo 2: A field with hay bales, described as 'More management. Hay production'. \* Photo 3: A vibrant green, flat field surrounded by trees, described as 'Located in more productive areas/soils'. The lower yellow bounding box in the satellite image highlights an area labelled '4.2.1.0 Semi-natural grassland'. This area is associated with three ground photos and descriptions: \* Photo 1: Rolling hills with sparse vegetation and mountains in the background, described as 'Normally without parcel structure'. \* Photo 2: A green field with scattered shrubs and small trees, described as 'Less management. Usually presence of shrubs/trees'. \* Photo 3: A dry, light brown field with sparse trees, set against snow-capped mountains, described as 'Located in less productive areas/soils'. Yellow arrows connect the ground photos and their descriptions to the corresponding classified areas within the central SPOT-5 satellite image.](Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image226.png)
 
@@ -3759,11 +3846,13 @@ Examples of rows in a grassland parcel due mowing management. Credits: Eurostat.
 
 - Lines of trees with more 10 meters → *3.5 Lines of trees and scrub.*
 
-*Difference between arable land and managed grassland*
-
 [TABLE]
 
-**4.2.1 Semi-natural grassland**
+Table 6: Difference between arable land and managed grassland {.caption-top .table}
+
+### 4.2 Natural & semi-natural grassland
+
+#### 4.2.1 Semi-natural grassland
 
 **Definition:**
 
@@ -4066,7 +4155,7 @@ Alluvial meadow example in Umurca (Turkey) SPOT-5 (2.5 m.) (NIR/R/G Band Combina
 
 - Final detailed delineation and identification using computer assisted visual interpretation.
 
-**4.2.2 Alpine and sub-alpine natural grassland**
+#### 4.2.2 Alpine and sub-alpine natural grassland
 
 **Definition:**
 
@@ -4190,9 +4279,7 @@ Alpine grassland example. France. Spot 5 (2.5 m) (1/2/3 Band Combination). Date:
 
 - In the case of Nordic countries, and considering the heterogeneous nature of this class, a polygon may include up to 30% of *3.1.1 Natural & semi-natural broadleaved forest, 5.1 Heathland and moorland, 5.2 Alpine scrub land, 7.1.2.2 Unexploited peat bog, 6.1 Sparsely vegetated areas and 6.3.1.1 Bare rocks and outcrops* if these surfaces are too small to map separately. The specified class should therefore cover at least 70% of the surface. The minimum mapping unit for these heterogeneous classes will be around 1 ha.
 
-# 5 Heathland and scrub
-
-![A circular photograph, framed by a light grey border, features a small bird with a light underside and darker brown back, possibly a plover or sandpiper, standing in a field of dry, brown vegetation. The ground cover is sparse, revealing lighter patches of what appears to be bare soil or sand. A small, bright green plant is visible in the lower-left corner of the image, contrasting with the muted brown and grey tones of the surrounding landscape.](Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/Picture7.png)
+## 5 Heathland and scrub
 
 Heathland and scrub is divided into three classes depending on whether the shrubby vegetation is evergreen and adapted to water loss (*Sclerophyllous scrubs*) or not. If not, it is distinguished between low growing heath vegetation (*Heathland and moorland*) and tree-like shrub vegetation (*Alpine scrub land*).
 
@@ -4208,7 +4295,7 @@ Sclerophyllous scrubs appear in Mediterranean region. As a general rule, the geo
 
 - **5.3 Sclerophyllous scrubs**
 
-**5.1 Heathland and moorland**
+### 5.1 Heathland and moorland
 
 **Definition:**
 
@@ -4316,7 +4403,7 @@ Heathland on a military training site located near Munster, Germany (Niedersachs
 
 CLC Class 322 “Moors and heathland” used to localize heathland. Munster in Germany (Niedersachsen), SPOT-5 (2.5m), Date: 2011-05-06. Source: CNES 2011©, Distribution Airbus DS/Spot Image
 
-**5.2 Alpine scrub land**
+### 5.2 Alpine scrub land
 
 **Definition:**
 
@@ -4402,7 +4489,7 @@ Dwarf pine region in the Alps (Austria). Difference in height and texture to nei
 
 - The distinction from (coniferous) forest in mountainous areas will be done by using the HRL Forest Layer, DEMs and national in-situ data.
 
-**5.3 Sclerophyllous scrubs**
+### 5.3 Sclerophyllous scrubs
 
 **Definition:**
 
@@ -4476,9 +4563,7 @@ Badajoz (Spain) SPOT-5 (2.5 m.) (1/2/3 Band Combination). Date: 2011-03-18 Sourc
 
 - Final detailed delineation and identification using computer assisted visual interpretation.
 
-# 6 Open spaces with little or no vegetation
-
-![A photograph depicting a single deer, likely a roe deer, standing on a rocky, sparsely vegetated hillside. The deer is light brown with a distinct white rump patch and is facing away from the camera, looking towards a calm body of water (likely a lake) in the middle ground. The lake is partially bordered by dense green vegetation, appearing to be trees or scrubland. In the background, several mountain peaks are visible under an overcast sky, with some peaks retaining patches of snow, indicative of a high-altitude or northern European environment. The foreground consists of rugged, rocky ground with scattered low-lying plants.](Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image318.jpg)
+## 6 Open spaces with little or no vegetation
 
 Natural areas covered with little or no vegetation, including open thermophile formations of sandy or rocky grounds distributed on calcareous or siliceous soils frequently disturbed by erosion, sparsely vegetated areas of stones on steep slopes, screes, cliffs, rock fares, limestone pavements with plant communities colonising their tracks, beaches, sand dunes and plains, riverbanks, perpetual snow and ice, and burnt areas (other than forest areas).
 
@@ -4518,7 +4603,9 @@ Sparsely vegetated areas have less than 50 % field cover (herb, grass and/or scr
 
   - 6.3.3 Glaciers and perpetual snow
 
-**6.1.1 Sparse vegetation on sands**
+### 6.1 Sparsely vegetated areas
+
+#### 6.1.1 Sparse vegetation on sands
 
 **Definition:**
 
@@ -4584,7 +4671,7 @@ Challenges with *6.1.1 Sparse vegetation on sands*:
 
 - Computer assisted visual interpretation of SPOT-5 data.
 
-**6.1.2 Sparse vegetation on rocks**
+#### 6.1.2 Sparse vegetation on rocks
 
 **Definition:**
 
@@ -4678,7 +4765,13 @@ Example in the Alps.
 
 - Computer assisted visual interpretation of SPOT-5 data.
 
-**6.2.1.1.1 Sandy beach**
+### 6.2 Beaches, dunes, river banks
+
+#### 6.2.1 Beaches and dunes
+
+##### 6.2.1.1 Beaches
+
+###### 6.2.1.1.1 Sandy beach
 
 **Definition:**
 
@@ -4758,7 +4851,7 @@ Example of Beach (sand). (Sudersand, Sweden). SPOT-5. Credit (1/2/3 Band Combina
 
 - A discrimination of the drift line is seldom available in supporting map data (vegetation map with the class beach can be an exception). Proposed approach is to define the limit between the often brighter beach and the darker (debris)/or vegetated areas inland through interpretation of the remote sensing data.
 
-**6.2.1.1.2 Shingle beach**
+###### 6.2.1.1.2 Shingle beach
 
 **Definition:**
 
@@ -4816,7 +4909,7 @@ Example of Beach (cobblestones), 10 -20 m wide. (Skäret, Sweden). Aerial orthop
 
 - A discrimination of the drift line is seldom available in supporting map data (vegetation map with the class beach can be an exception). Proposed approach is to define the limit between the often brighter beach and the darker (debris)/or vegetated areas inland through interpretation of the remote sensing data.
 
-**6.2.1.2 Dune**
+##### 6.2.1.2 Dune
 
 **Definition:**
 
@@ -4888,7 +4981,7 @@ Dunes near Portu Mago, Sardinia (Italy). Pléiades 1B (2m) (1/2/3 Band Combinati
 
 - A discrimination of the drift line is seldom available in supporting map data (vegetation map with the class beach can be an exception). Proposed approach is to define the limit between the often brighter beach and the darker (debris)/or vegetated areas inland through interpretation of the remote sensing data.
 
-**6.2.2 River banks**
+#### 6.2.2 River banks
 
 **Definition:**
 
@@ -4948,7 +5041,11 @@ River banks (6.2.2) in Anatolia (Turkey) SPOT-5 (2,5 m.) (NIR/R/G Band Combinati
 
 - Computer assisted visual interpretation of SPOT-5 data.
 
-**6.3.1.1 Bare rocks and outcrops**
+### 6.3 Bare rocks, burnt areas, glaciers and perpetual snow
+
+#### 6.3.1 Bare rocks, outcrops, cliffs
+
+##### 6.3.1.1 Bare rocks and outcrops
 
 **Definition:**
 
@@ -5028,7 +5125,7 @@ Example of bare rock with \<10% vegetation in the Alps (Austria). SPOT-5 (2.5m),
 
 - Computer assisted visual interpretation of SPOT-5 data.
 
-**6.3.1.2 Coastal cliffs**
+##### 6.3.1.2 Coastal cliffs
 
 **Definition:**
 
@@ -5082,7 +5179,7 @@ Cliffs at the British coastline near Fairlight (UK). SuperView-1 (2m) (1/2/3). D
 
 - Computer assisted visual interpretation of SPOT-5 data.
 
-**6.3.2 Burnt areas (except burnt forest)**
+#### 6.3.2 Burnt areas (except burnt forest)
 
 **Definition:**
 
@@ -5126,7 +5223,7 @@ Scrubland affected by fire (North Western Spain). Credit: European Union, LUCAS
 
 - Use supporting data to distinguish that the natural/semi-natural area burned is non-forest.
 
-**6.3.3 Glaciers and perpetual snow**
+#### 6.3.3 Glaciers and perpetual snow
 
 **Definition:**
 
@@ -5184,9 +5281,7 @@ Infrared orthophoto over glacier and perpetual snow. (Kebnekaise, Sweden). Credi
 
 - The identification of glaciers and permanent snow fields depends on an appropriate date of the image with low cloud coverage since clouds can lead to misinterpretations due to very similar appearance in the satellite images.
 
-# 7 Wetland
-
-![A circular, monochrome photograph displays a natural landscape featuring a calm body of water or a flooded area. Grassy or reedy vegetation emerges from the water in the foreground and midground. A darker band of trees or dense vegetation is visible along the horizon in the background, and the upper portion of the image is partially obscured by the canopy of an overhead tree. The sky appears overcast or hazy, creating a muted light.](Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image355.png)
+## 7 Wetland
 
 According to Article 1.1 of the Ramsar Convention[^19] (1971), wetlands are: “*areas of marsh, fen, peatland or water, whether natural or artificial, permanent or temporary, with water that is static or flowing, fresh, brackish or salt, including areas of marine water the depth of which at low tide does not exceed six meters*”. Wetland refers to both inland freshwater/saline wetlands and coastal salt marshes influenced by the sea.
 
@@ -5226,7 +5321,9 @@ A decision criteria tree is established to clarify guideline distinctions betwee
 
   - 7.2.3 Intertidal flats
 
-**7.1.1 Inland marshes**
+### 7.1 Inland wetlands
+
+#### 7.1.1 Inland marshes
 
 **Definition:**
 
@@ -5376,7 +5473,9 @@ Example of 7.1.1 in Umeå, Sweden. (1/2/3 band combination). SPOT-5 image. Date:
 
 - Non-grazed/mowed and non-peat producing wetlands normally have a vegetation of tall grasses and sedges and are included in *7.1.1 Inland marshes*. Temporarily flooded areas with low grasses and sedges are included in *4.2.1 Semi-natural grassland* (located in mesic environments).
 
-**7.1.2.1 Exploited peat bog**
+#### 7.1.2 Peat bogs
+
+##### 7.1.2.1 Exploited peat bog
 
 **Definition:**
 
@@ -5430,7 +5529,7 @@ Exploited peat bog in northern Germany – right side: CLC overlay Source: SPOT-
 
 - Computer assisted visual interpretation of SPOT-5 data.
 
-**7.1.2.2 Unexploited peat bog**
+##### 7.1.2.2 Unexploited peat bog
 
 **Definition:**
 
@@ -5496,7 +5595,9 @@ In low lying areas or local depressions complex mire types include areas of open
 
 - In Sweden classification is based on the Land survey Topographic map, where “wetland” and “open land” overlap. Wetland class is visually interpreted and adjusted manually. Adjustments of delineation are made only where obvious errors in ancillary are discernible in visual interpretation. When typical mire/peat structures cannot be seen in the image, it is difficult to determine if an area is peat producing or not. Therefore, the position in the terrain is used for guidance. Areas directly adjacent to bigger rivers or lakes are included in *7.1.1 Inland marshes* when visual interpretation is insufficient. This is because of lower chances of peat production when oxygen from flowing water is supplied to the ecosystem as opposed to ecosystems adjacent to standing water. Grazed areas from LPIS that overlap wetland from the Topographic map are included in *7.1.1 Inland marshes*.
 
-**7.2.1 Salt marshes**
+### 7.2 Coastal wetlands
+
+#### 7.2.1 Salt marshes
 
 **Definition:**
 
@@ -5618,7 +5719,7 @@ Relevant and clear ponds and channels in salt marshes are classified as 8.3.1 La
 
   - Any available ancillary or in-situ data sources.
 
-**7.2.2 Salines**
+#### 7.2.2 Salines
 
 **Definition:**
 
@@ -5670,7 +5771,7 @@ Santa Pola salines (Spain) SPOT-5 (2.5 m) (1/2/3 Band Combination). Date: 2011-0
 
 - Use of Transitional Water layer (European Framework Directive) to identify general limits of coastal waters.
 
-**7.2.3 Intertidal flats**
+#### 7.2.3 Intertidal flats
 
 **Definition:**
 
@@ -5738,9 +5839,7 @@ Schematic differentiation 8.3.2 Estuaries
 
 - Ancillary information is needed in case of confusion with *7.2.1 Salt marshes.*
 
-# 8 Water
-
-![A circular photograph depicting a wide body of water, identified as an estuary, with a foreground bank covered in green vegetation. Across the water, a dense line of trees forms the middle ground, extending horizontally. Above the treeline in the far background, several tall, slender structures, possibly industrial towers or power lines, are visible against a blue sky with scattered white clouds. The image is presented as an example of CORINE Land Cover (CLC) class 8.3.2 Estuaries, characterised by river influence.](Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/Picture8.png)
+## 8 Water
 
 This level comprises all rivers and lakes, which are the permanent freshwater inland surface waters, as well as coastal water bodies influenced by saline sea water like lagoons, marine inlets and estuaries. This includes water courses and water bodies[^24]. Open sea is also included in this parent class.
 
@@ -5796,7 +5895,9 @@ A specific decision tree has been elaborated to distinguish between the classes 
 
 ![This is a decision tree diagram for classifying water bodies under the '9.2 Lakes and reservoirs' category. The classification process starts from '9.2 Lakes and reservoirs' and proceeds through a series of conditional questions. 1. The first decision point asks: 'Natural or naturalized?'. \* IF 'Natural', THEN proceed to the next decision: 'Oxbows or dead side-arms?'. \* IF 'Yes' to 'Oxbows or dead side-arms?', THEN classify as '8.1.3 Seasonally connected water courses (oxbows)'. \* IF 'No' to 'Oxbows or dead side-arms?', THEN classify as '8.2.1 Natural lakes'. \* IF 'Naturalized', THEN classify as '8.2.1 Natural lakes including: Reservoirs (natural water courses with artificial dams); Lakes with artificial origin and not completely man-made structure in urban areas (including parks and golf courses); Ponds resulting from former extractive industries (gravel mining)'. 2. A parallel decision path starts from '9.2 Lakes and reservoirs' asking: 'Artificial?'. \* IF 'Water bodies included in industrial sites?', THEN classify as '1.1.2 Industrial, commercial and military units'. \* IF 'Completely man-made ponds?', THEN classify as '8.2.2 Reservoirs'. \* IF 'Highly modified inland fish ponds?', THEN classify as '8.2.3 Aquacultural ponds'. \* IF 'Water bodies in mineral extraction sites or gravel pits?', THEN classify as '8.2.4 Standing water bodies of extractive industrial sites'. \* IF 'Inland salines?', THEN classify as '1.3.1 Mineral extraction, dump and construction sites'.](Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image399.png)
 
-**8.1.1 Natural** **& semi-natural water courses**
+### 8.1 Water courses
+
+#### 8.1.1 Natural & semi-natural water courses
 
 **Definition**
 
@@ -5910,7 +6011,7 @@ Map bordering the flooded areas as 7.1.1 *Inland marshes or 4.2.1 Semi-natural g
 
 - Flooded / wet grassland: *4.2.1 Semi-natural grassland (mesic type, without trees) / 4.1 Managed grassland* according to auxiliary data or additional satellite data
 
-**8.1.2 Highly modified water courses and canals**
+#### 8.1.2 Highly modified water courses and canals
 
 **Definition**
 
@@ -5962,7 +6063,7 @@ Danube river in Gemenc Ramsar Site, Hungary. SPOT-5 2.5 m. (1/2/3 band combinati
 
 - In case the situation is unambiguous, *8.1.1 Natural* *& semi-natural water courses* will be mapped.  
 
-**8.1.3 Seasonally connected water courses (oxbows)**
+#### 8.1.3 Seasonally connected water courses (oxbows)
 
 **Definition:**
 
@@ -6030,7 +6131,9 @@ For complicated areas an experienced photo-interpreter should make an analysis a
 
   - Any available ancillary or in-situ data sources.
 
-**8.2.1 Natural lakes**
+### 8.2 Lakes and reservoirs
+
+#### 8.2.1 Natural lakes
 
 **Definition**
 
@@ -6130,7 +6233,7 @@ Croaghill Turlough Natura 2000 site, Ireland (outlined Natura 2000 site limit). 
 
 These temporary ponds are characterized by their small size, inherently shallow and their variability related to the water permanency (in many Mediterranean locations these ponds contain water only during very humid years). Many of these ponds have been converted to arable land. New small ponds have been created across Europe for cattle watering using rainfall or underground water.
 
-**8.2.2 Reservoirs**
+#### 8.2.2 Reservoirs
 
 **Definition:**
 
@@ -6186,7 +6289,7 @@ Irrigation water pond in Thessaly (Greece) SPOT-5 (2.5 m) (1/2/3 Band Combinatio
 
 If there is no water in these completely man-made ponds, they will be mapped also as *8.2.2 Reservoirs*, considering their completely artificial structure and not the presence of water.
 
-**8.2.3 Aquaculture ponds**
+#### 8.2.3 Aquaculture ponds
 
 **Definition:**
 
@@ -6222,7 +6325,7 @@ Typical pattern of fish ponds in the region of Třeboňsko (Czech Republic)
 
 - Delineation and identification using computer assisted visual interpretation.  
 
-**8.2.4 Standing water bodies of extractive industrial sites**
+#### 8.2.4 Standing water bodies of extractive industrial sites
 
 **Definition:**
 
@@ -6274,7 +6377,9 @@ Water bodies in a gravel pit area - Bozbulut (Turkey) Credit: SPOT-5 (2.5 m) (1/
 
 - Use on CLC as ancillary information.
 
-**8.3.1 Lagoons**
+### 8.3 Transitional waters
+
+#### 8.3.1 Lagoons
 
 **Definition:**
 
@@ -6420,7 +6525,7 @@ Schematic concept of coastal lagoons with reed beds and tide channels (Leaky coa
 
   - Any available ancillary or in-situ data sources.
 
-**8.3.2 Estuaries**
+#### 8.3.2 Estuaries
 
 **Definition:**
 
@@ -6502,7 +6607,7 @@ The limits between *8.1.1 Natural & semi-natural water courses* and *8.3.2* *Est
 
   - Any available ancillary or in-situ data sources.
 
-**8.3.3 Marine inlets and fjords**
+#### 8.3.3 Marine inlets and fjords
 
 **Definition:**
 
@@ -6554,7 +6659,9 @@ Delineation of ria coast near Vigo (Spain). Yellow arrows indicate the river tri
 
 - Computer assisted visual interpretation complemented by ancillary information.  
 
-**8.4.1 Open sea**
+### 8.4 Sea and ocean
+
+#### 8.4.1 Open sea
 
 **Definition:**
 
@@ -6584,7 +6691,7 @@ Delineation of coastal waters and open sea at the British coastline near Fairlig
 
 - The mapping of open sea will be an automated GIS operation.  
 
-**8.4.2 Coastal Waters**
+#### 8.4.2 Coastal Waters
 
 **Definition:**
 
@@ -6652,7 +6759,7 @@ Schematic representation of classes 8.4 Sea and ocean (red dot line)
 
 - Computer assisted visual interpretation of SPOT-5 data.
 
-\#List of Abbreviations
+# 7 List of abbreviations & acronyms
 
 | AOI | Area of Interest |
 |----|----|
@@ -6694,16 +6801,7 @@ Schematic representation of classes 8.4 Sea and ocean (red dot line)
 | VHR | Very High Resolution |
 | WMS | Web Map Service |
 
-Applicable Documents
-
-| **ID** | **Document Name / Content**                       |
-|--------|---------------------------------------------------|
-| 1      | EEA/DIS/R0/18/008 Framework Service Contract      |
-| 2      | EEA/DIS/R0/18/008 ANNEX I – TENDER SPECIFICATIONS |
-| 3      | EEA/DIS/R0/18/008 Specific Contract               |
-| 4      | Minutes of Meeting for Kick-Off (22 May 2019)     |
-
-# 7 Change Log
+# 8 Change Log
 
 | Date | Version | Summary |
 |----|----|----|

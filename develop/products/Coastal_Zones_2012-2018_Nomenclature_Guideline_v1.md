@@ -15,27 +15,65 @@
   Rules](#mapping-rules)
 - [<span class="toc-section-number">5</span> Definition and rules for
   change mapping](#definition-and-rules-for-change-mapping)
-  - [<span class="toc-section-number">5.1</span> V.I Mapping of Land
-    Cover Change in Coastal Zones
-    project](#vi-mapping-of-land-cover-change-in-coastal-zones-project)
-  - [<span class="toc-section-number">5.2</span> V.II Simple
-    change](#vii-simple-change)
-  - [<span class="toc-section-number">5.3</span> V.III Complex
-    changes](#viii-complex-changes)
-    - [<span class="toc-section-number">5.3.1</span> V.III.II Handling
-      changes in, by-definition, change classes — changes at landscape
-      level](#viiiii-handling-changes-in-by-definition-change-classes--changes-at-landscape-level)
+  - [<span class="toc-section-number">5.1</span> Mapping of Land Cover
+    Change in Coastal Zones
+    project](#mapping-of-land-cover-change-in-coastal-zones-project)
+  - [<span class="toc-section-number">5.2</span> Simple
+    change](#simple-change)
+  - [<span class="toc-section-number">5.3</span> Complex
+    changes](#complex-changes)
+    - [<span class="toc-section-number">5.3.1</span> Handling changes
+      in, by-definition, change classes — changes at landscape
+      level](#handling-changes-in-by-definition-change-classes--changes-at-landscape-level)
 - [<span class="toc-section-number">6</span> Description of Mapping
   Features](#description-of-mapping-features)
-- [1 Urban](#1-urban)
-- [2 Cropland](#2-cropland)
-- [3 Woodland and forest](#3-woodland-and-forest)
-- [4 Grassland](#4-grassland)
-- [5 Heathland and scrub](#5-heathland-and-scrub)
-- [6 Open spaces with little or no
-  vegetation](#6-open-spaces-with-little-or-no-vegetation)
-- [7 Wetland](#7-wetland)
-- [8 Water](#8-water)
+  - [1 Urban](#1-urban)
+    - [1.1 Urban fabric, industrial, commercial, public, military and
+      private
+      units](#11-urban-fabric-industrial-commercial-public-military-and-private-units)
+    - [1.2 Transport infrastructure](#12-transport-infrastructure)
+    - [1.3 Mineral extraction, dump and construction sites, land without
+      current
+      use](#13-mineral-extraction-dump-and-construction-sites-land-without-current-use)
+    - [1.4 Green urban, sports and leisure
+      facilities](#14-green-urban-sports-and-leisure-facilities)
+  - [2 Cropland](#2-cropland)
+    - [2.1 Arable land](#21-arable-land)
+    - [2.2 Permanent crops](#22-permanent-crops)
+    - [2.3 Heterogeneous agricultural
+      area](#23-heterogeneous-agricultural-area)
+  - [3 Woodland and forest](#3-woodland-and-forest)
+    - [3.1 Broadleaved forest](#31-broadleaved-forest)
+    - [3.2 Coniferous forest](#32-coniferous-forest)
+    - [3.3 Mixed forest](#33-mixed-forest)
+    - [3.4 Transitional woodland and
+      scrub](#34-transitional-woodland-and-scrub)
+    - [3.5 Lines of trees and scrub](#35-lines-of-trees-and-scrub)
+    - [3.6 Damaged forest](#36-damaged-forest)
+  - [4 Grassland](#4-grassland)
+    - [4.1 Managed grassland](#41-managed-grassland)
+    - [4.2 Natural & semi-natural
+      grassland](#42-natural--semi-natural-grassland)
+  - [5 Heathland and scrub](#5-heathland-and-scrub)
+    - [5.1 Heathland and moorland](#51-heathland-and-moorland)
+    - [5.2 Alpine scrub land](#52-alpine-scrub-land)
+    - [5.3 Sclerophyllous scrubs](#53-sclerophyllous-scrubs)
+  - [6 Open spaces with little or no
+    vegetation](#6-open-spaces-with-little-or-no-vegetation)
+    - [6.1 Sparsely vegetated areas](#61-sparsely-vegetated-areas)
+    - [6.2 Beaches, dunes, river banks](#62-beaches-dunes-river-banks)
+    - [6.3 Bare rocks, burnt areas, glaciers and perpetual
+      snow](#63-bare-rocks-burnt-areas-glaciers-and-perpetual-snow)
+  - [7 Wetland](#7-wetland)
+    - [7.1 Inland wetlands](#71-inland-wetlands)
+    - [7.2 Coastal wetlands](#72-coastal-wetlands)
+  - [8 Water](#8-water)
+    - [8.1 Water courses](#81-water-courses)
+    - [8.2 Lakes and reservoirs](#82-lakes-and-reservoirs)
+    - [8.3 Transitional waters](#83-transitional-waters)
+    - [8.4 Sea and ocean](#84-sea-and-ocean)
+- [<span class="toc-section-number">7</span> List of abbreviations &
+  acronyms](#list-of-abbreviations--acronyms)
 
 # Introduction
 
@@ -147,139 +185,493 @@ In line with the other thematic hotspot products the CZ nomenclature is
 designed to address the MAES classes at level 2.[^1] Table 2 describes
 how CZ classes shall be aggregated to map MAES at level 2.
 
-<img
-src="Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image1.png"
-style="width:5.28in"
-data-fig-alt="This diagram presents a hierarchical land cover/land use (LCLU) nomenclature system organised into five thematic levels, with a sixth column for &#39;Ecosystem types level 2 (MAES)&#39; (Mapping and Assessment of Ecosystems and their Services). The classification begins with three main Level 1 categories, which are then progressively refined into more specific classes up to Level 4. The Level 1 categories are: 1. **1 Urban**: This category encompasses four Level 2 sub-categories: * **1.1 Urban fabric, industrial, commercial, public, military and private units**: This expands into two Level 3 types: * **1.1.1 Urban fabric (predominantly public and private units)**, which further divides into three Level 4 classes based on Imperviousness Density (IMD): &#39;1.1.1.1 Continuous urban fabric (IMD ≥80%)&#39;, &#39;1.1.1.2 Dense urban fabric (IMD ≥30-80%)&#39;, and &#39;1.1.1.3 Low density fabric (IMD &lt;30%)&#39;. * **1.1.2 Industrial, commercial, public and military units**, which divides into &#39;1.1.2.1 Industrial, commercial, public and military units (other)&#39; and &#39;1.1.2.2 Nuclear energy plants and associated land&#39;. * **1.2 Transport infrastructure**: This expands into four Level 3 types: &#39;1.2.1 Road networks and associated land&#39;, &#39;1.2.2 Railways and associated land&#39;, &#39;1.2.3 Port areas and associated land&#39; (which further categorizes into seven Level 4 classes: &#39;1.2.3.1 Cargo port&#39;, &#39;1.2.3.2 Passenger port&#39;, &#39;1.2.3.3 Fishing port&#39;, &#39;1.2.3.4 Naval port&#39;, &#39;1.2.3.5 Marinas&#39;, &#39;1.2.3.6 Local multi-functional harbours&#39;, and &#39;1.2.3.7 Shipyards&#39;), and &#39;1.2.4 Airports and associated land&#39;. * **1.3 Mineral extraction, dump and construction sites, land without current use**: This expands into two Level 3 types: * **1.3.1 Mineral extraction, dump and construction sites**, which further divides into three Level 4 classes: &#39;1.3.1.1 Mineral extraction sites&#39;, &#39;1.3.1.2 Dump sites&#39;, and &#39;1.3.1.3 Construction sites&#39;. * **1.3.2 Land without current use**. * **1.4 Green urban, sports and leisure facilities**. All Level 1 &#39;1 Urban&#39; categories map to &#39;Urban&#39; in the Ecosystem types level 2 (MAES) column. 2. **2 Cropland**: This category encompasses three Level 2 sub-categories: * **2.1 Arable land**: This expands into &#39;2.1.1 Arable irrigated and non-irrigated land&#39; and &#39;2.1.2 Greenhouses&#39; at Level 3. * **2.2 Permanent crops**: This expands into &#39;2.2.1 Vineyards, fruit trees and berry plantations&#39; and &#39;2.2.2 Olive groves&#39; at Level 3. * **2.3 Heterogeneous agricultural area**: This expands into four Level 3 types: &#39;2.3.1 Annual crops associated with permanent crops&#39;, &#39;2.3.2 Complex cultivation patterns&#39;, &#39;2.3.3 Land principally occupied by agriculture with significant areas of natural vegetation&#39;, and &#39;2.3.4 Agro-forestry&#39;. All Level 1 &#39;2 Cropland&#39; categories map to &#39;Cropland&#39; in the Ecosystem types level 2 (MAES) column. 3. **3 Woodland and forest**: This category encompasses six Level 2 sub-categories: * **3.1 Broadleaved forest**: This expands into &#39;3.1.1 Natural &amp; semi-natural broadleaved forest&#39; and &#39;3.1.2 Highly artificial broadleaved plantations&#39; at Level 3. * **3.2 Coniferous forest**: This expands into &#39;3.2.1 Natural &amp; semi-natural coniferous forest&#39; and &#39;3.2.2 Highly artificial coniferous plantations&#39; at Level 3. * **3.3 Mixed forest**: This expands into &#39;3.3.1 Natural &amp; semi-natural mixed forest&#39; and &#39;3.3.2 Highly artificial mixed plantations&#39; at Level 3. * **3.4 Transitional woodland and scrub**. *" />
+<div class="tbl-caption">
 
-This diagram presents a hierarchical land cover/land use (LCLU)
-nomenclature system organised into five thematic levels, with a sixth
-column for ‘Ecosystem types level 2 (MAES)’ (Mapping and Assessment of
-Ecosystems and their Services). The classification begins with three
-main Level 1 categories, which are then progressively refined into more
-specific classes up to Level 4.
+Table 2: Detailed CZ LC/LU classes and cross reference to MAES Level 2
 
-The Level 1 categories are: 1. **1 Urban**: This category encompasses
-four Level 2 sub-categories: \* **1.1 Urban fabric, industrial,
-commercial, public, military and private units**: This expands into two
-Level 3 types: \* **1.1.1 Urban fabric (predominantly public and private
-units)**, which further divides into three Level 4 classes based on
-Imperviousness Density (IMD): “1.1.1.1 Continuous urban fabric (IMD
-≥80%)”, “1.1.1.2 Dense urban fabric (IMD ≥30-80%)”, and “1.1.1.3 Low
-density fabric (IMD \<30%)”. \* **1.1.2 Industrial, commercial, public
-and military units**, which divides into “1.1.2.1 Industrial,
-commercial, public and military units (other)” and “1.1.2.2 Nuclear
-energy plants and associated land”. \* **1.2 Transport infrastructure**:
-This expands into four Level 3 types: “1.2.1 Road networks and
-associated land”, “1.2.2 Railways and associated land”, “1.2.3 Port
-areas and associated land” (which further categorizes into seven Level 4
-classes: “1.2.3.1 Cargo port”, “1.2.3.2 Passenger port”, “1.2.3.3
-Fishing port”, “1.2.3.4 Naval port”, “1.2.3.5 Marinas”, “1.2.3.6 Local
-multi-functional harbours”, and “1.2.3.7 Shipyards”), and “1.2.4
-Airports and associated land”. \* **1.3 Mineral extraction, dump and
-construction sites, land without current use**: This expands into two
-Level 3 types: \* **1.3.1 Mineral extraction, dump and construction
-sites**, which further divides into three Level 4 classes: “1.3.1.1
-Mineral extraction sites”, “1.3.1.2 Dump sites”, and “1.3.1.3
-Construction sites”. \* **1.3.2 Land without current use**. \* **1.4
-Green urban, sports and leisure facilities**. All Level 1 ‘1 Urban’
-categories map to “Urban” in the Ecosystem types level 2 (MAES) column.
+</div>
 
-2.  **2 Cropland**: This category encompasses three Level 2
-    sub-categories:
-    - **2.1 Arable land**: This expands into “2.1.1 Arable irrigated and
-      non-irrigated land” and “2.1.2 Greenhouses” at Level 3.
-    - **2.2 Permanent crops**: This expands into “2.2.1 Vineyards, fruit
-      trees and berry plantations” and “2.2.2 Olive groves” at Level 3.
-    - **2.3 Heterogeneous agricultural area**: This expands into four
-      Level 3 types: “2.3.1 Annual crops associated with permanent
-      crops”, “2.3.2 Complex cultivation patterns”, “2.3.3 Land
-      principally occupied by agriculture with significant areas of
-      natural vegetation”, and “2.3.4 Agro-forestry”. All Level 1 ‘2
-      Cropland’ categories map to “Cropland” in the Ecosystem types
-      level 2 (MAES) column.
-3.  **3 Woodland and forest**: This category encompasses six Level 2
-    sub-categories:
-    - **3.1 Broadleaved forest**: This expands into “3.1.1 Natural &
-      semi-natural broadleaved forest” and “3.1.2 Highly artificial
-      broadleaved plantations” at Level 3.
-    - **3.2 Coniferous forest**: This expands into “3.2.1 Natural &
-      semi-natural coniferous forest” and “3.2.2 Highly artificial
-      coniferous plantations” at Level 3.
-    - **3.3 Mixed forest**: This expands into “3.3.1 Natural &
-      semi-natural mixed forest” and “3.3.2 Highly artificial mixed
-      plantations” at Level 3.
-    - **3.4 Transitional woodland and scrub**.
-    - 
-
-<img
-src="Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image2.png"
-style="width:5.26in"
-data-fig-alt="This diagram presents a hierarchical Land Cover / Land Use (LCLU) classification nomenclature for Copernicus Land Monitoring Service (CLMS) Coastal Zones (CZ) products, detailing classes from Level 1 to Level 4, with a broader aggregation level on the right. The classification system includes: - **Level 1 categories (leftmost column):** - `4 Grassland` - `5 Heathland and scrub` - `6 Open spaces with little or no vegetation` - `7 Wetland` - `8 Water` - **Level 2 sub-categories:** - Under `4 Grassland`: `4.1 Managed grassland`, `4.2 Natural &amp; semi-natural grassland` - Under `5 Heathland and scrub`: `5.1 Heathland and moorland`, `5.2 Alpine scrub land`, `5.3 Sclerophyllous scrubs` - Under `6 Open spaces with little or no vegetation`: `6.1 Sparsely vegetated areas`, `6.2 Beaches, dunes, river banks`, `6.3 Bare rocks, burnt areas, glaciers and perpetual snow` - Under `7 Wetland`: `7.1 Inland wetlands`, `7.2 Coastal wetlands` - Under `8 Water`: `8.1 Water courses`, `8.2 Lakes and reservoirs`, `8.3 Transitional waters`, `8.4 Sea and ocean` - **Level 3 sub-categories:** - Under `4.2 Natural &amp; semi-natural grassland`: `4.2.1 Semi-natural grassland`, `4.2.2 Alpine and sub-alpine natural grassland` - Under `6.1 Sparsely vegetated areas`: `6.1.1 Sparse vegetation on sands`, `6.1.2 Sparse vegetation on rocks` - Under `6.2 Beaches, dunes, river banks`: `6.2.1 Beaches and dunes`, `6.2.2 River banks` - Under `6.3 Bare rocks, burnt areas, glaciers and perpetual snow`: `6.3.1 Bare rocks, outcrops, cliffs`, `6.3.2 Burnt areas (except burnt forest)`, `6.3.3 Glaciers and perpetual snow` - Under `7.1 Inland wetlands`: `7.1.1 Inland marshes`, `7.1.2 Peat bogs` - Under `7.2 Coastal wetlands`: `7.2.1 Salt marshes`, `7.2.2 Salines`, `7.2.3 Intertidal flats` - Under `8.1 Water courses`: `8.1.1 Natural &amp; semi-natural water courses`, `8.1.2 Highly modified water courses and canals`, `8.1.3 Seasonally connected water courses (oxbows)` - Under `8.2 Lakes and reservoirs`: `8.2.1 Natural lakes`, `8.2.2 Reservoirs`, `8.2.3 Aquaculture ponds`, `8.2.4 Standing water bodies of extractive industrial sites` - Under `8.3 Transitional waters`: `8.3.1 Lagoons`, `8.3.2 Estuaries`, `8.3.3 Marine inlets and fjords` - Under `8.4 Sea and ocean`: `8.4.1 Open sea`, `8.4.2 Coastal waters` - **Level 4 sub-categories (rightmost detailed column):** - Under `6.2.1 Beaches and dunes`: `6.2.1.1 Beaches` (`6.2.1.1.1 Sandy beaches`, `6.2.1.1.2 Shingle beaches`), `6.2.1.2 Dunes` - Under `6.3.1 Bare rocks, outcrops, cliffs`: `6.3.1.1 Bare rocks and outcrops`, `6.3.1.2 Coastal cliffs` - Under `7.1.2 Peat bogs`: `7.1.2.1 Exploited peat bogs`, `7.1.2.2 Unexploited peat bogs` - **Aggregated Higher-Level Categories (rightmost column):** - `Grassland` (aggregates `4 Grassland` categories) - `Heathland and shrub` (aggregates `5 Heathland and scrub` categories) - `Sparsely vegetated land` (aggregates `6 Open spaces with little or no vegetation` categories) - `Wetlands` (aggregates `7 Wetland` categories) - `Marine inlets and transitional waters` (aggregates `7.2 Coastal wetlands` and `8.3 Transitional waters` categories) - `Rivers and lakes` (aggregates `8.1 Water courses` and `8.2 Lakes and reservoirs` categories) - `Open ocean` (aggregates `8.4.1 Open sea`) - `Coastal` (aggregates `8.4.2 Coastal waters`) This nomenclature is part of the current Coastal Zones (CZ) products and is structured to allow merging of different hotspot products at the level of core classes."
-alt="Table 2: Detailed CZ LC/LU classes and cross reference to MAES Level 2" />
-
-This diagram presents a hierarchical Land Cover / Land Use (LCLU)
-classification nomenclature for Copernicus Land Monitoring Service
-(CLMS) Coastal Zones (CZ) products, detailing classes from Level 1 to
-Level 4, with a broader aggregation level on the right.
-
-The classification system includes: - **Level 1 categories (leftmost
-column):** - `4 Grassland` - `5 Heathland and scrub` -
-`6 Open spaces with little or no vegetation` - `7 Wetland` - `8 Water` -
-**Level 2 sub-categories:** - Under `4 Grassland`:
-`4.1 Managed grassland`, `4.2 Natural & semi-natural grassland` - Under
-`5 Heathland and scrub`: `5.1 Heathland and moorland`,
-`5.2 Alpine scrub land`, `5.3 Sclerophyllous scrubs` - Under
-`6 Open spaces with little or no vegetation`:
-`6.1 Sparsely vegetated areas`, `6.2 Beaches, dunes, river banks`,
-`6.3 Bare rocks, burnt areas, glaciers and perpetual snow` - Under
-`7 Wetland`: `7.1 Inland wetlands`, `7.2 Coastal wetlands` - Under
-`8 Water`: `8.1 Water courses`, `8.2 Lakes and reservoirs`,
-`8.3 Transitional waters`, `8.4 Sea and ocean` - **Level 3
-sub-categories:** - Under `4.2 Natural & semi-natural grassland`:
-`4.2.1 Semi-natural grassland`,
-`4.2.2 Alpine and sub-alpine natural grassland` - Under
-`6.1 Sparsely vegetated areas`: `6.1.1 Sparse vegetation on sands`,
-`6.1.2 Sparse vegetation on rocks` - Under
-`6.2 Beaches, dunes, river banks`: `6.2.1 Beaches and dunes`,
-`6.2.2 River banks` - Under
-`6.3 Bare rocks, burnt areas, glaciers and perpetual snow`:
-`6.3.1 Bare rocks, outcrops, cliffs`,
-`6.3.2 Burnt areas (except burnt forest)`,
-`6.3.3 Glaciers and perpetual snow` - Under `7.1 Inland wetlands`:
-`7.1.1 Inland marshes`, `7.1.2 Peat bogs` - Under
-`7.2 Coastal wetlands`: `7.2.1 Salt marshes`, `7.2.2 Salines`,
-`7.2.3 Intertidal flats` - Under `8.1 Water courses`:
-`8.1.1 Natural & semi-natural water courses`,
-`8.1.2 Highly modified water courses and canals`,
-`8.1.3 Seasonally connected water courses (oxbows)` - Under
-`8.2 Lakes and reservoirs`: `8.2.1 Natural lakes`, `8.2.2 Reservoirs`,
-`8.2.3 Aquaculture ponds`,
-`8.2.4 Standing water bodies of extractive industrial sites` - Under
-`8.3 Transitional waters`: `8.3.1 Lagoons`, `8.3.2 Estuaries`,
-`8.3.3 Marine inlets and fjords` - Under `8.4 Sea and ocean`:
-`8.4.1 Open sea`, `8.4.2 Coastal waters` - **Level 4 sub-categories
-(rightmost detailed column):** - Under `6.2.1 Beaches and dunes`:
-`6.2.1.1 Beaches` (`6.2.1.1.1 Sandy beaches`,
-`6.2.1.1.2 Shingle beaches`), `6.2.1.2 Dunes` - Under
-`6.3.1 Bare rocks, outcrops, cliffs`: `6.3.1.1 Bare rocks and outcrops`,
-`6.3.1.2 Coastal cliffs` - Under `7.1.2 Peat bogs`:
-`7.1.2.1 Exploited peat bogs`, `7.1.2.2 Unexploited peat bogs` -
-**Aggregated Higher-Level Categories (rightmost column):** - `Grassland`
-(aggregates `4 Grassland` categories) - `Heathland and shrub`
-(aggregates `5 Heathland and scrub` categories) -
-`Sparsely vegetated land` (aggregates
-`6 Open spaces with little or no vegetation` categories) - `Wetlands`
-(aggregates `7 Wetland` categories) -
-`Marine inlets and transitional waters` (aggregates
-`7.2 Coastal wetlands` and `8.3 Transitional waters` categories) -
-`Rivers and lakes` (aggregates `8.1 Water courses` and
-`8.2 Lakes and reservoirs` categories) - `Open ocean` (aggregates
-`8.4.1 Open sea`) - `Coastal` (aggregates `8.4.2 Coastal waters`)
-
-This nomenclature is part of the current Coastal Zones (CZ) products and
-is structured to allow merging of different hotspot products at the
-level of core classes.
+<table data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 19%" />
+<col style="width: 21%" />
+<col style="width: 18%" />
+<col style="width: 17%" />
+<col style="width: 13%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="background-color: #DDDDDD">Level 1</td>
+<td style="background-color: #DDDDDD">Level 2</td>
+<td style="background-color: #DDDDDD">Level 3</td>
+<td style="background-color: #DDDDDD">Level 4</td>
+<td style="background-color: #DDDDDD">Level 5</td>
+<td style="background-color: #DDDDDD">Ecosystem types level 2
+(MAES)</td>
+</tr>
+<tr>
+<td rowspan="20" style="background-color: #FF4040; color: #FFFFFF">1
+Urban</td>
+<td rowspan="5" style="background-color: #C00000; color: #FFFFFF">1.1
+Urban fabric, industrial, commercial, public, military and private
+units</td>
+<td rowspan="3" style="background-color: #C00000; color: #FFFFFF">1.1.1
+Urban fabric (predominantly public and private units)</td>
+<td style="background-color: #C00000; color: #FFFFFF">1.1.1.1 Continuous
+urban fabric (IM.D ≥80%)</td>
+<td></td>
+<td rowspan="20" style="background-color: #FD0000">Urban</td>
+</tr>
+<tr>
+<td style="background-color: #FD0000">1.1.1.2 Dense urban fabric (IM.D
+≥30-80%)</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #F4A189">1.1.1.3 Low density urban fabric
+(IM.D &lt;30%)</td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2" style="background-color: #9660EE">1.1.2 Industrial,
+commercial, public and military units</td>
+<td style="background-color: #9660EE">1.1.2.1 Industrial, commercial,
+public and military units (other)</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #8748EE; color: #FFFFFF">1.1.2.2 Nuclear
+energy plants and associated land</td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="10" style="background-color: #83899D">1.2 Transport
+infrastructure</td>
+<td style="background-color: #83899D">1.2.1 Road networks and associated
+land</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #404040; color: #FFFFFF">1.2.2 Railways and
+associated land</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="7" style="background-color: #FFE6DE">1.2.3 Port areas and
+associated land</td>
+<td style="background-color: #FFE6DE">1.2.3.1 Cargo port</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #EED7D9">1.2.3.2 Passenger port</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #E1C8DE">1.2.3.3 Fishing port</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #D1B9DD">1.2.3.4 Naval port</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #C3AADD">1.2.3.5 Marinas</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #B39ADD">1.2.3.6 Local multi-functional
+harbours</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #A181D5">1.2.3.7 Shipyards</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #DF9FC2">1.2.4 Airports and associated
+land</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="4" style="background-color: #946200; color: #FFFFFF">1.3
+Mineral extraction, dump and construction sites, land without current
+use</td>
+<td rowspan="3" style="background-color: #946200; color: #FFFFFF">1.3.1
+Mineral extraction, dump and construction sites</td>
+<td style="background-color: #946200; color: #FFFFFF">1.3.1.1 Mineral
+extraction sites</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #885501; color: #FFFFFF">1.3.1.2 Dump
+sites</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #784601; color: #FFFFFF">1.3.1.3
+Construction sites</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #693700; color: #FFFFFF">1.3.2 Land without
+current use</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #91D500">1.4 Green urban, sports and
+leisure facilities</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="8" style="background-color: #FFFFA8">2 Cropland</td>
+<td rowspan="2" style="background-color: #FFFFA8">2.1 Arable land</td>
+<td style="background-color: #FFFFA8">2.1.1 Arable irrigated and
+non-irrigated land</td>
+<td></td>
+<td></td>
+<td rowspan="8" style="background-color: #FFFF99">Cropland</td>
+</tr>
+<tr>
+<td style="background-color: #B8C151">2.1.2 Greenhouses</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2" style="background-color: #F0CC80">2.2 Permanent
+crops</td>
+<td style="background-color: #F38309">2.2.1 Vineyards, fruit trees and
+berry plantations</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #DF9F00">2.2.2 Olive groves</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="4" style="background-color: #FFE6A6">2.3 Heterogeneous
+agricultural area</td>
+<td style="background-color: #FFE6A6">2.3.1 Annual crops associated with
+permanent crops</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #FFE64D">2.3.2 Complex cultivation
+patterns</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #E6CC4D">2.3.3 Land principally occupied by
+agriculture with significant areas of natural vegetation</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #F0CC80">2.3.4 Agro-forestry</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="9" style="background-color: #007800; color: #FFFFFF">3
+Woodland and forest</td>
+<td rowspan="2" style="background-color: #82BC00">3.1 Broadleaved
+forest</td>
+<td style="background-color: #82BC00">3.1.1 Natural &amp; semi-natural
+broadleaved forest</td>
+<td></td>
+<td></td>
+<td rowspan="9" style="background-color: #92D050">Woodland and
+forest</td>
+</tr>
+<tr>
+<td style="background-color: #82BC00">3.1.2 Highly artificial
+broadleaved plantations</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2" style="background-color: #007800; color: #FFFFFF">3.2
+Coniferous forest</td>
+<td style="background-color: #007800; color: #FFFFFF">3.2.1 Natural
+&amp; semi-natural coniferous forest</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #007800; color: #FFFFFF">3.2.2 Highly
+artificial coniferous plantations</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2" style="background-color: #419F00">3.3 Mixed forest</td>
+<td style="background-color: #419F00">3.3.1 Natural &amp; semi-natural
+mixed forest</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #419F00">3.3.2 Highly artificial mixed
+plantations</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #A9EF00">3.4 Transitional woodland and
+scrub</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #C3F000">3.5 Lines of trees and scrub</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #2B342B; color: #FFFFFF">3.6 Damaged
+forest</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="3" style="background-color: #E6E64D">4 Grassland</td>
+<td style="background-color: #E0F24D">4.1 Managed grassland</td>
+<td></td>
+<td></td>
+<td></td>
+<td rowspan="3" style="background-color: #C5E0B3">Grassland</td>
+</tr>
+<tr>
+<td rowspan="2" style="background-color: #E0F24D">4.2 Natural &amp;
+semi-natural grassland</td>
+<td style="background-color: #E0F24D">4.2.1 Semi-natural grassland</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #CCF04D">4.2.2 Alpine and sub-alpine
+natural grassland</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="3" style="background-color: #CCF04D">5 Heathland and
+scrub</td>
+<td style="background-color: #A6FF80">5.1 Heathland and moorland</td>
+<td></td>
+<td></td>
+<td></td>
+<td rowspan="3"
+style="background-color: #538035; color: #FFFFFF">Heathland and
+shrub</td>
+</tr>
+<tr>
+<td style="background-color: #9FED6A">5.2 Alpine scrub land</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #A9EB5C">5.3 Sclerophyllous scrubs</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="10" style="background-color: #CCFFD5">6 Open spaces with
+little or no vegetation</td>
+<td rowspan="2" style="background-color: #CCFFD5">6.1 Sparsely vegetated
+areas</td>
+<td style="background-color: #CCFFD5">6.1.1 Sparse vegetation on
+sands</td>
+<td></td>
+<td></td>
+<td rowspan="10" style="background-color: #F2DBDB">Sparsely vegetated
+land</td>
+</tr>
+<tr>
+<td style="background-color: #CCFFD5">6.1.2 Sparse vegetation on
+rocks</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="4" style="background-color: #DFF5DC">6.2 Beaches, dunes,
+river banks</td>
+<td rowspan="3" style="background-color: #DFF5DC">6.2.1 Beaches and
+dunes</td>
+<td rowspan="2" style="background-color: #DFF5DC">6.2.1.1 Beaches</td>
+<td style="background-color: #DFF5DC">6.2.1.1.1 Sandy beaches</td>
+</tr>
+<tr>
+<td style="background-color: #DFDFDC">6.2.1.1.2 Shingle beaches</td>
+</tr>
+<tr>
+<td style="background-color: #DFF5DC">6.2.1.2 Dunes</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #DFDFDC">6.2.2 River banks</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="4" style="background-color: #B4BCB4">6.3 Bare rocks, burnt
+areas, glaciers and perpetual snow</td>
+<td rowspan="2" style="background-color: #B4BCB4">6.3.1 Bare rocks,
+outcrops, cliffs</td>
+<td style="background-color: #B4BCB4">6.3.1.1 Bare rocks and
+outcrops</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #B4BCB4">6.3.1.2 Coastal cliffs</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #9FAA9F">6.3.2 Burnt areas (except burnt
+forest)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #8A948A">6.3.3 Glaciers and perpetual
+snow</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="6" style="background-color: #A6A6FB">7 Wetland</td>
+<td rowspan="3" style="background-color: #A6A6FB">7.1 Inland
+wetlands</td>
+<td style="background-color: #A6A6FB">7.1.1 Inland marshes</td>
+<td></td>
+<td></td>
+<td rowspan="3" style="background-color: #D99359">Wetlands</td>
+</tr>
+<tr>
+<td rowspan="2" style="background-color: #5D5FF8; color: #FFFFFF">7.1.2
+Peat bogs</td>
+<td style="background-color: #5D5FF8; color: #FFFFFF">7.1.2.1 Exploited
+peat bogs</td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #4648F8; color: #FFFFFF">7.1.2.2
+Unexploited peat bogs</td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="3" style="background-color: #91C6EE">7.2 Coastal
+wetlands</td>
+<td style="background-color: #91C6EE">7.2.1 Salt marshes</td>
+<td></td>
+<td></td>
+<td rowspan="3" style="background-color: #96C5EA">Marine inlets and
+transitional waters</td>
+</tr>
+<tr>
+<td style="background-color: #858FA7">7.2.2 Salines</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #A4A5F6">7.2.3 Intertidal flats</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="12" style="background-color: #00F5DB">8 Water</td>
+<td rowspan="3" style="background-color: #00F5DB">8.1 Water courses</td>
+<td style="background-color: #00F5DB">8.1.1 Natural &amp; semi-natural
+water courses</td>
+<td></td>
+<td></td>
+<td rowspan="7" style="background-color: #BDD6EE">Rivers and lakes</td>
+</tr>
+<tr>
+<td style="background-color: #00F5DB">8.1.2 Highly modified water
+courses and canals</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #79EBEE">8.1.3 Seasonally connected water
+courses (oxbows)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="4" style="background-color: #82EEEE">8.2 Lakes and
+reservoirs</td>
+<td style="background-color: #82EEEE">8.2.1 Natural lakes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #78E6E6">8.2.2 Reservoirs</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #67D5D5">8.2.3 Aquaculture ponds</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #67D5D5">8.2.4 Standing water bodies of
+extractive industrial sites</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="3" style="background-color: #00FFA6">8.3 Transitional
+waters</td>
+<td style="background-color: #00FFA6">8.3.1 Lagoons</td>
+<td></td>
+<td></td>
+<td rowspan="3" style="background-color: #96C5EA">Marine inlets and
+transitional waters</td>
+</tr>
+<tr>
+<td style="background-color: #00F096">8.3.2 Estuaries</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="background-color: #00E187">8.3.3 Marine inlets and
+fjords</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2" style="background-color: #FFFFFF">8.4 Sea and ocean</td>
+<td style="background-color: #FFFFFF">8.4.1 Open sea</td>
+<td></td>
+<td></td>
+<td style="background-color: #006699; color: #FFFFFF">Open ocean</td>
+</tr>
+<tr>
+<td style="background-color: #D2E6EB">8.4.2 Coastal waters</td>
+<td></td>
+<td></td>
+<td style="background-color: #009998">Coastal</td>
+</tr>
+</tbody>
+</table>
 
 # Mapping Rules
 
@@ -478,7 +870,7 @@ based on the LCC rules of Corine Land Cover (CLC). The given rules were
 adopted and expanded to the Natura 2000, Riparian Zone and Coastal Zones
 specifications and requirements.
 
-## V.I Mapping of Land Cover Change in Coastal Zones project
+## Mapping of Land Cover Change in Coastal Zones project
 
 In the Coastal Zones project, change mapping is carried out by visual
 interpretation of 2012 LC/LU vector data and satellite imagery of the
@@ -507,8 +899,6 @@ should be treated as changes, e.g.:
   their management;
 
 - seasonal changes of snow spots in high mountains.
-
-- …
 
 The introduction of false changes must also be avoided. Many of these
 can and should be excluded by pure logics. These vary from country to
@@ -565,7 +955,7 @@ Change polygons are drawn directly over the corresponding image by
 visual interpretation and are not generated automatically by a GIS
 operation.
 
-## V.II Simple change
+## Simple change
 
 Simple changes are modifications where either a single polygon changes
 from one LC/LU class to another or a new polygon ≥ 0.5 ha emerges within
@@ -590,7 +980,7 @@ red, labelled 1.1.1.1. This demonstrates a land cover change where the
 area previously classified as 1.4.0.0 transitioned to 1.1.1.1 by 2018.
 No scale bar or compass orientation is visible.
 
-## V.III Complex changes
+## Complex changes
 
 Although the MMU for change mapping is 0.5 ha, in some cases change
 polygons \< 0.5 ha are also mapped. When a new polygon is formed by
@@ -687,7 +1077,7 @@ ha MMU, collectively form a complex change polygon that is 0.5 ha or
 greater, they are mapped as a single LCC event, changing from Green
 Urban Area to Urban Fabric in this example.
 
-### V.III.II Handling changes in, by-definition, change classes — changes at landscape level
+### Handling changes in, by-definition, change classes — changes at landscape level
 
 CZ nomenclature includes some land cover classes that, by definition,
 are characterized by a land cover change. These classes are:
@@ -734,41 +1124,30 @@ nomenclature</caption>
 <tbody>
 <tr>
 <td><strong>1 Urban</strong></td>
-<td style="text-align: left;">The definition of urban areas in general
-is under the Urban Atlas guidelines.</td>
-</tr>
-<tr>
-<td></td>
-<td style="text-align: left;"><p>The level 2 separates the urban fabric
-from transportation network, construction &amp; dump sites and green
-urban areas (including sports facilities).</p>
+<td style="text-align: left;"><p>The definition of urban areas in
+general is under the Urban Atlas guidelines.</p>
+<p>The level 2 separates the urban fabric from transportation network,
+construction &amp; dump sites and green urban areas (including sports
+facilities).</p>
 <p>On level 3, the urban fabric class distinguishes between residential
 and industrial purposes. Transport infrastructure is divided into road,
 railway, port and airport. Finally, land without current use is split
-from its class siblings to form a class on its own on this
-level.</p></td>
-</tr>
-<tr>
-<td></td>
-<td style="text-align: left;">The level 4 further differentiates the
-density of urban fabric (continuous, urban dense, low dense) and the
-specific purpose of industrial sites (separating nuclear energy plants
-from all other industrial sites). As the main focus lies on the
-coastline, harbours are further divided into seven kinds according to
-its purpose (cargo, passenger, fishing or naval port, marinas, local
-multi-functional harbours and shipyards). On this level, construction
-sites, mineral extraction, dump sites are split into individual
-classes.</td>
+from its class siblings to form a class on its own on this level.</p>
+<p>The level 4 further differentiates the density of urban fabric
+(continuous, urban dense, low dense) and the specific purpose of
+industrial sites (separating nuclear energy plants from all other
+industrial sites). As the main focus lies on the coastline, harbours are
+further divided into seven kinds according to its purpose (cargo,
+passenger, fishing or naval port, marinas, local multi-functional
+harbours and shipyards). On this level, construction sites, mineral
+extraction, dump sites are split into individual classes.</p></td>
 </tr>
 <tr>
 <td><strong>2 Cropland</strong></td>
-<td style="text-align: left;">On level 2, classes are defined according
-to the CORINE nomenclature (CORINE Technical Addendum 2000). Three main
-classes are separated:</td>
-</tr>
-<tr>
-<td></td>
-<td style="text-align: left;"><ul>
+<td style="text-align: left;"><p>On level 2, classes are defined
+according to the CORINE nomenclature (CORINE Technical Addendum 2000).
+Three main classes are separated:</p>
+<ul>
 <li><p>Arable Land: Land under a rotation system used for annually
 harvested plants and fallow lands, which are permanently or not
 irrigated. It includes flooded crops, such as rice fields and other
@@ -778,16 +1157,12 @@ under a rotation system. It includes ligneous crops of standard cultures
 for fruit production, such as extensive fruit orchards, olive groves,
 chestnut groves, walnut groves, shrub orchards, vineyards and some other
 specific low-system orchard plantation, espaliers and climbers.</p></li>
-</ul></td>
-</tr>
-<tr>
-<td></td>
-<td style="text-align: left;"><ul>
-<li>Heterogeneous agricultural areas: Areas of annual crops associated
-with permanent crops on the same parcel, annual crops cultivated under
-forest trees, areas of annual crops, meadows and/or permanent crops
-which are juxtaposed, landscapes in which crops and pastures are
-intimately mixed with natural vegetation or natural areas.</li>
+<li><p>Heterogeneous agricultural areas: Areas of annual crops
+associated with permanent crops on the same parcel, annual crops
+cultivated under forest trees, areas of annual crops, meadows and/or
+permanent crops which are juxtaposed, landscapes in which crops and
+pastures are intimately mixed with natural vegetation or natural
+areas.</p></li>
 </ul>
 <p>On level 3 arable land is divided between “arable irrigated and
 non-irrigated land” and greenhouses. Permanent crops are differentiated
@@ -801,21 +1176,15 @@ agriculture with significant areas of natural vegetation”).</p></td>
 </tr>
 <tr>
 <td><strong>3 Woodland and forest</strong></td>
-<td style="text-align: left;">Level 2 differentiates main types of
-forests:</td>
-</tr>
-<tr>
-<td></td>
-<td style="text-align: left;"><ul>
+<td style="text-align: left;"><p>Level 2 differentiates main types of
+forests:</p>
+<ul>
 <li>Broadleaved forest: Vegetation composed mainly of trees, including
 shrub and understory, where broadleaved species predominate and
 represent more than 75% of the pattern.</li>
 </ul>
-<!-- --></td>
-</tr>
-<tr>
-<td></td>
-<td style="text-align: left;"><ul>
+<!-- -->
+<ul>
 <li><p>Coniferous forest: Vegetation composed mainly of trees, including
 shrub and understory, where coniferous species predominate and represent
 more than 75% of the pattern.</p></li>
@@ -823,13 +1192,9 @@ more than 75% of the pattern.</p></li>
 shrub and understory, where neither broadleaved nor coniferous species
 predominate. The share of coniferous or broadleaved species does not
 exceed 25% in the canopy closure.</p></li>
-</ul></td>
-</tr>
-<tr>
-<td></td>
-<td style="text-align: left;"><p>Transitional woodland and scrub, lines
-of trees and scrub as well as damaged forest are also included in level
-2.</p>
+</ul>
+<p>Transitional woodland and scrub, lines of trees and scrub as well as
+damaged forest are also included in level 2.</p>
 <p>The differentiation of Woodland and Forest on Level 3 is mainly
 oriented along aggregated EUNIS habitat classes. Main classes are
 riparian and fluvial forest, swamp forest, other natural and
@@ -838,12 +1203,9 @@ following the EUNIS classification scheme.</p></td>
 </tr>
 <tr>
 <td><strong>4 Grassland</strong></td>
-<td style="text-align: left;">Level 2 differentiates managed grasslands
-and natural grasslands.</td>
-</tr>
-<tr>
-<td></td>
-<td style="text-align: left;"><ul>
+<td style="text-align: left;"><p>Level 2 differentiates managed
+grasslands and natural grasslands.</p>
+<ul>
 <li><p>Managed or agricultural grasslands are intensively managed areas
 (selection of grasses, intensive cutting and grazing, fertilization,
 etc.) for the production of grass. From a land use point of view, in
@@ -852,12 +1214,9 @@ others.</p></li>
 <li><p>Natural grasslands include alpine meadows and other semi-natural
 grasslands included in the Habitat Directive (except mountain and
 lowland hay meadows).</p></li>
-</ul></td>
-</tr>
-<tr>
-<td></td>
-<td style="text-align: left;">A distinction between dry and mesic
-grasslands and alpine grasslands are included in level 3.</td>
+</ul>
+<p>A distinction between dry and mesic grasslands and alpine grasslands
+are included in level 3.</p></td>
 </tr>
 <tr>
 <td><strong>5 Heathland and Scrub</strong></td>
@@ -867,60 +1226,46 @@ following the CORINE Land Cover guidelines.</td>
 </tr>
 <tr>
 <td><strong>6 Open spaces with little or no vegetation</strong></td>
-<td style="text-align: left;">Differentiation of level 2 into three
+<td style="text-align: left;"><p>Differentiation of level 2 into three
 categories: “Sparsely vegetated areas”, “Beaches, dunes, river banks”
 and “Bare rocks, burnt areas, glaciers and perpetual snow” in order to
 separate vegetation classes from non-vegetated surfaces on different
-substrates.</td>
-</tr>
-<tr>
-<td></td>
-<td style="text-align: left;"><p>On level 3, a further split of sparsely
-vegetated areas depending on the substrate (sparse vegetation on sands
-vs. sparse vegetation on rocks) and their water related location
-(beaches and dunes as well as river banks). On non-vegetated surfaces
-the parent class 6.3 differentiates between “Bare rocks outcrops,
-cliffs”, “Burnt areas (except burnt forest)” and “Glaciers &amp;
-perpetual snow”.</p>
+substrates.</p>
+<p>On level 3, a further split of sparsely vegetated areas depending on
+the substrate (sparse vegetation on sands vs. sparse vegetation on
+rocks) and their water related location (beaches and dunes as well as
+river banks). On non-vegetated surfaces the parent class 6.3
+differentiates between “Bare rocks outcrops, cliffs”, “Burnt areas
+(except burnt forest)” and “Glaciers &amp; perpetual snow”.</p>
 <p>On level 4 “Beaches and dunes” are now split into individual classes
 as well as “Bare rocks, outcrops and cliffs” are divided in “Bare rocks
-and outcrops” and “Coastal cliffs”.</p></td>
-</tr>
-<tr>
-<td></td>
-<td style="text-align: left;">Beaches differentiate on level 5 between
-“Sandy beaches” and “Shingle beaches”.</td>
+and outcrops” and “Coastal cliffs”.</p>
+<p>Beaches differentiate on level 5 between “Sandy beaches” and “Shingle
+beaches”.</p></td>
 </tr>
 <tr>
 <td><strong>7 Wetland</strong></td>
-<td style="text-align: left;">On level 2 the class distinguishes between
-inland wetlands and coastal wetlands.</td>
-</tr>
-<tr>
-<td></td>
-<td style="text-align: left;"><p>Level 3 splits the inland wetlands into
-inland marshes and peat bogs. Coastal wetlands are comprised of salt
-marshes, salines and intertidal flats.</p>
+<td style="text-align: left;"><p>On level 2 the class distinguishes
+between inland wetlands and coastal wetlands.</p>
+<p>Level 3 splits the inland wetlands into inland marshes and peat bogs.
+Coastal wetlands are comprised of salt marshes, salines and intertidal
+flats.</p>
 <p>On level 4 peat bogs are divided in exploited and
 unexploited.</p></td>
 </tr>
 <tr>
 <td><strong>8 Water</strong></td>
-<td style="text-align: left;">On level 2 Water is distinguished into
+<td style="text-align: left;"><p>On level 2 Water is distinguished into
 water courses, lakes &amp; reservoirs, transitional waters and sea and
-ocean.</td>
-</tr>
-<tr>
-<td></td>
-<td style="text-align: left;">On level 3 water courses are
-differentiated because of their type (natural/semi-natural, highly
-artificial, separated from main water course). The lakes and reservoir
-distinguish between the nature of a water body (natural/semi-natural
-vs. highly artificial) and its purpose (aquaculture ponds, standing
-water bodies of extractive industrial sites). Transitional waters at the
-coast discriminate between lagoons, marine inlets and fjords as well as
-estuaries. Sea and ocean or divided into open sea and coastal
-waters.</td>
+ocean.</p>
+<p>On level 3 water courses are differentiated because of their type
+(natural/semi-natural, highly artificial, separated from main water
+course). The lakes and reservoir distinguish between the nature of a
+water body (natural/semi-natural vs. highly artificial) and its purpose
+(aquaculture ponds, standing water bodies of extractive industrial
+sites). Transitional waters at the coast discriminate between lagoons,
+marine inlets and fjords as well as estuaries. Sea and ocean or divided
+into open sea and coastal waters.</p></td>
 </tr>
 </tbody>
 </table>
@@ -946,22 +1291,7 @@ hierarchical level) and the last child class, parent classes are
 referred to as e.g. "classes 6.2.1 Beaches and dunes" indicating that
 all child classes within this parent class are addressed.
 
-# 1 Urban
-
-<img
-src="Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image11.png"
-style="width:1.53in"
-data-fig-alt="A circular photograph depicting an urban landscape under a clear blue sky. The image captures a view from a high vantage point, likely a building or elevated structure. In the foreground on the right, a tall, light-coloured building is partially visible, extending upwards beyond the frame. An elevated road or highway, featuring several vehicles, stretches horizontally across the middle ground. In the background on the left, another tall building and several other structures are visible. The scene primarily consists of artificial surfaces and built structures, with minimal visible vegetation." />
-
-A circular photograph depicting an urban landscape under a clear blue
-sky. The image captures a view from a high vantage point, likely a
-building or elevated structure. In the foreground on the right, a tall,
-light-coloured building is partially visible, extending upwards beyond
-the frame. An elevated road or highway, featuring several vehicles,
-stretches horizontally across the middle ground. In the background on
-the left, another tall building and several other structures are
-visible. The scene primarily consists of artificial surfaces and built
-structures, with minimal visible vegetation.
+## 1 Urban
 
 The urban classes contain land that is covered by building structures
 and transport network. Urban fabrics appear in blue and darkish
@@ -1082,7 +1412,11 @@ it includes parks. Sports and leisure facilities are included (camping
 grounds, sport grounds, leisure parks, golf courses, racecourses, etc.).
 It also comprises parks not surrounded by urban areas.
 
-**1.1.1.1 Continuous urban fabric (IM.D ≥80%)**
+### 1.1 Urban fabric, industrial, commercial, public, military and private units
+
+#### 1.1.1 Urban fabric (predominantly public and private units)
+
+##### 1.1.1.1 Continuous urban fabric (IM.D ≥80%)
 
 **Definition:**
 
@@ -1231,7 +1565,7 @@ similar images in the document refer to SPOT-5 (2.5m) imagery from
 
 - For interpretation of urban density: Use IM.D HRL.
 
-**1.1.1.2 Dense urban fabric (IM.D ≥30-80%)**
+##### 1.1.1.2 Dense urban fabric (IM.D ≥30-80%)
 
 **Definition:**
 
@@ -1380,7 +1714,7 @@ features.
 
 - For interpretation of urban density: Use IM.D HRL.
 
-**1.1.1.3 Low density urban fabric (IM.D \<30%)**
+##### 1.1.1.3 Low density urban fabric (IM.D \<30%)
 
 **Definition:**
 
@@ -1817,7 +2151,9 @@ structures are mapped as “whole structures” to ensure accurate
 cartographic representation and avoid underestimation of urban areas.
 Data source: CNES 2011©, Distribution Airbus DS/Spot Image.
 
-**1.1.2.1 Industrial, commercial, public and military units (other)**
+#### 1.1.2 Industrial, commercial, public and military units
+
+##### 1.1.2.1 Industrial, commercial, public and military units (other)
 
 **Definition:**
 
@@ -2165,7 +2501,7 @@ areas representing land, and green/grey tones for the dam structure and
 vegetation, with light blue outlines indicating the classified land
 cover boundaries.
 
-**1.1.2.2 Nuclear energy plants and associated land**
+##### 1.1.2.2 Nuclear energy plants and associated land
 
 **Definition:**
 
@@ -2296,7 +2632,9 @@ provided under EC/ESA CSC-DA.
 - <span custom-style="NormalLine">If local in-situ data other than UA
   available, use if suitable.</span>
 
-**1.2.1 Road network and associated land**
+### 1.2 Transport infrastructure
+
+#### 1.2.1 Road network and associated land
 
 **Definition:**
 
@@ -2493,7 +2831,7 @@ construction sites, potentially classifying unsealed roads. Code 8.1.1.0
 is also present but its specific LCLU meaning is not provided within the
 image or directly in the immediate context.
 
-**1.2.2 Railways and associated land**
+#### 1.2.2 Railways and associated land
 
 **Definition:**
 
@@ -2645,7 +2983,9 @@ feature, clipping other elements, and is mapped with a minimum width of
 10m. Numerous buildings, other urban infrastructure, and additional road
 networks are visible surrounding and intersecting the outlined area.
 
-**1.2.3.1 Cargo port**
+#### 1.2.3 Port areas and associated land
+
+##### 1.2.3.1 Cargo port
 
 **Definition:**
 
@@ -2822,7 +3162,7 @@ data is © Airbus Defence and Space, provided under EC/ESA CSC-DA.
   case individually depending on the LC/LU situation and additional
   data.
 
-**1.2.3.2 Passenger port**
+##### 1.2.3.2 Passenger port
 
 **Definition:**
 
@@ -2968,7 +3308,7 @@ and surrounding urban fabric.
   areas may be difficult. If local in-situ data other than UA is
   available, use if suitable.
 
-**1.2.3.3 Fishing port**
+##### 1.2.3.3 Fishing port
 
 **Definition:**
 
@@ -3078,7 +3418,7 @@ the detailed delineation of different port categories.
   difficult. If local in-situ data other than UA is available, use if
   suitable.</span>  
 
-**1.2.3.4 Naval port**
+##### 1.2.3.4 Naval port
 
 **Definition:**
 
@@ -3194,7 +3534,7 @@ coastal urban environment, including a visible marina on the far right.
   difficult. If local in-situ data other than UA is available, use if
   suitable.</span>  
 
-**1.2.3.5 Marinas**
+##### 1.2.3.5 Marinas
 
 **Definition:**
 
@@ -3306,7 +3646,7 @@ urban coastal environment.
   difficult. If local in-situ data other than UA is available, use if
   suitable.</span>  
 
-**1.2.3.6 Local multi-functional harbours**
+##### 1.2.3.6 Local multi-functional harbours
 
 **Definition:**
 
@@ -3418,7 +3758,7 @@ surfaces.
   difficult. If local in-situ data other than UA is available, use if
   suitable.</span>  
 
-**1.2.3.7 Shipyards**
+##### 1.2.3.7 Shipyards
 
 **Definition:**
 
@@ -3570,7 +3910,7 @@ orientation, legend, or data source/reference year is provided.
   suitable. Decision must be taken in each case individually depending
   on the LC/LU situation and additional data.</span>  
 
-**1.2.4 Airports and associated land**
+#### 1.2.4 Airports and associated land
 
 **Definition:**
 
@@ -3691,7 +4031,11 @@ and airports in Germany.
 - <span custom-style="NormalLine">If local in-situ data other than UA
   available, use if suitable.</span>  
 
-**1.3.1.1 Mineral extraction sites**
+### 1.3 Mineral extraction, dump and construction sites, land without current use
+
+#### 1.3.1 Mineral extraction, dump and construction sites
+
+##### 1.3.1.1 Mineral extraction sites
 
 **Definition:**
 
@@ -3846,7 +4190,7 @@ additional polygon boundaries.
 - <span custom-style="NormalLine">If local in-situ data other than UA
   available, use if suitable.</span>  
 
-**1.3.1.2 Dump sites**
+##### 1.3.1.2 Dump sites
 
 **Definition:**
 
@@ -3980,7 +4324,7 @@ right section, along with other smaller roads.
 - <span custom-style="NormalLine">If local in-situ data other than UA
   and CLC available, use if suitable.</span>  
 
-**1.3.1.3 Construction sites**
+##### 1.3.1.3 Construction sites
 
 **Definition:**
 
@@ -4073,7 +4417,7 @@ within the image frame.
 - <span custom-style="NormalLine">If local in-situ data other than UA
   available, use if suitable.</span>  
 
-**1.3.2 Land without current use**
+#### 1.3.2 Land without current use
 
 **Definition:**
 
@@ -4217,7 +4561,7 @@ the land lacks active agricultural or recreational use.
 - <span custom-style="NormalLine">If local in-situ data other than UA
   available, use if suitable.</span>  
 
-**1.4 Green urban, sports and leisure facilities**
+### 1.4 Green urban, sports and leisure facilities
 
 **Definition:**
 
@@ -4388,21 +4732,7 @@ Image.
 - <span custom-style="NormalLine">If local in-situ data other than UA
   available, use if suitable.</span>  
 
-# 2 Cropland
-
-<img
-src="Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/Picture1.png"
-style="width:2.91in"
-data-fig-alt="A ground-level photograph, presented within a circular frame, depicts a wide, tilled brown agricultural field under a partly cloudy sky. In the mid-ground, a series of five centre-pivot irrigation systems are visible, actively spraying water across the dry soil. A gentle green hillside forms the distant horizon. This image illustrates an example of irrigated cropland, relevant to Copernicus Land Monitoring Service (CLMS) Land Use / Land Cover (LULC) classifications such as &#39;2.1.1 Arable irrigated and non-irrigated land&#39;." />
-
-A ground-level photograph, presented within a circular frame, depicts a
-wide, tilled brown agricultural field under a partly cloudy sky. In the
-mid-ground, a series of five centre-pivot irrigation systems are
-visible, actively spraying water across the dry soil. A gentle green
-hillside forms the distant horizon. This image illustrates an example of
-irrigated cropland, relevant to Copernicus Land Monitoring Service
-(CLMS) Land Use / Land Cover (LULC) classifications such as “2.1.1
-Arable irrigated and non-irrigated land”.
+## 2 Cropland
 
 Cropland is the main food production area. It includes both, intensively
 managed ecosystems and multifunctional areas supporting many
@@ -4488,7 +4818,9 @@ of heterogeneous agricultural areas:
 
   - 2.3.4 Agro-forestry
 
-**2.1.1 Arable irrigated and non-irrigated land**
+### 2.1 Arable land
+
+#### 2.1.1 Arable irrigated and non-irrigated land
 
 This class includes the following land cover/land use types:
 non-irrigated arable land; irrigated arable land and rice fields; and
@@ -5513,7 +5845,7 @@ distributed by Airbus DS/Spot Image.
 
 - <span custom-style="NormalLine">Visual interpretation.</span>  
 
-**2.1.2 Greenhouses**
+#### 2.1.2 Greenhouses
 
 **Definition:**
 
@@ -5652,7 +5984,9 @@ intensive agricultural regions, such as Almería, Andalusia, Spain.
 - Use VHR data sources like e.g. aerial orthophotos from national data
   bases or any other adequate VHR images to verify the interpretation.
 
-**2.2.1 Vineyards, fruit frees and berry plantations**
+### 2.2 Permanent crops
+
+#### 2.2.1 Vineyards, fruit frees and berry plantations
 
 **Definition:**
 
@@ -6154,7 +6488,7 @@ is CNES 2013©, Distribution Airbus DS/Spot Image.
 - Areas with \< 75 % fruit trees will be mapped as *2.3.2 Complex
   cultivation patterns.*
 
-**2.2.2 Olive groves**
+#### 2.2.2 Olive groves
 
 **Definition:**
 
@@ -6319,7 +6653,9 @@ imagery is CNES 2011©, distributed by Airbus DS/Spot Image.
   - *2.2.1 Vineyards, fruit trees and berry plantations*, if olive trees
     cover \< 50%.
 
-**2.3.1 Annual crops associated with permanent crops**
+### 2.3 Heterogeneous agricultural area
+
+#### 2.3.1 Annual crops associated with permanent crops
 
 **Definition:**
 
@@ -6381,7 +6717,7 @@ of olive groves, vineyards, and annual crops within the same parcels.
 
 - Classification based on CLC guideline for class 241.
 
-**2.3.2 Complex cultivation patterns**
+#### 2.3.2 Complex cultivation patterns
 
 **Definition:**
 
@@ -6504,8 +6840,7 @@ legend, or year is visible.
 
 - Computer assisted visual interpretation.
 
-**2.3.3 Land principally occupied by agriculture with significant areas
-of natural vegetation**
+#### 2.3.3 Land principally occupied by agriculture with significant areas of natural vegetation
 
 **Definition:**
 
@@ -6646,7 +6981,7 @@ Source: CNES 2011© Distribution Airbus DS/Spot Image.
 - <span custom-style="NormalLine">Computer assisted visual
   interpretation.</span>  
 
-**2.3.4 Agro-forestry**
+#### 2.3.4 Agro-forestry
 
 **Definition:**
 
@@ -6862,20 +7197,7 @@ distributed by Airbus DS/Spot Image.
 
 - T.C.D. assignation.
 
-# 3 Woodland and forest
-
-<img
-src="Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/Picture4.png"
-style="width:2.99in"
-data-fig-alt="A photograph displaying a mountainous landscape, framed within a circular border. The image shows a deep valley or ravine densely covered with coniferous trees, forming a vibrant green forest. Rocky cliffs and slopes are visible in the foreground, framing the valley, and extending into the background, where more distant, hazy mountains are under a bright sky. The overall impression is one of rugged natural terrain dominated by forest cover." />
-
-A photograph displaying a mountainous landscape, framed within a
-circular border. The image shows a deep valley or ravine densely covered
-with coniferous trees, forming a vibrant green forest. Rocky cliffs and
-slopes are visible in the foreground, framing the valley, and extending
-into the background, where more distant, hazy mountains are under a
-bright sky. The overall impression is one of rugged natural terrain
-dominated by forest cover.
+## 3 Woodland and forest
 
 The woodland and forest classes are mainly dominated by woody vegetation
 of various ages or by succession of climax vegetation types[^3]. The
@@ -6970,7 +7292,9 @@ Fire breaks will be classified according to their current land covers.
 
 - **3.6 Damaged forest**
 
-**3.1.1 Natural & semi-natural broadleaved forest**
+### 3.1 Broadleaved forest
+
+#### 3.1.1 Natural & semi-natural broadleaved forest
 
 **Definition:**
 
@@ -7261,7 +7585,7 @@ textual labels or dates are visible within the image itself.
 
 - Spectral separation between broadleaved and coniferous forest.
 
-**3.1.2 Highly artificial broadleaved plantations**
+#### 3.1.2 Highly artificial broadleaved plantations
 
 **Definition:**
 
@@ -7398,7 +7722,9 @@ also present. The imagery credit is CNES 2011© Distribution Airbus
 DS/Spot Image, with additional context referencing 2009 Ministerio de
 Fomento IGN.
 
-**3.2.1 Natural & semi-natural coniferous forest**
+### 3.2 Coniferous forest
+
+#### 3.2.1 Natural & semi-natural coniferous forest
 
 **Definition:**
 
@@ -7599,7 +7925,7 @@ of light-coloured streets and dense building structures against a red
 background. The image source is CNES 2011©, Distribution Airbus DS/Spot
 Image.
 
-**3.2.2 Highly artificial coniferous plantations**
+#### 3.2.2 Highly artificial coniferous plantations
 
 **Definition:**
 
@@ -7742,7 +8068,9 @@ Source: CNES 2011©, Distribution Airbus DS/Spot Image.
 - If situation is unclear, map *3.2.1 Natural and semi-natural
   coniferous forest.*
 
-**3.3.1 Natural & semi-natural mixed forest**
+### 3.3 Mixed forest
+
+#### 3.3.1 Natural & semi-natural mixed forest
 
 **Definition:**
 
@@ -7868,7 +8196,7 @@ Airbus DS/Spot Image.
 - Manual/visual or semi-automatic classification of broadleaved forest
   border according to CORE_03 data.
 
-**3.3.2 Highly artificial mixed plantations**
+#### 3.3.2 Highly artificial mixed plantations
 
 **Definition:**
 
@@ -7908,7 +8236,7 @@ composed of native species planted in clearly unnatural stands.
   the High-Resolution Forest Layer (Tree Cover Density product) or
   manually if an automatic approach is not feasible.
 
-**3.4 Transitional woodland and scrub**
+### 3.4 Transitional woodland and scrub
 
 **Definition:**
 
@@ -8081,7 +8409,7 @@ DS/Spot Image.
 - Use auxiliary information e.g. geological maps to clarify specific
   geomorphological conditions like e.g. calcareous grounds.
 
-**3.5 Lines of trees and scrub**
+### 3.5 Lines of trees and scrub
 
 **Definition:**
 
@@ -8241,7 +8569,7 @@ body, likely a lake or pond, appearing as a dark blue polygon.
 
 - Use GLE data set, when available, to avoid overlays.
 
-**3.6 Damaged forest**
+### 3.6 Damaged forest
 
 **Definition:**
 
@@ -8434,23 +8762,7 @@ specific date/source information is visible within the image.
 - Final detailed delineation and identification using computer assisted
   visual interpretation.
 
-# 4 Grassland
-
-<img
-src="Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/Picture3.png"
-style="width:1.49in"
-data-fig-alt="A photograph depicting a rural or agricultural landscape, framed within an oval border. The scene shows a field with low-lying, dry vegetation or stubble, likely after a harvest. Two large, cylindrical hay bales are visible, one prominently in the mid-ground casting a shadow to its left, and another less distinct in the far background. To the left of the foreground hay bale, a small, bare tree or shrub with several branches stands. In the background, beyond the field, there is a dark line of trees or dense vegetation against a muted, light-coloured sky. The overall colour palette of the image is desaturated, with tones of beige, brown, and grey." />
-
-A photograph depicting a rural or agricultural landscape, framed within
-an oval border. The scene shows a field with low-lying, dry vegetation
-or stubble, likely after a harvest. Two large, cylindrical hay bales are
-visible, one prominently in the mid-ground casting a shadow to its left,
-and another less distinct in the far background. To the left of the
-foreground hay bale, a small, bare tree or shrub with several branches
-stands. In the background, beyond the field, there is a dark line of
-trees or dense vegetation against a muted, light-coloured sky. The
-overall colour palette of the image is desaturated, with tones of beige,
-brown, and grey.
+## 4 Grassland
 
 The grassland classes are areas dominated by grassy vegetation of two
 kinds –managed pastures and (semi-) natural (extensively managed)
@@ -8489,7 +8801,7 @@ pastures)*.*
 
   - 4.2.2 Alpine and sub-alpine natural grassland
 
-**4.1 Managed grassland**
+### 4.1 Managed grassland
 
 **Definition:**
 
@@ -8821,9 +9133,6 @@ buildings or other infrastructure. A single, small green dot is
 centrally located within a vegetated land plot. The image source is CNES
 2012©, distributed by Airbus DS/Spot Image.
 
-<u>Difference between managed (semi-Improved) and semi-natural
-grasslands</u>
-
 |  | Managed (semi-improved) grassland | Semi-natural grassland |
 |----|----|----|
 | **Land use** | Managed land parcel normally used for hay production | Normally used for grazing either because it cannot be mowed or because it is located on poor soils (calcareous soils, etc.). Normally never used for hay production |
@@ -8831,6 +9140,9 @@ grasslands</u>
 | **Degree of management** | Grassland that is more or less frequently mowed and/or managed in other ways. More homogeneous grass coverage. In specific conditions could be irrigated. In the case of grassland with trees they could be also managed (e.g. cut for forage). | The herbaceous plants are natural but are created and maintained as permanent grasslands by non-intensive activities, such as grazing. Less homogenous grass coverage. |
 | **Landscape** | Normally artificially limited by fences, tree lines, small stone walls and other type of structures in order to facilitate its management. Normally small regular parcels. | Normally larger areas, and normally with no parcel structure. In many cases presence of trees and shrubs due process on natural vegetation invasion or land abandonment |
 | **Location** | Near villages, fertile soils of valleys and accessible areas | Normally located on slopes or poor soils which limit the production. Located in less accessible areas. |
+
+Table 5: Difference between managed (semi-Improved) and semi-natural
+grasslands
 
 <img
 src="Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image226.png"
@@ -9141,9 +9453,9 @@ early autumn.
 
 - Lines of trees with more 10 meters → *3.5 Lines of trees and scrub.*
 
-<u>Difference between arable land and managed grassland</u>
-
 <table style="width:99%;">
+<caption>Table 6: Difference between arable land and managed
+grassland</caption>
 <colgroup>
 <col style="width: 13%" />
 <col style="width: 55%" />
@@ -9209,7 +9521,9 @@ harvest soil appears blue</li>
 </tbody>
 </table>
 
-**4.2.1 Semi-natural grassland**
+### 4.2 Natural & semi-natural grassland
+
+#### 4.2.1 Semi-natural grassland
 
 **Definition:**
 
@@ -9964,7 +10278,7 @@ environment and the adjacent agricultural land. The source is CNES
 - Final detailed delineation and identification using computer assisted
   visual interpretation.
 
-**4.2.2 Alpine and sub-alpine natural grassland**
+#### 4.2.2 Alpine and sub-alpine natural grassland
 
 **Definition:**
 
@@ -10288,20 +10602,7 @@ Airbus DS/Spot Image.
   cover at least 70% of the surface. The minimum mapping unit for these
   heterogeneous classes will be around 1 ha.
 
-# 5 Heathland and scrub
-
-<img
-src="Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/Picture7.png"
-style="width:3.14in"
-data-fig-alt="A circular photograph, framed by a light grey border, features a small bird with a light underside and darker brown back, possibly a plover or sandpiper, standing in a field of dry, brown vegetation. The ground cover is sparse, revealing lighter patches of what appears to be bare soil or sand. A small, bright green plant is visible in the lower-left corner of the image, contrasting with the muted brown and grey tones of the surrounding landscape." />
-
-A circular photograph, framed by a light grey border, features a small
-bird with a light underside and darker brown back, possibly a plover or
-sandpiper, standing in a field of dry, brown vegetation. The ground
-cover is sparse, revealing lighter patches of what appears to be bare
-soil or sand. A small, bright green plant is visible in the lower-left
-corner of the image, contrasting with the muted brown and grey tones of
-the surrounding landscape.
+## 5 Heathland and scrub
 
 Heathland and scrub is divided into three classes depending on whether
 the shrubby vegetation is evergreen and adapted to water loss
@@ -10327,7 +10628,7 @@ the cultivation of olive trees.
 
 - **5.3 Sclerophyllous scrubs**
 
-**5.1 Heathland and moorland**
+### 5.1 Heathland and moorland
 
 **Definition:**
 
@@ -10628,7 +10929,7 @@ forests, and some small dark blue/black water bodies. Other smaller,
 rectangular reddish-brown patches are also visible. A label “322” is
 present within another polygon.
 
-**5.2 Alpine scrub land**
+### 5.2 Alpine scrub land
 
 **Definition:**
 
@@ -10835,7 +11136,7 @@ by Airbus DS/Spot Image.
 - The distinction from (coniferous) forest in mountainous areas will be
   done by using the HRL Forest Layer, DEMs and national in-situ data.
 
-**5.3 Sclerophyllous scrubs**
+### 5.3 Sclerophyllous scrubs
 
 **Definition:**
 
@@ -10998,23 +11299,7 @@ as is the case.
 - Final detailed delineation and identification using computer assisted
   visual interpretation.
 
-# 6 Open spaces with little or no vegetation
-
-<img
-src="Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image318.jpg"
-style="width:1.01in"
-data-fig-alt="A photograph depicting a single deer, likely a roe deer, standing on a rocky, sparsely vegetated hillside. The deer is light brown with a distinct white rump patch and is facing away from the camera, looking towards a calm body of water (likely a lake) in the middle ground. The lake is partially bordered by dense green vegetation, appearing to be trees or scrubland. In the background, several mountain peaks are visible under an overcast sky, with some peaks retaining patches of snow, indicative of a high-altitude or northern European environment. The foreground consists of rugged, rocky ground with scattered low-lying plants." />
-
-A photograph depicting a single deer, likely a roe deer, standing on a
-rocky, sparsely vegetated hillside. The deer is light brown with a
-distinct white rump patch and is facing away from the camera, looking
-towards a calm body of water (likely a lake) in the middle ground. The
-lake is partially bordered by dense green vegetation, appearing to be
-trees or scrubland. In the background, several mountain peaks are
-visible under an overcast sky, with some peaks retaining patches of
-snow, indicative of a high-altitude or northern European environment.
-The foreground consists of rugged, rocky ground with scattered low-lying
-plants.
+## 6 Open spaces with little or no vegetation
 
 Natural areas covered with little or no vegetation, including open
 thermophile formations of sandy or rocky grounds distributed on
@@ -11062,7 +11347,9 @@ cover.
 
   - 6.3.3 Glaciers and perpetual snow
 
-**6.1.1 Sparse vegetation on sands**
+### 6.1 Sparsely vegetated areas
+
+#### 6.1.1 Sparse vegetation on sands
 
 **Definition:**
 
@@ -11165,7 +11452,7 @@ Challenges with *6.1.1 Sparse vegetation on sands*:
 
 - Computer assisted visual interpretation of SPOT-5 data.
 
-**6.1.2 Sparse vegetation on rocks**
+#### 6.1.2 Sparse vegetation on rocks
 
 **Definition:**
 
@@ -11365,7 +11652,13 @@ Example in the Alps.
 
 - Computer assisted visual interpretation of SPOT-5 data.
 
-**6.2.1.1.1 Sandy beach**
+### 6.2 Beaches, dunes, river banks
+
+#### 6.2.1 Beaches and dunes
+
+##### 6.2.1.1 Beaches
+
+###### 6.2.1.1.1 Sandy beach
 
 **Definition:**
 
@@ -11519,7 +11812,7 @@ representing the period 2012-2018 based on its filename.
   beach and the darker (debris)/or vegetated areas inland through
   interpretation of the remote sensing data.
 
-**6.2.1.1.2 Shingle beach**
+###### 6.2.1.1.2 Shingle beach
 
 **Definition:**
 
@@ -11635,7 +11928,7 @@ Land Cover class 331).
   beach and the darker (debris)/or vegetated areas inland through
   interpretation of the remote sensing data.
 
-**6.2.1.2 Dune**
+##### 6.2.1.2 Dune
 
 **Definition:**
 
@@ -11766,7 +12059,7 @@ or specific date are visible.
   beach and the darker (debris)/or vegetated areas inland through
   interpretation of the remote sensing data.
 
-**6.2.2 River banks**
+#### 6.2.2 River banks
 
 **Definition:**
 
@@ -11905,7 +12198,11 @@ partly dry river beds with a width greater than 10 m. Credit: CNES
 
 - Computer assisted visual interpretation of SPOT-5 data.
 
-**6.3.1.1 Bare rocks and outcrops**
+### 6.3 Bare rocks, burnt areas, glaciers and perpetual snow
+
+#### 6.3.1 Bare rocks, outcrops, cliffs
+
+##### 6.3.1.1 Bare rocks and outcrops
 
 **Definition:**
 
@@ -12087,7 +12384,7 @@ slopes, characteristic of areas with little or no high vegetation (\< 10
 
 - Computer assisted visual interpretation of SPOT-5 data.
 
-**6.3.1.2 Coastal cliffs**
+##### 6.3.1.2 Coastal cliffs
 
 **Definition:**
 
@@ -12195,7 +12492,7 @@ and coastal erosion features to be discerned.
 
 - Computer assisted visual interpretation of SPOT-5 data.
 
-**6.3.2 Burnt areas (except burnt forest)**
+#### 6.3.2 Burnt areas (except burnt forest)
 
 **Definition:**
 
@@ -12258,7 +12555,7 @@ as “Burnt areas (except burnt forest).”
 - Use supporting data to distinguish that the natural/semi-natural area
   burned is non-forest.
 
-**6.3.3 Glaciers and perpetual snow**
+#### 6.3.3 Glaciers and perpetual snow
 
 **Definition:**
 
@@ -12396,20 +12693,7 @@ CNES 2011©, distributed by Airbus DS/Spot Image.
   lead to misinterpretations due to very similar appearance in the
   satellite images.
 
-# 7 Wetland
-
-<img
-src="Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/image355.png"
-style="width:1.41in"
-data-fig-alt="A circular, monochrome photograph displays a natural landscape featuring a calm body of water or a flooded area. Grassy or reedy vegetation emerges from the water in the foreground and midground. A darker band of trees or dense vegetation is visible along the horizon in the background, and the upper portion of the image is partially obscured by the canopy of an overhead tree. The sky appears overcast or hazy, creating a muted light." />
-
-A circular, monochrome photograph displays a natural landscape featuring
-a calm body of water or a flooded area. Grassy or reedy vegetation
-emerges from the water in the foreground and midground. A darker band of
-trees or dense vegetation is visible along the horizon in the
-background, and the upper portion of the image is partially obscured by
-the canopy of an overhead tree. The sky appears overcast or hazy,
-creating a muted light.
+## 7 Wetland
 
 According to Article 1.1 of the Ramsar Convention[^19] (1971), wetlands
 are: “*areas of marsh, fen, peatland or water, whether natural or
@@ -12544,7 +12828,9 @@ bog”.
 
   - 7.2.3 Intertidal flats
 
-**7.1.1 Inland marshes**
+### 7.1 Inland wetlands
+
+#### 7.1.1 Inland marshes
 
 **Definition:**
 
@@ -12966,7 +13252,9 @@ protected area.
   are included in *4.2.1 Semi-natural grassland* (located in mesic
   environments).
 
-**7.1.2.1 Exploited peat bog**
+#### 7.1.2 Peat bogs
+
+##### 7.1.2.1 Exploited peat bog
 
 **Definition:**
 
@@ -13102,7 +13390,7 @@ period.
 
 - Computer assisted visual interpretation of SPOT-5 data.
 
-**7.1.2.2 Unexploited peat bog**
+##### 7.1.2.2 Unexploited peat bog
 
 **Definition:**
 
@@ -13259,7 +13547,9 @@ of open peat, small ponds and streaks of mosses/heath vegetation.
   wetland from the Topographic map are included in *7.1.1 Inland
   marshes*.
 
-**7.2.1 Salt marshes**
+### 7.2 Coastal wetlands
+
+#### 7.2.1 Salt marshes
 
 **Definition:**
 
@@ -13575,7 +13865,7 @@ DS/Spot Image.
 
   - Any available ancillary or in-situ data sources.
 
-**7.2.2 Salines**
+#### 7.2.2 Salines
 
 **Definition:**
 
@@ -13686,7 +13976,7 @@ lighter brown rectangular parcels.
 - Use of Transitional Water layer (European Framework Directive) to
   identify general limits of coastal waters.
 
-**7.2.3 Intertidal flats**
+#### 7.2.3 Intertidal flats
 
 **Definition:**
 
@@ -13836,21 +14126,7 @@ flats, which are visually separate from the river-influenced estuaries.
 - Ancillary information is needed in case of confusion with *7.2.1 Salt
   marshes.*
 
-# 8 Water
-
-<img
-src="Coastal_Zones_2012-2018_Nomenclature_Guideline_v1-media/Picture8.png"
-style="width:1.55in"
-data-fig-alt="A circular photograph depicting a wide body of water, identified as an estuary, with a foreground bank covered in green vegetation. Across the water, a dense line of trees forms the middle ground, extending horizontally. Above the treeline in the far background, several tall, slender structures, possibly industrial towers or power lines, are visible against a blue sky with scattered white clouds. The image is presented as an example of CORINE Land Cover (CLC) class 8.3.2 Estuaries, characterised by river influence." />
-
-A circular photograph depicting a wide body of water, identified as an
-estuary, with a foreground bank covered in green vegetation. Across the
-water, a dense line of trees forms the middle ground, extending
-horizontally. Above the treeline in the far background, several tall,
-slender structures, possibly industrial towers or power lines, are
-visible against a blue sky with scattered white clouds. The image is
-presented as an example of CORINE Land Cover (CLC) class 8.3.2
-Estuaries, characterised by river influence.
+## 8 Water
 
 This level comprises all rivers and lakes, which are the permanent
 freshwater inland surface waters, as well as coastal water bodies
@@ -13988,7 +14264,9 @@ conditional questions.
     - IF “Inland salines?”, THEN classify as “1.3.1 Mineral extraction,
       dump and construction sites”.
 
-**8.1.1 Natural** **& semi-natural water courses**
+### 8.1 Water courses
+
+#### 8.1.1 Natural & semi-natural water courses
 
 **Definition**
 
@@ -14281,7 +14559,7 @@ Distribution Airbus DS/Spot Image.
   without trees) / 4.1 Managed grassland* according to auxiliary data or
   additional satellite data
 
-**8.1.2 Highly modified water courses and canals**
+#### 8.1.2 Highly modified water courses and canals
 
 **Definition**
 
@@ -14394,7 +14672,7 @@ spaces, and a larger, darker blue water body on the far right.
   *8.1.1 Natural* *& semi-natural water courses* will be
   mapped.</span>  
 
-**8.1.3 Seasonally connected water courses (oxbows)**
+#### 8.1.3 Seasonally connected water courses (oxbows)
 
 **Definition:**
 
@@ -14575,7 +14853,9 @@ less „homogeneous” mapping of those areas
 
   - Any available ancillary or in-situ data sources.
 
-**8.2.1 Natural lakes**
+### 8.2 Lakes and reservoirs
+
+#### 8.2.1 Natural lakes
 
 **Definition**
 
@@ -14828,7 +15108,7 @@ years). Many of these ponds have been converted to arable land. New
 small ponds have been created across Europe for cattle watering using
 rainfall or underground water.
 
-**8.2.2 Reservoirs**
+#### 8.2.2 Reservoirs
 
 **Definition:**
 
@@ -14942,7 +15222,7 @@ If there is no water in these completely man-made ponds, they will be
 mapped also as *8.2.2 Reservoirs*, considering their completely
 artificial structure and not the presence of water.
 
-**8.2.3 Aquaculture ponds**
+#### 8.2.3 Aquaculture ponds
 
 **Definition:**
 
@@ -15005,7 +15285,7 @@ specific geographic location is indicated.
 - <span custom-style="NormalLine">Delineation and identification using
   computer assisted visual interpretation.</span>  
 
-**8.2.4 Standing water bodies of extractive industrial sites**
+#### 8.2.4 Standing water bodies of extractive industrial sites
 
 **Definition:**
 
@@ -15112,7 +15392,9 @@ Source: CNES 2011©, Distribution Airbus DS/Spot Image.
 
 - Use on CLC as ancillary information.
 
-**8.3.1 Lagoons**
+### 8.3 Transitional waters
+
+#### 8.3.1 Lagoons
 
 **Definition:**
 
@@ -15535,7 +15817,7 @@ borders the marsh areas. Red outlines delineate the boundaries of the
 
   - Any available ancillary or in-situ data sources.
 
-**8.3.2 Estuaries**
+#### 8.3.2 Estuaries
 
 **Definition:**
 
@@ -15718,7 +16000,7 @@ The limits between *8.1.1 Natural & semi-natural water courses* and
 
   - Any available ancillary or in-situ data sources.
 
-**8.3.3 Marine inlets and fjords**
+#### 8.3.3 Marine inlets and fjords
 
 **Definition:**
 
@@ -15854,7 +16136,9 @@ Data source: © Airbus Defence and Space, provided under EC/ESA CSC-DA.
 - <span custom-style="NormalLine">Computer assisted visual
   interpretation complemented by ancillary information.</span>  
 
-**8.4.1 Open sea**
+### 8.4 Sea and ocean
+
+#### 8.4.1 Open sea
 
 **Definition:**
 
@@ -15919,7 +16203,7 @@ sea” beginning beyond this limit.
 - <span custom-style="NormalLine">The mapping of open sea will be an
   automated GIS operation.</span>  
 
-**8.4.2 Coastal Waters**
+#### 8.4.2 Coastal Waters
 
 **Definition:**
 
@@ -16107,7 +16391,7 @@ as per CLMS classification guidelines.
 
 - Computer assisted visual interpretation of SPOT-5 data.
 
-\#List of Abbreviations
+# List of abbreviations & acronyms
 
 | AOI | Area of Interest |
 |----|----|
@@ -16148,15 +16432,6 @@ as per CLMS classification guidelines.
 | UA | Urban Atlas |
 | VHR | Very High Resolution |
 | WMS | Web Map Service |
-
-Applicable Documents
-
-| **ID** | **Document Name / Content**                       |
-|--------|---------------------------------------------------|
-| 1      | EEA/DIS/R0/18/008 Framework Service Contract      |
-| 2      | EEA/DIS/R0/18/008 ANNEX I – TENDER SPECIFICATIONS |
-| 3      | EEA/DIS/R0/18/008 Specific Contract               |
-| 4      | Minutes of Meeting for Kick-Off (22 May 2019)     |
 
 [^1]: MAES, J., et al. (2013): Mapping and assessment of ecosystems and
     their services. An analytical framework for ecosystem assessments
