@@ -10,7 +10,7 @@
 <meta name="keywords" content="CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning policy, QMD document migration, automated changelog generation, document licensing">
 <meta name="description" content="This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, content formatting, and document licensing policies. It also outlines procedures for local previewing, publishing to the develop branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.">
 
-<title>Technical Library - Editor Guidelines – Technical Library</title>
+<title>Technical Library - Editor Guideline – Technical Library</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -80,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cc2c63177fbf9d0018fa3815378e833d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-fe6e7194a871e42d4b9aa87001bfd5ba.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "Technical Library - Editor Guidelines",
+    "headline": "Technical Library - Editor Guideline",
     "description": "This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, content formatting, and document licensing policies. It also outlines procedures for local previewing, publishing to the develop branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.",
     "datePublished": "May 26, 2026",
     "author": {
@@ -243,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Technical Library - Editor Guidelines</h1>
+<h1 class="title">Technical Library - Editor Guideline</h1>
 <p class="subtitle lead">Copernicus Land Monitoring Service</p>
 </div>
 
@@ -386,22 +386,29 @@ Tip
 <section id="required-fields" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="required-fields"><span class="header-section-number">3.1</span> Required fields</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> HRL Forest</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> Copernis Land Monitoring Service</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> HRL Forest - Product User Manual</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> Copernicus Land Monitoring Service</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">category</span><span class="kw">:</span><span class="at"> products</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2026-01-27"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'2026-01-27'</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><code>title</code> - short product name, appears as the document title</li>
-<li><code>subtitle</code> - Copernis Land Monitoring Service</li>
-<li><code>category</code> - one of <code>products</code>, <code>guidelines</code>, <code>reports</code>, <code>uncategorized</code>, <code>non-browsable</code></li>
+<li><code>subtitle</code> - Copernicus Land Monitoring Service</li>
+<li><code>category</code>:
+<ul>
+<li><code>products</code> - product documentation (such as PUM, ATBD, Nomenclature Guideline)</li>
+<li><code>guidelines</code> - guidance that applies across products (such as Editor Guideline)</li>
+<li><code>reports</code> - [to be added]</li>
+<li><code>uncategorized</code> - [to be added]</li>
+<li><code>non-browsable</code> - hidden documents</li>
+</ul></li>
 <li><code>date</code> - publication or last-updated date in ISO format e.g.&nbsp;‘2026-05-26’</li>
 </ul>
 </section>
 <section id="optional-fields" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="optional-fields"><span class="header-section-number">3.2</span> Optional fields</h2>
 <ul>
-<li><code>type</code> - how the document is built. Leave it out for ordinary documents. Set <code>type: dashboard</code> for an interactive page: it renders to HTML only - no PDF, no table of contents, no version or changelog. New types are added by a Technical Library owner.</li>
+<li><code>type</code> - how the document is built. Leave it out for ordinary documents. Set <code>type: dashboard</code> for an interactive page: it renders to HTML only - no PDF, no table of contents, no version or change log. New types are added by a Technical Library owner.</li>
 <li><code>product-name</code> - used internally for metadata and indexing</li>
 <li><code>template-version</code> - records which template version was used as the starting point. Set automatically when copying a template; don’t edit it manually.</li>
 </ul>

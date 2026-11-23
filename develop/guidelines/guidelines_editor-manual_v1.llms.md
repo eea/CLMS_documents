@@ -1,4 +1,4 @@
-# Technical Library - Editor Guidelines
+# Technical Library - Editor Guideline
 
 Copernicus Land Monitoring Service
 
@@ -105,21 +105,26 @@ If you copied a template, the header is pre-filled - just update `title`, `subti
 
 ``` yaml
 ---
-title: HRL Forest
-subtitle: Copernis Land Monitoring Service
+title: HRL Forest - Product User Manual
+subtitle: Copernicus Land Monitoring Service
 category: products
-date: "2026-01-27"
+date: '2026-01-27'
 ---
 ```
 
 - `title` - short product name, appears as the document title
-- `subtitle` - Copernis Land Monitoring Service
-- `category` - one of `products`, `guidelines`, `reports`, `uncategorized`, `non-browsable`
+- `subtitle` - Copernicus Land Monitoring Service
+- `category`:
+  - `products` - product documentation (such as PUM, ATBD, Nomenclature Guideline)
+  - `guidelines` - guidance that applies across products (such as Editor Guideline)
+  - `reports` - \[to be added\]
+  - `uncategorized` - \[to be added\]
+  - `non-browsable` - hidden documents
 - `date` - publication or last-updated date in ISO format e.g. ‘2026-05-26’
 
 ## 3.2 Optional fields
 
-- `type` - how the document is built. Leave it out for ordinary documents. Set `type: dashboard` for an interactive page: it renders to HTML only - no PDF, no table of contents, no version or changelog. New types are added by a Technical Library owner.
+- `type` - how the document is built. Leave it out for ordinary documents. Set `type: dashboard` for an interactive page: it renders to HTML only - no PDF, no table of contents, no version or change log. New types are added by a Technical Library owner.
 - `product-name` - used internally for metadata and indexing
 - `template-version` - records which template version was used as the starting point. Set automatically when copying a template; don’t edit it manually.
 
