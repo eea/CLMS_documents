@@ -191,7 +191,7 @@ dropped into the library as-is, but it needs to be adapted first.
 # The YAML Header
 
 If you copied a template, the header is pre-filled - just update
-`title`, `subtitle`, and `date`.
+`title`, `category`, and `date`.
 
 ## Required fields
 
@@ -205,7 +205,7 @@ date: '2026-01-27'
 ```
 
 - `title` - short product name, appears as the document title
-- `subtitle` - Copernicus Land Monitoring Service
+- `subtitle` - default is ‘Copernicus Land Monitoring Service’
 - `category`:
   - `products` - product documentation (such as PUM, ATBD, Nomenclature
     Guideline)
@@ -322,10 +322,9 @@ text alignment, borders - using inline CSS:
 ## Manual heading numbering
 
 Headings are numbered automatically and continuously through the
-document. When that isn’t what you want - because the numbering should
-restart in each part, or because it has to follow a scheme set
-elsewhere - add `{.unnumbered}` to the heading and write the number into
-the heading text yourself:
+document. If you need different numbering, e.g. when it should
+correspond to the hierarchical LC/LU classes, add `{.unnumbered}` to the
+heading and write the number into the heading text yourself:
 
 ``` markdown
 # Description of mapping features
