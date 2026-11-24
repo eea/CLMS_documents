@@ -2580,14 +2580,14 @@
     "href": "guidelines/guidelines_editor-manual_v1.html#required-fields",
     "title": "Technical Library - Editor Guideline",
     "section": "3.1 Required fields",
-    "text": "3.1 Required fields\n---\ntitle: HRL Forest - Product User Manual\nsubtitle: Copernicus Land Monitoring Service\ncategory: products\ndate: '2026-01-27'\n---\n\ntitle - short product name, appears as the document title\nsubtitle - Copernicus Land Monitoring Service\ncategory:\n\nproducts - product documentation (such as PUM, ATBD, Nomenclature Guideline)\nguidelines - guidance that applies across products (such as Editor Guideline)\nreports - [to be added]\nuncategorized - [to be added]\nnon-browsable - hidden documents\n\ndate - publication or last-updated date in ISO format e.g. ‘2026-05-26’"
+    "text": "3.1 Required fields\n---\ntitle: HRL Forest - Product User Manual\nsubtitle: Copernicus Land Monitoring Service\ncategory: products\ndate: '2026-01-27'\n---\n\ntitle - short product name, appears as the document title\nsubtitle - Copernicus Land Monitoring Service\ncategory:\n\nproducts - product documentation (such as PUM, ATBD, Nomenclature Guideline)\nguidelines - guidance that applies across products (such as Editor Guideline)\n\ndate - publication or last-updated date in ISO format e.g. ‘2026-05-26’"
   },
   {
-    "objectID": "guidelines/guidelines_editor-manual_v1.html#optional-fields",
-    "href": "guidelines/guidelines_editor-manual_v1.html#optional-fields",
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#other-fields",
+    "href": "guidelines/guidelines_editor-manual_v1.html#other-fields",
     "title": "Technical Library - Editor Guideline",
-    "section": "3.2 Optional fields",
-    "text": "3.2 Optional fields\n\ntype - how the document is built. Leave it out for ordinary documents. Set type: dashboard for an interactive page: it renders to HTML only - no PDF, no table of contents, no version or change log. New types are added by a Technical Library owner.\nproduct-name - used internally for metadata and indexing\ntemplate-version - records which template version was used as the starting point. Set automatically when copying a template; don’t edit it manually."
+    "section": "3.2 Other fields",
+    "text": "3.2 Other fields\n\nbibliography: bibliography.bib - points to the BibTeX file holding the document’s references. With it declared, you cite an entry in the body as @key and the reference list is generated automatically at render time. The file sits in the product folder, next to the document; see Using a BibTeX file (optional) under References below.\ntype - how the document is built. Leave it out for ordinary documents. Set type: dashboard for an interactive page: it renders to HTML only - no PDF, no table of contents, no version or change log. New types are added by a Technical Library owner."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#system-managed-fields",
@@ -2618,67 +2618,88 @@
     "text": "5.3 Complex table layouts\nFor tables with merged cells, nested content, or custom styling, use HTML tables directly in your .qmd file. Both the HTML output and Typst-rendered PDF handle them well.\nStandard Markdown tables have limited formatting options. HTML tables let you control exactly how things look - column widths, cell colours, text alignment, borders - using inline CSS:\n```{=html}\n&lt;table style=\"width: 100%; border-collapse: collapse;\"&gt;\n  &lt;thead&gt;\n    &lt;tr style=\"background-color: #2c3e50; color: white;\"&gt;\n      &lt;th colspan=\"2\" style=\"padding: 10px; text-align: center;\"&gt;Product Overview&lt;/th&gt;\n    &lt;/tr&gt;\n  &lt;/thead&gt;\n  &lt;tbody&gt;\n    &lt;tr&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc; font-weight: bold;\"&gt;HRL Forest&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Active&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr style=\"background-color: #f2f2f2;\"&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc; font-weight: bold;\"&gt;Water Bodies&lt;/td&gt;\n      &lt;td style=\"padding: 8px; border: 1px solid #ccc;\"&gt;Active&lt;/td&gt;\n    &lt;/tr&gt;\n  &lt;/tbody&gt;\n&lt;/table&gt;\n```"
   },
   {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#manual-heading-numbering",
+    "href": "guidelines/guidelines_editor-manual_v1.html#manual-heading-numbering",
+    "title": "Technical Library - Editor Guideline",
+    "section": "5.4 Manual heading numbering",
+    "text": "5.4 Manual heading numbering\nHeadings are numbered automatically and continuously through the document. When that isn’t what you want - because the numbering should restart in each part, or because it has to follow a scheme set elsewhere - add {.unnumbered} to the heading and write the number into the heading text yourself:\n# Description of mapping features\n\n## 1. Urban{.unnumbered}\n\n### 1.1 Urban fabric, industrial, commercial, public, military and private units{.unnumbered}\n\n#### 1.1.1 Urban fabric (predominantly public and private units){.unnumbered}\nThe heading is rendered exactly as written and no longer takes part in the automatic numbering, so the next numbered heading carries on from where the previous one left off. Because the number is now part of the heading text, Quarto cannot track it: if you later insert or reorder headings, update the manual numbers yourself."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#using-a-bibtex-file-optional",
+    "href": "guidelines/guidelines_editor-manual_v1.html#using-a-bibtex-file-optional",
+    "title": "Technical Library - Editor Guideline",
+    "section": "6.1 Using a BibTeX file (optional)",
+    "text": "6.1 Using a BibTeX file (optional)\nAdd a BibTeX file to the product’s document folder as bibliography.bib. One BibTeX file holds the references used by all documents related to the product. You can write the BibTeX by hand or export it from a reference manager such as Zotero (File &gt; Export Library).\nCite with the @key syntax in the body, where key is the entry key in the .bib file:\n...as described by Rivas-Martínez [@rivas1990].\nSee Citation Syntax for different examples of usage.\nTo pick an entry from the file instead of typing its key from memory, switch the editor to visual mode with the Source / Visual toggle at the top-left of the editor pane and type @ - a popup lists the entries in bibliography.bib and narrows down as you type. The popup exists only in visual mode; in source mode @ is plain text and the key has to be typed out.\nOnly entries that are actually cited in the text appear in the rendered reference list, which is generated automatically. No need to add a # References chapter."
+  },
+  {
+    "objectID": "guidelines/guidelines_editor-manual_v1.html#other-methods",
+    "href": "guidelines/guidelines_editor-manual_v1.html#other-methods",
+    "title": "Technical Library - Editor Guideline",
+    "section": "6.2 Other methods",
+    "text": "6.2 Other methods\nWithout a BibTeX file, references are written as plain text in the document.\nReference list. Write the entries under a # References chapter at the end of the document and point to them in the text by name or number, e.g. “(Rivas-Martínez 1990)”. The entries are ordinary text: the page shows exactly what you wrote, with no formatting or numbering applied and no links between the text and the list. Adding, removing or reordering a reference therefore means updating both the entry and every place in the text that points to it.\nFootnotes. Insert the full reference as a footnote where it is cited. Quarto generates the markers and the note text, so there is no separate list to maintain; in the HTML output the notes are collected in a footnotes section at the bottom of the document, in the PDF they appear at the foot of the page where they are cited."
+  },
+  {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#open-the-project-in-rstudio",
     "href": "guidelines/guidelines_editor-manual_v1.html#open-the-project-in-rstudio",
     "title": "Technical Library - Editor Guideline",
-    "section": "6.1 Open the project in RStudio",
-    "text": "6.1 Open the project in RStudio\n\nOpen RStudio\nFile &gt; Open Project… and select the root folder of your project\nNavigate to DOCS/ and open the .qmd file you want to edit"
+    "section": "7.1 Open the project in RStudio",
+    "text": "7.1 Open the project in RStudio\n\nOpen RStudio\nFile &gt; Open Project… and select the root folder of your project\nNavigate to DOCS/ and open the .qmd file you want to edit"
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#preview-your-document",
     "href": "guidelines/guidelines_editor-manual_v1.html#preview-your-document",
     "title": "Technical Library - Editor Guideline",
-    "section": "6.2 Preview your document",
-    "text": "6.2 Preview your document\nClick the Render button at the top of the editor pane to render HTML or PDF:\n\n\n\n\n\nOr enable Preview on Save in the toolbar to re-render on every save:\n\n\n\n\n\nThe rendered output appears in the Viewer tab in the lower-right pane:\n\n\n\n\n\nIf the Viewer tab isn’t showing rendered output, go to Tools &gt; Global Options &gt; R Markdown and set Show output preview in to Viewer Pane:"
+    "section": "7.2 Preview your document",
+    "text": "7.2 Preview your document\nClick the Render button at the top of the editor pane to render HTML or PDF:\n\n\n\n\n\nOr enable Preview on Save in the toolbar to re-render on every save:\n\n\n\n\n\nThe rendered output appears in the Viewer tab in the lower-right pane:\n\n\n\n\n\nIf the Viewer tab isn’t showing rendered output, go to Tools &gt; Global Options &gt; R Markdown and set Show output preview in to Viewer Pane:"
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#render-the-full-project",
     "href": "guidelines/guidelines_editor-manual_v1.html#render-the-full-project",
     "title": "Technical Library - Editor Guideline",
-    "section": "6.3 Render the full project",
-    "text": "6.3 Render the full project\nTo render all documents and preview the complete library locally:\ngit docs-preview\n\n\n\n\n\n\nTip\n\n\n\nThe repository ships with the project config renamed to _quarto-not-used.yaml so RStudio operates in single-file mode by default - faster for day-to-day editing. When you need to render the full project, rename it to _quarto.yaml, run quarto render, then rename it back."
+    "section": "7.3 Render the full project",
+    "text": "7.3 Render the full project\nTo render all documents and preview the complete library locally:\ngit docs-preview\n\n\n\n\n\n\nTip\n\n\n\nThe repository ships with the project config renamed to _quarto-not-used.yaml so RStudio operates in single-file mode by default - faster for day-to-day editing. When you need to render the full project, rename it to _quarto.yaml, run quarto render, then rename it back."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#the-version-suffix",
     "href": "guidelines/guidelines_editor-manual_v1.html#the-version-suffix",
     "title": "Technical Library - Editor Guideline",
-    "section": "9.1 The version suffix",
-    "text": "9.1 The version suffix\nThe _v&lt;N&gt; suffix in the filename is the major version - the only version number you control. Minor and patch versions are assigned automatically by AI at library release time based on the scope of changes: small corrections get a patch bump (2.3.5 → 2.3.6), new or revised sections get a minor bump (2.3.0 → 2.4.0). A new file CLMS_HRL-Forest_PUM_v3.qmd starts at 3.0.0 at its first release. You never set a version number in YAML.\nVersion numbers are assigned only when your changes reach main, i.e. at the public release. Publishing to develop, or promoting to test, assigns nothing - the document keeps its previous version until the release build runs."
+    "section": "10.1 The version suffix",
+    "text": "10.1 The version suffix\nThe _v&lt;N&gt; suffix in the filename is the major version - the only version number you control. Minor and patch versions are assigned automatically by AI at library release time based on the scope of changes: small corrections get a patch bump (2.3.5 → 2.3.6), new or revised sections get a minor bump (2.3.0 → 2.4.0). A new file CLMS_HRL-Forest_PUM_v3.qmd starts at 3.0.0 at its first release. You never set a version number in YAML.\nVersion numbers are assigned only when your changes reach main, i.e. at the public release. Publishing to develop, or promoting to test, assigns nothing - the document keeps its previous version until the release build runs."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#when-to-create-a-new-major-version",
     "href": "guidelines/guidelines_editor-manual_v1.html#when-to-create-a-new-major-version",
     "title": "Technical Library - Editor Guideline",
-    "section": "9.2 When to create a new major version",
-    "text": "9.2 When to create a new major version\nMost changes are an edit to the existing file - the system bumps the minor or patch version for you. Create a new _v&lt;N&gt; file only when the old version has to stay available exactly as it is, for example when you:\n\nwork on a new product release\nneed the earlier release to keep being citable as a stable reference\n\nCreating one is a fork, not an update. Copy the file and its media folder, and from that point the two documents are independent: separate version numbers, separate change logs, and no link between them.\ncp DOCS/CLMS_HRL-Forest_PUM_v2.qmd DOCS/CLMS_HRL-Forest_PUM_v3.qmd\ncp -r DOCS/CLMS_HRL-Forest_PUM_v2-media DOCS/CLMS_HRL-Forest_PUM_v3-media\nThe copied filename must carry the new major version (_v3 above); the new document then starts at N.0.0 at its first release, while the old one keeps its own history."
+    "section": "10.2 When to create a new major version",
+    "text": "10.2 When to create a new major version\nMost changes are an edit to the existing file - the system bumps the minor or patch version for you. Create a new _v&lt;N&gt; file only when the old version has to stay available exactly as it is, for example when you:\n\nwork on a new product release\nneed the earlier release to keep being citable as a stable reference\n\nCreating one is a fork, not an update. Copy the file and its media folder, and from that point the two documents are independent: separate version numbers, separate change logs, and no link between them.\ncp DOCS/CLMS_HRL-Forest_PUM_v2.qmd DOCS/CLMS_HRL-Forest_PUM_v3.qmd\ncp -r DOCS/CLMS_HRL-Forest_PUM_v2-media DOCS/CLMS_HRL-Forest_PUM_v3-media\nThe copied filename must carry the new major version (_v3 above); the new document then starts at N.0.0 at its first release, while the old one keeps its own history."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#dont-rename-after-publishing",
     "href": "guidelines/guidelines_editor-manual_v1.html#dont-rename-after-publishing",
     "title": "Technical Library - Editor Guideline",
-    "section": "9.3 Don’t rename after publishing",
-    "text": "9.3 Don’t rename after publishing\nThe filename becomes part of the document’s URL. Renaming breaks links and cross-references. If a significant revision is needed, create a new major version rather than renaming."
+    "section": "10.3 Don’t rename after publishing",
+    "text": "10.3 Don’t rename after publishing\nThe filename becomes part of the document’s URL. Renaming breaks links and cross-references. If a significant revision is needed, create a new major version rather than renaming."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#the-change-log",
     "href": "guidelines/guidelines_editor-manual_v1.html#the-change-log",
     "title": "Technical Library - Editor Guideline",
-    "section": "9.4 The change log",
-    "text": "9.4 The change log\nYou don’t write the change log. The system generates it at release time and appends a Change Log section to the end of your document - a table of date, version, and summary entries:\n\n\n\n\n\n\n\n\nDate\nVersion\nSummary\n\n\n\n\n2026-11-06\n2.1.0\nReworded the coverage section and corrected the tile table\n\n\n2026-07-24\n2.0.0\nFirst published version\n\n\n\nAt each release - that is, when a change reaches main, in the same step that assigns the version number - the pipeline compares the document against its last release and writes a short summary of what changed, storing the entry under the new version. A document with no previous release gets an initial entry instead.\nThe stored history is what the library build renders, newest entry first, as the Change Log section appended after your content. Because it comes from stored history rather than the current diff, it shows up in every built version of the page (develop, test and main alike) - you just won’t see your own change there until it has been released. At most the last 20 entries are kept.\nWhat this means in practice:\n\nNothing to add to the source. There is no changelog field and no section to maintain.\nWrite descriptive commits. The summary is derived from the diff, so focused changes produce a clearer entry.\nIt’s absent from your local preview. quarto render doesn’t run the library build, so the section only appears on a built page. This document has one too - see its Change Log at the end of the published page.\nSome documents have none. Interactive pages (type: dashboard) opt out of the change log. Leave type unset unless the document really is one."
+    "section": "10.4 The change log",
+    "text": "10.4 The change log\nYou don’t write the change log. The system generates it at release time and appends a Change Log section to the end of your document - a table of date, version, and summary entries:\n\n\n\n\n\n\n\n\nDate\nVersion\nSummary\n\n\n\n\n2026-11-06\n2.1.0\nReworded the coverage section and corrected the tile table\n\n\n2026-07-24\n2.0.0\nFirst published version\n\n\n\nAt each release - that is, when a change reaches main, in the same step that assigns the version number - the pipeline compares the document against its last release and writes a short summary of what changed, storing the entry under the new version. A document with no previous release gets an initial entry instead.\nThe stored history is what the library build renders, newest entry first, as the Change Log section appended after your content. Because it comes from stored history rather than the current diff, it shows up in every built version of the page (develop, test and main alike) - you just won’t see your own change there until it has been released. At most the last 20 entries are kept.\nWhat this means in practice:\n\nNothing to add to the source. There is no changelog field and no section to maintain.\nWrite descriptive commits. The summary is derived from the diff, so focused changes produce a clearer entry.\nIt’s absent from your local preview. quarto render doesn’t run the library build, so the section only appears on a built page. This document has one too - see its Change Log at the end of the published page.\nSome documents have none. Interactive pages (type: dashboard) opt out of the change log. Leave type unset unless the document really is one."
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#commands",
     "href": "guidelines/guidelines_editor-manual_v1.html#commands",
     "title": "Technical Library - Editor Guideline",
-    "section": "10.1 Commands",
-    "text": "10.1 Commands\ngit docs-restore --list-all                                 # all published documents\ngit docs-restore --list DOCS/CLMS_HRL-Forest_PUM_v2.qmd     # versions of one file\ngit docs-restore DOCS/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0      # specific version\ngit docs-restore --latest DOCS/CLMS_HRL-Forest_PUM_v2.qmd   # latest published version"
+    "section": "11.1 Commands",
+    "text": "11.1 Commands\ngit docs-restore --list-all                                 # all published documents\ngit docs-restore --list DOCS/CLMS_HRL-Forest_PUM_v2.qmd     # versions of one file\ngit docs-restore DOCS/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0      # specific version\ngit docs-restore --latest DOCS/CLMS_HRL-Forest_PUM_v2.qmd   # latest published version"
   },
   {
     "objectID": "guidelines/guidelines_editor-manual_v1.html#when-to-use-it",
     "href": "guidelines/guidelines_editor-manual_v1.html#when-to-use-it",
     "title": "Technical Library - Editor Guideline",
-    "section": "10.2 When to use it",
-    "text": "10.2 When to use it\nRecover deleted content. You removed a section locally and need it back. Restore the last published version, copy out what you need, then carry on with your current version.\nSomething went wrong in a recent edit. Restore an earlier version (e.g. 2.1.0) and work forward from there rather than trying to untangle the current state.\nResurrect a deleted file. If a file was removed from the project but still exists in the library history, --list-all will find it. Restore brings it back into DOCS/ as if nothing happened."
+    "section": "11.2 When to use it",
+    "text": "11.2 When to use it\nRecover deleted content. You removed a section locally and need it back. Restore the last published version, copy out what you need, then carry on with your current version.\nSomething went wrong in a recent edit. Restore an earlier version (e.g. 2.1.0) and work forward from there rather than trying to untangle the current state.\nResurrect a deleted file. If a file was removed from the project but still exists in the library history, --list-all will find it. Restore brings it back into DOCS/ as if nothing happened."
   },
   {
     "objectID": "guidelines/it-principles_IT_Architecture_Principles_and_Implementation_Guidelines_v1.html",

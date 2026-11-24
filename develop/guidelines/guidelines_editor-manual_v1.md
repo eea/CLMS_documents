@@ -22,8 +22,8 @@
   Header](#the-yaml-header)
   - [<span class="toc-section-number">3.1</span> Required
     fields](#required-fields)
-  - [<span class="toc-section-number">3.2</span> Optional
-    fields](#optional-fields)
+  - [<span class="toc-section-number">3.2</span> Other
+    fields](#other-fields)
   - [<span class="toc-section-number">3.3</span> System-managed
     fields](#system-managed-fields)
 - [<span class="toc-section-number">4</span> Licence](#licence)
@@ -35,34 +35,41 @@
     breaks](#page-breaks)
   - [<span class="toc-section-number">5.3</span> Complex table
     layouts](#complex-table-layouts)
-- [<span class="toc-section-number">6</span> Editing and Previewing
+  - [<span class="toc-section-number">5.4</span> Manual heading
+    numbering](#manual-heading-numbering)
+- [<span class="toc-section-number">6</span> References](#references)
+  - [<span class="toc-section-number">6.1</span> Using a BibTeX file
+    (optional)](#using-a-bibtex-file-optional)
+  - [<span class="toc-section-number">6.2</span> Other
+    methods](#other-methods)
+- [<span class="toc-section-number">7</span> Editing and Previewing
   Locally](#editing-and-previewing-locally)
-  - [<span class="toc-section-number">6.1</span> Open the project in
+  - [<span class="toc-section-number">7.1</span> Open the project in
     RStudio](#open-the-project-in-rstudio)
-  - [<span class="toc-section-number">6.2</span> Preview your
+  - [<span class="toc-section-number">7.2</span> Preview your
     document](#preview-your-document)
-  - [<span class="toc-section-number">6.3</span> Render the full
+  - [<span class="toc-section-number">7.3</span> Render the full
     project](#render-the-full-project)
-- [<span class="toc-section-number">7</span> Publishing to
+- [<span class="toc-section-number">8</span> Publishing to
   Develop](#publishing-to-develop)
-- [<span class="toc-section-number">8</span> Folder and File
+- [<span class="toc-section-number">9</span> Folder and File
   Structure](#folder-and-file-structure)
-- [<span class="toc-section-number">9</span> File Naming, Versioning,
+- [<span class="toc-section-number">10</span> File Naming, Versioning,
   and Changelog](#file-naming-versioning-and-changelog)
-  - [<span class="toc-section-number">9.1</span> The version
+  - [<span class="toc-section-number">10.1</span> The version
     suffix](#the-version-suffix)
-  - [<span class="toc-section-number">9.2</span> When to create a new
+  - [<span class="toc-section-number">10.2</span> When to create a new
     major version](#when-to-create-a-new-major-version)
-  - [<span class="toc-section-number">9.3</span> Don’t rename after
+  - [<span class="toc-section-number">10.3</span> Don’t rename after
     publishing](#dont-rename-after-publishing)
-  - [<span class="toc-section-number">9.4</span> The change
+  - [<span class="toc-section-number">10.4</span> The change
     log](#the-change-log)
-- [<span class="toc-section-number">10</span> Restoring Previous
+- [<span class="toc-section-number">11</span> Restoring Previous
   Versions](#restoring-previous-versions)
-  - [<span class="toc-section-number">10.1</span> Commands](#commands)
-  - [<span class="toc-section-number">10.2</span> When to use
+  - [<span class="toc-section-number">11.1</span> Commands](#commands)
+  - [<span class="toc-section-number">11.2</span> When to use
     it](#when-to-use-it)
-- [<span class="toc-section-number">11</span> Release
+- [<span class="toc-section-number">12</span> Release
   Path](#release-path)
 
 This guide is for editors writing and publishing documents in the CLMS
@@ -204,22 +211,22 @@ date: '2026-01-27'
     Guideline)
   - `guidelines` - guidance that applies across products (such as Editor
     Guideline)
-  - `reports` - \[to be added\]
-  - `uncategorized` - \[to be added\]
-  - `non-browsable` - hidden documents
 - `date` - publication or last-updated date in ISO format
   e.g. ‘2026-05-26’
 
-## Optional fields
+## Other fields
 
+- `bibliography: bibliography.bib` - points to the BibTeX file holding
+  the document’s references. With it declared, you cite an entry in the
+  body as `@key` and the reference list is generated automatically at
+  render time. The file sits in the product folder, next to the
+  document; see [Using a BibTeX file
+  (optional)](#using-a-bibtex-file-optional) under
+  [References](#references) below.
 - `type` - how the document is built. Leave it out for ordinary
   documents. Set `type: dashboard` for an interactive page: it renders
   to HTML only - no PDF, no table of contents, no version or change log.
   New types are added by a Technical Library owner.
-- `product-name` - used internally for metadata and indexing
-- `template-version` - records which template version was used as the
-  starting point. Set automatically when copying a template; don’t edit
-  it manually.
 
 ## System-managed fields
 
@@ -311,6 +318,86 @@ text alignment, borders - using inline CSS:
 </table>
 ```
 ````
+
+## Manual heading numbering
+
+Headings are numbered automatically and continuously through the
+document. When that isn’t what you want - because the numbering should
+restart in each part, or because it has to follow a scheme set
+elsewhere - add `{.unnumbered}` to the heading and write the number into
+the heading text yourself:
+
+``` markdown
+# Description of mapping features
+
+## 1. Urban{.unnumbered}
+
+### 1.1 Urban fabric, industrial, commercial, public, military and private units{.unnumbered}
+
+#### 1.1.1 Urban fabric (predominantly public and private units){.unnumbered}
+```
+
+The heading is rendered exactly as written and no longer takes part in
+the automatic numbering, so the next numbered heading carries on from
+where the previous one left off. Because the number is now part of the
+heading text, Quarto cannot track it: if you later insert or reorder
+headings, update the manual numbers yourself.
+
+# References
+
+The method used to manage references is up to the editor. However, every
+reference must contain at least the following elements: **author or
+organisation**, **year**, **title**, **URL**. Further elements, such as
+journal, publisher, volume, pages, DOI, may be added where they apply.
+
+## Using a BibTeX file (optional)
+
+Add a BibTeX file to the product’s document folder as
+`bibliography.bib`. One BibTeX file holds the references used by all
+documents related to the product. You can write the BibTeX by hand or
+export it from a reference manager such as Zotero (File \> Export
+Library).
+
+Cite with the `@key` syntax in the body, where `key` is the entry key in
+the `.bib` file:
+
+``` markdown
+...as described by Rivas-Martínez [@rivas1990].
+```
+
+See [Citation
+Syntax](https://quarto.org/docs/authoring/citations.html#sec-citations)
+for different examples of usage.
+
+To pick an entry from the file instead of typing its key from memory,
+switch the editor to visual mode with the **Source / Visual** toggle at
+the top-left of the editor pane and type `@` - a popup lists the entries
+in `bibliography.bib` and narrows down as you type. The popup exists
+only in visual mode; in source mode `@` is plain text and the key has to
+be typed out.
+
+Only entries that are actually cited in the text appear in the rendered
+reference list, which is generated automatically. No need to add a
+`# References` chapter.
+
+## Other methods
+
+Without a BibTeX file, references are written as plain text in the
+document.
+
+**Reference list.** Write the entries under a `# References` chapter at
+the end of the document and point to them in the text by name or number,
+e.g. “(Rivas-Martínez 1990)”. The entries are ordinary text: the page
+shows exactly what you wrote, with no formatting or numbering applied
+and no links between the text and the list. Adding, removing or
+reordering a reference therefore means updating both the entry and every
+place in the text that points to it.
+
+**Footnotes.** Insert the full reference as a footnote where it is
+cited. Quarto generates the markers and the note text, so there is no
+separate list to maintain; in the HTML output the notes are collected in
+a footnotes section at the bottom of the document, in the PDF they
+appear at the foot of the page where they are cited.
 
 # Editing and Previewing Locally
 

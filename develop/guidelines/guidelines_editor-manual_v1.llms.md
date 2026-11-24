@@ -2,7 +2,7 @@
 
 Copernicus Land Monitoring Service
 
-This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining the integration of project repositories via Git subtrees. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, content formatting, and document licensing policies. It also outlines procedures for local previewing, publishing to the `develop` branch, managing document versions, and understanding the automated changelog, ensuring consistent and efficient documentation practices for all contributors.
+This Editor Manual provides comprehensive guidance for contributing to the Copernicus Land Monitoring Service (CLMS) Technical Library. It details the workflow for document creation, editing, publishing, and migrating existing content, explaining Git subtree integration. The manual covers essential aspects such as document lifecycle management, file naming conventions, YAML header configuration, content formatting, and document licensing policies. It also outlines procedures for local previewing, publishing, and document version management, alongside detailed guidelines on Quarto’s advanced features, including structured reference management using BibTeX and custom heading numbering, ensuring consistent and efficient documentation practices for all contributors.
 
 Published
 
@@ -10,7 +10,7 @@ May 26, 2026
 
 Keywords
 
-CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown, YAML header configuration, file naming conventions, document versioning policy, QMD document migration, automated changelog generation, document licensing
+CLMS Technical Library, technical document authoring, Git subtree, publishing workflow, document lifecycle management, Quarto Markdown features, YAML header configuration, file naming conventions, document versioning policy, QMD document migration, Quarto reference management, BibTeX citation system
 
   
 **Contact:**
@@ -117,16 +117,12 @@ date: '2026-01-27'
 - `category`:
   - `products` - product documentation (such as PUM, ATBD, Nomenclature Guideline)
   - `guidelines` - guidance that applies across products (such as Editor Guideline)
-  - `reports` - \[to be added\]
-  - `uncategorized` - \[to be added\]
-  - `non-browsable` - hidden documents
 - `date` - publication or last-updated date in ISO format e.g. ‘2026-05-26’
 
-## 3.2 Optional fields
+## 3.2 Other fields
 
+- `bibliography: bibliography.bib` - points to the BibTeX file holding the document’s references. With it declared, you cite an entry in the body as `@key` and the reference list is generated automatically at render time. The file sits in the product folder, next to the document; see [Using a BibTeX file (optional)](#using-a-bibtex-file-optional) under [References](#references) below.
 - `type` - how the document is built. Leave it out for ordinary documents. Set `type: dashboard` for an interactive page: it renders to HTML only - no PDF, no table of contents, no version or change log. New types are added by a Technical Library owner.
-- `product-name` - used internally for metadata and indexing
-- `template-version` - records which template version was used as the starting point. Set automatically when copying a template; don’t edit it manually.
 
 ## 3.3 System-managed fields
 
@@ -195,15 +191,59 @@ Standard Markdown tables have limited formatting options. HTML tables let you co
 ```
 ````
 
-# 6 Editing and Previewing Locally
+## 5.4 Manual heading numbering
 
-## 6.1 Open the project in RStudio
+Headings are numbered automatically and continuously through the document. When that isn’t what you want - because the numbering should restart in each part, or because it has to follow a scheme set elsewhere - add `{.unnumbered}` to the heading and write the number into the heading text yourself:
+
+``` markdown
+# Description of mapping features
+
+## 1. Urban{.unnumbered}
+
+### 1.1 Urban fabric, industrial, commercial, public, military and private units{.unnumbered}
+
+#### 1.1.1 Urban fabric (predominantly public and private units){.unnumbered}
+```
+
+The heading is rendered exactly as written and no longer takes part in the automatic numbering, so the next numbered heading carries on from where the previous one left off. Because the number is now part of the heading text, Quarto cannot track it: if you later insert or reorder headings, update the manual numbers yourself.
+
+# 6 References
+
+The method used to manage references is up to the editor. However, every reference must contain at least the following elements: **author or organisation**, **year**, **title**, **URL**. Further elements, such as journal, publisher, volume, pages, DOI, may be added where they apply.
+
+## 6.1 Using a BibTeX file (optional)
+
+Add a BibTeX file to the product’s document folder as `bibliography.bib`. One BibTeX file holds the references used by all documents related to the product. You can write the BibTeX by hand or export it from a reference manager such as Zotero (File \> Export Library).
+
+Cite with the `@key` syntax in the body, where `key` is the entry key in the `.bib` file:
+
+``` markdown
+...as described by Rivas-Martínez [@rivas1990].
+```
+
+See [Citation Syntax](https://quarto.org/docs/authoring/citations.html#sec-citations) for different examples of usage.
+
+To pick an entry from the file instead of typing its key from memory, switch the editor to visual mode with the **Source / Visual** toggle at the top-left of the editor pane and type `@` - a popup lists the entries in `bibliography.bib` and narrows down as you type. The popup exists only in visual mode; in source mode `@` is plain text and the key has to be typed out.
+
+Only entries that are actually cited in the text appear in the rendered reference list, which is generated automatically. No need to add a `# References` chapter.
+
+## 6.2 Other methods
+
+Without a BibTeX file, references are written as plain text in the document.
+
+**Reference list.** Write the entries under a `# References` chapter at the end of the document and point to them in the text by name or number, e.g. “(Rivas-Martínez 1990)”. The entries are ordinary text: the page shows exactly what you wrote, with no formatting or numbering applied and no links between the text and the list. Adding, removing or reordering a reference therefore means updating both the entry and every place in the text that points to it.
+
+**Footnotes.** Insert the full reference as a footnote where it is cited. Quarto generates the markers and the note text, so there is no separate list to maintain; in the HTML output the notes are collected in a footnotes section at the bottom of the document, in the PDF they appear at the foot of the page where they are cited.
+
+# 7 Editing and Previewing Locally
+
+## 7.1 Open the project in RStudio
 
 1.  Open RStudio
 2.  **File \> Open Project…** and select the root folder of your project
 3.  Navigate to `DOCS/` and open the `.qmd` file you want to edit
 
-## 6.2 Preview your document
+## 7.2 Preview your document
 
 Click the **Render** button at the top of the editor pane to render HTML or PDF:
 
@@ -221,7 +261,7 @@ If the Viewer tab isn’t showing rendered output, go to **Tools \> Global Optio
 
 ![This image is a screenshot of the 'Options' dialog within the RStudio Integrated Development Environment (IDE), displaying settings for R Markdown. On the left navigation panel, 'R Markdown' is selected. The main pane has four tabs: 'Basic' (currently active), 'Advanced', 'Visual', and 'Citations'. Under the 'Basic' tab for 'R Markdown' settings, the following options are visible: 'Show document outline by default' (unchecked), 'Soft-wrap R Markdown files' (checked), and 'Show in document outline:' (dropdown set to 'Sections Only'). A key setting, 'Show output preview in:', is highlighted with a purple border, and its dropdown is set to 'Viewer Pane'. Below this, 'Show output inline for all R Markdown documents' is checked, 'Show equation and image previews:' is set to 'Inline', and 'Evaluate chunks in directory:' is set to 'Document'.](guidelines_editor-manual_v1-media/rstudio-render-viewer-options.png)
 
-## 6.3 Render the full project
+## 7.3 Render the full project
 
 To render all documents and preview the complete library locally:
 
@@ -233,7 +273,7 @@ git docs-preview
 >
 > The repository ships with the project config renamed to `_quarto-not-used.yaml` so RStudio operates in single-file mode by default - faster for day-to-day editing. When you need to render the full project, rename it to `_quarto.yaml`, run `quarto render`, then rename it back.
 
-# 7 Publishing to Develop
+# 8 Publishing to Develop
 
 ``` bash
 git add DOCS/
@@ -245,7 +285,7 @@ After the pipeline runs, check your document at: <https://eea.github.io/CLMS_doc
 
 Navigation, cross-links, and the sidebar TOC can behave differently than in your local RStudio preview - worth a quick look before calling it done.
 
-# 8 Folder and File Structure
+# 9 Folder and File Structure
 
 ``` text
 DOCS/
@@ -263,15 +303,15 @@ DOCS/
 
 Your work lives in `DOCS/` directly: one `.qmd` file per document, plus a matching `-media/` folder for images and diagrams. The four managed subdirectories (`_meta/`, `includes/`, `templates/`, `theme/`) are updated centrally - don’t edit them.
 
-# 9 File Naming, Versioning, and Changelog
+# 10 File Naming, Versioning, and Changelog
 
-## 9.1 The version suffix
+## 10.1 The version suffix
 
 The `_v<N>` suffix in the filename is the major version - the only version number you control. Minor and patch versions are assigned automatically by AI at library release time based on the scope of changes: small corrections get a patch bump (`2.3.5 → 2.3.6`), new or revised sections get a minor bump (`2.3.0 → 2.4.0`). A new file `CLMS_HRL-Forest_PUM_v3.qmd` starts at `3.0.0` at its first release. You never set a version number in YAML.
 
 Version numbers are assigned only when your changes reach `main`, i.e. at the public release. Publishing to `develop`, or promoting to `test`, assigns nothing - the document keeps its previous version until the release build runs.
 
-## 9.2 When to create a new major version
+## 10.2 When to create a new major version
 
 Most changes are an edit to the existing file - the system bumps the minor or patch version for you. Create a new `_v<N>` file only when the **old version has to stay available exactly as it is**, for example when you:
 
@@ -287,11 +327,11 @@ cp -r DOCS/CLMS_HRL-Forest_PUM_v2-media DOCS/CLMS_HRL-Forest_PUM_v3-media
 
 The copied filename must carry the new major version (`_v3` above); the new document then starts at `N.0.0` at its first release, while the old one keeps its own history.
 
-## 9.3 Don’t rename after publishing
+## 10.3 Don’t rename after publishing
 
 The filename becomes part of the document’s URL. Renaming breaks links and cross-references. If a significant revision is needed, create a new major version rather than renaming.
 
-## 9.4 The change log
+## 10.4 The change log
 
 You don’t write the change log. The system generates it at release time and appends a **Change Log** section to the end of your document - a table of date, version, and summary entries:
 
@@ -311,11 +351,11 @@ What this means in practice:
 - **It’s absent from your local preview.** `quarto render` doesn’t run the library build, so the section only appears on a built page. This document has one too - see its [Change Log](#change-log) at the end of the published page.
 - **Some documents have none.** Interactive pages (`type: dashboard`) opt out of the change log. Leave `type` unset unless the document really is one.
 
-# 10 Restoring Previous Versions
+# 11 Restoring Previous Versions
 
 Restore pulls a published version of a document into your local working copy. It doesn’t roll back the library - think of it as “pick up from version X,” not “undo to version X.”
 
-## 10.1 Commands
+## 11.1 Commands
 
 ``` bash
 git docs-restore --list-all                                 # all published documents
@@ -324,7 +364,7 @@ git docs-restore DOCS/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0      # specific version
 git docs-restore --latest DOCS/CLMS_HRL-Forest_PUM_v2.qmd   # latest published version
 ```
 
-## 10.2 When to use it
+## 11.2 When to use it
 
 **Recover deleted content.** You removed a section locally and need it back. Restore the last published version, copy out what you need, then carry on with your current version.
 
@@ -332,7 +372,7 @@ git docs-restore --latest DOCS/CLMS_HRL-Forest_PUM_v2.qmd   # latest published v
 
 **Resurrect a deleted file.** If a file was removed from the project but still exists in the library history, `--list-all` will find it. Restore brings it back into `DOCS/` as if nothing happened.
 
-# 11 Release Path
+# 12 Release Path
 
 Once you publish to `develop`, the rest of the process belongs to Technical Library owners. Getting from develop to public requires two separate pull requests, each reviewed and approved by a second owner before it merges.
 
@@ -344,7 +384,7 @@ Once you publish to `develop`, the rest of the process belongs to Technical Libr
 
 At each release, the system assigns version numbers automatically based on what changed.
 
-# 12 Change Log
+# 13 Change Log
 
 | Date | Version | Summary |
 |----|----|----|
