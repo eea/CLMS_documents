@@ -31,7 +31,6 @@ Publishing to `develop` is not a public release. The public-facing library only 
 
 Major version bumps are your decision - you create a new file with a bumped `_v<N>` suffix. Minor and patch versions are AI-assigned at release time based on the scope of changes.
 
-
 # Starting a New Document
 
 ## From a template
@@ -43,15 +42,17 @@ Pick the template that matches your document type:
 
 Once you've chosen:
 
-1. Copy the template into `DOCS/` (not sure what that looks like? See [Folder and File Structure](#folder-and-file-structure))
-2. Rename it using this pattern: `CLMS_<Product-Name>_<Document-Type>_v<Major-Version>.qmd`
+1.  Copy the template into `DOCS/` (not sure what that looks like? See [Folder and File Structure](#folder-and-file-structure))
 
-   For example: `CLMS_HRL-Forest_PUM_v1.qmd`
+2.  Rename it using this pattern: `CLMS_<Product-Name>_<Document-Type>_v<Major-Version>.qmd`
 
-   Use hyphens within the product name, not underscores. Start every new document at `_v1`. The document type is either `ATBD` or `PUM`.
+    For example: `CLMS_HRL-Forest_PUM_v1.qmd`
 
-3. Create a matching `-media/` folder for images: `CLMS_HRL-Forest_PUM_v1-media/`
-4. Edit in place, following the structure the template provides
+    Use hyphens within the product name, not underscores. Start every new document at `_v1`. The document type is either `ATBD` or `PUM`.
+
+3.  Create a matching `-media/` folder for images: `CLMS_HRL-Forest_PUM_v1-media/`
+
+4.  Edit in place, following the structure the template provides
 
 The templates include a pre-filled YAML header, required sections, and commented guidance throughout. Try to keep the structure intact - it makes a real difference to how consistently documents behave across the library.
 
@@ -67,26 +68,26 @@ Templates save time even when they don't feel like an exact fit - the YAML heade
 
 Migrate when you already have substantial content in an existing `.qmd` file; start from a template when you don't. An existing `.qmd` can be dropped into the library as-is, but it needs to be adapted first.
 
-1. **Copy.** Place the existing `.qmd` in `DOCS/<product>/` and rename it with the pattern above, e.g. `CLMS_HRL-Forest_PUM_v1.qmd`.
+1.  **Copy.** Place the existing `.qmd` in `DOCS/<product>/` and rename it with the pattern above, e.g. `CLMS_HRL-Forest_PUM_v1.qmd`.
 
-2. **Trim the YAML header** down to `title`, `subtitle`, `category`, and `date` if needed.
+2.  **Trim the YAML header** down to `title`, `subtitle`, `category`, and `date` if needed.
 
-3. **Move the images** into the sibling `<document-name>-media/` folder and make every reference relative. Check that the file extension case matches what is on disk: a `.PNG` referenced as `.png` renders locally but breaks the published build.
+3.  **Move the images** into the sibling `<document-name>-media/` folder and make every reference relative. Check that the file extension case matches what is on disk: a `.PNG` referenced as `.png` renders locally but breaks the published build.
 
-4. **Verify** with a local render and the frontmatter check before publishing:
+4.  **Verify** with a local render and the frontmatter check before publishing:
 
-   ```bash
-   quarto render DOCS/<product>/<document>_v1.qmd
-   python3 .github/scripts/validate_qmd_files.py
-   ```
+    ``` bash
+    quarto render DOCS/<product>/<document>_v1.qmd
+    python3 .github/scripts/validate_qmd_files.py
+    ```
 
-# The YAML Header
+# The YAML Header {#the-yaml-header}
 
 If you copied a template, the header is pre-filled - just update `title`, `subtitle`, and `date`.
 
 ## Required fields
 
-```yaml
+``` yaml
 ---
 title: HRL Forest - Product User Manual
 subtitle: Copernicus Land Monitoring Service
@@ -100,17 +101,12 @@ date: '2026-01-27'
 - `category`:
   - `products` - product documentation (such as PUM, ATBD, Nomenclature Guideline)
   - `guidelines` - guidance that applies across products (such as Editor Guideline)
-  - `reports` - [to be added]
-  - `uncategorized` - [to be added]
-  - `non-browsable` - hidden documents
 - `date` - publication or last-updated date in ISO format e.g. '2026-05-26'
 
+## Other fields
 
-## Optional fields
-
+- `bibliography: bibliography.bib` - points to the BibTeX file holding the document's references. With it declared, you cite an entry in the body as `@key` and the reference list is generated automatically at render time. The file sits in the product folder, next to the document; see [Using a BibTeX file (optional)](#using-a-bibtex-file-optional) under [References](#references) below.
 - `type` - how the document is built. Leave it out for ordinary documents. Set `type: dashboard` for an interactive page: it renders to HTML only - no PDF, no table of contents, no version or change log. New types are added by a Technical Library owner.
-- `product-name` - used internally for metadata and indexing
-- `template-version` - records which template version was used as the starting point. Set automatically when copying a template; don't edit it manually.
 
 ## System-managed fields
 
@@ -118,7 +114,6 @@ Leave these out of your YAML header entirely - the publishing system handles the
 
 - `keywords` - AI-generated at publish time based on document content. Anything you add gets overwritten.
 - `version` - carried by the filename suffix, not the YAML. No version field belongs in the header.
-
 
 # Licence
 
@@ -130,7 +125,6 @@ You don't add the licence yourself. The library build applies CC BY 4.0 to every
 
 If your document contains material that cannot be redistributed under CC BY 4.0 - third-party data, or a figure or table taken from a source with more restrictive terms - remove it, or clear it with a Technical Library owner before the document is published to `develop`.
 
-
 # Writing Content
 
 Markdown basics - headings, lists, links, images, tables, equations, footnotes, diagrams - are covered in the [Quarto Markdown guide](https://quarto.org/docs/authoring/markdown-basics.html). This chapter covers only what's specific to this system.
@@ -139,7 +133,7 @@ Markdown basics - headings, lists, links, images, tables, equations, footnotes, 
 
 Images go in `<your-document-name>-media/`, referenced with relative paths:
 
-```markdown
+``` markdown
 ![Processing workflow](CLMS_HRL-Forest_PUM_v2-media/workflow.png)
 ```
 
@@ -147,7 +141,7 @@ Images go in `<your-document-name>-media/`, referenced with relative paths:
 
 Use the Quarto shortcode to insert a page break in PDF output:
 
-```markdown
+``` markdown
 {{</* pagebreak */>}}
 ```
 
@@ -159,7 +153,7 @@ For tables with merged cells, nested content, or custom styling, use HTML tables
 
 Standard Markdown tables have limited formatting options. HTML tables let you control exactly how things look - column widths, cell colours, text alignment, borders - using inline CSS:
 
-````markdown
+```` markdown
 ```{=html}
 <table style="width: 100%; border-collapse: collapse;">
   <thead>
@@ -181,14 +175,57 @@ Standard Markdown tables have limited formatting options. HTML tables let you co
 ```
 ````
 
+## Manual heading numbering
+
+Headings are numbered automatically and continuously through the document. When that isn't what you want - because the numbering should restart in each part, or because it has to follow a scheme set elsewhere - add `{.unnumbered}` to the heading and write the number into the heading text yourself:
+
+``` markdown
+# Description of mapping features
+
+## 1. Urban{.unnumbered}
+
+### 1.1 Urban fabric, industrial, commercial, public, military and private units{.unnumbered}
+
+#### 1.1.1 Urban fabric (predominantly public and private units){.unnumbered}
+```
+
+The heading is rendered exactly as written and no longer takes part in the automatic numbering, so the next numbered heading carries on from where the previous one left off. Because the number is now part of the heading text, Quarto cannot track it: if you later insert or reorder headings, update the manual numbers yourself.
+
+# References {#references}
+
+The method used to manage references is up to the editor. However, every reference must contain at least the following elements: **author or organisation**, **year**, **title**, **URL**. Further elements, such as journal, publisher, volume, pages, DOI, may be added where they apply.
+
+## Using a BibTeX file (optional) {#using-a-bibtex-file-optional}
+
+Add a BibTeX file to the product's document folder as `bibliography.bib`. One BibTeX file holds the references used by all documents related to the product. You can write the BibTeX by hand or export it from a reference manager such as Zotero (File \> Export Library).
+
+Cite with the `@key` syntax in the body, where `key` is the entry key in the `.bib` file:
+
+``` markdown
+...as described by Rivas-Martínez [@rivas1990].
+```
+
+See [Citation Syntax](https://quarto.org/docs/authoring/citations.html#sec-citations) for different examples of usage.
+
+To pick an entry from the file instead of typing its key from memory, switch the editor to visual mode with the **Source / Visual** toggle at the top-left of the editor pane and type `@` - a popup lists the entries in `bibliography.bib` and narrows down as you type. The popup exists only in visual mode; in source mode `@` is plain text and the key has to be typed out.
+
+Only entries that are actually cited in the text appear in the rendered reference list, which is generated automatically. No need to add a `# References` chapter.
+
+## Other methods
+
+Without a BibTeX file, references are written as plain text in the document.
+
+**Reference list.** Write the entries under a `# References` chapter at the end of the document and point to them in the text by name or number, e.g. "(Rivas-Martínez 1990)". The entries are ordinary text: the page shows exactly what you wrote, with no formatting or numbering applied and no links between the text and the list. Adding, removing or reordering a reference therefore means updating both the entry and every place in the text that points to it.
+
+**Footnotes.** Insert the full reference as a footnote where it is cited. Quarto generates the markers and the note text, so there is no separate list to maintain; in the HTML output the notes are collected in a footnotes section at the bottom of the document, in the PDF they appear at the foot of the page where they are cited.
 
 # Editing and Previewing Locally
 
 ## Open the project in RStudio
 
-1. Open RStudio
-2. **File > Open Project...** and select the root folder of your project
-3. Navigate to `DOCS/` and open the `.qmd` file you want to edit
+1.  Open RStudio
+2.  **File \> Open Project...** and select the root folder of your project
+3.  Navigate to `DOCS/` and open the `.qmd` file you want to edit
 
 ## Preview your document
 
@@ -204,7 +241,7 @@ The rendered output appears in the **Viewer** tab in the lower-right pane:
 
 ![](editor-manual_v1-media/rstudio-render-viewer-tab.png){fig-align="center"}
 
-If the Viewer tab isn't showing rendered output, go to **Tools > Global Options > R Markdown** and set **Show output preview in** to **Viewer Pane**:
+If the Viewer tab isn't showing rendered output, go to **Tools \> Global Options \> R Markdown** and set **Show output preview in** to **Viewer Pane**:
 
 ![](editor-manual_v1-media/rstudio-render-viewer-options.png){height="300px" fig-align="center"}
 
@@ -212,7 +249,7 @@ If the Viewer tab isn't showing rendered output, go to **Tools > Global Options 
 
 To render all documents and preview the complete library locally:
 
-```bash
+``` bash
 git docs-preview
 ```
 
@@ -220,24 +257,21 @@ git docs-preview
 The repository ships with the project config renamed to `_quarto-not-used.yaml` so RStudio operates in single-file mode by default - faster for day-to-day editing. When you need to render the full project, rename it to `_quarto.yaml`, run `quarto render`, then rename it back.
 :::
 
-
 # Publishing to Develop
 
-```bash
+``` bash
 git add DOCS/
 git commit -m "docs: update [brief description]"
 git docs-publish
 ```
 
-After the pipeline runs, check your document at:
-<https://eea.github.io/CLMS_documents/develop/index.html>
+After the pipeline runs, check your document at: <https://eea.github.io/CLMS_documents/develop/index.html>
 
 Navigation, cross-links, and the sidebar TOC can behave differently than in your local RStudio preview - worth a quick look before calling it done.
 
+# Folder and File Structure {#folder-and-file-structure}
 
-# Folder and File Structure
-
-```text
+``` text
 DOCS/
 ├── _meta/                            # Scripts, config, metadata - do not edit
 ├── includes/                         # Quarto include files - do not edit
@@ -252,7 +286,6 @@ DOCS/
 ```
 
 Your work lives in `DOCS/` directly: one `.qmd` file per document, plus a matching `-media/` folder for images and diagrams. The four managed subdirectories (`_meta/`, `includes/`, `templates/`, `theme/`) are updated centrally - don't edit them.
-
 
 # File Naming, Versioning, and Changelog
 
@@ -271,7 +304,7 @@ Most changes are an edit to the existing file - the system bumps the minor or pa
 
 Creating one is a fork, not an update. Copy the file and its media folder, and from that point the two documents are independent: separate version numbers, separate change logs, and no link between them.
 
-```bash
+``` bash
 cp DOCS/CLMS_HRL-Forest_PUM_v2.qmd DOCS/CLMS_HRL-Forest_PUM_v3.qmd
 cp -r DOCS/CLMS_HRL-Forest_PUM_v2-media DOCS/CLMS_HRL-Forest_PUM_v3-media
 ```
@@ -287,7 +320,7 @@ The filename becomes part of the document's URL. Renaming breaks links and cross
 You don't write the change log. The system generates it at release time and appends a **Change Log** section to the end of your document - a table of date, version, and summary entries:
 
 | Date | Version | Summary |
-|------|---------|---------|
+|-------------------|---------------------------|---------------------------|
 | 2026-11-06 | 2.1.0 | Reworded the coverage section and corrected the tile table |
 | 2026-07-24 | 2.0.0 | First published version |
 
@@ -302,14 +335,13 @@ What this means in practice:
 - **It's absent from your local preview.** `quarto render` doesn't run the library build, so the section only appears on a built page. This document has one too - see its [Change Log](#change-log) at the end of the published page.
 - **Some documents have none.** Interactive pages (`type: dashboard`) opt out of the change log. Leave `type` unset unless the document really is one.
 
-
 # Restoring Previous Versions
 
 Restore pulls a published version of a document into your local working copy. It doesn't roll back the library - think of it as "pick up from version X," not "undo to version X."
 
 ## Commands
 
-```bash
+``` bash
 git docs-restore --list-all                                 # all published documents
 git docs-restore --list DOCS/CLMS_HRL-Forest_PUM_v2.qmd     # versions of one file
 git docs-restore DOCS/CLMS_HRL-Forest_PUM_v2.qmd 2.0.0      # specific version
@@ -324,15 +356,14 @@ git docs-restore --latest DOCS/CLMS_HRL-Forest_PUM_v2.qmd   # latest published v
 
 **Resurrect a deleted file.** If a file was removed from the project but still exists in the library history, `--list-all` will find it. Restore brings it back into `DOCS/` as if nothing happened.
 
-
 # Release Path
 
 Once you publish to `develop`, the rest of the process belongs to Technical Library owners. Getting from develop to public requires two separate pull requests, each reviewed and approved by a second owner before it merges.
 
-| Stage | URL |
-|-------|-----|
-| develop | <https://eea.github.io/CLMS_documents/develop/index.html> |
-| test | <https://eea.github.io/CLMS_documents/test/index.html> |
-| main (public) | <https://library.land.copernicus.eu> |
+| Stage         | URL                                                       |
+|-----------------|-------------------------------------------------------|
+| develop       | <https://eea.github.io/CLMS_documents/develop/index.html> |
+| test          | <https://eea.github.io/CLMS_documents/test/index.html>    |
+| main (public) | <https://library.land.copernicus.eu>                      |
 
 At each release, the system assigns version numbers automatically based on what changed.
