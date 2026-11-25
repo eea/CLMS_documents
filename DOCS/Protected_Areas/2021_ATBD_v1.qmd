@@ -1,5 +1,5 @@
 ---
-title: Protected Areas 2021-2024 - Algorithm Theoretical Basis Document
+title: Protected Areas 2021 - Algorithm Theoretical Basis Document
 subtitle: Copernicus Land Monitoring Service
 category: products
 date: '2026-09-17'
@@ -92,7 +92,7 @@ Table 1: Product description and technical specifications for the Protected Area
 
 CLMS Protected Areas 2021 uses a semi-automatic approach to extract LC/LU information. A Deep Learning model is trained at bioregional scale using CLMS data and time series of super-resolved Sentinel-2 imagery. Its output is then processed through an advanced post-processing chain and manually refined by expert photo-interpreters. This combination preserves the objectivity of the automated classification while ensuring that the final layer meets the required thematic and geometric specifications. The overall production workflow is shown in Figure 1.
 
-![Figure 1: PA2021 production workflow.](2021-2024_ATBD_v1-media/img-3058833c9b82e13361c3e862fa8faa27.jpeg){width=433pt}
+![Figure 1: PA2021 production workflow.](2021_ATBD_v1-media/img-3058833c9b82e13361c3e862fa8faa27.jpeg){width=433pt}
 
 ## PA2021 Area Of Interest: refinement process
 
@@ -118,21 +118,21 @@ The accurate delineation of land cover classes, particularly in dynamic categori
 
 In this context, the Tender Specifications explicitly encourage the investigation of other data sources, such as Sentinel-2 (S2) time series, and advocate for a combined approach using VHR and HR data together with automated and manual classification methods to overcome these limitations and achieve more precise delineation. That is why Super-Resolution (SR) methods emerge as an innovative and strategic solution. COTESA proposes the application of its own pre-trained Super-Resolution Generative Adversarial Network (SRGAN) model on original Sentinel-2 imagery. This methodology not only responds to the call for exploring new data sources but also transcends the traditional trade-off between spatial and temporal resolution. A direct visual comparison between native Sentinel-2 imagery at 10 m and the super-resolved Sentinel-2 output at 2.5 m is shown in Figure 2.
 
-![Figure 2: Comparison between native Sentinel-2 imagery at 10 m and super-resolved Sentinel-2 imagery at 2.5 m.](2021-2024_ATBD_v1-media/img-b94dd7bb1ce4d372d6229bb5a5efcea6.jpeg){width=432pt}
+![Figure 2: Comparison between native Sentinel-2 imagery at 10 m and super-resolved Sentinel-2 imagery at 2.5 m.](2021_ATBD_v1-media/img-b94dd7bb1ce4d372d6229bb5a5efcea6.jpeg){width=432pt}
 
 The key advantages justifying this approach are:
 
 (1) **Substantial Improvement in Spatial Detail:** SR enhances the level of detail of Sentinel-2 images (from 10 m to 2.5 m), enabling a significantly finer delineation of objects such as small buildings, crop borders, streets, and critically, the boundaries of complex classes like grasslands. This directly addresses the issue of "overly coarse" delineation identified in the N2K product. A direct visual comparison between the native 10 m resolution of Sentinel-2 and the super-resolved output at 2.5 m demonstrates this enhancement tangibly, where linear structures and small spatial features become clearly discernible. This will allow us to reduce substantially noise in our PA2021 models whilst improving the details of the geometries.
 
-![Figure 3: Substantial Improvement in Spatial Detail.](2021-2024_ATBD_v1-media/img-24bd8f6336a636c575429d3ac2818427.jpeg){width=433pt}
+![Figure 3: Substantial Improvement in Spatial Detail.](2021_ATBD_v1-media/img-24bd8f6336a636c575429d3ac2818427.jpeg){width=433pt}
 
 (2) **Spectral and Temporal Consistency:** Unlike the reliance on a single VHR scene, our SRGAN model generates enhanced images that are spectrally consistent with the original Sentinel-2 time series. This ensures the stability of information over time, leveraging the high temporal resolution (5 days) of Sentinel-2 to capture seasonal dynamics—a key factor for the correct characterization of grasslands, different type of forests or crops, etc. The spectral fidelity of the model is quantitatively demonstrated through regression analysis for key bands (Blue, Green, Red, Near-Infrared), showing high coefficients of determination (R²) and low errors (Root Mean Square Error RMSE), guaranteeing the integrity of the information for classifications and multi-temporal analysis. Also, this model can be applied to mosaics referring to different time steps in any part of the year, so superresolved mosaics can be used for S2SR time series generation. Regarding validation, this example was carried out by comparing two scenes: a resampled VHR image from commercial imagery (Pléaides) and super-resolved Sentinel-2 image taken, approximately, at the same time. We expected some differences due to the availability of "pure pixels", but a similar behaviour overall in all bands (no bias whatsoever between different bands), which is what actually the image is showing below.
 
-![Figure 4: Spectral and Temporal Consistency for the four bands: RGBn.](2021-2024_ATBD_v1-media/img-a70a4eab698a4890315461e40a9965f2.jpeg){width=433pt}
+![Figure 4: Spectral and Temporal Consistency for the four bands: RGBn.](2021_ATBD_v1-media/img-a70a4eab698a4890315461e40a9965f2.jpeg){width=433pt}
 
 (3) **Validated and Ready-to-Implement Process:** COTESA is using a pre-trained SRGAN model that has been expressly validated using the OpenSR benchmarking initiative developed by the European Space Agency (ESA) in collaboration with the Universitat Politècnica de València (UPV) (ESA, 2022–2025). This tool aims to compare different datasets (National Agriculture Imagery Program NAIP, Plan Nacional de Ortofotografía Aérea PNOA Ortho, Commercial high-resolution optical Earth observation satellite system SPOT and Pleaides) all over the world (US, Europe, etc.) in different landscapes (crops, forests, etc.) with superresolved images allowing a benchmarking between other SR models in terms of hallucinations, omissions, improvements, spectral characteristics, geometrical errors, etc. Our model, trained on over 9,000 km² of multitemporal VHR imagery across Europe, has demonstrated superior performance in critical metrics: high detail enhancement, low omission of patterns, minimal hallucinations, and subpixel geometric errors. The model's design and performance is optimized for the spectral range of sensors like Sentinel-2, ensuring its suitability for the task. No retraining is required, enabling a fully automated, fast, and efficient prediction process whenever a new mosaic is generated.
 
-![Figure 5: Comparison between satellite (used for validation purposes) spectral responses](2021-2024_ATBD_v1-media/img-0bdfe54966615c02a7eedb4b9f4c3a62.jpeg){width=291pt}
+![Figure 5: Comparison between satellite (used for validation purposes) spectral responses](2021_ATBD_v1-media/img-0bdfe54966615c02a7eedb4b9f4c3a62.jpeg){width=291pt}
 
 In conclusion, the integration of super-resolved Sentinel-2 imagery through our SRGAN model represents the realization of the recommended "combined approach," effectively merging the spectral and temporal richness of Sentinel-2 with spatial detail close to VHR. This translates directly into an enhanced capacity for change detection and more accurate and reliable delineation of land cover classes, providing differential and robust value to the project.
 
@@ -154,7 +154,7 @@ Despite the independent calibration of models at regional level, the overall fra
 
 In conclusion, the regionalization framework establishes the methodological basis for linking ecological variability across Europe with spectral-temporal information derived from Sentinel-2, enabling the generation of robust, consistent, and ecologically meaningful LC/LU products within the CLMS Protected Areas mapping workflow. The final modelling units resulting from the regionalisation framework are shown in Figure 6.
 
-![Figure 6: Final representation of bioregions used for training models.](2021-2024_ATBD_v1-media/img-03e2ede9dcb4ed19e8821d851485c830.jpeg){width=432pt}
+![Figure 6: Final representation of bioregions used for training models.](2021_ATBD_v1-media/img-03e2ede9dcb4ed19e8821d851485c830.jpeg){width=432pt}
 
 ## Sampling and reference data strategy
 
@@ -227,7 +227,7 @@ The PA2021 processing chain combines super-resolution, rule-based reference-data
 
 After obtaining the raster result at 2.5 m × 2.5 m resolution, a specific post-processing workflow is applied to convert the raster output into a vector product in accordance with the rules specified in the Invitation to Tender (ITT) requirements. As a first step, isolated pixels are removed using GDAL SIEVE with 8-neighbour connectivity to reduce salt-and-pepper effects. GDAL POLYGONIZE is then used to convert the raster result to vector format. The workflow preserves the detailed delineation provided by the super-resolved Sentinel-2 imagery while applying generalisation rules to reduce the number of vertices without losing relevant boundary detail. Particular emphasis is placed on forest delineation because these classes are especially relevant for end users. Areas below the 0.5 ha MMU are aggregated to the closest suitable polygon. A similar approach is applied to corridor-like geometries. The general MMW is 10 m. Corridors narrower than 10 m are detected and corrected or generalised whenever possible. Exceptions may be retained when correction is not feasible without compromising a valid narrow feature (for example, a narrow polygon between a road and a railway) or when the feature is located at the product boundary; these cases are documented using the COMMENT attribute. The corridor-detection procedure is illustrated in Figure 7.
 
-![Figure 7: Example of corridor detection within the PA2021 post-processing workflow.](2021-2024_ATBD_v1-media/img-af1d0e952b199308d26f5abeab3cb640.jpeg){width=433pt}
+![Figure 7: Example of corridor detection within the PA2021 post-processing workflow.](2021_ATBD_v1-media/img-af1d0e952b199308d26f5abeab3cb640.jpeg){width=433pt}
 
 Roads and railways have been extracted from Open Street Maps information with a fixed buffer (and later checked by the manual refinement team that it is continuous and visible within the VHR image). Also, to guarantee consistency between CLMS layers, PA2021 models not only are fed with these data but also used as a post-processing step to improve the result. As a matter of an example, PA2021 areas within Coastal Areas use systematically labels from these layers from 2018 but maintain geometries from the automatic process. In this sense, operators check manually that there is no mismatch between layers (e.g. changes between CZ2018 and PA2021). For those results obtained from the automatic approach as 7xxxx, label at level 4 has been extracted from European Wetland Map, of special importance for the peatbogs. Mountainous areas are prone to show urban false positives within the 2,5x2,5-meter raster, especially in rocks and bare areas. CLCPlus Backbone 2021 has been used to filter automatically those polygons with improbable presence of urban areas and re-labelled accordingly thanks to a crosswalk between the maximum percentage of the class present and the PA2021 nomenclature within the polygon. Likewise, a crosswalk between Open Street Map features and PA2021 classes has been carried out in order to get as much as possible information (even though it is checked by the operators afterwards to avoid any mismatch related to different timeframes). A nice example is the location of farms close to the coast of Netherlands, which are all 1120.
 
