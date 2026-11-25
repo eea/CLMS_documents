@@ -1,4 +1,4 @@
-# Protected Areas 2021-2024 - Nomenclature Guideline
+# Protected Areas 2021 - Nomenclature Guideline
 
 2026-09-18
 
@@ -547,7 +547,7 @@ level”. In case of a extraordinary flood event the actual/real land
 cover/land use should be mapped.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-67ab9e80b6856669027665c929f7500a.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-67ab9e80b6856669027665c929f7500a.jpeg"
 style="width:371pt"
 data-fig-alt="False-colour infrared satellite imagery displays a diverse riverine landscape. A wide, dark blue/black river flows diagonally from the top-right to the bottom-left, featuring a distinct, elongated island in its lower section. Inland, a meandering, narrower dark blue/black channel is visible, connecting to and surrounded by other smaller, irregularly shaped dark blue/black water bodies. The majority of the visible land area consists of agricultural fields, shown in varying shades of bright red (indicating healthy, actively vegetated areas) and lighter green/grey (suggesting bare soil, fallow land, or different crop types with less infrared reflectance). Two urban areas are prominent: a larger settlement with a dense, light blue/grey grid pattern of roads and buildings is located on the far left, and a smaller, similar urbanized area is visible towards the top-centre. The areas immediately adjacent to the main river and inland water bodies, forming riparian zones, show a mixture of red and greenish-grey tones, indicating natural vegetation and varied land cover types. The imagery highlights distinct land cover features such as large water bodies, extensive agricultural plots, and urban structures."
 alt="Flooded areas from Danube river, Borcea (Romania), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-04-21. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -703,32 +703,32 @@ Low dense Urban:
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-5f28a8abd589a48c80d6398bcb13ea47.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-5f28a8abd589a48c80d6398bcb13ea47.jpeg"
 data-fig-alt="A ground-level photograph depicting a dense urban area, identified as &#39;Continuous Urban fabric IM.D. (Palermo, Spain)&#39;. The image features numerous multi-story residential buildings with distinct dark grey pitched roofs and multiple dormer windows. Facades of the buildings are varied, showing colours such as pink, light blue, and various shades of white and grey. Some trees and green areas are visible in the foreground and between buildings, suggesting areas not entirely sealed. The sky is overcast. The image is credited to M. Escobar and serves to illustrate aspects of urban land cover and Imperviousness Density (IMD), particularly within predominant residential usage contexts."
 alt="Continuous Urban fabric IM.D. (Tallinn, Estonia). Credit: K. Larsson." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-7d887b555ce0f7b9f60c2b5519c76c96.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-7d887b555ce0f7b9f60c2b5519c76c96.jpeg"
 data-fig-alt="A ground-level photograph depicts a narrow, paved urban street or alleyway flanked by densely packed, multi-story residential buildings. The buildings show signs of age, with worn facades, some peeling paint, and visible stone masonry. On the right side of the street, multiple lines of laundry hang from building exteriors. Air conditioning units are attached to the building facades. A scooter is parked in the middle of the street in the distance. The sky is overcast. This image serves as an illustration of &#39;Dense Urban fabric&#39; in the context of Copernicus Land Monitoring Service (CLMS) land cover classification, indicating an area with predominant residential usage."
 alt="Continuous Urban fabric IM.D. (Palermo, Spain). Credit: M. Escobar." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-1114de634d00b950c38135887be8411e.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-1114de634d00b950c38135887be8411e.jpeg"
 data-fig-alt="A ground-level photograph depicts a quiet residential street scene. On the right, a row of at least three detached or semi-detached houses with light-coloured vertical siding and red-orange tiled roofs are visible. Each house is set behind a small, neatly trimmed green lawn and a dense green hedge. In the immediate foreground, a paved brick pathway transitions to a darker, possibly asphalt, road on the left. Two utility structures are positioned near the hedges: a light-grey rectangular box mounted on a pole, and a wooden slatted bin with a green top. Scattered trees are present in the background and along the street. The houses exhibit a consistent architectural style, characteristic of a developed, potentially suburban or &#39;Dense Urban fabric&#39; residential area."
 alt="Dense Urban fabric : City: Stockholm. Credit: Eurostat, 2009. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-f8e5e13175dc727d4ae09fa859868cb9.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-f8e5e13175dc727d4ae09fa859868cb9.jpeg"
 data-fig-alt="A ground-level photograph depicts a &#39;Dense Urban fabric&#39; area in Stockholm, Sweden. The foreground features a paved, asphalt road curving slightly to the right, flanked by grassy verges and scattered deciduous trees. In the midground, there are low-rise buildings and more green spaces with trees and fences. The background is dominated by several multi-story residential apartment buildings, predominantly with reddish-brown facades and white accents. The sky is partly cloudy. The visible caption states: &#39;Dense Urban fabric : City: Stockholm. Cred&#39;. Based on the surrounding document context, the full credit is C. Rosén."
 alt="Dense Urban fabric : City: Stockholm. Credit: Eurostat, 2009. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-5c2c54d372271b55ac31bed1af6e0f11.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-5c2c54d372271b55ac31bed1af6e0f11.jpeg"
 data-fig-alt="A ground-level photograph depicts a &#39;Low dense Urban&#39; residential area. A light-coloured unpaved road or path forms a Y-junction in the foreground, with one branch curving to the right. On both sides of the road are dense green hedges, beyond which are grassy areas. Several trees, including conifers and deciduous trees, are visible in the background and along the edges. On the right side, a two-story residential building with light-yellow siding, two dormer windows, and a brown roof is prominent, accompanied by a smaller, single-story light-yellow building. Other buildings with orange roofs are partially visible further back. A small human figure is walking in the middle of the main road in the distance. The overall scene shows a mix of residential structures and predominant vegetated areas, characteristic of &#39;Low dense Urban&#39; classifications, where residential buildings are in rural areas, roads are artificially surfaced, and vegetated areas are predominant but not dedicated to forestry or agriculture."
 alt="Low density urban fabric. (Täby, Sweden). Credit: K. Larsson." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-1c4cef9b20d6afdb48398ef4c213567b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-1c4cef9b20d6afdb48398ef4c213567b.jpeg"
 data-fig-alt="The image is a ground-level photograph depicting a residential area, specifically an example of &#39;Low density urban fabric&#39;. The foreground features a heart-shaped swimming pool with blue tiles, encircled by light-coloured paved surfacing. This pool is set within a large, predominantly green lawn, which includes a tall palm tree on the left and various shrubs and other vegetation. In the background, several white residential buildings with terracotta-coloured roofs are visible, interspersed among green foliage. The scene illustrates a residential setting where vegetated areas are predominant, but also includes significant artificial surfaces like the pool and paving, consistent with the description of &#39;Low dense Urban&#39; land cover types."
 alt="Low density urban fabric (Costa del Sol, Spain). Credit: M. Palacios." />
 
@@ -742,37 +742,37 @@ alt="Low density urban fabric (Costa del Sol, Spain). Credit: M. Palacios." />
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-a4a8c7c21e77b71d264864ae78bce8af.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-a4a8c7c21e77b71d264864ae78bce8af.jpeg"
 data-fig-alt="The map displays an unspecified urban area in Europe, rendered in false-color infrared satellite imagery. Vegetation appears in shades of red, built-up areas (buildings, roads) in blue-grey/cyan, and water bodies in dark black. Overlaid on this imagery are numerous polygons outlined in bright yellow, each delineating a distinct land cover/use unit and labelled with a numeric code. The visible land cover class codes and their likely interpretations based on CORINE Land Cover (CLC) are: - `1110`: Continuous urban fabric. - `1120`: Discontinuous urban fabric. - `1400`: Green urban areas, sports and leisure facilities. - `9110`: Inland waters, specifically rivers. - `210`: An unspecified land cover/use class, distinct from the urban and water categories, possibly relating to agricultural or greenhouse areas as suggested by the document&#39;s broader context. The spatial pattern reveals a complex urban landscape where continuous and discontinuous urban fabrics (`1110`, `1120`) are interspersed with green spaces (`1400`) and a river (`9110`) that meanders through the city. The yellow outlines define the boundaries of these classified land parcels. No scale bar, compass orientation, or specific reference year is visible."
 alt="Class 1.1.1, Nyköping (Sweden), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-06-03. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-7da2fbcf79e6dc863f00132ab31109cb.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-7da2fbcf79e6dc863f00132ab31109cb.jpeg"
 data-fig-alt="This is a false-colour infrared (FCIR) satellite image showcasing an urbanized area alongside a body of water, likely a river or bay. In this FCIR composition, dense vegetation appears as bright red, artificial surfaces such as buildings, roads, and other impervious areas are depicted in tones of grey and blue, and water bodies are dark blue to black. A prominent light blue polygon boundary delineates a densely built-up urban core, within which the label &#39;1110&#39; is clearly visible in light blue text. This designated area, characterized by a high concentration of artificial surfaces and a complex road network, likely represents a land cover class such as &#39;Continuous Urban Fabric&#39; or &#39;Dense Urban fabric&#39; within a Copernicus Land Monitoring Service (CLMS) or CORINE Land Cover (CLC) classification framework, reflecting its high Imperviousness Density (IM.D.). The image includes a visible bridge or elevated road structure crossing the water body."
 alt="Class 1.1.1 - marked in turquoise, Skien (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2012-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-a56a932140ac083e0c6d4e1530121c22.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-a56a932140ac083e0c6d4e1530121c22.jpeg"
 data-fig-alt="A false-colour infrared satellite image depicting a dense urban area identified as CORINE Land Cover (CLC) code 1110, &#39;Continuous urban fabric&#39;. In this representation, healthy vegetation appears in bright red, while roads, buildings, and other impervious surfaces are displayed in shades of blue and grey. A prominent cyan numerical label &#39;1110&#39; is centrally placed within the image. Black outlines delineate distinct mapping units or administrative boundaries. The image shows a complex network of residential and commercial structures with interspersed vegetation. The surrounding context indicates this image is from Nyköping, Sweden, captured on 2011-06-03 by the Spot 5 satellite at a 2.5 metre resolution, using a 1/2/3 band combination, and is credited to CNES 2011©."
 alt="Class 1.1.1, Larvik (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2012-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-194b6d590655a2b0573c876dbca65a64.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-194b6d590655a2b0573c876dbca65a64.jpeg"
 data-fig-alt="False-colour infrared (NIR) satellite image depicting a densely built-up urban area in Nyköping, Sweden, captured on 2011-06-03 by Spot 5 at 2.5 m resolution, using a 1/2/3 band combination. The image shows a dark blue/black river in the upper portion, flanked by bright red vegetation (healthy biomass). The urban fabric, consisting of buildings and roads, appears in shades of dark blue and grey, consistent with its spectral signature in false-colour imagery. A turquoise blue line delineates a polygonal area within the urban fabric, labelled &#39;1110&#39;. This area corresponds to Class 1.1.1 (Continuous Urban Fabric) in the CORINE Land Cover (CLC) nomenclature. Additional yellow dashed lines delineate other land parcels, likely property boundaries or other thematic features, within both urban and vegetated areas. The imagery copyright is CNES 2011©, distributed by Airbus DS/Spot Image."
 alt="Class 1.1.1 - marked in turquoise, Lunde (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2012-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-182130b607a9c6baf2d82f11226b9e73.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-182130b607a9c6baf2d82f11226b9e73.jpeg"
 data-fig-alt="This map displays a false-colour infrared satellite image of a rural landscape, likely used to illustrate land cover classification. The image features distinct colour patterns: healthy vegetation (e.g., agricultural fields, forests) appears in shades of red and dark red, while areas with less vegetation or bare soil appear browner. A dark, winding feature with a thin dark green outline represents a river or lake, while narrower black lines with thin green borders denote roads. Several polygons are outlined in light blue, each containing the label &#39;1110&#39; in a grey box. These &#39;1110&#39; polygons highlight small clusters of buildings or settlements, consistent with artificial surfaces. Other land parcels or features are delineated by thin green lines. The image serves as a visual example of land cover class 1110, which, in the context of the document, represents a type of urban fabric or artificial surface, likely discontinuous or low-density, used in a land cover nomenclature. No explicit geographic location, scale bar, compass, or date is visible on this specific image."
 alt="Class 1.1.1 - low urban density marked in turquoise, Siljan (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2012-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-672fb04372e700392740704fdaed99df.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-672fb04372e700392740704fdaed99df.jpeg"
 data-fig-alt="A false-colour satellite image depicts a landscape featuring a mosaic of agricultural fields, scattered settlements, and a riparian zone. Dense vegetation, particularly along the river in the lower portion of the image, appears in shades of bright red, indicating high chlorophyll content typical of healthy biomass when displayed with a Near-Infrared (NIR) band mapped to red. Agricultural fields show diverse colours ranging from bright red to turquoise and blueish-grey, reflecting different crop types, growth stages, or bare soil. Several small, irregularly shaped areas containing clusters of buildings and associated infrastructure are highlighted by yellow polygon outlines and labelled &#39;1110&#39;. These labelled areas correspond to &#39;Continuous Urban fabric&#39; (Class 1.1.1) as defined in the Copernicus Land Monitoring Service (CLMS) nomenclature guidelines. The image resolution is 2.5 metres, derived from a Spot 5 satellite using a 1/2/3 band combination (Green/Red/NIR). The data is sourced from CNES 2011©, distributed by Airbus DS/Spot Image."
 alt="In an agriculture area only large accumulations of houses are mapped, Poland, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-23. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-37adf0b18cd616d6b11bc76628babb92.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-37adf0b18cd616d6b11bc76628babb92.jpeg"
 data-fig-alt="This map displays a high-resolution false-colour satellite image of a coastal area, likely utilising near-infrared, red, and green spectral bands where dense vegetation appears in shades of red, and water bodies are dark blue or black. White or light grey specks within the red areas indicate built structures. The image is overlaid with yellow-outlined polygons, each containing a numerical land cover classification code. The identified classification codes and their likely interpretations based on the Copernicus Land Monitoring Service (CLMS) CORINE Land Cover (CLC) nomenclature, supplemented by contextual information on &#39;Nomenclature Guidelines&#39; for CLC+, are: * **1110** (on grey background): Appears in several polygons depicting developed areas with visible structures, likely representing &#39;Continuous Urban fabric&#39; (related to CLC code 111, which is &#39;Continuous urban fabric&#39;). * **4212** (on orange background): Located in polygons bordering the water, likely representing a sub-class of &#39;Coastal wetlands&#39; or &#39;Coastal lagoons&#39; (related to CLC codes 421 &#39;Coastal lagoons&#39; or 422 &#39;Salt marshes&#39;). * **3110** (on orange background): Found in the bottom right corner, outside a detailed polygon but within a large area of dense red vegetation, indicating a sub-class of &#39;Broad-leaved forest&#39; (related to CLC code 311). The map lacks a scale bar, compass orientation, or explicit date of imagery; however, the surrounding document context references Spot 5 (2.5 m resolution) imagery from 2011 or 2012."
 alt="Example of generalized delineation of low urban density area class 1.1.1, Åre (Sweden), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-23. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -811,7 +811,7 @@ In any case, real agricultural/grassland parcel contained within urban
 surroundings, will be mapped as agricultural/grassland.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-0a1304112f94ce3f8ec583749ef5cde1.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-0a1304112f94ce3f8ec583749ef5cde1.jpeg"
 data-fig-alt="False-colour infrared satellite imagery showing a rural landscape with a linear settlement and surrounding agricultural and forest areas, annotated with land cover codes and distance criteria for delineation. The image depicts a main linear settlement outlined in yellow and labelled &#39;1110&#39; (likely representing Discontinuous Urban Fabric, related to CLC+ class 1.1.1 Urban areas). Surrounding this are agricultural fields, with one larger area of agricultural land labelled &#39;2320&#39; (likely Complex Cultivation Patterns, CLC code 232). In the top right, a patch of forest is labelled &#39;3110&#39; (likely Broad-leaved Forest, CLC code 311). Arrows indicate two distance criteria for separating or aggregating features within the settlement: one area marked as &#39;&gt; 50 m&#39; between delineated parcels and another as &#39;&lt; 50 m&#39;. This image is an example demonstrating land cover mapping rules, potentially related to Minimum Mapping Unit (MMU) exceptions and spatial aggregation for Copernicus Land Monitoring Service (CLMS) products such as CORINE Land Cover (CLC) or CLC+."
 alt="Example of generalized delineation of low urban density area class 1.1.1, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-23. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -833,7 +833,7 @@ Copernicus Land Monitoring Service (CLMS) products such as CORINE Land
 Cover (CLC) or CLC+.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-a02d6be6e45af49add81184658ceb477.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-a02d6be6e45af49add81184658ceb477.jpeg"
 data-fig-alt="This image displays three false-color satellite imagery panels from Spot 5, illustrating the application of land cover classification and generalization rules, likely in the context of Copernicus Land Monitoring Service (CLMS) CORINE Land Cover (CLC) or CLC+. The imagery uses a 1/2/3 band combination, typically showing vegetation in shades of red and turquoise, and has a 2.5 m resolution. The capture dates are 2011-07-23 and 2012-08-11. The left panel presents the original satellite imagery, showing a rural landscape characterized by long, rectangular agricultural fields (red/pink), scattered low-density urban development (turquoise/white building clusters), and some natural vegetation. A winding road or path is visible through the developed area. The middle panel applies land cover classification overlays to the same area. Features are delineated by green polygons and labelled with 4-digit CORINE Land Cover codes: - **1110 (Low-density urban fabric):** Outlines clusters of buildings and associated perimeters along the winding road. The yellow arrows indicate areas where smaller, individual structures are generalized into larger polygons to meet Minimum Mapping Unit (MMU) or generalization criteria for class 1.1.1. - **2210 (Arable land):** Labels the large agricultural fields. - **3110 (Broad-leaved forest):** Labels a forested patch in the upper left. - **4100 (Inland marshes):** Labels a linear feature, likely a riparian zone or a specific type of linear vegetation/wetland along a road or drainage. A &#39;30 m&#39; scale bar is present in a yellow box, indicating the spatial reference. The right panel is a magnified view of a section from the middle panel, specifically highlighting a segment of the low-density urban fabric (1110) and adjacent inland marshes (4100) along the winding feature, further demonstrating the polygon delineation and classification."
 alt="Generalized mapping of an area like the above is necessary. Gardens have to be included. Gaps of less than 50 meters are generalized and single blocks are connected. Large agricultural areas (width &gt; 50 m) at the urban border should not be included. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -871,7 +871,7 @@ specifically highlighting a segment of the low-density urban fabric
 further demonstrating the polygon delineation and classification.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-4e7de5ad89d125bbc0ea7363f729ade2.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-4e7de5ad89d125bbc0ea7363f729ade2.jpeg"
 data-fig-alt="This image displays two side-by-side false-colour satellite images acquired by Spot 5 (2.5 m resolution, 1/2/3 band combination) on 2011-07-23, illustrating the application of generalization rules for mapping low urban density areas. The images depict an agricultural area with scattered houses and a road network in Åre, Sweden. The left panel shows the raw satellite imagery, where cultivated fields appear reddish-brown, and built-up areas and roads are cyan/white. The right panel shows the same area with green polygons overlayed, demonstrating the generalized delineation of urban fabric. These polygons encompass individual buildings and connecting road segments, merging them into larger continuous features. Two grey-filled labels within the polygons read &#39;1110&#39;, which corresponds to &#39;low urban density area class 1.1.1&#39; as described in the accompanying text. Two yellow arrows indicate how previously separate structures or clusters are connected by this generalization. This visualization exemplifies the exceptions from strict Minimum Mapping Unit (MMU) and Minimum Mapping Width (MMW) rules for urban areas, where a less restrictive MMW of less than 50 metres is applied at the urban fringe to ensure a more comprehensive representation of low urban density areas."
 alt="Gardens and agricultural areas are included to a certain extent to support a cartographic representation and generalized outline of scattered urban areas. Poland, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-23. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -899,7 +899,7 @@ the urban fringe to ensure a more comprehensive representation of low
 urban density areas.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-11d2a5c3eca9664125a675f8e0f6c3da.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-11d2a5c3eca9664125a675f8e0f6c3da.jpeg"
 data-fig-alt="A false-colour infrared satellite map, derived from Spot 5 imagery (2.5 m resolution, 1/2/3 band combination) dated 2011-07-23, illustrates the application of generalization rules for delineating low urban density areas within the Copernicus Land Monitoring Service (CLMS). The map shows a rural/peri-urban landscape where vegetation appears in various shades of red, and urban structures/bare soil appear in light blue or grey. A continuous yellow polygonal outline defines a &#39;low urban density area&#39; (labeled &#39;1110&#39;) stretching across the image. The delineation demonstrates specific mapping rules regarding gap closure: sections marked &#39;&lt; 50 m&#39; indicate that narrow gaps between urban features, less than 50 metres in width, are included within the continuous urban boundary. Conversely, a section marked &#39;&gt; 50 m&#39; shows a wider gap that causes the urban delineation to be split into separate polygons, as it exceeds the maximum width for gap closure. This visually explains how spatial rules are applied to maintain the continuity of urban fabric, preventing underestimation of low urban density areas by including private gardens and closing gaps up to 50 m."
 alt="Example of generalized delineation of low urban density area class 1.1.1, Poland, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-23. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -922,7 +922,7 @@ preventing underestimation of low urban density areas by including
 private gardens and closing gaps up to 50 m.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-40f24f3bd1bf87c1fc94676eda6d3a74.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-40f24f3bd1bf87c1fc94676eda6d3a74.jpeg"
 data-fig-alt="The image presents a two-panel comparison illustrating the generalized delineation of low urban density areas, specifically CORINE Land Cover (CLC) class 1.1.1 (Continuous urban fabric). The source imagery is a Spot 5 satellite image (2.5 m resolution, 1/2/3 band combination) acquired on 2011-07-23. The left panel displays the raw false-colour infrared satellite imagery of an unspecified rural-urban fringe area. Vegetation appears in red hues, while built-up areas and bare ground appear in cyan/blue tones. Three yellow ellipses highlight areas of scattered, low-density urban fabric interspersed with vegetation, which represent fragmented features prior to land cover classification generalization. The right panel shows the same geographic area with overlaid, delineated land cover polygons and their corresponding CLC class codes. This panel demonstrates the application of generalization rules for urban areas, transforming the fragmented urban patches visible on the left into consolidated polygons. The CLC codes and their appearances are: * **1110** (Continuous urban fabric): Labelled with pink text inside a black-outlined box, outlined by pink polygons. These areas represent aggregated urban spaces, reflecting the generalization process for low urban density. * **1120** (Discontinuous urban fabric): Labelled with yellow text inside a black-outlined box, outlined by yellow polygons. * **1210** (Industrial or commercial units): Labelled with yellow text inside a black-outlined box, outlined by yellow polygons. * **1220** (Road and rail networks and associated land): Labelled with yellow text inside a black-outlined box, outlined by yellow polygons. * **2110** (Arable land): Labelled with yellow text inside a black-outlined box, outlined by yellow polygons. * **2320** (Pastures): Labelled with pink text inside a black-outlined box, outlined by pink polygons. * **3110** (Broad-leaved forest): Labelled with yellow text inside a black-outlined box, outlined by yellow polygons. * **3400** (Transitional woodland/shrub): Labelled with grey text inside a grey-filled, black-outlined box, outlined by grey polygons. * **4100** (Inland marshes): Labelled with yellow text inside a black-outlined box, outlined by pink or yellow polygons. * **4211** (Coastal lagoons): Labelled with yellow text inside a black-outlined box, outlined by yellow polygons. The comparison highlights how generalization rules, as per CORINE Land Cover guidelines, consolidate disparate urban features (e.g., private gardens, small gaps) into larger, more representative urban fabric polygons (classes 1110 and 1120), while retaining distinct mapping for adjacent agricultural/grassland areas (2110, 2320) and other land cover types."
 alt="Generalize urban outline, include gardens and use 2.3.2 for complex areas, Poland, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-23. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -976,7 +976,7 @@ If OSM delineation is too precise, please correct real errors and
 perhaps parts of the outline.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-0681a4fa9a37fc70cf4605d640351809.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-0681a4fa9a37fc70cf4605d640351809.jpeg"
 data-fig-alt="This map displays two side-by-side views of a rural-urban fringe area, illustrating the application of generalization rules for land cover mapping based on Spot 5 satellite imagery (2.5 m resolution, 1/2/3 band combination) from 2011-07-23 (© CNES 2011, Distribution Airbus DS/Spot Image). The yellow outlines delineate land cover classes: &#39;1110&#39; represents Urban fabric (specifically low urban density areas, equivalent to CORINE Land Cover (CLC) class 1.1.1), and &#39;2110&#39; represents Arable land. The left map, labeled &#39;Example of non-generalized urban delineation,&#39; shows an initial mapping where urban areas (1110) are fragmented, with multiple separate polygons representing individual buildings or small clusters. Black arrows highlight a narrow gap between two urban polygons. A distinct agricultural parcel (2110) is visible, surrounded by other land cover types. The right map, labeled &#39;Urban area generalized delineation,&#39; demonstrates the application of generalization rules. The urban fabric (1110) polygons are now connected and smoothed, with gaps of less than 50 metres closed, and individual urban segments merged to represent the &#39;whole structure&#39; of the low urban density area, including features like private gardens. The agricultural parcel (2110) remains clearly delineated as agricultural land, consistent with mapping guidelines that such parcels contained within urban surroundings should retain their agricultural classification."
 alt="Left side: Very precise OSM delineation Keep OSM, and just correct errors. Right side: Manual delineation Map urban outline generalized. Poland, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-23. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -1177,12 +1177,12 @@ water bodies of extractive industrial sites.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-bde291f79a0d6ae1a76fa5ab7aca9a2a.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-bde291f79a0d6ae1a76fa5ab7aca9a2a.jpeg"
 data-fig-alt="A daytime photograph captures an urban street scene featuring prominent buildings and transport infrastructure. In the foreground, cobblestone street pavement is visible, traversed by two sets of tram tracks running from left to right, receding into the distance. Several pedestrians are walking on the pavement area to the left and center. On the left side of the street, a large, ornate building dominates, characterised by a light-coloured facade, numerous tall arched windows, and a prominent chimney stack on its left side. Further to the right, behind the street, a smaller building with similar arched architectural features is visible, flanked by several smaller, brightly coloured commercial kiosks or stands. One kiosk has partially obscured, unreadable text on its facade. A dark-coloured car is parked or driving on the far right side of the street. A small bird is visible on the tram tracks in the foreground. The sky is partly cloudy. The scene depicts a mixed-use urban area with commercial activity and public transport infrastructure."
 alt="Industrial or commercial units. (Riga, Latvia). Credit: K. Larsson." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-cb05860bf20889e954101a2db6277d91.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-cb05860bf20889e954101a2db6277d91.jpeg"
 data-fig-alt="A photograph depicting an industrial facility under a clear blue sky. The image shows large, light-coloured industrial buildings or warehouses with slightly pitched roofs, extending across the mid-ground. On the roof of one building, a prominent, tall structure resembling a crane or a conveyor system is visible. In front of the main buildings, organised stacks of industrial materials are visible, featuring red, blue, and silver-coloured components, likely pipes or metal structures, indicating a storage or production area. The foreground consists of unmanaged, dry grassy land with scattered low bushes, separating the viewer from the industrial complex. No specific labels, text, or dates are visible within the image. This scene exemplifies land classified as an industrial site, potentially falling under a category like &#39;Industrial, commercial and transport units&#39; in land cover classification schemes."
 alt="Industrial site (Madrid, Spain). Credit: M. Palacios." />
 
@@ -1191,7 +1191,7 @@ alt="Industrial site (Madrid, Spain). Credit: M. Palacios." />
 **Appearance:**
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-1901095d0c9f938255c965ba23527ce4.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-1901095d0c9f938255c965ba23527ce4.jpeg"
 data-fig-alt="Aerial imagery (likely false-colour infrared) map illustrating a land cover classification unit. The image depicts a large industrial site, identifiable by its numerous grey-toned buildings and impervious surfaces, situated adjacent to a dark reddish-brown water body. The industrial site is specifically delineated by a prominent cyan polygon and labelled with the numerical code &#39;1120&#39;, which corresponds to a detailed classification within the CORINE Land Cover (CLC) or CLC+ (next-generation land cover/land use) framework, typically representing an &#39;Industrial or commercial unit&#39;. Surrounding the industrial area and water body are residential zones characterized by smaller buildings and reddish areas indicating vegetation. Faint green lines delineate additional land cover boundaries, potentially including road networks or other artificial areas. This image exemplifies how complex land use categories like industrial sites are identified and mapped within the Copernicus Land Monitoring Service (CLMS)."
 alt="Industrial site, Skien (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2012-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -1214,12 +1214,12 @@ Copernicus Land Monitoring Service (CLMS).
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-bc614e9fee675d3a19c69ee6f7b74f8f.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-bc614e9fee675d3a19c69ee6f7b74f8f.jpeg"
 data-fig-alt="False-colour infrared satellite imagery showing an urban and peri-urban landscape. The base image displays built-up areas and roads in shades of blue and grey, and vegetation in shades of red. Two distinct areas are delineated by cyan outlines, each labelled with a grey box containing the cyan text &#39;1120&#39;. These polygons enclose large, rectilinear buildings and associated impervious surfaces, consistent with industrial or commercial units. Surrounding the classified areas, the map shows a dense network of residential buildings in shades of blue/grey and multiple vegetated plots and possibly recreational areas in red, indicating green spaces. A dark blue linear feature, likely a water course or canal, runs through the lower middle section of the image. The label &#39;1120&#39; corresponds to the CORINE Land Cover (CLC) class for &#39;Industrial or commercial units&#39;. No scale bar, compass, or specific date is visible."
 alt="Industrial site in Batman, Anatolia region (Turkey), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-16. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-fcbf813eebc68ea6aad60bac0277286e.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-fcbf813eebc68ea6aad60bac0277286e.jpeg"
 data-fig-alt="False-colour infrared satellite imagery displays a mixed landscape segmented by overlaid blue lines, likely representing Copernicus Land Monitoring Service (CLMS) mapping units. Healthy vegetation appears bright red, such as the curved areas adjacent to the central river/canal, indicating agricultural fields. Buildings are rendered in light grey/white, while bare ground, sparse vegetation, and unpaved roads appear in brownish-grey tones. A river or canal runs through the centre, shown in dark blue/black. Several specific land cover features are highlighted by light blue polygon outlines. One such highlighted polygon, encompassing a cluster of buildings and associated infrastructure, is labelled &#39;1120&#39;. This numerical code corresponds to the CORINE Land Cover (CLC) class 1120, &#39;Discontinuous urban fabric,&#39; which is consistent with the visual representation of scattered residential areas and roads in a semi-urban or rural setting. No scale bar, compass, legend, or specific reference year is visible."
 alt="Active archeological site Hosap castle – Guzelsu (Turkey), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-16. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -1269,7 +1269,7 @@ $\geq 10$ m.
   associated land. $\rightarrow$ Map current land cover category.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-e6083af39118c8c09eabd03bba5fe665.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-e6083af39118c8c09eabd03bba5fe665.jpeg"
 style="width:130pt"
 data-fig-alt="A ground-level photograph depicts a multi-level road network within an urban or peri-urban environment. In the mid-ground, a prominent elevated highway structure carries vehicles, including cars and white vans, across multiple lanes. Below this elevated section, a lower-level road is visible with parked cars and a large white and blue bus in the foreground. A small purple circular marker is present on this lower road surface. To the left of the road network, a dark-facade building stands, with a taller, slender grey high-rise building further in the background against a clear blue sky. On the right, a large, tall grey building with numerous windows occupies the frame&#39;s right side; green foliage is visible at its base. Streetlights are visible along the elevated road. The image illustrates components typically classified as &#39;Road networks and associated land&#39; in Copernicus Land Monitoring Service (CLMS) documentation, such as those found in Urban Atlas data or relevant to the definition of transport infrastructure for land cover classification."
 alt="Road network and associated land, (Stockholm, Sweden) Credit: K. Larsson." />
@@ -1296,17 +1296,17 @@ classification.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-75a4c354b56df276d429b627faf73b25.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-75a4c354b56df276d429b627faf73b25.jpeg"
 data-fig-alt="A False Colour Infrared (FCIR) satellite image displays a landscape featuring a prominent river, dense vegetation, and a classified road network. The image is oriented with the river flowing roughly from north to south. The main features are: * A dark, winding river runs through the right side of the image. * Extensive areas of dark red indicate dense, healthy vegetation, likely forests, particularly visible on both sides of the river and to the west of the road. * Lighter pinkish-red rectangular shapes within the vegetated areas suggest agricultural fields or areas with sparser vegetation. * A distinct light blue line, representing a &#39;Road network and its associated land&#39;, runs parallel to the river on its western side. This road network is defined with a minimum mapping width of 10 metres. * A dark, elongated, oval-shaped feature on the far-left appears to be a lake or pond. * Scattered small white/grey points along the road and river suggest human settlements or individual buildings. No scale bar, compass, legend, or specific geographic location is visible in the image."
 alt="Delineation of class 1.2.1 marked in turquoise, Siljan (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2012-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-632782f13c36a5fde57865c878382de8.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-632782f13c36a5fde57865c878382de8.jpeg"
 data-fig-alt="This map displays an urban and peri-urban area in Stockholm, Sweden, using false-colour infrared (FCIR) satellite or aerial imagery. In this imagery, healthy vegetation appears in red tones, built-up areas and impervious surfaces are shown in grey or bluish hues, and water bodies are dark blue to black. Overlaid on this base imagery are several vector features: light blue lines delineate the road network and its associated land, while thin yellow and green outlines define other land cover/land use (LULC) polygons. Visible geographic features include a major river or water body, dense urban development, industrial zones, extensive vegetated areas, an airport runway in the bottom-left, and a stadium or athletic track in the bottom-middle. The map serves as an example for the classification of &#39;Road network and its associated land&#39; for Copernicus Land Monitoring Service (CLMS) guidelines, highlighting features with a minimum mapping width of 10 metres. The credit for the image is K. Larsson."
 alt="Delineation of class 1.2.1 marked in turquoise, Skien (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2012-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-c0271c5e3bd9d48849bf9d9abf906086.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-c0271c5e3bd9d48849bf9d9abf906086.jpeg"
 data-fig-alt="Satellite imagery, likely a false-colour infrared composite, displaying a mixed landscape in Stockholm, Sweden, credited to K. Larsson. The image illustrates the Copernicus Land Monitoring Service (CLMS) Land Cover class 1210, &#39;Road network and its associated land&#39;, which is highlighted in light blue. The upper portion of the image shows dense urban or peri-urban areas, characterised by blueish-grey patterns of buildings and streets. A prominent road network, including a bridge crossing a river and a motorway interchange, is outlined in light blue, indicating the feature being classified as 1210. The river itself appears dark blue/green. The lower and right-hand portions of the image show large areas of vegetation, likely agricultural fields, appearing in vibrant red hues characteristic of infrared imagery, interspersed with some lighter grey/brown areas possibly indicating bare soil or other non-vegetated surfaces."
 alt="Example of 1.2.1 marked in turquoise, Bismil (Turkey), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2013-07-13. CNES 2013©, Distribution Airbus DS/Spot Image." />
 
@@ -1325,7 +1325,7 @@ Specific aspects:
 Specific generalization rule:
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-c332c9e8e387dc4baa869fe1fee21fac.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-c332c9e8e387dc4baa869fe1fee21fac.jpeg"
 style="width:332pt"
 data-fig-alt="This map displays a detailed land cover classification for a generic European landscape, featuring various polygonal areas and linear features. The primary land cover areas are shown as light green polygons, each labelled with a four-digit numeric code. These codes include: 1110, 1120, 1210, 1220, 1400, 2110, 4100, 4212, and 8110. A network of linear features, appearing to be roads or associated transport infrastructure, is highlighted in light purple and consistently labelled with the numeric code 3500. Delineating the boundaries of these classified areas are thin grey lines. In the bottom right corner, a partially obscured Geographic Information System (GIS) &#39;Identify&#39; pop-up window is visible, indicating an &#39;Identified 1 feature&#39; from the &#39;&lt;Top-most layer&gt;&#39; with a &#39;Location&#39; coordinate of &#39;4.201.818,524 2.989.572,209 Meters&#39;. The map illustrates the intricate spatial distribution of different land cover/land use types, with the numeric codes representing specific classification categories, although a full legend for these codes is not provided in the image. No scale bar, compass, or reference year is present."
 alt="Class 3.5.0 (Lines of trees and shrub) surrounded by 1.2.1 (Road networks and associated land) and area &lt; 0.5 ha: map as associated feature and generalize into road." />
@@ -1382,7 +1382,7 @@ $\geq 10$m.
   generalize to surrounding LC.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-45768624d2a4013ab44cc89f4554ebb9.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-45768624d2a4013ab44cc89f4554ebb9.jpeg"
 style="width:344pt"
 data-fig-alt="A daytime photograph depicting a railway station platform with a blue passenger train stopped on the left. The train prominently displays the name &#39;SALTJÖBANAN&#39; on its side. Several people are visible on the platform, which is separated from the railway tracks by a fence. A set of railway tracks runs down the middle of the image, equipped with overhead power lines (catenary system). To the right of the tracks, there is another paved or unpaved area running parallel to the railway. In the background, beyond the railway infrastructure, are buildings and trees. This image illustrates the land cover classification category &#39;1.2.2 Railways and associated land&#39; as defined in Copernicus Land Monitoring Service (CLMS) Land Use / Land Cover (LULC) documentation, likely for CORINE Land Cover (CLC) or CLC+ mapping."
 alt="Railways and associated land (Täby, Sweden) Credit: K. Larsson." />
@@ -1405,12 +1405,12 @@ likely for CORINE Land Cover (CLC) or CLC+ mapping.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-9f39eb8de77e7766e0c0ccade4ce7c64.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-9f39eb8de77e7766e0c0ccade4ce7c64.jpeg"
 data-fig-alt="This map depicts an area in Täby, Sweden, with land cover and land use features overlaid on false-colour infrared satellite imagery. The underlying imagery shows dense vegetation in bright red, urban and impervious surfaces in grey/blue tones, and a water body (river or lake) in dark blue/black. A prominent turquoise polygon outlines a linear feature extending approximately north-south across the map, labelled with the code &#39;1220&#39;. This label, referencing the Copernicus Land Monitoring Service (CLMS) Land Cover / Land Use (LCLU) nomenclature, corresponds to &#39;1.2.2 Railways and associated land&#39;. The railway feature is shown bordering a river in the upper part of the map and traversing through an area with mixed urban and vegetated land uses. Additional thinner green lines delineate the boundaries of other land cover/use polygons throughout the depicted landscape. No scale bar, compass, or explicit legend is visible within the image."
 alt="Delineation in turquoise, Lunde (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2012-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-698b131f1c31916ae6289b0d2a02716a.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-698b131f1c31916ae6289b0d2a02716a.jpeg"
 data-fig-alt="This map displays false-colour infrared satellite imagery of Täby, Sweden. The imagery shows healthy vegetation in shades of bright red, with urban or built-up areas appearing in blue and grey tones. A dark, winding feature represents a river. A specific linear area is highlighted by a turquoise polygon and labelled &#39;1220&#39;. This delineated area corresponds to a railway and its associated land, which includes railway tracks, facilities, and service areas, running through a built-up zone parallel to the river. Other land cover units are outlined by thin green lines. The label &#39;1220&#39; refers to the Copernicus Land Monitoring Service (CLMS) nomenclature category &#39;1.2.2 Railways and associated land&#39;, which has a minimum mapping width (MMW) of ≥ 10m and includes railway facilities and closed-down rails where infrastructure is still visible. The image is credited to K. Larsson."
 alt="Delineation in turquoise, Gvarv (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2012-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -1438,7 +1438,7 @@ data are available, map only those railroad features that can be
 detected with SPOT5/6 data.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-1b25dea652d47eb332f3d3cca62d8ae4.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-1b25dea652d47eb332f3d3cca62d8ae4.jpeg"
 style="width:332pt"
 data-fig-alt="This is a land cover map showing classified land cover/land use (LCLU) polygons in Täby, Sweden, identified in the surrounding text as an example for &#39;Railways and associated land&#39;. The map uses a light green background for most land cover polygons, each identified by a 4-digit numerical code. Specific linear features representing &#39;Railways and associated land&#39; (class 3500) are highlighted in light purple. Key labelled land cover classes visible are: * **1110**: Artificial surfaces (likely Continuous Urban Fabric) * **1120**: Artificial surfaces (likely Discontinuous Urban Fabric) * **1210**: Artificial surfaces (likely Industrial or Commercial Units / Transport features) * **1220**: Artificial surfaces (likely Road and Rail Networks and Associated Land), appearing under the 3500 feature. * **1400**: Artificial surfaces (likely Green Urban Areas) * **2110**: Agricultural areas (likely Non-irrigated Arable Land) * **3500**: Railways and associated land (highlighted in purple) * **4100**: Wetlands or Water bodies (e.g., Inland marshes) * **4212**: Wetlands or Water bodies (e.g., specific marsh or water feature) * **8110**: Unspecified land cover class A small GIS &#39;Identify&#39; pop-up window is visible in the lower central part of the map, indicating &#39;Identified 1 feature&#39; at &#39;Location: 4.201.815.924, 2.980.572.209 Meters&#39; in a projected coordinate system. The map illustrates how different land cover types, including transport infrastructure like railways, are delineated and classified."
 alt="Class 3.5.0 (Lines of trees and shrub) surrounded by 1.2.2 (Railways networks and associated land) and area &lt; 0.5 ha. Map as associated feature and generalize into rail." />
@@ -1514,7 +1514,7 @@ location, near the sea or large rivers (inland ports).
   facilities.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-f084a8842f95a0f9fe8e4a3c6f04a48a.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-f084a8842f95a0f9fe8e4a3c6f04a48a.jpeg"
 style="width:206pt"
 data-fig-alt="This photograph depicts an urban transport hub, likely a port area, featuring a large, grey building with a bus parked beneath an overhang on the left. The bus displays &#39;SILJA LINE&#39; and &#39;ESPOO&#39; on its side. In the foreground, there is an asphalt road with a white right-turn arrow painted on it, alongside a wide concrete pavement. An elevated structure, possibly a monorail track or a pedestrian bridge, crosses the middle ground, with a white, train-like vehicle traversing it. In the background, several modern buildings are visible, including a prominent tall structure featuring blue and white sections, potentially a landmark or logo. A white sign near the bus stop reads &#39;BUSS&#39; / &#39;BUS&#39; (partially obscured). This image illustrates infrastructure typically associated with port areas, such as quays, transport and storage areas, and harbour stations, as defined in land cover classification schemes."
 alt="Port areas (Stockholm, Sweden) Credit: Eurostat, 2009. LUCAS." />
@@ -1538,12 +1538,12 @@ stations, as defined in land cover classification schemes.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-4b7fb81e65119eb2591c0eaf705d398c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-4b7fb81e65119eb2591c0eaf705d398c.jpeg"
 data-fig-alt="This image displays a false-colour satellite image of a port area in Stockholm, Sweden, dated 2009, sourced from Eurostat&#39;s LUCAS (Land Use/Cover Area frame Survey). Vegetated areas appear in deep red, indicative of near-infrared spectral characteristics. Water bodies, including the sea or a large river, are depicted in black. Artificial surfaces, such as buildings, quays, piers, dockyards, and paved transport/storage areas associated with the port, are shown in shades of grey and light blue. A large, complex land area, identified as a port, is comprehensively delineated by a light blue polygon. Within this main delineated area, the numeric label &#39;123&#39; is visible. Several smaller, distinct polygons, also outlined in light blue, represent additional associated port facilities or land parcels. On the landward side, thin green and yellow dashed lines are visible, potentially representing roads or other linear infrastructure. This image illustrates the physical extent and components of a port area for land use/land cover (LULC) classification purposes."
 alt="Delineation of port and associated land in turquoise, Surtebogen (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2012-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-3bcf0ba3bf8e27a4de618dbc8767870c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-3bcf0ba3bf8e27a4de618dbc8767870c.jpeg"
 data-fig-alt="This map displays a detailed land cover / land use (LULC) classification of an urbanized port area in Stockholm, Sweden, based on satellite imagery. The imagery is attributed to Eurostat, LUCAS 2009. The background imagery, likely a false-colour infrared composite, shows water bodies in light blue, dense vegetation in reddish tones, and urban structures in varying shades of grey and light green. Yellow polygons delineate individual LULC units, each labelled with a four-digit classification code, often repeated vertically. Key classification codes visible and their likely interpretations based on common CLC+ (next-generation land cover/land use) nomenclature include: * `1110`: Continuous urban fabric * `1120`: Discontinuous urban fabric * `1230`: Port areas (highlighted by a red circle in the top-left section, showing extensive port infrastructure and associated land) * `1310`: Mineral extraction sites * `1320`: Dump sites * `1400`: Artificial, non-agricultural vegetated areas * `3110`: Broad-leaved forest * `4100`: Forests and semi-natural areas * `8110`: Rivers and streams (highlighted by a red circle in the central main water body) * `8120`: Lakes and ponds (highlighted by a red circle in a smaller, enclosed water body within the port area on the left bank) The map illustrates the granular classification of various land and water features within a complex urban-port-river environment. It demonstrates the precise delineation of functional zones like port infrastructure (1230), distinct water body types (8110, 8120), and surrounding urban and natural landscapes. No scale bar, compass, or explicit legend is visible within the map boundaries."
 alt="Inland harbors connected to river, Dordrecht (Netherlands), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-10-24. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -1578,7 +1578,7 @@ ports) are also included in this category if they are $> 0.5$ ha.
   facilities.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-062ecfeb03a6f775f1b042224a2f0778.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-062ecfeb03a6f775f1b042224a2f0778.jpeg"
 style="width:195pt"
 data-fig-alt="A photograph depicts a large white passenger airplane, possibly an Airbus A320 family aircraft, parked on a wet asphalt tarmac at an airport. The view is captured from inside an airport terminal or jet bridge, looking out through a window framed by vertical and horizontal bars. The aircraft features blue detailing on its engine nacelles and nose cone. The tarmac is reflective due to moisture from rain, mirroring the overcast grey sky. In the background, other airplanes, airport buildings, and various pieces of ground support equipment are visible, illustrating the complex infrastructure of an active airport environment. This image serves as a visual example for the &#39;Airports and associated land&#39; land cover class."
 alt="Airport, (Arlanda Stockholm, Sweden). Credit: K. Larsson." />
@@ -1598,7 +1598,7 @@ associated land” land cover class.
 **Appearance:**
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-ed6c08507bd8c97d2064db487c34b82c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-ed6c08507bd8c97d2064db487c34b82c.jpeg"
 data-fig-alt="False-colour infrared satellite imagery from Spot 5 (2.5 m resolution, 1/2/3 band combination) acquired on 2010-07-14, depicting an airport and its surrounding area in Worms, Germany. The image is attributed to CNES 2011©, Distribution Airbus DS/Spot Image. The central region of the airport is marked with the number &#39;1240&#39;, indicating its classification as &#39;Airports and associated land&#39; within a land use/land cover (LULC) nomenclature system such as CORINE Land Cover (CLC). The airport complex features extensive artificial surfaces, including runways, taxiways, and buildings, which appear in shades of blue and cyan. Associated grassland areas within the airport perimeter are visible in bright red tones, indicating healthy vegetation in this false-colour composite. Surrounding the airport are agricultural fields, also appearing in bright red, and urban or developed areas with a mix of artificial surfaces and vegetation."
 alt="Military airport, Wilhelmswöerth (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-07-14. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -1618,7 +1618,7 @@ bright red, and urban or developed areas with a mix of artificial
 surfaces and vegetation.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-f0e45768bbca8fd64fd545fb88aa3c03.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-f0e45768bbca8fd64fd545fb88aa3c03.jpeg"
 data-fig-alt="The image is a false-colour infrared satellite photograph depicting an airport facility and its surrounding land cover. A prominent long, dark blue/grey runway is visible, with associated lighter blue/white buildings and impervious surfaces located primarily on its eastern side. The number &#39;1240&#39; is overlaid in light blue text on the runway, identifying this feature as CORINE Land Cover (CLC) class 1240 (Airports). The area immediately surrounding the airport shows a mosaic of land cover types: dense vegetation, likely forests or healthy agricultural fields, appears in bright red, while other areas of sparse vegetation or cultivated land are rendered in lighter green and brown hues. A small, dark blue water body is visible in the upper left quadrant."
 alt="Airport, Worms (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-07-14. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -1636,7 +1636,7 @@ hues. A small, dark blue water body is visible in the upper left
 quadrant.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-c45976c5239a11bff83a94b89ae7b9df.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-c45976c5239a11bff83a94b89ae7b9df.jpeg"
 data-fig-alt="A false-colour satellite image illustrating the &#39;Airports&#39; land cover category, identified by CORINE Land Cover (CLC) code 1240. The image displays an airport with a prominent, long, sealed runway, multiple taxiways, and associated buildings. Surrounding the airport infrastructure are areas classified as associated land, likely grassland or bare soil, which appear in muted green tones. Several clusters of urban or settlement buildings are visible, particularly to the north and east of the airport. The wider landscape consists of agricultural fields, depicted in various shades of red and green, indicating different vegetation types or crop stages in this false-colour composite. A winding river, appearing dark blue, traverses the lower portion of the image, bordered by linear features which might be roads or irrigation canals. The image highlights the distinctive appearance of airport facilities within a mixed agricultural and semi-urban environment."
 alt="Erzinkan airport, Turkey, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-09-16. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -1716,22 +1716,22 @@ are construction sites for buildings, dams and motorways.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-9e9712dfb09ddb08dc1993fec7449d40.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-9e9712dfb09ddb08dc1993fec7449d40.jpeg"
 data-fig-alt="The image is a photograph of a construction site, featuring an expansive area of bare, disturbed earth in the foreground. Two tall poles with rectangular yellow flags are erected in the midground, anchored by concrete bases. A dark utility pole stands to their right, and further right, a white sign with blue text is visible; text on the flags and the sign is unreadable due to distance and resolution. In the background, multiple multi-story buildings indicate an urban or peri-urban environment under a clear blue sky. This scene exemplifies a &#39;Construction site&#39; as defined under the Copernicus Land Monitoring Service (CLMS) CORINE Land Cover (CLC) classification for &#39;Mineral extraction, dump and construction sites, land without current use&#39; (class 1.3.1)."
 alt="Construction site (Cadiz, Spain). Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-09b9b907dd958b0319adc3afb87a60e5.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-09b9b907dd958b0319adc3afb87a60e5.jpeg"
 data-fig-alt="A ground-level photograph depicts a coastal construction site featuring multiple multi-storey residential buildings in various stages of completion. The buildings are primarily light-coloured (beige/tan) with terracotta-tiled roofs. One building on the right has visible window openings and what appears to be incomplete exterior cladding, while another on the left shows exposed balconies and structural elements. In the midground, an oval-shaped blue swimming pool, partially filled, is visible. Extensive earthworks are present around the buildings and pool, with large piles of excavated soil. A small brick shed is located near the pool, and a stone retaining wall with some climbing vegetation is also visible. The foreground shows disturbed earth with sparse, low vegetation. In the background, a body of water, likely the sea, stretches to the horizon, with a hazy distant city skyline along the coastline, indicating significant development pressure in a coastal environment. The scene illustrates land transformation due to construction, including soil excavation and infrastructure development."
 alt="Construction site (Malaga, Spain). Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-387a623ae78b14265b2452bcbeac2f54.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-387a623ae78b14265b2452bcbeac2f54.jpeg"
 data-fig-alt="A ground-level photograph showing an industrial scrapyard or dump site under a blue sky with scattered clouds. In the foreground, partially obscuring the view, are grey concrete block walls on both the left and right, with a blue vertical pole-like structure near each wall. On the far left, behind the wall, a large, high pile of rusted scrap metal or industrial debris is visible. The central area of the image depicts a dirt and gravel lot with various heavy machinery, including a prominent orange excavator and other vehicles, suggesting ongoing operations. Additional piles of scrap metal are visible in the mid-ground and background areas of the site."
 alt="Dump site (Madrid, Spain). Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-aae8e2cea90270091fd5917097148ccb.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-aae8e2cea90270091fd5917097148ccb.jpeg"
 data-fig-alt="The image is a ground-level photograph showing a large area of actively disturbed land, consistent with a dump site or mineral extraction site. In the immediate foreground, green grasses and low vegetation are visible, partially framing the scene. The main area of the site comprises extensive stretches of bare, light brown earth, indicating significant soil disturbance, excavation, or ongoing operations. In the middle ground, several prominent piles of refuse are visible, featuring mixed materials and colours, suggesting a collection of raw or liquid wastes. Some heavy machinery, possibly excavators, can be vaguely discerned within the disturbed area. The background shows further disturbed earth, contrasting with patches of green vegetation, possibly agricultural fields or natural land, and distant hills or urban development under a clear sky. This site&#39;s characteristics align with descriptions of &#39;public, industrial or mine dump sites&#39; or &#39;open pit extraction sites&#39; found in Copernicus Land Monitoring Service (CLMS) documentation."
 alt="Dump site (Madrid, Spain). Credit: M. Palacios." />
 
@@ -1742,17 +1742,17 @@ alt="Dump site (Madrid, Spain). Credit: M. Palacios." />
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-e34772db340c8649eca320a377f56cf7.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-e34772db340c8649eca320a377f56cf7.jpeg"
 data-fig-alt="The map displays a detailed aerial view of a land cover/land use classification, likely a False Colour Infrared (FCIR) composite, showing distinct land parcels delineated by yellow polygon boundaries. A prominent dark blue water body occupies the right side of the central area. Adjacent to the water body, a large light blue/cyan area is visible, representing bare earth or a disturbed surface. Overlaid on this light blue/cyan area, and partially extending over the water, is a grey rectangular label with the code &#39;1310&#39;. This code, according to the document context, signifies &#39;Construction sites, dumps, open spaces, or mineral extraction sites.&#39; The surrounding areas are predominantly reddish-brown, indicating vegetated land (e.g., agriculture or natural vegetation), with some lighter green/beige patches also present. The image is an example of a construction site from Cadiz, Spain. No scale bar, compass, legend, or specific date is visible."
 alt="Delineation of mineral extraction site in turquoise, Benfeld (France), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-07-14. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-3b791cb035f4640a73996c924b81941b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-3b791cb035f4640a73996c924b81941b.jpeg"
 data-fig-alt="An annotated aerial image in false colour, displaying various land cover/land use (LCLU) types marked with numerical classification codes and outlined boundaries. Healthy vegetation appears in shades of red, while bare earth, buildings, and impervious surfaces appear in grey, white, and dark grey tones. The image features a large central area, outlined in light blue, showing extensive soil or bedrock excavations, characteristic of a construction site or mineral extraction site. This area is labelled with code 1310. Surrounding this central feature: * To the north, an area of dense red vegetation is labelled with code 3310 (likely Broad-leaved forest). * Further north-east, a cluster of dark grey buildings resembling industrial or commercial units is outlined in light blue and labelled with code 1120. * An area adjacent to the north-western edge of the 1310 site, showing a mix of built structures and vegetation, is labelled with code 1400 (likely Artificial surfaces such as green urban areas or sport and leisure facilities). * To the south-east and partially overlapping with an area labelled 3210 (likely Natural grasslands or transitional woodland-shrub), a residential area with visible roofs is labelled with code 1110 (Continuous urban fabric). Other labelled features include an area of less dense red vegetation or scrub to the south-east labelled 3210 (likely Natural grasslands or transitional woodland-shrub). A light orange line delineates various parcel boundaries throughout the image."
 alt="Delineation of construction site in turquoise, Skien (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-b838ebb3547364859fc351a908ed6240.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-b838ebb3547364859fc351a908ed6240.jpeg"
 data-fig-alt="A false-colour infrared satellite map of Benfeld, France, sourced from Spot 5 imagery at 2.5 m resolution. The base imagery displays healthy vegetation in red tones, bare soil or sparsely vegetated areas in grey/brown, and water bodies in dark blue/black. Overlaid on this imagery is a transparent turquoise polygon that delineates a mineral extraction site along a river. Within this delineated area, two land cover classification codes are labelled: &#39;1310&#39; is shown in a light blue box, located centrally within the primary extraction area. &#39;3400&#39; is shown in a yellow box, located to the south within the same turquoise-highlighted mineral extraction site, adjacent to a water feature. Fine blue lines denote surrounding land parcel or administrative boundaries."
 alt="Gravel pit, Turkey, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2013-08-07. CNES 2013©, Distribution Airbus DS/Spot Image." />
 
@@ -1803,7 +1803,7 @@ visible).
   and military units.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-34eab97cf883255d79b4205c2776be3d.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-34eab97cf883255d79b4205c2776be3d.jpeg"
 style="width:214pt"
 data-fig-alt="A ground-level photograph depicting an unmanaged, undeveloped plot of land, consistent with the Copernicus Land Monitoring Service (CLMS) land cover category &#39;Land without current use&#39; (CLMS code 1.3.2). The foreground shows dry, sparse vegetation, primarily grass and scattered small shrubs, with a simple wire fence partially visible across the bottom. In the middle ground, the terrain is uneven with more dry, unmaintained vegetation. In the background, on the left, a light-coloured residential building is partially visible, and on the right, a yellowish building with a tiled roof. A tall, slender communication or electricity tower stands prominently in the far background, rising above the distant tree line and buildings. The overall scene suggests a transitional area, lacking active agricultural, recreational, or visible construction use, situated in a peri-urban or urban context adjacent to artificial surfaces."
 alt="Land without current use (Malaga, Spain). Credit: M. Palacios." />
@@ -1828,17 +1828,17 @@ urban context adjacent to artificial surfaces.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-87cf43c836be9a712c1b3c951dc74ef0.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-87cf43c836be9a712c1b3c951dc74ef0.jpeg"
 data-fig-alt="This is a false-colour infrared map illustrating land cover classification in an urban or peri-urban area. The imagery shows vegetation in various shades of red, bare soil or sparse vegetation in reddish-brown, artificial surfaces (buildings, roads) in grey/cyan tones, and a water body (likely a canal or river) in dark blue/black. The map features overlaid vector polygons: larger units are delimited by yellow lines, while smaller, more detailed units are outlined in light blue. Two prominent areas, appearing as reddish-brown plots of land, are labelled with the yellow text &#39;1320&#39;. These &#39;1320&#39; areas represent &#39;Land without current use,&#39; which, according to the document context, includes categories such as wasteland, former industrial areas (&#39;brown fields&#39;), gaps in new construction, or leftover land. Adjacent features include what appear to be industrial or infrastructure facilities (e.g., water treatment tanks) and various urban structures. No scale bar, compass, or explicit data source/year is visible."
 alt="Delineation in turquoise, Urk (Netherlands), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2013-06-04. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-936cc6c70d185bd0f4a3fa2451b81a27.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-936cc6c70d185bd0f4a3fa2451b81a27.jpeg"
 data-fig-alt="This map displays an aerial false-colour infrared image of a peri-urban area in Malaga, Spain, illustrating land cover classifications. The image shows healthy vegetation in vibrant red, bare ground or sparse vegetation in reddish-brown, artificial surfaces in shades of grey, and water bodies in dark blue. The central feature is a large, elongated area outlined in blue-cyan and labelled &#39;1320&#39;, representing &#39;Land without current use&#39;. This area appears as a cleared or fallow reddish-brown parcel, consistent with a &#39;brownfield&#39; or &#39;wasteland&#39; designation. Surrounding this area are other classified land cover types, likely following Urban Atlas (UA) or CORINE Land Cover (CLC) classification codes: - To the east (right), a complex of buildings and associated grey artificial surfaces is labelled &#39;1120&#39; (Discontinuous urban fabric). - Adjacent to, and partially encompassing, the &#39;Land without current use&#39; are areas labelled &#39;1210&#39; (Industrial or commercial units), characterised by clusters of buildings and paved surfaces. - To the west (left), an area of dense, healthy red vegetation is labelled &#39;1400&#39; (likely Green urban areas or similar natural/semi-natural vegetation). A thin yellow boundary encloses the overall depicted area. A body of water is visible in the bottom right corner."
 alt="Delineation in turquoise, Porsgun (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-29a6fb0c9892054c913606455211241f.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-29a6fb0c9892054c913606455211241f.jpeg"
 data-fig-alt="An aerial or satellite image presented as a False-Colour Infrared (FCIR) composite, showing a landscape near Malaga, Spain. The image displays a river flowing through the top-left, areas of active vegetation appearing in vibrant red, and lighter brown/grey areas representing bare earth or sparse vegetation. On the right, a structured urban area with a grid-like street pattern and buildings is visible. In the central-left portion of the image, an area outlined in light cyan is labelled with the code &#39;1320&#39;. This area appears as mottled light brown/grey, indicating bare ground or land with secondary rural vegetation, consistent with the definition of &#39;Land without current use.&#39; This classification (1320) refers to areas in a transitional state, such as wasteland, former industrial areas (&#39;brownfields&#39;), or undeveloped gaps within or near urban areas (&#39;greenfields&#39;), without visible construction or maintenance, but also not undisturbed natural vegetation. The image is credited to M. Palacios."
 alt="Ruins in Caykoy, Turkey, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-06-30. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -1910,32 +1910,32 @@ are entirely included on this category.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-a4f2eb6e1ad141b89262d7dc31628d8e.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-a4f2eb6e1ad141b89262d7dc31628d8e.jpeg"
 data-fig-alt="A photograph depicting a managed urban green area, characteristic of a park or large public garden. The image prominently features a well-maintained green lawn under bright sunlight. Several mature deciduous trees are visible, with those in the mid-ground casting distinct long shadows, indicating late afternoon. In the background, partially obscured by foliage, a multi-story building with a reddish roof and light-coloured walls can be seen, placing the scene within an urban or suburban environment. This visual example corresponds to the Copernicus Land Monitoring Service (CLMS) classification for &#39;green urban areas&#39; defined as public recreational spaces like gardens or urban parks."
 alt="Green urban areas (Täby, Sweden). Credit: K. Larsson." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-56646247393e1585adbbd6af7ebb6a1a.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-56646247393e1585adbbd6af7ebb6a1a.jpeg"
 data-fig-alt="A photograph depicting a managed green urban area. In the foreground, a vibrant green, gently sloped lawn is visible, bordered by a paved pathway on the left. The lawn features a few small, young trees or shrubs. The middle ground includes a road with several parked cars (white, grey, and red) and a line of larger trees and bushes. In the background, a prominent multi-story residential building with light yellow facades and multiple balconies dominates the scene, representing urban fabric. Other buildings are partially visible further left. The sky appears partly cloudy. This image illustrates a &#39;green urban area&#39; within a developed environment, a common category in Copernicus Land Monitoring Service (CLMS) products like Urban Atlas or CORINE Land Cover (CLC+), typically distinct from dense &#39;Urban fabric&#39; or &#39;Industrial, commercial and military units&#39;."
 alt="Green urban areas (Marbella, Spain). Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-18d2383d17148bf38be276b9be793ff1.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-18d2383d17148bf38be276b9be793ff1.jpeg"
 data-fig-alt="A ground-level photograph depicts a large, well-maintained golf course located in Täby, Sweden. The foreground and midground feature expansive green fairways with several small, dark figures visible, indicating golfers on the course. White, winding paths traverse the green areas. Towards the background, multiple water features, including ponds with active fountains, are visible. The landscape is dotted with numerous trees, and in the far background, buildings, possibly a clubhouse or residential structures, are nestled amidst additional tree cover. This image represents a type of &#39;green urban area&#39; which, in Copernicus Land Monitoring Service (CLMS) classifications, falls under categories like &#39;sports fields&#39; or &#39;leisure parks&#39; (e.g., within a &#39;1.4 areas&#39; classification)."
 alt="Golf course. Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-99fb5a72e3c111c56b664e757b56ac59.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-99fb5a72e3c111c56b664e757b56ac59.jpeg"
 data-fig-alt="A ground-level photograph illustrating the land cover category &#39;Green urban areas&#39; in Täby, Sweden. The image shows a spacious grassy foreground with scattered white rocks, indicating a semi-natural or informally managed green space. Several mature trees, including pines and birches, are prominent. In the mid-ground and background, multiple multi-story buildings, appearing to be residential or institutional, are visible. This photograph serves as a visual example for land cover classification, differentiating &#39;Green urban areas&#39; from other categories like &#39;Urban fabric&#39; or &#39;Industrial, commercial and military units&#39; within Copernicus Land Monitoring Service (CLMS) and CORINE Land Cover (CLC+) nomenclature guidelines. The image credit is K. Larsson."
 alt="Sports and leisure facilities (Göteborg, Sweden). Credit: Eurostat, 2009. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-f7bc5f18ffa21982325a991fb063af61.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-f7bc5f18ffa21982325a991fb063af61.jpeg"
 data-fig-alt="A photograph depicting a snow-covered green urban area in Täby, Sweden, under a clear blue sky with bright sunlight. The foreground shows several orange-red, spherical ground markers or play elements, and a larger, ring-shaped orange-red structure, all partially covered in snow. A white bicycle with black tires is visible in the middle ground, standing on the snow. The background features a wide expanse of snow-covered ground with scattered deciduous trees, indicating a winter season. This image is credited to K. Larsson."
 alt="Sports and leisure facilities (playground), (Täby Sweden) Credit: K. Larsson." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-5becb71fb9c2eeb8a08ce8a441945ba0.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-5becb71fb9c2eeb8a08ce8a441945ba0.jpeg"
 data-fig-alt="A ground-level photograph depicts a group of children playing football (soccer) on an artificial turf pitch. The pitch is green with white markings, and several children are visible, with one child in an orange top appearing in the foreground-middle actively engaged with a football. In the background, there are goalposts, boundary fences, and a dense line of trees, suggesting the edge of an urban or suburban area. The sky is bright, indicating daylight conditions. The image serves as an example of green urban areas, specifically sport and leisure facilities, located in Täby, Sweden."
 alt="Sports and leisure facilities (Artificial football field) (Täby Sweden). Credit: K. Larsson." />
 
@@ -1946,27 +1946,27 @@ alt="Sports and leisure facilities (Artificial football field) (Täby Sweden). C
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-f096094a93e3a55d4cb4d63674283f32.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-f096094a93e3a55d4cb4d63674283f32.jpeg"
 data-fig-alt="The map displays an urban landscape, likely from false-colour infrared satellite imagery, illustrating land cover classification. The image does not specify a geographic location, but the colours distinguish vegetated areas from built-up areas. Yellow lines delineate distinct land cover polygons, each identified by a numeric code. Areas classified as `1110` appear in light green/grey tones, representing built-up surfaces such as buildings and roads, consistent with CORINE Land Cover (CLC) class `1.1.1 Continuous urban fabric`. Three such `1110` polygons are visible, forming the matrix of the urban environment. Two larger polygons are classified as `1400`, shown in dark red, indicating dense vegetation. These areas correspond to CLC categories like `1.4.1 Green urban areas` or `1.4.2 Sport and leisure facilities` (sub-classes of Artificial, non-agricultural vegetated areas) as suggested by the surrounding document context referencing &#39;Green urban areas&#39; and &#39;Golf course&#39; examples. The map visually demonstrates the spatial distribution of green urban spaces (1400) within the surrounding urban fabric (1110). No scale bar, compass, legend, or reference year is visible."
 alt="Delineation, Avezzano (Italy), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-15. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-a5a8290dfa366d108560801b45a67497.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-a5a8290dfa366d108560801b45a67497.jpeg"
 data-fig-alt="This map displays a false-colour infrared (FCIR) satellite image of a coastal area, enhanced with overlaid land cover classification polygons. The water body is shown in dark blue. Vegetated areas, including forests and dense vegetation, appear in shades of red and pink. Urban fabric, buildings, and impervious surfaces such as roads are rendered in cyan, light blue, or grey. Yellow lines outline the boundaries of various land cover polygons. A specific polygon containing a large, dark-roofed building and surrounding developed and vegetated spaces is labelled &#39;1400&#39; in green text. Based on the surrounding document context which references &#39;Green urban areas&#39; (CORINE Land Cover (CLC) 1.4.1) and &#39;Sport and leisure facilities&#39; (CLC 1.4.2), the label &#39;1400&#39; likely refers to a classification within the CLC 1.4 category: Artificial, non-agricultural vegetated areas. Roads are visible as greenish-yellow lines traversing the landscape. No scale bar, compass orientation, or explicit geographic location is visible within the image."
 alt="Delineation, Uleforss (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-44825f9863f4e8e6b81f9767ba759117.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-44825f9863f4e8e6b81f9767ba759117.jpeg"
 data-fig-alt="This map displays a coastal urban area using false-colour infrared satellite imagery, where vegetated areas appear bright red/magenta, built-up areas are grey/cyan, and water bodies are dark blue/black. Several land cover polygons are delineated with thin green lines and labelled with numeric codes. The map shows: * Areas labelled `1110` in bright green, indicating general urban fabric or built-up areas. These areas are densely developed. * A large, distinct polygon outlined in light blue (cyan) and labelled `1400` in magenta. This area appears intensely red, signifying dense vegetation, consistent with a green urban area or sports and leisure facilities such as a golf course, as indicated by the surrounding document context. * Areas labelled `8420` in bright green, corresponding to the surrounding water bodies. No scale bar, compass, or explicit data source or year are visible. The imagery and labels are consistent with the Copernicus Land Monitoring Service (CLMS) Land Use / Land Cover (LULC) nomenclature guidelines."
 alt="Delineation in turquoise, Brevik (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-2d7fe66774d6f5366ac976173acb46ec.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-2d7fe66774d6f5366ac976173acb46ec.jpeg"
 data-fig-alt="A false-colour infrared aerial image shows an urban or peri-urban landscape with various land cover types delineated by polygons and identified by four-digit numeric codes. The underlying imagery displays healthy vegetation in shades of bright red, while built-up or bare areas appear in grey-blue tones. Three distinct land cover areas are labelled: * A large, irregularly shaped central polygon outlined in cyan is labelled &#39;1400&#39; in pink text. This area shows intense red hues, characteristic of dense, healthy vegetation, likely representing sports or leisure facilities, or a green urban area. * Towards the bottom left, an area is labelled &#39;1210&#39; in green text, within a less distinct green outline. This area appears to be a mix of grey-blue and some red, suggesting industrial, commercial, or other complex artificial units. * Towards the bottom right, an area is labelled &#39;1110&#39; in green text, also within a less distinct green outline. This area primarily shows grey-blue tones, indicating continuous urban fabric or densely built-up areas. No scale bar, compass, or specific geographic location is visible on the map. The numerical codes represent land cover classification categories within a nomenclature system."
 alt="Delineation in turquoise, Drangedal (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-aa138b3e1719dca43041ee1cca5aec9f.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-aa138b3e1719dca43041ee1cca5aec9f.jpeg"
 data-fig-alt="False colour composite satellite image from Spot 5 (2.5 m resolution, 1/2/3 band combination) showing land cover delineation near a water body. The image displays vegetation in shades of red and pink. A large, irregularly shaped polygon, outlined in light blue, covers an area labelled &#39;1400&#39; (magenta box), which corresponds to a golf course with managed pinkish-red vegetation and small white features. To the east of this polygon, there is a dark blue/black area representing a water body. To the southeast, an area of dense, darker red vegetation is labelled &#39;3210&#39; (red text), indicating dense forest or natural vegetation. A thin green-yellow line outlines the boundaries of land parcels and the water&#39;s edge."
 alt="Delineation from Golf Course in turquoise, Uleforss (Norway), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -1977,7 +1977,7 @@ Isolated holiday village’s delineation criteria:
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-22b55da887d92a4fe9e0488b9635116b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-22b55da887d92a4fe9e0488b9635116b.jpeg"
 style="width:376pt"
 data-fig-alt="A false-colour infrared satellite image illustrating land cover delineation for Copernicus Land Monitoring Service (CLMS) products, likely within a CORINE Land Cover (CLC) or High Resolution Layer (HRL) framework. The image uses a false-colour infrared (NIR-Red-Green) band combination, where deep blue/black areas represent water bodies, reddish-magenta areas indicate vegetation, and light blue/cyan/white areas show built-up surfaces and impervious features. Multiple polygons are overlaid on the satellite imagery. A central, densely built-up area (light blue/cyan) is outlined by a light blue polygon. Within this delineated area, the numerical label &#39;1400&#39; is displayed in yellow text, indicating a land cover classification code. This central area appears to be an industrial or commercial complex, potentially including port infrastructure, situated adjacent to a large body of water. The light blue delineated area is fully enclosed by a larger, irregularly shaped yellow polygon, which itself is part of a broader network of yellow-outlined land parcels seen across the image, primarily encompassing vegetated areas. A thin yellow line, likely representing a road or linear infrastructure, traverses horizontally through the bottom third of the image. The image is an example of land cover delineation, similar to examples cited for Avezzano (Italy), Uleforss (Norway), and Brevik (Norway). The imagery source is Spot 5 with 2.5 metre resolution, captured on 2011-08-15. Copyright CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="Übersee (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-07-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -2095,57 +2095,57 @@ Arable land includes irrigated and non-irrigated arable land.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-d67e56d88203d702780c0cf816b3de51.jpg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-d67e56d88203d702780c0cf816b3de51.jpg"
 data-fig-alt="A ground-level photograph capturing an active irrigation channel within an agricultural field. In the foreground, an open, dark-coloured trough, appearing to be made of concrete or metal, runs horizontally across the frame. It is filled with flowing water, originating from a circular, well-like structure visible on the left side. The channel is slightly elevated above the surrounding ground, which is covered in green grass and some dry vegetation. Behind the channel, a dense field of tall, green crops, consistent with corn or maize, extends into the mid-ground. In the far background, scattered deciduous trees and faint outlines of buildings are visible, indicating a rural setting during what appears to be a warm growing season. This image exemplifies water management practices for irrigated arable land."
 alt="Irrigation channel in Osmaniye (Turkey). Credit: “Osmaniye irrigation” by Ozgurmulazimoglu - Own work. Licensed under Creative Commons Attribution-Share Alike 3.0 via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:Osmaniye_irrigation.JPG#mediaviewer/File:Osmaniye_irrigation.JPG." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-c7ecd7f6817e609e800935137a35395d.jpg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-c7ecd7f6817e609e800935137a35395d.jpg"
 data-fig-alt="This conceptual map illustrates various land cover and land use types within an agricultural landscape centered around a river, as defined in a land monitoring context. The legend on the right details ten distinct features and their visual representations: * **Irrigated arable land**: Depicted by a dark green solid fill. * **Fallow land in irrigated areas**: Represented by a light brown solid fill. * **Irrigated fruit trees**: Shown as white areas containing arrays of small green circular patterns. * **Non-irrigated arable land**: Displayed as a cream/off-white solid fill. * **Alluvial grassland**: Indicated by a medium green solid fill. * **Trees**: Illustrated with small green tree icons. * **Rivers**: Represented by solid blue, wide wavy lines. * **Roads**: Shown as light green, thin lines. * **Rural buildings**: Depicted by black and white square icons. * **Irrigation channel**: Shown as thin, squiggly blue lines with small black &#39;W&#39; shapes. The map shows a river flowing through the center, with alluvial grassland bordering much of its length, frequently populated with trees. Extensive areas of irrigated arable land, fallow land in irrigated areas, and irrigated fruit trees are situated near the river and irrigation channels. Non-irrigated arable land is depicted further from the main water bodies. Rural buildings are scattered throughout the agricultural areas. Irrigation channels are visible, often running parallel to the river or extending into crop fields. No scale, compass, reference year, or specific geographic location is provided."
 alt="Schematic representation of a permanent irrigated area with irrigation channels." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-9f5f6ecf6835b4a2ad4bb62ed353cc3b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-9f5f6ecf6835b4a2ad4bb62ed353cc3b.jpeg"
 data-fig-alt="A ground-level photograph depicting an agricultural landscape under a partly cloudy sky. In the foreground, a vibrant green field is actively being irrigated by multiple sprinkler heads, visible as several arcs of water across the field. A small building with a dark roof is situated on the left edge of this irrigated field. In the midground, additional fields appear, some green and others brownish-grey, suggesting different stages of cultivation or fallow land. A dirt road is visible on the right side of the midground. The background features a rolling hill covered with scattered trees or scrubland, with at least four distinct electricity transmission towers (power lines) visible against the horizon. This image illustrates an example of irrigated arable land."
 alt="Sprinkler irrigation. Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-b4b9910d78b49ad3861d2ca759dc2c22.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-b4b9910d78b49ad3861d2ca759dc2c22.jpeg"
 data-fig-alt="This map provides a simplified spatial representation of agricultural land use, distinguishing between irrigated and non-irrigated areas, and depicting a specific irrigation method. The geographic area is generic, representing a parcelled landscape. The map legend defines four categories: * **Irrigated arable land** is shown in dark green. * **Center-pivot irrigation** is represented by a pie chart overlay, featuring three shades of green (dark, intermediate, and light green), superimposed on an area of non-irrigated arable land. The largest segment of the pie chart is light green, followed by an intermediate green segment, and a smaller dark green segment. * **Non-irrigated arable land** is depicted in light green (or pale yellow/beige). * **Roads** are shown as grey lines delineating parcels. The spatial pattern shows a network of roads dividing the land into various plots. Some plots are identified as irrigated arable land, appearing as distinct dark green polygons. Larger areas of non-irrigated arable land are prevalent, depicted in light green. A circular area within one of the non-irrigated plots is highlighted by the &#39;Center-pivot irrigation&#39; pie chart, visually indicating a mix of conditions within that specific circular area, likely representing the extent of irrigated vs. non-irrigated portions under that irrigation system."
 alt="Schematic representation of an area irrigated in summer time using underground water." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-f682a1b83e235b454a4fa569ce5151e6.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-f682a1b83e235b454a4fa569ce5151e6.jpeg"
 data-fig-alt="A photograph depicting a large, wheeled pivot irrigation system positioned across a wide expanse of tilled brown arable land, under a sky with scattered clouds. The foreground shows the base of the irrigation system, featuring a large grey wheel, a metallic structural frame, and a blue panel with partially obscured white text. The extensive metal framework of the irrigation system stretches into the background across the field, suggesting its capability to irrigate a large circular area. The ground displays distinct furrows, indicating recent plowing or preparation for planting. In the far background, a faint line of lighter ground or a road is visible to the right."
 alt="Center-pivot irrigation system. Credit: J. Pecci." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-d43d29acadbdb8379bc394446cfe1d71.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-d43d29acadbdb8379bc394446cfe1d71.jpeg"
 data-fig-alt="This conceptual map illustrates various land cover and land use types within an agricultural landscape, focusing on irrigation practices and associated infrastructure. The map shows six distinct categories based on colour and shape, as defined in the legend: * **Center-pivot irrigation:** Represented by circular fields divided into two segments, where the light green segment indicates the irrigated portion and the beige segment represents the non-irrigated portion. * **Other irrigated parcels:** Depicted as solid medium green shapes, including both circular and rectangular fields. * **Non-irrigated arable land:** The predominant background colour is a light beige, representing general non-irrigated agricultural areas. Roads are also depicted as fine linear features in the same light beige colour. * **Rural buildings:** Small black square symbols. * **Irrigation pond:** Small dark blue square symbols. The map visualises the spatial arrangement of irrigated fields, non-irrigated fields, and key rural features like buildings, roads, and water sources, providing a clear example of land cover types relevant for land monitoring and agricultural classification."
 alt="Schematic representation of an area irrigated using center pivot irrigation systems." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-3b7a001c3d8be27caaf4312d34d84df3.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-3b7a001c3d8be27caaf4312d34d84df3.jpeg"
 data-fig-alt="A ground-level photograph depicts a landscape under a clear, light blue sky with faint cirrus clouds. In the immediate foreground, dark green bushes frame the edge of a large, calm body of water, likely an irrigation pond or reservoir, which reflects the sky. Beyond the water, in the mid-ground, are extensive, gently rolling green fields, possibly irrigated arable land, managed grassland, or golf courses, interspersed with a few scattered trees and some low-lying structures. The background features a range of rugged, barren hills or mountains under the expansive sky, suggesting a dry or semi-arid climatic zone. The scene illustrates various land cover types and potentially demonstrates the use of irrigation in such landscapes."
 alt="Irrigation pond and fruit trees in South-East Spain. Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-44b09d843fae566f7498e24533f5f222.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-44b09d843fae566f7498e24533f5f222.jpeg"
 data-fig-alt="This conceptual map illustrates a rural agricultural landscape, differentiating between various land cover and land use (LULC) types. The map uses colour and pattern coding, with a legend provided on the right. The land cover types and their visual representations are: * **Irrigated arable land**: Depicted as bright green polygons. * **Irrigated fruit trees**: Represented by rectangular areas with a grid pattern of small dark green squares, indicating orchards. * **Non-irrigated arable land**: Shown as light yellow polygons. * **Roads**: Illustrated by thin light grey lines that delineate parcel boundaries and provide access. * **Rural buildings**: Small black and white rectangular shapes. * **Irrigation pond**: Dark blue rectangular shapes, typically associated with irrigated areas. The map shows a mosaic of agricultural fields and orchards, with several irrigation ponds supporting irrigated arable land and fruit trees. Rural buildings are scattered throughout. Roads segment the land into distinct parcels. The layout indicates a managed agricultural area with both irrigated and non-irrigated cultivation practices."
 alt="Schematic representation of irrigated fruit trees parcels with irrigation ponds." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-fdf6a9194ccf5ae6c5c3d2c4e85e1c6f.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-fdf6a9194ccf5ae6c5c3d2c4e85e1c6f.jpeg"
 data-fig-alt="A ground-level photograph captures an agricultural landscape featuring a large, vibrant field of bright yellow flowering plants, characteristic of rapeseed or canola, covering the midground and extending towards the background. A strip of green grassland with scattered small yellow flowers is visible in the immediate foreground. Behind the extensive yellow field, a gently sloping hill with sparse green vegetation, dotted with darker green shrubs and trees, rises. A faint, winding dirt path or track is discernible on the upper right slope of the hill. The image depicts a common rural environment with arable land use."
 alt="Non-irrigated arable land: Rapeseed in Germany. Credit: M. Probeck." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-a9ca172d4525feed7c3c425612cfb22c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-a9ca172d4525feed7c3c425612cfb22c.jpeg"
 data-fig-alt="A ground-level photograph captures a dry rural landscape under a mostly clear blue sky with a few scattered white clouds. The foreground is dominated by a wide, golden-brown field showing distinct parallel crop rows, indicative of harvested or very dry arable land. In the background, a gentle hill rises, covered with sparse, light-coloured dry vegetation, which could be classified as semi-natural grassland or transitional woodland and scrub, interspersed with patches of exposed lighter soil or rock. The overall scene conveys a dry environment, consistent with a late summer or early autumn period."
 alt="Non-irrigated arable land: Parcel of cereal harvested in Central Spain. Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-3dcb6ffd3f3b5f1addd50ae3cdea6387.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-3dcb6ffd3f3b5f1addd50ae3cdea6387.jpeg"
 data-fig-alt="A simplified land cover map illustrating a rural landscape with four distinct feature types. The map&#39;s primary colours are light yellow for land and blue for water. The legend on the right indicates: * **Arable land:** Represented by light yellow areas with fine vertical stripe patterns. This covers the majority of the map area. * **Rural settlement:** Depicted by an icon composed of clustered small black and white squares, located in the upper right quadrant of the map. * **Roads:** Shown as thin light grey lines that traverse and divide the arable land areas. * **River:** A prominent wavy blue feature flowing horizontally across the upper-middle section of the map. The map illustrates typical land use/land cover (LULC) elements found in agricultural regions, with an emphasis on arable land and water bodies like rivers, which are often associated with irrigation channels as noted in the surrounding document context. No scale bar, compass, specific geographic location, or reference year is visible on the map."
 alt="Schematic representation of managed non-irrigated arable land." />
 
@@ -2156,7 +2156,7 @@ alt="Schematic representation of managed non-irrigated arable land." />
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-5f133edd9780b20b596a4b56eda6e07b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-5f133edd9780b20b596a4b56eda6e07b.jpeg"
 style="width:232pt"
 data-fig-alt="This image is a false-colour infrared satellite image depicting a rural agricultural landscape. Dominant features are agricultural fields, shown in varying shades of red, white, and light grey. Bright red areas indicate healthy, vigorous vegetation, likely representing actively growing crops, vineyards, or fruit tree plantations. Lighter grey or white areas may correspond to bare soil, harvested fields, or less vegetated land. A small, dense settlement, characterised by a cluster of light grey structures, is centrally located. A winding, light grey feature, consistent with a riverbed, dry wadi, or a significant irrigation channel, is visible, particularly in the upper right and lower left quadrants. Numerous narrow linear features, likely field boundaries, roads, or tracks, crisscross the cultivated areas. The imagery highlights land cover and land use patterns, emphasizing vegetated areas through the false-colour representation."
 alt="Traditional irrigated area in Saka, Anatolia (Turkey), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-09-06. CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -2168,7 +2168,7 @@ alt="Traditional irrigated area in Saka, Anatolia (Turkey), Spot 5 (2.5 m; 1/2/3
   - Villages and farms.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-5211cafaf968c656a4eb9069c27c8881.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-5211cafaf968c656a4eb9069c27c8881.jpeg"
 data-fig-alt="This is a false-colour infrared satellite image depicting an area of managed arable land, consistent with non-irrigated agricultural fields. The image features a dense mosaic of irregularly shaped and rectangular agricultural parcels, predominantly coloured in deep red, indicating healthy vegetation as typically seen in false-colour infrared representations. The individual fields are clearly delineated by thin, lighter greenish-teal lines, which represent field boundaries, uncultivated strips, or possibly tracks. Scattered within the fields are small, isolated patches of brighter, light green or white, suggesting specific non-vegetated features such as small structures or bare ground. The image shows a broad expanse of contiguous agricultural activity."
 alt="Rice fields at Rosayenda, Italy, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-29. CNES 2011©, Distribution Airbus DS / Spot Image." />
 
@@ -2182,7 +2182,7 @@ alt="Rice fields at Rosayenda, Italy, Spot 5 (2.5 m; 1/2/3 band combination). Da
   - Presence of buildings.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-1d12e66c421149b81e994aa425e1375d.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-1d12e66c421149b81e994aa425e1375d.jpeg"
 data-fig-alt="A satellite image captured by Spot 5 on 2011-09-06, depicting a traditional irrigated agricultural area in Saka, Anatolia, Turkey. The image uses a 1/2/3 band combination, providing a resolution of 2.5 metres per pixel. The landscape is dominated by a patchwork of agricultural parcels, many of which appear vibrant bright green, indicating active vegetation or crops during the growing season. Interspersed with these green fields are numerous rectangular parcels of bare ground or fallow land, shown in shades of grey and brown. Linear features, likely irrigation channels or tracks, are visible dissecting and bordering some parcels. The parcels are generally regular in shape and range from small to medium in size. Scattered lighter grey areas may represent uncultivated land or dry soil. The overall pattern reflects a managed agricultural landscape with permanent irrigation infrastructure. The image copyright is CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="Viransehir (Turkey), Spot 5 (2.5 m; natural colour combination). Date: 2006-09-16. CNES 2006 ©, Distribution Airbus DS / Spot Image." />
 
@@ -2192,7 +2192,7 @@ alt="Viransehir (Turkey), Spot 5 (2.5 m; natural colour combination). Date: 2006
     not irrigated parcels.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-9049113317b8a37ba2e0546a657026d6.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-9049113317b8a37ba2e0546a657026d6.jpeg"
 style="width:194pt"
 data-fig-alt="The image displays a satellite view of an agricultural landscape characterized by extensive irrigation. The most prominent features are numerous circular fields, indicative of center-pivot irrigation systems. These circular fields vary in size and exhibit shades of dark green (active vegetation) and lighter brown/green (potentially harvested or fallow land). They are interspersed with irregularly shaped rectangular or polygonal agricultural fields. Several small to medium-sized, blue-coloured water bodies, likely reservoirs or ponds used for irrigation, are also scattered across the landscape. Patches of darker green vegetation, possibly natural forests or denser vegetation, are visible at the edges and between the cultivated areas. This imagery showcases a managed agricultural environment with intensive land use."
 alt="Zaragoza, Ebro valley (Spain), Spot 5 (2.5 m; natural colour combination). Date: 2006-08-27.CNES 2006 ©, Distribution Airbus DS / Spot Image." />
@@ -2203,7 +2203,7 @@ alt="Zaragoza, Ebro valley (Spain), Spot 5 (2.5 m; natural colour combination). 
   - Mixed with not irrigated parcels.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-5afdefbc17b5bacabce0735c3a7f6b55.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-5afdefbc17b5bacabce0735c3a7f6b55.jpeg"
 data-fig-alt="A satellite image showcasing a traditional irrigated agricultural area in Saka, Anatolia, Turkey, captured on 2011-09-06 by the Spot 5 satellite at 2.5 m resolution. The image is presented as a false-colour composite using band combination 1/2/3 (likely RGB mapping to green, red, and near-infrared, respectively), where actively vegetated areas, characteristic of summer-time irrigated crops, appear in vivid shades of red. A large, dark blue body of water, likely a river or lake, occupies the lower portion of the image. Adjacent to the water and extending inland are numerous regular, small-to-medium sized agricultural parcels, many exhibiting the bright red of actively growing crops. Interspersed among these are parcels of lighter brown or grey, possibly representing non-irrigated land, fallow fields, or bare soil. In the upper-central part of the image, a dense cluster of bright white and light blue/grey features indicates a village or settlement with associated infrastructure, consistent with typical traditional irrigated areas. The image source is CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="Irrigated fruit trees plantation in Morhamam, Anatolia (Turkey), Spot 5 (2.5 m; NIR/R/G band combination). Date: 2011-06-29. CNES 2011© Distribution Airbus DS/Spot Image." />
 
@@ -2212,7 +2212,7 @@ alt="Irrigated fruit trees plantation in Morhamam, Anatolia (Turkey), Spot 5 (2.
   - Red colour in infrared bands combinations in summer time.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-19df32b47950fee54c34eb1d1b5ef101.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-19df32b47950fee54c34eb1d1b5ef101.jpeg"
 data-fig-alt="A false-colour satellite image from Spot 5, with 2.5 m resolution, using a Near Infrared (NIR)/Red (R)/Green (G) band combination, depicting an irrigated fruit tree plantation in Morhamam, Anatolia, Turkey. The image shows a patchwork of predominantly rectangular and irregularly shaped agricultural parcels. Many parcels appear in vibrant red hues, indicating active and healthy vegetation, characteristic of high Near Infrared reflectance in such band combinations. Other parcels are dark green or teal, possibly representing different crop types, bare soil, or less vigorous vegetation. The precise date and copyright information for this specific image are not fully provided in the source text."
 alt="Non-irrigated agricultural fields, Northern Germany, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2012-07-27. CNES 2012©, Distribution Airbus DS/Spot Image." />
 
@@ -2225,7 +2225,7 @@ alt="Non-irrigated agricultural fields, Northern Germany, Spot 5 (2.5 m; 1/2/3 b
   fields which already have been harvested.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-dcf9ca71f9eaad230214de03ad5d82c0.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-dcf9ca71f9eaad230214de03ad5d82c0.jpeg"
 style="width:233pt"
 data-fig-alt="An aerial photograph depicting irrigated fruit tree plantations in Morhamam, Anatolia, Turkey, captured by the Spot 5 satellite on 2011-06-29. The imagery uses a Near-Infrared (NIR), Red (R), Green (G) band combination. In this band combination, actively vegetated areas, such as the fruit tree rows, appear in shades of red and magenta, indicating healthy plant growth. The landscape consists of multiple, distinctly rectangular agricultural parcels. Many parcels exhibit clear linear patterns within them, consistent with rows of intensively managed fruit trees. Other areas appear in bluish-green or grey tones, indicating less vigorous vegetation or bare ground. Darker linear features demarcate field boundaries or irrigation channels. The image has a spatial resolution of 2.5 metres. The copyright is held by CNES 2011, with distribution by Airbus DS/Spot Image."
 alt="Non-irrigated arable land in central Europe, Germany, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-06-28. CNES 2010©, Distribution Airbus DS/Spot Image." />
@@ -2233,7 +2233,7 @@ alt="Non-irrigated arable land in central Europe, Germany, Spot 5 (2.5 m; 1/2/3 
 - Plough furrows are a typical characteristic of crops.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-89d5627be616dd5bcf52f8d50b2497a9.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-89d5627be616dd5bcf52f8d50b2497a9.jpeg"
 style="width:234pt"
 data-fig-alt="This satellite image shows a landscape dominated by non-irrigated agricultural fields in Northern Germany, captured on 2012-07-27 by Spot 5 satellite at a 2.5 m resolution. The image uses a 1/2/3 band combination, typically a false-colour infrared composite where healthy vegetation appears reddish. The majority of the agricultural fields are irregularly shaped parcels, appearing in shades of light beige, green, and brown, suggesting dry, fallow, or harvested land. Some areas, particularly in the lower right, exhibit more pronounced reddish-brown tones, indicating active vegetation or different land cover types within the false-colour rendition. The upper part of the image shows areas with a more natural, muted green-brown hue, possibly representing natural terrain or less intensely managed land. The image is copyrighted by CNES 2012 © and distributed by Airbus DS / Spot Image."
 alt="Non-irrigated arable land in Altnkusak, Anatolia (Turkey), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-05. CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -2241,7 +2241,7 @@ alt="Non-irrigated arable land in Altnkusak, Anatolia (Turkey), Spot 5 (2.5 m; 1
 - Yellow/white colours in summer-time.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-6f83aa8d8e66e243d1765e23f690476a.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-6f83aa8d8e66e243d1765e23f690476a.jpeg"
 style="width:234pt"
 data-fig-alt="This satellite image shows non-irrigated agricultural fields in Northern Germany, captured on 2012-07-27 by a Spot 5 sensor at 2.5 m resolution, using a 1/2/3 band combination (false-colour infrared). The landscape is structured by rectangular fields displaying a heterogeneous pattern of different colours and textures, indicative of a mix of diverse crops. Red hues indicate vital green vegetation, while bluish-green and brownish-grey areas represent other land cover types or less vigorous vegetation. Several four-digit land cover classification codes are overlaid on the fields in yellow text: &#39;2330&#39; (on two separate fields), &#39;3110&#39; (partially obscured), &#39;5110&#39;, &#39;2110&#39; (on two separate fields), &#39;1110&#39; (partially obscured), and &#39;1210&#39; (partially obscured)."
 alt="Non-irrigated arable land, Hungary, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-05. CNES 2013©, Distribution Airbus DS/Spot." />
@@ -2282,12 +2282,12 @@ flowers.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-937be0271e11be5248ddde98542c436b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-937be0271e11be5248ddde98542c436b.jpeg"
 data-fig-alt="A photograph depicting an agricultural structure, likely a greenhouse, covered with a translucent light brown or beige fabric, extending upwards towards a clear blue sky. The fabric is tautly stretched over a visible framework. The image is attributed to &#39;© Eurostat LUCAS 2009&#39; in the bottom left corner. This image illustrates a type of greenhouse, aligning with descriptions that include structures with plastic or fabric roofs used for plant cultivation."
 alt="Greenhouse in Almeria (Andalusia, Spain). Credit: Eurostat, 2009. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-eb83baeb2a789c0ca85a432d8b395342.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-eb83baeb2a789c0ca85a432d8b395342.jpeg"
 data-fig-alt="A ground-level photograph depicting agricultural infrastructure for a greenhouse or similar crop cultivation in Almería, Andalusia, Spain, from 2009. The image shows a dense grid of vertical support poles forming an overhead structure, extending across an expanse of dry, bare ground. A dark, coarse mesh net is visible in the lower foreground, forming part of the enclosure. In the distant background, faint mountains are visible under a clear, bright blue sky. The image explicitly credits &#39;Eurostat LUCAS 2009&#39; in the bottom left corner and in the caption. This visual illustrates the infrastructure of greenhouses, even when covers might be open or absent, as per Copernicus Land Monitoring Service (CLMS) Land Use / Land Cover (LULC) nomenclature guidelines."
 alt="Greenhouses structure in Almeria (Andalusia, Spain). Credit: Eurostat, 2009. LUCAS." />
 
@@ -2298,7 +2298,7 @@ alt="Greenhouses structure in Almeria (Andalusia, Spain). Credit: Eurostat, 2009
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-36c69fd34ee2d853ca8654fbd7675116.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-36c69fd34ee2d853ca8654fbd7675116.jpeg"
 style="width:214pt"
 data-fig-alt="This is a false-colour satellite or aerial image displaying a landscape dominated by agricultural land use. The image features extensive areas of light blue/cyan, particularly in the central and right portions, which exhibit regular, often rectangular or polygonal patterns consistent with large-scale greenhouse structures. These areas are interspersed with and bordered by large patches of deep red, characteristic of healthy, actively vegetated fields in a false-colour infrared composite (such as Landsat 8 band combination 5-6-4 mentioned in the surrounding document). Some smaller, darker reddish-brown areas are also visible, suggesting bare soil or sparse vegetation. The overall pattern indicates intensive agricultural activity and infrastructure."
 alt="Nursery with greenhouses, Lampertheim (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-07-14 CNES 2010©, Distribution Airbus DS/Spot Image." />
@@ -2313,7 +2313,7 @@ alt="Nursery with greenhouses, Lampertheim (Germany), Spot 5 (2.5 m; 1/2/3 band 
   grown.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-004cb5c2613dc8dd6995d3f3c8d66756.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-004cb5c2613dc8dd6995d3f3c8d66756.jpeg"
 style="width:216pt"
 data-fig-alt="Satellite imagery from a Spot 5 satellite, captured on 2010-07-14, showing a nursery with greenhouses in Lampertheim, Germany. The image is a false-colour composite with a resolution of 2.5 metres, using a 1/2/3 band combination (likely visible green/near infrared/red mapped to blue/green/red channels). The prominent features are multiple parallel, elongated rectangular structures depicted in bright blue and cyan, which are identified as greenhouses, consistent with the high reflection of their plastic or glass roofs in this specific band combination. These greenhouse structures are situated within an agricultural landscape, characterised by surrounding areas appearing in shades of red (likely representing vegetation with high Near Infrared reflectance or bare soil) and some greenish patches. The image credit is CNES 2010©, Distribution Airbus DS/Spot Image."
 alt="Nursery with greenhouses, Lampertheim (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-07-14 CNES 2010©, Distribution Airbus DS/Spot Image." />
@@ -2323,7 +2323,7 @@ alt="Nursery with greenhouses, Lampertheim (Germany), Spot 5 (2.5 m; 1/2/3 band 
   greenhouse may appear as a normal field.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-5df83eea309fd6f2dfdf9fc3a29849c0.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-5df83eea309fd6f2dfdf9fc3a29849c0.jpeg"
 style="width:248pt"
 data-fig-alt="This satellite image displays a rural landscape near Lampertheim, Germany, captured on 2010-07-14. The imagery is a false-colour composite from a Spot 5 satellite, using a 1/2/3 band combination at 2.5 m resolution. The dominant features are numerous rectangular and square-shaped light blue/white structures, identified as greenhouses. These structures exhibit high reflection due to their plastic or glass roofs and are extensively distributed across the scene. The surrounding areas appear in shades of reddish-brown, consistent with vegetated land or bare soil typically found in agricultural fields. Faint linear features, likely roads or tracks, traverse the landscape. The image illustrates an area with a high density of greenhouses, characteristic of a plant nursery. No scale bar, compass, or explicit legend is visible within the image frame. Data credit: CNES 2010©, Distribution Airbus DS/Spot Image."
 alt="Greenhouses in Koru (Turkey), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-06-29. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -2397,37 +2397,37 @@ grapes and non-alcoholic grape juice.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-b6be8975b68d07798042e755936efe94.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-b6be8975b68d07798042e755936efe94.jpeg"
 data-fig-alt="A ground-level photograph depicts a panoramic view of a wide agricultural valley under natural daylight, likely morning or late afternoon given the soft lighting. The midground and background are dominated by extensive, light-green cultivated fields, possibly cereal crops, arranged in a mosaic of rectangular parcels. These fields extend towards distant, hazy hills or forested slopes. In the immediate foreground and on the right side, there are leafy trees and shrubs, suggesting the vantage point is from an elevated, vegetated area overlooking the valley. The overall scene shows a rural landscape characterized by agricultural land use and natural vegetation. No text or specific labels are visible within the image."
 alt="Vineyards in Dordogne (France). Credit: C. Alonso." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-9d81929c90f59985a91941e53fc06fa9.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-9d81929c90f59985a91941e53fc06fa9.jpeg"
 data-fig-alt="A ground-level photograph depicts an agricultural landscape under a blue sky adorned with scattered white cumulus clouds. In the immediate foreground, a strip of dry, yellowish-brown vegetation, possibly dry grassland or fallow land, runs horizontally across the frame. Beyond this, a vast field of lush green, cultivated crops is visible, planted in distinct, parallel rows that extend from the mid-ground upwards along a gentle, undulating slope towards the distant horizon. Two slender, dark-coloured poles, possibly utility or fence posts, are positioned vertically in the mid-ground, interrupting the field of dry vegetation. The neat rows suggest a perennial crop plantation, consistent with a vineyard or a fruit tree orchard."
 alt="Vineyards in Duero Valley (Central Spain). Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-bdb584e1b3aabfcd2d2d2b9fa5826a76.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-bdb584e1b3aabfcd2d2d2b9fa5826a76.jpeg"
 data-fig-alt="A photograph depicting a rural landscape under a clear blue sky, featuring a field of uniformly planted deciduous trees, characteristic of an orchard or permanent crop plantation. A wire mesh fence runs across the foreground, separating the viewer from the trees. Beyond the orchard, a grassy hill covered with additional trees and some bare patches rises in the background, topped by a denser forest. The foliage on the trees is bright green, indicating spring or summer. Faint, partially obscured text &#39;2013 COPERNICUS LAND&#39; is visible in the bottom left corner."
 alt="Apple trees in Slovakia. Credit: Eurostat, 2009. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-003c0a638cb440bbb10da0fe2d56041c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-003c0a638cb440bbb10da0fe2d56041c.jpeg"
 data-fig-alt="A ground-level photograph depicting a non-irrigated permanent crop area, consistent with CORINE Land Cover (CLC) category 2.2.1, such as an orchard or grove. Trees are arranged in rows on dry, brown earth covered with fallen leaves and sparse green undergrowth. A low, dry-stone wall runs along the left side of the frame. In the immediate foreground, an open blue binder or notebook rests on the ground, but its textual content is unreadable. This landscape is characteristic of Mediterranean zones, where non-irrigated fruit trees like almonds, carob (*Ceratonia siliqua*), or cherries are cultivated."
 alt="Almond trees in Valencia region (Spain). Credit: Eurostat, 2009. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-77b8d30856ef4d819b18b96f992fb4f6.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-77b8d30856ef4d819b18b96f992fb4f6.jpeg"
 data-fig-alt="A ground-level photograph depicts an agricultural field featuring rows of young, leafy green trees extending into the mid-ground. In the foreground, a dirt track, possibly an access road, cuts across the scene, with patches of green grass growing through it. The trees are planted in straight, evenly spaced lines. The ground between the tree rows is covered with short green vegetation and some bare soil. In the background, a denser line of mature trees forms a boundary under a light grey, overcast sky. The image likely illustrates a type of permanent crop or fruit tree plantation, consistent with CORINE Land Cover (CLC) or CLC+ categories for permanent crops."
 alt="Cherry fruit trees, western Germany. Credit: Eurostat, 2012. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-c1753d78fd49fb7fe7389c81f7615fc8.jpg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-c1753d78fd49fb7fe7389c81f7615fc8.jpg"
 data-fig-alt="A photograph depicting young perennial crops, identified as vineyards, in Dordogne, France. The image features multiple rows of small, green plants with developing foliage, cultivated in dark, tilled soil. A clear, unplanted strip of bare soil runs between two prominent rows, receding into the background. The agricultural field extends horizontally across the frame under a bright, slightly hazy sky. In the distant background, a line of mature trees or taller vegetation is visible along the horizon. The scene illustrates agricultural land use for permanent crops. Credit for the photograph is C. Alonso."
 alt="Low stem fruit trees near Rome, Italy. Credit: Eurostat, 2012. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-7e248403605293247e688aedf19ca63e.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-7e248403605293247e688aedf19ca63e.jpeg"
 data-fig-alt="A ground-level photograph depicting rows of young grapevines on a gently sloping terrain, extending into the mid-ground. The vines are small, deciduous plants with green leaves, planted in neat parallel lines. The soil between the rows is dry and light brown, with sparse dry vegetation and some fallen leaves. In the background, a hillside rises, covered with a mix of green trees and scrubland under a blue sky with some white clouds. This photograph, credited to M. Palacios, shows vineyards in the Duero Valley, Central Spain, which are typically classified as permanent crops in Copernicus Land Monitoring Service (CLMS) Land Use / Land Cover (LULC) nomenclature guidelines."
 alt="Vineyard in Loutsa (Island of Evia), Greece. Credit: N. Kolpatzik." />
 
@@ -2443,19 +2443,19 @@ Vineyards:
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-1e04d5e94a520fc604167a618cb91c61.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-1e04d5e94a520fc604167a618cb91c61.jpeg"
 style="width:223pt"
 data-fig-alt="An aerial or satellite photograph depicts a varied agricultural landscape characterised by a patchwork of irregularly shaped fields. These fields display a range of colours, including various shades of green, light brown, and tan, indicating a mix of cultivated land, potentially vineyards or orchards as per the document context, along with bare soil and possibly fallow areas. Patches of darker green vegetation, likely representing woodlands or forest, are interspersed throughout the scene. Linear features, consistent with roads or paths, traverse the landscape, connecting small clusters of buildings that signify rural settlements or farmsteads. The image provides a medium-scale perspective of land use patterns in a rural, agricultural setting, such as the Duero Valley in Central Spain. No specific date or geographic coordinates are visible within the image."
 alt="Vineyards, Úbeda (Spain), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-12. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-da98250e6b2c8b6a46aa6522a419cbcd.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-da98250e6b2c8b6a46aa6522a419cbcd.jpeg"
 style="width:212pt"
 data-fig-alt="This false-colour infrared aerial or satellite image displays agricultural land, specifically vineyards, located in Loutsa, Island of Evia, Greece. The image shows a mosaic of distinct, geometrically shaped land parcels, which are delineated by thin white lines indicating field boundaries. Areas of dense, healthy vegetation, consistent with actively cultivated vineyards and other crops, appear in vibrant red hues due to high reflectance in the near-infrared spectrum. Other land cover types, likely including less vigorous vegetation or bare soil, are rendered in shades of light green and teal. A prominent, winding linear feature, also appearing reddish-brown, traverses the landscape, potentially indicating a watercourse or vegetated riparian zone. The image illustrates diverse patterns of land use and cultivation. The image is credited to N. Kolpatzik."
 alt="Vineyard, Oestrich-Winkel (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-06-03. CNES 2010©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-43178f6bc0828f963b7ebafdb88f9033.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-43178f6bc0828f963b7ebafdb88f9033.jpeg"
 style="width:196pt"
 data-fig-alt="False-colour satellite image, likely a SPOT 5 acquisition using a 1/2/3 band combination, depicting an agricultural landscape with a river and a bridge in Úbeda, Spain. The river, appearing dark blue to black, flows diagonally from the top left to the bottom right. A light blue bridge crosses the river towards the centre-right of the image. The surrounding land is extensively cultivated, characterised by numerous small, irregular, and often terraced agricultural parcels. Many parcels exhibit a bright cyan colour, indicative of high reflectance from open soil or specific crop types consistent with vineyards cultivated in rows. Denser vegetation, such as forests or scrubland on hillsides, appears in shades of bright red or magenta, particularly in the top right and bottom left corners. Other areas, possibly urban settlements or bare soil, appear in darker red or brownish tones along the riverbanks. The image&#39;s fine detail suggests a high spatial resolution of 2.5 metres, as indicated by the accompanying text."
 alt="Vineyard, Lösnich (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-06-03. CNES 2010©, Distribution Airbus DS/Spot Image." />
@@ -2470,7 +2470,7 @@ High stem fruit trees:
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-6b23ec0b6e9e53572c7f489681ce723b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-6b23ec0b6e9e53572c7f489681ce723b.jpeg"
 style="width:220pt"
 data-fig-alt="An aerial or satellite photograph depicting agricultural land, with a specific rectangular parcel outlined by a magenta border. The highlighted parcel displays characteristics consistent with a vineyard, showing rows of vegetation and areas of exposed soil. Surrounding the magenta-bordered area are other cultivated fields and some artificial structures, possibly buildings, visible in the upper-left quadrant. The image appears to use a false-colour infrared band combination, where healthy vegetation exhibits shades of red or magenta (for instance, the field in the upper-right and within the highlighted area), while bare soil or impervious surfaces like buildings and roads appear in bluish-grey or green tones. The resolution is high enough to distinguish individual land parcels and structures."
 alt="High stem fruit trees, Helmarshausen (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-06-28. CNES 2010©, Distribution Airbus DS/Spot Image." />
@@ -2481,7 +2481,7 @@ alt="High stem fruit trees, Helmarshausen (Germany), Spot 5 (2.5 m; 1/2/3 band c
   arable land (e.g. Luxemburg).
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-0372e4e8845398d0cdd8d54fd18bc1c9.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-0372e4e8845398d0cdd8d54fd18bc1c9.jpeg"
 style="width:225pt"
 data-fig-alt="A false-color composite satellite image displaying a diverse landscape likely captured with an infrared band combination, characteristic of Copernicus Land Monitoring Service (CLMS) High Resolution Layer (HRL) products or similar imagery like Spot 5. Agricultural parcels dominate the scene, appearing in various shades of red (indicating healthy vegetation) and bluish-green (suggesting different crop types, vegetation stages, or bare soil). A prominent dark blue/grey linear feature, likely a road or highway, traverses the image, dissecting the agricultural fields. Two distinct, dark blue/black water bodies are visible towards the lower-left. In the bottom right corner, a built-up area is depicted in shades of light blue and green, indicating structures and associated vegetation. The image shows detailed land parcels and features, consistent with a high-resolution sensor such as Spot 5 (2.5 m resolution, 1/2/3 band combination) as referenced in the surrounding document context for similar imagery."
 alt="High stem fruit trees, Ingelheim am Rhein (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-06-03. CNES 2010©, Distribution Airbus DS/Spot Image." />
@@ -2489,7 +2489,7 @@ alt="High stem fruit trees, Ingelheim am Rhein (Germany), Spot 5 (2.5 m; 1/2/3 b
 - Sometimes planted in small stripes.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-9c96bab97062e0d4b2ef90530875ceaf.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-9c96bab97062e0d4b2ef90530875ceaf.jpeg"
 style="width:223pt"
 data-fig-alt="This is a false-colour satellite image, acquired by Spot 5 (2.5 m resolution) on 2011-08-12, depicting a landscape dominated by agricultural land and urban areas near a river system in Úbeda, Spain. The image uses a 1/2/3 band combination, typically rendering healthy vegetation in red tones. The upper left and central-left areas show urban development with grey and some reddish-brown structures, along with linear features indicative of roads and infrastructure. Large expanses of light brown, reddish-brown, and patterned fields, consistent with agricultural use and possibly vineyards (as suggested by the surrounding document context), cover the central and left portions of the image. A prominent river system flows from the upper right towards the lower centre, bordered by bright red strips representing dense, healthy riparian vegetation. Irregular, textured terrain, likely natural vegetation or scrubland, is visible in the upper right. Turquoise lines are overlaid, delineating the river banks, some field boundaries, and potentially highlighting specific land cover features or areas of interest for mapping and analysis. The image source is CNES 2011©, distributed by Airbus DS/Spot Image."
 alt="Example of pistachio cultivation, Nizip (Turkey), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-05-07. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -2506,7 +2506,7 @@ Low stem fruit trees:
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-65ddab60cb3a325d0c9987498f40ce0c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-65ddab60cb3a325d0c9987498f40ce0c.jpeg"
 style="width:190pt"
 data-fig-alt="This is a false-colour infrared satellite image depicting an agricultural landscape. A central, approximately trapezoidal-shaped field is demarcated by a magenta polygon outline. Within this highlighted field, distinct parallel rows of active vegetation are visible as dark red-brown strips, separated by lighter, bluish-white inter-row areas, characteristic of vineyards or similar row crop cultivation. Surrounding the highlighted area are other agricultural fields exhibiting varied land cover, including areas with uniform bright red tones indicative of dense, healthy vegetation, and areas with blue-green hues, possibly representing bare soil, less vigorous vegetation, or different crop types. The image detail is consistent with high-resolution satellite imagery, such as Spot 5 with 2.5 m resolution, and likely depicts a scene from around 2010, based on similar contextual images."
 alt="Schwarmstedt (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2013-09-05. CNES 2013©, Distribution Airbus DS/Spot Image." />
@@ -2544,7 +2544,7 @@ plantations:
 - Integrate smaller stripes without vegetation.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-eb88aa079ce530a9633879c63bd90060.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-eb88aa079ce530a9633879c63bd90060.jpeg"
 style="width:359pt"
 data-fig-alt="A false-colour infrared satellite map (Spot 5, 2.5 m resolution, 1/2/3 band combination) from 2013-09-05, provided by CNES and Airbus DS/Spot Image, showing a mosaic of land cover/land use (LULC) types with overlaid polygons labelled with CORINE Land Cover (CLC) codes. The map primarily displays agricultural areas (lighter green/brown with linear patterns) and various natural and semi-natural vegetated areas (red/purple hues). Key CLC codes visible include: * **2110**: Arable land (non-irrigated) * **2210**: Vineyards, fruit trees and berry plantations * **2320**: Pastures * **2330**: Land principally occupied by agriculture, with significant areas of natural vegetation * **3110**: Broad-leaved forest * **3210**: Natural grasslands * **3310**: Sclerophyllous vegetation * **3400**: Inland marshes * **3500**: Sparsely vegetated areas * **4211**: Transitional woodland-shrub * **4212**: Transitional woodland-shrub (or other mixed vegetation) A yellow arrow points to a distinct, lighter-coloured stripe within a larger agricultural parcel, which is likely a &#39;small, vegetationless stripe of fallow land&#39; or an annual crop. This specific feature illustrates a methodological generalization rule for CLMS, where such smaller stripes without vegetation within areas mainly covered by fruit trees or berry plantations (CLC class 2.2.1) are to be integrated rather than cut out, unless they form large blocks."
 alt="Apple plantation, Eger (Hungary), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-10-18. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -2604,22 +2604,22 @@ Areas planted with olive trees.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-4398cc6a8795af56173645d2d5a7114b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-4398cc6a8795af56173645d2d5a7114b.jpeg"
 data-fig-alt="A ground-level photograph depicting an olive grove on a dry, gently sloping hillside. Several mature olive trees with green foliage and visible trunks are planted in discernible rows, casting shadows on the brown, sparsely vegetated ground. Patches of dry, golden-brown grass and some greener shrubs are visible in the foreground. The background shows a continuation of the hillside covered with more trees, extending towards a blue sky with scattered white clouds. This image illustrates an example of an olive grove, which is classified as CORINE Land Cover (CLC) class 2.2.2, &#39;Olive groves,&#39; within the Copernicus Land Monitoring Service (CLMS) nomenclature guidelines."
 alt="Olive groves in a mountainous area in South-western Spain. Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-2903feef60ed1847a749439d0acb33e8.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-2903feef60ed1847a749439d0acb33e8.jpeg"
 data-fig-alt="A ground-level photograph depicts olive groves planted on a gently sloping, mountainous terrain. The foreground shows rows of young, slender olive trees with their bases protected by black sleeves, against a backdrop of reddish-brown soil with patches of sparse green vegetation. The olive trees extend up the hillside in visible rows towards the horizon, where the land meets a pale blue sky with faint cloud cover. The image captures an agricultural landscape typical of the Mediterranean region, specifically identified as a mountainous area in South-western Spain."
 alt="Young plantation of olive trees in Southern Spain. Credit: J. Pecci." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-649145f4311a3c3ea293603ce1a5af17.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-649145f4311a3c3ea293603ce1a5af17.jpeg"
 data-fig-alt="A ground-level photograph depicting an olive grove in a mountainous area, identified by the surrounding document text as being in South-western Spain. The image features multiple rows of cultivated olive trees with characteristic green-grey foliage, planted in a structured, linear pattern that recedes into the distance. The ground in the foreground and between the rows of trees consists of dry, light brown soil with sparse, dry vegetation, indicative of a warm, Mediterranean, or semi-arid agricultural environment. Undulating hills or mountains are visible in the distant background under a clear, hazy sky. The photograph is credited to M. Palacios, and serves as an example for the Copernicus Land Monitoring Service (CLMS) CORINE Land Cover (CLC) class 2.2.2 (Olive groves)."
 alt="Olive groves in Kathenes (Island of Evia), Greece. Credit: N. Kolpatzik." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-83973afe6d217e0ee8e7143655ad798d.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-83973afe6d217e0ee8e7143655ad798d.jpeg"
 data-fig-alt="A landscape photograph depicting numerous olive trees scattered across a hilly, semi-arid terrain in the foreground and midground. The olive trees are relatively small and sparse, indicating agricultural use. In the background, a rural settlement is visible at the base of large, dry mountains under a clear blue sky. The overall scene suggests a Mediterranean environment, specifically identified as olive groves in Kathenes."
 alt="Olive groves in Kallithea (Island of Evia), Greece. Credit: N. Kolpatzik." />
 
@@ -2634,12 +2634,12 @@ alt="Olive groves in Kallithea (Island of Evia), Greece. Credit: N. Kolpatzik." 
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-12b5f037f3f12859bc5f153f7a8d5ebc.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-12b5f037f3f12859bc5f153f7a8d5ebc.jpeg"
 data-fig-alt="This map displays a false-colour infrared aerial or satellite image of an agricultural landscape. A prominent blue polygonal line delineates a large, irregularly shaped area identified as olive groves. Within this blue boundary, numerous rectangular and irregular patches of intense red colour represent densely planted vegetation, arranged in grid-like patterns characteristic of orchards. These red areas are consistent with actively vegetated olive trees in false-colour infrared imagery. Surrounding the delineated olive groves are fields exhibiting varied colours, including light brown, dark brown, and lighter green, indicating other agricultural land uses such as arable land or bare soil. To the far left, a distinct large area of very dark red suggests another zone of dense vegetation or a different crop type with high infrared reflectance. No scale bar, compass, legend, data source, or specific geographic location or date are visible in the image."
 alt="Olive grove with vineyards, Úbeda (Spain), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-12. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-843cd96aa4738c9f4d6013779bebbb07.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-843cd96aa4738c9f4d6013779bebbb07.jpeg"
 data-fig-alt="The image displays a false-colour satellite view of an agricultural and semi-natural landscape. The coloration, with vibrant greens and reddish-browns, is characteristic of an infrared or similar band combination, often used to highlight vegetation characteristics. A prominent winding light-coloured road or track traverses the central and lower parts of the image, with several small, bright white structures, likely buildings, visible along its path. The landscape is a mosaic of distinct fields and vegetation types, delineated by visible boundaries. Areas of bright green indicate healthy and dense vegetation, possibly irrigated crops, pastures, or dense scrubland. In contrast, extensive areas of reddish-brown, particularly in the upper right quadrant, exhibit distinct, regularly spaced linear patterns, which are characteristic of cultivated tree crops such as olive groves, aligning with the document&#39;s context of &#39;Regular and irregular planting&#39; of olive trees for production. Other reddish-brown and darker green patches suggest different types of vegetation, arable land, or drier grasslands. The resolution appears high enough to discern individual field patterns and small structures, making it suitable for detailed land cover and land use (LULC) analysis."
 alt="Olive grove, Badajoz (Spain), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-03-18. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -2683,12 +2683,12 @@ frequently.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-76685c7994ea8a736a859bdeebe3db51.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-76685c7994ea8a736a859bdeebe3db51.jpeg"
 data-fig-alt="A ground-level photograph depicting an agricultural landscape in Greece on 2018-06-11. The foreground shows reddish-brown cultivated soil, with scattered green olive trees, which are a type of permanent crop. In the middle ground, there are rows of what appear to be young permanent crops, possibly vineyards, and beyond that, a large field of lighter-coloured annual crops. The sky is overcast. A small watermark &#39;WWW.PANORAMICAS.COM&#39; is visible in the bottom-left corner. This image illustrates the land cover classification category &#39;Annual crops associated with permanent crops.&#39; Credit is given to CCME 2018, provided under Copernicus."
 alt="Typical landscape of annual crops in association and mosaic with olive groves and vineyards in Spain. Credit: Eurostat, 2009. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-00f285172972a61c762438b3c59b78de.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-00f285172972a61c762438b3c59b78de.jpeg"
 data-fig-alt="This map displays a land cover classification of an agricultural landscape in Spain, derived from false-colour satellite imagery. The map features black polygon boundaries delineating land parcels, each containing a purple numerical land cover code. Three red arrows point to specific polygons of interest. The background imagery shows areas of healthy vegetation (appearing bright red in false-colour infrared), other types of vegetation (light green/yellowish), and a dark blue/black water body in the upper left. Key land cover codes visible include: * **2310**: Labelled within polygons highlighted by the red arrows, this code represents &#39;Annual crops associated with permanent crops.&#39; According to Copernicus Land Monitoring Service (CLMS) guidelines, this class describes mosaics of annual crops and permanent crops (such as olive groves and vineyards) on parcels typically less than 0.5 ha, common in Mediterranean areas. These areas appear as light green with scattered red dots, indicating mixed vegetation. * **2110**: Appears in large, rectangular, bright red fields, indicating &#39;Non-irrigated arable land.&#39; * **1110**: Located in the upper right, representing &#39;Continuous urban fabric.&#39; * **4211**: Found in the upper right, identifying &#39;Transitional woodland-shrub.&#39; * **4212**: Present in multiple locations (mid-left, bottom-left, mid-right), indicating &#39;Sclerophyllous vegetation.&#39; * **6210**: Located mid-left, near the water body, representing a vegetated land cover class not further specified. * **8410**: Faintly visible in the water body in the upper left, representing a water body classification. * Additional partially obscured numerical labels are visible, such as &#39;B11&#39; (likely 3110 for Broad-leaved forest) and &#39;231&#39; (likely 2311) near the bottom right. The map illustrates a fragmented agricultural pattern with distinct areas of intensive annual crops, mixed permanent and annual crops, and natural or semi-natural vegetation, adjacent to a water body and an urban fringe. The data source is Eurostat, 2009. LUCAS (Land Use/Cover Area frame Survey)."
 alt="Annual crops associated with permanent crops in Greece. (1/2/3 band combination). Date: 2018-06-11. Credit: CCME 2018 provided under COPERNICUS by the European Union and ESA" />
 
@@ -2749,12 +2749,12 @@ crops, grassland and/or permanent crops, but no natural vegetation.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-f51cd98b9c53c6f816b46e1bfbc200e4.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-f51cd98b9c53c6f816b46e1bfbc200e4.jpeg"
 data-fig-alt="A thematic map illustrating a mixed rural landscape featuring different land cover and land use types. The map shows a central area designated as &#39;Rural settlement,&#39; represented by a white background containing multiple black and grey rectangular shapes. Surrounding this settlement is a mosaic of agricultural land. &#39;Grassland&#39; is depicted by solid light green areas. &#39;Orchards&#39; are shown as light green areas with dark green circular features. &#39;Arable land&#39; is represented by light yellow areas with fine vertical stripes. &#39;Roads&#39; are indicated by light green strips containing a central vertical white stripe, extending through the landscape and connecting to the settlement. One small isolated black rectangular feature, possibly an outlying building, is also visible adjacent to a road segment and an orchard. This map visually represents the concept of &#39;Complex cultivation patterns&#39; (as described in CLC+ class 2.3.2), highlighting the mixture of annual crops (arable land), pastures (grassland), and permanent crops (orchards) along with settlements and infrastructure. No scale bar, compass, or reference year is provided."
 alt="Schematic representation of complex cultivation patterns." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-dd3f629a64897b1f39508ae1e0c7bc95.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-dd3f629a64897b1f39508ae1e0c7bc95.jpeg"
 data-fig-alt="An illustrative map showcasing a mosaic of small, irregularly shaped agricultural parcels, representing a &#39;Complex cultivation patterns&#39; land cover class. The map features three distinct land use types identified by a legend: 1. **Irrigated arable land:** depicted as solid bright green rectangular or irregular parcels. 2. **Non-irrigated arable land:** shown as light yellow rectangular or irregular parcels with vertical stripes. 3. **Irrigated fruit trees:** represented by small beige rectangular patches, each containing three dark blue circles, indicating individual fruit trees. The overall pattern is an intricate intermingling of these three land cover types, with small plots of irrigated fruit trees embedded within larger areas of both irrigated and non-irrigated arable land. The map lacks a scale bar, compass, or specific geographic reference."
 alt="Schematic representation of complex patterns of irrigated and non-irrigated arable land." />
 
@@ -2771,17 +2771,17 @@ alt="Schematic representation of complex patterns of irrigated and non-irrigated
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-02387993890e44635973992181f2a040.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-02387993890e44635973992181f2a040.jpeg"
 data-fig-alt="The image is a false-colour infrared (FCIR) land cover map, likely derived from satellite or aerial imagery, showing various land use / land cover (LULC) types across a rural landscape. Different land cover polygons are delineated by dark lines and labelled with four-digit codes, consistent with CORINE Land Cover (CLC) nomenclature. The mapped classes include: * **2110 (Arable land):** A large area in the upper left, appearing in greenish-grey tones, representing actively cultivated fields. * **2320 (Complex cultivation patterns):** The dominant central area, characterized by a mosaic of small fields, often appearing in shades of red, brown, and green, indicative of diverse annual crops, pastures, and/or permanent crops, each typically less than 0.5 ha. * **3110 (Broad-leaved forest):** Extensive areas in the top right and bottom right, displaying bright red tones characteristic of dense, healthy broad-leaved forest vegetation in FCIR imagery. * **1210 (Road or track):** A narrow, darker linear feature cutting through the forest in the top right, indicating an artificial surface such as a road or track. * **3330 (Sparsely vegetated areas / Transitional woodland-shrub):** A patch in the bottom-centre, showing duller red/brown tones, suggesting less dense vegetation or areas transitioning between forest and open land. * **4211 (Natural grasslands / Pastures):** An irregular polygon in the bottom left, displaying a mix of red, brown, and green hues, consistent with grassland or pasture areas. The map illustrates the spatial distribution and complexity of various agricultural and semi-natural land uses, demonstrating how different land cover categories, particularly &#39;Complex cultivation patterns,&#39; are identified and mapped. No scale bar, compass, or specific reference year is visible."
 alt="Mix of annual and permanent crops, Hungar, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-10-18. CNES 2010©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-93dab4b25727a28a036ba859eaf1306f.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-93dab4b25727a28a036ba859eaf1306f.jpeg"
 data-fig-alt="This false-color satellite or aerial image displays an agricultural landscape dominated by &#39;complex cultivation patterns&#39; alongside a densely settled area and a river. Vigorous vegetation, indicative of actively growing &#39;Diverse annual crops&#39; or &#39;permanent crops&#39; such as vineyards, fruit trees, or berry plantations, appears bright red. Bare soil, harvested fields, or senescent vegetation are shown in shades of light blue and grey. These agricultural areas are characterized by small, irregularly shaped parcels, some appearing as long, narrow strips, which create a &#39;coarse texture&#39; and &#39;mix of diverse colours&#39;. A dense settlement occupies the central part of the image, featuring a visible grid-like pattern of roads or property boundaries, indicated by faint blue overlay lines, and numerous small buildings interspersed with green spaces, appearing in brownish-green to grey tones. A dark blue/grey linear feature, likely a river or stream, flows along the left side of the image, winding through the agricultural areas."
 alt="Mix of annual and permanent crops, Kallithiro (Turkey), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-09-02. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-daabdb43c70a0e2fb91748f852799a3e.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-daabdb43c70a0e2fb91748f852799a3e.jpeg"
 data-fig-alt="The image is a false-colour satellite or aerial photograph depicting an area of diverse agricultural land. It primarily shows numerous small, irregularly-shaped to rectangular land parcels, characteristic of &#39;complex cultivation patterns.&#39; These parcels display a mix of colours: bright reds (indicating healthy vegetation in false-colour infrared), various shades of green/teal, and lighter grey/brown areas, suggesting different crop types, stages of growth, or bare soil. A prominent, dark red linear feature, likely a canal or a road, runs diagonally from the top-right to the middle-right of the image. A thin, yellow-green line delineates a larger area encompassing many of these small, diverse parcels. In the top-left corner, some grey features with linear patterns suggest built-up areas or infrastructure. The image illustrates the visual appearance of agricultural parcels, often covering less than 0.5 ha, that are mixed with rows of trees or vines, contributing to a coarse texture and diverse colour palette, as described for the &#39;complex cultivation patterns&#39; land cover class in Copernicus Land Monitoring Service (CLMS) guidelines."
 alt="Mix of annual and permanent crops, Megala Kalivia (Greece), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-09-02. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -2824,12 +2824,12 @@ interspersed with significant natural areas.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-4dc43e0d06687d239b1ed9a5c7e3ddad.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-4dc43e0d06687d239b1ed9a5c7e3ddad.jpeg"
 data-fig-alt="A photograph depicting a rural landscape characterized by a mix of agricultural features and natural vegetation within a valley setting. In the foreground, from left to right, are a &#39;FRUIT TREE&#39;, &#39;GRASSES&#39; along the ground, a low stone wall, a patch of &#39;ARABLE LAND&#39; indicated by a white arrow, more &#39;GRASSES&#39;, and an &#39;OLIVE TREE&#39;. The mid-ground and background show dense natural vegetation covering hillsides, with a winding river visible in the valley bottom. The image illustrates land cover class 2.3.3, &#39;Land principally occupied by agriculture with significant areas of natural vegetation,&#39; which encompasses parcels of annual cropland, permanent crops, and natural/semi-natural vegetation (forest, groups of trees, shrub, small water bodies) all mixed together, typically with parcels under 0.5 ha."
 alt="Agricultural parcel included in an area with vegetation natural (spontaneous grasses, trees, scrub, etc.). Credit: M. Rodriguez." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-a88c228ee7becdfcf012343cabe42ad0.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-a88c228ee7becdfcf012343cabe42ad0.jpeg"
 data-fig-alt="This illustrative map displays a conceptual rural landscape composed of various land cover types arranged in a mosaic pattern, centred around a rural settlement. The legend on the right defines six land cover categories: * **Grassland:** Represented by solid light green areas. * **Orchards:** Depicted as solid dark green areas with circular patterns. * **Arable land:** Shown as light yellow areas with vertical stripe patterns. * **Natural vegetation:** Illustrated as solid dark brown areas containing stylized clusters of trees, consistent with small parcels of natural/semi-natural vegetation. * **Rural settlement:** Comprised of various rectangular blocks, some entirely black, others half black and half white. * **Roads:** Represented by light green strips with a central white line. The map shows a central cluster of rural settlement blocks surrounded by a mixture of agricultural parcels (grassland, orchards, arable land) and interspersed areas of natural vegetation, connected by roads. The natural vegetation parcels are scattered among the agricultural fields and around the settlement, demonstrating a complex cultivation pattern with significant natural areas."
 alt="Schematic representation of 2.3.3 Land principally occupied by agriculture with significant areas of natural vegetation." />
 
@@ -2841,7 +2841,7 @@ alt="Schematic representation of 2.3.3 Land principally occupied by agriculture 
   presence of natural vegetation.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-c756790e37c4a57a1d0cfabff93d325e.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-c756790e37c4a57a1d0cfabff93d325e.jpeg"
 style="width:342pt"
 data-fig-alt="This false-colour infrared map displays a landscape featuring a prominent river (dark blue) traversing an area characterized by dense, actively photosynthesizing vegetation (bright red) and lighter-toned terrain (green/tan/brown). A yellow polygon highlights a specific land cover area, identified as &#39;2.3.3 Land principally occupied by agriculture with significant areas of natural vegetation&#39; according to the Copernicus Land Monitoring Service (CLMS) CLC+ (next-generation land cover/land use) nomenclature. Within this outlined polygon, several irregular, light-coloured patches, representing agricultural fields, are visible, intermingled with areas of red (dense natural vegetation) and lighter green/brown tones. The broader landscape shows bright red areas consistent with forests or dense shrubland, while lighter green/tan/brown areas indicate sparse vegetation or bare soil. No scale bar, compass, or specific geographic location is indicated on the image."
 alt="Agricultural area with vegetation natural, Inandik (Anatolia, Turkey), Spot 5 (2.5 m, NIR/R/G band combination). Date: 2011-07-16. CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -2911,22 +2911,22 @@ understory) with less than 10% T.C.D. are considered as grassland.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-c11e9f2bf1838445567f381c6bcbd2eb.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-c11e9f2bf1838445567f381c6bcbd2eb.jpeg"
 data-fig-alt="A ground-level photograph depicts an agro-forestry landscape featuring numerous trees with light-coloured, relatively slender trunks and dense green canopies. The ground beneath the trees is covered with sparse, dry, light brown herbaceous vegetation or leaf litter, consistent with a grassland understory that may be regularly cleared. Sunlight filters through the tree canopies, casting dappled light and shadows across the scene. No artificial structures or distinct agricultural rows are visible, indicating an extensive land use management system typical of Mediterranean agro-forestry areas."
 alt="Dehesa of cork oaks with very high T.C.D. in South-western Spain. Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-aa4842f29e792abb14481f3636fd25fc.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-aa4842f29e792abb14481f3636fd25fc.jpeg"
 data-fig-alt="A ground-level photograph depicting an agroforestry landscape, consistent with a Mediterranean *dehesa* or *montado* system. The scene features widely spaced trees, likely *quercus* species, with a dense understory of light green and brown scrub and lower bushes in the foreground and mid-ground. The ground cover appears to be dry earth or sparse grass between the vegetation. The sky is clear and blue. This landscape illustrates a land use management system where trees or shrubs are grown among crops or pastures, combining agricultural and forestry techniques for sustainable land use, as defined by the Copernicus Land Monitoring Service (CLMS) documentation."
 alt="Dehesa invaded by scrubs. Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-3ae01ee0af5af4c06ad92e36263c072c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-3ae01ee0af5af4c06ad92e36263c072c.jpeg"
 data-fig-alt="A photograph depicting a Mediterranean agroforestry landscape, specifically resembling a _dehesa_ or _montado_ system. The foreground and middle ground are covered by green grass dotted with small yellow wildflowers. In the background, a line of mature trees with broad, rounded canopies, consistent with _quercus_ (oak) species, stands along the horizon. The trees are sparsely distributed but form a continuous line, suggesting a managed pasture environment where trees are grown among grasslands. The sky is not visible in the frame."
 alt="Dehesa in Spain in springtime. Credit: C. Alonso." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-cb24dd86e4a7e8f1c0d14679bf2a993e.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-cb24dd86e4a7e8f1c0d14679bf2a993e.jpeg"
 data-fig-alt="This is a schematic map illustrating the typical layout of an agroforestry landscape, specifically representing a *dehesa* or *montado* environment found in the Mediterranean region, such as southern and central Spain or southern Portugal. The map shows various land cover and land use features. The legend on the right defines the visual elements: * **Grassland:** Represented by a bright yellow fill. This is the predominant land cover across most of the map. * **Arable land:** Represented by a light yellow or cream fill. Several polygons within the grassland areas are designated as arable land. * **Farm buildings:** Indicated by black rectangular shapes. One cluster of farm buildings is shown at the top centre of the map. * **Trees:** Depicted as stylized green tree icons. Numerous trees are scattered across the grassland and arable land areas. * **Roads:** Shown as thin grey lines with yellow fill, delineating pathways within and between land parcels. * **Water trough:** Represented by small, irregular blue shapes. Two water troughs are visible within the grassland areas. The map illustrates a mixed land-use system where trees are integrated with grassland, and in some areas, arable land. This combination is characteristic of agroforestry systems like the *dehesa*, which feature scattered trees (predominantly *quercus* species according to the surrounding context) within pastures or cultivated fields."
 alt="Schematic representation of Agro-forestry T.C.D. &lt; 30%." />
 
@@ -2939,7 +2939,7 @@ alt="Schematic representation of Agro-forestry T.C.D. &lt; 30%." />
   summertime), arable land and scrubs.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-10b486cbcc6b19933dff0ec1ec8cb3b6.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-10b486cbcc6b19933dff0ec1ec8cb3b6.jpeg"
 style="width:294pt"
 data-fig-alt="This map displays a false-colour infrared (likely Near-Infrared) satellite or aerial image of a landscape, characteristic of agro-forestry systems such as Dehesa regions. The imagery predominantly shows vegetation in bright pink-red, appearing as a speckled texture across large areas, which indicates scattered trees or scrub. Sparser vegetation or bare ground is rendered in lighter grey or white. The landscape is traversed by numerous thin white linear features, likely unpaved tracks or natural drainage patterns. A prominent dark grey linear feature, resembling a road or a major track, with parallel light blue borders, runs across the lower portion of the image. Small, light blue circular features, possibly artificial ponds or small water bodies, are visible in the upper-middle left and lower-middle right areas. Overlaid on this imagery are black polygonal boundaries with white outlines, which delineate distinct land cover units. These polygons are labelled with numeric classification codes: &#39;2340&#39; appears in the upper right and lower left within areas dominated by speckled pink-red vegetation, while &#39;1210&#39; is located in the lower central part, adjacent to the prominent dark linear feature. No scale bar, compass, or specific date is visible."
 alt="Los Zamores (Spain), (1/2/3 band combination). Date: 2018-07-28. Credit: CCME 2018 provided under COPERNICUS by the European Union and ESA" />
@@ -2972,7 +2972,7 @@ date is visible.
   national databases as SIOSE in Spain).
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-48dee358515eaca8ca9039ba3ddc19ed.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-48dee358515eaca8ca9039ba3ddc19ed.jpeg"
 style="width:263pt"
 data-fig-alt="An aerial or satellite photograph displaying an agro-forestry landscape, likely a Dehesa system as referenced in the surrounding document context, characterised by scattered trees and agricultural fields. The imagery appears to use a false-colour infrared band, where individual healthy trees are visible as distinct dark red-brown dots dispersed across the lighter green-grey field areas. Several irregularly shaped agricultural parcels or fields are discernible, showing varying shades of green-grey, suggesting different crop types, bare soil, or fallow land. Linear features, appearing bright red, possibly indicate watercourses or areas of denser riparian vegetation or disturbed soil. Clustered trees are visible in some areas, while others show more open cultivated land. No scale bar, compass, or specific date is visible."
 alt="Example of Agro-forestry (T.C.D. &lt; 30%) with grassland and arable land understory, Extremadura (Spain), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-03-18. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -3120,32 +3120,32 @@ more than 75% of the pattern.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-97fbcb985a26f5f9295ec2fdd1228c7e.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-97fbcb985a26f5f9295ec2fdd1228c7e.jpeg"
 data-fig-alt="A ground-level photograph capturing the interior of a dense broadleaved forest. The image shows numerous tall, slender tree trunks with smooth, light grey bark rising vertically from a forest floor covered in a thick layer of reddish-brown fallen leaves. Above, a vibrant green canopy of broad leaves is visible, indicating active growth. The composition emphasizes the height and density of the trees, suggesting a natural or semi-natural forest environment, consistent with descriptions of broadleaved forest types in the European Environment Information and Observation Network (EUNIS) classification system, specifically EUNIS G1.6 to G1.B and G2."
 alt="Broadleaved forest (beech), Bavaria, Germany. Credit: M. Probeck." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-cdd261174184c5c34404695b0061f88f.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-cdd261174184c5c34404695b0061f88f.jpeg"
 data-fig-alt="A photograph displaying the canopy of a broadleaved forest during autumn. The trees exhibit a range of seasonal foliage colours, including shades of dark green, golden yellow, bright orange, and deep red. Above the tree line, a dark, cloudy sky is visible, with a band of lighter sky near the horizon. This visual represents a natural or semi-natural broadleaved forest, consistent with EUNIS classes G1.6 to G1.B, which comprise species like _Fagus_, _Quercus_, _Carpinus orientalis_, _Castanea sativa_, _Ostrya carpinifolia_, _Betula_, _Populus tremula_, _Sorbus aucuparia_, _Ulmus_ spp., _Fraxinus excelsior_, _Tilia cordata_, and _Acer platanoides_."
 alt="Broadleaved forest (beech and maple), Stockholm, Sweden. Credit: E. Alkrona." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-046cdebb5951726756ed6556621cd828.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-046cdebb5951726756ed6556621cd828.jpeg"
 data-fig-alt="This photograph depicts a diverse landscape seen from an elevated viewpoint under a clear blue sky. A winding, blue-grey river flows through the foreground and mid-ground, intensely bordered by dense, lush green broadleaved trees, which represent riparian forest. Based on the document context, these trees likely include species such as _Alnus_, _Populus_, _Quercus_, _Ulmus_, _Fraxinus excelsior_, _Tilia cordata_, or _Acer platanoides_ (EUNIS G1.A, G1.B, G1.4), which are characteristic of broadleaved swamp woods or broadleaved forest growing on wet ground. Beyond the riverine vegetation, the landscape rises to include rolling hills with distinct agricultural fields showing row crops, possibly vineyards, alongside patches of sparser, lighter green vegetation. In the mid-distance, a large, light-coloured structure is visible on a hilltop, and further back, a small town or settlement appears on a hillside. A range of mountains forms the horizon in the far background. A small, orange-roofed building is visible on the right in the foreground, indicating scattered infrastructure."
 alt="Broadleaved forest in La Rioja region (Spain). Credit: C. Alonso." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-8a73821771bd071f0d9184a6ed8ce407.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-8a73821771bd071f0d9184a6ed8ce407.jpeg"
 data-fig-alt="The image is a photograph depicting a dense stand of broadleaved trees. The trees have tall, slender, light-coloured trunks and green, deciduous foliage that forms a thick canopy. Some low-lying ground vegetation, likely grasses or shrubs, is visible beneath the trees. This visual example represents a broadleaved forest type, consistent with categories described in the surrounding text such as &#39;forest growing on wet ground&#39; or &#39;broadleaved swamp forest.&#39; Specifically, it could illustrate areas dominated by tree species like _Alnus_, _Populus_, or _Betula pubescens_, which are associated with EUNIS habitat classes G1.4 (_Alnus_, _Populus_, _Quercus_ swamp woods) and G1.5 (_Betula pubescens_ or _Alnus glutinosa_ on wet acid peat)."
 alt="Poplar (Populus sp.) plantation. Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-41830b835a725089330f05c5bb335944.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-41830b835a725089330f05c5bb335944.jpeg"
 data-fig-alt="A ground-level photograph depicting a broadleaved swamp forest or wetland ecosystem. The foreground shows a fallen tree trunk partially submerged in light green, stagnant water, which is extensively covered by aquatic vegetation such as duckweed. Multiple slender-trunked trees, some with visible roots, emerge from the water, accompanied by various shrubs and clumps of grass or reeds. The foliage of the broadleaved trees in the background is a mix of green and autumn colours, suggesting a temperate environment. The image illustrates a waterlogged forest habitat, consistent with EUNIS class G1.4 or G1.5 broadleaved swamp forest."
 alt="Broadleaved swamp forest, Island of Rügen, Germany. Credit: U. Weingart." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-2bf9f184f04de299ab89df7dec430b43.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-2bf9f184f04de299ab89df7dec430b43.jpeg"
 data-fig-alt="A ground-level photograph depicting a dense broadleaved forest or scrubland covering the foreground and midground of a hilly landscape. The dominant vegetation consists of numerous green trees and shrubs with rounded canopies, indicating broadleaved species. In the background, the terrain slopes upwards, revealing drier, less densely vegetated areas with scattered, smaller trees, potentially characteristic of olive groves or sparse transitional woodland and scrub, consistent with a warm-temperate or Mediterranean climate zone. The foreground vegetation appears lush, while the background suggests drier conditions."
 alt="Broadleaved evergreen forest (Quercus ilex, Quercus coccifera, Juniperus spec.) in Ano Vathia (Island of Evia), Greece. Credit: N. Kolpatzik." />
 
@@ -3156,12 +3156,12 @@ alt="Broadleaved evergreen forest (Quercus ilex, Quercus coccifera, Juniperus sp
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-df76e61c30f81aee37c8e214b23f742a.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-df76e61c30f81aee37c8e214b23f742a.jpeg"
 data-fig-alt="This is a false-colour infrared satellite or aerial image depicting a patchwork of land cover types. Dominant colours are shades of deep red and magenta, typically indicating dense, healthy vegetation such as broadleaved forest, consistent with the surrounding document context. Within these red areas, subtle linear patterns and lighter patches may represent forest management activities, clearings, or variations in vegetation density. Other areas appear in lighter pinks and magentas, suggesting less dense vegetation or agricultural fields. Several distinct, irregularly shaped parcels are outlined by thin, dashed white lines. Additionally, some segments of the image are coloured in turquoise or blue-green hues, which in false-colour infrared can represent bare soil, urban areas, or certain types of non-vegetated surfaces or specific crop types. The image lacks a scale bar, compass, or specific geographical labels."
 alt="Natural and semi-natural broadleaved forest near the Danube river, Károlyháza (Hungary), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-10. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-479cf24038253060af958ac82252db4f.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-479cf24038253060af958ac82252db4f.jpeg"
 data-fig-alt="False-colour infrared satellite imagery depicting a diverse riverine landscape. The main river channel and associated smaller water bodies, including winding tributaries and oxbow lakes, are prominently displayed in dark blue. Extensive areas of dense vegetation, likely broadleaved forests and natural/semi-natural vegetation, appear in various shades of deep red and magenta, characteristic of strong near-infrared reflection. Agricultural fields are visible as distinct rectangular patches, displaying both deep red and lighter green/cyan hues, indicating different crop types or vegetation conditions. A small settlement with lighter green/cyan and grey features is discernible in the upper right quadrant, alongside some thin white linear features possibly representing roads or infrastructure."
 alt="Broadleaved forest at the Danube river, Kisbodak (Hungary), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-10. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -3172,7 +3172,7 @@ Broadleaved swamp forest:
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-c930ab4a7b556055be273f7230620b60.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-c930ab4a7b556055be273f7230620b60.jpeg"
 style="width:275pt"
 data-fig-alt="False-colour infrared satellite imagery depicting a landscape with distinct land cover features. Two areas are specifically highlighted by green arrows and text labels. To the left, a &#39;Swamp forest&#39; is shown as a textured, dark reddish-brown area, indicating dense, healthy vegetation. To the right, a large &#39;Exploited Peat bog&#39; is visible as a dark rectangular expanse, subdivided into numerous smaller, rectangular plots exhibiting varying shades of dark green and black, suggesting active drainage or agricultural use. The surrounding landscape is a mosaic of different agricultural fields, displayed in various shades of red, green, and light pink/purple, indicative of different crop types or vegetation stages, along with other forest patches in dark red. The colour representation is typical of a Near Infrared (NIR)-Red-Green composite, commonly used for vegetation analysis. No scale bar or date information is visible."
 alt="“Borsteler Moor”, Borstel (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2013-09-05. CNES 2013©, Distribution Airbus DS/Spot Image." />
@@ -3230,12 +3230,12 @@ monocultures (e.g. row plantation).
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-5d17ad686300c7913ab477285a00eacf.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-5d17ad686300c7913ab477285a00eacf.jpeg"
 data-fig-alt="A ground-level photograph depicts a dirt track or road winding through a plantation of broadleaved trees, identified by the surrounding context as _Eucalyptus_ sp. The trees vary in height, with younger, shorter trees visible closer to the foreground and taller, more mature trees in the background, suggesting a managed forest landscape. The ground is dry, with some sparse scrub vegetation alongside the track. The scene illustrates a highly artificial broadleaved plantation, consistent with the definition for category &#39;3.1.2 Highly artificial broadleaved plantations&#39; in CLMS land cover classifications, typically used for wood production."
 alt="Eucalyptus sp. plantation in Southern Spain. Credit: 2009 Ministerio de Fomento IGN." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-43ac189d9761926ad0b9e8f58cf89194.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-43ac189d9761926ad0b9e8f58cf89194.jpeg"
 data-fig-alt="This is a false-colour infrared satellite image displaying various land cover types within a managed landscape. Large areas are dominated by dense vegetation, rendered in shades of deep red, consistent with healthy forest or &#39;Highly artificial broadleaved plantations&#39; such as _Eucalyptus_ sp. plantations referenced in the surrounding document. Several irregularly shaped patches of bright white or very light grey are visible, which likely represent bare soil, fallow land, or recently &#39;clear cutting&#39; areas, as defined in the accompanying text. A distinct, triangular-shaped, dark blue water body, probably an artificial reservoir or pond, is prominently featured on the right side of the image. The entire visible area is segmented into numerous irregular polygonal parcels by thin, bright white linear features, which may indicate property boundaries, field divisions, or access tracks. Other areas exhibit lighter red or brownish-grey tones, suggesting varying vegetation densities or alternative land uses."
 alt="Eucalyptus sp. plantation in Southern Spain, Lepe (Huelva, Spain), Spot 5 (2.5 m; NIR band combination). Date: 2011-08-06. CNES 2011© Distribution Airbus DS/Spot Image." />
 
@@ -3256,7 +3256,7 @@ rules:
 - Plantations rows visible.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-8c8c8abccfee1b84c48fa8ae018593a1.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-8c8c8abccfee1b84c48fa8ae018593a1.jpeg"
 style="width:283pt"
 data-fig-alt="This satellite image depicts an _Eucalyptus_ sp. plantation located in Southern Spain, specifically in Lepe (Huelva). The imagery was acquired on 2011-08-06 by the Spot 5 satellite, utilising a Near Infrared (NIR) band combination, resulting in a resolution of 2.5 metres. The copyright is attributed to CNES 2011© Distribution Airbus DS/Spot Image. The landscape reveals distinct land cover features: dense _Eucalyptus_ plantations are prominently displayed in various shades of deep red, characteristic of vegetation in NIR imagery. Within these areas, visible rows indicate planted stands and a network of linear features likely represents forest tracks and firebreaks. Adjacent to these plantations, lighter green and blueish areas suggest other types of vegetation or less dense forest. Mottled brown and grey sections indicate sparsely vegetated areas, bare ground, or agricultural fields. A winding natural feature, likely a river or stream, traverses the central portion of the image, and small dark blue water bodies are also visible. The visible patterns suggest ongoing forest management activities, including potential clear-cutting or harvesting."
 alt="Clear cutting between harvesting and restoration in an eucalyptus plantation, Cortegana (Huelva, Spain), Spot 5 (2.5 m; NIR band combination). Date: 2011-08-06. CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -3326,22 +3326,22 @@ table.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-21827491d2737fdb034182bb56e4cc3d.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-21827491d2737fdb034182bb56e4cc3d.jpeg"
 data-fig-alt="A ground-level photograph depicting a natural coniferous forest landscape. The image features numerous evergreen coniferous trees, ranging from tall, mature specimens to smaller, younger growth, densely populating the upper and mid-ground. The foreground and mid-ground show prominent rocky terrain with exposed grey rock formations interspersed with patches of sparse green ground vegetation, including grasses and low shrubs. The landscape appears sloped, indicative of an upland or mountainous environment. No text, labels, or specific measurements are visible within the image itself."
 alt="Other natural coniferous (spruce) forest in Attali (Island of Evia), Greece. Credit: N. Kolpatzik." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-ee9ecc0e1c8ea96f6fb8ce5f9dcb9c16.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-ee9ecc0e1c8ea96f6fb8ce5f9dcb9c16.jpeg"
 data-fig-alt="This photograph depicts a natural or semi-natural coniferous forest ecosystem nestled within a rugged, mountainous landscape. The immediate foreground features arid, reddish-brown rocky outcrops with sparse, dry scrub vegetation. A dense, verdant coniferous forest occupies the middle ground, filling a deep valley or ravine and extending across its slopes. The background reveals additional distant, rocky hills and mountains under a bright sky. The image visually exemplifies the &#39;Natural &amp; semi-natural coniferous forest&#39; land cover type, where coniferous species are the predominant vegetation, as defined within the document&#39;s section 3.2.1."
 alt="Coniferous forest (Pinus canariensis). Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-9f18da37948bd1ea6cb7559e8ec02616.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-9f18da37948bd1ea6cb7559e8ec02616.jpeg"
 data-fig-alt="A ground-level photograph depicts a dense coniferous forest. The scene is dominated by numerous tall, slender tree trunks with a textured bark, suggesting mature coniferous trees. The forest floor is extensively covered with a vibrant green undergrowth consisting of mosses and various grasses, indicating a humid or moist environment, possibly a peaty substrate. Sunlight filters through the canopy, creating dappled lighting on the forest floor. Faint text in the bottom left corner identifies the image source as &#39;CLMS Product Examples&#39; and the URL &#39;https://land.copernicus.eu/imagegallery&#39;. This image serves as an example of a coniferous forest type as categorised by the Copernicus Land Monitoring Service (CLMS), consistent with definitions for natural or semi-natural coniferous forests or coniferous swamp forests."
 alt="Coniferous forest (Pinus) in Sweden. Credit: Eurostat, 2012. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-009c9adbbef9147d59cb16ea9e6c221a.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-009c9adbbef9147d59cb16ea9e6c221a.jpeg"
 data-fig-alt="This is a photograph depicting a natural or semi-natural coniferous forest landscape. The foreground is characterised by extensive low-lying vegetation with a reddish-purple coloration, consistent with heather or similar shrub species, suggesting a peatland or heathland environment on potentially humid to wet peaty substrate. Scattered small coniferous trees are visible throughout the mid-ground and foreground. Denser stands of taller coniferous trees, likely including species such as _Pinus sylvestris_ and _Picea abies_, form the background forest, extending towards a distant horizon under a partly cloudy sky. The overall scene reflects a forest type where coniferous species predominate and potentially includes coniferous swamp forest."
 alt="Dwarf pine on swampland, Bavaria, Germany. Credit: M. Probeck." />
 
@@ -3352,17 +3352,17 @@ alt="Dwarf pine on swampland, Bavaria, Germany. Credit: M. Probeck." />
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-4cefc4cdf0d326f9ff768e28fda762d9.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-4cefc4cdf0d326f9ff768e28fda762d9.jpeg"
 data-fig-alt="False-colour satellite imagery depicting a detailed view of a rural landscape, likely used to illustrate land cover types for a Copernicus Land Monitoring Service (CLMS) application. The image displays a mosaic of distinct land parcels, primarily rectangular and irregular in shape, characteristic of agricultural fields. Prominent areas of deep red and maroon suggest dense, healthy vegetation, potentially representing specific crop types or coniferous forest stands as described in the surrounding documentation (e.g., &#39;coniferous tree species&#39; or &#39;coniferous swamp forest&#39;). Lighter blue-green and turquoise parcels indicate other vegetation types, different agricultural crops, or potentially bare soil. A significant, dark blue linear feature, resembling a road or a major canal, traverses the image diagonally from the upper-left to the lower-right. Additional fine white linear features delineate the boundaries of individual field parcels. A small, dark blue water body, possibly a pond or a segment of a river, is visible in the bottom-right corner. No scale bar or textual labels are present in the image."
 alt="Other natural or semi-natural coniferous forest located, Bezenye (Hungary), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-10. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-a73e5a80e82e4e3432bca31f187c95f8.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-a73e5a80e82e4e3432bca31f187c95f8.jpeg"
 data-fig-alt="A false-colour satellite image displaying a dense, dark reddish-purple coniferous forest landscape. The image shows vegetation in shades of red, consistent with Near-Infrared band imagery where healthy coniferous trees, specifically spruce, are the predominant land cover. Faint, lighter linear features, likely unpaved roads or clearings, are visible winding through the forest. Small, brighter bluish-white patches, possibly artificial structures or exposed ground, are present at the upper left. This image depicts &#39;Other natural coniferous (spruce) forest&#39; in Attali, Island of Evia, Greece, and is credited to N. Kolp."
 alt="Other natural or semi-natural coniferous forest, Harz (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-09-03. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-d389c12b4265276246f5002b3363576e.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-d389c12b4265276246f5002b3363576e.jpeg"
 data-fig-alt="This image is a false-colour infrared aerial or satellite photograph depicting a landscape in Attali, Island of Evia, Greece. A prominent, dark blue, winding river flows through the scene. On either side of the river, extensive agricultural fields are visible in varying shades of bright red and light green/turquoise, indicating different vegetation types or stages of growth as seen in false-colour infrared. Along the bends of the river, two distinct areas of very dark red to purplish vegetation are highlighted by yellow arrows. These areas represent &#39;Other natural coniferous (spruce) forest&#39;, serving as an example for land cover classification within nomenclature guidelines. On the right side of the image, a settlement is visible, characterized by a network of light-coloured roads and buildings interspersed with red-toned vegetation patches. The image illustrates the spatial distribution of riverine, coniferous forest, agricultural, and urban land cover/land use (LCLU) types."
 alt="Coniferous forest located at the Monsini Danube River, Magyarkimle (Hungary), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-10. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -3396,7 +3396,7 @@ range, planted in clearly unnatural stands or as monocultures
   coniferous forest.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-fe43ff3b227767e4cda24dab4d5d98ec.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-fe43ff3b227767e4cda24dab4d5d98ec.jpeg"
 style="width:258pt"
 data-fig-alt="A ground-level photograph of a coniferous forest, likely a highly artificial plantation, featuring numerous trees with straight trunks and rough bark texture. The trees are planted in discernible rows, which are visible receding into the background, suggesting a structured cultivation. The forest floor is covered with green grassy undergrowth, interspersed with patches of fallen brown needles or leaves. The scene depicts a managed forest environment."
 alt="Highly artificial coniferous plantations (Pine) in the north west of Spain. Credit: Eurostat, 2012. LUCAS." />
@@ -3414,7 +3414,7 @@ depicts a managed forest environment.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-de0f105dd0920466a6e0a2180ec998d9.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-de0f105dd0920466a6e0a2180ec998d9.jpeg"
 style="width:266pt"
 data-fig-alt="The image displays a false-colour infrared satellite image overlaid with vector polygons and numerical labels representing different land cover classes. The landscape shows a mix of agricultural fields, forested areas, and other natural and semi-natural land cover types. Several areas are identified by four-digit numeric codes in grey boxes: * **3220:** This large, centrally located area, outlined in cyan, shows distinct parallel rows of vegetation with reddish-pink tones, characteristic of actively growing vegetation in false-colour imagery. Based on the surrounding document context, this class represents &#39;Highly artificial coniferous plantations&#39;. * **3110:** An area to the top-right of 3220, also showing dense reddish-pink vegetation, suggesting a forest, likely natural or semi-natural coniferous forest. * **1110:** Located in the top-right corner, appearing as a more heterogeneous mix of dark and light colours, indicative of &#39;Continuous urban fabric&#39;. * **2110:** Situated to the left of the central plantation, appearing as a uniform brownish-red area, consistent with bare soil or &#39;Non-irrigated arable land&#39;. * **4100:** In the bottom-left, appearing as a lighter brownish-yellow area, likely representing &#39;Grassland&#39; or natural herbaceous vegetation. * **4212:** In the bottom-right, showing greenish tones, potentially indicating a wetland area or &#39;Peat bogs&#39;. Additional linear features include a cyan-outlined road or linear infrastructure running across the top of the image, and numerous field boundaries and land parcels outlined in orange. A faint pink label &#39;3B&#39; is also visible in the bottom-right. The satellite imagery shows fine detail, typical of high-resolution data like Spot 5."
 alt="Highly artificial coniferous plantation (christmas trees) near Gifhorn (Germany), Spot 6 (1.5 m; 4/1/3 band combination). Date: 2013-09-28. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -3425,12 +3425,12 @@ alt="Highly artificial coniferous plantation (christmas trees) near Gifhorn (Ger
   plantation are included here.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-2fbfb7a4c18cb9285ddf462379d5c178.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-2fbfb7a4c18cb9285ddf462379d5c178.jpeg"
 data-fig-alt="This photograph depicts a highly artificial coniferous plantation, specifically pine trees, located in the north west of Spain. The trees are planted in distinct, evenly spaced rows, characteristic of a cultivated stand or monoculture, with sparse, dry yellowish-brown ground vegetation. The sky is clear blue. The image exemplifies the classification of &#39;Highly artificial coniferous plantations&#39; used in land use/land cover inventories. The photograph is credited to Eurostat, 2012, originating from the LUCAS (Land Use/Cover Area frame Survey) programme."
 alt="Highly artificial coniferous plantation in Central Spain. Credit: 2009 Ministerio de Fomento IGN." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-732dcaad53ff9ad84f491085e1320b73.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-732dcaad53ff9ad84f491085e1320b73.jpeg"
 data-fig-alt="This satellite imagery displays a fragmented agricultural landscape in the northwest of Spain, showing a patchwork of fields and forest plantations. The image features varying land cover types, likely rendered in a false-colour composite. Lighter greenish and brownish areas represent cultivated fields or bare soil, while darker reddish, geometrically regular areas correspond to &#39;Highly artificial coniferous plantations (Pine)&#39;. These plantations exhibit distinct rectangular and linear patterns, characteristic of managed monocultures for wood production. The image serves as an example of highly artificial coniferous plantations as defined in the Copernicus Land Monitoring Service (CLMS) nomenclature. The image is credited to Eurostat, 2012, from the Land Use/Cover Area Frame Survey (LUCAS)."
 alt="Coniferous plantation, Spain, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2012-07-04. CNES 2011© Distribution Airbus DS/Spot Image." />
 
@@ -3475,7 +3475,7 @@ of broadleaved deciduous or evergreen and coniferous trees.
   $\rightarrow$ 5.1.0 Heathland and Moorland.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-2764ef7abdff4c363da7f0193d90459e.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-2764ef7abdff4c363da7f0193d90459e.jpeg"
 style="width:236pt"
 data-fig-alt="A ground-level photograph displaying a dense natural or semi-natural mixed forest. The image is dominated by numerous tall, slender tree trunks with light brown bark, ascending vertically towards an unseen canopy. The forest floor and lower to mid-levels are thickly covered with lush, vibrant green undergrowth, comprising various shrubs and leafy plants that form a rich understorey. Dappled light filtering through the canopy suggests a daytime setting. Faint text in the bottom-left corner of the image reads &#39;COPYRIGHT EEA&#39;, indicating the European Environment Agency as the copyright holder. This photograph provides a visual example for the definition and classification of mixed forest land cover types in environmental documentation."
 alt="Mixed forest (Pinus sylvestris, Quercus petraea), Germany. Credit: Eurostat, 2012. LUCAS." />
@@ -3495,7 +3495,7 @@ forest land cover types in environmental documentation.
 **Appearance:**
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-c21cd56f478292cef99851bc21f96f80.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-c21cd56f478292cef99851bc21f96f80.jpeg"
 style="width:279pt"
 data-fig-alt="A false-colour infrared satellite map displaying distinct land cover polygons with associated classification codes for a region in Spain. The predominant dark red colour signifies dense vegetation, typically forest, where near-infrared light is strongly reflected. Lighter grey/brown areas indicate less dense vegetation or other land cover types. Several land cover classes are delineated by dark green polygon outlines and labelled with four-digit codes: * **3210:** Interpreted as &#39;Coniferous plantations in arable land&#39; based on the document&#39;s context, these areas exhibit clear linear patterns characteristic of planted rows within former agricultural fields. Two such areas are visible. * **3310:** Labelled &#39;Natural &amp; semi-natural mixed forest&#39; according to the surrounding documentation, this class covers large, extensive areas of dense dark red forest. * **3110:** This area also appears as dense dark red forest, similar to 3310. Based on standard CORINE Land Cover (CLC) nomenclature, 3110 typically represents &#39;Broad-leaved forest&#39;. * **4212:** These areas are depicted in lighter grey/brown tones and represent more open, less densely vegetated landscapes. In CLC nomenclature, 4212 corresponds to &#39;Moors and heathland&#39;. * **3400:** This class also appears as lighter grey/brown, indicating sparsely vegetated areas, consistent with CLC 3400 &#39;Sparsely vegetated areas&#39;. The map illustrates the spatial distribution and delineation of different land cover classes within a landscape, likely for Copernicus Land Monitoring Service (CLMS) or a similar land use / land cover (LULC) mapping program. No explicit scale bar, compass, or overall date for this specific image is provided within the visual."
 alt="Other mixed forest, Mazin (Croatia), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-15. CNES 2010©, Distribution Airbus DS/Spot Image." />
@@ -3534,7 +3534,7 @@ Mixed swamp forest:
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-2c7eeaf88ac309158ffd7e2b2e995e7f.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-2c7eeaf88ac309158ffd7e2b2e995e7f.jpeg"
 style="width:277pt"
 data-fig-alt="This false-colour satellite image depicts a landscape mosaic consisting of agricultural fields and forest areas. Dense forest, characteristic of &#39;Mixed forest&#39; as defined in the surrounding context, is shown in dark red and burgundy hues, prominent in the upper right and along a diagonal strip in the central-left portion of the image. Agricultural fields appear as large, distinct rectangular parcels, with varying colours: some are dark green, indicating active vegetation, while others display shades of pink and lighter red, suggesting different crop types or phenological stages in a false-colour infrared representation. A yellow arrow highlights a linear feature that marks a clear boundary between a large dark green agricultural area and a darker, reddish-brown vegetated strip, potentially a mixed forest edge or a &#39;Transitional woodland and scrub&#39; zone. The image illustrates distinct land cover transitions in a managed environment."
 alt="Mixed swamp forest, “Großes Moor”, Uchte (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2013-09-05. CNES 2013©, Distribution Airbus DS/Spot Image." />
@@ -3619,7 +3619,7 @@ height as transitional woodland.
 - Abandoned olive groves $\rightarrow$ 5.3.0 Sclerophyllous scrub.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-ed6d7c9e0a36e90e95a513ce0681fbf1.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-ed6d7c9e0a36e90e95a513ce0681fbf1.jpeg"
 data-fig-alt="A ground-level photograph of a large, open landscape showing a recently clear-cut forest area. The foreground and mid-ground are dominated by disturbed, bare earth, scattered woody debris (branches, stumps), and faint parallel rows indicating either new sapling plantings or prepared soil for regeneration. A single, tall, thin, and apparently dead or sparsely foliated tree stands prominently in the central-right foreground. In the far background, a dense treeline or forest edge is visible under a cloudy, overcast sky. This scene is consistent with &#39;Transitional woodland and scrub,&#39; representing either woodland degradation or early stages of forest regeneration/recolonization, where young individuals are less than 5 metres in height."
 alt="Transitional woodland, Scotland Credit: M. Rosengren." />
 
@@ -3636,7 +3636,7 @@ degradation or early stages of forest regeneration/recolonization, where
 young individuals are less than 5 metres in height.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-a50d74bfc8c6c47c88f2805df0abae20.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-a50d74bfc8c6c47c88f2805df0abae20.jpeg"
 data-fig-alt="A panoramic photograph captures a wide, natural landscape under a clear blue sky. In the foreground, a broad, light-coloured sandy bank or dry riverbed is visible. In the mid-ground, a calm body of water, likely a river or wide stream, flows. Both banks of the water body are densely covered with vibrant green bushy vegetation, consistent with riparian scrub or reeds. A multi-span, light-beige coloured bridge crosses the river. In the background, arid, rocky hills rise on both sides. On the slopes of the prominent hill on the right side, several buildings are visible, including a large complex of white and light-coloured structures, possibly a resort or hotel, with dark panels (potentially solar panels) on the hillside. The landscape illustrates contrasting land cover types: dense riparian vegetation in the river valley and sparse vegetation on the dry, mountainous terrain."
 alt="Reeds alongside a Mediterranean River: Credit: M. Palacios." />
 
@@ -3657,7 +3657,7 @@ sparse vegetation on the dry, mountainous terrain.
 **Appearance:**
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-dc9274e7a6a27f2071a10eeeb85f12d2.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-dc9274e7a6a27f2071a10eeeb85f12d2.jpeg"
 style="width:263pt"
 data-fig-alt="This is a false-colour infrared satellite image depicting a landscape dominated by water bodies and various types of vegetation. Healthy, dense vegetation appears in shades of dark red, indicating strong Near-Infrared (NIR) reflection, characteristic of forests or mature shrubland. Water bodies, including a winding river and several smaller channels, appear in dark blue. Linear, light blue/white features crossing the water are visible, suggesting bridges or causeways. Interspersed within the darker red vegetated areas are lighter, textured red patches, which represent areas of less dense vegetation, regenerating forest, or possibly abandoned agricultural land with recolonizing trees and shrubs, consistent with descriptions like &#39;Clear-cuts in forest areas,&#39; &#39;Forest regrowth areas,&#39; or &#39;Young forest plantations.&#39; A prominent yellow arrow points to one such lighter red, textured area adjacent to the main river, on the inside bend of a river curve. This area displays a distinct texture of linear patterns within it, suggesting managed or disturbed land undergoing ecological succession. No scale bar or text labels are present."
 alt="Forest clear-cuts at the Danube river side, Hungary, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-10. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -3683,7 +3683,7 @@ succession. No scale bar or text labels are present.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-db1634251b3f7c1f791c4d867a124898.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-db1634251b3f7c1f791c4d867a124898.jpeg"
 style="width:275pt"
 data-fig-alt="False-colour infrared map displaying land cover classification with delineated polygons and alphanumeric labels. The dominant colour is deep red, indicating dense, healthy vegetation. Lighter red to grayish-brown areas represent sparser vegetation or bare ground. Multiple areas are labelled with &#39;3130&#39;, which, based on the surrounding document context, corresponds to &#39;Forests and transitional woodlands&#39; or &#39;Forest in regeneration&#39; areas. This category includes pre- or post-formation of broadleaved evergreen forest with crown cover less than 30%, abandoned agricultural land under recolonization by trees and shrubs (scattered trees or shrub cover more than 30%), abandoned peat bogs covered by scrubs and trees in recovering process, abandoned fruit tree plantations, abandoned vineyards (where original structure is not visible), shrub along river sides and on river banks, abandoned military training areas in regeneration, clear-cuts in forest areas, forest regrowth areas (not yet climax vegetation), young forest plantations (trees less than 5 m in height), forest nurseries inside forest areas, and short-rotation *Salix* beds for biomass production. Two distinct open, lighter-toned areas are labelled &#39;3400&#39;, representing non-forest, sparsely vegetated or bare land. A partially visible label &#39;3210&#39; is present near a winding white-grey path, which likely corresponds to &#39;Natural grasslands&#39; (CORINE Land Cover 321). The map illustrates a mosaic landscape of regenerating forest/shrub and open land."
 alt="Transitional forest, Eger (Hungary), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-109-18. Source: CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -3700,7 +3700,7 @@ alt="Transitional forest, Eger (Hungary), Spot 5 (2.5 m; 1/2/3 band combination)
   forest before.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-7fd2c08d6923683a02db976138225ca4.jpg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-7fd2c08d6923683a02db976138225ca4.jpg"
 data-fig-alt="This image presents a side-by-side comparison of two false-colour infrared satellite images, showcasing land cover change between 2006 (left) and 2012 (right). The predominant deep red hues in both images indicate dense, healthy vegetation, likely forest. Polygons delineate distinct land cover units, annotated with numeric labels. In the 2006 image: An upper section includes an area labelled &#39;3110&#39;, appearing as dense vegetation. A lower, lighter-hued area of sparser vegetation is labelled &#39;3400&#39;. Other, less clear labels such as &#39;3330&#39;, &#39;3310&#39;, and &#39;3210&#39; are also visible within other polygons. In the 2012 image: The area previously labelled &#39;3110&#39; in 2006 now shows distinct internal lighter patches, and parts of it have transitioned to be labelled &#39;3400&#39;. The area previously labelled &#39;3400&#39; in 2006 remains labelled &#39;3400&#39;. This visual change from &#39;3110&#39; to &#39;3400&#39; indicates forest clearing or regeneration. New darker, almost greyish, patches, possibly representing water bodies or shadowed areas, are more prominent within some polygons in the 2012 image, particularly in the upper left. Other less clear labels (&#39;3330&#39;, &#39;3310&#39;, &#39;3210&#39;) remain visible. Based on the surrounding document&#39;s context, which discusses &#39;Forest clear-cuts&#39; and &#39;Transitional woodland&#39;, the class &#39;3110&#39; likely represents a forest area, and &#39;3400&#39; represents a clear-cut area, regenerating forest, or transitional woodland-shrub resulting from clear-cutting, demonstrating land use/land cover change (LULUC)."
 alt="Transitional forest, Oger (Hungary), Spot 5 (2.5 m; 1/2/3 band combination). Date:2006-07-28 and 2011-10-18. Source: CNES 2012©, Distribution Airbus DS/Spot Image." />
 
@@ -3764,7 +3764,7 @@ is retained).
   data $\rightarrow$ 8.1.1 Natural & semi-natural water courses.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-f4f79286a0f1487c7ceebf50df2bc75f.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-f4f79286a0f1487c7ceebf50df2bc75f.jpeg"
 style="width:260pt"
 data-fig-alt="A ground-level photograph illustrating an agricultural landscape, likely depicting the land cover category &#39;Lines of trees and scrub&#39; as defined in the document. The foreground and midground are dominated by a vast, vibrant field of bright yellow flowering plants, characteristic of a rapeseed or canola crop. In the background, a continuous, linear strip of tall, green deciduous trees forms a distinct boundary against a clear, light blue sky. This line of trees exemplifies the definition of &#39;Lines of trees and scrub&#39; within a matrix of cultivated land."
 alt="Lines of trees and scrub, eastern Germany. Credit: Eurostat, 2012. LUCAS." />
@@ -3783,12 +3783,12 @@ clear, light blue sky. This line of trees exemplifies the definition of
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-28e1fb1a1838ae339b92ff46985468fc.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-28e1fb1a1838ae339b92ff46985468fc.jpeg"
 data-fig-alt="A false-colour infrared satellite image of Oger, Hungary, showing distinct land cover types. Areas of dense vegetation, likely forest or robust woody scrub, appear in shades of red. Agricultural fields or areas with less vegetation are depicted in greenish-blue tones. A prominent linear feature, interpreted as a transitional forest or line of trees and scrub, is highlighted by a thick pink outline, separating areas of dense red vegetation from greenish-blue fields. The image was captured using a Spot 5 sensor at 2.5 m resolution. The source data dates are 2006-07-28 and 2011-10-18. Source: CNES 2012©, Distribution Airbus DS/Spot Image. The image serves as an example for the classification of &#39;Transitional woodland and scrub&#39; (CORINE Land Cover (CLC) class 3.2.4) or &#39;Lines of trees and scrub&#39; within the Copernicus Land Monitoring Service (CLMS) nomenclature guidelines."
 alt="Lines of trees and scrub, Novákpuszta (Hungary), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-10. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-cc874ecb7d64394a1923b2f32ef8bf31.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-cc874ecb7d64394a1923b2f32ef8bf31.jpeg"
 data-fig-alt="This is a false-colour satellite image displaying a landscape dominated by agricultural fields and distinct linear vegetation features. Large areas appear in shades of red and magenta, indicating actively growing, healthy vegetation, typical for crops or grassland when viewed with a Near-Infrared (NIR) band combination. A bright green, narrow, linear feature runs diagonally across the image, representing &#39;lines of trees and scrub&#39; as defined in the document, typically between 10 m and 25 m in width and with a Minimum Mapping Unit (MMU) of at least 0.5 ha. Parallel to this, a darker, possibly shadowed or non-vegetated linear element (dark blue-green/black) is also visible, which could be a river or a very dense, shadowed tree line. The imagery exemplifies features used in Copernicus Land Monitoring Service (CLMS) for land cover classification like CORINE Land Cover (CLC+)."
 alt="Lines of trees and scrub, Guntershausen (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-07-10. CNES 2010©, Distribution Airbus DS/Spot Image." />
 
@@ -3803,12 +3803,12 @@ alt="Lines of trees and scrub, Guntershausen (Germany), Spot 5 (2.5 m; 1/2/3 ban
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-fefa29d0abd2810b26c7de5bee246cd5.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-fefa29d0abd2810b26c7de5bee246cd5.jpeg"
 data-fig-alt="This map displays a Land Use / Land Cover (LULC) classification based on false-colour satellite imagery from Spot 5 (2.5 m resolution) acquired on 2011-07-10, covering an area near Novákpuszta, Hungary. The imagery source is CNES 2011©, distributed by Airbus DS/Spot Image. The map shows distinct landscape features delineated by thin black lines into polygons, each labelled with a 4-digit classification code. Prominent linear features, consistent with the definition of &#39;Lines of trees and scrub&#39;, are highlighted with thicker orange outlines. The false-colour imagery renders dense, vigorous vegetation in deep red tones (e.g., areas labelled 3210), suggesting forest or dense woodland. Agricultural fields are visible as striped patterns of pink/red and green (e.g., the area labelled 2330, indicating complex cultivation patterns). A residential or built-up area appears in lighter grey/white tones adjacent to the striped fields. Other areas, such as those labelled 4100 and 4211, exhibit darker brown/red tones, potentially representing sparser vegetation, specific soil types, or riparian zones. The orange-outlined linear features represent strips of trees and scrub, visually separating different land use types, particularly between agricultural land and more natural vegetated areas."
 alt="Example: Lines of trees along river \rightarrow 3.5.0, Spot 5 (2.5m; 1/2/3 band combination). Date: 2011-10-18. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-a7871aebf46b3379df4cd4871781e09c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-a7871aebf46b3379df4cd4871781e09c.jpeg"
 data-fig-alt="This high-resolution satellite map displays detailed land cover classifications in a rural or semi-natural area, likely in Europe (eastern Germany or Hungary, based on document context), using a false-colour infrared composite where red/magenta indicates vegetation and dark green/blue represents water. The base imagery has a resolution of 2.5 metres, consistent with Spot 5 data from approximately 2010–2011. The map features several polygons, outlined in thin dark lines, each associated with a four-digit Copernicus Land Monitoring Service (CLMS) land cover class code. A prominent dark green linear feature, identified as a watercourse (river or canal), is classified with the code &#39;8110&#39;. According to the accompanying document, this code represents &#39;Natural &amp; semi-natural water courses&#39; or Riparian Zone (RZ) data. Adjacent to the watercourse are narrow, elongated yellow/orange polygons labelled &#39;1620&#39;. Based on the surrounding text, these represent &#39;Lines of trees and shrub&#39; or Small Woody Features (SWF), which are typically 10 m to 25 m in width and have a Minimum Mapping Unit (MMU) of 0.5 ha, appearing within urban or agricultural areas. Other surrounding land cover includes larger red/magenta polygons classified as &#39;3110&#39; (likely Broad-leaved forest), &#39;4100&#39; (likely Grassland), and a partially visible &#39;2110&#39; (likely Arable land). No explicit scale bar, compass, or legend is present within the image itself."
 alt="Example: Lines of forest along river \rightarrow 3.5.0, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-10-22. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -3866,12 +3866,12 @@ south-facing slopes.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-e2a80927f056568de65ac197d8783d2b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-e2a80927f056568de65ac197d8783d2b.jpeg"
 data-fig-alt="A ground-level photograph depicts a forest landscape severely impacted by environmental damage, characterised by numerous dead, standing trees. The trees are tall, bare, and greyish, appearing stripped of all foliage, indicative of extensive forest dieback. The ground is covered with dry, yellowish-brown grass and sparse, small green bushes or saplings, suggesting limited new growth or understory vegetation. The sky is overcast and light grey. This image exemplifies a &#39;Damaged forest&#39; as defined in Copernicus Land Monitoring Service (CLMS) documentation, where damage is visible through discolouration (lack of leaves/needles) due to factors such as pests (e.g., bark-beetle attacks), storm events, or other environmental stressors. The visible trees are indicative of monocultures, which the surrounding text describes as more vulnerable."
 alt="Other damaged forest: Bark-beetle damage, Bavarian Forest, Germany. Credit: M. Probeck." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-73a346d90f88d36cb504209c753264de.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-73a346d90f88d36cb504209c753264de.jpeg"
 data-fig-alt="A ground-level photograph depicts a landscape characterized by forest damage, featuring numerous standing dead or bare tree trunks with no foliage, interspersed with some stumps and smaller, younger coniferous trees. The foreground is covered with dry, yellow-brown grassy vegetation. In the background, a dense line of trees on a hillside also appears to be heavily damaged or dead, creating a desolate scene under an overcast sky. The image illustrates the &#39;Damaged forest&#39; land cover category, which includes areas affected by pests (like bark-beetle), storm events, or fire, where damage is visible as discolouration of foliage or trees lying on the ground."
 alt="Other damaged forest: Bark-beetle damage, Bavarian Forest, Germany. Credit: M. Probeck." />
 
@@ -3890,22 +3890,22 @@ alt="Other damaged forest: Bark-beetle damage, Bavarian Forest, Germany. Credit:
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-9ab10cd661e00dc973fc613b20458b61.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-9ab10cd661e00dc973fc613b20458b61.jpeg"
 data-fig-alt="An aerial image, likely from Earth Observation (EO) data, depicting a landscape in the Bavarian Forest, Germany. A prominent bright yellow arrow points to a distinct area of forest exhibiting damage from bark-beetle infestation. This damaged forest appears in greenish-blue colours, contrasting with the surrounding areas which show predominantly reddish-brown and darker tones, representing healthy forest or other land cover types in this false-colour composite. According to the associated documentation, this colour scheme (greenish to bluish instead of red/brown) is a key identifier for damaged forest areas in EO data. The image is credited to M. Probeck."
 alt="Forest damaged by fire in Benicolet (Spain), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-06-22. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-bda577c0d52f0cc8f9a81d87dadd8566.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-bda577c0d52f0cc8f9a81d87dadd8566.jpeg"
 data-fig-alt="This map presents satellite imagery of a coastal landscape, likely in Southern Europe, rendered in a false-colour composite. A large dark blue area representing the sea or ocean borders the landmass to the north and east. The land cover on the terrestrial side is predominantly reddish/brownish, which, in this false-colour scheme, represents healthy forest or dense vegetation. These areas are interspersed with lighter yellowish/beige patches, indicative of agricultural fields, scrub, or bare ground. A conspicuous yellow arrow highlights a central area within the forested region that exhibits a distinct greenish to bluish colouration. According to the surrounding documentation, these greenish/bluish hues indicate &#39;other damaged forest,&#39; often caused by factors such as bark-beetle infestation, storms, or fires, which lead to visible discolouration in the forest canopy as captured by Earth Observation data. The damaged area appears as a compact feature contrasting sharply with the surrounding healthier red/brown forest. No scale bar, compass, legend, or specific geographic names are visible on the map."
 alt="Almost 1.500 ha of forest affected by fire in San Joan de Labritja (Spain), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-06-17. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-3bd1d70661d62a60036894ae97d169a7.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-3bd1d70661d62a60036894ae97d169a7.jpeg"
 data-fig-alt="An Earth Observation image depicting a forested area in the Bavarian Forest, Germany, with signs of bark-beetle damage. The image uses a false-colour composite where healthy forest appears in shades of red, while areas affected by damage, such as bark-beetle infestation, are visible as distinct patches with greenish to bluish-grey colours. Two specific areas of damaged forest are highlighted by irregular yellow polygons in the upper right and lower left portions of the image. The surrounding red areas represent healthy forest. No scale bar, compass, or legend is visible within the image."
 alt="Bark-beetle damage, Harz National Park (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-09-03. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-90320bf10bf05089b351c44786f5bc41.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-90320bf10bf05089b351c44786f5bc41.jpeg"
 data-fig-alt="The map displays false-colour infrared satellite imagery of a rural landscape, dated 2007-11, overlaid with grey boxes containing two lines of numerical codes. These codes likely represent land cover classifications, with the top code being the &#39;product label&#39; and the bottom code being the &#39;reference label&#39; or &#39;ground truth&#39; for validation. The background imagery shows dense vegetation, likely forest, in shades of red and reddish-brown, while open areas, fields, and wetlands appear in greenish-blue. Linear features, possibly roads or tracks, are visible in grey. Identified code pairs and their locations are: * **3210 / 3210**: Predominantly found in reddish-brown (forest) areas, and some greenish-blue areas. These codes are likely related to &#39;Forest and semi-natural areas&#39;, but the exact class name is not explicitly visible from the image or context. * **3210 / 3600**: Found in both reddish-brown (forest) and greenish-blue areas. Both codes likely represent &#39;Forest and semi-natural areas&#39; categories, but their specific class names are not explicitly visible. * **3400 / 3400**: Located in a distinct greenish-blue area. Based on the surrounding document context, code 3400 represents &#39;Transitional woodland and scrub&#39;. * **4100 / 4100**: Found in a greenish-blue area towards the center-bottom, suggesting a &#39;Wetland&#39; category. The specific class name is not explicitly visible. * **1210 / 1210**: Located near linear features (roads/tracks) and other developed areas, implying a classification of &#39;Industrial or commercial units&#39; or similar &#39;Artificial surfaces&#39;. * **1220 / 1220**: Also located along a linear feature, likely representing &#39;Road and railway networks and associated land&#39; or similar &#39;Artificial surfaces&#39;. The arrangement of codes suggests a validation process where product classifications are compared against reference data."
 alt="Damaged forest due to increasing soil moisture (codes:N2K 2006/ N2K2012), Magdeburg (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-09-18. CNES 2011 ©, Distribution Airbus DS/Spot Image." />
 
@@ -3917,7 +3917,7 @@ alt="Damaged forest due to increasing soil moisture (codes:N2K 2006/ N2K2012), M
   light red spectral signatures.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-8efb06dffcf6b57a58c14e54661413c4.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-8efb06dffcf6b57a58c14e54661413c4.jpeg"
 data-fig-alt="Two false-colour satellite images comparing a forested, riverine landscape between 2012 (left) and 2018 (right), illustrating a significant change in forest health. The images display land cover polygons outlined in black, overlaid with numerical classification codes. In the 2012 image, healthy forest areas are represented by deep red tones, while non-forested areas such as agricultural land or grasslands appear in lighter green, and the meandering river shows as light blue water. Visible polygon labels include 4100, 4212, 3110, and 3410. The 2018 image depicts a marked transformation: large, contiguous areas that appeared as healthy deep red forest in 2012 have shifted to greenish-bluish colours. This colour change indicates widespread forest damage or decline, consistent with descriptions of &#39;Other damaged forest&#39; found in the document context, likely due to pest outbreaks such as bark beetles. Non-forested areas and the river retain similar colour characteristics to the 2012 image. The overlaid polygon labels, such as 4100, 4212, 3110, 3410, 4211, 4213, and 6100, remain visible, indicating the land cover classification units despite the changes in forest health within some of these areas."
 alt="In 2012, no damage is visible. Spot 5 (2.5 m; 1/2/3 band combination). Date: 2013-09-26. CNES 2013 ©, Distribution Airbus DS/Spot Image. Forest damaged in 2018 by the oak processionary moth (Thaumetopoea processionea) on the whole Turkish-Bulgarian border (here Stoilovo) causing disruptions the leaf formation of the tree and a limited chlorophyll content resulting in discolorations in the images. Pleiades 1B (4 m; 1/2/3 band combination). Date: 2018-08-06. Credit: CCME 2018 provided under COPERNICUS by the European Union and ESA." />
 
@@ -3944,7 +3944,7 @@ the land cover classification units despite the changes in forest health
 within some of these areas.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-4312bc2b58c0e59d5f9b39b0ba09fe22.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-4312bc2b58c0e59d5f9b39b0ba09fe22.jpeg"
 data-fig-alt="A series of three false-colour infrared satellite images depicting changes in forest health and land cover over time, from 2006, 2012, to 2018. The maps are likely set in Germany, referencing areas affected by bark beetle damage, as suggested by the surrounding document context. Healthy vegetation, primarily forest, appears in shades of red, while stressed, damaged, or non-vegetated areas exhibit greenish to bluish tones. Water bodies are light blue/cyan. In the 2006 image, the landscape is predominantly reddish, indicating healthy forest, with some small greenish-bluish patches and several water bodies. Various land cover areas are outlined in black with CORINE Land Cover (CLC) codes, including 3210 (Natural grasslands), 3110 (Broad-leaved forest), and 3410 (Inland marshes), some followed by a &#39;0&#39; or &#39;1&#39;. The 2012 image shows a marked increase in greenish-bluish areas, particularly within the reddish forest canopy, indicating widespread forest damage, consistent with bark-beetle infestation. The affected areas often correspond to the outlined polygons, with some labelled 3110, 3210, and 3410, which also appear greenish-bluish. By the 2018 image, the landscape largely reverts to the reddish tones of healthy vegetation, with significantly fewer greenish-bluish damaged patches compared to 2012. This temporal pattern suggests a period of forest damage followed by substantial recovery or regeneration. The CLC-coded polygons persist, with their internal colours now mostly reddish. The image does not include a scale bar, compass, or explicit legend, but the time series clearly illustrates the dynamic nature of forest health."
 alt="In 2006, no damage is visible. Spot 5 (2.5 m; 1/2/3 band combination). Date: 2006-07-24. CNES 2006 ©, Distribution Airbus DS/Spot Image. Forest damaged in 2012 by the oak processionary moth (Thaumetopoea processionea) on the Turkish-Bulgarian border. Disruptions in the leaf formation of the tree and a limited chlorophyll content causing discoloration in the images. Spot 5 (2.5 m; 1/2/3 band combination). Date: 2013-09-26. CNES 2013 ©, Distribution Airbus DS/Spot Image. In 2018, the forest looks healthy again. Pleiades 1B (4 m; 1/2/3 band combination). Date: 2018-08-06. Credit: CCME 2018 provided under COPERNICUS by the European Union and ESA." />
 
@@ -4112,27 +4112,27 @@ is smooth.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-e1c79f69f2c501c86a6846fd6b87cfb5.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-e1c79f69f2c501c86a6846fd6b87cfb5.jpeg"
 data-fig-alt="A photograph depicting several black and white dairy cows grazing on an improved grassland pasture under an overcast sky. In the foreground, a water channel or ditch is visible, with tall green grasses along its bank, separating the viewer from the main pasture. Five cows are visible: one stands prominently in the mid-ground facing the viewer, two are grazing further back to the right, and two more are near the distant treeline. In the background, beyond a line of trees and shrubs, farm buildings with dark roofs are partially visible, consistent with agricultural settings. The land cover is predominantly green grassland. The image is attributed to &#39;© European Union, 2013&#39; and is identified as &#39;LUCAS&#39;."
 alt="Managed (improved) grasslands in Friesland (The Netherlands). Credit: Eurostat, 2012. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-1f56ab64f83f489da60efc6bb3a9b989.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-1f56ab64f83f489da60efc6bb3a9b989.jpeg"
 data-fig-alt="A conceptual map illustrating a rural agricultural landscape with various land cover and land use types. The legend on the right defines the following features: &#39;Hay meadows&#39; are depicted in dark green; &#39;Arable land&#39; is shown in light yellow; &#39;Farms&#39; are represented by black rectangular polygons; &#39;Trees&#39; are indicated by small green tree icons; and &#39;Roads&#39; are light green, elongated polygons. The map displays large contiguous areas of hay meadows, interspersed with smaller, rectangular parcels of arable land. Multiple farm building complexes are visible as black polygons, some situated within or adjacent to the hay meadows. Scattered trees, individually and in small clusters, are present, particularly along the boundaries between different land parcels and near farm structures. Roads traverse the landscape, connecting different areas. The overall pattern shows a mosaic of managed grasslands (hay meadows) and cultivated fields (arable land), with associated infrastructure and natural elements."
 alt="Schematic representation of managed (improved) grasslands." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-c4a7f2478ca85586b50bfd64ab363168.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-c4a7f2478ca85586b50bfd64ab363168.jpeg"
 data-fig-alt="A ground-level photograph depicting a rural European landscape, characteristic of a bocage environment. In the background, a village comprising numerous buildings, including a prominent church steeple, is situated on a gentle incline. The foreground and midground feature undulating topography covered by dormant or semi-dormant grasslands (appearing light brown and pale green), intermixed with scattered bare deciduous trees, and denser clusters of coniferous trees on the right side. The scene illustrates a heterogeneous Land Cover / Land Use (LCLU) pattern typical of agricultural areas with small woody features and residential settlements. The sky is clear and blue, suggesting winter or early spring."
 alt="Managed (semi-improved) grasslands. Prairies in Auvergne, France. Credit: C. Alonso." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-7f9c94be745c6d614c22d8089786ee3d.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-7f9c94be745c6d614c22d8089786ee3d.jpeg"
 data-fig-alt="A conceptual map illustrating a rural agricultural landscape with various land cover types and features. The legend on the right defines the visual elements: * **Hay meadows** are depicted by light green and teal/turquoise areas. * **Arable land** is shown as light yellow parcels. * **Trees** are represented by small green circular icons, predominantly forming linear features (hedgerows or tree walls) along parcel boundaries and riverbanks. * **Rural settlement** is indicated by a cluster of black and white rectangular shapes in the upper right. * **Roads** are shown as darker green linear features. * A **River** is depicted as a winding blue line traversing the landscape. The map shows a mosaic of agricultural fields, including hay meadows and arable land, segmented by dense lines of trees. A river flows through the scene, also featuring trees along its banks. A rural settlement is located at the top right, connected by roads to the surrounding agricultural areas, characteristic of landscapes such as the *bocage*. No scale, compass, data source, or reference year is provided."
 alt="Schematic representation of managed (semi-improved) grasslands." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-0d82ceff2fbe765bbdf049549877659c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-0d82ceff2fbe765bbdf049549877659c.jpeg"
 data-fig-alt="A ground-level photograph of a rural European landscape. In the foreground, a substantial dry-stone wall runs horizontally across the frame. Behind the wall, slightly right of center, stands a deciduous tree with a dense, heavily pruned or pollarded crown and bare branches, indicating late autumn or winter. To the left of the tree, a narrow, unpaved path curves through a field of vibrant green managed grassland. To the right of the tree, a second field exhibits drier, lighter-coloured vegetation, characteristic of less intensively managed grassland or abandoned arable land. The background shows more scattered trees under an overcast sky. This scene depicts traditional agricultural land use, including field boundaries and managed vegetation types."
 alt="Managed grasslands plot containing scrubs and trees (right), in this case due to a process of land abandonment (Central Spain). Credit: M. Palacios." />
 
@@ -4141,7 +4141,7 @@ alt="Managed grasslands plot containing scrubs and trees (right), in this case d
 **Appearance:**
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-403200433b174d5e8b74a400a8ca41e0.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-403200433b174d5e8b74a400a8ca41e0.jpeg"
 style="width:282pt"
 data-fig-alt="The image is a false-colour aerial or satellite map displaying a rural landscape with superimposed polygons, each labelled with a 4-digit CORINE Land Cover (CLC) code. The map illustrates different land cover types, with vegetation appearing in shades of red/magenta (healthy vegetation) and green/brown, and artificial surfaces in lighter tones. No scale bar or compass is visible. The labelled polygons and their likely CLC interpretations are: * **1110 (multiple occurrences):** Discontinuous urban fabric (residential areas with mixed artificial surfaces and vegetation). * **1120:** Discontinuous urban fabric (similar to 1110, but potentially a slightly different subtype or density). * **1210:** Industrial or commercial units (areas often adjacent to infrastructure). * **2110:** Arable land (non-irrigated), indicated by large fields of bright reddish-magenta vegetation. * **2210:** Pastures or Complex cultivation patterns (agricultural land, likely grassland given the document&#39;s context on &#39;Managed (improved) grasslands&#39;). * **3110:** Broad-leaved forest (dense, dark reddish-purple vegetation). * **4100:** Inland marshes or Peatbogs (wetland areas, potentially &#39;Semi-natural grassland without woody plants&#39; as mentioned in the surrounding document text for specific wetland grassland types). The map visually demonstrates the application of CLC classification codes to a diverse landscape, highlighting agricultural fields, urban fringes, forest areas, and potential wetlands/grasslands. The surrounding context indicates this map is used to illustrate &#39;Managed (improved) grasslands&#39; classification."
 alt="Managed grassland with borders to arable land, Badoere (Italy), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-09-20. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -4179,7 +4179,7 @@ Managed (improved) grasslands:
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-83d98a4b55388a2becc0833c63ca6c6a.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-83d98a4b55388a2becc0833c63ca6c6a.jpeg"
 data-fig-alt="A false-colour infrared satellite or aerial photograph depicting an agricultural landscape, identified as managed (improved) grasslands in Friesland, The Netherlands. The image, sourced from Eurostat&#39;s LUCAS (Land Use/Cover Area frame Survey) 2012, displays multiple rectangular fields predominantly in bright red, which indicates healthy vegetation in this spectral representation. A distinct small green square marker is positioned centrally within one of these red fields, highlighting a specific sampling point. Scattered darker patches, potentially other vegetation or shadows, and a few lighter grey/white structures (likely buildings) are visible amongst the fields. A dark body of water occupies the lower-left corner of the image."
 alt="Hade edge, United Kingdom, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2012-01-31. CNES 2012©, Distribution Airbus DS/Spot Image" />
 
@@ -4198,7 +4198,7 @@ Managed (semi-improved) grasslands:
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-c862411e46b6889f1cdd97c3b86434c1.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-c862411e46b6889f1cdd97c3b86434c1.jpeg"
 data-fig-alt="This is a false-colour infrared satellite image showing managed grasslands and agricultural fields in the Hade edge region of the United Kingdom, captured on 2012-01-31. The image uses a 1/2/3 band combination (likely Near Infrared-Red-Green), which renders healthy vegetation in shades of red. The landscape is characterised by numerous irregularly shaped fields, predominantly bright red, indicating extensive areas of managed grasslands. These fields are often delineated by darker, narrow linear features, typical of hedgerows or tree lines forming a &#39;Hade edge&#39;. Scattered within the agricultural landscape are small clusters of grey/white features with darker roofs, representing farmsteads or small settlements, connected by light-coloured linear features which are roads or paths. A single, distinct green circular marker is centrally located within one of the red-coloured fields. The image was acquired by the Spot 5 satellite at a spatial resolution of 2.5 metres. Image credit: CNES 2012©, Distribution Airbus DS/Spot Image."
 alt="Example of managed grassland, Omex (France), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-10-04. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -4239,7 +4239,7 @@ Difference between managed (semi-improved) and semi-natural grasslands:
   colour patterns.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-e098a02e66c6c6579128ef99a4195f21.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-e098a02e66c6c6579128ef99a4195f21.jpeg"
 data-fig-alt="This image displays a grid of 15 small, square or rectangular satellite imagery snippets, arranged in three rows of five. The imagery appears to be false-colour composite, commonly used in remote sensing to highlight land cover types and vegetation health. Each snippet showcases diverse land cover patterns, primarily consisting of geometrically shaped parcels or fields, alongside some irregularly shaped natural or semi-natural areas. The predominant colours across the snippets include vibrant reds, purples, blues, greens, oranges, and yellows/browns. One notable snippet, located in the second row, second from the left, is uniformly bright green, suggesting a dense area of healthy vegetation. Many other snippets show a mosaic of distinct, often rectangular, parcels in various red, orange, and purple hues, indicative of agricultural fields or managed landscapes. Some areas also show lighter blue or white linear features, possibly representing infrastructure or uncultivated strips. The varying colours and patterns within the snippets likely represent different types of vegetation, soil conditions, and land use / land cover (LULC) types, such as managed grasslands, agricultural crops, or semi-natural areas, as observed in Copernicus Land Monitoring Service (CLMS) data products. The resolution is pixelated, typical of zoomed-in satellite imagery."
 alt="Typical arable land colour patterns in Landsat images (band combination 5-6-4)." />
 
@@ -4265,7 +4265,7 @@ Copernicus Land Monitoring Service (CLMS) data products. The resolution
 is pixelated, typical of zoomed-in satellite imagery.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-834d5fc399b8ef79f78dec71fefbcb91.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-834d5fc399b8ef79f78dec71fefbcb91.jpeg"
 data-fig-alt="The image displays seven distinct, pixelated segments of false-colour satellite or aerial imagery, arranged in two rows (five segments in the top row, two in the bottom row). These segments illustrate various land cover types and land use patterns, likely from a Copernicus Land Monitoring Service (CLMS) product. The segments show a mosaic of colours: * **Top row, segments 1 and 2 (left):** Feature highly regular, rectangular parcels predominantly in shades of orange-brown and turquoise, indicative of intensely managed agricultural fields or regularly mowed grasslands with distinct boundaries. This aligns with descriptions of &#39;small regular parcels&#39; and &#39;artificially limited by fences&#39; mentioned in the surrounding document text. * **Top row, segments 3 and 5 (middle and right):** Present more irregular patterns, with larger areas of orange-brown, bright yellow-green, and varying shades of blue/purple. These suggest a mix of less intensively managed grasslands, natural vegetation, or complex landscapes potentially including water bodies or areas with poor soils. Segment 5, in particular, shows textured, irregular shapes in bright yellow-green and orange. * **Top row, segment 4:** Shows a diffuse pattern of light green/turquoise with some reddish-brown patches, possibly representing widespread natural vegetation or unmanaged grasslands. * **Bottom row, segments 1 and 2:** Display large, irregular patches of light yellow-green, turquoise, and orange-brown, with some darker areas. This suggests a mix of natural herbaceous plants, possibly with trees and shrubs due to natural vegetation invasion or land abandonment, forming &#39;larger areas, and normally with no parcel structure&#39; as described in the context. The false-colour representation is typical for remote sensing data, where different wavelengths (e.g., infrared) are used to highlight vegetation health or other land surface properties, leading to colours not perceived in natural light. The pixelated nature indicates either a moderate spatial resolution or that these are zoomed-in views of a larger dataset."
 alt="Typical grasslands colour patterns in Landsat images (band combination 5-6-4)." />
 
@@ -4305,7 +4305,7 @@ moderate spatial resolution or that these are zoomed-in views of a
 larger dataset.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-2b795c46c8ae8adb36fe2679f7cbea3e.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-2b795c46c8ae8adb36fe2679f7cbea3e.jpeg"
 data-fig-alt="A false-colour satellite image shows a large, dark blue body of water, likely a lake or lagoon, centrally located. The surrounding terrestrial landscape exhibits a mosaic of diverse land cover / land use (LULC) patterns. Various shades of reddish-brown, green, and light yellow-orange denote different types of vegetation, bare soil, or agricultural fields. Some areas display distinct, small, rectangular parcels, characteristic of intensively managed agriculture, while others are larger and less geometrically regular, suggesting natural vegetation or less intensive practices. Small, indistinct grey or white patches visible at lower resolution may represent urban or built-up areas, particularly along the southern shore of the lake. Three prominent yellow arrows highlight specific areas: one points to a patch of varied reddish-brown and green parcels on the western side of the lake, another to similar patterns on the north-eastern side, and a third to a mix of reddish-brown and lighter green/yellow parcels on the southern side. A faint red outline is visible around a parcel in the top-right corner. No scale bar, compass, legend, or reference year is present in the image."
 alt="Typical colour patterns of grasslands (yellow arrows) and surrounding arable land in Landsat images (band combination 5-6-4). Credit: USGS" />
 
@@ -4334,24 +4334,24 @@ scale bar, compass, legend, or reference year is present in the image.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-8029c16b5d8d9804e162d32d8183069b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-8029c16b5d8d9804e162d32d8183069b.jpeg"
 data-fig-alt="A satellite map displaying a rural landscape with various land cover types derived from Landsat imagery using band combination 5-6-4. The map is overlaid with yellow-outlined polygons, each with a numeric label. Green areas represent typical arable land colour patterns, while red areas indicate dense natural vegetation, likely forests or semi-natural areas. Specific labelled polygons include: * Green polygons labelled `4211`, `4212`, and `4800`, which correspond to the &#39;Typical arable land colour patterns&#39;. These areas show varied textures consistent with agricultural fields. * Red areas labelled `3110`, which appear as dense, dark vegetation, contrasting with the green arable fields. A road segment is visible diagonally in the lower left portion of the image. There is no visible scale bar, compass, or explicit legend for the numeric codes, but the image title specifies it shows &#39;Typical arable land colour patterns in Landsat images (band combination 5-6-4)&#39;."
 alt="Visible cultivation tracks, Varna (Bulgaria), Spot 5 (2.5 m; 1/2/3 band combination). Date 2011-08-03. CNES ©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-53f1638bcb3aced7bc84690c5f0801ce.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-53f1638bcb3aced7bc84690c5f0801ce.jpeg"
 data-fig-alt="This map displays a rural landscape using Landsat imagery with a 5-6-4 band combination, showing distinct colour patterns for different land cover types. The image is sourced from a &#39;2021-2024_Nomenclature_Guideline_v1&#39; and is captioned as showing &#39;Typical grasslands colour patterns&#39;. Green areas represent grasslands, while reddish-magenta areas represent arable land. The land parcels are outlined with yellow boundaries, and linear magenta features, likely paths or small roads, traverse some areas. Four-digit land cover codes are overlaid on various parcels: * `1110`: Located in the upper right, on an area that appears to be discontinuous urban fabric or an artificial surface. * `1120`: Located in the upper left, on an area that also appears to be discontinuous urban fabric or an artificial surface, partially covered by green vegetation. * `2110`: Labelled on multiple reddish-magenta parcels, representing arable land. * `4100`: Labelled on large reddish-magenta parcels in the upper central area, also representing arable land. No scale bar, compass, or explicit legend for the four-digit codes is visible, but the context indicates these are from a Copernicus Land Monitoring Service (CLMS) nomenclature guideline."
 alt="Homogenous parcels of grassland without visible mowing tracks, Spot 5 (2.5 m; 1/2/3 band combination). CNES ©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-27c6a2fad657c28b4189b13a16c9fb0f.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-27c6a2fad657c28b4189b13a16c9fb0f.jpeg"
 data-fig-alt="A false-colour satellite image from Landsat, using band combination 5-6-4, depicting typical colour patterns for grasslands and surrounding arable land. The image is credited to the United States Geological Survey (USGS). A yellow oval highlights a large, roughly rectangular field exhibiting a uniform red colour pattern with some subtle textures, identified as grasslands. A red oval highlights a distinct, similarly large field below it, also predominantly red but showing faint linear patterns indicative of tilled rows or parcel management, characteristic of arable land. The surrounding areas also show similar red hues, with thin white lines likely representing roads or tracks, and small greyish-green rectangular features that could be buildings or other non-vegetated surfaces."
 alt="Tracks in cropland (yellow circle) and tracks in grassland (red circle), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-05-06. CNES 2012©, Distribution Airbus DS/Spot Image." />
 
 </div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-27d0471aed9023b0d261ff499a9d1a5f.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-27d0471aed9023b0d261ff499a9d1a5f.jpeg"
 data-fig-alt="The image displays two ground-level photographs of agricultural landscapes illustrating different land cover types relevant for land use / land cover (LULC) classification. The left photograph shows a field of mown or harvested grassland, characterized by dry, yellowish-brown stubble and distinct parallel tracks, likely from mowing or harvesting machinery. A small pink marker is visible on the ground in the foreground. A line of trees and buildings is visible on the horizon. The right photograph depicts a field of standing golden-yellow cereal crops (arable land) under a blue sky with scattered white clouds. A green, uncultivated strip, possibly a path or field margin, runs between the main crop field on the left and a strip of tall, dry grasses and a hedgerow on the right. A single tree is visible in the distance above the hedgerow. These images visually distinguish between managed grasslands (or recently harvested fields) and active arable land, alongside areas of unmanaged vegetation, which is pertinent for methods like CORINE Land Cover (CLC) class 2.3.1 (Pastures) and for discriminating permanent grasslands from arable land. A faint, unreadable text string is present at the bottom left of the left image."
 alt="Examples of rows in a grassland parcel due to mowing management. Credit: Eurostat, 2009. LUCAS." />
 
@@ -4465,72 +4465,72 @@ assignment of 3400 Transitional woodland and scrub should be mapped.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-822f6a6c3d0c3824266a977368a53b86.jpg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-822f6a6c3d0c3824266a977368a53b86.jpg"
 data-fig-alt="A photograph captures a sunlit natural grassland landscape featuring a gently sloping hillside in the midground and background. The hillside is covered with dry, light brown and green grasses, dotted with numerous scattered, conical-shaped dark green shrubs or small trees, resembling junipers. The crest of the hill in the background shows a denser line of taller deciduous trees under a clear blue sky. In the foreground, on the lower left, a vibrant yellow agricultural field, likely rapeseed, is visible. This image visually represents a land cover type that could be classified as &#39;natural grassland&#39; or &#39;dry grassland&#39; with &#39;small woody features&#39; (SWF) or scrub, aligning with definitions used in Copernicus Land Monitoring Service (CLMS) High Resolution Layers (HRL) or CORINE Land Cover (CLC) classifications, particularly CLC 3.2.1 for natural grasslands."
 alt="Dry grassland on the Franconian Alb (juniper heathland), Germany. Credit: M. Probeck." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-96cb8242801ab555eb16f1e0c5432f3d.jpg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-96cb8242801ab555eb16f1e0c5432f3d.jpg"
 data-fig-alt="This diagram presents a conceptual cross-section of a landscape, illustrating the spatial arrangement of different land cover elements and substrate types. The left side features a flat area covered by &#39;Grasses&#39; over an unlabelled, light grey substrate. As the landscape rises to the right, forming a slope and an upper plateau, the underlying material changes to &#39;Calcareous substrate,&#39; visually represented by a fine grid pattern. Along the lower part of this slope, &#39;Arable land&#39; is depicted. Higher up the slope and on the plateau, &#39;Trees&#39; are present. The legend defines the visual representations: &#39;Calcareous substrate&#39; (grid pattern), &#39;Grasses&#39; (repeating green arch symbols), &#39;Arable land&#39; (small green plant sprout symbols), and &#39;Trees&#39; (small green tree symbols)."
 alt="Schematic representation of calcareous dry grasslands." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-d6823a15c07217aff2a5cf3ef3b3d3f0.jpg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-d6823a15c07217aff2a5cf3ef3b3d3f0.jpg"
 data-fig-alt="The photograph depicts a wide view of a dry, semi-arid grassland landscape under a partly cloudy sky. In the immediate foreground, dry, straw-coloured grass is visible, along with two wooden fence posts connected by wire. The middle ground extends into a vast area of similar dry grassland, interspersed with numerous low, sparse shrubs or bushes, and a few larger, scattered broadleaf trees with green canopies. The background features a series of rolling hills and mountains, some showing patches of denser, yet still sparse, vegetation, consistent with scrub or transitional woodland. The overall environment appears dry, typical of Mediterranean dry grasslands."
 alt="Dry Mediterranean grasslands in Extremadura region, South Western Spain. Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-41a79ed86d2b5a1f944782f04856643c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-41a79ed86d2b5a1f944782f04856643c.jpeg"
 data-fig-alt="A schematic map displaying various land cover types and features within a rural landscape, accompanied by a legend. The map&#39;s geographic area is generic, representing an illustrative rural parcel. The legend on the right defines the following elements: * **Grassland:** Represented by a solid yellow fill, covering the majority of the map. * **Arable land:** Represented by a light yellow fill, visible in the upper right corner. * **Farm buildings:** Indicated by black square shapes. One is shown in the upper central part of the map. * **Trees:** Depicted by small green circles with a white outline. Two individual trees are visible, one near the farm buildings and one in the lower central grassland area. * **Roads:** Shown as white lines. Several roads crisscross the landscape, with one leading towards the farm buildings. * **Cattle tracks:** Represented by thin brown wavy lines, primarily within the grassland areas, branching out. * **Water trough:** Indicated by small blue rectangular shapes. Two are shown, one near the farm buildings and another in the lower left grassland area. * **Temporary stream:** Represented by light yellow shaded areas containing wavy lines. Two are visible, one in the arable land and one in the lower right grassland area. The map illustrates a typical rural setting with extensive grassland, agricultural fields (arable land), and essential infrastructure like farm buildings, roads, and water sources for livestock. Cattle tracks are distinctly shown navigating the grassland towards water troughs. No scale bar, compass, or specific data source or year are indicated on the map."
 alt="Schematic representation of Mediterranean pseudo steppes in summertime." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-0530b41ed2dea4bac7a5b09b838521e3.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-0530b41ed2dea4bac7a5b09b838521e3.jpeg"
 data-fig-alt="A ground-level photograph depicting a wide, flat expanse of dry, yellowish grassland extending to the horizon under a clear blue sky with sparse clouds. The vegetation consists predominantly of tall, dry grasses, suggesting a semi-natural grassland habitat. No specific human-made structures are prominently visible, although the context refers to potential features like power line poles or former infrastructure in such environments. Visible text in the bottom left corner includes &#39;© European Union, 2012&#39; and the abbreviation &#39;LULC&#39; (Land Use / Land Cover)."
 alt="Pannonian dry grasslands in Northwestern Hungary. Credit: Eurostat, 2012. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-332b47b0b81ce2014b623630069f30e5.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-332b47b0b81ce2014b623630069f30e5.jpeg"
 data-fig-alt="This photograph depicts a dry grassland landscape, likely in the Franconian Jura region as indicated by the surrounding text. The image features an open field with sparse vegetation, including dry grasses and scattered low shrubs or bushes under a partly cloudy sky. A low stone wall extends across the middle ground, horizontally dividing the scene, with a dirt track running parallel to its right side. On the left side of the wall, a single brown cow stands in the grassland, and another lighter-coloured animal is visible further back. To the right of the wall and along the track, a small herd of brown cattle is visible in the mid-ground. The bottom left corner of the image displays a copyright notice: &#39;©Copernicus, 2018&#39; and &#39;LMFA&#39;. This image serves as an example of a dry grassland land cover, demonstrating an environment typically used for grazing."
 alt="Nordic alvar (Oländ, Sweden). Credit: Eurostat, 2012. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-4165c97b9be12de2041f7ee5cf1c5c69.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-4165c97b9be12de2041f7ee5cf1c5c69.jpeg"
 data-fig-alt="A ground-level photograph depicting a dry grassland landscape on the Franconian Alb (juniper heathland) in Germany. The foreground shows sparse, light-coloured soil with dry vegetation. The mid-ground features a vibrant expanse of green grassland, interspersed with small yellow and purple flowers, suggesting a spring or early summer scene. In the background, a strip of trees marks the horizon, beyond which lies gently rolling, less vegetated terrain under a clear blue sky. The image was credited to M. Probeck. The surrounding document context indicates this image exemplifies a specific land cover type within a classification system, distinguishing it from categories such as wetlands, heathland and scrub, managed grasslands, or transitional woodland."
 alt="Grasses covering an abandoned arable land. Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-f8eda1ca9133c0ab3ef67f25c4d390ed.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-f8eda1ca9133c0ab3ef67f25c4d390ed.jpeg"
 data-fig-alt="A photograph depicting dry grassland on the Franconian Alb, Germany, specifically identified as juniper heathland. The image is taken under a clear blue sky. In the foreground, a paved or unpaved verge leads to a sparse area of dry grasses and weeds. A chain-link fence, topped with barbed wire, stretches across the midground, separating the immediate foreground from a larger expanse of dry, light-coloured grassland with some scattered taller vegetation. Two tall, dark-coloured poles, possibly utility or surveillance structures, are visible, one in the mid-left and another more prominently on the right. A faint line of trees or bushes forms the distant background horizon. The photograph credit is M. Probeck."
 alt="Grasses in a military camp. Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-a72643bd5a66755848cf170c87ab0bb4.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-a72643bd5a66755848cf170c87ab0bb4.jpeg"
 data-fig-alt="A ground-level photograph depicting a landscape identified in the accompanying text as Dry Mediterranean grasslands in Extremadura. The foreground consists of a relatively flat expanse of vibrant green grassland, punctuated by numerous scattered clumps of taller, brownish-green tussock vegetation. Beyond this, a horizontal band of denser, somewhat taller vegetation extends across the midground, suggesting a potential shift in moisture or vegetation type. In the background, a dense coniferous forest covers gently rolling hills under an overcast sky."
 alt="Spontaneous grassland in Bieszczday district (Poland). Credit: Eurostat, 2009. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-dbf11c206892e72bb4edfffcc3e7022d.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-dbf11c206892e72bb4edfffcc3e7022d.jpeg"
 data-fig-alt="A ground-level photograph depicting a wide, open grassland landscape under a hazy sky. The foreground is dominated by lush green grasses, with some taller, drier-looking vegetation visible on the right. In the middle ground, scattered trees and shrubs are visible, along with a distant cluster of buildings, possibly a village, nestled amongst rolling hills. More hills are visible in the background under a light blue to white sky. The photo is attributed &#39;© Copernicus / CLMS 2019&#39;."
 alt="Wet grassland in Donegal (Ireland): Credit: Eurostat, 2009. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-8d8e6431b69ace91a02e04ec118e65ad.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-8d8e6431b69ace91a02e04ec118e65ad.jpeg"
 data-fig-alt="Ground-level photograph depicting dry Mediterranean grasslands in the Extremadura region of South Western Spain. The foreground features dry, light brown vegetation, with the gnarled, bare-branched trunk of a tree partially visible on the right. A barbed wire fence stretches horizontally across the mid-ground. Beyond the fence, a broad expanse of green grassland or pasture extends towards a distant row of trees. In the background, rolling hills are visible under a pale blue sky. The landscape suggests a dry, possibly semi-arid environment. The image is credited to M. Palacios."
 alt="Wet grassland alongside river humid soils in Spain. Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-cb12433724b8e5c42f021b17b046f7c6.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-cb12433724b8e5c42f021b17b046f7c6.jpeg"
 data-fig-alt="This is a schematic representation illustrating the spatial arrangement of various land cover types. The diagram features a central, elongated water body, depicted in dark blue, representing a river or stream. Flanking both sides of this water body are areas classified as Grassland, shown in bright green. Clustered within these grassland areas, particularly on the upper bank of the water body, are groups of Trees, represented by small green canopy symbols. The broader landscape surrounding the grassland and water body is designated as Arable land, coloured in a light yellow hue, extending to the edges of the visible area. Additionally, thin light yellow lines, labelled as Roads, traverse the grassland areas. This schematic depicts a simplified landscape mosaic of a riparian zone or river valley."
 alt="Schematic representation of Mediterranean alluvial meadows." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-a4ae65d523a5fe76ce9825bea3c4517d.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-a4ae65d523a5fe76ce9825bea3c4517d.jpeg"
 data-fig-alt="A ground-level photograph depicts a vast, treeless, dry grassland landscape under a clear, cloudless blue sky. The foreground and midground are covered predominantly by short, yellowish-brown, dry grasses, interspersed with a few sparse, low-lying green shrubs. The terrain appears flat and extends to a distant horizon line, where a faint haze blurs the boundary between land and sky. The image conveys an impression of an arid or semi-arid environment. In the bottom left corner, the image is credited with &#39;©Eurostat, 2012. LUCAS&#39;."
 alt="Examples of Mediterranean grasslands ploughed 3-5 years to remove scrubs invading the parcel. Example in Extremadura, Spain. Credit: Eurostat, 2012. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-7d89cd61bf0deaf94e1a43b9a3c6473a.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-7d89cd61bf0deaf94e1a43b9a3c6473a.jpeg"
 data-fig-alt="A ground-level photograph depicting a wide expanse of Pannonian dry grasslands in Northwestern Hungary under a predominantly cloudy sky. The landscape features undulating terrain covered with dry, yellowish-brown grass and sparse, low-lying shrubs, characteristic of a semi-natural grassland ecosystem. In the far distance, a single tall, slender mast or pylon is visible on the horizon. The bottom left corner of the image includes the attribution: &#39;©Eurostat, 2012. LUCAS.&#39; (Land Use/Cover Area Frame Survey)."
 alt="Examples of Mediterranean grasslands ploughed 3-5 years to remove scrubs invading the parcel. Example in Extremadura, Spain. Credit: Eurostat, 2012. LUCAS." />
 
@@ -4548,12 +4548,12 @@ alt="Examples of Mediterranean grasslands ploughed 3-5 years to remove scrubs in
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-90de78373488403419d0a2da6654d7e9.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-90de78373488403419d0a2da6654d7e9.jpeg"
 data-fig-alt="This map displays an aerial or satellite image rendered in false-colour infrared, showing various land cover classes delineated by black outlines and identified by four-digit numeric labels. Healthy vegetation appears in shades of red and magenta, while areas with sparse vegetation, bare soil, or different land cover characteristics appear in lighter green, grey, or blue tones. Several distinct polygons are labelled: * `1140` (top-left): A complex area appearing red, consistent with discontinuous urban fabric or residential areas with vegetation. * `2110` (mid-left): A uniformly red, rectangular area, characteristic of arable land. * `3210` (top-right): A dark red to almost black, compact area, suggesting dense natural grasslands or similar dense vegetation. * `4100` (mid-right): A uniformly red, rectangular area, similar to 2110, indicating another type of agricultural field or crop. * `4212` (centre-right): A large, irregularly shaped area that is lighter green/brownish-grey with visible patchy, sparse vegetation, distinct from the surrounding dense red areas. A yellow arrow points directly to this polygon. * `1110` (bottom edge, partially visible): An area exhibiting characteristics of continuous urban fabric. The map illustrates different land cover units based on their spectral signatures, with a specific focus on the polygon labelled `4212`, which visually represents an area of less dense or spontaneous vegetation, consistent with descriptions of various grassland types or abandoned arable land in Copernicus Land Monitoring Service (CLMS) documentation. No scale bar, compass, or legend is visible to explicitly define the numeric codes or geographic location beyond the visual patterns."
 alt="Semi-natural grassland without woody plants, Germany, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-10-01. CNES 2012©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-94784ac374fa33fe6471839da940bf28.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-94784ac374fa33fe6471839da940bf28.jpeg"
 data-fig-alt="A false-colour infrared satellite or aerial map showing a fragmented landscape with different land cover types delineated by black-outlined polygons. Dense, healthy vegetation appears in shades of deep red. Areas with sparser vegetation, bare ground, or dry grasslands appear in lighter, desaturated pinks and greys. Numeric 4-digit codes in yellow text label the polygons, indicating specific land cover classes. Prominent labels visible include &#39;4212&#39; (appearing in multiple locations, one of which is highlighted by a yellow arrow), &#39;3110&#39;, &#39;4100&#39;, and &#39;3410&#39;, along with a partially visible &#39;42&#39; at the top edge. The yellow arrow specifically points to a narrow, light-coloured linear feature within a polygon labelled &#39;4212&#39;, which otherwise appears as a lighter, desaturated area compared to the surrounding red vegetation. While no legend is present, the image context suggests these codes represent various grassland and semi-natural vegetation types, such as Mediterranean alluvial meadows or wet grasslands. No scale bar, compass, or reference year is visible."
 alt="Semi-natural grassland without woody plants, Croatia, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-10-06. CNES 2012©, Distribution Airbus DS/Spot Image." />
 
@@ -4568,7 +4568,7 @@ Semi-natural grasslands with woody plants:
   - 2.3.4 Agro-forestry in specific locations, as Southwestern Spain.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-128833f58266e35b8a56d846ded068e4.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-128833f58266e35b8a56d846ded068e4.jpeg"
 data-fig-alt="False-colour infrared satellite imagery depicting a land parcel, likely a semi-natural grassland area with scattered woody plants, delineated by an irregular blue polygon. In this composite, healthy vegetation appears in shades of red, with denser vegetation (e.g., forests, dense scrub) showing as bright red, such as the areas outside and immediately adjacent to the blue boundary. Within the blue-outlined parcel, the land cover is lighter and mottled, with numerous scattered darker spots across a lighter background, indicating a mix of grassland and individual woody plants or small scrub clusters. This appearance is consistent with descriptions of &#39;inhomogeneous appearance&#39; and &#39;presence of scrub and trees inside grassland area&#39; from the surrounding document context, which refers to semi-natural grasslands with woody plants. This type of imagery is used for Copernicus Land Monitoring Service (CLMS) land use/land cover (LULC) classification, potentially within regions like Extremadura, Spain, similar to examples cited in the document context."
 alt="Semi-natural grasland with woody plants, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-27. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -4590,7 +4590,7 @@ like Extremadura, Spain, similar to examples cited in the document
 context.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-b34214d812ce0e804f9d39092a1dc284.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-b34214d812ce0e804f9d39092a1dc284.jpeg"
 data-fig-alt="A false-colour infrared aerial or satellite image depicting a landscape dominated by vegetation. Dense, healthy vegetation, likely forest or dense scrub, is rendered in dark red and deep brown hues. Two irregularly shaped areas are delineated by bright green outlines. Within these green-outlined parcels, the land cover consists of lighter, mottled tones including pale green, yellowish, and reddish-pink patches, indicative of less dense vegetation or recently disturbed ground, consistent with semi-natural grasslands or areas from which scrub has been removed. Scattered darker points within these lighter patches suggest remaining individual trees or shrubs. A small, distinct patch of light blue-green appears in the upper right, potentially indicating water or bare ground. This image illustrates Mediterranean grassland areas, such as those that might be ploughed periodically to manage scrub invasion."
 alt="Semi-natural grassland with woody plants, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-08. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -4622,7 +4622,7 @@ Calcareous/limestone dry grasslands:
   grasslands in the same area.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-102a2f842c3dbbf3e6e2fb24a1afed89.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-102a2f842c3dbbf3e6e2fb24a1afed89.jpeg"
 style="width:247pt"
 data-fig-alt="This is a false-colour infrared satellite image from Spot 5 (2.5 m resolution, 1/2/3 band combination), depicting an area classified as semi-natural grassland with woody plants. The image, dated 2011-08-27 (according to similar context images from CNES 2011©, Distribution Airbus DS/Spot Image), shows a distinct, irregularly shaped parcel of land outlined by a bright green polygon. Within this outlined area, dense woody vegetation appears in vibrant red hues, indicating healthy chlorophyll activity in the infrared spectrum. These woody areas are intermingled with more muted reddish-brown tones characteristic of grasslands. Linear patterns, possibly terracing or agricultural traces, are visible within and around the main outlined area. A small, bright green diamond-shaped marker is located near the centre of the outlined polygon, potentially indicating a sampling or validation point. Surrounding areas show similar land cover patterns including what appears to be cultivated land in shades of purplish-brown. This imagery illustrates the characteristics of semi-natural grassland where the Canopy Cover Density (C.C.D.) of woody plants is typically ≥ 30%."
 alt="Calcareous dry grasslands example, Himsklamm Natura 2000 site (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2012-08-27. CNES 2012©, Distribution Airbus DS/Spot Image." />
@@ -4657,7 +4657,7 @@ Mediterranean dry grasslands:
   colours due to over-grazing.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-836fc18677a39a13793c8b4439506fd7.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-836fc18677a39a13793c8b4439506fd7.jpeg"
 style="width:168pt"
 data-fig-alt="This is a false-colour satellite image showing an example of Calcareous dry grasslands within the Himsklamm Natura 2000 site in Germany, captured on 2012-08-27 by Spot 5 at 2.5 m resolution using a 1/2/3 band combination. The image depicts a landscape characterised by varied vegetation cover, with reddish-brown tones indicating areas of denser or healthier vegetation and lighter brown/greyish-brown tones representing sparser vegetation, rocky outcrops, or dry soil. Several small, dark, circular features resembling ponds or depressions are visible across the terrain. A linear feature, appearing light blue or white within a green outline, traces a watercourse across the upper and left portions of the image. An irregular green line demarcates a boundary, potentially the perimeter of the Natura 2000 site or a specific land cover unit. A small, bright green diamond marker is located in the lower-left quadrant. The image source is CNES 2012©, distributed by Airbus DS/Spot Image."
 alt="Mediterranean dry grasslands example, Contrada Giammaiano Natura 2000 site (Sicily, Italy), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-16. CNES 2012©, Distribution Airbus DS/Spot Image." />
@@ -4691,7 +4691,7 @@ Pannonian steppes:
 - Green-brown colours in spring and autumn respectively.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-2e8ae291c869a76d1596ca5fc45f0aa7.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-2e8ae291c869a76d1596ca5fc45f0aa7.jpeg"
 style="width:206pt"
 data-fig-alt="High-resolution Spot 5 satellite imagery captured on 2012-08-27, showing a landscape composed of agricultural fields and semi-natural dry grasslands at the Himsklamm Natura 2000 (N2K) site in Germany. The image is rendered as a false-colour composite using a 1/2/3 band combination, providing a spatial resolution of 2.5 metres. The image prominently features an irregularly shaped area delineated by a bright green outline, encompassing diverse land cover. Inside and outside this boundary, cultivated agricultural plots are visible in various shades of green, while larger expanses of reddish-brown land indicate drier vegetation or bare ground, characteristic of calcareous dry grasslands. A single bright green circular marker is positioned within the reddish-brown area, slightly to the right of the image centre. The data is sourced from CNES 2012©, distributed by Airbus DS/Spot Image."
 alt="Pannonic steppe grasslands example, Hortobágy Natura 2000 site (Hungary), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-09-22. CNES 2012©, Distribution Airbus DS/Spot Image." />
@@ -4731,7 +4731,7 @@ Coastal meadows (machair):
   the year. Also brown due to the sand.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-ed6a41dd49a2e7a74bbba32e60fa8c33.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-ed6a41dd49a2e7a74bbba32e60fa8c33.jpeg"
 style="width:212pt"
 data-fig-alt="A satellite image map of a section of the Hortobágy Natura 2000 (N2K) site in Hungary, acquired on 2011-09-22 by Spot 5 at 2.5 m resolution, using a 1/2/3 band combination (false-colour infrared composite). The map features a large, irregular dark blue water body in the lower left, indicative of a lake or pond. The surrounding land cover is predominantly reddish-brown and greenish-brown, representing Pannonic steppe grasslands and potentially mixed agricultural land, consistent with autumnal dry vegetation appearance in an infrared composite. A prominent green polygonal outline delineates the boundary of the Natura 2000 protected area. A smaller, central green circular point of interest marker is visible within the steppe area. The image data is © CNES 2012, distributed by Airbus DS/Spot Image."
 alt="Machair example in green marked Nature 2000 site, Termoncarragh Lake and Annagh Machair SPA (Ireland), IRS (20 m; 3/4/2 band combination). Date: 2011-03-31. CNES 2011©, Distribution Airbus DS/Spot Image" />
@@ -4758,7 +4758,7 @@ Nordic alvar:
 - Grasses appearsin red to green colours.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-e02164f7004250082baaeabd16c82f60.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-e02164f7004250082baaeabd16c82f60.jpeg"
 style="width:205pt"
 data-fig-alt="This false-colour satellite image depicts an area identified by the surrounding document context as an example of Anatolian steppes. The imagery displays a heterogeneous landscape with a dominant mix of green-teal hues, characteristic of vegetated areas, interspersed with reddish-purple patches, suggesting drier vegetation, bare soil, or rocky outcrops. Several small, bright, whitish-blue specks are visible, potentially indicating minor water bodies or highly reflective surfaces. A distinct bright green outline is present along the left side, representing a boundary, possibly for a protected area like a Natura 2000 site or a specific mapping unit. A bright green diamond-shaped marker is centrally located towards the bottom of the image, likely designating a point of interest or a sampling location. The texture of the land cover is non-homogenous. No scale bar, compass, specific acquisition date, or sensor/band combination is visible within the image itself."
 alt="Nordic Alvar example with grasslands in red colour, Stora Alvaret Natura 2000 site (Sweden), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-06-29. CNES 2012©, Distribution Airbus DS/Spot Image." />
@@ -4785,7 +4785,7 @@ Grasslands in military camps:
 - Xeric grassland appears in green colours.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-0b40615626639bb43b3807c56d692e54.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-0b40615626639bb43b3807c56d692e54.jpeg"
 style="width:197pt"
 data-fig-alt="This is a false-colour satellite image acquired on 2011-06-29 by the Spot 5 sensor, illustrating the Nordic Alvar grasslands within the Stora Alvaret Natura 2000 (N2K) site in Sweden. The image uses a 1/2/3 band combination, which renders healthy vegetation in shades of red. The primary area of interest, outlined in yellow, distinctly shows these grasslands in reddish-brown to bright red tones, characteristic of their spectral signature in this band combination. Surrounding the outlined area, darker blue-green vegetation, likely representing forests or denser scrubs, is visible. A small black water body is present on the left side of the image. A linear road feature runs along the right edge, with a small red-coloured patch adjacent to it. The imagery has a spatial resolution of 2.5 meters. The image copyright is CNES 2012©, distributed by Airbus DS/Spot Image."
 alt="Dry natural grassland without woody plants (4.2.1.2) on a former military training site, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-05-06. CNES 2012©, Distribution Airbus DS/Spot Image." />
@@ -4817,7 +4817,7 @@ Semi-natural mesophilic grassland:
   alternating dryer and more humid parts.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-66d8098efa6012addee56868f45497c4.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-66d8098efa6012addee56868f45497c4.jpeg"
 style="width:258pt"
 data-fig-alt="False-colour infrared satellite imagery, acquired by Spot 5 on 2011-05-06 using a 1/2/3 band combination, depicts an area classified as &#39;Dry natural grassland without woody plants (4.2.1.2)&#39; situated on a former military training site. A bright green irregular polygon outlines the perimeter of this grassland area. Inside the outlined region, the land exhibits a non-homogenous texture with areas of greenish and reddish-brown hues, indicative of xeric grassland, sandy patches, low bushes, and heath, consistent with descriptions for grasslands in military camps. A small, bright green diamond marker is centrally located within the outlined grassland. The surrounding landscape, outside the green boundary, appears as a more uniform dark reddish-brown, suggesting different land cover types. The imagery is copyrighted by CNES 2012© and distributed by Airbus DS/Spot Image, with a spatial resolution of 2.5 metres."
 alt="Hydrophilous tall herb example, Rečice Natura 2000 site (Croatia), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-25. CNES 2012©, Distribution Airbus DS/Spot Image." />
@@ -4852,7 +4852,7 @@ Alluvial meadows:
   summertime (green colours).
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-7c8a43fc07779a93fe017212cd620b77.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-7c8a43fc07779a93fe017212cd620b77.jpeg"
 style="width:340pt"
 data-fig-alt="This is a false-colour infrared satellite image, captured by the Spot 5 sensor at 2.5 metre spatial resolution, using a 1/2/3 band combination. The image depicts a rural landscape within Europe, distributed by CNES and Airbus DS/Spot Image (© 2012). The scene primarily features extensive agricultural fields, a meandering river, and a distinct linear transport infrastructure. Land cover patterns are differentiated by colour: numerous rectangular and irregularly shaped fields show a mix of vivid red and muted greenish-beige tones. The red areas indicate strong reflectance in the near-infrared spectrum, characteristic of healthy, vigorous vegetation such as active cropland or dense grasslands. The greenish-beige areas suggest bare soil, senescent vegetation, or different crop types and growth stages. A prominent, dark blue/black linear feature runs horizontally across the image, representing a road or highway. A winding, dark blue/black river meanders through the upper and central parts of the image, bordered by intensely red vegetation, which suggests hydrophilous tall herbs or semi-natural mesophilic grasslands common in riparian zones, similar to examples found in Natura 2000 (N2K) sites. A large, irregularly shaped area of dense red vegetation is situated within a river bend in the central left, indicative of a lush vegetated area, possibly a wetland or specific grassland type within a flood plain. The image illustrates the complex spatial arrangement of agricultural Land Use / Land Cover (LULC), natural riverine ecosystems, and human infrastructure."
 alt="Alluvial meadow example, Umurca (Turkey), Spot 5 (2.5 m, NIR/R/G band combination). Date: 2011-07-05. CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -4958,19 +4958,19 @@ slopes or mountain tops.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-ecc71b7a1236bc295c140d4e33232e9e.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-ecc71b7a1236bc295c140d4e33232e9e.jpeg"
 data-fig-alt="A photograph depicting four cows grazing in a dry, rocky, and sparsely vegetated alpine or subalpine grassland. Two brown cows are positioned on the left, one brown cow in the centre, and one white and brown cow on the right. The foreground features patchy dry grass, exposed soil, and scattered rocks, indicative of an alpine environment. In the background, a steep hillside covered with green vegetation, likely shrubs or sparse trees, ascends under a clear blue sky. The image illustrates traditional transhumance grazing in natural grasslands above the tree line, which occasionally includes low fractions of bare rock or gravel, shrubs, and sporadic trees, aligning with the EUNIS Habitat Classification E4."
 alt="Oro-Iberian festuca indigesta grasslands at altitude above 2,000 m in Madrid region (Spanish Central Mountains range) Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-bb4053decb6fe0b2bcf4f349aed61507.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-bb4053decb6fe0b2bcf4f349aed61507.jpeg"
 data-fig-alt="This diagram illustrates the altitudinal zonation of vegetation and land cover on a mountain slope, progressing from high altitudes downwards. 1. At the highest altitude, the dominant feature is &#39;Bare rocks&#39;. 2. Moving downslope, the next zone is characterised by &#39;Grasses with bare soil&#39;, indicating a transition from barren rock to sparse vegetation. 3. Further down, the vegetation becomes denser, forming &#39;Alpine meadows&#39;, which are shown above a dashed horizontal line. 4. This dashed line represents the &#39;Tree line&#39;, marking the upper limit for tree growth. 5. Below the tree line, the landscape transitions to &#39;Mountain hay meadows&#39;, which appear more lush. The diagram depicts a gradual change in vegetation type with decreasing altitude, culminating in an area with small houses, representing lower elevations or human settlement."
 alt="Schematic representation of alpine grasslands." />
 
 </div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-434df60f0191448959d91e3004df2786.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-434df60f0191448959d91e3004df2786.jpeg"
 data-fig-alt="A composite image featuring four distinct photographs illustrating various alpine grassland habitats and associated land cover types. The top-left photograph, labelled &#39;GRASSES IN ALPINE VALLEY BOTTOM&#39;, shows a lush green valley floor, likely grassland, with towering, steep, rocky mountains in the background, featuring snowfields or glaciers and partially cloudy skies. The top-right photograph, labelled &#39;GRASSES IN ALPINE SLOPES&#39;, depicts a wide alpine valley where moderate slopes are predominantly covered in green grassland, interspersed with some scattered trees or shrubs, extending towards distant mountain ridges under a clear blue sky. The bottom-left photograph, labelled &#39;GRASSES, SCRUBS AND BARE ROCKS IN ALPINE SLOPES&#39;, provides a closer view of an alpine slope displaying a heterogeneous mix of green grasses, low-lying scrubs, and substantial areas of exposed bare rock or scree, indicating mixed vegetation and geological features. The bottom-right photograph, labelled &#39;GRASSES IN ALPINE MOUNTAIN TOPS&#39;, presents a panoramic vista of multiple rugged alpine mountain peaks. These summits are largely covered in dense, dark green vegetation, likely grasses and small shrubs, with some visible rocky outcrops and snow-capped peaks in the far distance. These photographs serve as visual examples for classifying natural grasslands above the tree line, as defined in Copernicus Land Monitoring Service (CLMS) and European Environment Agency (EEA) land cover mapping guidelines."
 alt="Location of alpine and subalpine grasslands. Credit: M. Rodriguez." />
 
@@ -4998,7 +4998,7 @@ Monitoring Service (CLMS) and European Environment Agency (EEA) land
 cover mapping guidelines.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-09c4b027597c0c6a8b31b5f9a246ad0e.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-09c4b027597c0c6a8b31b5f9a246ad0e.jpeg"
 data-fig-alt="A photograph displaying a mountainous landscape under a blue sky with white clouds, illustrating the classification of different grassland types relative to the tree line. An orange dashed line indicates the &#39;Tree line&#39; separating dense forest below from a lighter green, less forested area above. Above this tree line, the upper mountain slope is labelled as &#39;Alpine grasslands – 4.2.2&#39;. Another orange dashed line further down the slope separates the forest from an area of green pasture closer to a paved road in the foreground. This lower grassland area is labelled &#39;Mountain hay meadows (Semi-natural grasslands without woods plants) – 4.2.1.2&#39;. The image is attributed to &#39;©European Union, 2012 LUCAS&#39; (Land Use/Cover Area frame Survey)."
 alt="Alpine meadows/mountain hay meadows discrimination using a theoretical tree line (dotted line in yellow). Alps in Austria. Credit: Eurostat, 2012. LUCAS." />
 
@@ -5032,32 +5032,32 @@ woods plants) – 4.2.1.2”. The image is attributed to “©European Union,
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-8758138b25d2917d00a5a588fc13df8d.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-8758138b25d2917d00a5a588fc13df8d.jpeg"
 data-fig-alt="This is a false-colour satellite image depicting Oro-Iberian Festuca indigesta grasslands at an altitude above 2,000 metres in the Madrid region of the Spanish Central Mountains range. The image shows a mountainous landscape with varied land cover. Areas of dense vegetation appear in shades of deep red, while sparser vegetation, grasslands, or rocky terrain are depicted in greenish-cyan and light brown tones. A single, distinct bright green circular marker is centrally located on a vegetated slope in the upper-middle portion of the image. The image is credited to M. Palacios."
 alt="Siliceous Pyrenean Festuca eskia grassland example, Tendeñera Natura 2000 site (Spain), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-09-08." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-bb4fd9a3dfd0772c8032a7b1b5a8e8c1.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-bb4fd9a3dfd0772c8032a7b1b5a8e8c1.jpeg"
 data-fig-alt="This is a false-colour infrared satellite image displaying a high-altitude mountainous landscape representing alpine and subalpine grasslands. The image is dominated by various shades of red and magenta, indicating vigorous vegetation reflectance typical of healthy plant cover in this spectral composite. Lighter, brownish-green patches suggest areas of sparser vegetation, bare ground, or exposed rock formations, which are characteristic of grasslands mixed with rocks. Scattered small turquoise or cyan features likely represent water bodies or peat bogs, consistent with environments that can have non-permanent water. A distinct green outline delineates a specific area of interest or study boundary within the landscape. A single bright green circular marker (dot) is positioned in the upper-central part of the image, within the outlined region, marking a point of specific interest. The image illustrates land cover patterns typically found above the tree limit in high-mountain regions. The image credit is M. Rodriguez."
 alt="Alpine calcareous grassland example, Verwall Natura 2000 site (Austria), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2012-09-28. CNES 2012©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-8eaec16a63bfb2f56ed3a0f5ee16aa58.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-8eaec16a63bfb2f56ed3a0f5ee16aa58.jpeg"
 data-fig-alt="This map displays false-colour infrared satellite imagery, presenting distinct land cover and habitat zones within a mountainous or high-altitude region. Healthy vegetation is represented in shades of red, while barren land, rocky outcrops, and sparse vegetation appear in blue-grey and brown tones. Water bodies are depicted in various shades of blue. Four distinct areas are delineated by yellow boundaries and labelled with four-digit numerical codes: - A large area on the upper left and central part of the image, prominently outlined in red, is labelled &#39;4220&#39; in yellow text. This zone exhibits strong red tones, indicating dense, healthy vegetation, consistent with classifications such as alpine grasslands or managed grasslands as referenced in the document context. - Two areas on the right side and top right of the map, delineated by yellow lines, are labelled &#39;5100&#39; in yellow text. These areas show predominantly blue-grey and brown tones with scattered red, indicative of rocky or sparsely vegetated areas. - A prominent dark blue water body, representing a river channel, is outlined in yellow and labelled &#39;8110&#39; in yellow text on a black background. - A lighter blue, shallower water body or wide riverbed, also outlined in yellow, is labelled &#39;6220&#39; in yellow text on a light blue background. No scale bar, compass rose, or detailed legend is provided within the image. The map illustrates different land cover types in a false-colour composite, likely for habitat classification or environmental monitoring purposes."
 alt="Example from mountainous parts, Scandinavia, Spot 6 (1.5 m; 1/2/3 band combination). Date: 2013-07-24. CNES 2013©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-9c7b65bec6fe09e21f0cafd5afa9981a.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-9c7b65bec6fe09e21f0cafd5afa9981a.jpeg"
 data-fig-alt="This is a false-colour infrared (FCIR) satellite image showing a rugged, high-mountainous landscape identified as a location of alpine and subalpine grasslands. The upper part of the image features a dark blue/black body of water, likely a lake or deep river. The dominant terrain shows shades of reddish-brown, characteristic of false-colour infrared imagery where sparsely vegetated land or bare rock appears in these tones. Denser vegetation areas are depicted in darker red hues, consistent with the description of grasslands mixed with rocks. The terrain exhibits distinct topographical features, including ridges and valleys. A small, bright green circular marker is centrally placed, indicating a specific point of interest within the grassland area. The image is credited to M. Rodriguez."
 alt="Alpine grassland example. Border between Bosnia and Herzegovina and Montenegro, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-10-18. CNES 2012©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-da1c97e4b21197676c5940ea74ddf935.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-da1c97e4b21197676c5940ea74ddf935.jpeg"
 data-fig-alt="This image displays a segment of satellite or aerial imagery showing land cover, likely in a high-mountain or alpine region. A prominent irregular polygon, delineated by a bright green outline, encloses an area primarily characterised by a brownish-orange colour. Based on the surrounding documentation context, this brownish-orange represents high-altitude or alpine grassland as seen in an infrared band combination, where such vegetation can appear reddish. Several irregular, dark, almost black patches are scattered within this outlined area, which are likely non-permanent water bodies, peat bogs, or rocky areas. A small green diamond marker is visible within the outlined grassland area, towards its upper-left quadrant. To the left and upper-left of the main green-outlined polygon, the land cover transitions to a distinct purplish-dark green, suggesting a different vegetation type, possibly forest or subalpine vegetation below a theoretical tree limit. No geographical labels, scale bar, compass, or date are visible in the image itself."
 alt="Alpine grassland example, Durness Natura 2000 site (Scotland, UK), IRS (20 m) Date: 2013-06-05. CNES 2012©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-336c6e5b11fa9a5c758e0b8aa7424874.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-336c6e5b11fa9a5c758e0b8aa7424874.jpeg"
 data-fig-alt="The image displays a false-colour infrared satellite map of a mountainous European landscape, consistent with regions like the Alps or Pyrenees. Dense vegetation, such as forests, appears dark red, while sparser vegetation like grasslands shows as lighter red or pink. Exposed rock or bare ground areas are represented by light pink, grey, or white tones. The map features various land cover classes delineated by dark brown outlines and labelled with four-digit CORINE Land Cover (CLC) codes: * `3110`: Broad-leaved forest, visible as extensive dark red areas across the slopes. * `3210`: Natural grasslands, appearing as lighter red/pink patches, particularly prominent on mid-slopes. * `3310`: Moors and heathland, present in the upper right quadrant. * `3400`: Sparsely vegetated areas, including mixed rough grassland, located at mid-to-high elevations. * `4100`: Inland wetlands, such as peat bogs, found as a small patch on the right. * `4212`: Exposed rock and scree, indicative of high mountain terrain, often mixed with other vegetation. * `4220`: Exposed rocks, appearing as lighter, less vegetated areas. * `5200`: Alpine and subalpine grasslands, located above the main forest line, in both the upper left and upper right sections. * `6100`: Inland waters, likely non-permanent water bodies, visible as a small grey/white patch near the centre-bottom. A prominent dotted white line traverses the map from the top-middle to the bottom-centre, segmenting the landscape into distinct vegetation zones, consistent with a theoretical tree line. Above this line, alpine grasslands (5200) and exposed rock (4220, 4212) are more prevalent. Below the line, broad-leaved forests (3110) dominate. The spatial pattern illustrates an altitudinal zonation of land cover, transitioning from dense forests at lower elevations to natural grasslands, sparsely vegetated areas, and exposed rocks at higher altitudes."
 alt="Alpine grassland example with subalpine belt (dashed line), Lake Garda (Italy), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2010-08-31. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -5167,22 +5167,22 @@ cover $> 50$ % and tree cover $< 10$ %.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-404d5559117ab983241413f209d9c6a8.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-404d5559117ab983241413f209d9c6a8.jpeg"
 data-fig-alt="This photograph depicts a heathland or moorland landscape, visually consistent with the Copernicus Land Monitoring Service (CLMS) definition of such areas. The ground is predominantly covered by pale yellow and white mosses and lichens, forming gentle, undulating mounds and low-lying areas. Interspersed throughout this pale ground cover are patches of darker green, low-growing herbaceous vegetation or dwarf shrubs. The background features a hazy, light-coloured sky, with distant, indistinct hills visible. The scene reflects characteristic features of heathland and moorland ecosystems, including a high field layer cover (typically &gt; 50%) and very low tree cover (&lt; 10%), as found in various Atlantic, sub-Atlantic, sub-Continental, supra-Mediterranean, or Arctic moor regions."
 alt="Ungrassed lichen area of Rödfjället, Dalarana, Sweden. Credit: C. Cristvall." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-b87f5cd4634cb380344e832968e07c4c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-b87f5cd4634cb380344e832968e07c4c.jpeg"
 data-fig-alt="A photograph depicting a single bird in an extensive, open landscape dominated by low-lying, reddish-brown vegetation. The vegetation appears dense and uniform, consistent with heathland or moorland ecosystems, likely in a dormant or dry state. Scattered patches of lighter-coloured, possibly bare or sandy ground, are visible within the vegetation. The bird exhibits light, creamy-white plumage on its underside and mottled brown and grey feathers on its back, providing camouflage against the dry environment. The scene illustrates the type of natural habitat described as heathland and moorland, characterised by low, closed cover dominated by brush, bushes, herbaceous vegetation, or dwarf shrubs."
 alt="Stornärfjället, Dalarna (Sweden). Credit: S. Kirppu." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-11014d8599b7a56d111cf163953a2067.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-11014d8599b7a56d111cf163953a2067.jpeg"
 data-fig-alt="The photograph depicts an open, slightly rolling landscape primarily covered by dense, low-growing green shrubs and bushes, consistent with heathland or scrub vegetation. Patches of lighter brown ground, possibly dry grass or bare earth, are visible between the green vegetation. In the foreground, darker areas of detritus or low, sparse vegetation are present, suggesting a rugged or rocky surface. A few small trees are visible on the left side. In the far distance, several vertical structures, resembling wind turbines or power line pylons, are silhouetted against a light blue sky with scattered clouds. The scene suggests a secondary ecosystem with unfavourable natural conditions, as described by the surrounding context for areas dominated by brush, bushes, and herbaceous vegetation where the field layer has &gt;50% cover and tree cover &lt;10%."
 alt="Juniperus communis subsp. nana in Mediterranean Alpine-subalpine mountains. Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-ddc95af92efac795f3a40fabe1317ec7.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-ddc95af92efac795f3a40fabe1317ec7.jpeg"
 data-fig-alt="A photograph depicting a rural, hilly landscape under an overcast sky. The foreground and midground show a mosaic of vibrant green fields, likely grasslands, interspersed with extensive areas of brown and reddish-brown scrub or heathland vegetation. Dry stone walls traverse the landscape, delineating the boundaries of several fields. Scattered within the hills are several small, white-walled houses with dark roofs. Sparse trees are also visible, particularly on the higher slopes. This image visually represents typical land cover categories such as &#39;field layer&#39; and &#39;Heath and scrub formation&#39; that are classified in land monitoring services like Copernicus Land Monitoring Service (CLMS)."
 alt="Heathland invading grasslands in Ireland. Credit: A. Utanda." />
 
@@ -5202,7 +5202,7 @@ alt="Heathland invading grasslands in Ireland. Credit: A. Utanda." />
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-727b99a0ce799f44837f33ea57dce87d.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-727b99a0ce799f44837f33ea57dce87d.jpeg"
 style="width:256pt"
 data-fig-alt="A false-colour satellite map displays land cover classifications delineated by yellow polygonal boundaries, likely depicting an area within the Dalarna region of Sweden. The map features three primary CORINE Land Cover (CLC) classes: * **321 Natural Grasslands**: Located in the upper left (northwest) part of the image, appearing in light blue/cyan hues. * **311 Broad-leaved Forest**: Dominates the right (eastern) part of the image, distinguished by magenta/dark red colouring. A winding river, depicted in dark blue/black, flows through this forest area. * **322 Moors and Heathland**: Occupies the lower left (southwest) area, characterized by purple/darker magenta tones. A dark blue/black lake is prominently visible within this moorland region. The image illustrates a distinct spatial pattern of these three land cover types, with clear boundaries separating the grassland, forest, and moorland ecosystems. No scale bar, compass, or specific date is visible."
 alt="LC CLC classes, Kebnekaise (Sweden), Spot 6 (1.5 m; 1/2/3 band combination). Date: 2013-07-24. CNES 2013©, Distribution Airbus DS/Spot Image." />
@@ -5212,7 +5212,7 @@ Example from alpine and subalpine areas with *Juniperus nana*,
 uva-ursi*, *Arctostaphylos alpina* and elements of Alpine flora.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-712344553f3be81868dfdd1b8bb09c9b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-712344553f3be81868dfdd1b8bb09c9b.jpeg"
 style="width:270pt"
 data-fig-alt="This map displays land cover / land use (LULC) classifications overlaid on false-colour satellite imagery, likely from the Copernicus Land Monitoring Service (CLMS), showing an alpine or boreal landscape, possibly in Dalarna, Sweden, as suggested by the surrounding context. The background imagery features dark red/magenta tones for various vegetation types, and dark blue for water bodies. Delineated polygons, outlined in black, represent distinct land cover units, each labelled with a four-digit classification code: * **3110 (Woodland and Forest):** A large, predominantly magenta area in the upper right quadrant, consistent with land covered by over 10% trees. * **4220 (Grassland):** A smaller, irregularly shaped magenta area in the upper central part, indicative of land with over 50% grass vegetation. * **5100 (Scrubland):** Multiple magenta areas, including one in the lower left, one in the middle right, and another on the far right, representing types of scrubland. * **5200 (Scrubland):** A large magenta area in the lower central-right, adjacent to a wetland area, also representing a type of scrubland. * **6100 (Open space / Heathland):** A light blue/cyan polygon on the far left, likely representing heathland or open spaces with sparse vegetation. * **6310 (Open space / Heathland):** Two light blue/cyan polygons in the upper left, similar to 6100, possibly representing heathland. * **7122 (Wetland):** Three darker blue/greenish areas, one near a dark blue lake in the centre, one below the lake, and another in the bottom right corner, indicating areas with peat-producing vegetation or other wetland characteristics. The map illustrates detailed LULC classes according to a specific nomenclature, with visible features including a lake and a river flowing through a forested/scrubland area. The highlighted polygons (6100, 6310) suggest specific areas of interest or analysis."
 alt="5.1.0 Heathland and Moorland, SPOT 6 (1.5 m; 1/2/3 band combination). Date: 2013-07-24. CNES 2013©, Distribution Airbus DS/Spot Image." />
@@ -5223,7 +5223,7 @@ herbaceous (appears more red). Areas with predominance of grass in
 alpine areas belong to class 4.2.2 Alpine and subalpine grassland.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-49fef016b1f0fd44fd0b7e3c974864bb.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-49fef016b1f0fd44fd0b7e3c974864bb.jpeg"
 style="width:283pt"
 data-fig-alt="This false-colour satellite image displays distinct land cover types, likely used for classification guidance within the Copernicus Land Monitoring Service (CLMS). The image presents a landscape with varying tones of teal, brown, and bright red, indicative of different vegetation conditions. A yellow label box, &#39;5.1.0 I Heathlands and Moorlands&#39;, points via a thin line to an area in the upper right quadrant of the image, which is primarily dark teal and crisscrossed by lighter lines, possibly paths. This area is further indicated by a yellow circular marker with a black outline. A second yellow label box, &#39;Grassland&#39;, points to an area in the lower right quadrant, which appears in lighter brown/pinkish tones, also marked by a yellow circular point with a black outline. Distinct patches of bright red vegetation, possibly indicating vigorous plant growth or a specific vegetation type like heathland invading grasslands, are visible in the central-left and lower-left areas, but are not directly labelled by the pointers. The image is an example for visual interpretation in land use / land cover (LULC) mapping."
 alt="Heathland and Moorland, Scandinavia, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-06-28. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -5234,7 +5234,7 @@ Heathland and Moorland. The area is used as gunnery range.
 </div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-28300379b5b5611a8eea510933dc5c42.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-28300379b5b5611a8eea510933dc5c42.jpeg"
 style="width:406pt"
 data-fig-alt="This is a false-colour satellite or aerial image depicting a landscape mosaic of various land cover types. The image primarily uses a colour composite where dense, actively vegetated areas (likely forests or dense scrub) appear dark reddish-brown on the left and right edges. A large central area is labelled &#39;Natural grassland&#39; and appears in lighter pinkish-grey tones, encompassing a dark, irregularly shaped water body in its upper-central part. Two distinct areas labelled &#39;Heathland&#39; are visible: one in the mid-left and another in the upper-right, both characterized by darker reddish-brown to maroon hues, often bordering the lighter grassland. In the lower-right section, an area is labelled &#39;Sparsely vegetated&#39; and exhibits lighter greenish-blue tones, suggesting exposed soil or very low-density vegetation. The landscape is crisscrossed by thin, bright linear features, likely roads or tracks. Smaller, darker water bodies are also scattered throughout the lower-central part of the image. The imagery highlights the visual distinction between these land cover types, useful for classification in environmental monitoring programmes like Copernicus Land Monitoring Service (CLMS)."
 alt="Heathland on a military training site, Munster (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-05-06. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -5288,12 +5288,12 @@ $> 30\%$.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-3e657c66cda08ab2db2fc6caf24349df.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-3e657c66cda08ab2db2fc6caf24349df.jpeg"
 data-fig-alt="A photograph depicting a large, rocky alpine mountain under a clear blue sky. The foreground and lower slopes of the mountain are covered in dense, dark green scrub vegetation, indicative of alpine scrub land, likely composed of dwarf mountain pine (*Pinus mugo* ssp. *mughus*) or green alder (*Alnus* spp.). This scrub transitions into lighter grey, rocky scree slopes at higher elevations, which dominate the mid-section of the mountain. The summit is barren, grey, and jagged, revealing exposed rock. The image captures an alpine environment, suggesting a summer season due to the clear sky and lush green vegetation at lower altitudes."
 alt="5.2.0 Alpine scrub land: Mountain dwarf pine in the Bavarian Alps, Germany. Credit: M. Probeck." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-a0edc62d6e183260a67a88dc03cac89d.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-a0edc62d6e183260a67a88dc03cac89d.jpeg"
 data-fig-alt="A ground-level photograph illustrating heathland vegetation at a military training site in Munster, Germany. The foreground and midground are dominated by dense, low-growing shrubs with silvery-green foliage, typical of dwarf shrubs. Further back, patches of darker green, bush-like vegetation are visible, with some brown dry grasses interspersed. In the background, rocky, sparsely vegetated ground rises towards a clear, bright sky. This image serves as an example for Copernicus Land Monitoring Service (CLMS) land cover classification, referencing data derived from Spot 5 satellite imagery (2.5 metre resolution, 1/2/3 band combination) dated 2011-05-06. The image copyright is CNES 2011©, distributed by Airbus DS/Spot Image."
 alt="5.2.0 Alpine scrub land, the phytocoenoses typical for this habitat type are dominated by the oligothermal willows Salix, that grow in peat-bogs, marshes and along streams and rivers. These willows have limited distribution in the Bulgarian mountains and occur separately or together. Credit: V. Roussakova." />
 
@@ -5306,7 +5306,7 @@ Example from mountainous area near Kebnekaise, Sweden.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-8347fccde13151ae71d3bb778c9fe1ae.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-8347fccde13151ae71d3bb778c9fe1ae.jpeg"
 style="width:258pt"
 data-fig-alt="This false-colour satellite image displays a land cover classification map, using four-digit CORINE Land Cover (CLC) codes to delineate various land use/land cover (LULC) types within a mountainous region, likely the Bavarian Alps in Germany, as indicated by the document context. The base imagery depicts dense vegetation in shades of magenta and pink, water bodies as dark blue/black, and river channels or wet features as lighter blue/cyan. Overlaid in black are polygons, each labelled with a white numeric code representing a specific land cover class. The identified land cover classes and their corresponding codes are: - `3110`: A large central area, characterized by magenta vegetation, indicating a type of woodland or forest (e.g., broad-leaved forest). - `4220`: A polygon in the upper-left, likely representing pastures or semi-natural grasslands. - `5100`: An area on the right side, adjacent to the `3110` and `5200` polygons, which likely corresponds to Heathland and Moorland. - `5200`: A significant area located below `3110`, explicitly identified in the surrounding document text as &#39;Alpine scrub land,&#39; characterized by magenta vegetation, indicative of mountain dwarf pine or similar brushwood. - `7122`: Two distinct areas, one in the left-central part near a dark water body and another in the bottom-left, typically representing a wetland type such as peat bogs. The map lacks a visible scale bar, compass rose, or explicit data source/reference year."
 alt="5.2 Salix scrub in slightly more grey relative to the Nordic subalpine/subarctic forests with Betula pubescens ssp. Czerepanovii, Spot 6 (1.5 m; 1/2/3 band combination). Date: 2013-07-24. CNES 2013©, Distribution Airbus DS/Spot Image." />
@@ -5323,7 +5323,7 @@ Example from mountainous area south of Kebnekaise, Sweden.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-e8391ba6b574d592c532f0938622f6c6.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-e8391ba6b574d592c532f0938622f6c6.jpeg"
 style="width:227pt"
 data-fig-alt="False-colour satellite imagery, acquired by Spot 6 with 1.5 m resolution (1/2/3 band combination) on 2013-07-24, depicts a mountainous area near Kebnekaise, Sweden. A large, dark body of water is visible along the left edge. The land cover shows varying vegetation types in shades of magenta, purple, and dark green. Three specific land cover classes are identified by yellow markers and numerical labels: * Marker &#39;5100&#39; indicates a broad area of purplish-magenta vegetation, likely representing Heathland and Moorland (class 5.1.0 from the surrounding context). * Marker &#39;5200&#39; points to a distinct patch of intensely magenta vegetation, identified as Alpine scrub land or _Salix_ scrub (class 5.2.0), which appears slightly greyer relative to Nordic subalpine/subarctic forests dominated by _Betula pubescens_ ssp. _Czerepanovii_. * Marker &#39;7122&#39; highlights a dark green patch of land cover near the water body, which typically corresponds to peat-bogs or wetlands, consistent with habitats where _Salix_ scrub can be found."
 alt="5.2. Salix scrub appears in intense red colour in low laying parts of mountainous areas relative to dwarf scrubs (5.1), Spot 6 (1.5 m; 3/4/2 band combination). Date: 2013-07-24. CNES 2013©, Distribution Airbus DS/Spot Image." />
@@ -5334,12 +5334,12 @@ alt="5.2. Salix scrub appears in intense red colour in low laying parts of mount
 - According to CLC the whole area is 322 - Moors and Heathland.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-d04a6b1b19035dd43a71a3f59623a520.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-d04a6b1b19035dd43a71a3f59623a520.jpeg"
 data-fig-alt="This map displays a false-colour satellite image of a mountainous area, likely in Sweden, acquired on 2013-07-24 by Spot 6 with 1.5 m resolution. The specific band combination used for this false-colour composite is partially obscured in the source caption, but healthy, dense vegetation appears in intense red/pink hues, while water bodies range from dark blue/black to light blue/cyan. Several land cover polygons are delineated with yellow outlines and labelled with numeric codes. The visible polygon labels, interpreted with reference to CORINE Land Cover (CLC) classes and the surrounding document context, are: * **311:** A large polygon predominantly showing intense red/pink, likely representing Broad-leaved forest (related to CLC 3.1.1 and the context&#39;s &#39;3.1 Broadleaved forest&#39; for Nordic subalpine/subarctic forests). * **321:** Likely representing Natural grasslands (related to CLC 3.2.1). * **322:** Likely representing Moors and heathland (related to CLC 3.2.2 and the context&#39;s &#39;5.1.0 Heathland and moorland&#39;). * **412:** Likely representing Peatbogs (related to CLC 4.1.2 and the context&#39;s &#39;7.1.2.2 Unexploited peat bog&#39;). The map illustrates a detailed land cover classification in a diverse landscape featuring a meandering river system, small lakes/ponds, and various vegetation types interspersed with semi-natural areas. Data source information indicates &#39;CNES 2013©, Distribution Airbus DS/Spot Image.&#39;"
 alt="Salix scrubs in alpine areas appears close to streams may be included in CLC classes 311, 322 and 412 (yellow lines), Spot 6 (1.5 m; 1/2/3 band combination). Date: 2013-07-24. CNES 2013©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-ca3db0974d4445491590cff983f780fa.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-ca3db0974d4445491590cff983f780fa.jpeg"
 data-fig-alt="False-color satellite imagery from Spot 6, acquired on 2013-07-24, depicts a mountainous area south of Kebnekaise, Sweden, at 1.5 m resolution using a 3/4/2 band combination. The image highlights _Salix_ scrub (classified as 5.2.0 Alpine scrub land) appearing in intense reddish-brown colours, indicating dense vegetation, particularly in low-lying parts of the mountainous terrain. White and pale blue linear features and irregular patches represent exposed rock, possibly snow or sparse, non-vegetated areas. A prominent yellow arrow points to an area of _Salix_ scrub within the reddish-brown vegetation. A thin yellow line overlays the bottom right portion of the image, possibly delineating a boundary or a feature like a road or river. The image contrasts _Salix_ scrub with other visible land cover types including dwarf scrubs (class 5.1.0 Heathland and moorland) and Nordic subalpine/subarctic forests (class 3.1 Broadleaved forest), based on contextual information. Credit for the imagery is CNES 2013©, Distribution Airbus DS/Spot Image."
 alt="Dwarf pine region in the Alps, where difference in height and texture to neighbouring coniferous forest is clearly visible, Spot 5 (2.5 m; 1/2/3 band combination). CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -5378,22 +5378,22 @@ that is adapted to prevent moisture loss.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-84143a062a5f914365ee2f2f8dd2c7c5.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-84143a062a5f914365ee2f2f8dd2c7c5.jpeg"
 data-fig-alt="A ground-level photograph depicting a steep hillside densely covered with various green bushes and scrubs under a bright, overcast sky. The vegetation appears to be characteristic of sclerophyllous scrubs, featuring hard, leathery, evergreen foliage adapted for arid or Mediterranean environments. The lower left corner of the image contains a faint copyright notice: &#39;© European Environment Agency&#39;. This image provides a visual example for the Copernicus Land Monitoring Service (CLMS) CORINE Land Cover (CLC) class 3.2.3, &#39;Sclerophyllous scrubs,&#39; which includes formations such as maquis, garrigue, and phrygana."
 alt="“Garriga” in Catalonia (Spain). Credit: Eurostat, 2012. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-d13fbdc26f8a736c11c94172fcccbeed.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-d13fbdc26f8a736c11c94172fcccbeed.jpeg"
 data-fig-alt="Photograph depicting a landscape dominated by dry, tussock-forming grasses and scrubland under a clear blue sky. In the foreground, dense clumps of light-coloured grasses with visible seed heads are prominent. The middle ground transitions to sparser, lighter-coloured vegetation and bare earth or sand, leading to distant low hills visible in the background. The image is copyrighted to &#39;©European Union, 2013&#39; and &#39;©CAS&#39;."
 alt="Sclerophillous vegetation (Stipa tenaccissima) in Central Spain. Credit: Eurostat, 2012. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-f8c44fc2eea8919ba0515aa9b9cb0933.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-f8c44fc2eea8919ba0515aa9b9cb0933.jpeg"
 data-fig-alt="A ground-level photograph depicting an expansive area dominated by dense, low-lying sclerophyllous scrubs and bushes, interspersed with taller green grasses. The vegetation is predominantly green, indicating healthy growth. The terrain is gently undulating, with subtle mounds and depressions. In the background, a distinct treeline or forest border is visible, beyond which appears to be a range of hills or mountains under a light, clear sky. This image provides a visual example of the characteristics associated with Sclerophyllous scrubs, including maquis, garrigue, and phrygana, as defined for CORINE Land Cover (CLC) class 3.2.3. No specific date or location is indicated within the image."
 alt="Sclerophyllous vegetation (Asparagus sp., Euphorbia sp., Cistus sp., Olea europaea var. sylvestris) in Loutsa (Island of Evia), Greece. Credit: N. Kolpatzik." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-3dfe4bed2222aa5fd931f9a2a2e88dfb.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-3dfe4bed2222aa5fd931f9a2a2e88dfb.jpeg"
 data-fig-alt="This ground-level photograph depicts a dry, hilly landscape covered by sparse vegetation. In the foreground and midground, the terrain shows yellowish-brown dry grasses interspersed with scattered evergreen sclerophyllous bushes and scrubs. These bushes are relatively low-lying, some with visible slender, woody stems, and appear adapted to arid conditions. The colour palette is muted, featuring various shades of green from the bushes and tones of brown and yellow for the dry ground and grasses. The background reveals further hills, covered by denser but visually similar vegetation, extending towards a hazy horizon under a light blue sky. The visual characteristics of the landscape are consistent with environments described as maquis, garrigue, or phrygana, typical of Mediterranean arid or semi-arid zones."
 alt="Scrubs (Retama sphaerocarpa) invading a grassland area in south-western Spain. Credit: M. Palacios." />
 
@@ -5404,14 +5404,14 @@ alt="Scrubs (Retama sphaerocarpa) invading a grassland area in south-western Spa
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-091d8b425af1f283d804b803704bd582.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-091d8b425af1f283d804b803704bd582.jpeg"
 data-fig-alt="This is a false-colour infrared satellite image showing a landscape dominated by agricultural fields and natural vegetation. The image features bright red rectangular areas, characteristic of active agricultural plots, indicating vigorous vegetation. Areas of natural vegetation appear in brownish-red and green tones, suggesting scrubland or forests. A dark, curvilinear feature resembling a river or stream is visible in the bottom right, flowing alongside some agricultural land. Two black-outlined polygons highlight specific land cover types. The larger, upper polygon is labelled &#39;Sclerophyllous vegetation&#39; and encompasses an area of brownish-red natural vegetation. A smaller, lower polygon, labelled &#39;sclerophyllous area&#39;, outlines another patch of similar vegetation adjacent to the potential river feature. The image depicts a scene potentially in Central Spain, consistent with descriptions of sclerophyllous vegetation, also referred to as *Stipa tenacissima* or *garrigue* and *maquis* in the surrounding context. The imagery credit is Eurostat, from the 2012 Land Use/Cover Area frame Statistical Survey (LUCAS)."
 alt="Tren (Albania), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-22. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 Mediterranean scrubs in Albania in summertime.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-f8bcf70f72ef2ec1eb5e83d3e63c3a00.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-f8bcf70f72ef2ec1eb5e83d3e63c3a00.jpeg"
 style="width:194pt"
 data-fig-alt="The image is a false-colour satellite or aerial photograph depicting sclerophyllous vegetation in Loutsa, on the Island of Evia, Greece. The central area is dominated by dark reddish-purple vegetation, which represents dense sclerophyllous scrubland. The species identified in the image caption for this type of vegetation include _Asparagus_ sp., _Euphorbia_ sp., _Cistus_ sp., and _Olea europaea_ var. _sylvestris_. This reddish-purple hue in false-colour imagery often indicates vegetation with specific spectral reflectance characteristics common in Mediterranean `maquis`, `garrigue`, or `phrygana` ecosystems. Brighter green areas are visible towards the top-right and along some slopes, suggesting different vegetation types, possibly healthier forests or pastures. Lighter pink/reddish tones represent sparser vegetation or drier soil. Irregular, thin green lines are overlaid on the landscape, likely delineating land cover boundaries, habitat parcels, or other geographical features. A linear reddish-pink feature, potentially a dry riverbed or a track, traverses the lower-right portion of the image. The image credit is N. Kolpatzik."
 alt="Badajoz (Spain), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-03-18. CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -5479,12 +5479,12 @@ Sparsely vegetated areas. The field layer has a cover between 10% and
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-6cbc889bd6cf0fc5a4b826edad0930f1.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-6cbc889bd6cf0fc5a4b826edad0930f1.jpeg"
 data-fig-alt="A photograph depicting an extensive, sparsely vegetated landscape under the warm, low light of sunrise or sunset. The foreground and mid-ground feature rocky terrain, scattered low scrub, sparse grasses, and patches of bare earth, consistent with the Copernicus Land Monitoring Service (CLMS) definition of &#39;sparsely vegetated areas,&#39; which have less than 50% field cover. A tall, dark signpost with a distinct &#39;X&#39; shape at its top stands prominently on the left side of the frame. In the middle distance, a conical mountain peak rises clearly from the terrain, and further beyond, a dark, low-lying area possibly indicates forest or denser vegetation before the distant horizon. Small patches of residual snow are visible on the upper slopes to the far right."
 alt="Sparsely vegetated areas in the foreground Nipfjället, Sweden. Credit: S. Kirppu." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-bbf2a3d42503696c0c34a2a28f564348.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-bbf2a3d42503696c0c34a2a28f564348.jpeg"
 data-fig-alt="A landscape photograph depicting a dry, arid, or semi-arid environment under a clear blue sky. In the foreground, the terrain is mostly bare soil with scattered low, dry shrubs and bushes. The midground features several white or light-coloured low-rise buildings, likely agricultural structures such as greenhouses or covered cultivation areas, surrounded by some greener trees and what appears to be a linear dark structure, possibly a road or cultivated strip. The background is dominated by rolling hills with steep slopes, which are sparsely vegetated with dry, brownish-grey scrub and scattered small bushes, consistent with the document&#39;s definition of &#39;Sparsely vegetated areas&#39; (Class 6.1). A lighter, possibly eroded or excavated area is visible on the left slope of the background hills. The overall scene shows a transition from human-modified agricultural/developed land to natural, sparsely vegetated hilly terrain."
 alt="Sparsely vegetated areas in the background. South of Spain. Credit: M. Palacios." />
 
@@ -5510,7 +5510,7 @@ in spring.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-530a3e70a2d05518ba1f259f376f079c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-530a3e70a2d05518ba1f259f376f079c.jpeg"
 style="width:267pt"
 data-fig-alt="A land cover map displaying an aerial or satellite view of a natural landscape, featuring distinct polygons delineated by blue outlines. These polygons are labelled with four-digit codes representing specific land cover types from a Copernicus Land Monitoring Service (CLMS) nomenclature, such as CLC+ (next-generation land cover/land use). No explicit geographic location, scale bar, compass, or legend is visible. The background imagery shows a natural environment with varying green, brown, and yellow tones indicating different vegetation and bare ground characteristics. The four labelled polygons represent the following land cover classes: * `6100`: Likely corresponds to &#39;Sparsely vegetated areas,&#39; aligning with CLC+ class `6.1`. * `6310`: Likely represents a sub-type of &#39;Bare soil, rock, perennial snow &amp; glaciers,&#39; referencing CLC+ class `6.3.x`. * `4212`: Likely represents a type of &#39;Grassland,&#39; potentially &#39;Alpine and sub-alpine natural grassland&#39; as per CLC+ class `4.2.x`. * `3400`: Likely represents a &#39;Woodland and forest&#39; area, consistent with CLC+ class `3.x.x`. The internal colour variations within the polygons (e.g., lighter yellow/tan and darker brown shades) suggest internal differences in ground cover or vegetation density. The map serves as an example of applying a hierarchical land cover nomenclature to delineate and label different land use / land cover (LULC) features."
 alt="Sparsely vegetated areas, Ölands alvar, Sweden. SPOT-5 data. CNES 2011© Distribution Airbus DS/Spot Image" />
@@ -5521,7 +5521,7 @@ vegetated land; 6.3.1.1 Bare rocks, outcrops, cliffs (previously
 and scrub
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-6da7a3fdfa932637d653f2039f7c361b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-6da7a3fdfa932637d653f2039f7c361b.jpeg"
 style="width:273pt"
 data-fig-alt="Aerial or satellite imagery displaying a rugged, mountainous landscape, primarily covered in light beige and off-white tones indicative of sparsely vegetated land or bare soil. A distinctive reddish-pink area with irregular, curvilinear boundaries is prominent in the lower-left, extending upwards and to the right, contrasting sharply with the lighter surrounding terrain. This reddish-pink feature could represent distinct soil composition, specific vegetation types, or potentially burnt areas, corresponding to CLMS (Copernicus Land Monitoring Service) nomenclature class 6.3.2 (Burnt areas). The image depicts &#39;Sparsely vegetated areas in the foreground Nipfjället, Sweden.&#39; Credit: S. Kirppu."
 alt="Sparsely vegetated areas (6.1) in Agalar (Turkey), Spot 5 (2.5 m; NIR/R/G band combination). Date: 2011-06-29. Source: CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -5531,7 +5531,7 @@ Example from Turkey. The semi-arid condition of these areas
 density of xeric scrubland.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-e93b676ec1fad51a354bc6ef00e5e7d8.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-e93b676ec1fad51a354bc6ef00e5e7d8.jpeg"
 style="width:285pt"
 data-fig-alt="This image is a false-colour satellite image depicting mountainous or undulating terrain in Nipfjället, Sweden, illustrating &#39;Sparsely vegetated land&#39; (CORINE Land Cover, CLC, class 6.1). The image features a mix of colours: light blue/cyan for the sparsely vegetated areas, reddish-brown for other vegetation or bare soil, and dark blue/black indicating shadows or rock faces in the upper and central parts. A prominent yellow oval highlights a central portion of the image, drawing attention to the characteristic appearance of sparsely vegetated areas, which in this context often occur in mosaics with heath vegetation, mire vegetation, alpine grassland, and willow bushes. The image is credited to S. Kirppu and serves as an example for land cover classification guidelines."
 alt="Sparsely vegetated areas (6.1) in the Alps, Spot 5 (2.5 m; NIR/R/G band combination). Date: 2012-09-07. Source: CNES 2011© Distribution Airbus DS/Spot Image." />
@@ -5593,12 +5593,12 @@ partly vegetated with grass.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-fd42de9d15a0c53e45f4a062ab2f8039.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-fd42de9d15a0c53e45f4a062ab2f8039.jpeg"
 data-fig-alt="This image displays two photographs illustrating different types of coastal land cover. The top photograph shows an elevated view of a sandy beach within a turquoise bay, surrounded by arid, rocky hillsides with minimal vegetation, located in Lanzarote, Canary Islands, Spain. Small buildings are visible on the hills overlooking the beach, which is populated by several individuals. This photograph exemplifies a &#39;Beaches&#39; classification, which includes areas of sand, gravel, shingle, pebbles or cobblestones along the sea. The bottom photograph presents an extensive landscape of sand dunes, stretching towards the distant sea under a clear sky. The foreground shows areas of sparse, scrubby vegetation, characteristic of partially vegetated dunes or sand plains. This photograph illustrates &#39;Dunes and sand plains&#39; land cover, which can include shifting dunes (white dune) or fixed dunes (grey dunes) with open or closed perennial grasslands. Both images depict features relevant to the Copernicus Land Monitoring Service (CLMS) land cover class &#39;6.2.1 Beaches and dunes&#39;."
 alt="Maspalomas dune, (Canary Islands, Spain). Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-908a56a0d9232512217559f3ef03e2e2.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-908a56a0d9232512217559f3ef03e2e2.jpeg"
 data-fig-alt="This image contains two photographs illustrating coastal land cover types. The top photograph depicts a wide, sandy beach stretching along a coastline, with the sea visible on the right showing gentle waves under a partly cloudy blue sky. Vehicle tracks are visible on the wet sand. The bottom photograph shows a sandy dune landscape, featuring light brown sand with sparse low-lying vegetation and a small cluster of wind-swept trees or shrubs on the dune crest. The image is captioned &#39;Beach at Doñana Natura 2000 site (Southern Spain).&#39; The credit for the photographs is &#39;M. Palacios.&#39; These scenes represent typical classifications of bare beaches, dunes, and sand plains, often considered under CORINE Land Cover (CLC) or CLC+ categories, and highlight natural habitats protected under the Natura 2000 network."
 alt="Dune in Doñana Natura 2000 site (Southern Spain) Credit: M. Palacios." />
 
@@ -5609,42 +5609,42 @@ alt="Dune in Doñana Natura 2000 site (Southern Spain) Credit: M. Palacios." />
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-bd1456fb54749b17577d80a64fea9145.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-bd1456fb54749b17577d80a64fea9145.jpeg"
 data-fig-alt="This image is a high-resolution satellite photograph depicting a coastal environment. The lower portion of the image shows a body of teal-coloured water, likely a sea or large lake. Adjacent to the water is a strip of light-coloured sandy beach, extending horizontally across the image. Several elongated, dark structures, identified as groynes, extend perpendicularly from the beach into the water. A small, circular green marker with a white symbol is positioned on the sandy beach in the central-left area. Inland from the beach, the majority of the land area is covered by dense, dark green forest or woodland. Within and bordering this forested area, particularly in the upper-left quadrant, scattered light-coloured patches indicate the presence of artificial structures, buildings, and possibly open clearings or agricultural plots. Tracks or narrow roads are also visible meandering through the forested landscape."
 alt="Example of sand beach, 20-30 m wide. Sudersand, Sweden. Aerial orthophoto. Credit: Lantmäteriet, Sweden." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-3b10d080c52b23cd7e82831dca0ab581.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-3b10d080c52b23cd7e82831dca0ab581.jpeg"
 data-fig-alt="A false colour satellite or aerial image depicting a coastal landscape. The foreground is dominated by a dark blue expanse representing a body of water (ocean or sea), which curves upwards towards a distinct, thin, bright light blue line marking the coastline. Immediately inland from this coastline, a strip of greenish-brown terrain is visible, consistent with natural land cover such as sand dunes and low vegetation. Further inland, the landscape transitions into a densely built-up area characterized by reddish-brown and grey tones with numerous scattered brighter spots and irregular shapes, indicating urban infrastructure. This configuration shows an urban environment directly adjacent to a natural coastal dune system, bordering the sea. Based on surrounding document context, this image depicts the Maspalomas dune system, likely in the Canary Islands, illustrating a coastal land cover type."
 alt="Example of sand beach, Sudersand (Sweden), Spot 5 (2.5m; 1/2/3 band combination). Date: 2012-08-22. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-955455d70ba70053f6074def45be6b95.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-955455d70ba70053f6074def45be6b95.jpeg"
 data-fig-alt="This image is a false-colour infrared aerial or satellite photograph depicting a coastal landscape. A dark blue to black body of water occupies the upper right portion. Along the coastline, a distinctive light cyan to blue-green band is visible, representing sand, beach, or sparsely vegetated dune systems. Inland from this coastal strip, large areas of reddish-magenta indicate dense vegetation, such as forests or scrubland, mixed with some open ground. Adjacent to these vegetated areas, a developed settlement with numerous white to light pink rectangular structures, indicative of buildings and urban infrastructure, is visible. A single small, bright yellow-green point is located within the light cyan/blue-green coastal band. The imagery&#39;s appearance, with vegetation in red/magenta tones, is characteristic of false-colour infrared processing. Given the surrounding document context, this image likely depicts a coastal dune environment in Spain, potentially a Natura 2000 site such as Maspalomas or Doñana."
 alt="Example of beach (cobblestones), Skäre (Sweden), Aerial orthophoto. Credit: Lantmäteriet, Sweden." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-7ba8b44220e260bf2c117e8e10b1aff7.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-7ba8b44220e260bf2c117e8e10b1aff7.jpeg"
 data-fig-alt="This image displays processed remote sensing imagery, illustrating the visual characteristics of a sand dune landscape for land cover classification. The lower-left portion of the image shows a textured, mottled area composed of shades of green, lime green, and yellow-green, indicative of vegetated and sandy terrain. This area is sharply delineated by a curved, brighter greenish-blue line from a dark blue to black area occupying the top-right, which likely represents water or open sky. A single small, bright yellow-green pixel or point feature is visible near the upper-left edge of the green area, close to the boundary. The image has a blurred quality, suggesting a magnified or illustrative view consistent with examples found in a nomenclature guideline for identifying land cover types such as sand dunes, as seen in contexts like Maspalomas dune or Doñana Natura 2000 site."
 alt="Example of beach (cobblestones), Skäret (Sweden), Spot 5 (2.5m; 1/2/3 band combination). Date: 2011-07-04. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-aaf686bba4e513dd2fb33ae6862d2709.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-aaf686bba4e513dd2fb33ae6862d2709.jpeg"
 data-fig-alt="This image is an aerial orthophoto displaying a densely vegetated landscape, primarily dark reddish-brown, indicative of forest or woodland. Overlaid on this imagery are intricate, irregular polygon outlines in red, which delineate various land cover units or areas of interest. Within one of these red-outlined areas, a specific region is highlighted by a light blue/cyan polygon boundary. This blue-outlined area encompasses lighter-toned, less vegetated patches and is labelled &#39;Grey dunes in [partially obscured, likely Råbocka] dune&#39;. No explicit scale bar, compass, or year is visible within the image. The surrounding document context suggests this is an example of land cover classification, likely an aerial orthophoto from Lantmäteriet, Sweden, used for illustrating nomenclature guidelines."
 alt="Example white and grey dunes marked (based on Natura 2000 habitats), Ulla Hau (Sweden), Infrared orthophoto. Credit: Lantmäteriet, Sweden." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-3d2dc84e67105443e758a578bffc10d0.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-3d2dc84e67105443e758a578bffc10d0.jpeg"
 data-fig-alt="An aerial orthophoto, likely from a satellite or high-resolution imagery, displaying distinct land cover types with numerical labels used for classification. The image centrally features a large, dark, circular area, labelled &#39;312&#39;, which corresponds to the CORINE Land Cover (CLC) category for Coniferous forest. To the left of this feature, an area delineated by a yellow polygonal boundary is labelled &#39;243&#39;, corresponding to CLC for Land principally occupied by agriculture, with significant areas of natural vegetation. A partially obscured label &#39;112&#39; is visible in the top-left corner, likely representing CLC Discontinuous urban fabric. The imagery is characteristic of examples used for Copernicus Land Monitoring Service (CLMS) classification, potentially from coastal or dune environments such as the Maspalomas dune in the Canary Islands, the Doñana Natura 2000 site in Southern Spain, or a sand beach area like Sudersand, Sweden, as referenced in the surrounding document context."
 alt="Coniferous forest (CLC). The dunes are too small to be mapped, Ulla Hau (Sweden), Spot 5 (2.5m; 1/2/3 band combination). Date: 2012-08-22. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-5b10fb02e0d5f1de63ee812acfd0de06.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-5b10fb02e0d5f1de63ee812acfd0de06.jpeg"
 data-fig-alt="An aerial orthophoto depicting a coastal landscape in Sudersand, Sweden. The image shows a body of water in the foreground, likely the sea, with a sand beach extending along the coastline, estimated to be 20-30 metres wide. Inland from the beach, the landscape transitions into a mix of dense green forest, lighter green agricultural fields or clearings, and scattered human settlements or infrastructure, including roads and buildings. The image was provided by Lantmäteriet, Sweden."
 alt="Example of grey dunes, Sudersand (Sweden), Aerial orthophoto. Credit: Lantmäteriet, Sweden." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-5655c837fa7bae9e0c7c904f0d444c19.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-5655c837fa7bae9e0c7c904f0d444c19.jpeg"
 data-fig-alt="This is a satellite orthophoto from the Spot 5 sensor, dated 2012-08-22, depicting a coastal area identified as Sudersand, Sweden. The image, captured at 2.5m resolution using a 1/2/3 band combination, shows a large expanse of dark blue water (sea) in the lower foreground. A bright, light-coloured, curving strip runs along the coastline, representing a sand beach. Inland, behind the beach, is a blurry reddish-brown area indicative of land cover, likely a mix of urban development and vegetation. A small green marker dot is visible on the beach, near the center of the image. The image credits are CNES 2011© and Distribution Airbus DS/Spot Image."
 alt="Example of grey dunes, Sudersand (Sweden), Spot 5 (2.5m; 1/2/3 band combination). Date: 2012-08-22. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -5675,7 +5675,7 @@ bars and floodplain. Little or no vegetation ($< 10\%$).
   semi-natural water courses.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-b123a32644a86ddc11fe29bc5c4c6f0b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-b123a32644a86ddc11fe29bc5c4c6f0b.jpeg"
 style="width:308pt"
 data-fig-alt="A ground-level photograph captured in 2012 depicts a wide, dry river bank composed of various sizes of light grey, white, and brown pebbles and gravel covering the foreground. In the midground, a horizontal band of dense green vegetation, including deciduous trees and shrubs, separates the river bank from the background. Behind the vegetation, a forested hill range extends across the left and central background under a cloudy sky, with two electricity pylons visible on the left side of the forested slope. On the far right, a prominent, steep, reddish-brown cliff face rises sharply, showing signs of erosion, with some sparse vegetation at its base and top. The image illustrates a natural river bank environment with minimal vegetation. Text in the bottom left corner indicates &#39;Photographed in 2012 / LCKJ&#39;."
 alt="River bank in Var River (Alps Maritimes, France). Credit: Eurostat, LUCAS." />
@@ -5698,17 +5698,17 @@ indicates “Photographed in 2012 / LCKJ”.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-58d9f6a8bff91d9a41d9e322bc0fbb80.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-58d9f6a8bff91d9a41d9e322bc0fbb80.jpeg"
 data-fig-alt="This is a false-colour satellite or aerial image displaying a wide, braided river system with multiple channels and extensive floodplains. The water bodies, including the main river channels and smaller water courses, are depicted in a bright turquoise/cyan colour. Densely vegetated areas, such as forests or agricultural fields on the surrounding land and some larger islands, appear in various shades of red and magenta, characteristic of False Colour Infrared (FCIR) imagery where healthy vegetation reflects strongly in the near-infrared spectrum. Areas within the floodplain and on some islands, which likely represent sand and gravel deposits, alluvial fans, or areas with sparse vegetation, are shown in lighter pink and white tones. A small green circular marker is visible on a vegetated island located within the main river&#39;s upper central channel. The image illustrates features relevant to the Copernicus Land Monitoring Service (CLMS) for identifying river banks and dry river beds as defined in land cover mapping guidelines."
 alt="River banks, Torneträsk (Sweden), Aerial orthophoto. Credit: Lantmäteriet, Sweden." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-5ddb45d60864967bac775ee5b6d19e7d.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-5ddb45d60864967bac775ee5b6d19e7d.jpeg"
 data-fig-alt="A false-colour satellite image depicts a wide, braided river system, showcasing multiple water channels, extensive sand and gravel bars, and surrounding riparian and floodplain areas. The water channels appear in dark blue. Large, elongated areas within the riverbed, displaying orange and light brown tones, represent accumulations of sand and gravel, consistent with the definition of river banks and bars having little or no vegetation (less than 10%). The vegetated areas adjacent to the river, possibly agricultural fields or natural floodplain vegetation, are rendered in shades of light green and yellow. This image serves as an example illustrating the appearance of river banks, such as those found in the Tor region, with active sediment deposition and complex channel morphology."
 alt="River banks, Torneträsk (Sweden), Spot 5 (2.5m; 1/2/3 band combination). Date: 2011-07-22. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-e5104c75f733a3e0c1385345ff15e979.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-e5104c75f733a3e0c1385345ff15e979.jpeg"
 data-fig-alt="False-colour aerial imagery showing a section of the Var River in the Alps Maritimes, France, illustrating characteristics of river banks and beds for land cover classification. The image is credited to Eurostat, LUCAS. In this false-colour composite, dense vegetation appears in shades of dark red, while areas with sparser vegetation or agricultural land are lighter red to pink. The main river channel and its braided network, including active water flow and exposed sand or gravel bars, are depicted in shades of dark blue (water) and light blue-grey (sediment/bare ground). The image highlights the definition of &#39;Sand and gravel of river banks including accumulation of material at bars and floodplain&#39; with &#39;Little or no vegetation ($&lt; 10%$)&#39; as per Copernicus Land Monitoring Service (CLMS) guidelines. Surrounding the river system are extensive vegetated areas. Small, light-coloured structures, possibly buildings, are visible within the vegetated zones."
 alt="River bank, Anatolia (Turkey), Spot 5 (2.5 m; NIR/R/G band combination). Date:2011-06-30. CNES 2011© Distribution Airbus DS/Spot Image." />
 
@@ -5756,22 +5756,22 @@ be moss or lichen covered.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-6115e0e49775f318b3cb2f3b2aeb1fbb.jpg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-6115e0e49775f318b3cb2f3b2aeb1fbb.jpg"
 data-fig-alt="A close-up photograph depicts a large, smooth, rounded bedrock outcrop composed of light grey rock with visible cracks. A small tuft of sparse, dry, greenish-brown vegetation, resembling grass, grows from a fissure near the apex of the rock formation. The upper background shows a clear, bright sky. This image, sourced from S. Kirppu, illustrates &#39;Bare rocks and rock debris&#39; found in Nipfjället, Sweden, and serves as an example for the &#39;Bare rocks, outcrops, cliffs&#39; land cover category, defined as &#39;Bedrock outcrops with little or no high vegetation (&lt; 10%) but can be moss or lichen covered.&#39;"
 alt="Bare rocks and rock debris (Sweden). Credit: K. Larsson." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-6115e0e49775f318b3cb2f3b2aeb1fbb2.jpg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-6115e0e49775f318b3cb2f3b2aeb1fbb2.jpg"
 data-fig-alt="The image is a landscape photograph depicting a prominent, largely barren conical mountain with a flattened top, under a blue sky with scattered white clouds. The mountain&#39;s surface appears rocky and grey-brown. In the foreground, the terrain is covered with low-lying vegetation in shades of brown and reddish-green, characteristic of heathland or tundra, interspersed with patches of snow and scattered light-coloured rocks. The image caption identifies it as &#39;Bare rocks and rock debris (Sweden)&#39; and attributes the credit to K. Larsson. This photograph illustrates the Copernicus Land Monitoring Service (CLMS) land cover category for &#39;Bare rocks, outcrops, cliffs and scree,&#39; which defines areas of bedrock outcrops with minimal high vegetation."
 alt="Bare rocks and rock debris in the background. Nipfjället, Sweden. Credit: S. Kirppu." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-3ed81120920e348322d621fe40b9b474.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-3ed81120920e348322d621fe40b9b474.jpeg"
 data-fig-alt="A photograph depicting a volcanic landscape in the Canary Islands, characterised by barren, rocky terrain under a clear blue sky. The foreground shows reddish-brown bare ground composed of volcanic ash and debris. In the midground, a prominent conical hill with reddish-brown slopes, likely a volcanic cone, is visible. To the left of this cone, dark, undulating ground suggests barren lava fields, through which a winding road or path can be seen. In the background, a larger, dark mountain, consistent with a main volcanic peak, shows some subtle lighter green patches indicating minimal vegetation. The scene aligns with the definition of &#39;bare rocks, outcrops, cliffs and scree&#39; due to the presence of volcanic activities and very little high vegetation."
 alt="Etna’s volcanic landscape. (Italy) Credit: A. Utanda." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-d13766395591cd2e4fb8b1ab28c16bf3.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-d13766395591cd2e4fb8b1ab28c16bf3.jpeg"
 data-fig-alt="A ground-level photograph depicts a natural landscape featuring extensive bare, brown-grey rock formations and rock debris. Prominent rock outcrops and smaller loose rocks dominate the scene, with sparse, low-lying, scrubby vegetation (likely shrubs or bushes) scattered among the rocks and on the light-coloured soil or scree at the base. The sky above is clear and light blue. This image represents the Copernicus Land Monitoring Service (CLMS) land cover category &#39;Bare rocks, outcrops, cliffs and scree,&#39; which is defined as bedrock outcrops with less than 10% high vegetation. The photograph was taken in Sweden and is credited to K. Larsson."
 alt="Volcanic bare rocks in (Canary Islands, Spain). Credit: M. Palacios." />
 
@@ -5782,17 +5782,17 @@ alt="Volcanic bare rocks in (Canary Islands, Spain). Credit: M. Palacios." />
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-9521b5b0d418e4d13ab011676e437f79.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-9521b5b0d418e4d13ab011676e437f79.jpeg"
 data-fig-alt="This is a false-colour satellite image from Spot 5, featuring a landscape in Norway at 2.5-metre resolution using a 1/2/3 band combination. A bright blue river flows diagonally from the top-left to the mid-left of the image, cutting through a mountainous or hilly region. The dominant land cover is depicted in a greenish-blue hue, representing bare rock and areas with sparse vegetation, specifically less than 10% cover. Scattered across these steep hillsides and along the river are numerous distinct patches of bright red, which indicate areas of vegetation, including birch trees, as specified by the surrounding context. The terrain displays significant erosion and topographical relief."
 alt="Bare rocks formations (6.3.1.1), Anatolia (Turkey), Spot 5 (2.5 m; NIR/R/G band combination). Date: 2011-06-30. Source: CNES 2011© Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-d2384b531eb2b7429cac4079f68816da.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-d2384b531eb2b7429cac4079f68816da.jpeg"
 data-fig-alt="This satellite image, displayed as a False Colour Composite (NIR/R/G band combination), illustrates &#39;Bare rocks formations&#39; (land cover class 6.3.1.1) in Anatolia, Turkey. It was captured on 2011-06-30 by a Spot 5 sensor at 2.5 m resolution. The image shows a landscape dominated by reddish-magenta areas, representing dense vegetation or forests in the Near-Infrared band. Adjacent to these are areas of greenish-cyan, indicating other vegetation types or land cover. A winding, light blue linear feature, possibly a river or a bare rocky gully, is visible towards the left. A yellow polygon line overlays part of the terrain, delineating a specific area, and the faint light blue text &#39;9999&#39; is visible near the linear feature. The image source is CNES 2011© Distribution Airbus D."
 alt="Examples of bare rock with &lt; 10% vegetation (steep hillside dotted with birch), Norway, Spot 5 (2.5m; 1/2/3 band combination). Date: 2012-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-79534253bcc24dc6f5a21f8a86ef311c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-79534253bcc24dc6f5a21f8a86ef311c.jpeg"
 data-fig-alt="False-colour satellite imagery from a Spot 5 satellite, captured on 2011-06-30, showing bare rock formations (land cover class 6.3.1.1) in Anatolia, Turkey. The image uses a Near-Infrared/Red/Green (NIR/R/G) band combination with a spatial resolution of 2.5 metres. The terrain is rugged and mountainous, characterised by exposed rock surfaces appearing in reddish-brown and light blue/teal tones, with deep shadows indicating steep slopes and valleys. The light blue/teal areas typically represent highly reflective bare ground or possibly snow/ice, while reddish-brown areas denote other types of bare rock or very sparse vegetation. The data source is CNES 2011© Distribution Airbus DS/Spot Image."
 alt="Examples of bare rock with &lt;10% vegetation in the Alps, Austria), Spot 5 (2.5m; 1/2/3 band combination). Date: 2012-09-07. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -5821,7 +5821,7 @@ moss or lichen covered.
 **Appearance:**
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-8a4423139dbf67a132a64e777de16db3.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-8a4423139dbf67a132a64e777de16db3.jpeg"
 style="width:338pt"
 data-fig-alt="This high-resolution false-colour satellite image, likely from a Spot 5 sensor using a Near-Infrared (NIR)/Red/Green band combination, displays a rugged mountainous or volcanic landscape. Dark grey areas represent extensive bare rock, block litter, scree, or volcanic terrain, consistent with Copernicus Land Monitoring Service (CLMS) land cover categories like &#39;6.3.1.2 Scree&#39; or &#39;6.3.1.1 Bare rocks formations.&#39; Reddish-brown areas indicate sparsely vegetated terrain, where vegetation appears red due to the NIR band, possibly meeting the &#39;&lt; 10% vegetation&#39; criterion for scree. The image features thick cyan (light blue) lines delineating major land cover boundaries, enclosing a large dark grey area. Thinner, irregular yellow lines mark additional features or sub-boundaries within the reddish and dark grey terrains. The image serves as a visual example of complex exposed geological environments for land cover mapping."
 alt="Examples of Scree (highlighted) with &lt;10% vegetation in the Alps, France), PH1A (2.m). Date: 2020- 07-09" />
@@ -5862,12 +5862,12 @@ Areas affected by recent fires, still mainly black, not in forest.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-02df9437733ac19896f7cea563eebe0c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-02df9437733ac19896f7cea563eebe0c.jpeg"
 data-fig-alt="A photograph depicting burnt scrubland in Southern Italy, captured on 2018-07-29. The foreground and midground are dominated by numerous charred, bare shrubs and small bushes, indicating recent fire damage. The ground consists of dry, reddish-brown earth mixed with rocks and patches of sparse, light green vegetation. In the background, rolling hills with some green vegetation are visible under a clear, bright blue sky, with a distant mountain range on the horizon. The image credit is CCME 2018, provided under Copernicus by the European Union and ESA. A small watermark in the bottom left corner of the image reads &#39;© Editorial Lucas 2020&#39;. This photograph serves as an example of the &#39;Burnt areas (except burnt forest)&#39; category, often classified as CORINE Land Cover (CLC) class 6.3.2 in land monitoring services."
 alt="Scrubland affected by fire (North Western Spain). Credit: Eurostat, LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-00188a0bf99da810f0cca1b36893673e.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-00188a0bf99da810f0cca1b36893673e.jpeg"
 data-fig-alt="This false-colour satellite image depicts a landscape in North Western Spain, highlighting areas affected by recent fires. Large sections of the image appear dark blue and black, which, according to the surrounding context for &#39;Burnt areas (except burnt forest)&#39;, indicates recently fire-affected land that is still mainly black. These burnt areas are interspersed with patches of bright red and magenta, representing healthy vegetation with high chlorophyll content, likely unaffected scrubland or forest. Lighter grey and brown areas are also visible, suggesting bare ground or agricultural fields. White lines delineate various parcels or land features across the landscape. The image serves as an example of burnt scrubland. The data source is credited to Eurostat, LUCAS (Land Use and Cover Area frame Survey)."
 alt="Burnt scrubland (South Italy). Date: 2018-07-29. Credit: CCME 2018 provided under COPERNICUS by the European Union and ESA" />
 
@@ -5895,7 +5895,7 @@ Land covered by glaciers.
   dominant LC/LU (e.g. bare rocks 6.3.1.1).
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-eacc5c77e90ad9c5c7c0f768d51d119b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-eacc5c77e90ad9c5c7c0f768d51d119b.jpeg"
 data-fig-alt="Two side-by-side photographs illustrating the land cover class &#39;Glaciers and perpetual snow.&#39; The left photograph depicts a glacier flowing down a mountain valley, with prominent snow-covered peaks, dark rocky slopes, and areas of green vegetation at lower elevations, all under a partly cloudy blue sky. This image is from Kebnekaise, Sweden, with a capture date of 2010-09-07. Its caption indicates it is derived from Spot 5 satellite data (2.5 m resolution; 3/4/2 band combination) by CNES 2011©, Distributed by Airbus DS/Spot Image, and references a yellow delineation from CORINE Land Cover (CLC) that corresponds to a Protected Area (PA) delineation (though the delineation is not clearly visible in this image). The right photograph shows heavily snow-covered mountain ridges and peaks under a clear blue sky, also representing glaciers and perpetual snow. This image is also located in Kebnekaise, Sweden, and is credited to Lantmäteriet, Sweden, referring to topographical map content."
 alt="Glacier (6.3.3.1) de Bossons (French Alps). Credit: K. Larsson." />
 
@@ -5920,17 +5920,17 @@ content.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-37d20af4717d5d85b0a12e08b53a6457.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-37d20af4717d5d85b0a12e08b53a6457.jpeg"
 data-fig-alt="An infrared orthophoto map displaying CORINE Land Cover (CLC) classifications in a mountainous environment, illustrating the spatial distribution of glaciers and surrounding land cover types. The base imagery, consistent with an infrared orthophoto, renders &#39;CLC: Glaciers and perpetual snow&#39; as prominent magenta (pink) areas. These areas are delineated by yellow outlines, as are other CLC classes. &#39;CLC: Bare rock&#39; is shown in darker blue tones, &#39;CLC: Sparsely vegetated areas&#39; appears in greenish-blue, and &#39;CLC: Moors and heathland&#39; is represented by greenish-brownish areas towards the bottom of the map. The map visually differentiates these land cover categories, showing boundaries between permanent ice/snow, exposed rock, and various sparse vegetation types, typical of high-altitude regions such as Kebnekaise, Sweden, as referenced in the document context."
 alt="Glacier and perpetual snow (yellow delineation of the class is from CORINE Land Cover and corresponds well to a PA delineation), Kebnekaise (Sweden), Spot 5 (2.5 m; 3/4/2 band combination). Date: 2010-09-07. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-0b50ab4b0397cfbd140a11606c0be281.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-0b50ab4b0397cfbd140a11606c0be281.jpeg"
 data-fig-alt="A topographic map depicting a mountainous landscape with contour lines in light grey representing elevation. Large areas of water bodies, likely lakes, are shown with a blue dotted pattern. Thin blue lines indicate a hydrological network of rivers or streams, and a thin red line is visible in the bottom-left corner, representing an unidentifiable linear feature. No scale bar, compass, legend, or specific geographic labels are present on the map itself. The context suggests this map may be illustrating a glacier or glacial landscape, such as those in the French Alps or Kebnekaise, Sweden."
 alt="Glacier and perpetual snow according to topographical map. (Kebnekaise, Sweden). Credit: Lantmäteriet, Sweden." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-f3fcd8b8c6d6c666259c990d3dff09e2.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-f3fcd8b8c6d6c666259c990d3dff09e2.jpeg"
 data-fig-alt="Satellite imagery, captured by Spot 5 on 2010-09-07 with a 2.5 m resolution (3/4/2 band combination), depicts a glaciated, mountainous landscape in the Kebnekaise region of Sweden. Prominent white areas represent glaciers and perpetual snow. Deep blue areas indicate meltwater lakes or rivers, visible particularly in the upper left. The surrounding terrain shows variations in blue-green and reddish-brown hues, characteristic of bare rock or sparse vegetation. A faint yellow delineation, corresponding to a CORINE Land Cover (CLC) classification and aligning with a Protected Area (PA) boundary, is visible around the main glacier masses. The image is credited to CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="Infrared orthophoto over glacier and perpetual snow, Kebnekaise (Sweden). Credit: Lantmäteriet, Sweden." />
 
@@ -5962,7 +5962,7 @@ Permanent snowfields.
 **Appearance:**
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-dc93b2f2e69af800fa568b46abfa8865.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-dc93b2f2e69af800fa568b46abfa8865.jpeg"
 style="width:228pt"
 data-fig-alt="An infrared orthophoto displays a mountainous landscape in Kebnekaise, Sweden, featuring prominent white areas representing glaciers and perpetual snow. The surrounding terrain appears in shades of dark reddish-brown, characteristic of bare rock or sparse vegetation in an infrared false-colour composite. Some brighter red patches within the reddish-brown areas may indicate more vigorous vegetation. The rugged topography shows valleys and mountain slopes. The image credit is &#39;Lantmäteriet, Sweden.&#39;"
 alt="Perpetual snow, Vallouise (France), Spot 7 (4 m; 3/4/2 band combination). Date: 2020-09-07. Distribution Airbus DS/Spot Image." />
@@ -6018,7 +6018,7 @@ A decision criteria tree is established to clarify guideline
 distinctions between the sub-classes as follows:
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-5e0cdbfd455e1bf54e2fbd0de47f6d88.png"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-5e0cdbfd455e1bf54e2fbd0de47f6d88.png"
 data-fig-alt="This classification workflow diagram illustrates the decision process for identifying various wetland types, starting with general environmental conditions and leading to specific land cover or land use categories. The process begins by determining if an area is &#39;Inland?&#39;. 1. If the area is NOT Inland, the classification outcome is &#39;7.1.1 Inland marshes&#39;. 2. If the area IS Inland, the next check is &#39;Wet soil?&#39;. a. If the soil is NOT Wet, the classification outcome is &#39;7.1.1 Inland marshes&#39;. b. If the soil IS Wet, the area is confirmed as a &#39;7. Wetland&#39; (the primary classification step). i. From &#39;7. Wetland&#39;, a decision is made based on &#39;Salinity?*&#39;. 1. If &#39;Salinity?&#39; is NO: A. The process then checks for the presence of &#39;Mosses, dwarf shrub vegetation and herbaceous vegetation typical for hummock mires, lawn and carpet mires, mud-bottom mires?&#39;. * If YES, the area is classified as &#39;Peat bog&#39;. * If the &#39;Peat bog&#39; is &#39;Exploited?&#39; (YES), the final classification is &#39;7.1.2.1 Exploited peat bogs&#39;. * If the &#39;Peat bog&#39; is &#39;Exploited?&#39; (NO), the final classification is &#39;7.1.2.2 Unexploited peat bogs&#39;. * If NO to the vegetation description, the final classification is &#39;7.1.1 Inland marshes&#39;. 2. If &#39;Salinity?&#39; is YES: A. The area is identified as &#39;Saline marshes&#39;. B. A further check is made: &#39;Exploited?&#39;. * If &#39;Exploited?&#39; is NO, the final classification is &#39;7.1.1 Inland marshes&#39;. * If &#39;Exploited?&#39; is YES, the final classification is &#39;1.3.1 Mineral extraction&#39;." />
 
 This classification workflow diagram illustrates the decision process
@@ -6136,22 +6136,22 @@ specific locations and in endorheic basins across Europe.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-0465735d53cfb5b9d55878215b5bbbba.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-0465735d53cfb5b9d55878215b5bbbba.jpeg"
 data-fig-alt="A ground-level photograph captures an expansive wetland landscape under an overcast sky. The foreground shows a narrow strip of terrestrial ground covered with sparse, dry vegetation and what appears to be leaf litter. This transitions into a broad expanse of standing water, which dominates the mid-ground. Numerous clusters and larger patches of tall, dry, yellowish-brown grasses and sedges emerge from the water, with some vegetation partially submerged. In the middle distance, additional vegetated landforms, possibly small islands, are visible, interrupting the water surface. A distinct line of dark, deciduous trees forms the distant horizon, suggesting the edge of the wetland or a riparian zone. The image depicts a characteristic marsh or flooded grassland environment, consistent with areas described as &#39;Marshes (freshwater or salt) with or without vegetation (reeds) coverage&#39; or &#39;Grasslands highly wet or flooded at least six months a year&#39; within Copernicus Land Monitoring Service (CLMS) documentation."
 alt="Inland freshwater with reeds in Tablas de Daimiel Natura 2000 Site (Central Spain). Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-b99b348fde608f44a89cf8d863e84fd1.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-b99b348fde608f44a89cf8d863e84fd1.jpeg"
 data-fig-alt="A natural landscape photograph showing a small water body in the foreground, surrounded by grassy areas and coniferous forests, with rugged mountains visible in the background under a bright sky. The image features blue dotted lines and text annotations to highlight key elements of the environment. The small lake or pond in the foreground is labelled &#39;WATER&#39;. The immediate surrounding area, which appears marshy or boggy, is labelled &#39;PRESENCE OF CYPERACEAE PLANTS&#39;. A grassy slope above this area is labelled &#39;GRASSES&#39;. The blue dotted lines delineate the water body and the transition zones to the surrounding vegetation, providing an example of a wetland ecosystem in a mountainous region."
 alt="Interpretation of Cyperaceae plants in a wetland. Credit: M. Rodriguez." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-9b74a82e4c7c59fc0d4d07c2190325ae.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-9b74a82e4c7c59fc0d4d07c2190325ae.jpeg"
 data-fig-alt="A ground-level photograph captures a natural wetland environment. The foreground features a body of water with a uniform greenish-brown, turbid appearance. Along the far bank, a dense, vibrant band of tall, bright green emergent vegetation, consistent with reeds or tall grasses and sedges, grows directly from the water. This vegetation extends into the water from the shoreline. Behind this aquatic vegetation, a thick growth of darker green deciduous bushes and trees forms a dense backdrop, indicating a vegetated bank or forest edge. This image serves as a typical representation of a wetland environment, likely a reed-covered wetland along a river side or a freshwater marsh, aligning with Copernicus Land Monitoring Service (CLMS) definitions for wetland categories."
 alt="Juncaceae plants. Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-004cb565454e4901d552f266d170901c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-004cb565454e4901d552f266d170901c.jpeg"
 data-fig-alt="A ground-level photograph capturing a vast, flat, and arid landscape under a clear, bright blue sky. The ground is uniformly covered by a white, textured, and cracked layer, characteristic of precipitated salt, suggesting either a salt flat or a dried-up wetland. A thin, dark horizontal line demarcates the distant horizon, indicating sparse or no vegetation in the immediate foreground. In the bottom left corner, the attribution &#39;© European Union, 2012&#39; and &#39;LUCAS&#39; is visible, identifying the image as originating from the Land Use/Cover Area frame Survey. This visual evidence of bare soil resulting from the previous presence of water is relevant for land cover classification within wetland categories."
 alt="Inland saline marsh in Central Spain. Credit: Eurostat, 2012. LUCAS." />
 
@@ -6162,7 +6162,7 @@ alt="Inland saline marsh in Central Spain. Credit: Eurostat, 2012. LUCAS." />
 Example of inland wetland interpretation rules:
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-4d7e2cdd05083a688b4c30a8c14cf980.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-4d7e2cdd05083a688b4c30a8c14cf980.jpeg"
 style="width:413pt"
 data-fig-alt="This map displays a false-colour infrared satellite image illustrating various land cover types and their classification within and around a Natura 2000 (N2K) site, delineated by a green border. Blue arrows point from specific areas on the map to classification labels, distinguishing different landscape features: * **7.1.1 Inland marshes:** Identified as &#39;Grass-like plants/water-logged area visible in imagery&#39; (appearing light blue/green on the imagery) and &#39;Bare soil from previous water-logged area&#39; (appearing reddish-brown on the imagery). * **3.1.2/3.1.3/3.1.1 Woodland and forest:** Represented by darker green vegetation on the imagery. * **4.2.1.2 Semi-natural grassland without woody plants:** Labelled as &#39;Mesic/moist/humid grasslands,&#39; appearing as lighter green vegetation on the imagery. * **8.2.1 Natural lakes:** Identified as &#39;Open water visible in imagery,&#39; appearing as large dark blue/black areas on the imagery. The map categorises various land cover and land use (LULC) elements, including wetlands, woodlands, and grasslands, within the context of a protected Natura 2000 area, which is regulated by the Habitats Directive 92/43/EEC. No specific scale, compass, or year of imagery is indicated."
 alt="Araslövssjöområdet Natura 2000 site (Sweden), Spot 5 (2.5m; 1/2/3 band combination). Date: 2011-06-28. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -6193,7 +6193,7 @@ protected Natura 2000 area, which is regulated by the Habitats Directive
 Waterlogged areas covered by vegetation:
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-fc3db15ecea6db1e20cca4c76e4edfcf.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-fc3db15ecea6db1e20cca4c76e4edfcf.jpeg"
 style="width:327pt"
 data-fig-alt="False-colour satellite imagery showing land cover classification within a Natura 2000 (N2K) site, specifically identifying wetland areas. The image displays a central water body with surrounding land. A green line outlines the &#39;Border of Natura 2000 site&#39;. Within this site, blue arrows point to two distinct land cover types: 1. An area with significant vegetation cover, identified as having &#39;Reeds &gt; 30%&#39;, which is classified as &#39;7.1.1 Inland marshes&#39;. 2. A large, open expanse of water, labelled as &#39;Open water visible in imagery&#39;, which is classified as &#39;8.2.1 Natural lakes&#39;. The imagery distinguishes between open water, dense reedbeds, and surrounding land features like agricultural fields (shown in reddish tones) and possibly a built-up area (lighter teal/greenish tones) on the left side. The map demonstrates a specific CLMS (Copernicus Land Monitoring Service) classification logic for wetland habitats, showing how areas with different proportions of reeds are differentiated from open water bodies, consistent with the Natura 2000 site requirements for habitat mapping. The surrounding context indicates this is likely the Tablas de Daimiel Natura 2000 Site in Central Spain."
 alt="Srebarna Natura 2000 site (Bulgaria), Spot 5 (2.5m; 1/2/3 band combination). Date: 2011-04-26. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -6220,7 +6220,7 @@ Central Spain.
 Wetlands with reeds examples:
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-1c07ca9c5a650874de46b8caaffa59c1.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-1c07ca9c5a650874de46b8caaffa59c1.jpeg"
 data-fig-alt="The map displays a satellite image overlaid with numbered land cover classification polygons, likely depicting a wetland area within a Natura 2000 site, potentially the Tablas de Daimiel in Central Spain. The underlying imagery shows varied colours, with dark green representing open water, reddish-brown for forested or cultivated areas, and lighter greens for vegetated wetlands or grasslands. Black outlines delineate the classified land cover units. The classified land cover types and their corresponding numeric codes are: * **8210 (Natural lakes)**: Central, dark green open water body within the main wetland. * **7110 (Raised bogs / Mires)**: Extensive light green/pinkish vegetated wetland areas bordering the central lake and along the river. These areas are characteristic of wetlands with *Cyperaceae* and *Juncaceae* plants. * **8110 (Inland marshes)**: A band of wetland vegetation along the major river on the right side of the map. * **2110 (Arable land)**: Rectangular, light green/pinkish patches indicating agricultural fields, visible along the edges of the wetland and river. * **3110 (Broad-leaved forest)**: Dark reddish-brown areas representing woodland. * **3210 (Natural grasslands)**: Light green/pinkish patches, distinct from arable land, indicating areas of natural grassland. * **3310 (Coniferous forest)**: A darker reddish-brown patch indicating a coniferous forest type. * **3400 (Transitional woodland and scrub)**: Mixed reddish-brown and lighter green areas, as specified by the nomenclature guideline for this class. The map illustrates a complex mosaic of land cover and land use, with a significant natural wetland ecosystem integrated with surrounding agricultural and forested landscapes, typical for environmental monitoring and spatial analysis in areas of ecological importance."
 alt="Example of 7.1, Umeå (Sweden), Spot 5 (2.5m; 1/2/3 band combination). Date: 2011-07-08. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -6255,7 +6255,7 @@ agricultural and forested landscapes, typical for environmental
 monitoring and spatial analysis in areas of ecological importance.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-b3067d724beb104b10c4da40719dbeba.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-b3067d724beb104b10c4da40719dbeba.jpeg"
 data-fig-alt="False-colour infrared aerial or satellite imagery depicting a landscape with a mix of natural and human-modified land cover. A prominent, winding river, coloured bright blue, flows through the scene. Several roads, appearing as thin white or light grey lines, traverse the area, with a bridge visibly crossing the river. Extensive areas of healthy vegetation are displayed in shades of deep red and bright red, indicative of forests, woodlands, and agricultural fields. Other patches, appearing light cyan or turquoise, suggest built-up areas, bare ground, or other non-vegetated surfaces, possibly including smaller water bodies like ponds or reservoirs. There are also darker, less vibrant red/purplish areas potentially representing less vigorous vegetation or different land uses. The image provides no scale, orientation, location, or date information."
 alt="Inland freshwater marsh with reeds, Murnau (Germany), Spot 5 (2.5m; 1/2/3 band combination). Date: 2011-06-28. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -6274,7 +6274,7 @@ vegetation or different land uses. The image provides no scale,
 orientation, location, or date information.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-39c69dc0f9468dc4ae4cd1e40a8a9599.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-39c69dc0f9468dc4ae4cd1e40a8a9599.jpeg"
 data-fig-alt="False-colour infrared satellite imagery, sourced from Spot 5 with 2.5-metre resolution (1/2/3 band combination), depicting the Araslövssjöområdet Natura 2000 site in Sweden on 2011-06-28. The image displays a diverse landscape: densely vegetated areas, including forests and healthy crops, are represented in deep red; various agricultural fields appear in shades of lighter red, pink, and light green/blue; and a distinct, meandering river is rendered in bright turquoise/cyan blue, with white lines tracing its banks. Additional white lines mark field boundaries and paths across the landscape. In the top-left corner, a small settlement or scattered buildings with associated vegetation are visible as light-coloured structures with red patches. The image provides visual context for land cover/land use (LCLU) and wetland interpretation rules. Credit: CNES 2011©, Distribution Air."
 alt="Inland freshwater marsh with reeds – but mowed and mixed with grassland. Murnau (Germany), Spot 5 (2.5m; 1/2/3 band combination). Date: 2011-06-28. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -6297,7 +6297,7 @@ Wetland and semi-natural grassland distinction example:
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-29740d98e152814f4956288921e153fd.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-29740d98e152814f4956288921e153fd.jpeg"
 style="width:224pt"
 data-fig-alt="This map presents a false-colour infrared satellite image from Spot 5 (2.5m resolution, 1/2/3 band combination), dated 2011-07-08. The imagery is sourced from CNES 2011©, distributed by Airbus DS/Spot Image. It illustrates an example of wetland interpretation rules, specifically &#39;Example 7.1&#39; from a Copernicus Land Monitoring Service (CLMS) Nomenclature Guideline, focusing on an area near Umeå, Sweden. The image depicts various land cover types: dense, healthy vegetation (such as forests or active agricultural land) appears dark red, while water bodies and river channels are represented in light blue/cyan. Distinct land cover units are delineated by white lines and labelled with numeric codes. Area &#39;312&#39; is a large, elongated feature appearing light green and yellowish, consistent with a waterlogged area or peatbog with significant emergent wetland vegetation. Area &#39;411&#39;, located to the south-west of &#39;312&#39;, is a darker, more densely vegetated wetland, characteristic of inland marshes, demonstrating different types of wetlands based on their spectral signatures and structural characteristics for land cover classification (likely within a CORINE Land Cover, or CLC, framework)."
 alt="Inland freshwater marsh with CLC class 411 overlay. A neighboring moorland shows yello-green-spectral signatures, Murnau (Germany), Spot 5 (2.5m; 1/2/3 band combination). Date: 2011-06-28. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -6355,7 +6355,7 @@ characterized by linear trench and parcel structure.
   forest/8.x.x Water/4.1 Managed grassland.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-6eb9387091d5faa161a31b3feb98c7f6.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-6eb9387091d5faa161a31b3feb98c7f6.jpeg"
 style="width:309pt"
 data-fig-alt="A ground-level photograph depicting an open, flat landscape identified as an exploited peat bog. The foreground and midground show extensive dark brown, bare peat fields, possibly with visible cultivation marks, interspersed with several parallel, linear drainage ditches. One ditch is prominently visible in the mid-right, containing some standing water and sparse aquatic vegetation. In the distant background, a strip of green deciduous trees is visible along the horizon under a bright, overcast sky. The image was taken in 2012 and is attributed to the European Union and LUCAS (Land Use / Cover Area frame Survey)."
 alt="Exploited peat bog in Roscommon (Ireland). Credit: Eurostat, 2012. LUCAS." />
@@ -6375,19 +6375,19 @@ European Union and LUCAS (Land Use / Cover Area frame Survey).
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-216ba8575dbeec8b211032fa0d268bf5.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-216ba8575dbeec8b211032fa0d268bf5.jpeg"
 data-fig-alt="The image displays a satellite or aerial view of a landscape, likely a rural or forested area. A prominent feature is a large, elongated, bright green area outlined in yellow, explicitly labelled &#39;Exploited peat bog&#39;. This area shows a linear trench and parcel structure, consistent with peat extraction activities. Immediately to the west of this peat bog is a large, dark blue water body, presumably a lake or large pond, also delineated by a yellow outline. Several smaller dark water bodies are visible elsewhere in the image. The surrounding landscape consists of mixed brown and darker green terrain, indicating natural vegetation, forests, or agricultural fields. The yellow outlines define the boundaries of classified land cover units. No scale bar, compass, specific geographic location, data source, or reference year are visible in the image."
 alt="The delineation of the exploited peat bog (yellow polygons) is from CORINE Land Cover and corresponds fairly to a PA image situation, Sweden, Spot 5. Credit: ESA." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-e327e3bd4937ac329cda3f7ad4991c94.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-e327e3bd4937ac329cda3f7ad4991c94.jpeg"
 data-fig-alt="An aerial or satellite photograph shows an exploited peat bog in Roscommon, Ireland, captured in 2012 as part of the Eurostat LUCAS (Land Use/Cover Area frame Survey) programme. The central area of the image features a distinct light green and brown rectangular parcel, characterized by a visible linear trench and parcel structure indicative of peat extraction. This central area is outlined by a yellow polygon. To the upper left, a large, irregularly shaped dark blue water body is visible, also delineated by a yellow outline. A smaller, similar dark blue water body is present in the lower left, likewise outlined in yellow. The areas surrounding the central peat bog and water bodies are covered by darker reddish-brown vegetation, likely natural or semi-natural land cover, also segmented by numerous yellow polygons defining individual land cover units."
 alt="The same area as left but infrared orthophotos as image background. Credit: Lantmäteriet." />
 
 </div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-b15c84b5b086daa63cb76705d80a02c4.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-b15c84b5b086daa63cb76705d80a02c4.jpeg"
 data-fig-alt="Two side-by-side satellite images of the same geographic area in Sweden, acquired by Spot 5, depicting land cover for CORINE Land Cover (CLC) classification. The image on the left is a raw infrared orthophoto, showing an agricultural and forested landscape with varying shades of red, magenta, and dark green indicating different vegetation types and bare earth. The image on the right is the same orthophoto with superimposed white polygons delineating CLC land cover units, along with their corresponding three-digit CLC codes. The central, large, dark green area, characterized by linear trench and parcel structures, is labelled `412`, which corresponds to &#39;Peat bogs&#39; based on CORINE nomenclature and the surrounding document context describing &#39;Exploited peat bogs.&#39; Surrounding this central area are polygons labelled: * `211`: Non-irrigated arable land * `231`: Pastures * `243`: Land principally occupied by agriculture, with significant areas of natural vegetation * `311`: Broad-leaved forest The delineation of these polygons is attributed to CORINE Land Cover, fairing with the satellite image situation. The imagery credit is ESA."
 alt="Exploited peat bog in northern Germany – right side: CLC overlay), Spot 5 (2.5m; 1/2/3 band combination). CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -6438,7 +6438,7 @@ producing land”.
 - Peat extraction site $\rightarrow$ 7.1.2.1 Exploited peat bog.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-754f78c000e44d2893d78a126bcc8a44.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-754f78c000e44d2893d78a126bcc8a44.jpeg"
 style="width:308pt"
 data-fig-alt="A ground-level photograph depicts an exploited peat bog landscape in Roscommon, Ireland, featuring rolling hills in the background under a light, overcast sky. The foreground and midground consist of diverse vegetation, including patches of green grass and darker, reddish-brown heathland or shrubbery, characteristic of a moorland environment. A narrow, unpaved track or road is faintly visible winding into the distance on the right side of the midground, with several scattered rocks visible in the same area. The image credit states &#39;©European Union, 2012 LUCAS&#39;."
 alt="Unexploited peat bog near Benderloch (Western Scotland, United Kingdom). Credit: Eurostat, 2012. LUCAS." />
@@ -6458,12 +6458,12 @@ Union, 2012 LUCAS”.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-ef1684adf170dbf5d0f5e31771a3320f.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-ef1684adf170dbf5d0f5e31771a3320f.jpeg"
 data-fig-alt="Choropleth map displaying a CORINE Land Cover (CLC) classification of a peat bog, identified as class 412, overlaid on false-colour satellite imagery. The map shows an area in northern Germany, featuring a large, irregularly shaped central area outlined by a yellow polygon, explicitly labelled &#39;CORINE Land Cover: Peat bog (412)&#39;. This central area, visually characterised by pinkish-purple and greenish-brown hues, represents the peat bog. Surrounding areas are also delineated by yellow polygons, showing other land cover types, including darker green (likely vegetation) and dark blue (water bodies). The underlying satellite imagery is from Spot 5 (2.5m resolution, 1/2/3 band combination) by CNES 2011©, distributed by Airbus DS/Spot Image, illustrating how CLC boundaries conform to visible landscape features. The map demonstrates the spatial extent and classification of a peat bog according to the CORINE Land Cover nomenclature."
 alt="Typical raised, unexploited peat bog (yellow delineation is from CORINE Land Cover and corresponds well to the PA image situation), Jordbärsmuren-Albo Natura 2000 site (Sweden), Spot 5. Credit: ESA." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-fef20c84d1524321ea0abf318112f592.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-fef20c84d1524321ea0abf318112f592.jpeg"
 data-fig-alt="This map displays an unexploited peat bog area, likely in Western Scotland (United Kingdom) based on surrounding document context, overlaid with a Natura 2000 habitat classification. The background is satellite imagery, possibly in false colour, showing a large central area of light pinkish-grey land cover interpreted as a bog, bordered by green vegetation and dark blue water bodies. Red outlines (polygons) are superimposed on the imagery, delineating specific areas. A white text box in the upper left corner explicitly labels these outlined areas as &#39;Natura 2000: Active raised bogs (7110)&#39;. The map shows a large, irregularly shaped central bog outlined in red, indicating a significant active raised bog habitat. Several smaller, fragmented red outlines are visible around the periphery of this main bog and adjacent to the water, suggesting additional or contiguous peat-producing wetland areas. No scale bar, compass, or reference year is visible on the map."
 alt="Same area as left. The delineation of the peat bog (red polygons) is from a Nature 2000 habitat map, also corresponding well to the PA image data. Credit: ESA." />
 
@@ -6528,22 +6528,22 @@ of the image.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-00ad488fbc156f2712e01d37fca39f4d.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-00ad488fbc156f2712e01d37fca39f4d.jpeg"
 data-fig-alt="A ground-level photograph depicting an expansive coastal salt marsh environment. The foreground and midground consist of a relatively flat, open area with light brown earth, interspersed with patches of sparse green vegetation. On the left side of the midground, several shallow, reflective pools of water or small channels are visible. In the background, a line of dense trees or woodland rises on a slightly elevated landform. The sky is bright, with a strong light source in the upper left, causing a lens flare. The scene represents a low-lying, periodically flooded wetland habitat, characteristic of a salt marsh as described by EUNIS habitat types and Copernicus Land Monitoring Service (CLMS) class 7.2.1."
 alt="Salt marsh in Foz do Rio Miñor Natura 2000 site during low tide (Galicia, Spain). Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-6f9969ad2486aa134873433803fef615.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-6f9969ad2486aa134873433803fef615.jpeg"
 data-fig-alt="A ground-level photograph capturing a wide, calm body of water in the foreground and midground, reflecting the clear blue sky. On the right side of the midground, a patch of low-lying, green, marshy vegetation is visible, indicative of a salt marsh or brackish reed bed. Further across the water, a sloping hillside densely covered with green trees and some scattered buildings can be seen. In the far distance, more hills and structures are visible under a mostly clear sky with a few wispy clouds. The scene represents a natural coastal or estuarine environment, aligned with the Copernicus Land Monitoring Service (CLMS) descriptions of salt marshes and estuaries."
 alt="Salt marsh in Foz do Rio Miñor Natura 2000 site during high tide (Galicia, Spain). Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-02af94ea7656598d3eef5654941f71ca.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-02af94ea7656598d3eef5654941f71ca.jpeg"
 data-fig-alt="A ground-level photograph depicts an expansive coastal salt marsh landscape under a clear blue sky with scattered clouds. The scene is dominated by low-lying, dense vegetation exhibiting a mix of green and brownish hues, characteristic of salt-tolerant plants, sedges, and rushes, extending towards the horizon. In the immediate foreground, to the right of some light-coloured rocks on the lower left, there is a small, shallow body of brownish water or very wet, muddy ground. The overall terrain appears flat and open, consistent with a wetland environment. Faint, unreadable text is partially visible in the bottom left corner."
 alt="Salt marshes with salt tolerant plants in Camargue (Southern France). Credit: Eurostat, 2012. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-9356c6e251256cd9ea01b6d2950fe1a6.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-9356c6e251256cd9ea01b6d2950fe1a6.jpeg"
 data-fig-alt="A ground-level photograph captures a coastal salt marsh environment under a partly cloudy sky. The foreground is dominated by dense, tall green grass, consistent with vegetated beds found in salt marshes or saline reed beds. Beyond this lush vegetation, the mid-ground transitions to a flatter, lighter brown area with sparser vegetation or exposed muddy sediments, indicative of a less vegetated part of the marsh. In the background, a line of houses with light-coloured walls and red roofs is visible along a distant hillside, illustrating the proximity of urban development to this natural wetland. The image shows the characteristic land cover of a salt marsh, potentially part of an estuary or delta area."
 alt="Reeds (foreground) and salt tolerant plants (background) in marshes of Foz do Rio Miñor Natura 2000 site (Galicia, Spain). Credit: M. Palacios." />
 
@@ -6554,7 +6554,7 @@ alt="Reeds (foreground) and salt tolerant plants (background) in marshes of Foz 
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-4816a7304046fee57ce6cb7060fae225.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-4816a7304046fee57ce6cb7060fae225.jpeg"
 style="width:221pt"
 data-fig-alt="A false-colour satellite image depicting a complex coastal and estuarine landscape. The deep blue expanse on the left represents a sea or ocean, bordered by white, wavy patterns likely indicating sandy dunes or coastal barrier formations. A prominent light blue/cyan river or channel meanders through the landscape, opening into the larger water body at the bottom left. Adjacent to the river and further inland are extensive reddish-brown areas, which in false colour typically represent vegetated land, possibly agricultural fields or specific natural vegetation types. Towards the upper right, large, geometrically structured blue rectangular areas are visible, suggestive of aquaculture ponds or salines. A cluster of light pink/white features in the bottom left indicates an urban or developed area. A bright yellow arrow points to an irregular, brownish-greenish area in the upper-central part of the image, within the estuarine system, which represents a salt marsh (Copernicus Land Monitoring Service land cover class 7.2.1), an area of vegetated beds and muddy flats influenced by tidal water."
 alt="Marshes and estuary of the Guadalquivir river, Doñana Natura 2000 site (Spain), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-01. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -6571,7 +6571,7 @@ rules are applied as follows:
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-97afdf17caa04f0c03e3d84e57ca96bf.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-97afdf17caa04f0c03e3d84e57ca96bf.jpeg"
 style="width:134pt"
 data-fig-alt="This is a false-colour satellite image depicting marshes and an estuary of the Guadalquivir river within the Doñana Natura 2000 (N2K) site in Spain. The image was captured by the Spot 5 satellite at a 2.5 metre (m) resolution on 2011-08-01, using a 1/2/3 band combination. The dominant features are extensive areas of intense red, arranged in large, mostly rectangular, geometrically segmented plots. These red hues typically indicate actively vegetated marshland or areas within salt pans (salines) containing photosynthetic organisms in a false-colour infrared composite. The large red plots are separated by thin, lighter-coloured linear features, likely representing embankments, paths, or bare ground. A curving, lighter brown/tan area is visible in the lower central part, representing an estuary or river channel, with adjacent lighter, irregular patches that could be mudflats or bare soil. Scattered darker patches within the red areas may indicate open water bodies or less vegetated zones. The image credit is CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="Rice fields, Doñana National Park (Spain), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -6580,7 +6580,7 @@ alt="Rice fields, Doñana National Park (Spain), Spot 5 (2.5 m; 1/2/3 band combi
   and non- irrigated.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-96df867f0874131ad2111745f93ef5d5.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-96df867f0874131ad2111745f93ef5d5.jpeg"
 style="width:130pt"
 data-fig-alt="This is a false-colour satellite image, captured by Spot 5 with 2.5 m resolution using a 1/2/3 band combination, depicting a section of the marshes and estuary of the Guadalquivir river within the Doñana Natura 2000 site in Spain. The image date is 2011-08-01, attributed to CNES 2011© and Distributed by Airbus DS/Spot Image. The image displays a mosaic of land cover types: * **Bright red areas** indicate healthy, vigorous vegetation, primarily observed in rectangular agricultural fields. * **Dull greenish/grey areas** represent extensive flat marshland, mudflats, or moist soils, often showing a patterned, grid-like structure in some areas suggesting managed wetlands or sparse vegetation. * **Light blue areas** correspond to open water bodies, including portions of the Guadalquivir river and associated waterways. A distinct, small white square feature with a dark central point is visible within one of the larger dull greenish/grey marsh areas. The image provides a detailed view of the interaction between human-modified agricultural landscapes and natural estuarine wetland environments."
 alt="Transformed salt marsh without agricultural use, Doñana National Park (Spain), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-11. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -6590,7 +6590,7 @@ alt="Transformed salt marsh without agricultural use, Doñana National Park (Spa
   water- logged $\rightarrow$ 7.2.1 Salt marshes.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-fe54f31ed26f793ffa27e0e7d26d88c7.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-fe54f31ed26f793ffa27e0e7d26d88c7.jpeg"
 style="width:123pt"
 data-fig-alt="A false-colour satellite image from Spot 5 (2.5 m resolution, 1/2/3 band combination), dated 2011-08-01, depicts the marshes and estuary of the Guadalquivir river within the Doñana Natura 2000 (N2K) site in Spain. The image shows a coastal landscape with distinct land cover types. The river and estuary appear as dark blue water bodies, particularly a winding river on the upper left and a larger body of water to the far right (likely the Atlantic Ocean). Extensive areas of vegetation, characteristic of marshes with salt-tolerant plants or reeds, are rendered in bright magenta/red, dominating the left side of the image and surrounding other features. In the central and upper-right portions, geometrically regular, lighter-toned rectangular plots are visible, consistent with agricultural fields, potentially rice fields as suggested by the surrounding context. These fields appear light grey or beige, some showing internal linear patterns. A narrow strip of lighter, possibly sandy, coastline separates the land from the ocean on the right. The image attribution is CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="Pineiou Delta, Natura 2000 site (Greece), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-23. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -6600,7 +6600,7 @@ alt="Pineiou Delta, Natura 2000 site (Greece), Spot 5 (2.5 m; 1/2/3 band combina
   grassland / 5.x.x Heathland and scrub.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-040672452a5965374975524f6515c10e.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-040672452a5965374975524f6515c10e.jpeg"
 style="width:134pt"
 data-fig-alt="This is a false-colour satellite image acquired by Spot 5 on 2011-08-01, showing the marshes and estuary of the Guadalquivir river within the Doñana Natura 2000 site in Spain. The image, with a spatial resolution of 2.5 metres, uses a 1/2/3 band combination where healthy vegetation appears in bright red hues. On the right, a dark blue area represents a large body of water, indicating the coastline. Inland, the landscape is characterised by irregular dark channels and water bodies, typical of an estuarine system. Numerous distinct, geometrically rectangular areas of vibrant red are visible, strongly suggesting agricultural fields (such as rice fields, consistent with the document&#39;s context of &#39;salt marshes transformed to agriculture&#39;). These cultivated areas are interspersed with patches of lighter red, pink, and grey tones, which likely represent less vegetated marshlands, mudflats, or moist soil. The image credits are CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="Pineiou Delta, Natura 2000 site (Greece), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-23. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -6621,7 +6621,7 @@ rules:
   clear surface depressions) will be classified as 8.3.1 Lagoons.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-b2b645e48130f1d1254a8924d5c00ee5.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-b2b645e48130f1d1254a8924d5c00ee5.jpeg"
 style="width:283pt"
 data-fig-alt="Satellite imagery from Spot 5 (2.5 m resolution, 1/2/3 band combination) shows a landscape in the Pineiou Delta, a Natura 2000 (N2K) site in Greece, dated 2011-08-23. The image displays distinct land cover types: A prominent river, coloured deep blue-green and outlined in bright green, flows vertically on the right side of the image. To the left of the river, a large, irregularly shaped area of light blue-greyish land is enclosed by a yellow dotted line. This area appears to be flat, potentially wet or muddy, consistent with a transformed salt marsh or sparsely vegetated area. Further to the left, and extending to the top and bottom, is a reddish-brown textured area, indicative of dry or sparsely vegetated land. On the right side of the river, several rectangular parcels of land are visible, with varying shades of dark to light blue-green, representing agricultural fields. The image is sourced from CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="Relevant and clear ponds and channels in salt marshes are classified as 8.3.1 Lagoons, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-01. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -6645,7 +6645,7 @@ Vegetated flat areas in/near the coastline or in estuaries and other
 coastal landscapes:
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-4c74dd7c4bd8da990e93562a88635cdb.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-4c74dd7c4bd8da990e93562a88635cdb.jpeg"
 style="width:367pt"
 data-fig-alt="A false color infrared satellite image of the Pineiou Delta, a Natura 2000 site in Greece, captured on 2011-08-23 by Spot 5 at 2.5 m resolution, using a 1/2/3 band combination. The image depicts a coastal area featuring a large body of water on the left, rendered in bright cyan. Adjacent to the water is a strip of land covered by mottled reddish vegetation, which extends inland. Further inland, the landscape transitions into distinct, rectangular agricultural parcels, some appearing greenish-grey and others reddish-purple. Scattered white/light blue specks within these areas suggest human settlements. A yellow arrow points from the cultivated agricultural fields towards the reddish, more naturally vegetated area along the coast. This area, which displays visible parcels and drainage channels, is identified in context as being covered by grassland or scrubland, or heathland and scrub, rather than active agriculture."
 alt="Marais at Gironde estuary, France, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-01. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -6702,12 +6702,12 @@ CORINE land cover and computer assisted visual interpretation.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-cbcf8657ddf57e65bf57501b8821471a.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-cbcf8657ddf57e65bf57501b8821471a.jpeg"
 data-fig-alt="This ground-level photograph depicts a large, flat, salt-encrusted area, consistent with a saline or salt pan, as defined by CORINE Land Cover (CLC) class 4.2.2. A raised, unpaved track or embankment runs along the left side of the frame, serving as a boundary for the salt pan and bordering a strip of dense green vegetation. The surface of the open saline area is light brown and white, showing evident salt deposits. In the background, low hills or mountains are visible under a clear blue sky. The image was captured in June 2011 and is attributed as a &#39;CLMS photo&#39; from &#39;LUCAS&#39; (Land Use/Cover Area frame Survey) data."
 alt="Salines des Pesquieres (Southern France). Credit: Eurostat, 2012. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-ad4096d2763ad6b2e4567e4a58ac39dd.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-ad4096d2763ad6b2e4567e4a58ac39dd.jpeg"
 data-fig-alt="A ground-level photograph depicting extensive coastal salines (salt pans) under a clear blue sky. The foreground shows dry, brown earth with sparse vegetation. The middle ground is dominated by numerous rectangular and polygonal evaporation ponds, clearly separated by earthen embankments. These ponds exhibit a variety of colours, ranging from bright white (indicating crystallised salt) to light pink, pale blue-green, and deeper blue, reflecting different stages of brine concentration or salt production. To the left, a larger body of water is visible, possibly a lagoon or sea inlet. In the background, distant, arid-looking hills or mountains rise above the horizon. This image illustrates land use typical of the CORINE Land Cover (CLC) class 422 Salines, which are exploited for salt production by evaporation, often involving parcellation and embankment systems."
 alt="Salt marshes in Lanzarote (Canary island, Spain). Credit: C. Alonso." />
 
@@ -6721,7 +6721,7 @@ alt="Salt marshes in Lanzarote (Canary island, Spain). Credit: C. Alonso." />
   buildings.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-812db73ff475452bd075253360286be9.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-812db73ff475452bd075253360286be9.jpeg"
 style="width:374pt"
 data-fig-alt="This is a satellite image depicting the Salines des Pesquieres in Southern France, captured in 2012 by Eurostat as part of the LUCAS (Land Use and Land Cover Area frame Survey) programme. The image displays a coastal area with a prominent system of salt pans (salines) forming a large blue and turquoise band between the sea and the inland landscape. The salines are visible as large, geometric, rectangular, and elongated ponds with varying shades of blue and green, indicating different stages of salt evaporation. To the south-east, the dark blue body of water represents the sea, featuring a coastal town with a developed port and urban infrastructure along the shoreline. Inland from the salines and urban areas, the landscape is characterised by reddish-brown rectangular patches, typical of agricultural fields, and more varied brown-green hues indicating natural or semi-natural vegetation and hills."
 alt="Santa Pola salines, Spain, Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-12. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -6764,12 +6764,12 @@ high and low water marks”[^26].
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-107ba1ee9ca35a8c3f45536201e7db3f.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-107ba1ee9ca35a8c3f45536201e7db3f.jpeg"
 data-fig-alt="A ground-level photograph depicting a wet, muddy salt marsh or intertidal flat landscape. The foreground shows shallow pools of water reflecting the sky, interspersed with extensive patches of light green algae or low-lying vegetation and darker clumps of denser vegetation or rocks. In the background, a line of trees or shrubs forms the horizon under a blue sky with scattered clouds. The image is copyrighted &#39;©European Union, 2012&#39; and attributed to &#39;LUCAS&#39; (Land Use and Cover Area frame Survey)."
 alt="Intertidal flat in Étel (Bretagne, France). Credit: Eurostat, 2012. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-14e048ea11442071c92fbbac70362e97.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-14e048ea11442071c92fbbac70362e97.jpeg"
 data-fig-alt="A ground-level photograph depicting a natural intertidal flat environment under a clear blue sky. The foreground features cracked, muddy ground with numerous small, scattered clumps of green vegetation, appearing as mounds. The middle ground transitions to denser, more continuous low-lying vegetation extending towards a distant, flat horizon line. The overall landscape suggests an area influenced by tidal cycles. A copyright notice in the lower left corner reads &#39;©European Union, 2012&#39; and &#39;LUCAS&#39;."
 alt="Intertidal flat (Nissum Bredning, Denmark). Credit: Eurostat, 2012. LUCAS." />
 
@@ -6780,7 +6780,7 @@ alt="Intertidal flat (Nissum Bredning, Denmark). Credit: Eurostat, 2012. LUCAS."
 - Generally, mud flats and water channels in the coastline.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-acbfc730c5b4dc6d995486ad9a68771c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-acbfc730c5b4dc6d995486ad9a68771c.jpeg"
 style="width:309pt"
 data-fig-alt="False-colour satellite map showing the Santa Pola salines, Spain, captured on 2011-08-12 by Spot 5 (2.5 m resolution, 1/2/3 band combination). The map depicts a coastal environment with deep blue open water, extensive lighter blue/grey/brown intertidal flats featuring intricate channels, and landmasses. Vegetated areas on land appear bright red, indicating the use of a false-colour infrared band combination common in satellite imagery. A prominent green polygon boundary delineates a large coastal zone encompassing both terrestrial and intertidal features, likely corresponding to a Copernicus Land Monitoring Service (CLMS) CORINE Land Cover (CLC) mapping unit, specifically CLC class 423 &#39;Intertidal flats&#39;. The image visualises the definition of intertidal flats as generally vegetationless expanses of mud, sand, or rock between high and low water marks. The data source is CNES 2011©, distributed by Airbus DS/Spot Image."
 alt="Waddenzee (Netherlands), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-10-24. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -6807,7 +6807,7 @@ presence of tidal channels. 8.3.2 Estuaries are characterized by the
 influence of the river.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-3436905928b6fa2163268c0814dd3a1c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-3436905928b6fa2163268c0814dd3a1c.jpeg"
 data-fig-alt="This conceptual diagram illustrates the key geomorphological differences between Intertidal Flats and Estuaries. The diagram is divided into two panels, each representing a distinct coastal feature. The left panel, labelled &#39;INTERTIDAL FLATS&#39;, depicts a wide coastal area where a main channel of water (dark blue) branches extensively into numerous smaller tidal channels (lighter blue) within a broad intertidal zone (grey), bordered by land (green) and a coastline feature (yellow). A large white arrow points into the main channel from the seaward side, labelled &#39;SEA INFLUENCE&#39;, indicating the dominant impact of tides and seawater. The right panel, labelled &#39;ESTUARIES&#39;, shows a body of water (dark blue) where a river (grey channel at the top) empties into a larger water body, bordered by land (green) and a coastline feature (yellow). A large white arrow points from upstream into the river, labelled &#39;RIVER INFLUENCE&#39;, highlighting the predominant impact of freshwater flow from the river. The diagram visually differentiates these two land cover types based on whether the primary shaping force is tidal &#39;SEA INFLUENCE&#39; or fluvial &#39;RIVER INFLUENCE&#39;."
 alt="Schematic differentiation 7.2.3 Intertidal flats/ 8.3.2 Estuaries." />
 
@@ -6904,12 +6904,12 @@ semi-perched alluvial and karstic non-permanent streams.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-432c2ecd56c7d70c1513d767caefd1d3.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-432c2ecd56c7d70c1513d767caefd1d3.jpeg"
 data-fig-alt="A photograph depicting a natural waterfall cascading into a wide, flowing river or stream. The waterfall, located on the left, shows a substantial volume of white water descending from a vegetated rocky outcrop. The river below exhibits clear, blue-green water with visible ripples and areas of foam where the waterfall&#39;s impact disturbs the surface. Both banks of the river are densely covered with lush green vegetation, including trees and aquatic plants, signifying a natural or semi-natural water course environment. The scene is well-lit, highlighting the water and surrounding foliage."
 alt="Natural &amp; semi-natural water course in Antalya Province (Southern Turkey). Credit: M. Escobar." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-b0f561a439f07ebf280fc5f29a7a3799.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-b0f561a439f07ebf280fc5f29a7a3799.jpeg"
 data-fig-alt="Photograph depicting a wide, natural river flowing through a green, semi-natural landscape. The river surface is calm, reflecting the partly cloudy sky and the dense, dark green deciduous trees lining the far bank. In the foreground, the riverbank is covered with lush green grass and reeds, with some lighter-coloured seed heads visible. Distant hills, also covered in vegetation, are visible under the blue sky in the background. This image exemplifies a natural or semi-natural watercourse, likely with a width greater than 10 metres and with un- or less vegetated river beds, as described in Copernicus Land Monitoring Service (CLMS) documentation for land cover classification."
 alt="River in Northern Wales (United Kingdom). Credit: Eurostat, 2012. LUCAS." />
 
@@ -6918,7 +6918,7 @@ alt="River in Northern Wales (United Kingdom). Credit: Eurostat, 2012. LUCAS." /
 **Appearance:**
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-6504213b35aedc5bf8410d7f720265cb.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-6504213b35aedc5bf8410d7f720265cb.jpeg"
 style="width:267pt"
 data-fig-alt="A false-colour infrared satellite image depicts a diverse European landscape, likely used for land cover/land use mapping within the Copernicus Land Monitoring Service (CLMS). The image features a wide, winding river flowing from the upper-left to the lower-right, characterized by a significant bend in the upper-central area. Water bodies, including the river and two distinct lakes/reservoirs in the upper-central part, appear as dark blue or black. Urban and built-up settlements are prominent in bright turquoise and cyan, clustered along the riverbanks and extending into the surrounding terrain. Dense, healthy vegetation, such as forests and some actively growing agricultural fields, is represented by shades of deep red and magenta. Agricultural land consists of numerous parcels displaying varying colours from lighter reds and pinks to teal and light green, indicating different crop types, stages of growth, or bare soil. The image provides a detailed view of natural watercourses, extensive forested areas, and a patchwork of agricultural fields, illustrating the interplay of different land cover types in the region. No specific geographic location, scale bar, or date is visible."
 alt="River Weser, Bodenwerder (Germany), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-02-05. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -6978,12 +6978,12 @@ physical alteration, movement or realignment of an existing water body”.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-96ace69a5363a69745c627390f30f689.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-96ace69a5363a69745c627390f30f689.jpeg"
 data-fig-alt="A photograph depicting a straight, man-made canal in an urban environment, identified as a canal in Lingen, Lower Saxony, Germany, from Eurostat LUCAS data, 2012. The canal features light-coloured concrete banks, with a series of steps leading down to the water on the left side. The water surface is calm and reflects the clear blue sky. On both sides of the canal, there are landscaped green areas with grass and small trees. In the background, multi-story residential buildings with reddish-brown facades are visible on the left, and a more distant urban skyline appears on the right. This image illustrates the &#39;Highly modified water courses and canals&#39; category (8.1.2) as defined in the associated documentation, which includes artificial water courses according to the Water Framework Directive (Directive 2000/60/EC)."
 alt="Highly modified natural water course (Río Manzanares crossing Madrid city). Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-378abf267fcb013b1fdea1496025b588.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-378abf267fcb013b1fdea1496025b588.jpeg"
 data-fig-alt="A landscape photograph depicting a dirt track or path running along the bank of a calm river or canal. On the left side of the track, a dense row of green deciduous trees forms a wooded edge. On the right, the track is bordered by green grass sloping down to the water. In the distance, a bridge spans the water body. The sky is partly cloudy. The image is copyrighted &#39;©European Union 2012&#39; and attributed to &#39;LUCAS&#39;. This image serves as an example of a water course which might be classified as a &#39;highly modified water course&#39; or &#39;artificial water course&#39; in environmental monitoring contexts, such as those related to the Water Framework Directive (Directive 2000/60/EC)."
 alt="Canal in Lingen (Lower Saxony, Germany). Credit: Eurostat, 2012. LUCAS." />
 
@@ -6992,7 +6992,7 @@ alt="Canal in Lingen (Lower Saxony, Germany). Credit: Eurostat, 2012. LUCAS." />
 **Appearance:**
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-879c09909cd61185a8314c1d33cbcbfc.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-879c09909cd61185a8314c1d33cbcbfc.jpeg"
 data-fig-alt="The image is a false-colour infrared satellite or aerial photograph illustrating two different types of water courses and their surrounding land cover. In this representation, vegetated areas appear in magenta/red tones, while water bodies are depicted in dark blue/cyan. A blue annotation box in the upper left, labeled &#39;Highly modified water channel = 8.1.2 Highly modified water courses and canals,&#39; points via an arrow to the upper water body, which is a visibly straight, narrow, and clearly channelized feature. A second blue annotation box in the lower right, labeled &#39;Natural water course not modified = 8.1.1 Natural &amp; semi-natural water courses,&#39; points with an arrow to the lower water body, which exhibits a wider, meandering path characteristic of a natural or semi-natural river. The image visually differentiates these two land cover classification categories within the context of Copernicus Land Monitoring Service (CLMS) nomenclature guidelines, particularly relevant to the Water Framework Directive (Directive 2000/60/EC)."
 alt="Danube river, Gemenc Ramsar Site (Hungary), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-02-24. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -7014,7 +7014,7 @@ particularly relevant to the Water Framework Directive (Directive
 2000/60/EC).
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-2e08fff1c814b927e04a3146f8e34100.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-2e08fff1c814b927e04a3146f8e34100.jpeg"
 data-fig-alt="This map displays a detailed Land Cover / Land Use (LCLU) classification of a coastal or estuarine area, including port and urban infrastructure, overlaid on satellite imagery. Various land cover polygons are delineated by yellow outlines and labelled with numerical classification codes. Three specific areas are highlighted by red circles: * Two areas on the left side are classified as `8120`. These correspond to highly modified water courses, canals, or inner harbour areas, as defined in the associated document context. One `8120` polygon depicts an inner harbour basin, while the other is a section of a wide channel or waterway. * One large area in the central-right is classified as `8110`, representing a vast open water body, likely a sea, large lake, or estuary. Other visible classification codes on the map, representing adjacent land and water features, include: `1120` (Port areas), `1121` (Airports), `1122` (Water and wastewater treatment plants), `4100` (Continuous urban fabric), `4110` (Discontinuous urban fabric), `4120` (Industrial or commercial units), `4210` (Non-irrigated arable land), `4220` (Permanently irrigated land), `4230` (Rice fields), `7100` (Aquaculture areas), `7101` (Fishing ports), `7102` (Marinas), `7103` (Shipyards), `9210` (Beaches, dunes and sand plains), `9220` (Sparsely vegetated areas), and `9230` (Salt marshes). The background imagery shows dark blue for large water bodies, lighter blue/turquoise for smaller or modified water features, and reddish/pink tones for artificial and built-up land surfaces, contrasted with yellowish/greenish tones for other land cover types. No scale bar, compass orientation, legend, or reference year is visible on the map."
 alt="Inland harbors, Stellendam (Netherlands), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-10-24. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -7080,7 +7080,7 @@ separated from the main river channels.
   water courses.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-480e3a16c4e36d3951e3639988ec4953.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-480e3a16c4e36d3951e3639988ec4953.jpeg"
 style="width:277pt"
 data-fig-alt="This photograph captures an aerial view of a river system within a natural landscape. The main river channel, characterized by wide, light blue-grey water, meanders across the frame. Adjacent to the main channel, a distinct U-shaped oxbow lake with darker water is visible, clearly separated by an area of dense green vegetation. The surrounding land cover consists predominantly of various shades of green vegetation, including riparian growth and more distant forested hills. A rocky outcrop is visible in the bottom-left foreground, indicating the elevated vantage point from which the photograph was taken. A thin, light-coloured linear feature, possibly a track or road, is visible near the bottom edge, running alongside the rocky foreground. This image illustrates a seasonally connected water course or oxbow lake, as described in the document&#39;s definition for category &#39;8.1.3 Seasonally connected water courses (oxbows)&#39;."
 alt="Intermittent oxbow lake in Scandinavia. Credit: B. O. Finseth. http://es.wikipedia.org/wiki/Brazo_muerto#mediaviewer/File:Finna2.JPG Creative Commons BY 2.5" />
@@ -7103,7 +7103,7 @@ connected water courses (oxbows)”.
 **Appearance:**
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-48052811e07674b3b95f5e3785d5c985.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-48052811e07674b3b95f5e3785d5c985.jpeg"
 style="width:366pt"
 data-fig-alt="False-color satellite imagery from SPOT 5 (2.5 m resolution, 1/2/3 band combination) depicting a section of the Danube River and its floodplain within the Gemenc Ramsar Site, Hungary, captured on 2011-02-24. The image is a false-color composite where vegetation, likely forests and agricultural fields, appears in shades of magenta and red, while bare soil or sparse vegetation appears in lighter cyan/blue-green tones. Water bodies, including the main river channel and associated oxbow lakes, are depicted in dark blue. Key features include: * A wide, meandering main river channel (Danube) running vertically along the right side of the image, appearing dark blue. * Numerous water bodies in the floodplain, including large, elongated dark blue oxbow lakes and meanders, particularly prominent to the left of the main channel. One distinct C-shaped oxbow is visible in the lower-middle left. * Extensive areas of dense vegetation, likely floodplain forests, appearing in very dark red, often bordering the water bodies and main river. * Agricultural fields are visible as large, rectangular or irregular patches in varying shades of magenta, pink, and cyan. * Scattered clusters of small, grey/purplish specks indicate built-up areas or settlements, particularly in the upper-left, middle-left, and lower-left sections, as well as along riverbanks. The imagery was acquired by CNES 2011© and distributed by Airbus DS/Spot Image."
 alt="Dead side-arms of Danube river, Tolna (Hungary), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-02-24. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -7138,7 +7138,7 @@ A specific decision tree has been elaborated to distinguish the 8.2
 Lakes and reservoirs classes from other water classes.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-fc054c04f46ef77ecfebae49d6198510.png"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-fc054c04f46ef77ecfebae49d6198510.png"
 data-fig-alt="This is a decision tree diagram for the classification of water bodies designated as &#39;8.2 Lakes and reservoirs&#39; within the Copernicus Land Monitoring Service (CLMS) nomenclature, likely part of the CORINE Land Cover (CLC) or CLC+ system. The classification process starts by evaluating a water body from the &#39;8.2 Lakes and reservoirs&#39; category: 1. **First Decision Point: Is the water body &#39;Natural or naturalized?&#39;** * **IF &#39;Natural&#39;:** * **Second Decision Point: Is it an &#39;Oxbows or dead side-arms?&#39;** * **IF Yes:** Classify the water body as &#39;8.1.3 Seasonally connected water courses (oxbows)&#39;. * **IF No:** Classify the water body as &#39;8.2.1 Natural lakes&#39;. * **IF &#39;Naturalized&#39;:** Classify the water body as &#39;8.2.1 Natural lakes&#39;. 2. **Definition of &#39;8.2.1 Natural lakes&#39;:** This category includes: * Dams, barrages, and lakes of hydropower stations (which are natural water courses with artificial dams). * Lakes with artificial origin but not completely man-made structures in urban areas (e.g., including parks and golf courses). * Ponds resulting from former extractive industries (e.g., gravel mining). 3. **Third Decision Point (following from the initial &#39;8.2 Lakes and reservoirs&#39; if not &#39;Natural or naturalized&#39;): Is the water body &#39;Artificial?&#39;** * **IF &#39;Water bodies included in industrial sites?&#39;:** Classify as &#39;1.1.2 Industrial, commercial and military units&#39;. * **IF &#39;Completely man-made ponds?&#39;:** Classify as &#39;8.2.2 Reservoirs&#39;. * **IF &#39;Highly modified inland fish ponds?&#39;:** Classify as &#39;8.2.3 Aquaculture ponds&#39;. * **IF &#39;Water bodies in mineral extraction sites or gravel pits?&#39;:** Classify as &#39;8.2.4 Standing water bodies of extractive industrial sites&#39;. * **IF &#39;Inland salines?&#39;:** Classify as &#39;1.3.1 Mineral extraction, dump and construction sites&#39;." />
 
 This is a decision tree diagram for the classification of water bodies
@@ -7221,12 +7221,12 @@ environments and lakes resulting from former extraction industries
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-4f252a88d8c0a5728fff6904de31093c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-4f252a88d8c0a5728fff6904de31093c.jpeg"
 data-fig-alt="A panoramic ground-level photograph displays a serene, bright blue lake nestled within a mountainous, forested landscape. The lake is surrounded by steep, densely vegetated hillsides with dark green coniferous and deciduous trees. In the distance, a range of rugged, snow-capped mountains rises under a clear, light blue sky. On the right side of the image, along the lake&#39;s shore and extending up the hillside, a small cluster of buildings forms a settlement, characterized by traditional architecture with pitched roofs. This image visually represents a natural lake environment, aligning with the &#39;8.2 Lakes and reservoirs&#39; and &#39;8.2.1 Natural lakes&#39; categories discussed in the accompanying Copernicus Land Monitoring Service (CLMS) nomenclature guidelines. No text or specific labels are visible within the image."
 alt="Natural water body in the Bavarian Alps (S-Germany). Credit: M. Probeck." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-5a80573ac1cf1a970209f26066a98c4a.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-5a80573ac1cf1a970209f26066a98c4a.jpeg"
 data-fig-alt="This photograph depicts a wide body of water, likely a lake or reservoir, under a blue sky with scattered white clouds. In the foreground, several small white rowboats with red trim are lined up along a shore or dock, partially visible. In the mid-ground of the water, a larger white boat with an enclosed cabin is visible, along with other smaller, indistinct objects. The far shore is covered with a dense line of green trees. The image illustrates a typical natural lake or reservoir setting, consistent with water feature classification within the Copernicus Land Monitoring Service (CLMS), specifically category 8.2 Lakes and reservoirs or 8.2.1 Natural lakes as described in associated documentation."
 alt="Lake in a green area in Madrid city (Spain). Credit: M. Palacios." />
 
@@ -7235,7 +7235,7 @@ alt="Lake in a green area in Madrid city (Spain). Credit: M. Palacios." />
 **Appearance:**
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-ad27212785b5658f21750ba9feb6d187.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-ad27212785b5658f21750ba9feb6d187.jpeg"
 style="width:320pt"
 data-fig-alt="This satellite imagery displays a large, elongated dark blue-black water body, which is consistent with a natural lake or a reservoir, surrounded by predominantly brownish-tan land featuring some scattered greenish-brown vegetation patches. Two clusters of reddish-pink pixels indicate human settlements; one larger cluster is situated in the upper left of the image, and a smaller one is located closer to the center, adjacent to a bend in the water body. The main water body&#39;s irregular shoreline is delineated by an overlaid light blue-green boundary line. Additionally, a distinct red line traces a path or feature across the brownish land area to the east of the water body. The surrounding terrain appears undulating. This image serves as a visual example for the classification of &#39;Natural lakes&#39; in land cover mapping programmes, such as the Copernicus Land Monitoring Service (CLMS) CORINE Land Cover (CLC+) programme, encompassing features like lakes, dams, barrages, and hydropower station reservoirs."
 alt="Tail of a reservoir in Euphrates river, Kasaba (Turkey), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-05-07. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -7262,12 +7262,12 @@ stations:
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-31669db52df1b57e75cfcd82f473c441.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-31669db52df1b57e75cfcd82f473c441.jpeg"
 data-fig-alt="A photograph depicting a greenish-brown body of water, likely a reservoir or dam lake, situated within a rugged, arid, mountainous landscape. A concrete dam wall is visible across the narrowest part of the valley, retaining the water. Rocky, barren slopes rise steeply from the water&#39;s edge on both sides. A red dashed line is superimposed over the image, tracing the perimeter of the water body along the shoreline, indicating its delineation for land cover mapping. According to Copernicus Land Monitoring Service (CLMS) nomenclature guidelines, such dam lakes and barrages are included in the classification category for &#39;Lakes, ponds and pools of natural origin&#39; (category 8.1.1), despite their artificial origin, if they contain fresh water and have a natural structure."
 alt="Delimitation of water bodies using the maximum water lever. This is the wrong interpretation. Reservoir in Canary Island (Spain). Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-428df419bc48feb8d555ad3407f11847.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-428df419bc48feb8d555ad3407f11847.jpeg"
 data-fig-alt="A photograph depicting a light green/beige coloured water body, identified as a lake or reservoir, nestled within a steep, rugged, and rocky mountainous landscape. A concrete dam structure is visible at the far end of the water body, spanning the valley. The surrounding slopes appear dry and sparsely vegetated. A prominent dashed red line traces the visible shoreline of the water body, indicating its boundary for classification purposes. This image serves as an example for classifying water bodies in a land cover/land use context, particularly those of artificial origin or associated with hydropower stations, as per the Copernicus Land Monitoring Service (CLMS) nomenclature guidelines."
 alt="Delimitation of water bodies using the current water level. This is the correct interpretation. Reservoir in Canary Island (Spain). Credit: M. Palacios." />
 
@@ -7307,12 +7307,12 @@ sometimes fenced.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-21e56a007d60c144381b7535a2efec8f.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-21e56a007d60c144381b7535a2efec8f.jpeg"
 data-fig-alt="This image is a ground-level photograph depicting a man-made, rectangular reservoir with light blue water and visible retaining walls, situated in a hilly, semi-arid landscape on the Canary Island, Spain. The surrounding terrain features slopes covered with green vegetation, intermixed with lighter, possibly agricultural, areas. Scattered buildings and winding dirt roads are visible in the background and on adjacent hillsides. The photograph serves to illustrate the correct method for delimiting man-made water bodies in land cover mapping by using the current water level. The image is credited to M. Palacios."
 alt="Irrigation pond with completely man-made structure (Canary Islands, Spain). Credit: M. Palacios." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-80ab0a8f29d0c8e367f372a7e19022f6.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-80ab0a8f29d0c8e367f372a7e19022f6.jpeg"
 data-fig-alt="A photograph of a man-made water reservoir, likely used for irrigation, taken in 2012. The reservoir features a concrete border around its perimeter and is enclosed by a wire mesh fence, topped with barbed wire, supported by concrete posts. The water surface reflects the sky, which appears to be at dusk or dawn. A single blue object is floating in the water. The surrounding landscape consists of rural or agricultural land. The image is attributed to &#39;©European Union, 2012&#39; and &#39;LUCAS&#39; (Land Use and Land Cover Area frame Survey)."
 alt="Irrigation pond in Sicily, Italy. Credit: Eurostat, 2012. LUCAS." />
 
@@ -7323,7 +7323,7 @@ alt="Irrigation pond in Sicily, Italy. Credit: Eurostat, 2012. LUCAS." />
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-30ebbd4f0db5f71ea1d4fad1585c6738.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-30ebbd4f0db5f71ea1d4fad1585c6738.jpeg"
 style="width:324pt"
 data-fig-alt="This false-colour satellite image depicts an artificial irrigation reservoir and its surrounding agricultural landscape in Sicily, Italy. The central feature is a large, multi-compartmented water body, rendered in dark blue, which is characteristic of a man-made structure used for irrigation. The uppermost and largest compartment of the reservoir shows mottled reddish-pink patterns, suggesting areas of shallow water with sediment or emergent vegetation. Below it, two smaller, distinct rectangular water bodies are uniformly dark blue. The surrounding area is dominated by agricultural fields, appearing as numerous rectangular parcels in varying shades of reddish-pink (indicating healthy vegetation) and light blue-green (possibly bare soil, different crop types, or harvested areas). Distinct linear features, resembling roads or irrigation channels, crisscross the agricultural fields. The image illustrates a typical Mediterranean agricultural setting with man-made water infrastructure. The credit is from Eurostat, with the acquisition year partially visible as &#39;201[unreadable]&#39;."
 alt="Irrigation water pond, Thessaly (Greece), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-23. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -7358,7 +7358,7 @@ fish farming.
 - Fish cage systems in lakes, reservoirs or in the sea.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-e56810e3776677e82d8c81806335919c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-e56810e3776677e82d8c81806335919c.jpeg"
 style="width:252pt"
 data-fig-alt="A ground-level photograph depicts an aquaculture landscape, specifically showing highly transformed and controlled freshwater ponds, likely used for fish farming. A prominent, narrow, grassy embankment with a central dirt path extends into the distance, separating two distinct bodies of calm water. The water bodies feature some emergent vegetation along their edges, particularly on the right side. In the background, a dense line of trees forms a forest edge, with a small white structure and a green object visible near the treeline. The sky is bright and overcast. The bottom left corner of the image contains the attribution: &#39;© B. Zywert/LUCAS, 2009&#39;."
 alt="Fish ponds in Lubusz (Poland). Credit: Eurostat, 2009. LUCAS." />
@@ -7383,12 +7383,12 @@ Zywert/LUCAS, 2009”.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-c7a97fba2a0d79f2c2291be0e6aaab92.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-c7a97fba2a0d79f2c2291be0e6aaab92.jpeg"
 data-fig-alt="A conceptual map showing a cluster of water bodies classified as &#39;8.2.3&#39; (Aquaculture ponds) outlined in red, embedded within a light green land cover matrix with scattered light green vegetation features. The water bodies within the red outline are depicted in various shades of blue and grey, suggesting different hydrological features or pond types. Three separate instances of the label &#39;8.2.3&#39; are explicitly visible: one on an isolated, light blue pond in the upper right, one on a mid-blue body of water in the central area, and one on a darker blue water body in the lower right. The overall red outline encompasses these and other interconnected water features. This illustration demonstrates how features classified under a specific Copernicus Land Monitoring Service (CLMS) Land Use / Land Cover (LULC) nomenclature class, such as &#39;Aquaculture ponds,&#39; might appear in a spatial dataset."
 alt="Typical pattern of fish ponds in the region of Třeboňsko (Czech Republic)." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-6f6adeebaa2065891693e24f3cceb6cd.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-6f6adeebaa2065891693e24f3cceb6cd.jpeg"
 data-fig-alt="This false-colour satellite image depicts a complex of aquaculture fish ponds and surrounding agricultural land, illustrating a typical pattern found in the Třeboňsko region of the Czech Republic. In this false-colour representation, actively vegetated areas are rendered in shades of pink and red, while water bodies appear dark blue or black, and less vegetated or bare ground is shown in lighter, desaturated tones. The central feature is a rectangular area containing numerous individual, regularly shaped, dark blue water bodies, identifying them as highly transformed fish ponds. There are approximately 24 smaller ponds arranged in two parallel rows within a larger fenced or dikes-defined perimeter. Adjacent to this complex, towards the top right, is a single, larger, dark blue rectangular water body, also indicative of an artificial pond or reservoir. These water features are bordered by linear structures, likely dikes or access roads, which appear as thin reddish-pink and light grey lines. Surrounding the aquaculture facility are extensive, geometrically shaped agricultural fields, visible in varying shades of pink/red and light blue-green, exhibiting linear patterns consistent with cultivated crops or ploughed land."
 alt="Aquaculture ponds, Goro (Italy),(1/2/3 band combination). Date: 2018-07-02. Credit: CCME 2018 provided under COPERNICUS by the European Union and ESA" />
 
@@ -7420,7 +7420,7 @@ rainwater accumulation.
   commercial and military units.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-f9d6f35934083d8c9182057bbaa972d0.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-f9d6f35934083d8c9182057bbaa972d0.jpeg"
 style="width:262pt"
 data-fig-alt="A photograph depicting a standing water body of an extractive industrial site under a clear blue sky, with a long industrial conveyor belt system running along its edge. The conveyor belt is loaded with gravel or similar aggregate material, indicating active open pit extraction. Scattered vegetation is visible on the far bank of the water body. Visible text in the lower left corner reads &#39;©European Union, 2012&#39; and &#39;LUCAS&#39; (Land Use/Cover Area frame Survey)."
 alt="Mining pond near Tornitz (Saxony-Anhalt, Germany). Eurostat, 2012. LUCAS." />
@@ -7438,7 +7438,7 @@ Visible text in the lower left corner reads “©European Union, 2012” and
 Ponds with regular shape and related to soil removal.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-5999592e13dbc78120d6abeef5e7d4bb.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-5999592e13dbc78120d6abeef5e7d4bb.jpeg"
 style="width:204pt"
 data-fig-alt="False-colour infrared satellite image showing aquaculture ponds and surrounding land cover in Goro, Italy, captured on 2018-07-02. The image uses a 1/2/3 band combination (Near-Infrared, Red, Green). The central area features a cluster of bright blue water bodies identified as aquaculture ponds, with one large pond appearing darker blue. These ponds are set within an agricultural landscape dominated by rectangular fields shown in shades of red (indicating healthy vegetation) and light grey/white (representing bare soil or harvested areas). To the western side, a small settlement or urbanized area is visible as dense clusters of grey/white features. A winding river or canal, depicted in dark blue/cyan, flows across the top-right and bottom-right parts of the image. The image effectively visualises the distribution of cultivated land and managed water bodies. The data credit is CCME 2018, provided under the Copernicus Land Monitoring Service (CLMS) by the European Union and European Space Agency (ESA)."
 alt="Water bodies in extraction area, Villedaigne (France), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-03-20. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -7465,7 +7465,7 @@ active/non-active is based on the presence of recently removed soil
 around the water bodies.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-3d7eaa73c997bb0cb1953b8172b59ddd.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-3d7eaa73c997bb0cb1953b8172b59ddd.jpeg"
 style="width:406pt"
 data-fig-alt="A false-colour satellite image displays a landscape featuring a prominent river, agricultural fields, roads, and various water bodies. The river appears in dark blue, while fields and some vegetated areas are rendered in shades of red and magenta. Roads are visible as thin, dark lines. Two distinct types of water bodies are identified with text annotations and orange arrows: 1. An orange arrow points to a dark blue water body located near a lighter, exposed bare soil area in the upper middle-right portion of the image. This feature is labelled: &#39;Bare soil = active quarry&#39; and is classified as &#39;8.2.4 Standing water bodies of extractive industrial sites&#39;. 2. A second orange arrow indicates a cluster of interconnected dark blue water bodies in the lower central part of the image, surrounded by red and magenta vegetated areas. This feature is labelled: &#39;Naturalized ponds =&#39; and is classified as &#39;8.2.1 Natural lakes&#39;. The image serves to illustrate the distinction in land cover classification between water bodies within active extractive sites and naturalized or natural lake formations."
 alt="Water bodies in a gravel pit, Bozbulut (Turkey), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-07-05. CNES 2011©, Distribution Airbus DS/Spot." />
@@ -7550,12 +7550,12 @@ coast.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-67b5a9fa780482eebf2d53bf6b1bf881.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-67b5a9fa780482eebf2d53bf6b1bf881.jpeg"
 data-fig-alt="A ground-level photograph depicts a sandy barrier or spit separating two bodies of water. To the right of the sandy landform, there is a wider expanse of open water, while to the left, a narrower, shallower channel with emergent wetland vegetation is visible. In the background, a dense line of trees forms the horizon under a clear blue sky. The sand on the barrier shows darker, potentially wet, patches. In the bottom left corner, partially obscured text reads &#39;Copernicus Un[unreadable] SBL 01.tif&#39;. This image illustrates a typical coastal lagoon environment, consistent with CORINE Land Cover (CLC) class 521 (Coastal lagoons)."
 alt="Coastal lagoon at Golfo di Signo (Sardinia, Italy). Credit: Eurostat, 2012. LUCAS." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-89e1e49533d496f7dd1f983bdfc36eb0.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-89e1e49533d496f7dd1f983bdfc36eb0.jpeg"
 data-fig-alt="A photograph depicting a coastal lagoon under a blue sky with scattered white clouds. In the foreground on the left, there are exposed muddy or sandy flats at the edge of the water, with larger rocks and low-lying vegetation on the bank. To the right, a paved pedestrian pathway runs along the coastline, with two people visible walking in the distance. Beyond the pathway, buildings of a settlement are visible, extending towards a distant hilly or mountainous landscape. The image is sourced from &#39;©European Union, 2012&#39; and attributed to &#39;LUCAS&#39; (Land Use/Cover Area frame Survey)."
 alt="Orbetello Lake (Grosseto, Italy). Credit: Eurostat, 2012. LUCAS." />
 
@@ -7569,17 +7569,17 @@ alt="Orbetello Lake (Grosseto, Italy). Credit: Eurostat, 2012. LUCAS." />
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-26218a88a7f0f15411c34b6f734262d5.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-26218a88a7f0f15411c34b6f734262d5.jpeg"
 data-fig-alt="A false-colour satellite image depicts the coastal area around Golfo di Signo in Sardinia, Italy, as captured in 2012 by Eurostat as part of the LUCAS (Land Use/Cover Area frame Survey) programme. The image features a prominent, bright blue coastal lagoon centrally located, with surrounding land areas predominantly appearing in bright red, characteristic of healthy vegetation reflecting strongly in the near-infrared spectrum. This vegetated land likely represents agricultural fields or natural landscapes. In the upper left quadrant, an airport is visible, distinguished by light grey runways and associated infrastructure. The open sea along the coastline is represented in a darker blue. A continuous, thin green line delineates a specific boundary that encloses the lagoon, sections of the airport, and the surrounding terrestrial areas, indicating a defined zone for analysis or classification."
 alt="Limnes Voulkaria Kai Saltini Natura 2000 site (Greece), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-02-05. CNES 2011©, Distribution Airbus DS/Spot Image. In green, limits of Natura 2000 site." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-a0d9fa3e30e30a9d8f7441afd94f6254.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-a0d9fa3e30e30a9d8f7441afd94f6254.jpeg"
 data-fig-alt="This schematic diagram illustrates the land cover classification for a coastal lagoon ecosystem, showing the spatial relationships between different features and their associated numerical codes, likely from a CORINE Land Cover (CLC) or similar nomenclature system. The diagram depicts: - **Coastal waters (8.4.2.0)**, represented in dark blue, which comprise the open sea area. - A narrow strip of **Beaches (6.2.1) or Dunes**, depicted in light yellow, forming a barrier that separates the coastal waters from an inner lagoon. - A **Tidal channel (8.3.1.0)**, indicated by a yellow arrow, which connects the Coastal waters (8.4.2.0) to the enclosed lagoon. - **Lagoons (8.3.1.0)**, shown in light blue, representing the main enclosed body of water, separated from the open sea by the beach/dune barrier but connected through the tidal channel. - **Marshes (7.2.1.0 Salt marshes)**, located along the inland perimeter of the Lagoons (8.3.1.0), identified by clusters of green vegetation. The broader terrestrial area surrounding the lagoon and marshes is depicted in a pale yellow colour. Yellow arrows indicate the flow or connection points, while green arrows specifically highlight the marsh features."
 alt="Schematic representation of typical coastal lagoon landscape." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-c77e3e613c5ad9b2aea2956db1ea7a4c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-c77e3e613c5ad9b2aea2956db1ea7a4c.jpeg"
 style="width:206pt"
 data-fig-alt="An annotated aerial or satellite image displays a coastal area highlighting a lagoon, classified as &#39;8.3.1 Lagoons (without reeds)&#39;, enclosed by a thick yellow outline. The main water body of the lagoon is a blue-green colour, partially separated from the darker blue open sea on the right by a reddish-brown land spit. Inside the larger outlined area, there are several smaller, irregularly shaped land masses or islands, also delineated with a yellow outline. To the left of the main lagoon, the surrounding land features geometrically structured areas, including bright green rectangular plots and darker grey/reddish sections, consistent with agricultural fields, aquaculture, or salt evaporation ponds. The image provides a visual example for the Copernicus Land Monitoring Service (CLMS) CORINE Land Cover (CLC) nomenclature, specifically category 8.3.1, which pertains to coastal lagoons."
 alt="Schematic view of the treatment of bare soils in coastal lagoons. Credit: CCME 2018 provided under COPERNICUS by the European Union and ESA" />
@@ -7599,7 +7599,7 @@ main morphological characteristics:
   In Spain called *Albuferas*.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-8d44c66f911c222aeb7e27034a92394a.png"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-8d44c66f911c222aeb7e27034a92394a.png"
 style="width:352pt"
 data-fig-alt="This schematic map illustrates the land cover and land use (LULC) types within a typical coastal lagoon landscape, using a colour-coded legend and CORINE Land Cover (CLC) type numerical codes. The map features a large central light blue area labelled &#39;8.3.1 Lagoons&#39;, representing a &#39;Coastal lagoon&#39;. This lagoon is separated from the &#39;Sea and Ocean&#39; (dark blue, labelled &#39;8.4.2 Coastal waters&#39;) by a narrow land barrier. This barrier comprises a yellow &#39;Sand bank&#39; and dark olive green &#39;Vegetated dunes&#39;, which are collectively labelled &#39;6.2.1 Beaches and Dunes&#39;. Orange arrows indicate connections or flows across this barrier. Inland from the lagoon, there are large light green areas labelled &#39;2.1.1 Arable irrigated and non-irrigated land&#39;. The legend identifies the light green as &#39;Rice&#39; and a paler green/white as &#39;Irrigated land&#39;; both types fall under the &#39;2.1.1 Arable irrigated and non-irrigated land&#39; classification. Adjacent to the vegetated dunes and other arable land, a dark green area is labelled &#39;3.2.1 Other natural &amp; semi-natural coniferous forest&#39;, which corresponds to &#39;Pine&#39; in the legend. A small light green patch, classified as &#39;5.3 Sclerophyllous scrub&#39;, is also present inland. The legend provides the following colour-to-land cover type mapping: * Light blue: Coastal lagoon * Yellow: Sand bank * Dark olive green: Vegetated dunes * Dark green: Pine * Light green: Rice * White/Pale green: Irrigated land * Dark blue: Sea and Ocean"
 alt="Schematic view of La Albufera coastal lagoon (Valencia, Spain)." />
@@ -7635,7 +7635,7 @@ barriers are open to the sea due to sea erosion or other processes
 entirely surrounded by sand banks.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-3d287608dbf54c64afe8db0e95f1dff1.png"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-3d287608dbf54c64afe8db0e95f1dff1.png"
 style="width:353pt"
 data-fig-alt="A schematic map illustrating the typical spatial arrangement of land cover types in a coastal lagoon landscape. The map uses four distinct colours, each corresponding to a specific land cover class identified with a CORINE Land Cover (CLC) nomenclature code and a descriptive label. The legend on the right provides the following colour-code mapping: * Light blue represents &#39;Coastal lagoon&#39;. * Yellow represents &#39;Sand bank&#39;. * Light green represents &#39;Irrigated land&#39;. * Dark blue represents &#39;Sea and Ocean&#39;. The map shows a light green area labelled &#39;2.1.1 Arable irrigated and non-irrigated land&#39; bordering a large body of light blue water labelled &#39;8.3.1 Lagoons&#39;. The lagoon is separated from the dark blue water, labelled &#39;8.4.2 Coastal waters&#39; (Sea and Ocean), by elongated yellow landforms labelled &#39;6.2.1. Beaches and Dunes&#39; (Sand bank). This schematic demonstrates the typical transition of land cover from agricultural land to lagoons, then across sand barriers to the open sea."
 alt="Schematic view of open coastal lagoon. Limni Kiknolakka (Greece)." />
@@ -7660,7 +7660,7 @@ schematic demonstrates the typical transition of land cover from
 agricultural land to lagoons, then across sand barriers to the open sea.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-b50027ae5d80aa83e27dcdd4eabb3caa.png"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-b50027ae5d80aa83e27dcdd4eabb3caa.png"
 style="width:351pt"
 data-fig-alt="This schematic map illustrates a typical coastal lagoon landscape, depicting distinct land cover and water body classifications. The legend defines four classes: - Light blue represents &#39;Lagoon&#39;, corresponding to the area labelled &#39;8.3.1 Lagoons&#39; which is the primary water body in the centre of the schematic. - Beige represents &#39;Sand bank&#39;, corresponding to the land barrier labelled &#39;6.2.1 Beaches and Dunes&#39; that partially encloses the lagoon. - Olive green represents &#39;Vegetated area&#39;, shown as a small segment at the northern tip of the land barrier. - Dark blue represents &#39;Sea and Ocean&#39;, encompassing the larger water body surrounding the land barrier and the lagoon. A specific portion of the dark blue area to the right of the sand bank is labelled &#39;8.4.2 Coastal waters&#39;. The diagram shows the &#39;8.3.1 Lagoons&#39; (light blue) separated from the &#39;Sea and Ocean&#39; (dark blue) by a narrow land barrier. This barrier is primarily composed of &#39;6.2.1 Beaches and Dunes&#39; (beige), with a small &#39;Vegetated area&#39; (olive green) at its northernmost point. The codes (e.g., 8.3.1, 6.2.1, 8.4.2) likely refer to a land cover/land use classification system such as CORINE Land Cover (CLC) or CLC+. No geographic scale, compass, or specific date is indicated."
 alt="Schematic view of Falsterbo coastal lagoons complex (Scania Province, Sweden)." />
@@ -7690,7 +7690,7 @@ Many of these lagoons are either man-made OR artificially transformed
 (especially by the construction of roads on the sand barriers).
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-ebb8edbd16a1e85f9d906df830224331.png"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-ebb8edbd16a1e85f9d906df830224331.png"
 style="width:319pt"
 data-fig-alt="This schematic map illustrates a typical coastal lagoon landscape, depicting various land cover and land use (LULC) classifications. The map uses distinct colours to represent different features, with corresponding CORINE Land Cover (CLC) codes and labels shown directly on the map and in the legend. The main geographic features and their classifications are: * **Light blue (large areas):** &#39;8.3.1 Lagoons,&#39; representing the primary water body. * **Dark blue (large areas):** &#39;8.4.2 Coastal waters&#39; and &#39;6.2.1 Beaches and Dunes,&#39; generally labelled as &#39;Sea and ocean.&#39; * **Yellow:** &#39;Sand bank,&#39; forming a barrier between the lagoon and the sea. * **Red:** &#39;1.1.1 Urban fabric,&#39; also labelled as &#39;Urban area,&#39; situated on the land barrier. * **Olive green:** &#39;5.3 Sclerophyllous scrub,&#39; appearing on both the mainland and near the coastal barrier. * **Light green:** &#39;2.1.1 Arable land,&#39; also labelled as &#39;Irrigated land,&#39; located inland from the lagoon. * **Thin light blue lines:** &#39;Roads,&#39; traversing the landscape. The spatial arrangement shows a lagoon (8.3.1) separated from the sea and ocean (8.4.2, 6.2.1) by a land mass that includes sand banks, urban fabric (1.1.1), and sclerophyllous scrub (5.3). Inland, agricultural areas (2.1.1) are present."
 alt="Schematic view of a transformed coastal lagoon. Logarou lake (Greece)." />
@@ -7724,7 +7724,7 @@ These are normally separated from the sea by sand or shingle banks.
 Seawater enters by percolating through the bank.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-fd9b72480abc0707b17cd06af8d78233.png"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-fd9b72480abc0707b17cd06af8d78233.png"
 style="width:349pt"
 data-fig-alt="This map provides a schematic representation of a coastal lagoon landscape, illustrating various land cover/land use types using a colour-coded legend and numerical codes, likely from a CORINE Land Cover (CLC) related nomenclature. The legend defines six categories: * Light blue represents &#39;Lagoon&#39; (coded 8.3.1 Lagoons). * Yellow represents &#39;Sand bank&#39; (coded 6.2.1.0 Beaches). * Dark olive green represents &#39;Vegetated dunes&#39; (coded 5.1.0 Heathland and moorland). * Light beige represents &#39;Arable land&#39; (coded 2.1.1 Arable land). * Light grey represents &#39;Cliffs&#39; (coded 6.3.1.1 Bare). * Dark blue represents &#39;Sea and ocean&#39; (coded 8.4.2 Coastal waters). The map depicts a large &#39;8.3.1 Lagoons&#39; (light blue) area separated from &#39;8.4.2 Coastal waters&#39; (dark blue) by a distinct yellow &#39;6.2.1.0 Beaches&#39; (Sand bank) barrier. Inland from this barrier, a dark olive green strip is labelled &#39;5.1.0 Heathland and moorland&#39; (Vegetated dunes). The vast majority of the terrestrial area surrounding the lagoon and coastal features is light beige, designated &#39;2.1.1 Arable land&#39;. A light grey area, labelled &#39;6.3.1.1 Bare&#39; (Cliffs), is located along the northern edge of the &#39;8.4.2 Coastal waters&#39;. A thin, light blue linear feature, likely a river or stream, enters the &#39;8.4.2 Coastal waters&#39; from the north-east, traversing a yellow &#39;Sand bank&#39; area."
 alt="Schematic view of percolation Cemlyn lagoon (north Wales, United Kindgdom)" />
@@ -7758,7 +7758,7 @@ narrow entrance channel. Fjords are the same landforms that only differ
 from lagoons in their water depth.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-19f3d743797f2d8526cb9c68454fb934.png"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-19f3d743797f2d8526cb9c68454fb934.png"
 style="width:311pt"
 data-fig-alt="This schematic map illustrates a generic coastal lagoon environment, depicting distinct land cover and water body types, consistent with the Copernicus Land Monitoring Service (CLMS) and CORINE Land Cover (CLC) nomenclature guidelines. While not tied to a specific named location, it represents features found in areas such as La Albufera (Spain) or Logarou lake (Greece). The map uses four distinct colour codes with corresponding labels: * **Light blue** areas represent &#39;Lago&#39; which corresponds to class &#39;8.3.1 Lagoons&#39;. This includes a large central lagoon and a narrower, elongated water body extending southwest. * **Light grey** areas represent &#39;Muddy&#39; zones, depicted as narrow strips along the land-water interface within the lagoon system, and are also considered part of class 8.3.1 Lagoons. * **Dark blue** areas represent &#39;Sea and [unreadable, likely &#39;Ocean&#39; or &#39;Coastal water&#39;]&#39;, labelled as &#39;8.4.2 Coastal&#39;, situated to the east of a separating land barrier. * **Beige** areas represent &#39;Lan[d, unreadable]&#39;, with the extensive land area to the west of the lagoon explicitly labelled as &#39;2.1.1 Arable irrigated and [unreadable, likely &#39;permanent crops&#39;]&#39;. This beige colour also forms the narrow barrier separating the main lagoon from the open sea. The spatial pattern shows a large, irregularly shaped lagoon (8.3.1) partially enclosed by land (2.1.1 Arable irrigated) and separated from the open sea (8.4.2 Coastal) by a land barrier. Muddy areas are present along the lagoon&#39;s edges, highlighting transitional aquatic zones. No scale bar, compass, or specific reference year is provided."
 alt="Schematic view of silled lagoon of Strangford Lough (Northern Ireland, United Kindgdom)." />
@@ -7794,7 +7794,7 @@ Vegetated (water coverage) bodies of water generally separated from the
 sea by a land barrier (usually sand).
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-bac4e0670afcb5dc1df29a2e0d77aa36.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-bac4e0670afcb5dc1df29a2e0d77aa36.jpeg"
 style="width:425pt"
 data-fig-alt="False-colour satellite image of Limni Kiknolakka, an open coastal lagoon in Greece, illustrating the classification of lagoon features within a Natura 2000 site boundary. The image displays a large, dark blue body of &#39;Open water visible in imagery&#39;, which corresponds to the &#39;8.3.1 Lagoons (without reeds)&#39; classification. Surrounding the open water, areas of dark green and reddish-brown vegetation are identified as &#39;Reed coverage&#39;, correlating to the &#39;8.3.1 Lagoons (with reeds)&#39; classification. A thin green line delineates the &#39;Border of Natura 2000 (N2K) site&#39;, encompassing the lagoon and adjacent land areas. The surrounding land shows a mosaic of red (likely agricultural land) and lighter tones (possibly bare ground or built-up areas). No scale bar, compass, or specific date is visible."
 alt="Limnes Voulkaria Kai Saltini Natura 2000 site (Greece), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-02-05. CNES 2011©, Distribution Airbus DS/Spot Image." />
@@ -7823,7 +7823,7 @@ related with estuaries or coastal wetlands:
   related with estuaries or coastal lagoons.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-e153dc12fa914c68e4bfa5058e383d36.jpg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-e153dc12fa914c68e4bfa5058e383d36.jpg"
 style="width:309pt"
 data-fig-alt="This schematic map illustrates a coastal lagoon environment, detailing various land cover types and their spatial arrangement. The legend defines five categories: &#39;Coastal lagoon&#39; (light blue), &#39;Sand bank&#39; (yellow), &#39;Reed beds and marsh plants&#39; (grey areas with green vertical plant symbols), &#39;Sea and ocean&#39; (dark blue), and &#39;Irrigated land&#39; (light green). The main body of water, a coastal lagoon, is depicted in light blue and is connected to the dark blue &#39;Sea and ocean&#39; on the right side by a narrow, elongated yellow &#39;Sand bank&#39;. The coastal lagoon is extensively surrounded by light green &#39;Irrigated land&#39; to its left and top. Within the coastal lagoon and along its edges, several distinct areas of &#39;Reed beds and marsh plants&#39; are shown in grey with green plant symbols, marked with labels A, B, C, and D. Area A is a smaller patch of reed beds and marsh plants within the lagoon. Areas B and C are larger, more complex formations of reed beds and marsh plants situated along the interface between the irrigated land and the lagoon on the left side. Area D is a smaller, isolated patch of reed beds and marsh plants on the top right, bordering both the irrigated land and the coastal lagoon."
 alt="Concept of coastal marshes with reeds: A, B, C and D situations are considered as 8.3.1 Lagoons." />
@@ -7854,7 +7854,7 @@ waterbody or/ and separating two coastal lagoons will be classified as
 8.3.1 Lagoons.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-0a82934073b9bc6cfb34b10202bfae7c.png"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-0a82934073b9bc6cfb34b10202bfae7c.png"
 style="width:311pt"
 data-fig-alt="This schematic map illustrates various land cover and habitat types typically found within and adjacent to a coastal lagoon ecosystem. The map uses distinct colours to represent different features, corresponding to a classification system. The legend defines the following colour-coded features: * Light blue: Lagoon (labelled with code 8.3.1) * Yellow: Sand bank, and Beaches and Dunes (labelled with code 6.2.1) * Grey: Reed beds and marsh plants, encompassing Salt marshes (labelled with code 7.2.1) and Natural &amp; semi-natural water courses (labelled with code 8.1.1) * Light blue lines within grey areas: Rivers * Dark blue: Sea and ocean, including Coastal waters (labelled with code 8.4.2) * Light green: Irrigated land, and Arable irrigated and non-irrigated land (labelled with code 2.1.1) * Dark olive green: Sclerophyllous scrub (labelled with code 5.3) The spatial pattern shows a large central Lagoon (8.3.1) connected to the Sea and ocean (8.4.2 Coastal waters) via an opening in a long, yellow Sand bank (6.2.1 Beaches and Dunes). A river system (light blue lines within 8.1.1 Natural &amp; semi-natural water courses) flows into the lagoon area, surrounded by grey areas of Salt marshes (7.2.1) and Reed beds and marsh plants. Inland, the landscape transitions to areas of Sclerophyllous scrub (5.3) and Arable irrigated and non-irrigated land (2.1.1). A smaller section of Beaches and Dunes (6.2.1) is also visible along the coast. No scale bar, compass, or specific geographic location is provided, indicating this is a conceptual diagram."
 alt="Schematic concept for differentiation between 8.3.1 class." />
@@ -7891,7 +7891,7 @@ and the presence of tidal channel. In these cases the tidal channels
 will be as well classified as 8.3.1 Lagoons.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-ac1c7f8a1e3098bfcfe09a241af460c8.png"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-ac1c7f8a1e3098bfcfe09a241af460c8.png"
 style="width:315pt"
 data-fig-alt="A schematic map illustrating the spatial arrangement of coastal lagoons and their surrounding land cover types, likely representing CLC+ (Copernicus Land Cover / Land Use) class 8.3.1 Lagoons. The legend defines the following features by colour: * Cyan: Lagoon (labelled &#39;8.3.1 Lagoons&#39; in two locations) * Yellow: Sand bank * Grey: Reed beds and marsh plants * Pale blue: Rivers * Dark blue: Sea and ocean * Light green: Irrigated land The map depicts a dark blue &#39;Sea and ocean&#39; area along its outer edge, which is partially separated from a complex network of internal &#39;Lagoons&#39; (cyan) by a yellow &#39;Sand bank&#39;. The lagoons are connected to the sea through an opening in the sand bank. Several pale blue &#39;Rivers&#39; flow into these lagoons. The land areas immediately surrounding the lagoons and rivers are composed of grey &#39;Reed beds and marsh plants&#39;, while a light green area representing &#39;Irrigated land&#39; is visible further inland. This spatial pattern highlights how sand banks act as barriers between open sea and lagoon systems, which are fed by rivers and surrounded by specific wetland vegetation and agricultural land."
 alt="Schematic concept of coastal lagoons (with reed beds) and tide channels (Leaky coastal lagoon of Ria Formosa in Portugal)." />
@@ -7944,7 +7944,7 @@ In many cases, estuaries are associated with marshes.
   Marine inlets and fjords.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-606374361576b858a5d5f1fccd2a3435.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-606374361576b858a5d5f1fccd2a3435.jpeg"
 style="width:309pt"
 data-fig-alt="A ground-level photograph captures a serene landscape featuring a broad expanse of calm, brownish-tinted water under a light blue sky with scattered white cumulus clouds. Numerous small, light-coloured boats are visible, widely distributed across the water surface. Along the distant horizon, a low, dark green line of land, possibly vegetated with trees, is discernible. This image represents a typical coastal lagoon or estuary environment, aligning with CORINE Land Cover (CLC) class 8.3.1 Lagoons or 8.3.2 Estuaries, and is consistent with descriptions of locations like the Ria Formosa in Portugal."
 alt="Estuary of Guadalquivir River (Southern Spain). Credit: E. Mazón." />
@@ -7970,12 +7970,12 @@ locations like the Ria Formosa in Portugal.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-a52fdfaf75b661d4ca3bc2e30c13f070.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-a52fdfaf75b661d4ca3bc2e30c13f070.jpeg"
 data-fig-alt="This is a false-colour satellite image depicting the estuary of the Guadalquivir River in Southern Spain. The surrounding land areas appear in shades of red and pink, indicating vegetated surfaces in this spectral band, while areas of lighter grey might represent urban or bare ground. The main body of water to the left is deep blue, transitioning to lighter turquoise and cyan within the river channel, suggesting varying depths or sediment load. A specific portion of the river, corresponding to the estuary, is highlighted by a thin blue outline and filled with a translucent light blue overlay. The image is credited to E. Mazón. This image serves as an example of a CORINE Land Cover (CLC) 522 Estuaries classification."
 alt="Gironde Estuary delineated (France), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-08-01. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-17d1826ce310c1592ea8b59b66db6258.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-17d1826ce310c1592ea8b59b66db6258.jpeg"
 data-fig-alt="This conceptual map illustrates the spatial distribution and classification of various land cover types within an estuarine system according to the CORINE Land Cover (CLC) nomenclature. The map depicts a river flowing into the sea. Light blue areas represent water bodies, and light yellow/beige areas represent land. The dark blue area on the far left represents 8.4.2.0 Coastal waters. Adjacent to the coastal waters, the light yellow/beige land area is labelled 6.2.1 Beaches. The main, wider light blue channel at the river mouth is classified as 8.3.2.0 Estuaries. Within these estuaries, small green patches are identified as 7.2.1.0 Salt marshes. Further inland, the narrower light blue river sections are labelled 8.1.1.0 Natural/Semi-natural water courses. The surrounding landmass is consistently represented by a light yellow/beige colour. No scale bar, compass orientation, or specific geographic location is indicated; the map serves as a generic example of an estuarine environment&#39;s CLC classification."
 alt="Schematic representation of typical estuary morphology." />
 
@@ -7987,7 +7987,7 @@ image) inside the deltaic system which is not covered by vegetation is
 also classified as 8.3.2 Estuaries.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-ef9c2e7befa2ed8e769d5cef0cf9bd38.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-ef9c2e7befa2ed8e769d5cef0cf9bd38.jpeg"
 data-fig-alt="This satellite image depicts the Gironde Estuary in France, captured by Spot 5 on 2011-08-01. The imagery uses a 1/2/3 band combination, resulting in a false-colour composite where the main river channels and associated wetlands or vegetation appear in distinct red and dark reddish-brown tones. These channels branch out, forming a delta-like pattern as they discharge into a larger, dark blue body of water, likely the Atlantic Ocean or a bay. The surrounding land shows varying textures and shades of reddish-brown and tan, representing different land cover types. The image has a resolution of 2.5 metres. Credit: CNES 2011©, Distribution Airbus DS/Spot Image."
 alt="Axios Delta (Greece), Spot 5 (2.5 m; 1/2/3 band combination). Date: 2011-09-17. CNES 2011©, Distribution Airbus DS/Spot Image." />
 
@@ -8003,7 +8003,7 @@ types. The image has a resolution of 2.5 metres. Credit: CNES 2011©,
 Distribution Airbus DS/Spot Image.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-859d2fe8cc74e2fbf9069a4217be7821.png"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-859d2fe8cc74e2fbf9069a4217be7821.png"
 data-fig-alt="A schematic map illustrating typical land cover / land use (LCLU) morphology in an estuarine environment, using simplified polygons for four distinct classes. The legend defines the colour coding: * Grey (8.3.2): Estuaries, representing the main body of the river where it meets the sea. * Light pink (7.2.1): Salt marshes, flanking the estuarine channels and tidal areas. * Blue (8.4.0): Sea and ocean, depicting the open water body into which the estuary flows. * Olive green (6.1): Sparsely vegetated areas, located further inland or along the higher banks of the estuary, bordering the salt marshes. The map shows a branching pattern of estuaries (grey) flowing into the wider sea and ocean (blue), with extensive areas of salt marshes (pink) distributed along the estuarine banks and within tidal flats. Sparsely vegetated areas (olive green) are depicted further inland, adjacent to the upper reaches of the estuarine arms. This configuration illustrates the typical transition of land cover types from terrestrial to marine environments within an estuary."
 alt="8.3.2 Estuaries 7.2.1 Salt marshes 8.4.0 Sea and ocean 6.1 Sparsely vegetated areas Schematic representation of PA level 4 classification of Axios Delta (Greece)." />
 
@@ -8030,7 +8030,7 @@ Estuaries is based in the following practical visual rules:
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-94ac003b812bbecda1cc535eab78c92f.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-94ac003b812bbecda1cc535eab78c92f.jpeg"
 style="width:184pt"
 data-fig-alt="A schematic map illustrates a typical estuary morphology, depicting the confluence of a river with a larger body of water, likely the sea. The image features a prominent green area representing land. A light blue, winding river originates from the upper part of the landmass and flows downwards, gradually widening before emptying into a larger, dark blue water body that occupies the lower right section of the map, representing the estuary and adjoining sea. Along the banks of the wider estuary, a light grey area is visible, which represents tidal flats or exposed sediment, characteristic of areas influenced by tides where sand or mud can appear at low tide. A red dashed line diagonally traverses the wider section of the estuary, crossing from one green landmass to the other. This line signifies a conceptual limit or cross-section, which, based on the context, likely represents the delineation between the estuary (CORINE Land Cover 8.3.2 Estuaries) and coastal waters (CORINE Land Cover 8.4.1 Coastal waters) based on the intended continuation of the coastline." />
 
@@ -8039,7 +8039,7 @@ data-fig-alt="A schematic map illustrates a typical estuary morphology, depictin
   there are muddy areas from this point on.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-89a71f9cc971e1dba283f6941696057d.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-89a71f9cc971e1dba283f6941696057d.jpeg"
 style="width:184pt"
 data-fig-alt="This schematic diagram illustrates the typical morphology of an estuary and its associated classification limits. The image shows green land flanking various water bodies. A winding light blue river originates from the right side of the diagram, flowing into a wider, light blue transitional zone that contains distinct greyish patches, indicative of tidal mud or sand flats. This transitional zone subsequently expands into a larger, dark blue body of water on the left, representing the open sea or ocean. Two prominent red lines are depicted across the water bodies. The lower red line crosses the river at its initial widening point, marking an upstream limit. The upper red line spans the wider estuarine area, signifying a seaward limit. These red lines represent demarcation boundaries for land cover classification, specifically distinguishing between river, estuary (such as CORINE Land Cover (CLC) class 8.2.2 Estuaries), and coastal waters (such as CLC class 8.4.1 Coastal waters), where the limit is based on the continuation of the coastline." />
 
@@ -8048,7 +8048,7 @@ data-fig-alt="This schematic diagram illustrates the typical morphology of an es
   rivers.
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-89a5a8dfc3051b90b121085f65a7b17b.png"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-89a5a8dfc3051b90b121085f65a7b17b.png"
 style="width:184pt"
 data-fig-alt="This schematic map illustrates a typical estuary morphology with different land cover classes. It depicts a river flowing from an inland landmass into a sea or ocean, forming a delta. The colour coding represents: - Light green: Inland land area. - Light blue: Water bodies, comprising an upstream river and branching channels within the delta. The upstream river likely corresponds to &#39;8.1.1 Natural &amp; semi-natural water courses&#39;. The branching channels within the delta are part of &#39;8.3.2 Estuaries&#39;. - Dark blue: The sea or ocean, corresponding to &#39;8.4.0 Sea and ocean&#39; or &#39;8.4.2.0 Coastal waters&#39;. - Light grey: The area surrounding the delta channels, representing tidal flats, mudflats, or sparsely vegetated areas within the estuary system. This area is strongly associated with &#39;8.3.2 Estuaries&#39;, and potentially &#39;7.2.1 Salt marshes&#39; or &#39;6.1 Sparsely vegetated areas&#39;. Overlaid red markings highlight specific features or classification boundaries: - A solid red line crosses the main river channel upstream of the delta, indicating the likely limit between &#39;8.1.1 Natural &amp; semi-natural water courses&#39; and &#39;8.3.2 Estuaries&#39;, often based on the river channel&#39;s narrowing. - Two smaller, dashed red lines are present on the light green inland landmass, suggesting other features or boundaries within the land area. No scale bar, compass, or specific geographic labels are present." />
 
@@ -8098,12 +8098,12 @@ dry valley formerly shaped by a river can be used as indicator.
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-d314c52ec45b6c56b2c87ef4a7f86f86.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-d314c52ec45b6c56b2c87ef4a7f86f86.jpeg"
 data-fig-alt="This photograph displays a panoramic view of a wide estuary or bay, integrating urban development, transport infrastructure, and marine aquaculture. In the foreground, a densely built-up residential area covers the right-hand hillside, featuring numerous houses and buildings. At the base of this hillside, a complex multi-level highway interchange with several ramps is visible. The central area of the image is occupied by a large expanse of blue water, dotted with numerous grid-like aquaculture rafts, likely mussel farms, and a single white sailboat. A small port or marina structure is also present along the urbanized shoreline. Across the estuary, another urbanized coastal strip can be seen, along with a prominent white suspension bridge that spans a narrower section of the waterway. The background is composed of undulating hills and mountains, partially vegetated, set against a clear blue sky."
 alt="Ria coast near Vigo (Spain). Credit: Harpagornis - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=18 115391" />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-7ae76a50ae2208995414e36b064195ac.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-7ae76a50ae2208995414e36b064195ac.jpeg"
 data-fig-alt="A natural landscape photograph depicts a wide, deep blue body of water, characteristic of a fjord or a substantial water course, extending into the distance between two chains of steep, rocky mountains or hills. The water appears calm and reflects the bright blue sky, which features scattered white cumulus clouds. In the foreground, the terrain consists of rugged grey rock formations interspersed with patches of green vegetation and scrub. The mountainsides bordering the water are steep and heavily forested in some areas, particularly on the right, while the left side shows more exposed rock. This image visually represents the type of geographical feature, such as estuaries or water courses, that is subject to classification in environmental land monitoring programmes like the Copernicus Land Monitoring Service (CLMS) CORINE Land Cover (CLC) categories, specifically CLC 8.3.2 Estuaries or CLC 8.1 Water courses."
 alt="Lysefjord (Norway). Credit: Andreas Tille - Eigenes Werk, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=9249 46" />
 
@@ -8134,12 +8134,12 @@ alt="Lysefjord (Norway). Credit: Andreas Tille - Eigenes Werk, CC BY-SA 4.0, htt
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-bb3702245a952a92a62f368fc231e84b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-bb3702245a952a92a62f368fc231e84b.jpeg"
 data-fig-alt="This is a false-colour satellite image depicting a complex, rugged coastline with multiple marine inlets or fjords penetrating inland. Water bodies are represented in black. The land area is predominantly red, indicating dense vegetation, with some lighter blue/white patches suggesting bare ground or different land cover types. Three distinct yellow lines are overlaid, each marking a straight-line delineation across the mouth of a water body where it meets the sea. Each yellow line is associated with the numerical label &#39;8330&#39;, which corresponds to the CORINE Land Cover (CLC) code for &#39;Marine inlets and fjords&#39; in habitat classification systems. The image illustrates the typical highly indented nature of such coastal features and their defined measurement points."
 alt="Delineation of fjords near Stongfjorden (Norway). SPOT-5 (2.5 m) (1/2/3 band combination). Date: 2012-06-28. Credit: CCME 2012 provided under COPERNICUS by the European Union and ESA." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-4378ef6aaaf5be6e6b41569729bfeb0a.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-4378ef6aaaf5be6e6b41569729bfeb0a.jpeg"
 data-fig-alt="The map displays a satellite image of a coastal region near Vigo, Spain, highlighting marine inlets and fjords. Two large, dark blue/black water bodies are explicitly labelled &#39;8330&#39;, referring to &#39;Marine inlets and fjords&#39; as defined in the Natura 2000 Habitats Directive (92/43/EEC). Yellow lines delineate the entry points of these inlets from the sea. The image uses a false-colour composite where water bodies appear deep blue or black, dense vegetation or forested areas are represented in dark red, and lighter green or cyan areas indicate agricultural land or urban/sparsely vegetated zones. Small white patches are also visible, likely representing built-up areas or bare ground. A yellow arrow in the top right corner indicates the North direction. Another yellow arrow points along an inland river feature, flowing into one of the marine inlets. A zoomed-in inset, outlined in yellow, provides a detailed view of a specific coastal inlet, showing the interface between the water, coastal settlement, and surrounding vegetation. The overall spatial pattern illustrates deeply incised, elongated marine inlets extending inland, characteristic of a ria coast, surrounded by varied land cover."
 alt="Delineation of ria coast near Vigo (Spain). Yellow arrows indicate the river tributaries necessary for this class. The mini map shows a bay situation since there is no river source. SPOT-5 (2.5 m) (1/2/3 band combination). Date: 2011-04-29 and 2011-08-10 Credit: CCME 2018 provided under COPERNICUS by the European Union and ESA." />
 
@@ -8173,7 +8173,7 @@ in 8.4.2 Coastal waters).
   $\rightarrow$ 8.4.2 Coastal waters
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-5abad08f520f3b8dacc5f39dedf2f3fb.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-5abad08f520f3b8dacc5f39dedf2f3fb.jpeg"
 style="width:272pt"
 data-fig-alt="A natural photograph depicting a wide, unobstructed view of the open sea at twilight. The expansive sea surface is a deep, dark blue with visible waves and ripples extending towards a flat horizon line. The sky exhibits a gradient from dark blue at the top, transitioning to lighter blues, and then soft orange and pink hues along the horizon, characteristic of either dawn or dusk. A few thin, wispy clouds are scattered horizontally near the horizon. This image serves as a visual reference for the &#39;Open sea&#39; land cover category, representing open water of seas and oceans outside coastal waters as defined in Copernicus Land Monitoring Service (CLMS) nomenclature."
 alt="Open sea in the Bay of Biscay Credit: By STHLM, CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=54638112" />
@@ -8192,7 +8192,7 @@ Land Monitoring Service (CLMS) nomenclature.
 **Appearance:**
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-79daed76605d001caf94d104aa8db55b.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-79daed76605d001caf94d104aa8db55b.jpeg"
 style="width:402pt"
 data-fig-alt="Satellite imagery of a coastal area, likely in false-colour infrared, illustrating the delineation between &#39;8.4.2.0 Coastal waters&#39; and &#39;8.4.1.0 Open sea&#39;. The land, visible in the upper portion of the image, displays urban areas (grey/blue) and vegetated land (red). The immediate coastal water is light blue/green, transitioning to dark blue/black for deeper offshore areas. A vertical orange arrow originating from the coastline extends seaward to a yellow irregular line, which marks the boundary between the two water classifications. This arrow is labelled &#39;= 1 nautical mile&#39;, indicating that &#39;Coastal waters&#39; are defined as the area extending up to one nautical mile from the landside, with &#39;Open sea&#39; starting beyond this boundary. No specific geographic location or date is provided in the image."
 alt="Delineation of coastal waters and open sea at the British coastline near Fairlight (UK). SuperView-1 (2m) (1/2/3). Date: 2018-09-02. Source: Airbus DS Geo SA (2018). Credit: CCME 2018 provided under COPERNICUS by the European Union and ESA" />
@@ -8255,13 +8255,13 @@ heads of bays where it cuts across open water.[^33]
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-576fcf60d7419e5c52987e37b2b3b904.jpg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-576fcf60d7419e5c52987e37b2b3b904.jpg"
 style="width:272pt"
 data-fig-alt="This is a high-resolution satellite photograph, captured on 2018-09-02, depicting the British coastline near Fairlight, UK. The image showcases an expansive sandy beach at the base of steep, rugged cliffs, with the clear blue open sea extending to the horizon. Multiple waves are visible breaking on the shore, creating white foam against the varying shades of turquoise and dark blue ocean water. The imagery is derived from SuperView-1 satellite data with 2m resolution, provided by Airbus DS Geo SA (2018), and credited to CCME 2018 under the Copernicus Land Monitoring Service (CLMS) by the European Union and ESA. This visual documentation supports the delineation and monitoring of coastal waters and the open sea, in line with definitions such as those found in the Water Framework Directive (Directive 2000/60/EC)."
 alt="Atlantic Ocean near Sagres (Portugal). Credit: C. Gruber" />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-2aa52298dc8efd9101292ac11fdbd470.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-2aa52298dc8efd9101292ac11fdbd470.jpeg"
 style="width:272pt"
 data-fig-alt="A wide-angle photograph depicts a body of water, likely coastal or open sea, with a rugged mountain range in the background. The water is choppy with whitecaps, indicative of wind, and exhibits a blue-green colour. Two white sailboats are prominently visible in the mid-ground, and several larger, less distinct vessels (possibly cargo ships) are present on the distant horizon. The background mountains appear hazy and indistinct, blending into a pale, overcast sky. This scene represents open water areas, such as those defined as coastal waters by the Water Framework Directive (Directive 2000/60/EC), which extend up to one nautical mile seawards from the coastline."
 alt="Strait of Gibraltar seen from Tarifa (Spain). Credit: CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=58051" />
@@ -8273,19 +8273,19 @@ alt="Strait of Gibraltar seen from Tarifa (Spain). Credit: CC BY-SA 3.0, https:/
 <div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-b638f68371d8871e445751c5cbd1ca8c.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-b638f68371d8871e445751c5cbd1ca8c.jpeg"
 data-fig-alt="Satellite imagery displays a rugged coastline separating land from open water, illustrating the definition of coastal waters for land monitoring and environmental regulation. The land features appear in false colour, with reds indicating vegetated or terrestrial areas and light blue hues along the immediate coastline. The open water is represented by dark blue to black tones. A distinct yellow line precisely delineates the jagged coastline, marking the boundary between land and sea. The classification code &#39;8.4.2.0&#39; is visible in the upper right quadrant of the open water. This image visually supports the definition of coastal waters as described by the Water Framework Directive (Directive 2000/60/EC), which extends one nautical mile seaward from the baseline."
 alt="Delineation of a coastline in Catalonia (Spain). (1/2/3 Band Combination). Date: 2012-09-07. Credit: CCME 2012 provided under COPERNICUS by the European Union and ESA." />
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-175d521a656db8b0102ac64901d4dcb2.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-175d521a656db8b0102ac64901d4dcb2.jpeg"
 data-fig-alt="A satellite image map illustrating the classification of land cover and water body types in a coastal estuarine or bay environment, consistent with European Union environmental monitoring. The map shows a dynamic interface between open water and land. The area on the left, marked `8.4.2.0` and depicted in dark blue/green, represents &#39;Coastal Waters&#39;, specifically defined as &#39;Open water outside the coastline up to one nautical mile seawards&#39;. The extensive area on the right, marked `7.2.3.0` and characterized by lighter green/blue tones with intricate channel patterns, represents &#39;Intertidal Flats&#39;. This area consists of shallow water and exposed sediment banks, typical of tidal environments. Further inland on the far right, agricultural or vegetated land is visible with red, purple, and green patterns. A yellow line delineates the boundary between these classified areas, specifically separating the &#39;Coastal Waters&#39; (8.4.2.0) from the &#39;Intertidal Flats&#39; (7.2.3.0). Yellow arrows point to specific segments along this yellow boundary line, indicating its course and potentially the application of a baseline definition for coastal waters as described in the European Water Framework Directive (Directive 2000/60/EC) and United Nations Convention on the Law of the Sea (UNCLOS). No scale bar, compass, or data source reference year is visible on the map."
 alt="8.4.2 Coastal waters separated from the other marine classes by the presence of fine sediment deposition of Intertidal flats (7.2.3) that are in between high and low water marks. (Wadden Sea, Germany). (1/2/3 Band Combination). Date: 2011-04-25. Credit: CCME 2011 provided under COPERNICUS by the European Union and ESA." />
 
 </div>
 
 <img
-src="Protected_Areas_2021-2024_Nomenclature_Guideline_v1-media/img-730f624167a1d88eeb5ecb14ae5647c4.jpeg"
+src="Protected_Areas_2021_Nomenclature_Guideline_v3-media/img-730f624167a1d88eeb5ecb14ae5647c4.jpeg"
 data-fig-alt="This map displays four conceptual diagrams illustrating the delineation of coastal water boundaries in various geographic settings, relevant for environmental classification such as under the Water Framework Directive (Directive 2000/60/EC). The colour coding represents: green for land, dark blue for open sea or coastal water (defined as open water outside the coastline up to one nautical mile seawards), light blue for inland water bodies (such as estuaries, lagoons, or rivers), grey for intertidal flats or riverine sediment areas, and yellow for specific beach or shoreline zones. A red dotted line consistently indicates the boundary of the open sea/coastal water area relative to the land and other water bodies. The four panels show: 1. **Top-left:** A complex river delta system where light blue river channels and grey intertidal flats extend into the dark blue open sea. The red dotted line follows the highly irregular coastline of the delta and intertidal flats. 2. **Top-right:** A river entering the open sea, featuring a prominent yellow beach area along the coastline. The red dotted line outlines the interface between the green land and yellow beach, and the dark blue open sea, including grey riverine features extending seaward. 3. **Bottom-left:** A large light blue inland water body (likely a lagoon or estuary) connected to the dark blue open sea by a narrow opening. A yellow beach area is visible along the inner part of the coastal zone. The red dotted line delineates the coastal boundary adjacent to the yellow beach and open sea. 4. **Bottom-right:** A bay or inlet scenario where a light blue inland water body with grey areas connects to the dark blue open sea. The red dotted line defines the boundary between the green land and the dark blue open sea along the irregular shoreline of the bay. No scale bar, compass, or specific geographic locations are provided, indicating these are generic illustrative examples for classification guidelines."
 alt="Schematic representation of classes 8.4.2 Coastal waters (red dot line)." />
 
