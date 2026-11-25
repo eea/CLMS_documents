@@ -309,9 +309,8 @@ Example 4 (Figure 8) illustrates the largely correct mapping of an area with spa
 
 Example 5 concerns the mapping of Water and Permanent Snow & Ice, which are defined according to their spatio-temporal extent throughout the reference year, with at least 50% and 90% permanence within the period, respectively. As illustrated in Figure 9 and Figure 10, the production has taken these thresholds into account, considering temporal profiles of the NDVI and NDSI during the generation of training data, quality control and internal validation. It is therefore important to note that single satellite images at deliberate times can suggest different spatial extents for these two classes, depending on the time of acquisition. Time-series should be consulted in case of doubts for assessing the correctness of the extent in the Raster Product.
 
-![](2021_PUM_v1-media/img-349277b02736665865c69655a9a0243f9074b8d4.png){width="6.27in"}
+![Figure 9: Example of the mapping of ephemeral classes in the CLC+ BB Raster Product. Water is mapped according to its spatio-temporal coverage during the reference year 2021. In the given example from the 2018 production, areas which are more than 50% of the observations covered by water (i.e. NDVI typically below 0), are correctly mapped as Water. Areas with shorter water coverage show an NDVI slightly above 0 for most of the time in this example and are correctly mapped as Sparsely- and Non-vegetated.](2021_PUM_v1-media/img-349277b02736665865c69655a9a0243f9074b8d4.png){width="6.27in"}
 
-Figure 9: Example of the mapping of ephemeral classes in the CLC+ BB Raster Product. Water is mapped according to its spatio-temporal coverage during the reference year 2021. In the given example from the 2018 production, areas which are more than 50% of the observations covered by water (i.e. NDVI typically below 0), are correctly mapped as Water. Areas with shorter water coverage show an NDVI slightly above 0 for most of the time in this example and are correctly mapped as Sparsely- and Non-vegetated.
 
 ![Figure 10: Example of the mapping of ephemeral classes in the CLC+ BB Raster Product. Permanent Snow and Ice is mapped according to its spatio-temporal coverage during the reference year 2021. In the given example from the 2018 production, areas which are more than 90% of the observations covered by snow or ice (i.e. NDSI typically above 0.41), are correctly mapped as Snow and Ice. Adjacent areas with shorter snow or ice coverage are correctly mapped as Sparsely- and Non-vegetated.](2021_PUM_v1-media/img-e86685f85d5413260b54cd186872dedeb9fac63a.png){width="6.27in"}
 
@@ -387,7 +386,12 @@ For most changes, a general threshold value was used (in theory, 110 change dire
 
 In case of remaining issues in the 2021 Raster Product after the interannual calibration, those are addressed with a semiautomatic post-processing approach by defining AOIs where misclassifications are corrected with available auxiliary layers, like e.g. sealed surfaces, derived from Open Street Map (OSM) and the Imperviousness Degree layer from HRL Non-Vegetated Land Cover Characteristics (NVLCC). All pixels affected by changes during this semi-automatic post-processing are documented in the Raster Post-processing Layer (@sec-raster-post-processing-layer-POST) delivered with the EEA-38 Raster Product.
 
+::: {.tbl-caption}
+```{=typst}
+#set text(size: 9pt, fill: rgb("#3E6893"))
+```
 Table 1: Overview of usage of auxiliary datasets during the post-processing routine
+:::
 
 | Auxiliary dataset | Pseudo code | Explanation |
 |--------------------------------------------------------------------------|-------------------------------------------|-----------------------------------------------------------------------------------|
@@ -584,7 +588,12 @@ The sampling plan has been established in an appropriate sampling frame and samp
 
 An overview of the sampled areas and the distribution of samples per class for the Raster Product are provided in Table 2 and Table 3.
 
+::: {.tbl-caption}
+```{=typst}
+#set text(size: 9pt, fill: rgb("#3E6893"))
+```
 Table 2: Overview of the validated areas (zones) of the CLC+ BB Raster Product 2021
+:::
 
 | Zone | Acronym | Country | Coverage ( Entirely / Partially / not at all) |
 |------------------------|-------------------------------------|------------------------------------------------------------------------------------|--------------------------------------------------------|
@@ -612,7 +621,12 @@ Table 2: Overview of the validated areas (zones) of the CLC+ BB Raster Product 2
 | Z22 | LV-LT-EE | Latvia- Lithuania-Estonia | Entirely |
 | Z23 | DOM | French overseas departments | Entirely |
 
+::: {.tbl-caption}
+```{=typst}
+#set text(size: 9pt, fill: rgb("#3E6893"))
+```
 Table 3: Distribution of sampling units in each CLC+ BB Raster 2021 class
+:::
 
 | Code | CLC+ BB Raster Product- Description | 2021 area (sq.km) | Area fraction | Samples distribution |
 |----------------|--------------------------------------------------------------------|--------------------------------------|----------------------------------|--------------------------------------------|
@@ -653,14 +667,24 @@ The following section contains the results from the thematic accuracy assessment
 
 According to the accuracy requirements, specified for the CLC+ Backbone Raster Product, the minimum overall accuracy for the products is 90% and the minimum individual class accuracy should not be lower than 85% (i.e. omission errors and commission errors less than 15%).
 
+::: {.tbl-caption}
+```{=typst}
+#set text(size: 9pt, fill: rgb("#3E6893"))
+```
 Table 4: General requirement: Accuracy thresholds
+:::
 
 | Overall accuracy               | \> 90 % | 85 - 90 % | \< 85%  |
 |---------------------------------------------------------------------------------------------|-------------------------------------|-----------------------------------|-----------------------------------|
 | Per Land cover class           | \> 85 % | 80 - 85 % | \< 80 % |
 | Omission and commission errors | \<15%   | 15-20%    | \>20%   |
 
+::: {.tbl-caption}
+```{=typst}
+#set text(size: 9pt, fill: rgb("#3E6893"))
+```
 Table 5: Calculated accuracy parameters determined for the validation
+:::
 
 | ACCURACY PARAMETER            | ABBREVIATION |
 |---------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
@@ -673,7 +697,12 @@ Table 5: Calculated accuracy parameters determined for the validation
 | USER ACCURACY                 | UA           |
 | USER ACCURACY UNCERTAINTY     | ΔUA          |
 
+::: {.tbl-caption}
+```{=typst}
+#set text(size: 9pt, fill: rgb("#3E6893"))
+```
 Table 6: List of CLC+ BB Raster Product classes
+:::
 
 ![](2021_PUM_v1-media/table6.png){width="3.75in"}
 
@@ -687,7 +716,12 @@ Table 7 summarizes overall accuracies obtained by zone (country or group of coun
 
 The detailed analysis for the CLC+ BB validation exercise in 2021 per reporting zone (producer, user and overall accuracies per zones) are provided in the Annex of this User Manual.
 
+::: {.tbl-caption}
+```{=typst}
+#set text(size: 9pt, fill: rgb("#3E6893"))
+```
 Table 7: Overall accuracy for the validation analysis and confidence interval (95%) for the Raster Product 2021 (EEA-38) per country or group of countries in comparison to the 2018 results
+:::
 
 |   |   | Overall accuracy CLC+BB-2018 RASTER PRODUCT | Overall accuracy CLC+BB-2018 RASTER PRODUCT | Overall accuracy CLC+BB-2021 RASTER PRODUCT | Overall accuracy CLC+BB-2021 RASTER PRODUCT |
 |----------------------------|---------------------------------------|------------------------------------|--------------------------------|--------------------------------|--------------------------------|
@@ -720,7 +754,12 @@ Table 7: Overall accuracy for the validation analysis and confidence interval (9
 
 More differentiated analyses of area-weighted Producer’s and User’s Accuracies per raster class are presented in Table 8. Considering the plausibility analysis, most classes feature rather low rates of omission and commission error below the target value of \< 15%. Exceptions are class 5 (Low-growing woody vegetation), for which lower accuracies have already been anticipated and class 8 (Lichens and Mosses), which is generally subject to high uncertainties in both, the classification and validation in particular because of the limited spectral-temporal separability and reference data. Nevertheless, those classes representation could be improved compared to the 2018 product.
 
+::: {.tbl-caption}
+```{=typst}
+#set text(size: 9pt, fill: rgb("#3E6893"))
+```
 Table 8: Area-weighted per class Producer’s and User’s Accuracies of the CLC+ Backbone Raster Product 2021 (EEA-38) in comparison to the 2018 results
+:::
 
 ![](2021_PUM_v1-media/table8.png){width="6.27in"}
 
@@ -732,7 +771,12 @@ The following section will provide a closer look on class 5 and 8 and discuss wh
 
 Table 9 shows the raw confusion matrix for the validation of the CLC+ BB 2021 Raster Product. It shows the number of samples evaluated per class and gives an impression which classes show confusions to which extent.
 
+::: {.tbl-caption}
+```{=typst}
+#set text(size: 9pt, fill: rgb("#3E6893"))
+```
 Table 9: Raw confusion matrix, showing the number of samples by class
+:::
 
 ![](2021_PUM_v1-media/table9.png){width="6.27in"}
 
