@@ -23,7 +23,9 @@ Denmark
 
 This guide is for the person maintaining a project repository. It is a one-time, administrator-level setup: it links that repository to the CLMS Technical Library, so its documentation can be written, previewed and published alongside the rest of the library.
 
-Editors don’t need this page. Once the setup below is in place, they work entirely from the Editor Guidelines.
+> **NOTE:**
+>
+> Editors don’t need this page. Once the setup below is in place, they work entirely from the [Editor Guideline](guidelines_editor-manual_v1.llms.md).
 
 # 1 What This Sets Up
 
@@ -32,7 +34,7 @@ Running through this guide integrates an existing project repository with the CL
 - a `DOCS/` directory in the project repo, linked to the central library as a git subtree
 - a set of Git aliases (`git docs-publish`, `git docs-update`, `git docs-preview`, `git docs-restore`) for day-to-day documentation workflow
 
-Once done, editors can follow the Editor Guidelines to create and publish documents. Your work here is a one-time setup.
+Once done, editors can follow the [Editor Guideline](guidelines_editor-manual_v1.llms.md) to create and publish documents. Your work here is a one-time setup.
 
 # 2 Prerequisites
 
@@ -42,7 +44,7 @@ Once done, editors can follow the Editor Guidelines to create and publish docume
 
 | Tool | Purpose | Download |
 |----|----|----|
-| RStudio | Writing and previewing `.qmd` files | [posit.co](https://posit.co/download/rstudio-desktop/) |
+| RStudio | Writing and previewing `.qmd` files | [posit.co](https://docs.posit.co/ide/user/download.html) |
 | Quarto | Document rendering engine | [quarto.org](https://quarto.org/docs/get-started/) |
 
 Pandoc is bundled with both RStudio and Quarto - editors don’t need to install it separately.
@@ -108,11 +110,11 @@ All three integration steps completed without errors
 
 Verification checks above pass
 
-Editors have the Editor Guidelines link: [Editor Guidelines](guidelines_editor-manual_v1.llms.md)
+Editors have the Editor Guideline link: [Editor Guideline](guidelines_editor-manual_v1.llms.md)
 
 Editors know they need RStudio and Quarto on their machines (see [Prerequisites](#prerequisites))
 
-The editors’ starting point is the Editor Guidelines. They don’t need to touch anything set up here.
+The editors’ starting point is the Editor Guideline. They don’t need to touch anything set up here.
 
 # 6 Change Log
 
