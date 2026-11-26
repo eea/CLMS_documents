@@ -118,7 +118,7 @@ photos, follow these guidelines:
 
 - Assign each inset a numbered caption with a clear and descriptive
   title (follow the design and style instructions given in the “CLMS
-  Word template CLMS_February”).Use automatic numbering for insets, to
+  Word template CLMS_February”). Use automatic numbering for insets, to
   ensure that insets are numbered sequentially in **bold** (e.g.,
   **Figure 1**, **Table 1**).
 
@@ -128,9 +128,8 @@ photos, follow these guidelines:
   cross-reference tool for referencing insets, ensuring that references
   update automatically if numbers change.
 
-A guide on best practices and principles for data visualisation, is
-available at the URL
-"<https://data.europa.eu/apps/data-visualisation-guide/>".
+Take a look at [a guide on best practices and principles for data
+visualisation](https://data.europa.eu/apps/data-visualisation-guide/).
 
 # End of instructions. Delete up to here.
 
@@ -186,8 +185,6 @@ For guidance take note of these external references:
 - <https://www.understandinganimalresearch.org.uk/application/files/5516/5226/6818/Writing_NTS_summaries.pdf>
 
 - <https://publications.europa.eu/resource/cellar/2b399830-cb4b-11e7-a5d5-01aa75ed71a1.0001.03/DOC_1>
-
-- <https://communications.admin.ox.ac.uk/resources/how-to-guide-writing-a-lay-summary>
 
 Here is an exercise for creating a non-technical summary of the
 executive summary contained in **[Product user manual – DLT, FT and TCD
@@ -895,13 +892,13 @@ Here an example of a standard text.
 <div class="greyw-box" custom-style="grey-box">
 
 Product technical support is provided by the product custodian through
-<a href="https://land.copernicus.eu/en/data-policy"
+<a href="https://land.copernicus.eu/en/contact-service-helpdesk"
 target="_blank">Copernicus Land Monitoring Service – Service desk</a>.
 Product technical support does not include software specific user
 support or general GIS or remote sensing support.
 
 More information on the products can be found on the Copernicus Land
-Monitoring Service website (https://land.copernicus.eu/)
+Monitoring Service website (https://land.copernicus.eu/).
 
 </div>
 

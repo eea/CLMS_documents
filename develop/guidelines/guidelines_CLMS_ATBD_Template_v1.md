@@ -146,7 +146,7 @@ photos, follow these guidelines:
 
 - Assign each inset a numbered caption with a clear and descriptive
   title (follow the design and style instructions given in the “CLMS
-  Word template CLMS_February”).Use automatic numbering for insets, to
+  Word template CLMS_February”). Use automatic numbering for insets, to
   ensure that insets are numbered sequentially in **bold** (e.g.,
   **Figure 1**, **Table 1**).
 
@@ -164,9 +164,8 @@ photos, follow these guidelines:
 
 - Ensure that the data or image is not distorted in any way.
 
-A guide on best practices and principles for data visualisation, is
-available at the URL
-"<https://data.europa.eu/apps/data-visualisation-guide/>".
+Take a look at [a guide on best practices and principles for data
+visualisation](https://data.europa.eu/apps/data-visualisation-guide/).
 
 # End of instructions. Delete up to here.
 
@@ -639,11 +638,11 @@ Here an example of a standard text.
 
 Product technical support is provided by the product custodian through
 [Copernicus Land Monitoring Service – Service
-desk](https://land.copernicus.eu/en/data-policy). Product technical
-support does not include software specific user support or general GIS
-or remote sensing support.  
+desk](https://land.copernicus.eu/en/contact-service-helpdesk). Product
+technical support does not include software specific user support or
+general GIS or remote sensing support.  
 More information on the products can be found on the Copernicus Land
-Monitoring Service website (https://land.copernicus.eu/)
+Monitoring Service website (https://land.copernicus.eu/).
 
 </div>
 
