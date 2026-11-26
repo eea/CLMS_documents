@@ -193,6 +193,19 @@ A bare `quarto render` does **not** run the qmd-tools rewrites or image-descript
 baking that the full build applies — use it for iterating, not for judging final
 PDF quality.
 
+Figure captions are printed verbatim, and the alt text is the only numbering. The
+Typst template (`_meta/theme/typst/typst-template.typ`) renders `it.body` only, which
+drops Typst's own "Figure N:" supplement, and figures carry no `#fig-` ids for Quarto
+cross-references. So the number a reader sees is the one written in the caption itself
+(`![Figure 10. ...](...)`): keep those numbers, keep them in document order, and update
+the plain-text body references ("see Figure 10") whenever a figure is added, removed or
+moved.
+
+Do not strip the numbers because a render shows them twice. `Figure 9: Figure 9.` only
+appears when a `.qmd` is rendered outside the repo tree, where Quarto falls back to its
+default Typst template; a render from the repo root and the full build both print the
+alt text alone.
+
 The full site build is `bash .github/scripts/build/build-docs.sh`. It is
 **destructive to the working tree** (it does `mv DOCS origin_DOCS`, copies `_meta`
 in, generates `index.qmd` files). Prefer a single `quarto render` for iterating;
