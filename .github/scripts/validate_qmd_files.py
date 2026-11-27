@@ -129,6 +129,26 @@ def validate_qmd(file_path: Path) -> List[str]:
     if author is not None and not isinstance(author, (str, list)):
         issues.append("author, if present, must be a string or list of strings")
 
+    # `license` feeds Quarto's HTML appendix; `license-url` feeds the json-ld
+    # block, which cannot read `license` back (Quarto consumes it). Setting one
+    # alone silently publishes two different licences, so require the pair.
+    license_v = metadata.get("license")
+    license_url = metadata.get("license-url")
+    if isinstance(license_v, dict) and license_url is None:
+        issues.append(
+            "license is a text/url block, but json-ld only reads license-url; "
+            "use a plain-string license plus license-url"
+        )
+    elif (license_v is None) != (license_url is None):
+        present, missing = (
+            ("license", "license-url")
+            if license_v is not None
+            else ("license-url", "license")
+        )
+        issues.append(
+            f"{present} is set but {missing} is not; override both or neither"
+        )
+
     return issues
 
 
