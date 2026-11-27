@@ -5,7 +5,8 @@ toc-depth: 3 # Include headings up to level 3 (###)
 number-sections: true
 sitemap: true # Enables sitemap generation for web crawlers
 tbl-colwidths: auto
-license: "EUPL (>= 1.2)"
+license: "CC BY 4.0"
+license-url: "https://creativecommons.org/licenses/by/4.0/"
 format:
   html:
     include-in-header:
@@ -41,8 +42,11 @@ format:
       - ../../.github/scripts/filters/safe_internal_links.lua
 
   # gfm writer makes the .llms.md sidecars. Descriptions are baked into the
-  # source by inject_image_descriptions.py, so no filter is needed here.
-  gfm: default
+  # source by inject_image_descriptions.py. unwrap_layout_gfm.lua stops quarto
+  # emitting layout-ncol blocks as empty <div>s (no gfm PanelLayout renderer).
+  gfm:
+    filters:
+      - ../../.github/scripts/filters/unwrap_layout_gfm.lua
 
 format-links:
   - html

@@ -82,9 +82,27 @@ def is_block_level(text, start, end):
     return text[line_start:start].strip() == "" and after.strip() == ""
 
 
+DIV_FENCE_RE = re.compile(r"^(:{3,})[ \t]*(.*?)[ \t]*$", re.MULTILINE)
+
+
+def layout_spans(text):
+    """(start, end) offsets of every ::: div carrying a layout* attribute.
+    Inside one, each block is a grid cell, so an extra block = an empty cell."""
+    spans, stack = [], []
+    for m in DIV_FENCE_RE.finditer(text):
+        if m.group(2):  # opener: ::: {attrs} or ::: name
+            stack.append((m.start(), re.search(r"\blayout", m.group(2)) is not None))
+        elif stack:  # bare ::: closes the innermost div
+            start, is_layout = stack.pop()
+            if is_layout:
+                spans.append((start, m.end()))
+    return spans
+
+
 def _annotate_segment(text, qmd_path, cache_dir, stats):
     out = []
     pos = 0
+    layouts = layout_spans(text)
     for m in IMG_RE.finditer(text):
         out.append(text[pos:m.start()])
         pos = m.end()
@@ -113,8 +131,10 @@ def _annotate_segment(text, qmd_path, cache_dir, stats):
         else:
             img_text = whole + f'{{fig-alt="{alt_value(desc)}"}}'
 
-        # Only standalone images get the visible block - it'd break a table cell.
-        if is_block_level(text, m.start(), m.end()):
+        # Only standalone images get the visible block - it'd break a table cell,
+        # and inside a layout grid it'd become an extra (empty in html) cell.
+        in_layout = any(s <= m.start() < e for s, e in layouts)
+        if not in_layout and is_block_level(text, m.start(), m.end()):
             img_text += (
                 '\n\n::: {.content-visible when-format="gfm"}\n\n'
                 f"{desc}\n\n:::\n"
