@@ -2535,7 +2535,7 @@ Back to top
 
 ## Reuse
 
-EUPL (\>= 1.2)
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 [^1]: https://ec.europa.eu/environment/nature/knowledge/ecosystem_assessment/pdf/MAESWorkingPaper2013.pdf
 

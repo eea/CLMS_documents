@@ -502,7 +502,7 @@ Back to top
 
 ## Reuse
 
-EUPL (\>= 1.2)
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 [^1]: https://land.copernicus.eu/en/news/clds-survey/clds-concept-note_final.pdf/%40%40download/file
 

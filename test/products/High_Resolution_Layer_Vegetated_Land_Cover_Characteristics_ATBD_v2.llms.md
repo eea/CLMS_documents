@@ -1207,7 +1207,7 @@ Back to top
 
 ## Reuse
 
-EUPL (\>= 1.2)
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 [^1]: https://gdal.org/en/stable/api/gdal_alg.html#\_CPPv415GDALSieveFilter15GDALRasterBandH15GDALRasterBandH15GDALRasterBandHiiPPc16GDALProgressFuncPv
 

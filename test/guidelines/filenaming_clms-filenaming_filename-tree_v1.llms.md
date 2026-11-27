@@ -210,11 +210,11 @@ Denmark
 
 | Date | Version | Summary |
 |----|----|----|
-| 2026-11-10 | 1.2.0 | • Updated document date in frontmatter. • Revised the filename tree to incorporate the new 'Period' temporal format, removing \`S\`, \`A\`, and \`T\` prefixes from temporal fields. • Restructured the 'By Temporal Situation' section to reflect the consolidated 'Period' format for aggregated data, status years, and timeseries. • Added \`NET, DIR, SUB\` codes for EU Hydro products in the 'By Variable Code' section. • Updated examples in the 'Full Example Walkthrough' to conform to the new temporal field conventions. |
+| 2026-11-27 | 1.2.0 | • Restructured the 'By Temporal Situation' section to align with the revised temporal format rules, consolidating previous formats into a single 'Period' type. • Updated all filename examples across the document to reflect the new temporal naming convention. • Added EU Hydro variables to the 'By Variable' section and clarified EGMS variable descriptions. |
 | 2026-10-29 | 1.1.0 | Initial publication of the 'CLMS Product Filenaming - Filename Tree' document, offering a visual and structured navigation of CLMS filename variants by product code, temporal situation, resolution, spatial extent, and variable. |
 
 Back to top
 
 ## Reuse
 
-EUPL (\>= 1.2)
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
