@@ -4,11 +4,11 @@
 
 | Title | version | Date |
 |----|----|----|
-| [CLC+ Core User Manual](../products/clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1.llms.md) | 1.2.0 | Sep 28, 2026 |
-| [CLC+ Core User Manual Annex](../products/clcplus-core_CLCplusCore_User_Manual_Issue_5.0_Annex_Admin_User_v1.llms.md) | 1.2.0 | Sep 28, 2026 |
 | [CLCplus Backbone 2021 - Product User Manual](../products/CLCplus_Backbone_2021_PUM_v1.llms.md) | 1.2.3 | Jun 12, 2025 |
 | [CLCplus Backbone 2023 - Algorith Theoretical Basis Document](../products/CLCplus_Backbone_2023_ATBD_v1.llms.md) | 1.2.3 | Apr 1, 2025 |
 | [CLCplus Backbone 2023 – Product User Manual](../products/CLCplus_Backbone_2023_PUM_v1.llms.md) | 1.3.2 | Apr 1, 2025 |
+| [CLCplus Core User Manual](../products/clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1.llms.md) | 1.3.0 | Sep 28, 2026 |
+| [CLCplus Core User Manual Annex](../products/clcplus-core_CLCplusCore_User_Manual_Issue_5.0_Annex_Admin_User_v1.llms.md) | 1.3.0 | Sep 28, 2026 |
 | [Coastal Zones Monitoring 2012-2018 - Nomenclature Guideline](../products/Coastal_Zones_2012-2018_Nomenclature_Guideline_v1.llms.md) | 1.2.3 | Feb 15, 2021 |
 | [European Ground Motion Service (EGMS) - Algorithm Theoretical Basis Document](../products/European_Ground_Motion_Service_Algorithm_Theoretical_Basis_Document_v4.llms.md) | 4.0.2 | Aug 7, 2025 |
 | [European Ground Motion Service (EGMS) - GNSS calibration data](../products/European_Ground_Motion_Service_GNSS_Calibration_Data_v1.llms.md) | 1.0.2 | Apr 15, 2023 |

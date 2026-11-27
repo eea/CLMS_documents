@@ -1,5 +1,5 @@
-# CLC+ Core User Manual
-European Environment Agency (EEA)
+# CLCplus Core User Manual
+
 2026-09-28
 
 - [<span class="toc-section-number">1</span>
@@ -110,63 +110,9 @@ European Environment Agency (EEA)
 - [<span class="toc-section-number">6</span> Admin User only - see
   separate Annex](#admin-user-only---see-separate-annex)
 - [<span class="toc-section-number">7</span> Glossary](#glossary)
-- [<span class="toc-section-number">8</span> List of
-  abbreviations](#list-of-abbreviations)
+- [<span class="toc-section-number">8</span> List of abbreviations &
+  acronym](#list-of-abbreviations--acronym)
 - [<span class="toc-section-number">9</span> Annex](#annex)
-
-Date: 2026-09-28
-
-Doc. Version : Issue 5.0
-
-Content ID: /
-
-**Document Control Information**
-
-| Document Title | CLC+ Core User Guideline |
-|----|----|
-| Project Title | Operational maintenance of the CLCplus Core platform and infrastructure |
-| Document Author | Xabier Diego, Manuel Martínez, Arantza Echevarria |
-| Project Owner | Massimiliano Rossi (EEA) |
-| Project Manager | Massimiliano Rossi (EEA) |
-| Document Code | / |
-| Document Version | Issue 5.0 |
-| Distribution |  |
-| Date | 2026-09-28 |
-
-**Document Approver(s) and Reviewer(s):**
-
-| Name                | Role     | Action          | Date       |
-|---------------------|----------|-----------------|------------|
-| Tim Wiltzius (CLF)  | Reviewer | Document review | 2023-12-20 |
-| Johannes Vass (CLF) | Reviewer | Document review |            |
-
-**Document history**
-
-| Revision | Date | Created by | Short description of changes |
-|----|----|----|----|
-| 1.0 | 2022-04-08 | CLC+ Core consortium (CLF, GV, GAF) | Initial document creation |
-| 2.0 | 2022-06-10 | CLC+ Core consortium (CLF, GV, GAF) | Restructure of entire document, extension of Extraction chapter and Admin User section |
-| 3.0 | 2023-06-06 | CLC+ Core consortium (CLF, GV, GAF) | Adaption of rule 3 in the current version of the CLC+ Core system |
-| 4.0 | 2023-12-22 | CLC+ Core consortium (CLF, GV, GAF) | Update of the entire document with all newly implemented features and improvements of the system (within SC8) |
-| 5.0 | 2026-09-28 | Bilbomática, an Altia company | Update with the new 10m resolution feature |
-
-**Applicable Documents (AD)**
-
-| **ID** | **Document Name / Content** |
-|----|----|
-| AD01 | Tender Specifications – EEA/DIS/R0/20/019 – Copernicus Land Monitoring Service – Production of the CLC+ Core and Provision of Complementary Consultancy Services |
-| AD02 | Consortium’s Technical Proposal – in response to Call for tenders EEA/DIS/R0/20/019 – CLC+CORE Technical Proposal - v2.0 |
-| AD03 | Specific Contract No 3436/R0-COPERNICUS/EEA.58286 |
-| AD04 | Minutes of the KOM (CLC+Core_KOM_Minutes.docx) |
-| AD05 | PM1 - Project Management and Governance Plan (CLC+Core_Deliverable_PM1_Project_Management_Plan_V1.0.pdf) |
-| AD06 | Implementation of CLC+ based on the EAGLE concept –Additional support for further development of CLC+<br><br>databases (CLC+ and CLC+ instances, namely CLC+ LULUCF instance and CLC+ Legacy instance) - Task 4: From CLC+ Core to CLC+ Legacy - 3436/R0-Copernicus/EEA.57755 |
-| AD07 | PM2 - 1st Project Management and Status Report (CLC+Core_Deliverable_PM2_1st-Project-Management-Status-Report_V1.0.pdf) |
-| AD08 | CLC+ Core Decision Log_V1.4 (CLC+Core_Decision_log_V1.4.pdf) |
-| AD09 | D1 - Software Design (CLC+Core_D1_Software \_Design_V1.0.pdf) |
-| AD10 | D3.2.1 - Demonstration and documentation of ingested CLMS datasets, under this Service Contract (CLC+Core_Deliverable_D3.2.1_Demonstration-and-documentation-of-ingested-CLMS-datasets_V01.pdf) |
-| AD11 | D3.1 - Documentation of deployment of CLC+ Core products to DIAS – cloud service (CLC+Core_Deliverable_D3.1_Documentation of deployment of CLC+ Core products to DIAS_V1.0.pdf) |
-| AD12 | LULUCF_classes_simplified_EAGLE_query_rules_20210325.xlsx (Provided by EAGLE Group) |
-| AD13 | Specific contract no 3506_R0-COPERNCA_EEA.59433 |
 
 # Introduction
 
@@ -6909,7 +6855,7 @@ raw input data is reprojected to the EPSG:3035 coordinate reference
 system and resampled to a 100m x 100m or 10 x 10m pixel size if they are
 not given in this format already. Therefore, it can happen that multiple
 **Input Classes** from the same **Ingestion** apply to the same raster
-pixel, but don’t cover the full extent of the pixel.  
+pixel, but don’t cover the full extent of the pixel.
 
 A coverage can also be *No-Data* if the whole area of the pixel is
 unclassified in the **Ingestion**.
@@ -6920,11 +6866,10 @@ name, an identifying class code and a C**lass Condition** that specifies
 when the output class should be applied.
 
 **Class Condition**  
-Specifies whether the **Extraction Output Class** to which it
-belongs should be applied to a given pixel, given the **coverage**
-values of **Extraction Input Classes**. Technically speaking, a class
-condition is a **Ruleset** (consisting of nested **Rules** and
-**Rulesets).**
+Specifies whether the **Extraction Output Class** to which it belongs
+should be applied to a given pixel, given the **coverage** values of
+**Extraction Input Classes**. Technically speaking, a class condition is
+a **Ruleset** (consisting of nested **Rules** and **Rulesets).**
 
 **Ruleset**  
 A combination of **Rules** *or* **Rulesets** using Boolean
@@ -6932,26 +6877,26 @@ operators[^10]. Depending on the type of linking operator, the compound
 expression is only true if both linked expressions are true
 (AND-linkage) or if at least one of the linked expressions is true
 (OR-linkage). Consequently, the result of a ruleset is also always
-*true* or *false.* For example: 
+*true* or *false.* For example:
 
 > *The coverage of LCC-Water/5 or LCC-Trees/5 must be greater than
-> 50%.   
-> **cov(“LCC-Water”, 5) \> 50*** ***   OR*** ***  cov(“LCC-Trees”, 5) \>
-> 50** *
+> 50%.  
+> **cov(“LCC-Water”, 5) \> 50*** \*\*\* OR\*\*\* \*\*\* cov(“LCC-Trees”,
+> 5) \> 50\*\* \*
 
 The top-level ruleset of an output class is called the **Class
-Condition.** 
+Condition.**
 
 **Rule**  
 A simple comparison of a **Coverage Function** (i.e. the coverage of a
-barcoded EAGLE element) against another coverage value. For example: 
+barcoded EAGLE element) against another coverage value. For example:
 
-> *The coverage of LCC-Water with barcode 5 must be greater than 50%.   
-> **cov(“LCC-Water\*\*\*\*\*\*”, 5) \> 50** *
+> *The coverage of LCC-Water with barcode 5 must be greater than 50%.  
+> **cov(“LCC-Water\*\*\*\*\*\*”, 5) \> 50***
 
 When evaluating a **rule** on a given pixel, the result is always either
 *true* or *false.* Comparing a *No-Data* value against any other value
-produces the result *false.* 
+produces the result *false.*
 
 **Coverage Function**  
 A function that computes the **Coverage** of a barcoded EAGLE element
@@ -6969,89 +6914,107 @@ computation works by:
 3.  Calculating the **Coverage** sum of all selected **Extraction Input
     Classes** (aggregation rule 2).
 
-# List of abbreviations
+# List of abbreviations & acronym
 
 | Abbreviation | Name | Reference |
 |----|----|----|
-| **ADs** | Applicable Documents |  |
-| **AI** | Action Item |  |
-| **API** | Application Programming Interface |  |
-| **CLC** | CORINE Land Cover | <https://land.copernicus.eu/en/products/corine-land-cover> |
-| **CLC+** | CORINE Land Cover + | <https://land.copernicus.eu/en/products/clc-a-new-generation-land-information-system-for-europe> |
-| **CLMS** | Copernicus Land Monitoring Service | <https://land.copernicus.eu/en> |
-| **COG** | Cloud-optimized GIF |  |
-| **CORINE** | Coordination of information on the environment |  |
-| **CZ** | Coastal Zones |  |
-| **DB** | Database |  |
-| **DIAS** | Copernicus Data and Information Access Services |  |
-| **EAGLE** | Eionet Action Group on Land monitoring in Europe | <https://land.copernicus.eu/en/eagle> |
-| **EC** | European Commission | <https://commission.europa.eu/> |
-| **EEA** | European Environment Agency | <https://www.eea.europa.eu> |
-| **EEA39** | The 33 member and 6 cooperating countries of the EEA |  |
-| **EEA38+UK** | The 32 member and 6 cooperating countries of the EEA + United Kingdom |  |
-| **EO** | Earth Observation |  |
-| **ESA** | European Space Agency | <https://www.esa.int> |
-| **ETC** | European Topic Centre | <https://www.eionet.europa.eu/etcs> |
-| **EU** | European Union |  |
-| **EU27** | The 27 Member States of the European Union |  |
-| **FM** | Final Meeting |  |
-| **FWC** | Framework Contract |  |
-| **GDAL** | Geospatial Data Abstraction Library |  |
-| **GDB** | Geodatabase |  |
-| **GIO** | GMES Initial Operations |  |
-| **GPKG** | GeoPackage |  |
-| **HDF5** | Hierarchical Data Format |  |
-| **HRL / HRLs** | High Resolution Layer / High Resolution Layers |  |
-| **IaaS** | Infrastructure-as-a-Service |  |
-| **ID** | Identification Number |  |
-| **INSPIRE** | Infrastructure for Spatial Information in Europe | <https://knowledge-base.inspire.ec.europa.eu/index_en> |
-| **ISO** | International Organisation for Standardization |  |
-| **ITT** | Invitation to Tender |  |
-| **JDBC** | Java Database Connectivity |  |
-| **JWT** | JSON Web Token |  |
-| **KOM** | Kick-Off Meeting |  |
-| **LC** | Land Cover |  |
-| **LCC** | Land Cover Component |  |
-| **LCH** | Land Characteristics |  |
-| **LC/LU** | Land Cover / Land Use |  |
-| **LCC** | Land Cover Component |  |
-| **LU** | Land Use |  |
-| **LUA** | Land Use Attribute |  |
-| **LULUCF** | Land Use, Land Use Change and Forestry |  |
-| **LYR** | ArcGIS Layer File |  |
-| **MMU** | Minimum Mapping Unit |  |
-| **MS** | Member States |  |
-| **NFRs** | Non-Functional-Requirements |  |
-| **NRC** | National Reference Centre |  |
-| **NUTS** | Nomenclature of Territorial Units for Statistics |  |
-| **N2K** | Natura 2000 |  |
-| **OBDC** | Open Database Connectivity |  |
-| **PDF** | Portable Document Format |  |
-| **PM** | Progress Meeting |  |
-| **PMP** | Project Management Plan |  |
-| **PoC** | Proof of Concept |  |
-| **QA** | Quality Assurance |  |
-| **QC** | Quality Control |  |
-| **QM** | Quality Management |  |
-| **QML** | QGIS Style file |  |
-| **REST** | Representational State Transfer |  |
-| **RZ** | Riparian Zones |  |
-| **SC** | Specific Contract |  |
-| **SHP** | ESRI Shapefile |  |
-| **SLD** | Styled Layer Descriptor |  |
-| **SQL** | Structured Query Language |  |
-| **UA** | Urban Atlas |  |
-| **UI** | User Interface |  |
-| **URI** | Uniform Resource Identifier |  |
-| **URL** | Uniform Resource Locator |  |
-| **UUID** | Universally Unique Identifier |  |
-| **VM** | Virtual Machine |  |
-| **WBS** | Work Breakdown Structure |  |
-| **WEkEO** | Copernicus DIAS reference service for environmental data, virtual environments for data processing | <https://www.wekeo.eu/> |
-| **WP** | Work Package |  |
-| **ZIP** | ZIP Format |  |
+| ADs | Applicable Documents |  |
+| AI | Action Item |  |
+| API | Application Programming Interface |  |
+| CLC | CORINE Land Cover | https://land.copernicus.eu/en/products/corine-land-cover |
+| CLC+ | CORINE Land Cover + | https://land.copernicus.eu/en/products/clc-a-new-generation-land-information-system-for-europe |
+| CLMS | Copernicus Land Monitoring Service | https://land.copernicus.eu/en |
+| COG | Cloud-optimized GIF |  |
+| CORINE | Coordination of information on the environment |  |
+| CZ | Coastal Zones |  |
+| DB | Database |  |
+| DIAS | Copernicus Data and Information Access Services |  |
+| EAGLE | Eionet Action Group on Land monitoring in Europe | https://land.copernicus.eu/en/eagle |
+| EC | European Commission | https://commission.europa.eu/ |
+| EEA | European Environment Agency | https://www.eea.europa.eu |
+| EEA39 | The 33 member and 6 cooperating countries of the EEA |  |
+| EEA38+UK | The 32 member and 6 cooperating countries of the EEA + United Kingdom |  |
+| EO | Earth Observation |  |
+| ESA | European Space Agency | https://www.esa.int |
+| ETC | European Topic Centre | https://www.eionet.europa.eu/etcs |
+| EU | European Union |  |
+| EU27 | The 27 Member States of the European Union |  |
+| FM | Final Meeting |  |
+| FWC | Framework Contract |  |
+| GDAL | Geospatial Data Abstraction Library |  |
+| GDB | Geodatabase |  |
+| GIO | GMES Initial Operations |  |
+| GPKG | GeoPackage |  |
+| HDF5 | Hierarchical Data Format |  |
+| HRL / HRLs | High Resolution Layer / High Resolution Layers |  |
+| IaaS | Infrastructure-as-a-Service |  |
+| ID | Identification Number |  |
+| INSPIRE | Infrastructure for Spatial Information in Europe | https://knowledge-base.inspire.ec.europa.eu/index_en |
+| ISO | International Organisation for Standardization |  |
+| ITT | Invitation to Tender |  |
+| JDBC | Java Database Connectivity |  |
+| JWT | JSON Web Token |  |
+| KOM | Kick-Off Meeting |  |
+| LC | Land Cover |  |
+| LCC | Land Cover Component |  |
+| LCH | Land Characteristics |  |
+| LC/LU | Land Cover / Land Use |  |
+| LCC | Land Cover Component |  |
+| LU | Land Use |  |
+| LUA | Land Use Attribute |  |
+| LULUCF | Land Use, Land Use Change and Forestry |  |
+| LYR | ArcGIS Layer File |  |
+| MMU | Minimum Mapping Unit |  |
+| MS | Member States |  |
+| NFRs | Non-Functional-Requirements |  |
+| NRC | National Reference Centre |  |
+| NUTS | Nomenclature of Territorial Units for Statistics |  |
+| N2K | Natura 2000 |  |
+| OBDC | Open Database Connectivity |  |
+| PDF | Portable Document Format |  |
+| PM | Progress Meeting |  |
+| PMP | Project Management Plan |  |
+| PoC | Proof of Concept |  |
+| QA | Quality Assurance |  |
+| QC | Quality Control |  |
+| QM | Quality Management |  |
+| QML | QGIS Style file |  |
+| REST | Representational State Transfer |  |
+| RZ | Riparian Zones |  |
+| SC | Specific Contract |  |
+| SHP | ESRI Shapefile |  |
+| SLD | Styled Layer Descriptor |  |
+| SQL | Structured Query Language |  |
+| UA | Urban Atlas |  |
+| UI | User Interface |  |
+| URI | Uniform Resource Identifier |  |
+| URL | Uniform Resource Locator |  |
+| UUID | Universally Unique Identifier |  |
+| VM | Virtual Machine |  |
+| WBS | Work Breakdown Structure |  |
+| WEkEO | Copernicus DIAS reference service for environmental data, virtual environments for data processing | https://www.wekeo.eu/ |
+| WP | Work Package |  |
+| ZIP | ZIP Format |  |
 
 # Annex
+
+**Applicable Documents (AD)**
+
+| **ID** | **Document Name / Content** |
+|----|----|
+| AD01 | Tender Specifications – EEA/DIS/R0/20/019 – Copernicus Land Monitoring Service – Production of the CLC+ Core and Provision of Complementary Consultancy Services |
+| AD02 | Consortium’s Technical Proposal – in response to Call for tenders EEA/DIS/R0/20/019 – CLC+CORE Technical Proposal - v2.0 |
+| AD03 | Specific Contract No 3436/R0-COPERNICUS/EEA.58286 |
+| AD04 | Minutes of the KOM (CLC+Core_KOM_Minutes.docx) |
+| AD05 | PM1 - Project Management and Governance Plan (CLC+Core_Deliverable_PM1_Project_Management_Plan_V1.0.pdf) |
+| AD06 | Implementation of CLC+ based on the EAGLE concept –Additional support for further development of CLC+<br><br>databases (CLC+ and CLC+ instances, namely CLC+ LULUCF instance and CLC+ Legacy instance) - Task 4: From CLC+ Core to CLC+ Legacy - 3436/R0-Copernicus/EEA.57755 |
+| AD07 | PM2 - 1st Project Management and Status Report (CLC+Core_Deliverable_PM2_1st-Project-Management-Status-Report_V1.0.pdf) |
+| AD08 | CLC+ Core Decision Log_V1.4 (CLC+Core_Decision_log_V1.4.pdf) |
+| AD09 | D1 - Software Design (CLC+Core_D1_Software \_Design_V1.0.pdf) |
+| AD10 | D3.2.1 - Demonstration and documentation of ingested CLMS datasets, under this Service Contract (CLC+Core_Deliverable_D3.2.1_Demonstration-and-documentation-of-ingested-CLMS-datasets_V01.pdf) |
+| AD11 | D3.1 - Documentation of deployment of CLC+ Core products to DIAS – cloud service (CLC+Core_Deliverable_D3.1_Documentation of deployment of CLC+ Core products to DIAS_V1.0.pdf) |
+| AD12 | LULUCF_classes_simplified_EAGLE_query_rules_20210325.xlsx (Provided by EAGLE Group) |
+| AD13 | Specific contract no 3506_R0-COPERNCA_EEA.59433 |
 
 **Barcoding**
 
@@ -7077,14 +7040,14 @@ elements to take different roles, according to the targeted definitions.
 Similar class definitions should reflect in also similar barcoding
 results.[^11].
 
-| **Barcode Value** | **Definition** |
+| BCV | Description |
 |----|----|
 | X | Element is excluded by definition |
-| 1 | An optional element, it can occur as typical but not necessarily as mandatory |
-| 2 | Selective mandatory element, EITHER-AND/OR logic, at least two or more of all elements with assigned BCV 2 must be present |
-| 3 | Cumulative mandatory element, AND-logic, all elements with assigned BCV 3 must be present |
-| 4 | Paired mandatory element, two of all elements with assigned BCV 4 must be present |
-| 5 | Exclusive mandatory element, NOTHING-BUT-logic, practically allows only the one element with assigned BCV 5 and excludes any other element from its parent matrix block |
+| 1 | Optional element, it can occur occasionally or typically but is not mandatory. Take into account scale and MMU of addressed class. |
+| 2 | Selective defining element, EITHER-OR-logic, at least one or more out of all elements with assigned BCV 2 must be present, BCV 2 element never stands alone, always must have at least one counter-selective element. |
+| 3 | Cumulative mandatory element, AND-logic, all elements with assigned BCV 3 are compulsory and must be present. More than 1 element expected, but can also occur as stand-alone. |
+| 4 | Paired mandatory element, EITHER-AND-OR-logic, at least two out of three or more elements with assigned BCV 4 must be present. |
+| 5 | Exclusive mandatory element, NOTHING-BUT-logic, practically allows only the one solitary element with assigned BCV 5 and excludes any other element from its parent matrix block. |
 
 <span id="_Ref152071020" class="anchor"></span>Table 0‑1: List of
 Bar-code value meanings. The BCVs define the role of EAGLE elements to
@@ -7519,12 +7482,12 @@ style="text-align: center;"><strong>Grassland</strong></td>
 <tr>
 <td style="text-align: left;">SIOSE LU</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;"> 1_1_1 commercial crop production</td>
+<td style="text-align: left;">1_1_1 commercial crop production</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
 <td style="text-align: left;">SIOSE LC</td>
-<td style="text-align: left;"> 2_2_1 graminiods, 2_2
+<td style="text-align: left;">2_2_1 graminiods, 2_2
 herbaceous_vegetation</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
@@ -7603,7 +7566,7 @@ use</td>
 </tr>
 <tr>
 <td style="text-align: left;">SIOSE LC</td>
-<td style="text-align: left;"> 2_2_1_1 Grasses, Sedges, Rushes,
+<td style="text-align: left;">2_2_1_1 Grasses, Sedges, Rushes,
 Cereals</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
@@ -7611,7 +7574,7 @@ Cereals</td>
 <tr>
 <td style="text-align: left;">BRP</td>
 <td style="text-align: left;">2_2_1 graminiods</td>
-<td style="text-align: left;"> 6_3_1 Land areas not in other economic
+<td style="text-align: left;">6_3_1 Land areas not in other economic
 use</td>
 <td style="text-align: left;"></td>
 </tr>
@@ -7770,9 +7733,9 @@ succession. Areas representing natural development of forest formations,
 consisting of young plants of broad–leaved and coniferous species, with
 herbaceous vegetation and dispersed solitary adult trees. Transitional
 process can be for instance natural succession on abandoned agricultural
-land, regeneration of forest after damages of various origin
-(e.g. storm, avalanche), stages of forest degeneration caused by natural
-or anthropogenic stress factors (e.g. drought, pollution), reforestation
+land, regeneration of forest after damages of various origin (e.g.
+storm, avalanche), stages of forest degeneration caused by natural or
+anthropogenic stress factors (e.g. drought, pollution), reforestation
 after clearcutting, afforestation on formerly non-forested natural or
 semi-natural areas etc.<br />
 <strong>Includes:</strong><br />

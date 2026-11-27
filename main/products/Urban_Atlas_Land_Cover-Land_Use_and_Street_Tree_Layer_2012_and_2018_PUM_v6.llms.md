@@ -1511,7 +1511,7 @@ Back to top
 
 ## Reuse
 
-EUPL (\>= 1.2)
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 [^1]: Allotment gardens are complexes of a few up to hundreds of land parcels assigned to residential people.
 

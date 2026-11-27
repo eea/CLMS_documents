@@ -515,7 +515,7 @@ Back to top
 
 ## Reuse
 
-EUPL (\>= 1.2)
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 [^1]: The difficulties in those areas are manifold and range e.g. from very dry conditions, causing low vegetation cover and soil signal contamination in the Mediterranean, to illumination effects/shadows and short vegetation cycles (prolonged snow cover) in the northern areas of Europe.
 

@@ -338,6 +338,6 @@ Back to top
 
 ## Reuse
 
-EUPL (\>= 1.2)
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 [^1]: https://commission.europa.eu/content/european-union-public-licence_en

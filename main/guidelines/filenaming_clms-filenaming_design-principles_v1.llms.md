@@ -355,11 +355,11 @@ Some aspects genuinely differ between product families and should not be forced 
 
 | Date | Version | Summary |
 |----|----|----|
-| 2026-11-10 | 1.2.0 | • Updated document date in frontmatter. • Major revision of Principle 8 (Temporal Coverage) to consolidate 'Aggregated', 'Status', and 'Timeseries' formats into a single 'Period' format. • Removed \`A\`, \`S\`, and \`T\` prefixes from temporal fields, simplifying the rule set. • Updated all filename examples throughout the document to reflect the new temporal field convention. • Revised the summary table at the end to align with the new temporal field principles. |
+| 2026-11-27 | 1.2.0 | Revised Principle 8 on 'Temporal Coverage', consolidating aggregated, status, and timeseries product temporal formats into a single 'Period' format (\`YYYYMMDDPHHMMSS\`) without a prefix. This change necessitated updating numerous filename examples and relevant rule descriptions across the document for consistency. |
 | 2026-10-29 | 1.1.0 | Initial publication of the 'CLMS Product Filenaming - Design Principles' document, detailing rules for filename structure, allowed characters, delimiters, field order, and product-specific tokens. |
 
 Back to top
 
 ## Reuse
 
-EUPL (\>= 1.2)
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)

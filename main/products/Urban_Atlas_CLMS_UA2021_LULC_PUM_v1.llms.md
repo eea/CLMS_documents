@@ -1485,7 +1485,7 @@ Back to top
 
 ## Reuse
 
-EUPL (\>= 1.2)
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 [^1]: <https://land.copernicus.eu/en/use-cases/assessing-quality-and-accessibility-of-finnish-urban-green-spaces-with-urban-atlas/assessing-quality-and-accessibility-of-finnish-urban-green-spaces-with-urban-atlas>
 

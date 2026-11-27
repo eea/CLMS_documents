@@ -6,12 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="European Environment Agency (EEA)">
 <meta name="dcterms.date" content="2026-09-28">
 <meta name="keywords" content="CLC+ Core system, EAGLE concept, land cover/land use data, data ingestion, rule-based extraction, 10m resolution processing, 100m spatial resolution, Input Classes, Output Classes, EIONET authentication, Copernicus Land Monitoring Service products">
 <meta name="description" content="This User Guideline serves as comprehensive documentation for the Copernicus Land Monitoring Service’s CLC+ Core system, detailing its web-based functionalities and user interfaces. It guides users through the process of ingesting diverse land cover/land use datasets, encompassing CLMS products and national data, and standardising them via the EAGLE concept. The document meticulously explains how to define complex rule-based extractions to generate new, customised land monitoring products at both 100m and 10m spatial resolutions, supporting advanced environmental analysis and policy implementation.">
 
-<title>CLC+ Core User Manual – Technical Library</title>
+<title>CLCplus Core User Manual – Technical Library</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -46,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cc2c63177fbf9d0018fa3815378e833d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-fe6e7194a871e42d4b9aa87001bfd5ba.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,13 +76,12 @@ ul.task-list li input[type="checkbox"] {
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "CLC+ Core User Manual",
+    "headline": "CLCplus Core User Manual",
     "description": "This User Guideline serves as comprehensive documentation for the Copernicus Land Monitoring Service’s CLC+ Core system, detailing its web-based functionalities and user interfaces. It guides users through the process of ingesting diverse land cover/land use datasets, encompassing CLMS products and national data, and standardising them via the EAGLE concept. The document meticulously explains how to define complex rule-based extractions to generate new, customised land monitoring products at both 100m and 10m spatial resolutions, supporting advanced environmental analysis and policy implementation.",
     "datePublished": "September 28, 2026",
     "author": {
       "@type": "Person",
-      "name": "European Environment Agency (EEA)
-"
+      "name": "?meta:author"
     },
     "publisher": {
       "@type": "Organization",
@@ -95,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
     },
     "articleSection": "General",
     "isAccessibleForFree": "true",
-    "license": "",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
     "speakable": {
       "@type": "SpeakableSpecification",
       "cssSelector": "article p"
@@ -208,7 +206,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#faq-frequently-asked-questions" id="toc-faq-frequently-asked-questions" class="nav-link" data-scroll-target="#faq-frequently-asked-questions"><span class="header-section-number">5</span> FAQ (Frequently Asked Questions)</a></li>
   <li><a href="#admin-user-only---see-separate-annex" id="toc-admin-user-only---see-separate-annex" class="nav-link" data-scroll-target="#admin-user-only---see-separate-annex"><span class="header-section-number">6</span> Admin User only - see separate Annex</a></li>
   <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">7</span> Glossary</a></li>
-  <li><a href="#list-of-abbreviations" id="toc-list-of-abbreviations" class="nav-link" data-scroll-target="#list-of-abbreviations"><span class="header-section-number">8</span> List of abbreviations</a></li>
+  <li><a href="#list-of-abbreviations-acronym" id="toc-list-of-abbreviations-acronym" class="nav-link" data-scroll-target="#list-of-abbreviations-acronym"><span class="header-section-number">8</span> List of abbreviations &amp; acronym</a></li>
   <li><a href="#annex" id="toc-annex" class="nav-link" data-scroll-target="#annex"><span class="header-section-number">9</span> Annex</a></li>
   <li><a href="#change-log" id="toc-change-log" class="nav-link" data-scroll-target="#change-log"><span class="header-section-number">10</span> Change Log</a></li>
   </ul>
@@ -224,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
     // don't render an empty "Version" heading, and when the doc has no
     // title-meta block at all (nothing to append to). Quarto renders an unset
     // meta key as the placeholder "?meta:version", so treat that as empty too.
-    const raw = `1.2.0`.trim();
+    const raw = `1.3.0`.trim();
     const version = raw.startsWith("?meta:") ? "" : raw;
     const titleMetaEl = document.querySelector(".quarto-title-meta");
     if (!version || !titleMetaEl) return;
@@ -232,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
     wrapperDiv.innerHTML = `
         <div class="quarto-title-meta-heading">Version</div>
         <div class="quarto-title-meta-contents">
-          <p>1.2.0</p>
+          <p>1.3.0</p>
         </div>
       `;
     titleMetaEl.appendChild(wrapperDiv);
@@ -241,8 +239,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CLC+ Core User Manual</h1>
-<p class="subtitle lead">CLC+ Core production and provision of complementary consultancy</p>
+<h1 class="title">CLCplus Core User Manual</h1>
+<p class="subtitle lead">Copernicus Land Monitoring Service</p>
 </div>
 
 <div>
@@ -254,12 +252,6 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta column-page-left">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>European Environment Agency (EEA) </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -291,203 +283,6 @@ Kongens Nytorv 6<br>
 Denmark<br>
 <a href="https://land.copernicus.eu/"><strong>https://land.copernicus.eu/</strong></a></p>
 </div>
-<p>Date: 2026-09-28</p>
-<p>Doc. Version&nbsp;: Issue 5.0</p>
-<p>Content ID: /</p>
-<p><strong>Document Control Information</strong></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 40%">
-<col style="width: 59%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Document Title</th>
-<th>CLC+ Core User Guideline</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Project Title</td>
-<td>Operational maintenance of the CLCplus Core platform and infrastructure</td>
-</tr>
-<tr class="even">
-<td>Document Author</td>
-<td>Xabier Diego, Manuel Martínez, Arantza Echevarria</td>
-</tr>
-<tr class="odd">
-<td>Project Owner</td>
-<td>Massimiliano Rossi (EEA)</td>
-</tr>
-<tr class="even">
-<td>Project Manager</td>
-<td>Massimiliano Rossi (EEA)</td>
-</tr>
-<tr class="odd">
-<td>Document Code</td>
-<td>/</td>
-</tr>
-<tr class="even">
-<td>Document Version</td>
-<td>Issue 5.0</td>
-</tr>
-<tr class="odd">
-<td>Distribution</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Date</td>
-<td>2026-09-28</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Document Approver(s) and Reviewer(s):</strong></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 29%">
-<col style="width: 21%">
-<col style="width: 28%">
-<col style="width: 21%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Role</th>
-<th>Action</th>
-<th>Date</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Tim Wiltzius (CLF)</td>
-<td>Reviewer</td>
-<td>Document review</td>
-<td>2023-12-20</td>
-</tr>
-<tr class="even">
-<td>Johannes Vass (CLF)</td>
-<td>Reviewer</td>
-<td>Document review</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Document history</strong></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 13%">
-<col style="width: 18%">
-<col style="width: 28%">
-<col style="width: 39%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Revision</th>
-<th>Date</th>
-<th>Created by</th>
-<th>Short description of changes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1.0</td>
-<td>2022-04-08</td>
-<td>CLC+ Core consortium (CLF, GV, GAF)</td>
-<td>Initial document creation</td>
-</tr>
-<tr class="even">
-<td>2.0</td>
-<td>2022-06-10</td>
-<td>CLC+ Core consortium (CLF, GV, GAF)</td>
-<td>Restructure of entire document, extension of Extraction chapter and Admin User section</td>
-</tr>
-<tr class="odd">
-<td>3.0</td>
-<td>2023-06-06</td>
-<td>CLC+ Core consortium (CLF, GV, GAF)</td>
-<td>Adaption of rule 3 in the current version of the CLC+ Core system</td>
-</tr>
-<tr class="even">
-<td>4.0</td>
-<td>2023-12-22</td>
-<td>CLC+ Core consortium (CLF, GV, GAF)</td>
-<td>Update of the entire document with all newly implemented features and improvements of the system (within SC8)</td>
-</tr>
-<tr class="odd">
-<td>5.0</td>
-<td>2026-09-28</td>
-<td>Bilbomática, an Altia company</td>
-<td>Update with the new 10m resolution feature</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Applicable Documents (AD)</strong></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 90%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>ID</strong></th>
-<th><strong>Document Name / Content</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>AD01</td>
-<td>Tender Specifications – EEA/DIS/R0/20/019 – Copernicus Land Monitoring Service – Production of the CLC+ Core and Provision of Complementary Consultancy Services</td>
-</tr>
-<tr class="even">
-<td>AD02</td>
-<td>Consortium’s Technical Proposal – in response to Call for tenders EEA/DIS/R0/20/019 – CLC+CORE Technical Proposal - v2.0</td>
-</tr>
-<tr class="odd">
-<td>AD03</td>
-<td>Specific Contract No 3436/R0-COPERNICUS/EEA.58286</td>
-</tr>
-<tr class="even">
-<td>AD04</td>
-<td>Minutes of the KOM (CLC+Core_KOM_Minutes.docx)</td>
-</tr>
-<tr class="odd">
-<td>AD05</td>
-<td>PM1 - Project Management and Governance Plan (CLC+Core_Deliverable_PM1_Project_Management_Plan_V1.0.pdf)</td>
-</tr>
-<tr class="even">
-<td>AD06</td>
-<td>Implementation of CLC+ based on the EAGLE concept –Additional support for further development of CLC+<br><br>databases (CLC+ and CLC+ instances, namely CLC+ LULUCF instance and CLC+ Legacy instance) - Task 4: From CLC+ Core to CLC+ Legacy - 3436/R0-Copernicus/EEA.57755</td>
-</tr>
-<tr class="odd">
-<td>AD07</td>
-<td>PM2 - 1st Project Management and Status Report (CLC+Core_Deliverable_PM2_1st-Project-Management-Status-Report_V1.0.pdf)</td>
-</tr>
-<tr class="even">
-<td>AD08</td>
-<td>CLC+ Core Decision Log_V1.4 (CLC+Core_Decision_log_V1.4.pdf)</td>
-</tr>
-<tr class="odd">
-<td>AD09</td>
-<td>D1 - Software Design (CLC+Core_D1_Software _Design_V1.0.pdf)</td>
-</tr>
-<tr class="even">
-<td>AD10</td>
-<td>D3.2.1 - Demonstration and documentation of ingested CLMS datasets, under this Service Contract (CLC+Core_Deliverable_D3.2.1_Demonstration-and-documentation-of-ingested-CLMS-datasets_V01.pdf)</td>
-</tr>
-<tr class="odd">
-<td>AD11</td>
-<td>D3.1 - Documentation of deployment of CLC+ Core products to DIAS – cloud service (CLC+Core_Deliverable_D3.1_Documentation of deployment of CLC+ Core products to DIAS_V1.0.pdf)</td>
-</tr>
-<tr class="even">
-<td>AD12</td>
-<td>LULUCF_classes_simplified_EAGLE_query_rules_20210325.xlsx (Provided by EAGLE Group)</td>
-</tr>
-<tr class="odd">
-<td>AD13</td>
-<td>Specific contract no 3506_R0-COPERNCA_EEA.59433</td>
-</tr>
-</tbody>
-</table>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ImageObject","caption":"","height":"2.6032841207349082in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image3.jpg","width":"6.419444444444444in"},{"@type":"ImageObject","caption":"","height":"3.9828751093613297in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image4.jpg","width":"6.093470034995626in"},{"@type":"ImageObject","caption":"","height":"3.8055555555555554in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image7.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.8201388888888888in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image8.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.832638888888889in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image9.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"1.1444444444444444in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image11.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.8125in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image12.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.811023622047244in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image16.png","width":"6.925196850393701in"},{"@type":"ImageObject","caption":"","height":"2.086956474190726in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image17.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"1.6236111111111111in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image18.jpg","width":"6.768055555555556in"},{"@type":"ImageObject","caption":"","height":"3.828472222222222in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image19.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image21.png"},{"@type":"ImageObject","caption":"","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image20.jpg"},{"@type":"ImageObject","caption":"","height":"3.2493055555555554in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image23.jpg","width":"6.768055555555556in"},{"@type":"ImageObject","caption":"","height":"3.858339895013123in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image24.jpg","width":"6.929391951006124in"},{"@type":"ImageObject","caption":"","height":"2.794145888013998in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image25.jpeg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.0034722222222223in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image26.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.3541666666666665in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image27.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.747916666666667in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image28.png","width":"6.3in"},{"@type":"ImageObject","caption":"","height":"2.751733847759086in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image32.jpg","width":"6.925196850393701in"},{"@type":"ImageObject","caption":"","height":"1.330708661417323in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image29.jpg","width":"6.925196850393701in"},{"@type":"ImageObject","caption":"","height":"1.3968996062992125in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image34.png","width":"3.039200568678915in"},{"@type":"ImageObject","caption":"","height":"1.4241305774278215in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image35.png","width":"2.766547462817148in"},{"@type":"ImageObject","caption":"","height":"3.1378543307086613in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image36.png","width":"5.388442694663167in"},{"@type":"ImageObject","caption":"","height":"3.823611111111111in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image37.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"2.9793580489938756in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image38.png","width":"3.9963746719160107in"},{"@type":"ImageObject","caption":"","height":"2.5555555555555554in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image39.png","width":"6.268055555555556in"},{"@type":"ImageObject","caption":"","height":"5.131944444444445in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image40.jpg","width":"6.268055555555556in"},{"@type":"ImageObject","caption":"","height":"4.072916666666667in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image41.jpg","width":"6.268055555555556in"},{"@type":"ImageObject","caption":"","height":"4.33125in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image42.png","width":"6.268055555555556in"},{"@type":"ImageObject","caption":"","height":"6.988194444444445in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image43.jpg","width":"6.268055555555556in"},{"@type":"ImageObject","caption":"","height":"3.713888888888889in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image44.jpg","width":"6.268055555555556in"},{"@type":"ImageObject","caption":"","height":"3.2496117672790903in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image45.png","width":"3.620683508311461in"},{"@type":"ImageObject","caption":"","height":"3.2214873140857394in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image46.png","width":"2.416116579177603in"},{"@type":"ImageObject","caption":"","height":"1.7451388888888888in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image51.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.8180555555555555in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image53.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.817361111111111in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image54.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.81875in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image55.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"1.073611111111111in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image56.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"1.4673611111111111in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image57.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.2222222222222223in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image58.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"5.972541557305337in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image59.png","width":"5.909722222222222in"},{"@type":"ImageObject","caption":"","height":"3.0520833333333335in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image60.jpg","width":"6.607769028871391in"},{"@type":"ImageObject","caption":"","height":"3.852777777777778in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image61.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.1693733595800526in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image62.png","width":"4.93673665791776in"},{"@type":"ImageObject","caption":"","height":"4.519685039370079in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image64.png","width":"4.338582677165355in"},{"@type":"ImageObject","caption":"","height":"2.1646161417322833in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image63.png","width":"3.5188681102362205in"},{"@type":"ImageObject","caption":"","height":"5.9375in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image65.jpg","width":"5.291666666666667in"},{"@type":"ImageObject","caption":"","height":"4.801718066491689in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image66.png","width":"5.926814304461942in"},{"@type":"ImageObject","caption":"","height":"3.5814720034995626in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image67.JPG","width":"4.811321084864392in"},{"@type":"ImageObject","caption":"","height":"2.9253576115485562in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image68.JPG","width":"4.792452974628172in"},{"@type":"ImageObject","caption":"","height":"2.177729658792651in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image69.jpg","width":"4.147503280839895in"},{"@type":"ImageObject","caption":"","height":"2.6924595363079615in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image70.png","width":"3.9302241907261593in"},{"@type":"ImageObject","caption":"","height":"5.329136045494313in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image72.png","width":"4.5496751968503935in"},{"@type":"ImageObject","caption":"","height":"3.5280533683289588in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image75.JPG","width":"3.2547167541557305in"},{"@type":"ImageObject","caption":"","height":"1.746836176727909in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image74.png","width":"3.7945319335083116in"},{"@type":"ImageObject","caption":"","height":"3.906424978127734in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image75.JPG","width":"3.6037740594925634in"},{"@type":"ImageObject","caption":"","height":"1.537652012248469in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image76.png","width":"2.991311242344707in"},{"@type":"ImageObject","caption":"","height":"4.182929790026247in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image78.png","width":"4.0806277340332455in"},{"@type":"ImageObject","caption":"","height":"2.584806430446194in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image79.jpg","width":"3.573008530183727in"},{"@type":"ImageObject","caption":"","height":"3.8180555555555555in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image80.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.144948600174978in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image81.jpg","width":"4.013493000874891in"},{"@type":"ImageObject","caption":"","height":"3.3500721784776903in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image82.jpg","width":"4.726548556430446in"},{"@type":"ImageObject","caption":"","height":"3.109834864391951in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image83.png","width":"5.412512029746281in"},{"@type":"ImageObject","caption":"","height":"3.3181813210848645in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image84.jpeg","width":"5.6799289151356085in"},{"@type":"ImageObject","caption":"","height":"4.340909886264217in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image85.jpeg","width":"4.80394028871391in"},{"@type":"ImageObject","caption":"","height":"3.06462489063867in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image86.jpg","width":"5.619794400699912in"},{"@type":"ImageObject","caption":"","height":"3.637884951881015in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image88.JPG","width":"3.486956474190726in"},{"@type":"ImageObject","caption":"","height":"1.1036406386701663in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image87.png","width":"3.513888888888889in"},{"@type":"ImageObject","caption":"","height":"4.5712828083989505in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image89.png","width":"3.9079429133858268in"},{"@type":"ImageObject","caption":"","height":"4.169222440944882in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image91.JPG","width":"3.991304680664917in"},{"@type":"ImageObject","caption":"","height":"1.6791666666666667in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image90.png","width":"3.777292213473316in"},{"@type":"ImageObject","caption":"","height":"4.141973972003499in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image91.JPG","width":"3.965217629046369in"},{"@type":"ImageObject","caption":"","height":"1.4520833333333334in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image92.png","width":"3.2582983377077865in"},{"@type":"ImageObject","caption":"","height":"4.503503937007874in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image91.JPG","width":"4.311319991251094in"},{"@type":"ImageObject","caption":"","height":"1.4in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image93.png","width":"3.2121391076115486in"},{"@type":"ImageObject","caption":"","height":"3.214753937007874in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image94.png","width":"4.204266185476816in"},{"@type":"ImageObject","caption":"","height":"1.1034722222222222in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image87.png","width":"3.513888888888889in"},{"@type":"ImageObject","caption":"","height":"1.568176946631671in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image95.png","width":"2.9251498250218724in"},{"@type":"ImageObject","caption":"","height":"1.5401607611548556in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image96.png","width":"2.801619641294838in"},{"@type":"ImageObject","caption":"","height":"3.245138888888889in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image98.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.251388888888889in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image99.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"2.9854166666666666in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image100.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"2.6083333333333334in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image101.jpg","width":"5.570138888888889in"},{"@type":"ImageObject","caption":"","height":"2.6625in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image102.jpg","width":"5.570138888888889in"},{"@type":"ImageObject","caption":"","height":"1.423902012248469in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image103.jpg","width":"2.5629604111986in"},{"@type":"ImageObject","caption":"","height":"3.8201388888888888in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image104.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.801388888888889in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image105.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"5.0123020559930005in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image106.png","width":"3.734235564304462in"},{"@type":"ImageObject","caption":"","height":"2.5390004374453192in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image107.png","width":"4.19990157480315in"},{"@type":"ImageObject","caption":"","height":"3.8125in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image109.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"5.73125in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image110.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.797222222222222in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image111.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"2.059691601049869in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image112.png","width":"3.876061898512686in"},{"@type":"ImageObject","caption":"","height":"1.6599825021872265in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image113.png","width":"3.1216032370953632in"},{"@type":"ImageObject","caption":"","height":"2.0510750218722658in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image114.png","width":"3.987040682414698in"},{"@type":"ImageObject","caption":"","height":"1.9885094050743657in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image115.jpg","width":"4.84594706911636in"},{"@type":"ImageObject","caption":"","height":"3.183333333333333in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image117.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"5.055555555555555in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image118.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.1277777777777778in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image119.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.1083333333333334in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image121.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"5.274247594050744in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image122.png","width":"4.51959864391951in"},{"@type":"ImageObject","caption":"","height":"4.506944444444445in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image123.png","width":"5.734752843394576in"},{"@type":"ImageObject","caption":"","height":"1.0229855643044619in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image124.jpg","width":"4.576922572178478in"},{"@type":"ImageObject","caption":"Graphical  user  interface,  website  Description  automatically  generated","height":"2.6134186351706035in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image125.jpg","width":"5.554351487314086in"},{"@type":"ImageObject","caption":"","height":"2.591666666666667in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image126.jpg","width":"6.768055555555556in"},{"@type":"ImageObject","caption":"","height":"2.886111111111111in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image127.jpg","width":"6.768055555555556in"},{"@type":"ImageObject","caption":"","height":"1.4375in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image128.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.2715277777777776in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image129.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"4.00466426071741in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image130.png","width":"3.126003937007874in"},{"@type":"ImageObject","caption":"","height":"4.073033683289589in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image131.png","width":"3.303876859142607in"},{"@type":"ImageObject","caption":"","height":"1.8518011811023622in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image132.png","width":"3.4574409448818897in"},{"@type":"ImageObject","caption":"","height":"0.16875in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image133.jpg","width":"0.16875in"},{"@type":"ImageObject","caption":"","height":"1.69875in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image134.jpg","width":"6.1026388888888885in"},{"@type":"ImageObject","caption":"","height":"0.16875in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image133.jpg","width":"0.16875in"},{"@type":"ImageObject","caption":"","height":"1.7584284776902888in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image135.jpg","width":"6.355581802274716in"},{"@type":"ImageObject","caption":"","height":"3.266139545056868in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image136.jpg","width":"6.565197944006999in"},{"@type":"ImageObject","caption":"","height":"3.286111111111111in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image137.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"0.16875in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image133.jpg","width":"0.16875in"},{"@type":"ImageObject","caption":"","height":"0.17844597550306213in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image138.png","width":"0.4027777777777778in"},{"@type":"ImageObject","caption":"","height":"0.1736111111111111in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image139icon.jpg","width":"0.1736111111111111in"},{"@type":"ImageObject","caption":"","height":"0.16875in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image133.jpg","width":"0.16875in"},{"@type":"ImageObject","caption":"","height":"0.1736111111111111in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image139icon.jpg","width":"0.1736111111111111in"},{"@type":"ImageObject","caption":"","height":"3.285416666666667in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image140.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.451388888888889in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image141.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.2083333333333335in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image139.jpg","width":"6.729166666666667in"},{"@type":"ImageObject","caption":"","height":"3.327777777777778in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image142.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"2.9402777777777778in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image143.jpg","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.2222222222222223in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image144.jpg","width":"6.715277777777778in"},{"@type":"ImageObject","caption":"","height":"1.449423665791776in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image145.jpg","width":"6.228293963254593in"},{"@type":"ImageObject","caption":"","height":"3.3368055555555554in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image149.png","width":"6.925in"},{"@type":"ImageObject","caption":"","height":"3.1435487751531057in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image150.png","width":"6.562167541557305in"},{"@type":"ImageObject","caption":"","height":"3.1480424321959757in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image151.png","width":"6.484667541557306in"},{"@type":"ImageObject","caption":"","height":"3.158512685914261in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image152.png","width":"6.533227252843394in"},{"@type":"ImageObject","caption":"","height":"3.1653248031496064in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image153.png","width":"6.580074365704287in"},{"@type":"ImageObject","caption":"","height":"3.1680621172353454in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image154.png","width":"6.580279965004374in"},{"@type":"ImageObject","caption":"","height":"3.1611417322834647in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image155.png","width":"6.5305369641294835in"},{"@type":"ImageObject","caption":"","height":"3.1657524059492563in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image157.png","width":"6.5090485564304466in"},{"@type":"ImageObject","caption":"","height":"3.1349628171478567in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image158.png","width":"6.506107830271216in"},{"@type":"ImageObject","caption":"","height":"1.7926017060367454in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image159.jpg","width":"6.461420603674541in"},{"@type":"ImageObject","caption":"","height":"3.150505249343832in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image160.png","width":"6.565692257217847in"},{"@type":"ImageObject","caption":"","height":"3.1430577427821524in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image161.png","width":"6.520193569553806in"},{"@type":"ImageObject","caption":"","height":"3.1074912510936135in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image162.jpg","width":"6.504597550306212in"},{"@type":"ImageObject","caption":"","height":"2.868162729658793in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image163.jpg","width":"6.247557961504812in"},{"@type":"ImageObject","caption":"","height":"2.8615146544181975in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image164.jpg","width":"6.318649387576553in"},{"@type":"ImageObject","caption":"","height":"3.0006824146981628in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image165.jpg","width":"6.576442475940508in"},{"@type":"ImageObject","caption":"","height":"3.007263779527559in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image166.jpg","width":"6.636077209098863in"},{"@type":"ImageObject","caption":"","height":"3.2291666666666665in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image168.jpg","width":"6.779166666666667in"},{"@type":"ImageObject","caption":"","height":"3.201388888888889in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image169.jpg","width":"6.729166666666667in"},{"@type":"ImageObject","caption":"","height":"3.132952755905512in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image170.png","width":"4.810192475940507in"},{"@type":"ImageObject","caption":"","height":"1.4246533245844268in","url":"clcplus-core_CLCplusCore_User_Manual_Issue_5.0_v1-media/image171.png","width":"2.9652777777777777in"}]}
 </script>
@@ -1539,26 +1334,26 @@ An Extraction will create new and independent data products (100x100m or 10x10m 
 <p><strong>Extraction Input Class</strong><br>
 Extraction Input classes are <strong>Input classes</strong> of <strong>Ingestions</strong> used in an <strong>Extraction</strong>. They are selected by the user from all published <strong>Ingestions</strong> in the CLC+ Core system. They need to be selected for each Extraction because they define the input data which is needed to evaluate the <strong>Class Condition</strong> of each <strong>Extraction Output Class</strong>.</p>
 <p><strong>Coverage</strong></p>
-<p>The percentage of the area of a given pixel that an <strong>Input Class</strong> covers is called the coverage. Pixel values are not binary because the raw input data is reprojected to the EPSG:3035 coordinate reference system and resampled to a 100m x 100m or 10 x 10m pixel size if they are not given in this format already. Therefore, it can happen that multiple <strong>Input Classes</strong> from the same <strong>Ingestion</strong> apply to the same raster pixel, but don’t cover the full extent of the pixel. &nbsp;</p>
+<p>The percentage of the area of a given pixel that an <strong>Input Class</strong> covers is called the coverage. Pixel values are not binary because the raw input data is reprojected to the EPSG:3035 coordinate reference system and resampled to a 100m x 100m or 10 x 10m pixel size if they are not given in this format already. Therefore, it can happen that multiple <strong>Input Classes</strong> from the same <strong>Ingestion</strong> apply to the same raster pixel, but don’t cover the full extent of the pixel.</p>
 <p>A coverage can also be <em>No-Data</em> if the whole area of the pixel is unclassified in the <strong>Ingestion</strong>.</p>
 <p><strong>Extraction Output Class</strong><br>
 Represents one classification option of an <strong>Extraction</strong>. It has a name, an identifying class code and a C<strong>lass Condition</strong> that specifies when the output class should be applied.</p>
 <p><strong>Class Condition</strong><br>
-Specifies whether the <strong>Extraction Output Class</strong> to which it belongs&nbsp;should be applied to a given pixel, given the <strong>coverage</strong> values of <strong>Extraction Input Classes</strong>. Technically speaking, a class condition is a <strong>Ruleset</strong> (consisting of nested <strong>Rules</strong> and <strong>Rulesets).</strong></p>
+Specifies whether the <strong>Extraction Output Class</strong> to which it belongs should be applied to a given pixel, given the <strong>coverage</strong> values of <strong>Extraction Input Classes</strong>. Technically speaking, a class condition is a <strong>Ruleset</strong> (consisting of nested <strong>Rules</strong> and <strong>Rulesets).</strong></p>
 <p><strong>Ruleset</strong><br>
-A combination of <strong>Rules</strong> <em>or</em> <strong>Rulesets</strong> using Boolean operators<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>. Depending on the type of linking operator, the compound expression is only true if both linked expressions are true (AND-linkage) or if at least one of the linked expressions is true (OR-linkage). Consequently, the result of a ruleset is also always <em>true</em> or <em>false.</em> For example:&nbsp;</p>
+A combination of <strong>Rules</strong> <em>or</em> <strong>Rulesets</strong> using Boolean operators<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>. Depending on the type of linking operator, the compound expression is only true if both linked expressions are true (AND-linkage) or if at least one of the linked expressions is true (OR-linkage). Consequently, the result of a ruleset is also always <em>true</em> or <em>false.</em> For example:</p>
 <blockquote class="blockquote">
-<p><em>The coverage of LCC-Water/5 or LCC-Trees/5 must be greater than 50%.&nbsp;<br>
-<strong>cov(“LCC-Water”, 5) &gt; 50</strong></em> <strong><em>&nbsp;&nbsp; OR</em></strong> <em><strong>&nbsp; cov(“LCC-Trees”, 5) &gt; 50</strong>&nbsp;</em></p>
+<p><em>The coverage of LCC-Water/5 or LCC-Trees/5 must be greater than 50%.<br>
+<strong>cov(“LCC-Water”, 5) &gt; 50</strong></em> *** OR*** *** cov(“LCC-Trees”, 5) &gt; 50** *</p>
 </blockquote>
-<p>The top-level ruleset of an output class is called the <strong>Class Condition.</strong>&nbsp;</p>
+<p>The top-level ruleset of an output class is called the <strong>Class Condition.</strong></p>
 <p><strong>Rule</strong><br>
-A simple comparison of a <strong>Coverage Function</strong> (i.e.&nbsp;the coverage of a barcoded EAGLE element) against another coverage value. For example:&nbsp;</p>
+A simple comparison of a <strong>Coverage Function</strong> (i.e.&nbsp;the coverage of a barcoded EAGLE element) against another coverage value. For example:</p>
 <blockquote class="blockquote">
-<p><em>The coverage of LCC-Water with barcode 5 must be greater than 50%.&nbsp;<br>
-<strong>cov(“LCC-Water******”, 5) &gt; 50</strong>&nbsp;</em></p>
+<p><em>The coverage of LCC-Water with barcode 5 must be greater than 50%.<br>
+<strong>cov(“LCC-Water******”, 5) &gt; 50</strong> </em></p>
 </blockquote>
-<p>When evaluating a <strong>rule</strong> on a given pixel, the result is always either <em>true</em> or <em>false.</em> Comparing a <em>No-Data</em> value against any other value produces the result <em>false.</em>&nbsp;</p>
+<p>When evaluating a <strong>rule</strong> on a given pixel, the result is always either <em>true</em> or <em>false.</em> Comparing a <em>No-Data</em> value against any other value produces the result <em>false.</em></p>
 <p><strong>Coverage Function</strong><br>
 A function that computes the <strong>Coverage</strong> of a barcoded EAGLE element for the selected <strong>Extraction Input Classes</strong> for a given pixel. This computation works by:</p>
 <ol type="1">
@@ -1567,9 +1362,14 @@ A function that computes the <strong>Coverage</strong> of a barcoded EAGLE eleme
 <li><p>Calculating the <strong>Coverage</strong> sum of all selected <strong>Extraction Input Classes</strong> (aggregation rule 2).</p></li>
 </ol>
 </section>
-<section id="list-of-abbreviations" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> List of abbreviations</h1>
+<section id="list-of-abbreviations-acronym" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> List of abbreviations &amp; acronym</h1>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 28%">
+<col style="width: 56%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Abbreviation</th>
@@ -1579,387 +1379,387 @@ A function that computes the <strong>Coverage</strong> of a barcoded EAGLE eleme
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>ADs</strong></td>
+<td>ADs</td>
 <td>Applicable Documents</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>AI</strong></td>
+<td>AI</td>
 <td>Action Item</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>API</strong></td>
+<td>API</td>
 <td>Application Programming Interface</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>CLC</strong></td>
+<td>CLC</td>
 <td>CORINE Land Cover</td>
-<td><a href="https://land.copernicus.eu/en/products/corine-land-cover" class="uri">https://land.copernicus.eu/en/products/corine-land-cover</a></td>
+<td>https://land.copernicus.eu/en/products/corine-land-cover</td>
 </tr>
 <tr class="odd">
-<td><strong>CLC+</strong></td>
+<td>CLC+</td>
 <td>CORINE Land Cover +</td>
-<td><a href="https://land.copernicus.eu/en/products/clc-a-new-generation-land-information-system-for-europe" class="uri">https://land.copernicus.eu/en/products/clc-a-new-generation-land-information-system-for-europe</a></td>
+<td>https://land.copernicus.eu/en/products/clc-a-new-generation-land-information-system-for-europe</td>
 </tr>
 <tr class="even">
-<td><strong>CLMS</strong></td>
+<td>CLMS</td>
 <td>Copernicus Land Monitoring Service</td>
-<td><a href="https://land.copernicus.eu/en" class="uri">https://land.copernicus.eu/en</a></td>
+<td>https://land.copernicus.eu/en</td>
 </tr>
 <tr class="odd">
-<td><strong>COG</strong></td>
+<td>COG</td>
 <td>Cloud-optimized GIF</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>CORINE</strong></td>
+<td>CORINE</td>
 <td>Coordination of information on the environment</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>CZ</strong></td>
+<td>CZ</td>
 <td>Coastal Zones</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>DB</strong></td>
+<td>DB</td>
 <td>Database</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>DIAS</strong></td>
+<td>DIAS</td>
 <td>Copernicus Data and Information Access Services</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>EAGLE</strong></td>
+<td>EAGLE</td>
 <td>Eionet Action Group on Land monitoring in Europe</td>
-<td><a href="https://land.copernicus.eu/en/eagle" class="uri">https://land.copernicus.eu/en/eagle</a></td>
+<td>https://land.copernicus.eu/en/eagle</td>
 </tr>
 <tr class="odd">
-<td><strong>EC</strong></td>
+<td>EC</td>
 <td>European Commission</td>
-<td><a href="https://commission.europa.eu/" class="uri">https://commission.europa.eu/</a></td>
+<td>https://commission.europa.eu/</td>
 </tr>
 <tr class="even">
-<td><strong>EEA</strong></td>
+<td>EEA</td>
 <td>European Environment Agency</td>
-<td><a href="https://www.eea.europa.eu" class="uri">https://www.eea.europa.eu</a></td>
+<td>https://www.eea.europa.eu</td>
 </tr>
 <tr class="odd">
-<td><strong>EEA39</strong></td>
+<td>EEA39</td>
 <td>The 33 member and 6 cooperating countries of the EEA</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>EEA38+UK</strong></td>
+<td>EEA38+UK</td>
 <td>The 32 member and 6 cooperating countries of the EEA + United Kingdom</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>EO</strong></td>
+<td>EO</td>
 <td>Earth Observation</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>ESA</strong></td>
+<td>ESA</td>
 <td>European Space Agency</td>
-<td><a href="https://www.esa.int" class="uri">https://www.esa.int</a></td>
+<td>https://www.esa.int</td>
 </tr>
 <tr class="odd">
-<td><strong>ETC</strong></td>
+<td>ETC</td>
 <td>European Topic Centre</td>
-<td><a href="https://www.eionet.europa.eu/etcs" class="uri">https://www.eionet.europa.eu/etcs</a></td>
+<td>https://www.eionet.europa.eu/etcs</td>
 </tr>
 <tr class="even">
-<td><strong>EU</strong></td>
+<td>EU</td>
 <td>European Union</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>EU27</strong></td>
+<td>EU27</td>
 <td>The 27 Member States of the European Union</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>FM</strong></td>
+<td>FM</td>
 <td>Final Meeting</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>FWC</strong></td>
+<td>FWC</td>
 <td>Framework Contract</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>GDAL</strong></td>
+<td>GDAL</td>
 <td>Geospatial Data Abstraction Library</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>GDB</strong></td>
+<td>GDB</td>
 <td>Geodatabase</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>GIO</strong></td>
+<td>GIO</td>
 <td>GMES Initial Operations</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>GPKG</strong></td>
+<td>GPKG</td>
 <td>GeoPackage</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>HDF5</strong></td>
+<td>HDF5</td>
 <td>Hierarchical Data Format</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>HRL / HRLs</strong></td>
+<td>HRL / HRLs</td>
 <td>High Resolution Layer / High Resolution Layers</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>IaaS</strong></td>
+<td>IaaS</td>
 <td>Infrastructure-as-a-Service</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>ID</strong></td>
+<td>ID</td>
 <td>Identification Number</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>INSPIRE</strong></td>
+<td>INSPIRE</td>
 <td>Infrastructure for Spatial Information in Europe</td>
-<td><a href="https://knowledge-base.inspire.ec.europa.eu/index_en" class="uri">https://knowledge-base.inspire.ec.europa.eu/index_en</a></td>
+<td>https://knowledge-base.inspire.ec.europa.eu/index_en</td>
 </tr>
 <tr class="odd">
-<td><strong>ISO</strong></td>
+<td>ISO</td>
 <td>International Organisation for Standardization</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>ITT</strong></td>
+<td>ITT</td>
 <td>Invitation to Tender</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>JDBC</strong></td>
+<td>JDBC</td>
 <td>Java Database Connectivity</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>JWT</strong></td>
+<td>JWT</td>
 <td>JSON Web Token</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>KOM</strong></td>
+<td>KOM</td>
 <td>Kick-Off Meeting</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>LC</strong></td>
+<td>LC</td>
 <td>Land Cover</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>LCC</strong></td>
+<td>LCC</td>
 <td>Land Cover Component</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>LCH</strong></td>
+<td>LCH</td>
 <td>Land Characteristics</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>LC/LU</strong></td>
+<td>LC/LU</td>
 <td>Land Cover / Land Use</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>LCC</strong></td>
+<td>LCC</td>
 <td>Land Cover Component</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>LU</strong></td>
+<td>LU</td>
 <td>Land Use</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>LUA</strong></td>
+<td>LUA</td>
 <td>Land Use Attribute</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>LULUCF</strong></td>
+<td>LULUCF</td>
 <td>Land Use, Land Use Change and Forestry</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>LYR</strong></td>
+<td>LYR</td>
 <td>ArcGIS Layer File</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>MMU</strong></td>
+<td>MMU</td>
 <td>Minimum Mapping Unit</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>MS</strong></td>
+<td>MS</td>
 <td>Member States</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>NFRs</strong></td>
+<td>NFRs</td>
 <td>Non-Functional-Requirements</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>NRC</strong></td>
+<td>NRC</td>
 <td>National Reference Centre</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>NUTS</strong></td>
+<td>NUTS</td>
 <td>Nomenclature of Territorial Units for Statistics</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>N2K</strong></td>
+<td>N2K</td>
 <td>Natura 2000</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>OBDC</strong></td>
+<td>OBDC</td>
 <td>Open Database Connectivity</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>PDF</strong></td>
+<td>PDF</td>
 <td>Portable Document Format</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>PM</strong></td>
+<td>PM</td>
 <td>Progress Meeting</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>PMP</strong></td>
+<td>PMP</td>
 <td>Project Management Plan</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>PoC</strong></td>
+<td>PoC</td>
 <td>Proof of Concept</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>QA</strong></td>
+<td>QA</td>
 <td>Quality Assurance</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>QC</strong></td>
+<td>QC</td>
 <td>Quality Control</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>QM</strong></td>
+<td>QM</td>
 <td>Quality Management</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>QML</strong></td>
+<td>QML</td>
 <td>QGIS Style file</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>REST</strong></td>
+<td>REST</td>
 <td>Representational State Transfer</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>RZ</strong></td>
+<td>RZ</td>
 <td>Riparian Zones</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>SC</strong></td>
+<td>SC</td>
 <td>Specific Contract</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>SHP</strong></td>
+<td>SHP</td>
 <td>ESRI Shapefile</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>SLD</strong></td>
+<td>SLD</td>
 <td>Styled Layer Descriptor</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>SQL</strong></td>
+<td>SQL</td>
 <td>Structured Query Language</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>UA</strong></td>
+<td>UA</td>
 <td>Urban Atlas</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>UI</strong></td>
+<td>UI</td>
 <td>User Interface</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>URI</strong></td>
+<td>URI</td>
 <td>Uniform Resource Identifier</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>URL</strong></td>
+<td>URL</td>
 <td>Uniform Resource Locator</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>UUID</strong></td>
+<td>UUID</td>
 <td>Universally Unique Identifier</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>VM</strong></td>
+<td>VM</td>
 <td>Virtual Machine</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><strong>WBS</strong></td>
+<td>WBS</td>
 <td>Work Breakdown Structure</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>WEkEO</strong></td>
+<td>WEkEO</td>
 <td>Copernicus DIAS reference service for environmental data, virtual environments for data processing</td>
-<td><a href="https://www.wekeo.eu/" class="uri">https://www.wekeo.eu/</a></td>
+<td>https://www.wekeo.eu/</td>
 </tr>
 <tr class="even">
-<td><strong>WP</strong></td>
+<td>WP</td>
 <td>Work Package</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><strong>ZIP</strong></td>
+<td>ZIP</td>
 <td>ZIP Format</td>
 <td></td>
 </tr>
@@ -1968,6 +1768,73 @@ A function that computes the <strong>Coverage</strong> of a barcoded EAGLE eleme
 </section>
 <section id="annex" class="level1" data-number="9">
 <h1 data-number="9"><span class="header-section-number">9</span> Annex</h1>
+<p><strong>Applicable Documents (AD)</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 90%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>ID</strong></th>
+<th><strong>Document Name / Content</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AD01</td>
+<td>Tender Specifications – EEA/DIS/R0/20/019 – Copernicus Land Monitoring Service – Production of the CLC+ Core and Provision of Complementary Consultancy Services</td>
+</tr>
+<tr class="even">
+<td>AD02</td>
+<td>Consortium’s Technical Proposal – in response to Call for tenders EEA/DIS/R0/20/019 – CLC+CORE Technical Proposal - v2.0</td>
+</tr>
+<tr class="odd">
+<td>AD03</td>
+<td>Specific Contract No 3436/R0-COPERNICUS/EEA.58286</td>
+</tr>
+<tr class="even">
+<td>AD04</td>
+<td>Minutes of the KOM (CLC+Core_KOM_Minutes.docx)</td>
+</tr>
+<tr class="odd">
+<td>AD05</td>
+<td>PM1 - Project Management and Governance Plan (CLC+Core_Deliverable_PM1_Project_Management_Plan_V1.0.pdf)</td>
+</tr>
+<tr class="even">
+<td>AD06</td>
+<td>Implementation of CLC+ based on the EAGLE concept –Additional support for further development of CLC+<br><br>databases (CLC+ and CLC+ instances, namely CLC+ LULUCF instance and CLC+ Legacy instance) - Task 4: From CLC+ Core to CLC+ Legacy - 3436/R0-Copernicus/EEA.57755</td>
+</tr>
+<tr class="odd">
+<td>AD07</td>
+<td>PM2 - 1st Project Management and Status Report (CLC+Core_Deliverable_PM2_1st-Project-Management-Status-Report_V1.0.pdf)</td>
+</tr>
+<tr class="even">
+<td>AD08</td>
+<td>CLC+ Core Decision Log_V1.4 (CLC+Core_Decision_log_V1.4.pdf)</td>
+</tr>
+<tr class="odd">
+<td>AD09</td>
+<td>D1 - Software Design (CLC+Core_D1_Software _Design_V1.0.pdf)</td>
+</tr>
+<tr class="even">
+<td>AD10</td>
+<td>D3.2.1 - Demonstration and documentation of ingested CLMS datasets, under this Service Contract (CLC+Core_Deliverable_D3.2.1_Demonstration-and-documentation-of-ingested-CLMS-datasets_V01.pdf)</td>
+</tr>
+<tr class="odd">
+<td>AD11</td>
+<td>D3.1 - Documentation of deployment of CLC+ Core products to DIAS – cloud service (CLC+Core_Deliverable_D3.1_Documentation of deployment of CLC+ Core products to DIAS_V1.0.pdf)</td>
+</tr>
+<tr class="even">
+<td>AD12</td>
+<td>LULUCF_classes_simplified_EAGLE_query_rules_20210325.xlsx (Provided by EAGLE Group)</td>
+</tr>
+<tr class="odd">
+<td>AD13</td>
+<td>Specific contract no 3506_R0-COPERNCA_EEA.59433</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Barcoding</strong></p>
 <p>The ‘barcoding’ method is referring to the process of selecting and assigning a value to relevant LCC, LUA and LCH elements from the matrix to describe a class. The aim of bar-coding is to create a standardized and concise representation of the class using a sequence of numerical codes.</p>
 <p>The EAGLE matrix elements initially have no specific bar code value (BCV) and are considered neutral. During the bar-coding exercise for a targeted class or landscape situation, these elements get assigned a certain BCV (Table 1) according to their importance and logic relationship within a given class definition. The resulting sequence of numerical codes assigned to the matrix elements serves as a descriptive summary of the class.</p>
@@ -1975,13 +1842,13 @@ A function that computes the <strong>Coverage</strong> of a barcoded EAGLE eleme
 <table class="caption-top table">
 <caption><span id="_Ref152071020" class="anchor"></span>Table 0‑1: List of Bar-code value meanings. The BCVs define the role of EAGLE elements to fulfil a given mapping rule, class definition or landscape situation.</caption>
 <colgroup>
-<col style="width: 17%">
-<col style="width: 83%">
+<col style="width: 6%">
+<col style="width: 93%">
 </colgroup>
 <thead>
 <tr class="header">
-<th><strong>Barcode Value</strong></th>
-<th><strong>Definition</strong></th>
+<th>BCV</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
@@ -1991,23 +1858,23 @@ A function that computes the <strong>Coverage</strong> of a barcoded EAGLE eleme
 </tr>
 <tr class="even">
 <td>1</td>
-<td>An optional element, it can occur as typical but not necessarily as mandatory</td>
+<td>Optional element, it can occur occasionally or typically but is not mandatory. Take into account scale and MMU of addressed class.</td>
 </tr>
 <tr class="odd">
 <td>2</td>
-<td>Selective mandatory element, EITHER-AND/OR logic, at least two or more of all elements with assigned BCV 2 must be present</td>
+<td>Selective defining element, EITHER-OR-logic, at least one or more out of all elements with assigned BCV 2 must be present, BCV 2 element never stands alone, always must have at least one counter-selective element.</td>
 </tr>
 <tr class="even">
 <td>3</td>
-<td>Cumulative mandatory element, AND-logic, all elements with assigned BCV 3 must be present</td>
+<td>Cumulative mandatory element, AND-logic, all elements with assigned BCV 3 are compulsory and must be present. More than 1 element expected, but can also occur as stand-alone.</td>
 </tr>
 <tr class="odd">
 <td>4</td>
-<td>Paired mandatory element, two of all elements with assigned BCV 4 must be present</td>
+<td>Paired mandatory element, EITHER-AND-OR-logic, at least two out of three or more elements with assigned BCV 4 must be present.</td>
 </tr>
 <tr class="even">
 <td>5</td>
-<td>Exclusive mandatory element, NOTHING-BUT-logic, practically allows only the one element with assigned BCV 5 and excludes any other element from its parent matrix block</td>
+<td>Exclusive mandatory element, NOTHING-BUT-logic, practically allows only the one solitary element with assigned BCV 5 and excludes any other element from its parent matrix block.</td>
 </tr>
 </tbody>
 </table>
@@ -2391,12 +2258,12 @@ A function that computes the <strong>Coverage</strong> of a barcoded EAGLE eleme
 <tr class="odd">
 <td style="text-align: left;">SIOSE LU</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">&nbsp;1_1_1 commercial crop production</td>
+<td style="text-align: left;">1_1_1 commercial crop production</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">SIOSE LC</td>
-<td style="text-align: left;">&nbsp;2_2_1 graminiods, 2_2 herbaceous_vegetation</td>
+<td style="text-align: left;">2_2_1 graminiods, 2_2 herbaceous_vegetation</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
@@ -2470,14 +2337,14 @@ A function that computes the <strong>Coverage</strong> of a barcoded EAGLE eleme
 </tr>
 <tr class="odd">
 <td style="text-align: left;">SIOSE LC</td>
-<td style="text-align: left;">&nbsp;2_2_1_1 Grasses, Sedges, Rushes, Cereals</td>
+<td style="text-align: left;">2_2_1_1 Grasses, Sedges, Rushes, Cereals</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">BRP</td>
 <td style="text-align: left;">2_2_1 graminiods</td>
-<td style="text-align: left;">&nbsp;6_3_1 Land areas not in other economic use</td>
+<td style="text-align: left;">6_3_1 Land areas not in other economic use</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
@@ -2657,7 +2524,7 @@ cov("LCH-forest-fire-wildfire", 5)&gt;=30</td>
 <tr class="odd">
 <td rowspan="2" style="text-align: left;"><strong>22</strong></td>
 <td rowspan="2" style="text-align: left;"><strong>FL Transitional woodland</strong></td>
-<td rowspan="2" style="text-align: left;">Transitional bushy and herbaceous vegetation with occasional scattered trees. Can represent woodland degradation, forest regeneration / recolonization or natural succession. Areas representing natural development of forest formations, consisting of young plants of broad–leaved and coniferous species, with herbaceous vegetation and dispersed solitary adult trees. Transitional process can be for instance natural succession on abandoned agricultural land, regeneration of forest after damages of various origin (e.g.&nbsp;storm, avalanche), stages of forest degeneration caused by natural or anthropogenic stress factors (e.g.&nbsp;drought, pollution), reforestation after clearcutting, afforestation on formerly non-forested natural or semi-natural areas etc.<br>
+<td rowspan="2" style="text-align: left;">Transitional bushy and herbaceous vegetation with occasional scattered trees. Can represent woodland degradation, forest regeneration / recolonization or natural succession. Areas representing natural development of forest formations, consisting of young plants of broad–leaved and coniferous species, with herbaceous vegetation and dispersed solitary adult trees. Transitional process can be for instance natural succession on abandoned agricultural land, regeneration of forest after damages of various origin (e.g. storm, avalanche), stages of forest degeneration caused by natural or anthropogenic stress factors (e.g. drought, pollution), reforestation after clearcutting, afforestation on formerly non-forested natural or semi-natural areas etc.<br>
 <strong>Includes:</strong><br>
 - young broad-leaved and/or coniferous trees;<br>
 - damaged or dead trees and shrubs;<br>
@@ -2804,6 +2671,14 @@ cov("LCH-evergreen", 5)&gt;=30<br>
 </thead>
 <tbody>
 <tr class="odd">
+<td>2026-11-27</td>
+<td>1.3.0</td>
+<td>• Updated product name from 'CLC+ Core' to 'CLCplus Core' in title and subtitle.
+• Major restructuring of frontmatter and removal of the extensive Document Control, Approver(s) and Reviewer(s), Document History, and Applicable Documents tables from the QMD source.
+• Added a new 'List of Abbreviations &amp; Acronym' section with over 70 entries.
+• Significantly updated the 'List of Bar-code value meanings' table with improved definitions and clarity.</td>
+</tr>
+<tr class="even">
 <td>2026-10-29</td>
 <td>1.2.0</td>
 <td>Initial publication of the CLC+ Core User Manual, providing comprehensive guidance on system interfaces, functionalities, ingestion, extraction processes, and the EAGLE concept.</td>
@@ -2828,7 +2703,7 @@ cov("LCH-evergreen", 5)&gt;=30<br>
 <li id="fn10"><p><a href="https://de.wikipedia.org/wiki/Logischer_Operator" class="uri">https://de.wikipedia.org/wiki/Logischer_Operator</a><a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn11"><p><a href="https://land.copernicus.eu/en/eagle?tab=bar_coding" class="uri">https://land.copernicus.eu/en/eagle?tab=bar_coding</a><a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>EUPL (&gt;= 1.2)</div></div></section></div></main> <!-- /main -->
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
 <!-- Mobile-only "Contents" button that reveals the section TOC, which the
      full-width HTML layout hides on small screens. Styling is in
      theme/styles.css (.toc-mobile-btn / body.toc-mobile-open). -->
@@ -3257,7 +3132,7 @@ cov("LCH-evergreen", 5)&gt;=30<br>
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>2026 EEA. All rights reserved.</p>
+<p>2026 EEA. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
